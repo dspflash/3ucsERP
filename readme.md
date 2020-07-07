@@ -1,4 +1,5 @@
- 3UCS ERP操作手册: http://3ucs.com/plg/firm/firm.php?d.2.109
+完美运行于手机客户端、电脑客户端和主流浏览器 
+3UCS ERP操作手册: http://3ucs.com/plg/firm/firm.php?d.2.109
 I. 依托3UCS x+平台实现了ERP的快速定制开发，其基础平台涵盖BOM、COST、SDSO、PO、AR、AP、FP、QA、WIP、PM、HR等诸多模块， 以BOM基础、成本管理为基石，提供完善的物料计划、生产计划、能力计划等强计划功能。由于3UCS x+平台的强大支撑， 3UCS ERP同时提供PC客户端、手机客户端、网页版本的支持以及多语言的支持， 并且其稳定性与功能的强大性也得到了极大的保障，而其定制能力的个性化及快速性都强大得应该无与伦比。
 
 II. 3UCS ERP采用四级组织架构模式，每个级别的组织成员只能做相关的操作
