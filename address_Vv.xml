@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDVaddress" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="address_vLst" ToolTip="ttp_address_v" Size="700,450" OnLoad="init" Heading="usage_type,120;country,120;phone,250;email,500;address,630;postal_code,100;default_cb,60;status,60;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;address_id,50;org_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>address_id</Index>
+<DbTable>xbs.address a left join xbs.option_line o on a.usage_type=o.option_line_id left join xbs.country c on a.country=c.country_id</DbTable>
+<Data>o.option_line_value usage_type,c.namecn country,a.phone,a.email,a.address,a.postal_code,a.default_cb,a.status,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.address_id,a.org_id</Data>
+<Order>address_id</Order></DbDetails>
+<DbDetails fcsm="1"><Where>reftbltp='%{reftbltp}' and refid='%{refid}' and org_id=%{orgid}</Where></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="address_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_address" expr="js(%{address_vLst[currentpage]}+1)"/>
+<assign name="pgscb_address" expr="js(%{address_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

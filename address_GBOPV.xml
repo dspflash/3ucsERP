@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVaddress" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteaddress" Name="deleteaddress" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.address</DbTable>
+<Where>address_id='%{addressLst[address_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchaddress" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshaddress" Name="searchaddress" Size="50,20">
+			  <OnClick><submit next="addressLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPaddressLst" OnClick="(addressLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREaddressLst" OnClick="(addressLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPaddressLst" OnClick="(addressLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

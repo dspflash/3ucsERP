@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVac_usage_type"><Ctrls>
+<ListCtrl Heading="ac_usage_type_code,250;ac_usage_type_value,250;description,440;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ac_usage_type_id,55;" loadedclick="0" ToolTip="ttp_ac_usage_type" Name="ac_usage_typeLst" Size="500,300">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ac_usage_type</DbTable>
+<Index>ac_usage_type_id</Index>
+<Data>ac_usage_type_code,ac_usage_type_value,description,status,created_by,creation_date,last_update_by,last_update_date,ac_usage_type_id</Data>
+<Order>ac_usage_type_id</Order></DbDetails><DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{Where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

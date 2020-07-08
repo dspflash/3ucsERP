@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVac_usage_type" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteac_usage_type" Name="deleteac_usage_type" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ac_usage_type</DbTable>
+<Where>ac_usage_type_id='%{ac_usage_typeLst[ac_usage_type_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchac_usage_type" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshac_usage_type" Name="searchac_usage_type" Size="50,20">
+			  <OnClick><submit next="ac_usage_typeLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPac_usage_typeLst" OnClick="(ac_usage_typeLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREac_usage_typeLst" OnClick="(ac_usage_typeLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPac_usage_typeLst" OnClick="(ac_usage_typeLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

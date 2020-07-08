@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVaddress" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialaddress" Size="50,20">
+<OnClick><submit next="address_vLst" function="initial"/><submit next="records_address" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPaddress_vLst" Size="50,20">
+<OnClick><submit next="address_vLst" function="GetPage(first)"/><submit next="records_address"/></OnClick></Button>
+<Button Text="prepage" Name="PREaddress_vLst" Size="50,20">
+<OnClick><submit next="address_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPaddress_vLst" Size="50,20">
+<OnClick><submit next="address_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

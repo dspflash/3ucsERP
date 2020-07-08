@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEac_usage_type" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ac_usage_type_id" Text="create" ToolTip="ttp_createac_usage_type" Name="insertac_usage_type" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ac_usage_type</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>ac_usage_type_code,ac_usage_type_value,description,status</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="ac_usage_typeLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyac_usage_type" Name="modifyac_usage_type" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ac_usage_type</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>ac_usage_type_code,ac_usage_type_value,description,status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ac_usage_type_id='%{ac_usage_type_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="ac_usage_typeLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetac_usage_type" Name="resetac_usage_type" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITac_usage_type" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchac_usage_type" Name="gsearchac_usage_type" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ac_usage_typeLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITac_usage_type" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,9 @@
+﻿<operator refresh="1" initial="0">
+<op text="addone" mustselected="0"><if cond="!%{refid}"><alert expr="refid is Empty!"/><else/><submit next="$this.address.GBDEDITaddress" function="reset"/><assign name="$this.address.reftbltp" expr="%{reftbltp}" function="setsel"/><assign name="$this.address.refid" expr="%{refid}"/><assign name="$this.address.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><assign name="$this.address.reftbltp" expr="%{reftbltp}" function="setsel"/><assign name="$this.address.refid" expr="%{refid}"/><DbDetails><Where>address_id='%{address_vLst[address_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.address.addressLst"/><assign name="$this.address.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.address</DbTable>
+<Where>address_id='%{address_vLst[address_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
