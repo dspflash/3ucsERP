@@ -1,7 +1,6 @@
 完美运行于手机客户端、电脑客户端和主流浏览器 .
 
-<div><img src="http://3ucs.com/images/custom/xthery.png"/></div>
-
+![](http://3ucs.com/images/custom/xthery.png)
 
 3UCS ERP操作手册: http://3ucs.com/plg/firm/firm.php?d.2.109 .
 
