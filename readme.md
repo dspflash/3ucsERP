@@ -1,5 +1,7 @@
 C/S、B/S双架构，完美运行于手机客户端、电脑客户端和主流浏览器 .
 
+源代码在安装目录下（xbs文件夹，直接下载release的安装包，简单方便）
+
 截图及演示地址：http://xbs.3ucs.com
 
 音视频演示(3UCS ERP安装部署) http://3ucs.com/video.php?vid=45
