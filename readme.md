@@ -1,6 +1,11 @@
-完美运行于手机客户端、电脑客户端和主流浏览器 .
+C/S、B/S双架构，完美运行于手机客户端、电脑客户端和主流浏览器 .
 
-![](http://3ucs.com/images/custom/xthery.png)
+截图及演示地址：http://xbs.3ucs.com
+
+音视频演示(3UCS ERP安装部署) http://3ucs.com/video.php?vid=45
+音视频演示(3UCS ERP基础功能) http://3ucs.com/video.php?vid=42
+视频演示(3UCS ERP手机操作2017)http://3ucs.com/video.php?vid=43
+视频演示(3UCS ERP二次开发培训视频2017)http://3ucs.com/video.php?vid=46
 
 3UCS ERP操作手册: http://3ucs.com/plg/firm/firm.php?d.2.109 .
 
