@@ -1,6 +1,6 @@
 完美运行于手机客户端、电脑客户端和主流浏览器 .
 
-![image](http://xbs.3ucs.com/temp/20200107_203951.png)
+<div><img src="http://xbs.3ucs.com/temp/20200107_203951.png"/></div>
 
 
 3UCS ERP操作手册: http://3ucs.com/plg/firm/firm.php?d.2.109 .
