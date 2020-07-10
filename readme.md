@@ -87,3 +87,6 @@ V. Dev
 
 发货完成后 “取消发货”（影响发货数量及分捡数量） 后应该手动取消出库单完成退货入库。
 
+Discuss
+
+Contact us at http://3ucs.com/xchat/index.php?configID=33541&skillId=281&enterurl=http%3A%2F%2Fgithub.erp.3ucs.com%2F&timestamp=1594371293023 if you have feedback, questions or want to chat. You can also use the feedback form embedded within our Mobile App - to do so please navigate to Settings and select "Leave Feedback".
