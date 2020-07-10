@@ -89,4 +89,4 @@ V. Dev
 
 Discuss（在线客服）
 
-Contact us at http://3ucs.com/xchat/index.php?enterurl=http%3A%2F%2Fgithub.erp.3ucs.com%2F if you have feedback, questions or want to chat. 
+Contact us at <a href="http://3ucs.com/xchat/index.php?enterurl=http%3A%2F%2Fgithub.erp.3ucs.com%2F">Chat</a> if you have feedback, questions or want to chat. 
