@@ -2,13 +2,13 @@ C/S、B/S双架构，完美运行于手机客户端、电脑客户端和主流�
 
 方便快速个性化定制与修改。
 
+源代码太多，在安装目录下（xbs文件夹，直接下载release的exe安装包，简单方便），此处，只上传一丢丢。
+
 ![](imgs/ad01.jpg).
 
 ![](imgs/xbsmobile.gif).
 
 ![](imgs/xbstech.gif).
-
-源代码在安装目录下（xbs文件夹，直接下载release的安装包，简单方便）.
 
 截图及演示地址：http://xbs.3ucs.com
 
