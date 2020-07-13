@@ -113,5 +113,5 @@ III.发货单数量与对应的分捡出库单数量须一致，否则不应完�
 发货完成后 “取消发货”（影响发货数量及分捡数量） 后应该手动取消出库单完成退货入库。
 
 ## 在线沟通 Discuss
-可点击图片与我们在线沟通交流
+可点击图片与我们在线沟通交流<br/>
 Contact us at <a href="http://3ucs.com/xchat/index.php?enterurl=http%3A%2F%2Fgithub.erp.3ucs.com%2F"><img src="http://3ucs.com/images/livechat.png" alt="Chat 在线客服"/></a> if you have feedback, questions or want to chat. 
