@@ -14,8 +14,7 @@
 - 3UCS xPlus（http://3ucs.com/x/
 - MySQL
 
-## 截图及演示地址：http://xbs.3ucs.com
-
+## 演示地址及截图：http://xbs.3ucs.com
 ![](imgs/ad01.jpg).
 
 ![](imgs/xbsmobile.gif).
@@ -86,8 +85,7 @@ install/orderNoYearMon.sql	sql for OrderNo only with Year and Month
 
 install/costUpgrade	sql for cost upgrade
 
-##. 二次开发与个性化定制
-
+## 二次开发与个性化定制
 I. 3UCS ERP采用四级组织架构模式，每个级别的组织成员只能做相关的操作
 
 1. 企业集团组织（Enterprise Org）
