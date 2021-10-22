@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVac_usage_type" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="ac_usage_typeLst" ToolTip="ttp_ac_usage_type" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ac_usage_type</DbTable>
+<Index>ac_usage_type_id</Index>
+<Data>ac_usage_type_code,ac_usage_type_value,description,status,created_by,creation_date,last_update_by,last_update_date,ac_usage_type_id</Data>
+<Order>ac_usage_type_id</Order></DbDetails>
+<OnClick>
+<if cond="%{ac_usage_type_id}"><SetVisible name="insertac_usage_type" Visible="0"/><SetVisible name="modifyac_usage_type" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
