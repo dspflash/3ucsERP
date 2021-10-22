@@ -1,0 +1,13 @@
+<WndTap Name="sd_so_line" Text="sd_so_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="item_id_m[item_id_m],line_quantity,sd_so_header_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\sd_so_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBsd_so_line" id="sd_so_line" Text="sd_so_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertsd_so_line" Visible="1"/><SetVisible name="modifysd_so_line" Visible="0"/></OnActivate>
+</WndTap>

@@ -1,0 +1,34 @@
+3UCS ERP是在3UCS X+(3uX)平台上定制的应用，需要3UCS软件的支持。关于ERP的PPT介绍：http://3ucs.com/dl40.html
+1	软件安装
+	3UCS server：	http://3ucs.com/dl1.html
+	windows客户端：	http://3ucs.com/dl8.html
+	android客户端：	http://3ucs.com/dl35.html
+	傻瓜式安装即可，安装完成后可用全局用户登录（例如6178账号，非ERP账户）————管理员初始用户名6178、密码6178、服务器为3UCS server的IP地址；
+
+2	ERP 应用安装
+	将 xbs.zip 里所有文件解压至3UCS server的layout\ucin\xbs目录（3UCS\3UCS Server\layout\ucin\xbs）中，文件路径示例3UCS\3UCS Server\layout\ucin\xbs\xbs_index.xml
+	用 install 文件夹的 xrulelayout.xml 替换3UCS\3UCS Server\layout\xrulelayout.xml
+
+3	数据库安装配置
+	a)	安装mysql[数据库为mysql,已安装mysql的可跳过本步骤]  要求使能innodb（参见 mysql_innodb.png）
+	appserv-win32-2.5.10.exe（http://3ucs.com/dl29.html）
+	b)	创建i3u用户(你需要创建一个名为i3u的用户并拥有相应的权限)此处预设i3u用户的密码为i3u，您可以根据需要修改为自己的密码（须同步修改xbs的数据库密码[或者运行createi3u.bat来完成]）
+	CREATE USER 'i3u'@'%' IDENTIFIED BY 'i3u';
+	GRANT ALL PRIVILEGES ON * . * TO 'i3u'@'%' IDENTIFIED BY 'i3u' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;
+	GRANT ALL PRIVILEGES ON `i3u\_%` . * TO 'i3u'@'%';
+
+4	安装mysql odbc driver
+	mysql-connector-odbc-3.51.30-win32.msi（http://3ucs.com/dl9.html）
+	
+5	初始化数据库
+	数据库 xbs 创建及表结构创建(xbs.sql)(或运行loadmysql.bat)
+	ERP的测试内置用户名5100~5108,5110、5111、5112；密码均为:123456
+
+6	二维码/条形码支持
+	PC客户端、web service的该功能通过BizXML的类COM接口IBP提供支持，故需要额外的动态链接库dll（下载地址为：http://3ucs.com/dl41.html），解压后将DLL放置于layout/ucin目录下（因设计文件指向该目录）。
+	{
+	<MagicCtrl Name="qr_itemname" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="60,60" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.0"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+	}

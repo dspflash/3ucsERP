@@ -1,0 +1,14 @@
+<WndTap Name="gl_ledger_v" Text="gl_ledger">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_ledger_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\gl_ledger.xml"/>
+<Ctrls><GroupBox  Name="GBgl_ledger" id="gl_ledger" Text="gl_ledger" Size="100,100"><Ctrls>
+<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_ledger_Vs.xml"/>
+<BR AutoHeight="1"/--><GroupBox  Name="GBOPVgl_ledger" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.gl_ledger.GBDEDITgl_ledger" function="reset"/></OnClick>	</Button><TAB/>	
+<!--Button Text="reset" ToolTip="ttp_resetgl_ledger" Name="resetgl_ledger" Size="50,20">	<OnClick>	<submit next="GBDEDITgl_ledger" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchgl_ledger" Name="gsearchgl_ledger" Size="50,20" visible="true">	<OnClick>	<search next="gl_ledger_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITgl_ledger" namelist="search" function="search"/>	</OnClick>	</Button><TAB/--></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_ledger_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVprj_invoice_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteprj_invoice_line" Name="deleteprj_invoice_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>prj_invoice_line</DbTable>
+<Where>prj_invoice_line_id='%{prj_invoice_lineLst[prj_invoice_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchprj_invoice_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshprj_invoice_line" Name="searchprj_invoice_line" Size="50,20">
+			  <OnClick><submit next="prj_invoice_lineLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPprj_invoice_lineLst" OnClick="(prj_invoice_lineLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREprj_invoice_lineLst" OnClick="(prj_invoice_lineLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPprj_invoice_lineLst" OnClick="(prj_invoice_lineLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

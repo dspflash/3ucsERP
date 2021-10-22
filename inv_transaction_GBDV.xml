@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinv_transaction"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_inv_transaction" Name="inv_transactionLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_transaction i left join xbs.subinventory s on i.to_subinventory_id=s.subinventory_id</DbTable>
+<Index>inv_transaction_id</Index>
+<Data>i.item_number,i.uom_id,i.quantity,i.unit_cost,i.costed_amount,i.to_org_id,s.subinventory to_subinventory_id,i.reason,i.description,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.org_id,i.inv_transaction_id,i.transaction_type_id,i.ir_line_id</Data>
+<Order>inv_transaction_id</Order></DbDetails>
+<DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails><DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>inv_transaction_id='%{inv_transaction_vLst[inv_transaction_id]}'</Where></DbDetails><submit next="$this.inv_transaction.inv_transactionLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.inv_transaction</DbTable>
+<Where>inv_transaction_id='%{inv_transaction_vLst[inv_transaction_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_percent_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_percent_lineLst" ToolTip="ttp_prj_percent_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_percent_line</DbTable>
+<Index>prj_percent_line_id</Index>
+<Data>as_of_date,percent,comment,description,created_by,creation_date,last_update_by,last_update_date,prj_percent_line_id</Data>
+<Order>prj_percent_line_id</Order></DbDetails>
+<OnClick>
+<if cond="%{prj_percent_line_id}"><SetVisible name="insertprj_percent_line" Visible="0"/><SetVisible name="modifyprj_percent_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

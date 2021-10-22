@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_payslip_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_payslip_headerLst" ToolTip="ttp_hr_payslip_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_payslip_header_id</Index>
+<DbTable>xbs.hr_payslip_header</DbTable>
+<Data>pay_date,mode_of_payment,description,status,employee_id,job_id,position_id,grade_id,bank_account_id,social_ac_no,social_ac_no2,tax_reg_number,no_of_days,payment_ref_no,created_by,creation_date,last_update_by,last_update_date,period_name_id,hr_payslip_header_id,hr_payroll_process_id</Data>
+<Order>hr_payslip_header_id</Order></DbDetails>
+<OnClick><assign name="mode_of_payment[option_line_id]" expr="%{hr_payslip_headerLst[mode_of_payment]}" function="SetSel"/><assign name="employee_id[hr_employee_id]" expr="%{hr_payslip_headerLst[employee_id]}" function="SetSel"/><assign name="job_id[hr_job_id]" expr="%{hr_payslip_headerLst[job_id]}" function="SetSel"/><assign name="position_id[hr_position_id]" expr="%{hr_payslip_headerLst[position_id]}" function="SetSel"/><assign name="grade_id[hr_grade_id]" expr="%{hr_payslip_headerLst[grade_id]}" function="SetSel"/><assign name="bank_account_id[mdm_bank_account_id]" expr="%{hr_payslip_headerLst[bank_account_id]}" function="SetSel"/><assign name="period_name_id[hr_payroll_schedule_id]" expr="%{hr_payslip_headerLst[period_name_id]}" function="SetSel"/>
+<if cond="%{hr_payslip_header_id}"><SetVisible name="inserthr_payslip_header" Visible="0"/><SetVisible name="modifyhr_payslip_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

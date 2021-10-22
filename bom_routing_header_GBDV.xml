@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbom_routing_header"><Ctrls>
+<ListCtrl Heading="effective_date,90;routing_revision,50;completion_subinventory,120;completion_locator,120;description,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;bom_routing_header_id,60;" loadedclick="0" ToolTip="ttp_bom_routing_header" Name="bom_routing_headerLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>bom_routing_header_id</Index>
+<DbTable>xbs.bom_routing_header b left join xbs.subinventory s on b.completion_subinventory=s.subinventory_id left join xbs.locator l on b.completion_locator=l.locator_id</DbTable>
+<Data>b.effective_date,b.routing_revision,s.subinventory completion_subinventory,l.locator completion_locator,b.description,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.org_id,b.bom_routing_header_id</Data>
+<Order>bom_routing_header_id</Order></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>bom_routing_header_id='%{bom_routing_header_vLst[bom_routing_header_id]}'</Where></DbDetails><submit next="$this.bom_routing_header.bom_routing_headerLst" namelist="DbDetails"/><assign name="$this.bom_routing_header.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_routing_header</DbTable>
+<Where>bom_routing_header_id='%{bom_routing_header_vLst[bom_routing_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

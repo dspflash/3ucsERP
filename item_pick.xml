@@ -1,0 +1,45 @@
+<WndTap Text="itempick" Name="itempick" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\item.xml"/>
+	<var excond=""/>
+	<Ctrls>
+	<GroupBox Text="item" Name="GBitem" id="item" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="material_GBDSEARCH.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="itemLst" listed="0" prefixand="1" inputed="1"><item_number format="item_number like '%%{opvalue}%'"/><item_name format="item_name like '%%{opvalue}%'"/><item_specification format="item_specification like '%%{opvalue}%'"/></search><submit next="GBDEDITitem" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<ListCtrl loadedclick="0" PageSize="50" ToolTip="ttp_item" Name="itemLst" DataJoinKey="item_id_m" DataJoin="%{this(item_number,item_name,item_specification,item_description,org)}%{prop}" Size="700,420">
+	<operator refresh="1" firstpage="1" prepage="1" nextpage="1"/>
+		<MDX id="prop" datatype="string">
+		<DbDetails>
+					<DbTable>item_properties i left join item_property i0 on i.property_id=i0.property_id</DbTable> 
+					<MDX>item_id_m,propname,propvalue</MDX>
+					<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+					<Order></Order>
+					<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (select * from (SELECT org_id,item_id_m from item i where item_status!=278 and  FIND_IN_SET(org_id,(SELECT getChildOrgs('%{org_id}'))) %{excond} %{where} limit %{StartRow},%{PgSize}) as t)</queryFormat> 
+				</DbDetails>
+		</MDX>
+	<DbDetails>
+	<DbTable>xbs.item i join org on i.org_id=org.org_id</DbTable>
+	<Index>item_id_m</Index>
+	<Data>item_id_m,item_number,item_name,item_specification,item_description,org,i.org_id</Data>
+	<Order>item_id_m</Order>
+	<queryFormat>select %{data} from %{dbtable} where item_status!=278 and FIND_IN_SET(i.org_id,(SELECT getChildOrgs('%{org_id}'))) %{excond} %{where} limit %{StartRow},%{PgSize}</queryFormat>
+	</DbDetails>
+	<OnClick><if cond="%{itemLst[item_id_m]}"><DbDetails><Where>item_id_m='%{itemLst[item_id_m]}' and org_id='%{itemLst[org_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><assign name="$parent.%{frmwndctrl}[selectedindex]" function="SetSel" expr="0"/><submit function="onok"/></if></OnClick>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEitem_status" Size="100,100"><Ctrls>
+<Button sqlpkinsert="item_status_id" Text="create" ToolTip="ttp_createitem_status" Name="insertitem_status" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.item_status</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>code,description,active</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertitem_status[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="item_statusLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.item_status_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyitem_status" Name="modifyitem_status" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.item_status</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>code,description,active</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>item_status_id='%{item_status_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyitem_status[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="item_statusLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.item_status_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem_status" Name="resetitem_status" Size="50,20">
+<OnClick>
+<submit next="GBDEDITitem_status" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchitem_status" Name="gsearchitem_status" Size="50,20" visible="false">
+<OnClick>
+<search next="item_statusLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITitem_status" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

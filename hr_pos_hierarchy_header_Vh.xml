@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_pos_hierarchy_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_pos_hierarchy_headerLst" ToolTip="ttp_hr_pos_hierarchy_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_pos_hierarchy_header</DbTable>
+<Index>hr_pos_hierarchy_header_id</Index>
+<Data>hierarchy_name,starting_position_id,description,revision,effective_date,created_by,creation_date,last_update_by,last_update_date,hr_pos_hierarchy_header_id</Data>
+<Order>hr_pos_hierarchy_header_id</Order></DbDetails>
+<OnClick><assign name="starting_position_id[hr_position_id]" expr="%{hr_pos_hierarchy_headerLst[starting_position_id]}" function="SetSel"/>
+<if cond="%{hr_pos_hierarchy_header_id}"><SetVisible name="inserthr_pos_hierarchy_header" Visible="0"/><SetVisible name="modifyhr_pos_hierarchy_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="prj_burden_cost_base" Name="prj_burden_cost_base" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\prj_burden_cost_base.xml"/>
+<Ctrls>
+<GroupBox Text="prj_burden_cost_base" Name="GBprj_burden_cost_base" id="prj_burden_cost_base" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_cost_base_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_cost_base_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_cost_base_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_cost_base_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

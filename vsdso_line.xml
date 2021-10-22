@@ -1,0 +1,50 @@
+<WndTap Name="vSDSO_line" Text="SDSO Line">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_line.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vSDSO"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_line_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_so_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="sdsoLst" listed="0" prefixand="1" inputed="1"><item_number format="item_number like '%%{opvalue}%'"/><customer_name format="sd_so_header_id in (select sd_so_header_id from sd_so_header_v where ar_customer_name like '%%{opvalue}%')"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search>
+<submit next="GBDEDITsd_so_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="export" Size="50,20" Text="导出"><TAB/>
+	<OnClick><!--Save selected="1" columns="3,0,7,8,9,11"></Save--><submit next="sdsoLst" namelist="Save" function="savetofile"/></OnClick></Button>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="sdsoLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.sd_so_line_v</DbTable>
+<Index>sd_so_line_id</Index>
+<Data>*</Data>
+<Order>sd_so_line_id</Order>
+<Where>and line_status in (1530,1531,1532,1534)</Where>
+<queryFormat>select %{data} from %{dbtable} where find_in_set(shipping_org_id,getchildorgs('%{orgid}')) and created_by=%{user_id} %{where} order by sd_so_line_id desc limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="Copyitem"><Copy columns="item_number"/><submit namelist="Copy" function="Copy"/></op>
+</operator>
+</ListCtrl>SELECT so.so_number,wo.wo_number,wo_ir.receipt_number,wo_il.subinventory_id,wo_il.locator_id,dlv.delivery_number,iln.lot_number
+FROM sd_so_line sl JOIN sd_so_header so ON sl.sd_so_header_id=so.sd_so_header_id
+JOIN wip_wo_header wo
+JOIN wip_wo_allocation wa ON wa.wip_wo_header_id=wo.wip_wo_header_id AND (wa.demand_source_line_id=sl.sd_so_line_id AND wa.demand_source_type='sd_so_header')
+JOIN inv_receipt_header wo_ir ON wo_ir.reference_key_value=wo.wip_wo_header_id AND wo_ir.reference_key_name='wip_wo_header'
+JOIN inv_receipt_line wo_il ON wo_ir.inv_receipt_header_id=wo_il.inv_receipt_header_id AND sl.item_id_m=wo_il.item_id_m
+JOIN sd_delivery_line dlvl ON dlvl.sd_so_line_id=sl.sd_so_line_id
+JOIN sd_delivery_header dlv ON dlv.sd_delivery_header_id=dlvl.sd_delivery_header_id
+LEFT JOIN inv_lot_number iln ON wo_il.lot_number=iln.inv_lot_number_id
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

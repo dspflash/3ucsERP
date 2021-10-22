@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVlegal" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletelegal" Name="deletelegal" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.legal</DbTable>
+<Where>legal_id='%{legalLst[legal_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchlegal" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshlegal" Name="searchlegal" Size="50,20">
+			  <OnClick><submit next="legalLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPlegalLst" OnClick="(legalLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PRElegalLst" OnClick="(legalLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPlegalLst" OnClick="(legalLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,101 @@
+<GroupBox Name="GBDEDITwip_wol_transaction"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_item_id_m" selectedIndex="0"><Ctrls>
+<Label Align="Right" Text="item_id_m" OnLoad="init" Name="lb_item_id_m" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" ToolTip="ttp_item_id_m" OnLoad="init" Name="item_id_m" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.item</DbTable>
+<Index>item_id_m</Index>
+<Data>item_number,item_id_m</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSELENDOK><submit next="reference_bom_item_id_m"/><submit next="reference_routing_item_id_m"/></OnSELENDOK></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_reference_bom_item_id_m" selectedIndex="0"><Ctrls>
+<Label Align="Right" Text="reference_bom_item_id_m" OnLoad="init" Name="lb_reference_bom_item_id_m" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" ToolTip="ttp_reference_bom_item_id_m" OnLoad="init" Name="reference_bom_item_id_m" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.bom_header</DbTable>
+<Index>bom_header_id</Index>
+<Data>bom_revision,bom_header_id</Data>
+<Where>item_id_m='%{item_id_m[item_id_m]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_reference_routing_item_id_m" selectedIndex="0"><Ctrls>
+<Label Align="Right" Text="reference_routing_item_id_m" OnLoad="init" Name="lb_reference_routing_item_id_m" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" ToolTip="ttp_reference_routing_item_id_m" OnLoad="init" Name="reference_routing_item_id_m" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.bom_routing_header</DbTable>
+<Index>bom_routing_header_id</Index>
+<Data>routing_revision,bom_routing_header_id</Data>
+<Where>item_id_m='%{item_id_m[item_id_m]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_transaction_type_id"><Ctrls>
+<Label Align="Right" Text="transaction_type_id" OnLoad="init" Name="lb_transaction_type_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_transaction_type_id" OnLoad="init" Name="transaction_type_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.transaction_type</DbTable>
+<Index>transaction_type_id</Index>
+<Data>transaction_type,transaction_type_id</Data>
+<Where>transaction_type_id=10 or transaction_type_id =12</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_start_date"><Ctrls>
+<Label Align="Right" Text="start_date" Name="lb_start_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_start_date" Name="start_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_completion_date"><Ctrls>
+<Label Align="Right" Text="completion_date" Name="lb_completion_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_completion_date" Name="completion_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_quantity"><Ctrls>
+<Label Align="Right" Text="quantity" Name="lb_quantity" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_quantity" Name="quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_completion_sub_inventory"><Ctrls>
+<Label Align="Right" Text="completion_sub_inventory" OnLoad="init" Name="lb_completion_sub_inventory" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_completion_sub_inventory" OnLoad="init" Name="completion_sub_inventory" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.subinventory</DbTable>
+<Index>subinventory_id</Index>
+<Data>subinventory,subinventory_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSELENDOK><submit next="completion_locator"/></OnSELENDOK></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_completion_locator"><Ctrls>
+<Label Align="Right" Text="completion_locator" OnLoad="init" Name="lb_completion_locator" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_completion_locator" OnLoad="init" Name="completion_locator" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.locator</DbTable>
+<Index>locator_id</Index>
+<Data>locator,locator_id</Data>
+<Where>subinventory_id='%{completion_sub_inventory[subinventory_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_wip_wol_transaction_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="wip_wol_transaction_id" overlap="pre" Name="lb_wip_wol_transaction_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_wip_wol_transaction_id" overlap="pre" Name="wip_wol_transaction_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBwip_wol_transaction" expr="TABEDITwip_wol_transaction"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_org_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="org_id" overlap="pre" Name="lb_org_id" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_org_id" overlap="pre" Name="org_id" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

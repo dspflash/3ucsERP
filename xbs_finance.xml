@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>
+	<WndTaps id="finance">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmyinfo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vap_po.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="var_sdso.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vledger.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_V.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_tax_code_V.xml"/>
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vreceipt.xml"/-->
+	</WndTaps>
+</XI3uWnd>

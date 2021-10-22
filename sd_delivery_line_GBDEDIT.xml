@@ -1,0 +1,166 @@
+﻿<GroupBox Name="GBDEDITsd_delivery_line"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_sd_delivery_header_id"><Ctrls>
+<Label Align="Right" Text="sd_delivery_header_id" Name="lb_sd_delivery_header_id" Size="60,20" SelectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_sd_delivery_header_id" Name="sd_delivery_header_id" Size="170,100" SelectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.sd_delivery_header</DbTable>
+<Index>sd_delivery_header_id</Index>
+<Data>delivery_number,shipping_org_id,sd_delivery_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="staging_subinventory_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_sd_so_header_id"><Ctrls>
+<Label Align="Right" Text="sd_so_header_id" onload="init" Name="lb_sd_so_header_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_sd_so_header_id" onload="init" Name="sd_so_header_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.sd_so_header</DbTable>
+<Index>sd_so_header_id</Index>
+<Data>so_number,sd_so_header_id</Data>
+<Where>so_status=535</Where>
+<queryFormat/></DbDetails><OnSelEndOk><DbDetails><Data>concat(line_number,' ',item_number) title,item_id_m,(line_quantity-shipped_quantity) quantity,shipping_org_id,sd_so_line_id</Data></DbDetails><submit next="sd_so_line_id" namelist="DbDetails"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_sd_so_line_id"><Ctrls>
+<Label Align="Right" Text="sd_so_line_id" Name="lb_sd_so_line_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_sd_so_line_id" Name="sd_so_line_id" Size="170,100">
+	<DbDetails fcsm="true">
+<DbTable>xbs.sd_so_line_v</DbTable>
+<Index>sd_so_line_id</Index>
+<Data>concat(line_number,' ',i.item_number) title,item_id_m,(line_quantity-shipped_quantity) quantity,shipping_org_id,sd_so_line_id</Data>
+<Where>sd_so_header_id='%{sd_so_header_id[sd_so_header_id]}' and `line_status` IN(1530,1532,1534)</Where>
+<queryFormat/></DbDetails><OnSelEndOk><DbDetails><Data>concat(IFNULL(item_name,''),'/',IFNULL(item_specification,''),'/',item_number) name,item_description,receipt_sub_inventory,uom_id,item_id_m</Data> </DbDetails><submit next="item_id_m" namelist="DbDetails"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls>
+<Label Align="Right" Text="item_id_m" Name="lb_item_id_m" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_item_id_m" Name="item_id_m" Size="170,100" selectedIndex="0">
+	<DbDetails fcsm="true">
+<DbTable>xbs.item</DbTable>
+<Index>item_id_m</Index>
+<Data>item_number,item_description,receipt_sub_inventory,uom_id,item_id_m</Data>
+<Where>item_id_m='%{sd_so_line_id[item_id_m]}'</Where>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="line_uom_id"/><if cond="!%{sd_delivery_lineLst[staging_subinventory_id]}"><assign name="staging_subinventory_id[subinventory_id]" function="setsel" expr="%{item_id_m[receipt_sub_inventory]}"/></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_description"><Ctrls>
+<Label Align="Right" Text="item_description" Name="lb_item_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_description" Name="item_description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_uom_id"><Ctrls>
+<Label Align="Right" Text="line_uom_id" Name="lb_line_uom_id" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_line_uom_id" Name="line_uom_id" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.uom</DbTable>
+<Index>uom_id</Index>
+<Data>uom_name,uom_id</Data>
+<Where>uom_id='%{item_id_m[uom_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_quantity"><Ctrls>
+<Label Align="Right" Text="quantity" Name="lb_quantity" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_quantity" Name="quantity" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_shipped_quantity"><Ctrls>
+<Label Align="Right" Text="shipped_quantity" Name="lb_shipped_quantity" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_shipped_quantity" Name="shipped_quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_staging_subinventory_id"><Ctrls>
+<Label Align="Right" Text="staging_subinventory_id" Name="lb_staging_subinventory_id" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_staging_subinventory_id" Name="staging_subinventory_id" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.subinventory</DbTable>
+<Index>subinventory_id</Index>
+<Data>subinventory,subinventory_id</Data>
+<Where>org_id='%{sd_delivery_header_id[shipping_org_id]}'</Where>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="staging_locator_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_staging_locator_id"><Ctrls>
+<Label Align="Right" Text="staging_locator_id" Name="lb_staging_locator_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_staging_locator_id" Name="staging_locator_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.locator</DbTable>
+<Index>locator_id</Index>
+<Data>locator,locator_id</Data>
+<Where>subinventory_id='%{staging_subinventory_id[subinventory_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pkg_uom_id"><Ctrls>
+<Label Align="Right" Text="pkg_uom_id" onload="init" Name="lb_pkg_uom_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_pkg_uom_id" onload="init" Name="pkg_uom_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.uom</DbTable>
+<Index>uom_id</Index>
+<Data>uom_name,uom_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pkg_quantity"><Ctrls>
+<Label Align="Right" Text="pkg_quantity" Name="lb_pkg_quantity" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_pkg_quantity" Name="pkg_quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pkg_description"><Ctrls>
+<Label Align="Right" Text="pkg_description" Name="lb_pkg_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_pkg_description" Name="pkg_description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_picking_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="picking_date" overlap="pre" Name="lb_picking_date" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_picking_date" overlap="pre" Name="picking_date" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_actual_ship_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="actual_ship_date" overlap="pre" Name="lb_actual_ship_date" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_actual_ship_date" overlap="pre" Name="actual_ship_date" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_volume_uom_id"><Ctrls>
+<Label Align="Right" Text="volume_uom_id" onload="init" Name="lb_volume_uom_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_volume_uom_id" onload="init" Name="volume_uom_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.uom</DbTable>
+<Index>uom_id</Index>
+<Data>uom_name,uom_id</Data>
+<Where>class=112</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_total_volume"><Ctrls>
+<Label Align="Right" Text="total_volume" Name="lb_total_volume" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_total_volume" Name="total_volume" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_weight_uom_id"><Ctrls>
+<Label Align="Right" Text="weight_uom_id" onload="init" Name="lb_weight_uom_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_weight_uom_id" onload="init" Name="weight_uom_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.uom</DbTable>
+<Index>uom_id</Index>
+<Data>uom_name,uom_id</Data>
+<Where>class=113</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_total_weight"><Ctrls>
+<Label Align="Right" Text="total_weight" Name="lb_total_weight" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_total_weight" Name="total_weight" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_sd_delivery_line_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="sd_delivery_line_id" overlap="pre" Name="lb_sd_delivery_line_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_sd_delivery_line_id" overlap="pre" Name="sd_delivery_line_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{sd_delivery_line_id}'"><SetVisible name="insertsd_delivery_line" Visible="0"/><SetVisible name="modifysd_delivery_line" Visible="1"/><else/><SetVisible name="insertsd_delivery_line" Visible="1"/><SetVisible name="modifysd_delivery_line" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_shipping_org_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="shipping_org_id" overlap="pre" Name="lb_shipping_org_id" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_shipping_org_id" overlap="pre" Name="shipping_org_id" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_delivery_status" Visible="false"><Ctrls>
+<Label Align="Right" Text="delivery_status" overlap="pre" Name="lb_delivery_status" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_delivery_status" overlap="pre" Name="delivery_status" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

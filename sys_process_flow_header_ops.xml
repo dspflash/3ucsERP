@@ -1,0 +1,9 @@
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>sys_process_flow_header_id='%{sys_process_flow_header_vLst[sys_process_flow_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.sys_process_flow_header.sys_process_flow_headerLst"/></op>
+<op text="flow_diagram"><DbDetails><Where>fh.sys_process_flow_header_id='%{sys_process_flow_header_vLst[sys_process_flow_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.sys_process_flow_diagram.sys_process_flow_diagram_vLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.sys_process_flow_header</DbTable>
+<Where>sys_process_flow_header_id='%{sys_process_flow_header_vLst[sys_process_flow_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

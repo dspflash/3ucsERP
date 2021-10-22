@@ -1,0 +1,51 @@
+<WndTap Name="vProductOnhand" Text="vProductOnhand">
+	<WndTaps>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\product.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\subinventory.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="Product"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_GBDSEARCH.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="invOnhandLst" listed="0" prefixand="1" inputed="1"><item_number format="item_number like '%%{opvalue}%'"/><item_name format="item_name like '%%{opvalue}%'"/></search><submit next="GBDEDITitem" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="invOnhandLst" Size="700,420" DataJoin="%{this(item_number,item_description,item_specification,item_name,uom_name,onhand,subinventory)}%{ltonhand}%{this(org)}" DataJoinKey="item_id_m">
+	<MDX id="ltonhand" datatype="string">
+		<DbDetails>
+			<Index>h_id </Index>
+			<MDX>item_id_m,ltonhand,</MDX>
+			<Data>item_id_m,calOnhandDT(item_id_m,ADDDATE(CURDATE(),lt),org_id) ltonhand</Data>
+			<Order></Order>
+			<Where>and item_status!=278</Where>
+			<queryFormat>select %{data} from (SELECT item_id_m,org_id,pre_processing_lt+post_processing_lt+processing_lt lt FROM item where IF((SELECT TYPE FROM xbs.org WHERE org_id='%{orgid}')=74,org_id='%{orgid}',org_id IN (SELECT org_id FROM xbs.org WHERE parent_org_id='%{orgid}' and type=74)) and make_buy='make' %{where} limit %{StartRow},%{PgSize}) i</queryFormat> 
+		</DbDetails>
+	</MDX>
+	<DbDetails>
+<DbTable>xbs.invOnhand_v</DbTable>
+<Index>item_id_m</Index>
+<Data>*</Data>
+<Order>item_id_m</Order>
+<Where>and item_status!=278</Where>
+<queryFormat>select %{data} from %{dbtable} where IF((SELECT TYPE FROM xbs.org WHERE org_id='%{orgid}')=74,org_id='%{orgid}',org_id IN (SELECT org_id FROM xbs.org WHERE parent_org_id='%{orgid}' and type=74)) and make_buy='make' %{where} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="Copy"><Copy columns="item_number"/><submit namelist="Copy" function="Copy"/></op>
+</operator>
+</ListCtrl>SELECT item_id_m,org_id,ltonhand FROM
+(SELECT item_id_m,org_id,calOnhandDT(item_id_m,ADDDATE(CURDATE(),lt),org_id) ltonhand FROM (
+SELECT item_id_m,org_id,pre_processing_lt+post_processing_lt+processing_lt lt FROM item WHERE IF((SELECT TYPE FROM xbs.org WHERE org_id='%{orgid}')=74,org_id='%{orgid}',org_id IN (SELECT org_id FROM xbs.org WHERE parent_org_id='%{orgid}' AND TYPE=74)) AND make_buy='make') i) ltonhand WHERE ltonhand!=0;
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

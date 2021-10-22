@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEar_customer" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ar_customer_id" Text="create" ToolTip="ttp_createar_customer" Name="insertar_customer" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_customer</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>customer_number,customer_name,alt_name,customer_relationship[option_line_id],customer_category[option_line_id],customer_credit_class[option_line_id],payment_term_id[payment_term_id],currency[currency_id],tax_country[country_id],tax_reg_no,status</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,org_id;'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="ar_customerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyar_customer" Name="modifyar_customer" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_customer</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>customer_number,customer_name,alt_name,customer_relationship[option_line_id],customer_category[option_line_id],customer_credit_class[option_line_id],payment_term_id[payment_term_id],currency[currency_id],tax_country[country_id],tax_reg_no,status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ar_customer_id='%{ar_customer_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="ar_customerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetar_customer" Name="resetar_customer" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITar_customer" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchar_customer" Name="gsearchar_customer" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ar_customerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITar_customer" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<WndTap Name="prj_resource_list_header" Text="prj_resource_list_header" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="list_name"/>
+<var name="dataRequireless" expr=""/>
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_resource_list_line_Vem.xml" popup="1"/>
+</WndTaps>
+<xi:include href="lan\prj_resource_list_header.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBprj_resource_list_header" id="prj_resource_list_header" Text="prj_resource_list_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_resource_list_header_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_resource_list_header_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_resource_list_header_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_resource_list_line_Vvm.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertprj_resource_list_header" Visible="1"/><SetVisible name="modifyprj_resource_list_header" Visible="0"/></OnActivate>
+</WndTap>

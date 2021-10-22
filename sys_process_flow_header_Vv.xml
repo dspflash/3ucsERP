@@ -1,0 +1,13 @@
+﻿<GroupBox Name="GBDVsys_process_flow_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="sys_process_flow_header_vLst" ToolTip="ttp_sys_process_flow_header_v" Size="700,450" OnLoad="init" Heading="process_flow,125;module_name,120;access_org_type,120;type,120;description,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;sys_process_flow_header_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>sys_process_flow_header_id</Index>
+<DbTable>xbs.sys_process_flow_header s left join xbs.option_line o on s.module_name=o.option_line_id left join xbs.option_line o0 on s.access_org_type=o0.option_line_id left join xbs.user_v u on s.created_by=u.xerp_user_id left join xbs.user_v u0 on s.last_update_by=u0.xerp_user_id</DbTable>
+<Data>s.process_flow,o.option_line_value module_name,o0.option_line_value access_org_type,s.type,s.description,s.status,u.NAME created_by,s.creation_date,u0.NAME last_update_by,s.last_update_date,s.sys_process_flow_header_id</Data>
+<Order>sys_process_flow_header_id</Order></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_header_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_sys_process_flow_header" expr="js(%{sys_process_flow_header_vLst[currentpage]}+1)"/>
+<assign name="pgscb_sys_process_flow_header" expr="js(%{sys_process_flow_header_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

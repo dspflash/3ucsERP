@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVfp_mds_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="fp_mds_header_vLst" ToolTip="ttp_fp_mds_header" Size="700,420" OnLoad="init" Heading="mds_name,125;org_id,120;fp_source_list_header_id,120;description,640;include_so_cb,60;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;fp_mds_header_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.fp_mds_header f left join xbs.org o on f.org_id=o.org_id left join xbs.fp_source_list_header f0 on f.fp_source_list_header_id=f0.fp_source_list_header_id</DbTable>
+<Index>fp_mds_header_id</Index>
+<Data>f.mds_name,o.org org_id,f0.source_list fp_source_list_header_id,f.description,f.include_so_cb,f.status,f.created_by,f.creation_date,f.last_update_by,f.last_update_date,f.fp_mds_header_id</Data>
+<Order>fp_mds_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>fp_mds_header_id='%{fp_mds_header_vLst[fp_mds_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.fp_mds_header.fp_mds_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.fp_mds_header</DbTable>
+<Where>fp_mds_header_id='%{fp_mds_header_vLst[fp_mds_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

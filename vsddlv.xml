@@ -1,0 +1,79 @@
+<WndTap Name="vSDDLV" Text="vSDDLV">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_header_m.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_line_Vem.xml" popup="1"/>
+	<!--WndTap Text="sd_delivery_line" Name="sd_delivery_line" Ver="2" popup="1">
+	<var name="refreshAfterEdit" expr="1"/>
+	<var name="dataRequired" expr="item_id_m[item_id_m],shipped_quantity"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_delivery_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="sd_delivery_line" Name="GBsd_delivery_line" id="sd_delivery_line" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_line_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_line_GBOPE.xml"></xi:include>
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_line_GBDV.xml"></xi:include></Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate/>
+		</WndTap-->
+	<WndTap Text="sd_delivery_linev" Name="sd_delivery_linev" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_delivery_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="sd_delivery_line" Name="GBsd_delivery_line" id="sd_delivery_line" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_line_GBDVm.xml"></xi:include></Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate/>
+		</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_print_v.xml" popup="1"/>
+		</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_delivery_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="sd_delivery_header"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">
+	<OnClick><submit next="vSDDLV.sd_delivery_header.GBDEDITsd_delivery_header" function="reset"/></OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_delivery_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="sddlvLst" listed="0" prefixand="1" inputed="1"><delivery_number format="delivery_number like '%%{opvalue}%'"/><expetced_delivery_date0 format="expetced_delivery_date&gt;='%{opvalue}'"/><expetced_delivery_date1 format="expetced_delivery_date&lt;='%{opvalue}'"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/>
+</search><submit next="GBDEDITsd_delivery_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="sddlvLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.sd_delivery_header_v</DbTable>
+<Index>sd_delivery_header_id</Index>
+<Data>*</Data>
+<Order>sd_delivery_header_id</Order>
+<Where>and status not in (1551) and expetced_delivery_date BETWEEN CURDATE() AND CURDATE()</Where>
+<queryFormat>select %{data} from %{dbtable} where IF((SELECT TYPE FROM xbs.org WHERE org_id='%{orgid}')=74,shipping_org_id='%{orgid}',shipping_org_id IN (SELECT org_id FROM xbs.org WHERE parent_org_id='%{orgid}' and type=74)) %{where} order by sd_delivery_header_id desc limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="so_dlv_menu_rule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/so_dlv_menu_rule.xml"/></rules>
+<inputs status="%{sddlvLst[status]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="modify"><DbDetails><Where>sd_delivery_header_id='%{sddlvLst[sd_delivery_header_id]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vSDDLV.sd_delivery_header.sd_delivery_headerLst"/></op>
+<op text="print"><DbDetails><Where>sd_delivery_header_id='%{sddlvLst[sd_delivery_header_id]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vSDDLV.sd_delivery_print.sd_delivery_headerLst"/><submit namelist="DbDetails" next="vSDDLV.sd_delivery_print.sd_delivery_lineLst"/></op>
+<!--op text="print_web"><assign name="topmost" expr="exec:http://192.168.1.210:8080/cuku/%{sddlvLst[delivery_number]}"/></op-->
+<op text="view"><DbDetails><Where>sd_delivery_header_id='%{sddlvLst[sd_delivery_header_id]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vSDDLV.sd_delivery_linev.sd_delivery_linelst"/></op>
+<op text="confirm" needconfirm="1"><DbDetails><queryFormat>update sd_delivery_header sdh JOIN sd_delivery_line sdl ON sdh.sd_delivery_header_id=sdl.sd_delivery_header_id set status=604,delivery_status=604 where sdh.sd_delivery_header_id='%{sddlvLst[sd_delivery_header_id]}' and status in(537,533)</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="cancel" needconfirm="1"><DbDetails><queryFormat>UPDATE sd_delivery_header sdh JOIN sd_delivery_line sdl ON sdh.sd_delivery_header_id=sdl.sd_delivery_header_id SET STATUS=1551,delivery_status=1551 WHERE sdh.sd_delivery_header_id='%{sddlvLst[sd_delivery_header_id]}' AND STATUS IN (537,533,540,535,604,536)</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

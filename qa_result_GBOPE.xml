@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEqa_result" Size="100,100"><Ctrls>
+<Button sqlpkinsert="qa_result_id" Text="create" ToolTip="ttp_createqa_result" Name="insertqa_result" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.qa_result</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>accept_anyway,description,reference_key_value,reference_key_name</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,reference_type;'%{user_id}',now(),'%{user_id}',now(),'table'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="qa_resultLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyqa_result" Name="modifyqa_result" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.qa_result</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>accept_anyway,description,reference_key_value,reference_key_name</Data>
+<DataEx>last_update_date;now()</DataEx>
+<Where>qa_result_id='%{qa_result_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="qa_resultLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetqa_result" Name="resetqa_result" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITqa_result" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchqa_result" Name="gsearchqa_result" Size="50,20" visible="false">
+	<OnClick>
+	<search next="qa_resultLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITqa_result" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

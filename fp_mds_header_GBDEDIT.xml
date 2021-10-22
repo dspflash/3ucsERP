@@ -1,0 +1,56 @@
+<GroupBox Name="GBDEDITfp_mds_header"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mds_name"><Ctrls>
+<Label Align="Right" Text="mds_name" Name="lb_mds_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_mds_name" Name="mds_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_org_id"><Ctrls>
+<Label Align="Right" Text="org_id" onload="init" Name="lb_org_id" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_org_id" onload="init" Name="org_id" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org_id</Data>
+<Where>org_id in (select org_id FROM xbs.org WHERE IF((SELECT TYPE FROM xbs.org WHERE org_id='%{orgid}')=74,org_id='%{orgid}',org_id IN (SELECT org_id FROM xbs.org WHERE parent_org_id='%{orgid}'))) </Where>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="fp_source_list_header_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_fp_source_list_header_id"><Ctrls>
+<Label Align="Right" Text="fp_source_list_header_id" Name="lb_fp_source_list_header_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_fp_source_list_header_id" Name="fp_source_list_header_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.fp_source_list_header</DbTable>
+<Index>fp_source_list_header_id</Index>
+<Data>source_list,fp_source_list_header_id</Data>
+<Where>org_id='%{org_id[org_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_include_so_cb"><Ctrls>
+<CheckBox Text="include_so_cb" ToolTip="ttp_include_so_cb" Name="include_so_cb" Size="230,20" checked="true"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" Size="230,20" checked="true"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_fp_mds_header_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="fp_mds_header_id" overlap="pre" Name="lb_fp_mds_header_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_fp_mds_header_id" overlap="pre" Name="fp_mds_header_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBfp_mds_header" expr="TABEDITfp_mds_header"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

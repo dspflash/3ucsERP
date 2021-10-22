@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVhr_job" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletehr_job" Name="deletehr_job" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_job</DbTable>
+<Where>hr_job_id='%{hr_jobLst[hr_job_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhr_job" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshhr_job" Name="searchhr_job" Size="50,20">
+			  <OnClick><submit next="hr_jobLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPhr_jobLst" OnClick="(hr_jobLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREhr_jobLst" OnClick="(hr_jobLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPhr_jobLst" OnClick="(hr_jobLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

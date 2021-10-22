@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_holiday" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_holidayLst" ToolTip="ttp_hr_holiday" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_holiday_id</Index>
+<DbTable>xbs.hr_holiday</DbTable>
+<Data>holiday_date,holiday_type_id,org_id,description,status,created_by,creation_date,last_update_by,last_update_date,hr_holiday_id</Data>
+<Order>hr_holiday_id</Order></DbDetails>
+<OnClick><assign name="org_id[org_id]" expr="%{hr_holidayLst[org_id]}" function="SetSel"/>
+<if cond="%{hr_holiday_id}"><SetVisible name="inserthr_holiday" Visible="0"/><SetVisible name="modifyhr_holiday" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

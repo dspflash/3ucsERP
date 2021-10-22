@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVbom_standard_operation" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialbom_standard_operation" Size="50,20">
+<OnClick><submit next="bom_standard_operation_vLst" function="initial"/><submit next="records_bom_standard_operation" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPbom_standard_operation_vLst" Size="50,20">
+<OnClick><submit next="bom_standard_operation_vLst" function="GetPage(first)"/><submit next="records_bom_standard_operation"/></OnClick></Button>
+<Button Text="prepage" Name="PREbom_standard_operation_vLst" Size="50,20">
+<OnClick><submit next="bom_standard_operation_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPbom_standard_operation_vLst" Size="50,20">
+<OnClick><submit next="bom_standard_operation_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

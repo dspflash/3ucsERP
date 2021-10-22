@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_event_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_event_headerLst" ToolTip="ttp_hr_event_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_event_header</DbTable>
+<Index>hr_event_header_id</Index>
+<Data>title,start_date,start_time,user_id,end_date,end_time,location,url,privacy,event_details,event_color,description,created_by,creation_date,last_update_by,last_update_date,hr_event_header_id</Data>
+<Order>hr_event_header_id</Order></DbDetails>
+<OnClick><assign name="user_id[xerp_user_id]" expr="%{hr_event_headerLst[user_id]}" function="SetSel"/><assign name="created_by[xerp_user_id]" expr="%{hr_event_headerLst[created_by]}" function="SetSel"/><assign name="last_update_by[xerp_user_id]" expr="%{hr_event_headerLst[last_update_by]}" function="SetSel"/>
+<if cond="%{hr_event_header_id}"><SetVisible name="inserthr_event_header" Visible="0"/><SetVisible name="modifyhr_event_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

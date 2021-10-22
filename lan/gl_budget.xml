@@ -1,0 +1,46 @@
+<Language name="gl_budget">
+<Lang name="gl_budget" value="gl_budget"/>
+<Lang name="TabEditgl_budget" value="gl_budget Edit"/>
+<Lang name="TabViewgl_budget" value="gl_budget View"/>
+<Lang name="ledger_id" value=""/>
+<Lang name="ttp_ledger_id" value=""/>
+<Lang name="budget_name" value=""/>
+<Lang name="ttp_budget_name" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="created_on" value=""/>
+<Lang name="ttp_created_on" value=""/>
+<Lang name="frozen_date" value=""/>
+<Lang name="ttp_frozen_date" value=""/>
+<Lang name="first_period_id" value=""/>
+<Lang name="ttp_first_period_id" value=""/>
+<Lang name="current_period_id" value=""/>
+<Lang name="ttp_current_period_id" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="gl_budget_id" value=""/>
+<Lang name="ttp_gl_budget_id" value=""/>
+<Lang name="ttp_operationgl_budget" value="操作"/>
+<Lang name="ttp_creategl_budget" value="新增"/>
+<Lang name="ttp_modifygl_budget" value="修改"/>
+<Lang name="ttp_resetgl_budget" value="清除数据"/>
+<Lang name="ttp_deletegl_budget" value="删除"/>
+<Lang name="ttp_refreshgl_budget" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

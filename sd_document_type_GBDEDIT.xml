@@ -1,0 +1,73 @@
+<GroupBox Name="GBDEDITsd_document_type"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_document_type_name"><Ctrls>
+<Label Align="Right" Text="document_type_name" Name="lb_document_type_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_document_type_name" Name="document_type_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_category"><Ctrls>
+<Label Align="Right" Text="category" Name="lb_category" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_category" Items="ORDER|RETURN|BOTH|" Name="category" Size="170,100"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_type"><Ctrls>
+<Label Align="Right" Text="type" Name="lb_type" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_type" Items="SALES_AGREEMENT|SALES_ORDER||" Name="type" Size="170,100"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_level"><Ctrls>
+<Label Align="Right" Text="level" Name="lb_level" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_level" Items="HEADER|LINE||" Name="level" Size="170,100"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supply_source"><Ctrls>
+<Label Align="Right" Text="supply_source" Name="lb_supply_source" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_supply_source" Name="supply_source" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_destination_type"><Ctrls>
+<Label Align="Right" Text="destination_type" Name="lb_destination_type" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_destination_type" Name="destination_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_sd_document_type_id"><Ctrls>
+<Label Align="Right" Text="sd_document_type_id" Name="lb_sd_document_type_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_sd_document_type_id" Name="sd_document_type_id" Size="170,20"><OnEnChange><assign name="GBsd_document_type" expr="TABEDITsd_document_type"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bu_org_id_r"><Ctrls>
+<Label Align="Right" Text="bu_org_id_r" Name="lb_bu_org_id_r" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_bu_org_id_r" Name="bu_org_id_r" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_process_flow_id"><Ctrls>
+<Label Align="Right" Text="process_flow_id" Name="lb_process_flow_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_process_flow_id" Name="process_flow_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_default_line_document"><Ctrls>
+<Label Align="Right" Text="default_line_document" Name="lb_default_line_document" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_default_line_document" Name="default_line_document" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_default_shipfrom_org_id"><Ctrls>
+<Label Align="Right" Text="default_shipfrom_org_id" Name="lb_default_shipfrom_org_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_default_shipfrom_org_id" Name="default_shipfrom_org_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_ar_transaction_type"><Ctrls>
+<Label Align="Right" Text="ar_transaction_type" Name="lb_ar_transaction_type" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_ar_transaction_type" Name="ar_transaction_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_ar_transaction_source"><Ctrls>
+<Label Align="Right" Text="ar_transaction_source" Name="lb_ar_transaction_source" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_ar_transaction_source" Name="ar_transaction_source" Size="170,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

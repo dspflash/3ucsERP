@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEpm_recipe_material_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="pm_recipe_material_line_id" Text="create" ToolTip="ttp_createpm_recipe_material_line" Name="insertpm_recipe_material_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_recipe_material_line</DbTable>
+<Data>pm_recipe_material_header_id[pm_recipe_material_header_id],step_no,pm_formula_ingredient_id[pm_formula_ingredient_id],pm_formula_line_id[pm_formula_line_id],pm_formula_byproduct_id[pm_formula_byproduct_id],description,uom_id,quantity,pm_process_routing_line_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpm_recipe_material_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypm_recipe_material_line" Name="modifypm_recipe_material_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_recipe_material_line</DbTable>
+<Data>pm_recipe_material_header_id[pm_recipe_material_header_id],step_no,pm_formula_ingredient_id[pm_formula_ingredient_id],pm_formula_line_id[pm_formula_line_id],pm_formula_byproduct_id[pm_formula_byproduct_id],description,uom_id,quantity,pm_process_routing_line_id</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>pm_recipe_material_line_id='%{pm_recipe_material_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpm_recipe_material_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpm_recipe_material_line" Name="resetpm_recipe_material_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpm_recipe_material_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchpm_recipe_material_line" Name="gsearchpm_recipe_material_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="pm_recipe_material_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITpm_recipe_material_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

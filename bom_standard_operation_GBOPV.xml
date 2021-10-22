@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVbom_standard_operation" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletebom_standard_operation" Name="deletebom_standard_operation" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_standard_operation</DbTable>
+<Where>bom_standard_operation_id='%{bom_standard_operationLst[bom_standard_operation_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchbom_standard_operation" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshbom_standard_operation" Name="searchbom_standard_operation" Size="50,20">
+			  <OnClick><submit next="bom_standard_operationLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPbom_standard_operationLst" OnClick="(bom_standard_operationLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREbom_standard_operationLst" OnClick="(bom_standard_operationLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPbom_standard_operationLst" OnClick="(bom_standard_operationLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

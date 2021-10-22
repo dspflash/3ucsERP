@@ -1,0 +1,6 @@
+<WndTap Name="ar_transaction_detail_v" Text="ar_transaction_detail">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_transaction_detail.xml"/>
+<Ctrls><GroupBox  Name="GBar_transaction_detail" id="ar_transaction_detail" Text="ar_transaction_detail" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_transaction_detail_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

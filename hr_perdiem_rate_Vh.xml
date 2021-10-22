@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_perdiem_rate" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_perdiem_rateLst" ToolTip="ttp_hr_perdiem_rate" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_perdiem_rate_id</Index>
+<DbTable>xbs.hr_perdiem_rate</DbTable>
+<Data>hr_location_id,hr_grade_id,rate,from_date,to_date,currency,description,created_by,creation_date,last_update_by,last_update_date,hr_perdiem_rate_id</Data>
+<Order>hr_perdiem_rate_id</Order></DbDetails>
+<OnClick><assign name="hr_location_id[hr_location_id]" expr="%{hr_perdiem_rateLst[hr_location_id]}" function="SetSel"/><assign name="hr_grade_id[hr_grade_id]" expr="%{hr_perdiem_rateLst[hr_grade_id]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{hr_perdiem_rateLst[currency]}" function="SetSel"/>
+<if cond="%{hr_perdiem_rate_id}"><SetVisible name="inserthr_perdiem_rate" Visible="0"/><SetVisible name="modifyhr_perdiem_rate" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

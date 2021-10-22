@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDVhr_employee_crew" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_employee_crew_vLst" ToolTip="ttp_hr_employee_crew_v" Size="700,450" OnLoad="init" Heading="hr_employee_id,100;hr_crew_id,120;from_date,90;to_date,90;description,640;active,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_employee_crew_id,100;" loadedclick="0">
+	<DbDetails >
+<Index>hr_employee_crew_id</Index>
+<DbTable>xbs.hr_employee_crew h left join xbs.hr_employee_v h0 on h.hr_employee_id=h0.hr_employee_id left join xbs.hr_crew h1 on h.hr_crew_id=h1.hr_crew_id</DbTable>
+<Data>h0.name hr_employee_id,h1.crew_number hr_crew_id,h.from_date,h.to_date,h.description,h.active,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_employee_crew_id</Data>
+<Order>hr_employee_crew_id</Order></DbDetails>
+<DbDetails><Data>h0.name,h1.crew_number hr_crew_id,h.from_date,h.to_date,h.description,h.active,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_employee_crew_id,h0.hr_employee_id</Data></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_employee_crew_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_hr_employee_crew" expr="js(%{hr_employee_crew_vLst[currentpage]}+1)"/>
+<assign name="pgscb_hr_employee_crew" expr="js(%{hr_employee_crew_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

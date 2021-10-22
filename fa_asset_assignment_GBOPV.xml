@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVfa_asset_assignment" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletefa_asset_assignment" Name="deletefa_asset_assignment" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.fa_asset_assignment</DbTable>
+<Where>fa_asset_assignment_id='%{fa_asset_assignmentLst[fa_asset_assignment_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchfa_asset_assignment" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshfa_asset_assignment" Name="searchfa_asset_assignment" Size="50,20">
+			  <OnClick><submit next="fa_asset_assignmentLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPfa_asset_assignmentLst" OnClick="(fa_asset_assignmentLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREfa_asset_assignmentLst" OnClick="(fa_asset_assignmentLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPfa_asset_assignmentLst" OnClick="(fa_asset_assignmentLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

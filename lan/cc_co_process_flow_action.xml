@@ -1,0 +1,52 @@
+<Language name="cc_co_process_flow_action">
+<Lang name="cc_co_process_flow_action" value="cc_co_process_flow_action"/>
+<Lang name="TabEditcc_co_process_flow_action" value="cc_co_process_flow_action Edit"/>
+<Lang name="TabViewcc_co_process_flow_action" value="cc_co_process_flow_action View"/>
+<Lang name="cc_co_header_id" value=""/>
+<Lang name="ttp_cc_co_header_id" value=""/>
+<Lang name="sys_process_flow_line_id" value=""/>
+<Lang name="ttp_sys_process_flow_line_id" value=""/>
+<Lang name="action_number" value=""/>
+<Lang name="ttp_action_number" value=""/>
+<Lang name="role_code" value=""/>
+<Lang name="ttp_role_code" value=""/>
+<Lang name="user_id" value=""/>
+<Lang name="ttp_user_id" value=""/>
+<Lang name="pf_action_type" value=""/>
+<Lang name="ttp_pf_action_type" value=""/>
+<Lang name="required_cb" value=""/>
+<Lang name="ttp_required_cb" value=""/>
+<Lang name="field_value" value=""/>
+<Lang name="ttp_field_value" value=""/>
+<Lang name="comment" value=""/>
+<Lang name="ttp_comment" value=""/>
+<Lang name="action_user_id" value=""/>
+<Lang name="ttp_action_user_id" value=""/>
+<Lang name="action_duration" value=""/>
+<Lang name="ttp_action_duration" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="cc_co_process_flow_action_id" value=""/>
+<Lang name="ttp_cc_co_process_flow_action_id" value=""/>
+<Lang name="ttp_operationcc_co_process_flow_action" value="操作"/>
+<Lang name="ttp_createcc_co_process_flow_action" value="新增"/>
+<Lang name="ttp_modifycc_co_process_flow_action" value="修改"/>
+<Lang name="ttp_resetcc_co_process_flow_action" value="清除数据"/>
+<Lang name="ttp_deletecc_co_process_flow_action" value="删除"/>
+<Lang name="ttp_refreshcc_co_process_flow_action" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

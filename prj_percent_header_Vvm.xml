@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVprj_percent_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_percent_header_vLst" ToolTip="ttp_prj_percent_header" Size="700,220" Heading="as_of_date,125;percent,120;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_percent_header_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_percent_header p</DbTable>
+<Index>prj_percent_header_id</Index>
+<Data>p.as_of_date,p.percent,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_percent_header_id</Data>
+<Order>prj_percent_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><submit next="$this.prj_percent_header.GBDEDITprj_percent_header" function="reset"/>
+<op text="addone" mustselected="0"><submit next="$this.prj_percent_header.GBDEDITprj_percent_header" function="reset"/><assign name="$this.prj_percent_header.prj_project_header_id" expr="%{prj_project_header_id}"/></op>
+<op text="modify"><DbDetails><Where>prj_percent_header_id='%{prj_percent_header_vLst[prj_percent_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_percent_header.prj_percent_headerLst"/><assign name="$this.prj_percent_header.prj_project_header_id" expr="%{prj_project_header_id}"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.prj_percent_header</DbTable>
+<Where>prj_percent_header_id='%{prj_percent_header_vLst[prj_percent_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

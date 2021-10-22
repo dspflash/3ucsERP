@@ -1,0 +1,92 @@
+<WndTap Name="vQA" Text="vQA">
+	<WndTaps>
+<WndTap Text="qa_results" Name="qa_results" Ver="2" popup="1">
+<var name="dataRequired" expr="item_id_m[item_id_m],reference_key_name,reference_key_value,quantity"/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_results.xml"/>
+<Ctrls>
+<GroupBox Text="qa_results" Name="GBqa_results" id="qa_results" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_results_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_results_GBOPE.xml"></xi:include>
+	<Button Text="confirm" ToolTip="ttp_confirm" Name="confirm" clickneedconfirm="1" Size="50,20">
+		<OnClick><if cond="!%{qa_results_id}"><alert expr="单据不存在，不可操作！"/><else/><DbDetails><queryFormat>update qa_results set transaction_status=1527 where qa_results_id='%{qa_results_id}' and transaction_status=1526 and (select count(qa_results_line_id) from qa_results_line where qa_results_id='%{qa_results_id}')!=0 and (SELECT a.q FROM (SELECT qr.quantity-SUM(qrl.quantity) q FROM qa_results_line qrl JOIN qa_results qr ON qrl.qa_results_id=qr.qa_results_id WHERE qr.qa_results_id='%{qa_results_id}') a)=0;update qa_results_line set transaction_status=1527 where qa_results_id=(select qa_results_id from qa_results where qa_results_id='%{qa_results_id}' and transaction_status=1527) and transaction_status=1526;
+			</queryFormat></DbDetails><submit namelist="DbDetails"/></if>
+		</OnClick>
+		</Button><TAB/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_results_Vh.xml"/>
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_results_line_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertqa_results" Visible="1"/><SetVisible name="modifyqa_results" Visible="0"/><SetVisible name="resetqa_results" Visible="0"/></OnActivate>
+	</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_results_line_Vem.xml" popup="1"/>
+<WndTap Text="qa_results_line" Name="qa_results_line_dv" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_results_line.xml"/>
+<Ctrls>
+<GroupBox Text="qa_results_line" Name="GBqa_results_line" id="qa_results_line" Size="100,100"><Ctrls>
+<GroupBox Name="GBDVqa_results_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="qa_results_line_vLst" ToolTip="ttp_qa_results_line" Size="700,220">
+	<DbDetails >
+<DbTable>xbs.qa_results_line q left join xbs.qa_results q0 on q.qa_results_id=q0.qa_results_id LEFT JOIN item i ON q0.item_id_m=i.item_id_m AND q0.org_id=i.org_id left join xbs.option_line o on q.qa_result_value=o.option_line_id</DbTable>
+<Index>qa_results_line_id</Index>
+<Data>i.item_number,o.option_line_value qa_result_value,q.quantity,q.created_by,q.creation_date,q.last_update_by,q.last_update_date,q.description,q.org_id,q.qa_results_line_id</Data>
+<Order>qa_results_line_id</Order></DbDetails>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls>
+	</WndTap>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_cp_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_results.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvQA" text="vQA"><Ctrls>
+<GroupBox Name="GBDEDITinv_receipt_header"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_receipt_number"><Ctrls>
+<Label Align="Right" Text="receipt_number" Name="lb_receipt_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_receipt_number" Name="receipt_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right" onload="init"/>
+<ComboBox Name="status" Size="170,100" Weight="170"  ToolTip="ttp_status" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=299</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPEinv_receipt_header" Size="100,10" cols="xs12 sm12 md12 lg12"><Ctrls>
+<TAB/><Button Name="resetinv_receipt_header" Size="50,20" Text="reset" ToolTip="ttp_resetinv_receipt_header">
+	<OnClick>
+	<submit next="GBDEDITinv_receipt_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="gsearchinv_receipt_header" Size="50,20" Text="gsearch" ToolTip="ttp_gsearchinv_receipt_header">
+			  <OnClick>
+	<search next="vQALst" listed="0" prefixwhere="1" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITinv_receipt_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="barcode" Size="80,20" Text="barcode" OnClick="(receipt_number)barcode"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="vQALst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.qa_results_v</DbTable>
+<Index>inv_receipt_line_id</Index>
+<Data>*</Data>
+<Order>inv_receipt_line_id desc</Order>
+<Where>where status is null or status not in (1527,1528,1563)</Where>
+<queryFormat>select %{data} from %{dbtable} %{where} order by %{order} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="qa"><submit next="vQA.qa_results.GBDEDITqa_results" function="reset"/><assign name="vQA.qa_results.reference_key_name" expr="inv_receipt_line"/><assign name="vQA.qa_results.reference_key_value" expr="%{vQA.vQALst[inv_receipt_line_id]}"/><assign name="vQA.qa_results.quantity" expr="%{vQALst[transaction_quantity]}"/><DbDetails><Where>item_id_m='%{vQALst[item_id_m]}' and org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="vQA.qa_results.item_id_m"/></op>
+<op text="modify"><submit next="vQA.qa_results.GBDEDITqa_results" function="reset"/><DbDetails><Where>item_id_m='%{vQALst[item_id_m]}' and org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="vQA.qa_results.item_id_m"/><DbDetails><Where>qa_results_id='%{vQALst[qa_results_id]}' and transaction_status=1526</Where></DbDetails><submit namelist="DbDetails" next="$this.qa_results.qa_resultsLst"/><submit/></op>
+<op text="view"><DbDetails><Where>q.qa_results_id='%{vQALst[qa_results_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.qa_results_line_dv.qa_results_line_vLst"/><submit/></op>
+<op text="confirm" needconfirm="1"><DbDetails><queryFormat>update qa_results set transaction_status=1527 where qa_results_id='%{vQALst[qa_results_id]}' and transaction_status=1526 and (select count(qa_results_line_id) from qa_results_line where qa_results_id='%{vQALst[qa_results_id]}')!=0 and (SELECT a.q FROM (SELECT qr.quantity-SUM(qrl.quantity) q FROM qa_results_line qrl JOIN qa_results qr ON qrl.qa_results_id=qr.qa_results_id WHERE qr.qa_results_id='%{vQALst[qa_results_id]}') a)=0;update qa_results_line set transaction_status=1527 where qa_results_id=(select qa_results_id from qa_results where qa_results_id='%{vQALst[qa_results_id]}' and transaction_status=1527) and transaction_status=1526;</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="cancel" needconfirm="1"><DbDetails><queryFormat>update qa_results set transaction_status=1563 where qa_results_id='%{vQALst[qa_results_id]}' and transaction_status=1526;</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

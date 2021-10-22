@@ -1,0 +1,13 @@
+﻿<WndTap Name="sys_pd_process_flow_action" Text="sys_pd_process_flow_action" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="field_value,action_number[action_number],pf_action_type,sys_process_flow_line_id,sys_pd_header_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\sys_pd_process_flow_action.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBsys_pd_process_flow_action" id="sys_pd_process_flow_action" Text="sys_pd_process_flow_action" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_process_flow_action_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_process_flow_action_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_process_flow_action_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertsys_pd_process_flow_action" Visible="1"/><SetVisible name="modifysys_pd_process_flow_action" Visible="0"/></OnActivate>
+</WndTap>

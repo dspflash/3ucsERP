@@ -1,0 +1,24 @@
+﻿<WndTap Name="xerp_user" Text="xerp_user" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="username,password,phone,email"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\xerp_user.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBxerp_user" id="xerp_user" Text="xerp_user" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_user_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_user_GBOPE.xml"/>
+<Button Text="modifyPass" ToolTip="ttp_modifyPass" Name="modifyPass" Size="50,20">
+			<OnClick>
+			<DbDetails fcsm="1">
+		<DbTable>xbs.xerp_user</DbTable>
+		<Required>%{dataRequired}</Required>
+		<Requireless>%{dataRequireless}</Requireless>
+		<DataEx>password,last_update_by,last_update_date;md5('%{password}'),'%{user_id}',now()</DataEx>
+		<Where>xerp_user_id='%{xerp_user_id}'</Where>
+		<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+			<submit namelist="DbDetails"/></OnClick>
+			</Button><TAB/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_user_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertxerp_user" Visible="1"/><SetVisible name="modifyxerp_user" Visible="0"/></OnActivate>
+</WndTap>

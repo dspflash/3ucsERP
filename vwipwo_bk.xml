@@ -1,0 +1,270 @@
+<WndTap Name="vWipWo" Text="vWipWo">
+	<WndTaps>
+	<WndTap Text="wip_move_transactionto" Name="wip_move_transactionto" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_move_transaction.xml"/>
+	<Ctrls>
+	<GroupBox Text="wip_move_transaction" Name="GBwip_move_transaction" id="wip_move_transaction" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_move_transaction_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_move_transaction_GBOPE.xml"></xi:include-->
+	<Button sqlpkinsert="wip_move_transaction_id" Text="create" ToolTip="ttp_createwip_move_transaction" Name="insertwip_move_transaction" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<!--DbTable>xbs.wip_move_transaction</DbTable>
+<Data>wip_wo_header_id[wip_wo_header_id],item_id_m[item_id_m],move_quantity,from_routing_sequence,from_operation_step[option_line_id],to_routing_sequence[routing_sequence],to_operation_step[option_line_id],reason</Data>
+<DataEx>transaction_type,transaction_date,created_by,creation_date,last_update_by,last_update_date,org_id;'WIP_MOVE',now(),'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx-->
+<queryFormat>select wipMoveTransInsert(%{wip_wo_header_id[wip_wo_header_id]},%{item_id_m[item_id_m]},%{move_quantity},%{from_routing_sequence[routing_sequence]},%{from_operation_step[option_line_id]},%{to_routing_sequence[routing_sequence]},%{to_operation_step[option_line_id]},'%{reason}','WIP_MOVE','%{user_id}','%{user_id}','%{orgid}');
+</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="wip_move_transactionLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+		</Ctrls></GroupBox>
+			</Ctrls>
+		<OnChanged/>
+		<OnActivate><SetVisible name="modifywip_move_transaction" Visible="0"/><SetVisible name="resetwip_move_transaction" Visible="0"/></OnActivate>
+		</WndTap>
+	<WndTap Text="wip_move_transactionv" Name="wip_move_transactionv" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_move_transaction.xml"/>
+	<Ctrls>
+	<GroupBox Text="wip_move_transaction" Name="GBwip_move_transaction" id="wip_move_transaction" Size="100,100"><Ctrls>
+		<ListCtrl Heading="wip_wo_header_id,120;item_id_m,120;from_routing_sequence,120;to_routing_sequence,120;from_operation_step,120;to_operation_step,120;transaction_type,250;transaction_date,150;move_quantity,100;reason,640;reference,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;wip_move_transaction_id,60;org_id,60;" loadedclick="0" ToolTip="ttp_wip_move_transaction" Name="wip_wo_move_vLst" Size="700,420">
+		<DbDetails fcsm="1">
+		<DbTable>wip_wo_move_v</DbTable>
+		<Index>wip_move_transaction_id</Index>
+		<Data>*</Data>
+		<Order>wip_move_transaction_id</Order></DbDetails>
+		<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+		</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate/>
+		</WndTap>
+	<WndTap Text="wip_wo_bom" Name="wip_wo_bom" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_bom.xml"/>
+		<Ctrls>
+		<GroupBox Text="wip_wo_bom" Name="GBwip_wo_bom" id="wip_wo_bom" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_bom_GBDV.xml"></xi:include></Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+		</WndTap>
+	<WndTap Text="vIssueLine" Name="vIssueLine" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_issue_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="vIssueLine" Name="GBvIssueLine" id="vIssueLine" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_line_GBDV.xml"></xi:include>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="vIssue" Name="vIssue" Ver="2" popup="1">
+		<var name="wip_wo_header_id" expr=""/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_issue_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="vIssue" Name="GBvIssue" id="vIssue" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="vIssueLst" Size="700,420">
+			<DbDetails>
+			<DbTable>inv_issue_header_v</DbTable>
+			<Index>inv_issue_header_id</Index>
+			<Data>*</Data>
+			<Order>inv_issue_header_id</Order>
+			</DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<EvalTbl rules="" table="inv_receipt_admin_menu_rule">
+			<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/inv_receipt_admin_menu_rule.xml"/></rules>
+			<inputs status="%{vIssueLst[status]}"/>
+			<outputs title="text" disabled="disabled"/></EvalTbl>
+			<op text="modify">
+			<DbDetails><Where>type_class='WIP' and transaction_action=1 and status is true</Where></DbDetails><submit namelist="dbdetails" next="vWipWo.inv_issue_header.transaction_type_id"/><assign name="vWipWo.inv_issue_header.reference_key_name" expr="wip_wo_header" function="setsel"/><DbDetails><DbTable>xbs.wip_wo_header</DbTable><Index>wip_wo_header_id</Index><Data>wo_number,wip_wo_header_id refid</Data><Where>wip_wo_header_id='%{vWipWo.vIssue.vIssueLst[reference_key_value]}'</Where></DbDetails><submit next="vWipWo.inv_issue_header.reference_key_value" namelist="DbDetails"/><DbDetails><Where>inv_issue_header_id='%{vWipWo.vIssue.vIssueLst[inv_issue_header_id]}' and status=1519</Where></DbDetails><submit next="vWipWo.inv_issue_header.inv_issue_headerLst" namelist="DbDetails"/></op>
+			<op text="vIssueLine"><DbDetails><Where>inv_issue_header_id='%{vWipWo.vIssue.vIssueLst[inv_issue_header_id]}'</Where></DbDetails><submit next="vWipWo.vIssueLine.inv_issue_lineLst" namelist="DbDetails"/></op>
+			<op text="confirm"><DbDetails><queryFormat>update inv_issue_header set status=1520 where inv_issue_header_id='%{vWipWo.vIssue.vIssueLst[inv_issue_header_id]}' and status=1519;
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="inv_issue_line" Name="inv_issue_line" Ver="2" popup="1">
+	<var name="refreshAfterEdit" expr="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_issue_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="inv_issue_line" Name="GBinv_issue_line" id="inv_issue_line" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_line_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_line_GBOPE.xml"></xi:include>
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_line_GBDV.xml"></xi:include></Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate/>
+		</WndTap>
+	<WndTap Text="inv_issue_header" Name="inv_issue_header" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_issue_header.xml"/>
+	<Ctrls>
+	<GroupBox Text="inv_issue_header" Name="GBinv_issue_header" id="inv_issue_header" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_header_GBOPE.xml"></xi:include>
+	<Button Text="detailAdmin" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick><assign name="vWipWo.inv_issue_line.lb_reference_key_value" expr="物料序号"/>
+	<assign name="vWipWo.inv_issue_line.transaction_type_id" expr="%{vWipWo.inv_issue_header.transaction_type_id[transaction_type_id]}"/>
+		<assign name="vWipWo.inv_issue_line.reference_key_name" expr="wip_wo_bom" function="setsel"/><DbDetails><Where>inv_issue_header_id='%{vWipWo.inv_issue_header.inv_issue_header_id}'</Where></DbDetails><submit next="vWipWo.inv_issue_line.inv_issue_header_id" namelist="DbDetails"/><DbDetails><DbTable>xbs.wip_routing_bom_v</DbTable><Index>wip_wo_bom_id</Index><Data>bom_sequence,item_id_m,wip_wo_bom_id refid</Data><Where>wip_wo_header_id='%{vWipWo.inv_issue_header.reference_key_value[refid]}' AND department_id='%{bom_department}'</Where></DbDetails><submit next="vWipWo.inv_issue_line.reference_key_value" namelist="DbDetails"/>
+	</OnClick>
+	</Button><TAB/>
+	<ListCtrl loadedclick="1" ToolTip="ttp_inv_issue_header" Name="inv_issue_headerLst" Size="70,20" visible="0">
+		<DbDetails fcsm="1">
+	<DbTable>xbs.inv_issue_header</DbTable>
+	<Index>inv_issue_header_id</Index>
+	<Data>issue_number,transaction_type_id,reference_key_value,issue_date,carrier,vechile_number,comment,inv_issue_header_id</Data>
+	<Order>inv_issue_header_id</Order></DbDetails>
+	<OnClick><assign name="transaction_type_id[transaction_type_id]" function="SetSel" expr="%{inv_issue_headerLst[transaction_type_id]}"/><assign name="reference_key_value[refid]" function="SetSel" expr="%{inv_issue_headerLst[reference_key_value]}"/>
+	<if cond="%{inv_issue_header_id}"><SetVisible name="insertinv_issue_header" Visible="0"/><SetVisible name="modifyinv_issue_header" Visible="1"/><else/><SetVisible name="insertinv_issue_header" Visible="1"/><SetVisible name="modifyinv_issue_header" Visible="0"/></if></OnClick>
+	</ListCtrl>	
+	</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate/>
+		</WndTap>
+
+	<WndTap Text="vReceiptLine" Name="vReceiptLine" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_receipt_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="vReceiptLine" Name="GBvReceiptLine" id="vReceiptLine" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_GBDV.xml"></xi:include>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="vReceipt" Name="vReceipt" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_receipt_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="vReceipt" Name="GBvReceipt" id="vReceipt" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="vReceiptLst" Size="700,420">
+			<DbDetails>
+			<DbTable>inv_receipt_header_v</DbTable>
+			<Index>inv_receipt_header_id</Index>
+			<Data>*</Data>
+			<Order>inv_receipt_header_id</Order></DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<EvalTbl rules="" table="inv_receipt_admin_menu_rule">
+			<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/inv_receipt_admin_menu_rule.xml"/></rules>
+			<inputs status="%{vReceiptLst[status]}"/>
+			<outputs title="text" disabled="disabled"/></EvalTbl>
+			<op text="modify">
+			<DbDetails><Where>type_class='WIP' and transaction_action=27 and status is true</Where></DbDetails><submit namelist="dbdetails" next="vWipWo.inv_receipt_header.transaction_type_id"/><assign name="vWipWo.inv_receipt_header.reference_key_name" expr="wip_wo_header" function="setsel"/><DbDetails><DbTable>xbs.wip_wo_header</DbTable><Index>wip_wo_header_id</Index><Data>wo_number,wip_wo_header_id refid</Data><Where>wip_wo_header_id='%{vWipWo.vReceipt.vReceiptLst[reference_key_value]}'</Where></DbDetails><submit next="vWipWo.inv_receipt_header.reference_key_value" namelist="DbDetails"/><DbDetails><Where>inv_receipt_header_id='%{vWipWo.vReceipt.vReceiptLst[inv_receipt_header_id]}' and status=1519</Where></DbDetails><submit next="vWipWo.inv_receipt_header.inv_receipt_headerLst" namelist="DbDetails"/></op>
+			<op text="vReceiptLine"><DbDetails><Where>inv_receipt_header_id='%{vWipWo.vReceipt.vReceiptLst[inv_receipt_header_id]}'</Where></DbDetails><submit next="vWipWo.vReceiptLine.inv_receipt_lineLst" namelist="DbDetails"/></op>
+			<op text="confirm"><DbDetails><queryFormat>update inv_receipt_header set status=1520 where inv_receipt_header_id='%{vWipWo.vReceipt.vReceiptLst[inv_receipt_header_id]}' and status=1519;
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="inv_receipt_line" Name="inv_receipt_line" Ver="2" popup="1">
+	<var name="refreshAfterEdit" expr="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_receipt_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="inv_receipt_line" Name="GBinv_receipt_line" id="inv_receipt_line" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_GBOPE.xml"></xi:include>
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_GBDV.xml"></xi:include></Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate/>
+		</WndTap>
+	<WndTap Text="inv_receipt_header" Name="inv_receipt_header" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_receipt_header.xml"/>
+	<Ctrls>
+	<GroupBox Text="inv_receipt_header" Name="GBinv_receipt_header" id="inv_receipt_header" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_header_GBOPE.xml"></xi:include>
+<Button Text="inv_receipt_line" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<assign name="vWipWo.inv_receipt_line.transaction_type_id" expr="%{vWipWo.inv_receipt_header.transaction_type_id[transaction_type_id]}"/>
+<assign name="vWipWo.inv_receipt_line.reference_key_name" expr="wip_wo_header" function="setsel"/><DbDetails><Where>inv_receipt_header_id='%{vWipWo.inv_receipt_header.inv_receipt_header_id}'</Where></DbDetails><submit next="vWipWo.inv_receipt_line.inv_receipt_header_id" namelist="DbDetails"/><DbDetails fcsm="1"><DbTable>xbs.wip_wo_header w join item i on w.item_id_m=i.item_id_m</DbTable><Index>wip_wo_header_id</Index><Data>wo_number,w.item_id_m,i.list_price unit_price,i.list_price*w.completed_quantity amount,i.item_description,w.completed_quantity transaction_quantity,wip_wo_header_id refid</Data><Where>wip_wo_header_id='%{vWipWo.inv_receipt_header.reference_key_value[refid]}'</Where></DbDetails><submit next="vWipWo.inv_receipt_line.reference_key_value" namelist="DbDetails"/>
+	</OnClick>
+	</Button><TAB/>
+	<ListCtrl loadedclick="1" ToolTip="ttp_inv_receipt_header" Name="inv_receipt_headerLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_receipt_header</DbTable>
+<Index>inv_receipt_header_id</Index>
+<Data>receipt_number,transaction_type_id,reference_key_value,receipt_date,carrier,vechile_number,comment,inv_receipt_header_id</Data>
+<Order>inv_receipt_header_id</Order>
+<Where>inv_receipt_header_id='%{inv_receipt_header_id}'</Where></DbDetails>
+<OnClick><assign name="transaction_type_id[transaction_type_id]" function="SetSel" expr="%{inv_receipt_headerLst[transaction_type_id]}"/><assign name="reference_key_value[refid]" function="SetSel" expr="%{inv_receipt_headerLst[reference_key_value]}"/>
+<if cond="%{inv_receipt_header_id}"><SetVisible name="insertinv_receipt_header" Visible="0"/><SetVisible name="modifyinv_receipt_header" Visible="1"/><else/><SetVisible name="insertinv_receipt_header" Visible="1"/><SetVisible name="modifyinv_receipt_header" Visible="0"/></if></OnClick>
+</ListCtrl></Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate/>
+		</WndTap>		
+		</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_move_transaction.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_routing_line.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="WipWo"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITwip_wo_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="WipwoLst" listed="0" prefixand="1" inputed="1"><start_date op="[" ref=""/><completion_date op="]" ref=""/></search><submit next="GBDEDITwip_wo_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="WipwoLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_wo_routing_v</DbTable>
+<Index>bom_department_id</Index>
+<Data>*</Data>
+<Order>bom_department_id</Order>
+<queryFormat>select %{data} from %{dbtable} where (wo_status!=369 and wo_status!=1399 ) and bom_department_id='%{bom_department}' %{where}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<EvalTbl rules="" table="wipmove_menu_rule">
+			<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/wipmove_menu_rule.xml"/></rules>
+			<inputs queue="%{WipwoLst[queue_quantity]}" run="%{WipwoLst[running_quantity]}" tomove="%{WipwoLst[tomove_quantity]}"/>
+			<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="wip_issue"><assign name="vWipWo.inv_issue_header.lb_reference_key_value" expr="工单号"/><DbDetails><Where>type_class='WIP' and transaction_action=1 and status is true</Where></DbDetails><submit namelist="dbdetails" next="vWipWo.inv_issue_header.transaction_type_id"/><assign name="vWipWo.inv_issue_header.reference_key_name" expr="wip_wo_header" function="setsel"/><DbDetails><DbTable>xbs.wip_wo_header</DbTable><Index>wip_wo_header_id</Index><Data>wo_number,wip_wo_header_id refid</Data><Where>wip_wo_header_id='%{WipwoLst[wip_wo_header_id]}'</Where></DbDetails><submit next="vWipWo.inv_issue_header.reference_key_value" namelist="DbDetails"/><submit next="vWipWo.inv_issue_header.inv_issue_headerLst" function="resetcontent"/></op>
+<op text="wip_issueLst"><assign name="vWipWo.vIssue.wip_wo_header_id" expr="%{WipwoLst[wip_wo_header_id]}"/><DbDetails><Where>reference_key_name='wip_wo_header' and reference_key_value='%{vWipWo.vIssue.wip_wo_header_id}' and created_by='%{user_id}'</Where></DbDetails><submit namelist="dbdetails" next="vWipWo.vIssue.vIssueLst"/></op>
+<op text="bom"><DbDetails><Where>routing_sequence='%{WipwoLst[routing_sequence]}' and wip_wo_header_id='%{WipwoLst[wip_wo_header_id]}'</Where></DbDetails>
+	<submit next="vWipWo.wip_wo_bom.wip_wo_bomLst" namelist="DbDetails"/></op>
+<op text="reject">
+	<DbDetails><Where>wip_wo_header_id='%{WipwoLst[wip_wo_header_id]}'</Where></DbDetails><submit next="vWipWo.wip_move_transactionto.wip_wo_header_id" namelist="DbDetails"/><DbDetails><Where>routing_sequence='%{WipwoLst[routing_sequence]}' and wip_wo_header_id='%{WipwoLst[wip_wo_header_id]}'</Where></DbDetails><submit next="vWipWo.wip_move_transactionto.from_routing_sequence" namelist="DbDetails"/>
+	<assign name="vWipWo.wip_move_transactionto.from_operation_step[option_line_id]" expr="382" function="setsel"/><assign name="vWipWo.wip_move_transactionto.to_operation_step[option_line_id]" expr="379" function="setsel"/></op>
+<op text="run"><DbDetails><Where>wip_wo_header_id='%{WipwoLst[wip_wo_header_id]}'</Where></DbDetails>
+	<submit next="vWipWo.wip_move_transactionto.wip_wo_header_id" namelist="DbDetails"/>
+	<DbDetails><Where>routing_sequence='%{WipwoLst[routing_sequence]}' and wip_wo_header_id='%{WipwoLst[wip_wo_header_id]}'</Where></DbDetails><submit next="vWipWo.wip_move_transactionto.from_routing_sequence" namelist="DbDetails"/>
+	<submit next="vWipWo.wip_move_transactionto.to_routing_sequence" namelist="DbDetails"/>
+	<assign name="vWipWo.wip_move_transactionto.from_operation_step[option_line_id]" expr="382" function="setsel"/><assign name="vWipWo.wip_move_transactionto.to_operation_step[option_line_id]" expr="378" function="setsel"/></op>
+<op text="scrap"><DbDetails><Where>wip_wo_header_id='%{WipwoLst[wip_wo_header_id]}'</Where></DbDetails>
+	<submit next="vWipWo.wip_move_transactionto.wip_wo_header_id" namelist="DbDetails"/>
+	<DbDetails><Where>routing_sequence='%{WipwoLst[routing_sequence]}' and wip_wo_header_id='%{WipwoLst[wip_wo_header_id]}'</Where></DbDetails><submit next="vWipWo.wip_move_transactionto.from_routing_sequence" namelist="DbDetails"/>
+	<submit next="vWipWo.wip_move_transactionto.to_routing_sequence" namelist="DbDetails"/>
+	<assign name="vWipWo.wip_move_transactionto.from_operation_step[option_line_id]" expr="378" function="setsel"/><assign name="vWipWo.wip_move_transactionto.to_operation_step[option_line_id]" expr="381" function="setsel"/></op>
+<!--op text="tomove"><DbDetails><Where>wip_wo_header_id='%{WipwoLst[wip_wo_header_id]}'</Where></DbDetails>
+	<submit next="vWipWo.wip_move_transactionto.wip_wo_header_id" namelist="DbDetails"/>
+	<DbDetails><Where>routing_sequence='%{WipwoLst[routing_sequence]}' and wip_wo_header_id='%{WipwoLst[wip_wo_header_id]}'</Where></DbDetails><submit next="vWipWo.wip_move_transactionto.from_routing_sequence" namelist="DbDetails"/>
+	<submit next="vWipWo.wip_move_transactionto.to_routing_sequence" namelist="DbDetails"/>
+	<assign name="vWipWo.wip_move_transactionto.from_operation_step[option_line_id]" expr="378" function="setsel"/><assign name="vWipWo.wip_move_transactionto.to_operation_step[option_line_id]" expr="380" function="setsel"/></op-->
+<op text="move">
+	<DbDetails><Where>wip_wo_header_id='%{WipwoLst[wip_wo_header_id]}'</Where></DbDetails><submit next="vWipWo.wip_move_transactionto.wip_wo_header_id" namelist="DbDetails"/><DbDetails><Where>routing_sequence='%{WipwoLst[routing_sequence]}' and wip_wo_header_id='%{WipwoLst[wip_wo_header_id]}'</Where></DbDetails><submit next="vWipWo.wip_move_transactionto.from_routing_sequence" namelist="DbDetails"/>
+	<assign name="vWipWo.wip_move_transactionto.from_operation_step[option_line_id]" expr="380" function="setsel"/><assign name="vWipWo.wip_move_transactionto.to_operation_step[option_line_id]" expr="382" function="setsel"/></op>
+<op text="wo_receipt"><DbDetails><Where>type_class='WIP' and transaction_action=27 and status is true</Where></DbDetails><submit namelist="dbdetails" next="vWipWo.inv_receipt_header.transaction_type_id"/><assign name="vWipWo.inv_receipt_header.reference_key_name" expr="wip_wo_header" function="setsel"/><DbDetails><DbTable>xbs.wip_wo_header</DbTable><Index>wip_wo_header_id</Index><Data>wo_number,wip_wo_header_id refid</Data><Where>wip_wo_header_id='%{WipwoLst[wip_wo_header_id]}'</Where></DbDetails><submit next="vWipWo.inv_receipt_header.reference_key_value" namelist="DbDetails"/>
+<submit next="vWipWo.inv_receipt_header.inv_receipt_headerLst" function="resetcontent"/></op>
+<op text="wo_receiptLst"><DbDetails><Where>reference_key_name='wip_wo_header' and reference_key_value='%{WipwoLst[wip_wo_header_id]}'</Where></DbDetails><submit namelist="dbdetails" next="vWipWo.vReceipt.vReceiptLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

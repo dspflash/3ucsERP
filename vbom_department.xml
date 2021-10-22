@@ -1,0 +1,96 @@
+<WndTap Name="vBomDepartment" Text="vBomDepartment">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_department_Ve.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_stnd_op_res_assignment_Vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_standard_operation_V.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_bom_department_Vm.xml" popup="1"/>
+	</WndTaps>
+<var name="searchtmpl"><department_id format="department like '%%{opvalue}%'"/><standard_operation format="standard_operation like '%%{opvalue}%'"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_department.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_standard_operation.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\user_bom_department.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_resource.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_stnd_op_res_assignment.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vBomDepartment"><Ctrls>
+<GroupBox Name="GBDEDITbom_department_user_v" text="Search" toggle="1"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_department_id"><Ctrls>
+<Label Align="Right" Text="department_id" Name="lb_department_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_department_id" Name="department_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_standard_operation"><Ctrls>
+<Label Align="Right" Text="standard_operation" Name="lb_standard_operation" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_standard_operation" Name="standard_operation" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_xerp_user_id"><Ctrls>
+<Label Align="Right" Text="xerp_user_id" onload="init" Name="lb_xerp_user_id" Size="60,20" type="2"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_xerp_user_id" onload="init" Name="xerp_user_id" Size="170,100" type="2">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>username,xerp_user_id</Data>
+<Where/>
+<queryFormat>select %{data} from %{dbtable} where org_id='%{orgid}' %{where} limit 0,200</queryFormat></DbDetails><OnEditChange><DbDetails><Where>and username like '%%{xerp_user_id[windowtext]}%'</Where></DbDetails><submit namelist="DbDetails"/></OnEditChange></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox  Name="GBOPVbom_department_user_v" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITbom_department_user_v" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="bom_department_user_v_vLst" listed="0" prefixand="1" inputed="1">
+	<department_id format="department like '%%{opvalue}%'"/><standard_operation format="standard_operation like '%%{opvalue}%'"/></search>
+	<submit next="GBDEDITbom_DeptOpUser" namelist="search" function="search"/>
+<search next="bom_department_user_v_vLst" listed="0" prefixwhere="0" prefixand="1" inputed="1">%{searchtmpl}</search><submit next="GBDEDITbom_department_user_v" namelist="search" function="search"/>	
+<search next="records_bom_department_user_v" listed="0" prefixwhere="0" prefixand="1"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITbom_department_user_v" namelist="search" function="search"/>	
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_department_user_v_Vpgm.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_department_user_v_Vpgop.xml"/>
+<BR autoHeight="1"/><DbDetails><Where>bom_standard_operation_id='%{vBomDepartment.bom_department_user_v_vLst[bom_standard_operation_id]}'</Where></DbDetails><submit next="vBomDepartment.bom_standard_operation.bom_standard_operationLst" namelist="DbDetails"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" colsDisplay="7" PageSize="50" ToolTip="ttp_item" onload="init" Name="bom_department_user_v_vLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.bom_department_user_v</DbTable>
+<Index>user_bom_department_id</Index>
+<Data>`org`,
+`department`,
+GROUP_CONCAT(DISTINCT `standard_operation` SEPARATOR ',') AS `standard_operation`,
+ GROUP_CONCAT(DISTINCT `username` SEPARATOR ',') AS `username`,
+`active`,
+`description`,
+`org_id`,
+`xerp_user_id`,
+`bd_status`,
+`bo_status`,
+`bu_active`,
+`bom_department_id`,
+`bom_standard_operation_id`,
+`user_bom_department_id`</Data>
+<Order>bom_department_id</Order>
+<Queryformat>select %{data} from %{dbtable} where org_id='%{orgid}' %{where} GROUP BY `department` limit %{StartRow},%{PgSize}</Queryformat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addBom_department" mustselected="0"><submit next="vBomDepartment.bom_department.GBDEDITbom_department" function="reset"/></op>
+<op text="modifyBom_department"><DbDetails><Where>bom_department_id='%{bom_department_user_v_vLst[bom_department_id]}'</Where></DbDetails><submit next="$this.bom_department.bom_departmentLst" namelist="DbDetails"/></op>
+<op text="addBom_standard_operation"><submit next="vBomDepartment.bom_standard_operation_v.bom_standard_operation.GBDEDITbom_standard_operation" function="reset"/><DbDetails><Where>bom_department_id='%{bom_department_user_v_vLst[bom_department_id]}'</Where></DbDetails><submit next="$this.bom_standard_operation_v.bom_standard_operation.department_id" namelist="DbDetails"/></op>
+<op text="modifyBom_standard_operation"><DbDetails><Where>bom_department_id='%{bom_department_user_v_vLst[bom_department_id]}'</Where></DbDetails><submit next="$this.bom_standard_operation_v.department_id" namelist="DbDetails"/><DbDetails><Where>department_id='%{bom_department_user_v_vLst[bom_department_id]}'</Where></DbDetails><submit next="vBomDepartment.bom_standard_operation_v.bom_standard_operation_vLst" namelist="DbDetails"/></op>
+<op text="addUser_bom_department"><submit next="vBomDepartment.user_bom_department_V.user_bom_department.GBDEDITuser_bom_department" function="reset"/><DbDetails><Where>bom_department_id='%{bom_department_user_v_vLst[bom_department_id]}'</Where></DbDetails><submit next="$this.user_bom_department_V.user_bom_department.bom_department_id" namelist="DbDetails"/></op>
+<op text="modifyUser_bom_department"><DbDetails><Where>bom_department_id='%{bom_department_user_v_vLst[bom_department_id]}'</Where></DbDetails><submit next="$this.user_bom_department_V.bom_department_id" namelist="DbDetails"/><DbDetails><Where>bom_department_id='%{bom_department_user_v_vLst[bom_department_id]}'</Where></DbDetails><submit next="vBomDepartment.user_bom_department_V.user_bom_department_VLst" namelist="DbDetails"/></op>
+<!--op text="DelUser_bom_department" needconfirm="1"><DbDetails><queryFormat>delete from user_bom_department where user_bom_department_id='%{vBomDepartment.bom_department_user_v_vLst[user_bom_department_id]}'</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op-->
+<op text="bom_stnd_op_res_assignment"><assign name="$this.bom_stnd_op_res_assignment_V.bom_standard_operation_id" expr='%{vBomDepartment.bom_department_user_v_vLst[bom_standard_operation_id]}'/>
+	<submit next="vBomDepartment.bom_stnd_op_res_assignment_V.bom_stnd_op_res_assignment_vlst"/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_bom_department_user_v" expr="js(%{bom_department_user_v_vLst[currentpage]}+1)"/>
+<assign name="pgscb_bom_department_user_v" expr="js(%{bom_department_user_v_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

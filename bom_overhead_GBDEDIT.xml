@@ -1,0 +1,61 @@
+﻿<GroupBox Name="GBDEDITbom_overhead"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_overhead"><Ctrls>
+<Label Align="Right" Text="overhead" Name="lb_overhead" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_overhead" Name="overhead" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" Size="230,20" checked="true"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_overhead_type"><Ctrls>
+<Label Align="Right" Text="overhead_type" onload="init" Name="lb_overhead_type" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_overhead_type" onload="init" Name="overhead_type" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=139</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_default_basis"><Ctrls>
+<Label Align="Right" Text="default_basis" onload="init" Name="lb_default_basis" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_default_basis" onload="init" Name="default_basis" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_code,option_line_id</Data>
+<Where>option_Header_id=138</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_absorption_ac_id"><Ctrls>
+<Label Align="Right" Text="absorption_ac_id" Name="lb_absorption_ac_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_absorption_ac_id" Name="absorption_ac_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_org_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="org_id" overlap="pre" Name="lb_org_id" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_org_id" overlap="pre" Name="org_id" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_bom_overhead_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="bom_overhead_id" overlap="pre" Name="lb_bom_overhead_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_bom_overhead_id" overlap="pre" Name="bom_overhead_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{bom_overhead_id}'"><SetVisible name="insertbom_overhead" Visible="0"/><SetVisible name="modifybom_overhead" Visible="1"/><else/><SetVisible name="insertbom_overhead" Visible="1"/><SetVisible name="modifybom_overhead" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

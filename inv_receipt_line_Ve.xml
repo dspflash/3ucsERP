@@ -1,0 +1,13 @@
+﻿<WndTap Name="inv_receipt_line" Text="inv_receipt_line" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\inv_receipt_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBinv_receipt_line" id="inv_receipt_line" Text="inv_receipt_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertinv_receipt_line" Visible="1"/><SetVisible name="modifyinv_receipt_line" Visible="0"/></OnActivate>
+</WndTap>

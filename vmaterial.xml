@@ -1,0 +1,75 @@
+<WndTap Name="vMaterial" Text="vMaterial">
+	<WndTaps>
+	<WndTap Text="material" Name="material" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\material.xml"/>
+	<Ctrls>
+	<GroupBox Text="item" Name="GBitem" id="item" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="material_GBDEDIT.xml"></xi:include>
+	<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="material_GBOPE.xml"></xi:include>
+	<ListCtrl loadedclick="1" ToolTip="ttp_item" Name="itemLst" Size="50,20" visible="0">
+	<DbDetails fcsm="1">
+		<DbTable>xbs.item</DbTable>
+		<Index>item_id</Index>
+		<Data>*</Data>
+		<Order>item_id</Order></DbDetails>
+		<OnClick><assign name="item_category[category_id]" function="SetSel" expr="%{itemLst[item_category]}"/><assign name="item_status[option_line_id]" function="SetSel" expr="%{itemLst[item_status]}"/><assign name="uom_id[uom_id]" function="SetSel" expr="%{itemLst[uom_id]}"/>
+		<if cond="%{item_id}"><SetVisible name="insertitem" Visible="0"/><SetVisible name="modifyitem" Visible="1"/><else/><SetVisible name="insertitem" Visible="1"/><SetVisible name="modifyitem" Visible="0"/></if></OnClick>
+		</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="onhandMaterial.xml" popup="1"/>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\material.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="Material"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="material_GBDSEARCH.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">
+	<OnClick><submit next="vMaterial.material.itemLst" function="resetcontent"/></OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="itemLst" listed="0" prefixand="1" inputed="1"><item_number format="item_number like '%%{opvalue}%'"/><item_name format="item_name like '%%{opvalue}%'"/></search><submit next="GBDEDITitem" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="itemLst"  DataJoinKey="item_id_m" DataJoin="%{this(item_id_m,item_number,item_name,item_specification,item_description,category,status,uom_name)}%{prop}" Size="700,420">
+			<MDX id="prop" datatype="string">
+			<DbDetails>
+				<DbTable>item_properties i left join item_property i0 on i.property_id=i0.property_id</DbTable> 
+				<Index>h_id </Index>
+				<MDX>item_id_m,propname,propvalue</MDX>
+				<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+				<Order></Order>
+				<Where>and item_status!=278</Where>
+				<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (select * from(SELECT org_id,item_id_m from material_v where org_id=%{orgid} %{where} limit %{StartRow},%{PgSize}) as orgitem)</queryFormat> 
+			</DbDetails>
+			</MDX>
+	<DbDetails>
+<DbTable>xbs.material_v</DbTable>
+<Index>item_id</Index>
+<Data>`item_number`,`item_name`,`item_specification`,`item_description`,`category`,`status`,`uom_name`,`inventory_item_cb`,`item_category`,`item_id_m`,`item_id`,`item_status`,`org_id`</Data>
+<Order>item_id</Order>
+<Where>and item_status!=278</Where>
+<queryFormat>select %{data} from %{dbtable} where org_id=%{orgid} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<!--op text="onhand"><DbDetails><Where>item_id_m='%{vMaterial.itemLst[item_id_m]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vMaterial.onhandmaterial.itemLst"/></op-->
+<op text="modify"><DbDetails><Where>item_id_m='%{vMaterial.itemLst[item_id_m]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vMaterial.material.itemLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

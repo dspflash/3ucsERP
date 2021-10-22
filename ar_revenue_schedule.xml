@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="ar_revenue_schedule" Name="ar_revenue_schedule" Ver="2">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_revenue_schedule.xml"/>
+<Ctrls>
+<GroupBox Text="ar_revenue_schedule" Name="GBar_revenue_schedule" id="ar_revenue_schedule" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_revenue_schedule_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_revenue_schedule_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_revenue_schedule_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_revenue_schedule_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

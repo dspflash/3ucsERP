@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><WndTap Text="mdm_price_list_line" Name="mdm_price_list_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="line_type[option_line_id],item_id_m[item_id_m],org_id[org_id],uom_id[uom_id],unit_price,mdm_price_list_header_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\mdm_price_list_line.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\mdm_price_list_detail.xml"/>
+<Ctrls>
+<GroupBox Text="mdm_price_list_line" Name="GBmdm_price_list_line" id="mdm_price_list_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_price_list_line_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_price_list_line_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_price_list_line_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_price_list_line_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

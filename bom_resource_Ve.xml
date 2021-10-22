@@ -1,0 +1,13 @@
+﻿<WndTap Name="bom_resource" Text="bom_resource" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="resource,charge_type[option_line_id],uom[uom_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\bom_resource.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBbom_resource" id="bom_resource" Text="bom_resource" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_resource_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_resource_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_resource_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertbom_resource" Visible="1"/><SetVisible name="modifybom_resource" Visible="0"/></OnActivate>
+</WndTap>

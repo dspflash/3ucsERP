@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEwip_control" Size="100,100"><Ctrls>
+<Button sqlpkinsert="wip_control_id" Text="create" ToolTip="ttp_createwip_control" Name="insertwip_control" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_control</DbTable>
+<Data>org_id,default_accounting_group[wip_accounting_group_id],wo_number_type,allow_one_operation_cb,completion_subinventory_id,completion_locator_id,issue_subinventory_id,issue_locator_id,so_change_effect,auto_release_days</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchwip_control" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifywip_control" Name="modifywip_control" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_control</DbTable>
+<Data>org_id,default_accounting_group[wip_accounting_group_id],wo_number_type,allow_one_operation_cb,completion_subinventory_id,completion_locator_id,issue_subinventory_id,issue_locator_id,so_change_effect,auto_release_days</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>wip_control_id='%{wip_control_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchwip_control" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetwip_control" Name="resetwip_control" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITwip_control" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchwip_control" Name="gsearchwip_control" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="wip_controlLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITwip_control" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

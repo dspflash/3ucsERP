@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_project_control" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_project_controlLst" ToolTip="ttp_prj_project_control" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_project_control</DbTable>
+<Index>prj_project_control_id</Index>
+<Data>prj_expenditure_type_id,prj_expenditure_category_code,description,hr_job_id,start_date,end_date,chargeable_cb,billable_cb,created_by,creation_date,last_update_by,last_update_date,prj_project_control_id</Data>
+<Order>prj_project_control_id</Order></DbDetails>
+<OnClick><assign name="prj_expenditure_type_id[prj_expenditure_type_header_id]" expr="%{prj_project_controlLst[prj_expenditure_type_id]}" function="SetSel"/><assign name="prj_expenditure_category_code[option_line_id]" expr="%{prj_project_controlLst[prj_expenditure_category_code]}" function="SetSel"/><assign name="hr_job_id[hr_job_id]" expr="%{prj_project_controlLst[hr_job_id]}" function="SetSel"/>
+<if cond="%{prj_project_control_id}"><SetVisible name="insertprj_project_control" Visible="0"/><SetVisible name="modifyprj_project_control" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

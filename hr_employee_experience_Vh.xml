@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_employee_experience" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_employee_experienceLst" ToolTip="ttp_hr_employee_experience" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_employee_experience_id</Index>
+<DbTable>xbs.hr_employee_experience</DbTable>
+<Data>organization_name,designation,employee_number,department,work_start_date,work_end_date,last_manager,last_drawn_salary,communication_details,project_details,created_by,creation_date,last_update_by,last_update_date,hr_employee_experience_id</Data>
+<Order>hr_employee_experience_id</Order></DbDetails>
+<OnClick>
+<if cond="%{hr_employee_experience_id}"><SetVisible name="inserthr_employee_experience" Visible="0"/><SetVisible name="modifyhr_employee_experience" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

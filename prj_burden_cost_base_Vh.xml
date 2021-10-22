@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_burden_cost_base" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_burden_cost_baseLst" ToolTip="ttp_prj_burden_cost_base" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_burden_cost_base</DbTable>
+<Index>prj_burden_cost_base_id</Index>
+<Data>cost_base,cost_base_type,effective_from,effective_to,priority,description,created_by,creation_date,last_update_by,last_update_date,prj_burden_cost_base_id</Data>
+<Order>prj_burden_cost_base_id</Order></DbDetails>
+<OnClick>
+<if cond="%{prj_burden_cost_base_id}"><SetVisible name="insertprj_burden_cost_base" Visible="0"/><SetVisible name="modifyprj_burden_cost_base" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVhd_service_contract_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletehd_service_contract_header" Name="deletehd_service_contract_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_service_contract_header</DbTable>
+<Where>hd_service_contract_header_id='%{hd_service_contract_headerLst[hd_service_contract_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhd_service_contract_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshhd_service_contract_header" Name="searchhd_service_contract_header" Size="50,20">
+			  <OnClick><submit next="hd_service_contract_headerLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPhd_service_contract_headerLst" OnClick="(hd_service_contract_headerLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREhd_service_contract_headerLst" OnClick="(hd_service_contract_headerLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPhd_service_contract_headerLst" OnClick="(hd_service_contract_headerLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

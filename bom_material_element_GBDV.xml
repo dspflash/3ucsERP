@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbom_material_element"><Ctrls>
+<ListCtrl Heading="material_element,250;description,640;status,60;default_basis,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;bom_material_element_id,60;" loadedclick="0" ToolTip="ttp_bom_material_element" Name="bom_material_elementLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>bom_material_element_id</Index>
+<DbTable>xbs.bom_material_element b left join xbs.option_line o on b.default_basis=o.option_line_id</DbTable>
+<Data>b.material_element,b.description,b.status,o.option_line_value default_basis,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.org_id,b.bom_material_element_id</Data>
+<Order>bom_material_element_id</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>bom_material_element_id='%{bom_material_element_vLst[bom_material_element_id]}'</Where></DbDetails><submit next="$this.bom_material_element.bom_material_elementLst" namelist="DbDetails"/><assign name="$this.bom_material_element.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_material_element</DbTable>
+<Where>bom_material_element_id='%{bom_material_element_vLst[bom_material_element_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

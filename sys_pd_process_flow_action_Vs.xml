@@ -1,0 +1,10 @@
+﻿<GroupBox Name="GBDEDITsys_pd_process_flow_action" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_field_value" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field_value" Size="60,20" Text="field_value" Align="Right"/>
+<ComboBox Name="field_value" Size="170,100" Text="" Weight="170" Items="Approval|Decline" ToolTip="ttp_field_value"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_comment" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_comment" Size="60,20" Text="comment" Align="Right"/>
+<TextBox Name="comment" Size="170,20" Text="" Weight="170" ToolTip="ttp_comment"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

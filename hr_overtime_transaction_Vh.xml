@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_overtime_transaction" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_overtime_transactionLst" ToolTip="ttp_hr_overtime_transaction" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_overtime_transaction_id</Index>
+<DbTable>xbs.hr_overtime_transaction</DbTable>
+<Data>employee_id,requsted_date,approved_date,approved_by_employee_id,overtime_status,overtime_type,overtime_quantity,from_datetime,to_datetime,reason,contact_details,sys_notification_id,sys_notification_group_id,created_by,creation_date,last_update_by,last_update_date,hr_overtime_transaction_id</Data>
+<Order>hr_overtime_transaction_id</Order></DbDetails>
+<OnClick><assign name="employee_id[hr_employee_id]" expr="%{hr_overtime_transactionLst[employee_id]}" function="SetSel"/><assign name="approved_by_employee_id[hr_employee_id]" expr="%{hr_overtime_transactionLst[approved_by_employee_id]}" function="SetSel"/><assign name="overtime_status[option_line_id]" expr="%{hr_overtime_transactionLst[overtime_status]}" function="SetSel"/><assign name="overtime_type[hr_overtime_type_id]" expr="%{hr_overtime_transactionLst[overtime_type]}" function="SetSel"/>
+<if cond="%{hr_overtime_transaction_id}"><SetVisible name="inserthr_overtime_transaction" Visible="0"/><SetVisible name="modifyhr_overtime_transaction" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

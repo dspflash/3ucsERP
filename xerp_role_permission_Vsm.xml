@@ -1,0 +1,22 @@
+<GroupBox Name="GBDEDITxerp_role_permission"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_role_id"><Ctrls>
+<Label Align="Right" Text="role_id" onload="init" Name="lb_role_id" readonly="true" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_role_id" onload="init" Name="role_id" readonly="true" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.xerp_role</DbTable>
+<Index>role_id</Index>
+<Data>role_name_cn,role_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_class" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_class" Size="60,20" Text="class" Align="Right" onload="init"/>
+<ComboBox Name="class" Size="170,100" Text="" Weight="170"  ToolTip="ttp_class" onload="init">
+	<DbDetails>
+<DbTable>xbs.module_class</DbTable>
+<Index>name</Index>
+<Data>description,name</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

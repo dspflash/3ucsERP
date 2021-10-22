@@ -1,0 +1,54 @@
+<GroupBox Name="GBDEDITqa_cp_line"><Ctrls>
+<GroupBox Name="GB_qa_cp_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_qa_cp_header_id" Size="60,20" Text="qa_cp_header_id" Align="Right" selectedIndex="0"/>
+<ComboBox Name="qa_cp_header_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_qa_cp_header_id" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.qa_cp_header</DbTable>
+<Index>qa_cp_header_id</Index>
+<Data>plan_name,qa_cp_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><DbDetails><Where>qa_cp_header_id='%{qa_cp_header_id[qa_cp_header_id]}'</Where></DbDetails><submit next="qa_cp_lineLst" namelist="DbDetails"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_qa_ce_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_qa_ce_header_id" Size="60,20" Text="qa_ce_header_id" Align="Right" onload="init"/>
+<ComboBox Name="qa_ce_header_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_qa_ce_header_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.qa_ce_header</DbTable>
+<Index>qa_ce_header_id</Index>
+<Data>element_name,qa_ce_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_sequence" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_sequence" Size="60,20" Text="sequence" Align="Right"/>
+<TextBox Name="sequence" Size="170,20" Text="" Weight="170" ToolTip="ttp_sequence"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_dafault_value" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_dafault_value" Size="60,20" Text="dafault_value" Align="Right"/>
+<TextBox Name="dafault_value" Size="170,20" Text="" Weight="170" ToolTip="ttp_dafault_value"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_qa_cp_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_qa_cp_line_id" Size="60,20" Text="qa_cp_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="qa_cp_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_qa_cp_line_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBqa_cp_line" expr="TABEDITqa_cp_line"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

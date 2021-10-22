@@ -1,0 +1,25 @@
+﻿<GroupBox Name="GBDEDITuser_bom_department" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_bom_department_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bom_department_id" Size="60,20" Text="bom_department_id" Align="Right"/>
+<TextBox Name="bom_department_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_bom_department_id">
+	<DbDetails>
+<Index>bom_department_id</Index>
+<DbTable>xbs.bom_department</DbTable>
+<Data>department,bom_department_id</Data>
+<Where>org_id='%{orgid}'</Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_xerp_user_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_xerp_user_id" Size="60,20" Text="xerp_user_id" Align="Right" onload="init"/>
+<ComboBox Name="xerp_user_id" Size="150,100" Text="" Weight="150"  ToolTip="ttp_xerp_user_id" onload="init">
+	<DbDetails>
+<Index>xerp_user_id</Index>
+<DbTable>xbs.user_v</DbTable>
+<Data>username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat>select %{data} from %{dbtable} where org_id='%{orgid}' and role_id in (5,10) %{where} limit 0,20</queryFormat></DbDetails><OnEditChange><DbDetails><Where>and username like '%%{xerp_user_id[windowtext]}%'</Where></DbDetails><submit namelist="DbDetails"/></OnEditChange></ComboBox>
+<MagicCtrl Name="refreshxerp_user_id" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="xerp_user_id"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_active" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="active" Size="230,20" Text="active" ToolTip="ttp_active" checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,44 @@
+﻿<Language name="hr_shift">
+<Lang name="hr_shift" value="班次"/>
+<Lang name="TabEdithr_shift" value="hr_shift Edit"/>
+<Lang name="TabViewhr_shift" value="hr_shift View"/>
+<Lang name="shift_name" value="班次"/>
+<Lang name="ttp_shift_name" value=""/>
+<Lang name="shift_color" value="班次颜色"/>
+<Lang name="ttp_shift_color" value=""/>
+<Lang name="from_time" value="上班时间"/>
+<Lang name="ttp_from_time" value=""/>
+<Lang name="to_time" value="下班时间"/>
+<Lang name="ttp_to_time" value=""/>
+<Lang name="cross_day" value="跨天"/>
+<Lang name="ttp_cross_day" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="org_id" value="组织"/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hr_shift_id" value=""/>
+<Lang name="ttp_hr_shift_id" value=""/>
+<Lang name="ttp_operationhr_shift" value=""/>
+<Lang name="ttp_createhr_shift" value=""/>
+<Lang name="ttp_modifyhr_shift" value=""/>
+<Lang name="ttp_resethr_shift" value=""/>
+<Lang name="ttp_deletehr_shift" value=""/>
+<Lang name="ttp_refreshhr_shift" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

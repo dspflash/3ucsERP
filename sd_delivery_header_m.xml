@@ -1,0 +1,31 @@
+	<WndTap Text="sd_delivery_header" Name="sd_delivery_header" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_delivery_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_delivery_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="sd_delivery_header" Name="GBsd_delivery_header" id="sd_delivery_header" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_header_GBOPE.xml"></xi:include>
+		<!--Button Text="detailAdmin" ToolTip="ttp_detailAdmin" Name="detailAdmin" Size="50,20">
+		<OnClick><if cond="!%{sd_delivery_header_id}"><alert expr="请先添加或选择已有项目！"/><else/><DbDetails><Where>sd_delivery_header_id='%{vSDDLV.sd_delivery_header.sd_delivery_header_id}'</Where></DbDetails>
+		<submit namelist="DbDetails" next="vSDDLV.sd_delivery_line.sd_delivery_header_id"/><submit next="vSDDLV.sd_delivery_line.sd_so_header_id" function="reset"/></if>
+		</OnClick>
+		</Button><TAB/-->
+	<Button Text="confirm" ToolTip="ttp_confirm" Name="confirm" clickneedconfirm="1" Size="50,20">
+		<OnClick><if cond="!%{sd_delivery_header_id}"><alert expr="单据不存在，不可操作！"/><else/><DbDetails><queryFormat>update sd_delivery_header sdh JOIN sd_delivery_line sdl ON sdh.sd_delivery_header_id=sdl.sd_delivery_header_id set status=604,delivery_status=604 where sdh.sd_delivery_header_id='%{sd_delivery_header_id}' and status in(537,533)</queryFormat></DbDetails><submit namelist="DbDetails"/></if>
+		</OnClick>
+		</Button><TAB/>
+		<ListCtrl loadedclick="1" Name="sd_delivery_headerLst" Size="70,20" visible="0">
+			<DbDetails fcsm="1">
+			<DbTable>xbs.sd_delivery_header</DbTable>
+			<Index>sd_delivery_header_id</Index>
+			<Data>delivery_number,comment,shipping_org_id,delivery_date,status,subinventory_id,locator_id,sd_delivery_header_id</Data>
+			<Order>sd_delivery_header_id</Order></DbDetails>
+			<OnClick><assign name="subinventory_id[subinventory_id]" function="SetSel" expr="%{sd_delivery_headerLst[subinventory_id]}"/><assign name="locator_id[locator_id]" function="SetSel" expr="%{sd_delivery_headerLst[locator_id]}"/>
+			<if cond="%{sd_delivery_header_id}"><SetVisible name="insertsd_delivery_header" Visible="0"/><SetVisible name="modifysd_delivery_header" Visible="1"/><else/><SetVisible name="insertsd_delivery_header" Visible="1"/><SetVisible name="modifysd_delivery_header" Visible="0"/></if></OnClick>
+			</ListCtrl>
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_line_Vvm.xml"/>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate><SetVisible name="insertsd_delivery_header" Visible="1"/><SetVisible name="modifysd_delivery_header" Visible="0"/></OnActivate>
+			</WndTap>

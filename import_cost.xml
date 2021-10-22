@@ -1,0 +1,22 @@
+﻿<WndTap Name="CostImport" Text="成本导入">
+<var name="importdir" expr="layout\ucin\xbs\"/>
+<Ctrls><GroupBox Name="CostImport" Text="成本导入"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="import_base.xml"/>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12" Multiline="0" Name="GB_import"><Ctrls>
+	<TAB/><Button Name="import" Text="成本价导入" Clickneedconfirm="true" Size="80,24" ToolTip="（第1列为行号）物料料号为第2列，单价为第3列">
+	<OnClick><import button="import">sql:UPDATE item SET list_price='%{2}' WHERE item_number='%1' and find_in_set(org_id,GetChildOrgs('%{orgid}'));</import><submit next="dataList" namelist="import" function="import"/></OnClick></Button>
+	<!--TAB/><Button Name="importbom" Text="BOM导入" Clickneedconfirm="true" Size="80,24" ToolTip="表名同时也是产品名称，（第1列为行号）物料料号为第2列，名称为第3列，物料的规格、单位、单价分别为第4、5、6列，耗量(请使用小数而避免使用分数) 为第7列，标准操作 为第8列。">
+		<OnClick><import button="import">sql:call bomimport('%{TB_tbname}','%1','%2','%3','%4','%5','%6','%7',%{orgid},%{user_id});</import>
+		<submit next="dataList" namelist="import" function="import"/></OnClick></Button-->
+</Ctrls></GroupBox>
+<BR/><GroupBox cols="xs12" Multiline="0" Name="GB_tbname"><Ctrls>
+	<ListCtrl Name="dataList" PageSize="1000" Size="700,500" OnLoad="">
+		<DbDetails>
+			<DbHost>local</DbHost>
+			<DbDatabase>%{importdir}%{TB_filename}</DbDatabase>
+			<Data>*</Data>
+		</DbDetails>
+		</ListCtrl>
+</Ctrls></GroupBox>
+	</Ctrls></GroupBox></Ctrls></WndTap>

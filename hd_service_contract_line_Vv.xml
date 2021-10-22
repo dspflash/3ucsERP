@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVhd_service_contract_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hd_service_contract_line_vLst" ToolTip="ttp_hd_service_contract_line" Size="700,420" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hd_service_contract_line h left join xbs.sd_quote_v s on h.item_id_m=s.item_id_m left join xbs.mdm_tax_code m on h.tax_code_id=m.mdm_tax_code_id left join xbs.uom u on h.duration_uom_id=u.uom_id</DbTable>
+<Index>hd_service_contract_line_id</Index>
+<Data>h.line_type,s.item_number item_id_m,h.line_number,h.line_quantity,h.line_price,m.tax_code tax_code_id,h.tax_amount,h.gl_tax_amount,h.line_description,h.start_date,h.end_date,h.duration,u.uom_name duration_uom_id,h.renewal_type,h.status,h.line_source,h.counter_instance_id,h.event_id,h.termination_date,h.period_id,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hd_service_contract_line_id</Data>
+<Order>hd_service_contract_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{hd_service_contract_header_id}"><alert expr="hd_service_contract_header_id is Empty!"/><else/><submit next="$parent.hd_service_contract_line.GBDEDIThd_service_contract_line" function="reset"/><assign name="$parent.hd_service_contract_line.hd_service_contract_header_id" expr="%{hd_service_contract_header_id}"/></if></op>
+<op text="modify"><DbDetails><Where>hd_service_contract_line_id='%{hd_service_contract_line_vLst[hd_service_contract_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.hd_service_contract_line.hd_service_contract_lineLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_service_contract_line</DbTable>
+<Where>hd_service_contract_line_id='%{hd_service_contract_line_vLst[hd_service_contract_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

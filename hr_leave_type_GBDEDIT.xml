@@ -1,0 +1,69 @@
+﻿<GroupBox Name="GBDEDIThr_leave_type"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_leave_type"><Ctrls>
+<Label Align="Right" Text="leave_type" Name="lb_leave_type" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_leave_type" Name="leave_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_leave_category"><Ctrls>
+<Label Align="Right" Text="leave_category" onload="init" Name="lb_leave_category" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_leave_category" onload="init" Name="leave_category" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=201</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_maximum_accumulation"><Ctrls>
+<Label Align="Right" Text="maximum_accumulation" Name="lb_maximum_accumulation" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_maximum_accumulation" Name="maximum_accumulation" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_allow_carry_forward_cb"><Ctrls>
+<CheckBox Text="allow_carry_forward_cb" ToolTip="ttp_allow_carry_forward_cb" Name="allow_carry_forward_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_carry_forward_per_year"><Ctrls>
+<Label Align="Right" Text="carry_forward_per_year" Name="lb_carry_forward_per_year" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_carry_forward_per_year" Name="carry_forward_per_year" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_auto_convert_salary_cb"><Ctrls>
+<CheckBox Text="auto_convert_salary_cb" ToolTip="ttp_auto_convert_salary_cb" Name="auto_convert_salary_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" Size="230,20" checked="true"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>xerp_user_id</Index>
+<DbTable>xbs.user_v</DbTable>
+<Data>NAME,username,xerp_user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>xerp_user_id</Index>
+<DbTable>xbs.user_v</DbTable>
+<Data>NAME,username,xerp_user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_hr_leave_type_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="hr_leave_type_id" overlap="pre" Name="lb_hr_leave_type_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hr_leave_type_id" overlap="pre" Name="hr_leave_type_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{hr_leave_type_id}'"><SetVisible name="inserthr_leave_type" Visible="0"/><SetVisible name="modifyhr_leave_type" Visible="1"/><else/><SetVisible name="inserthr_leave_type" Visible="1"/><SetVisible name="modifyhr_leave_type" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

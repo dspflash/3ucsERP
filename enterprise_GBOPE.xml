@@ -1,0 +1,28 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEenterprise" Size="100,100"><Ctrls>
+<Button Text="create" ToolTip="ttp_createenterprise" Name="insertenterprise" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.enterprise</DbTable>
+<Data>org_id[org_id],status,created_by</Data>
+<DataEx>creation_date,last_update_by,last_update_date;now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchenterprise" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyenterprise" Name="modifyenterprise" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.enterprise</DbTable>
+<Data>org_id[org_id],status,created_by</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>enterprise_id='%{enterprise_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchenterprise" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetenterprise" Name="resetenterprise" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITenterprise" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

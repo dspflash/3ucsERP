@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVap_payment_terms"><Ctrls>
+<ListCtrl Heading="term_name,60;term_description,250;end_date,90;term_id,60;" loadedclick="0" ToolTip="ttp_ap_payment_terms" onload="init" Name="ap_payment_termsLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payment_terms</DbTable>
+<Index>term_id</Index>
+<Data>term_name,term_description,end_date,term_id</Data>
+<Order>term_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

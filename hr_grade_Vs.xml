@@ -1,0 +1,56 @@
+﻿<GroupBox Name="GBDEDIThr_grade"><Ctrls>
+<GroupBox Name="GB_grade" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_grade" Size="60,20" Text="grade" Align="Right"/>
+<TextBox Name="grade" Size="170,20" Text="" Weight="170" ToolTip="ttp_grade"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_element_entry_tpl_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hr_element_entry_tpl_header_id" Size="60,20" Text="hr_element_entry_tpl_header_id" Align="Right"  onload="init"/>
+<ComboBox Name="hr_element_entry_tpl_header_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_hr_element_entry_tpl_header_id"  onload="init">
+	<DbDetails>
+<DbTable>xbs.hr_element_entry_tpl_header</DbTable>
+<Index>hr_element_entry_tpl_header_id</Index>
+<Data>template_name,hr_element_entry_tpl_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_rank" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_rank" Size="60,20" Text="rank" Align="Right"/>
+<TextBox Name="rank" Size="170,20" Text="" Weight="170" ToolTip="ttp_rank"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_inactive_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_inactive_date" Size="60,20" Text="inactive_date" Align="Right"/>
+<DateTime Name="inactive_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_inactive_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_alt_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_alt_name" Size="60,20" Text="alt_name" Align="Right"/>
+<TextBox Name="alt_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_alt_name"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_alt_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_alt_description" Size="60,20" Text="alt_description" Align="Right"/>
+<TextBox Name="alt_description" Size="170,20" Text="" Weight="170" ToolTip="ttp_alt_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_grade_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hr_grade_id" Size="60,20" Text="hr_grade_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hr_grade_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hr_grade_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{hr_grade_id}'"><SetVisible name="inserthr_grade" Visible="0"/><SetVisible name="modifyhr_grade" Visible="1"/><else/><SetVisible name="inserthr_grade" Visible="1"/><SetVisible name="modifyhr_grade" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

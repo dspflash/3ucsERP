@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_customer_relation" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_customer_relationLst" ToolTip="ttp_prj_customer_relation" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_customer_relation</DbTable>
+<Index>prj_customer_relation_id</Index>
+<Data>ar_customer_id,relation,status,created_by,creation_date,last_update_by,last_update_date,prj_customer_relation_id</Data>
+<Order>prj_customer_relation_id</Order></DbDetails>
+<OnClick><assign name="ar_customer_id[ar_customer_id]" expr="%{prj_customer_relationLst[ar_customer_id]}" function="SetSel"/><assign name="relation[option_line_id]" expr="%{prj_customer_relationLst[relation]}" function="SetSel"/>
+<if cond="%{prj_customer_relation_id}"><SetVisible name="insertprj_customer_relation" Visible="0"/><SetVisible name="modifyprj_customer_relation" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

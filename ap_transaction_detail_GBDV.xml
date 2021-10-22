@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVap_transaction_detail"><Ctrls>
+<ListCtrl Heading="account_type,120;detail_ac_id,120;amount,100;gl_amount,75;description,440;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ap_transaction_detail_id,60;status,250;detail_number,60;period_id,120;" loadedclick="0" ToolTip="ttp_ap_transaction_detail" Name="ap_transaction_detailLst" Size="500,300">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_transaction_detail a left join xbs.option_line o on a.account_type=o.option_line_id left join xbs.coa_combination c left join xbs.gl_account_type g on c.field4=g.account_type_code c on a.detail_ac_id=c.coa_combination_id left join xbs.gl_period g on a.period_id=g.gl_period_id</DbTable>
+<Index>ap_transaction_detail_id</Index>
+<Data>o.option_line_value account_type,c.g.account_type detail_ac_id,a.amount,a.gl_amount,a.description,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.ap_transaction_detail_id,a.status,a.detail_number,g.period_name period_id</Data>
+<Order>ap_transaction_detail_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

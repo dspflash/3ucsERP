@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVfp_source_list_line"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_fp_source_list_line" Name="fp_source_list_lineLst" Size="300,180">
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_source_list_line f left join xbs.fp_forecast_header f0 on f.source_list_id=f0.fp_forecast_header_id left join xbs.option_line o on f.source_list_line_type=o.option_line_id</DbTable>
+<Index>fp_source_list_line_id</Index>
+<Data>f0.forecast source_list_id,o.option_line_value source_list_line_type,f.description,f.created_by,f.creation_date,f.last_update_by,f.last_update_date,f.fp_source_list_line_id</Data>
+<Order>fp_source_list_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>fp_source_list_line_id='%{fp_source_list_line_vLst[fp_source_list_line_id]}'</Where></DbDetails><submit next="$this.fp_source_list_line.fp_source_list_lineLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.fp_source_list_line</DbTable>
+<Where>fp_source_list_line_id='%{fp_source_list_line_vLst[fp_source_list_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

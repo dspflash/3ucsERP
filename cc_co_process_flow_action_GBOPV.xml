@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVcc_co_process_flow_action" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletecc_co_process_flow_action" Name="deletecc_co_process_flow_action" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.cc_co_process_flow_action</DbTable>
+<Where>cc_co_process_flow_action_id='%{cc_co_process_flow_actionLst[cc_co_process_flow_action_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchcc_co_process_flow_action" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshcc_co_process_flow_action" Name="searchcc_co_process_flow_action" Size="50,20">
+			  <OnClick><submit next="cc_co_process_flow_actionLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPcc_co_process_flow_actionLst" OnClick="(cc_co_process_flow_actionLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREcc_co_process_flow_actionLst" OnClick="(cc_co_process_flow_actionLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPcc_co_process_flow_actionLst" OnClick="(cc_co_process_flow_actionLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

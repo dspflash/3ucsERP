@@ -1,0 +1,66 @@
+﻿<GroupBox Name="GBDEDIThr_team_line"><Ctrls>
+<GroupBox Name="GB_member_employee_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_member_employee_id" Size="60,20" Text="member_employee_id" Align="Right"/>
+<ComboBox Name="member_employee_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_member_employee_id">
+	<DbDetails>
+<DbTable>xbs.hr_employee</DbTable>
+<Index>hr_employee_id</Index>
+<Data>first_name,last_name,hr_employee_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_role" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_role" Size="60,20" Text="role" Align="Right"  onload="init"/>
+<ComboBox Name="role" Size="170,100" Text="" Weight="170"  ToolTip="ttp_role"  onload="init">
+	<DbDetails>
+<DbTable>xbs.xerp_role</DbTable>
+<Index>role_id</Index>
+<Data>role_name_cn,role_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_responsibility" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_responsibility" Size="60,20" Text="responsibility" Align="Right"/>
+<ComboBox Name="responsibility" Size="170,100" Text="" Weight="170" Items="Member|Lead|Manager|Admin" ToolTip="ttp_responsibility"></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_region" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_region" Size="60,20" Text="region" Align="Right"/>
+<TextBox Name="region" Size="170,20" Text="" Weight="170" ToolTip="ttp_region"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_start_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_start_date" Size="60,20" Text="start_date" Align="Right"/>
+<DateTime Name="start_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_start_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_end_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_end_date" Size="60,20" Text="end_date" Align="Right"/>
+<DateTime Name="end_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_end_date"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_objective" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_objective" Size="60,20" Text="objective" Align="Right"/>
+<TextBox Name="objective" Size="170,20" Text="" Weight="170" ToolTip="ttp_objective"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_team_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hr_team_line_id" Size="60,20" Text="hr_team_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hr_team_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hr_team_line_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{hr_team_line_id}'"><SetVisible name="inserthr_team_line" Visible="0"/><SetVisible name="modifyhr_team_line" Visible="1"/><else/><SetVisible name="inserthr_team_line" Visible="1"/><SetVisible name="modifyhr_team_line" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_team_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hr_team_header_id" Size="60,20" Text="hr_team_header_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hr_team_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hr_team_header_id" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

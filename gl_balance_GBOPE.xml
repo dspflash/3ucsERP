@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEgl_balance" Size="100,100"><Ctrls>
+<Button sqlpkinsert="gl_balance_id" Text="create" ToolTip="ttp_creategl_balance" Name="insertgl_balance" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_balance</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>ledger_id[gl_ledger_id],coa_combination_id[gl_account_id],period_id[gl_period_id],balance_type[option_line_id],begin_balance_dr,begin_balance_cr</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="gl_balanceLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifygl_balance" Name="modifygl_balance" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_balance</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>ledger_id[gl_ledger_id],coa_combination_id[gl_account_id],period_id[gl_period_id],balance_type[option_line_id],begin_balance_dr,begin_balance_cr</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>gl_balance_id='%{gl_balance_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="gl_balanceLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetgl_balance" Name="resetgl_balance" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITgl_balance" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchgl_balance" Name="gsearchgl_balance" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="gl_balanceLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITgl_balance" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

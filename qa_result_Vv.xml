@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVqa_result" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="qa_result_vLst" ToolTip="ttp_qa_result" Size="700,420" OnLoad="init" Heading="accept_anyway,60;result_action_id,120;description,640;qa_result_res,120;qa_result_value,250;reference_key_value,55;reference_key_name,250;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;reference_type,150;qa_result_id,55;final_mark,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.qa_result q left join xbs.option_line o on q.result_action_id=o.option_line_id left join xbs.qa_cp_line q0 on q.qa_result_res=q0.qa_cp_line_id</DbTable>
+<Index>qa_result_id</Index>
+<Data>q.accept_anyway,o.option_line_value result_action_id,q.description,q0.sequence qa_result_res,q.qa_result_value,q.reference_key_value,q.reference_key_name,q.created_by,q.creation_date,q.last_update_by,q.last_update_date,q.reference_type,q.qa_result_id,q.final_mark</Data>
+<Order>qa_result_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>qa_result_id='%{qa_result_vLst[qa_result_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.qa_result.qa_resultLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.qa_result</DbTable>
+<Where>qa_result_id='%{qa_result_vLst[qa_result_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

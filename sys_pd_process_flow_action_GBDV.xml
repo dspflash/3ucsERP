@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsys_pd_process_flow_action"><Ctrls>
+<ListCtrl Heading="field_value,120;comment,640;action_number,120;role_code,125;userid,55;pf_action_type,125;required_cb,25;action_user_id,60;action_duration,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;sys_process_flow_line_id,60;sys_pd_process_flow_action_id,60;sys_pd_header_id,60;" loadedclick="0" ToolTip="ttp_sys_pd_process_flow_action" Name="sys_pd_process_flow_actionLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>sys_pd_process_flow_action_id</Index>
+<DbTable>xbs.sys_pd_process_flow_action s left join xbs.sys_process_flow_action s0 on s.action_number=s0.action_number left join xbs.user_v u on s.userid=u.xerp_user_id left join xbs.user_v u0 on s.action_user_id=u0.xerp_user_id left join xbs.user_v u1 on s.created_by=u1.xerp_user_id left join xbs.user_v u2 on s.last_update_by=u2.xerp_user_id</DbTable>
+<Data>s.field_value,s.comment,s0.role_code action_number,s.role_code,u.NAME userid,s.pf_action_type,s.required_cb,u0.NAME action_user_id,s.action_duration,u1.NAME created_by,s.creation_date,u2.NAME last_update_by,s.last_update_date,s.sys_process_flow_line_id,s.sys_pd_process_flow_action_id,s.sys_pd_header_id</Data>
+<Order>sys_pd_process_flow_action_id</Order></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>sys_pd_process_flow_action_id='%{sys_pd_process_flow_action_vLst[sys_pd_process_flow_action_id]}'</Where></DbDetails><submit next="$this.sys_pd_process_flow_action.sys_pd_process_flow_actionLst" namelist="DbDetails"/><assign name="$this.sys_pd_process_flow_action.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.sys_pd_process_flow_action</DbTable>
+<Where>sys_pd_process_flow_action_id='%{sys_pd_process_flow_action_vLst[sys_pd_process_flow_action_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,9 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>fp_forecast_group_id='%{fp_forecast_group_vLst[fp_forecast_group_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.fp_forecast_group.fp_forecast_groupLst"/></op>
+<op text="consume"><DbDetails><queryFormat>CALL forecastConsume('%{fp_forecast_group_vLst[fp_forecast_group_id]}',4,CURDATE(),0,1,4);</queryFormat></DbDetails><submit namelist="DbDetails"/></op>
+<!--op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.fp_forecast_group</DbTable>
+<Where>fp_forecast_group_id='%{fp_forecast_group_vLst[fp_forecast_group_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op-->
+</operator>

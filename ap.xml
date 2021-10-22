@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="AP" Name="ap" id="ap">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="supplier.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="supplier_site.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="supplier_bu.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_payable_control.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_payment_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_payment_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_transaction_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_transaction_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_transaction_detail.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_payment_interface.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_payment_process.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_payment_terms.xml"/>
+	</WndTaps>
+	</WndTap>

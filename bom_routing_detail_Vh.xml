@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVbom_routing_detail" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bom_routing_detailLst" ToolTip="ttp_bom_routing_detail" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>bom_routing_detail_id</Index>
+<DbTable>xbs.bom_routing_detail</DbTable>
+<Data>resource_sequence,resource_id,charge_type,charge_basis,resource_usage,resource_schedule,assigned_units,twenty_four_hr_cb,created_by,creation_date,last_update_by,last_update_date,bom_routing_detail_id</Data>
+<Order>bom_routing_detail_id</Order></DbDetails>
+<OnClick><assign name="resource_id[resource_id]" expr="%{bom_routing_detailLst[resource_id]}" function="SetSel"/><assign name="charge_type[option_line_id]" expr="%{bom_routing_detailLst[charge_type]}" function="SetSel"/><assign name="charge_basis[option_line_id]" expr="%{bom_routing_detailLst[charge_basis]}" function="SetSel"/><assign name="resource_schedule[option_line_id]" expr="%{bom_routing_detailLst[resource_schedule]}" function="SetSel"/>
+<if cond="%{bom_routing_detail_id}"><SetVisible name="insertbom_routing_detail" Visible="0"/><SetVisible name="modifybom_routing_detail" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

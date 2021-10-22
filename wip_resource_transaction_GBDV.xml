@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVwip_resource_transaction"><Ctrls>
+<ListCtrl Heading="wip_wo_routing_detail_id,120;transaction_date,90;transaction_quantity,100;reason,440;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;wip_resource_transaction_id,100;org_id,50;transaction_type,120;wip_wo_header_id,50;wip_wo_routing_line_id,50;" loadedclick="0" ToolTip="ttp_wip_resource_transaction" Name="wip_resource_transactionLst" Size="500,300">
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_resource_transaction w left join xbs.wip_wo_routing_detail w0 on w.wip_wo_routing_detail_id=w0.wip_wo_routing_detail_id</DbTable>
+<Index>wip_resource_transaction_id</Index>
+<Data>w0.resource wip_wo_routing_detail_id,w.transaction_date,w.transaction_quantity,w.reason,w.created_by,w.creation_date,w.last_update_by,w.last_update_date,w.wip_resource_transaction_id,w.org_id,w.transaction_type,w.wip_wo_header_id,w.wip_wo_routing_line_id</Data>
+<Order>wip_resource_transaction_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

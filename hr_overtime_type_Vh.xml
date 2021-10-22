@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_overtime_type" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_overtime_typeLst" ToolTip="ttp_hr_overtime_type" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_overtime_type_id</Index>
+<DbTable>xbs.hr_overtime_type</DbTable>
+<Data>overtime_type,auto_convert_salary_cb,description,status,created_by,creation_date,last_update_by,last_update_date,hr_overtime_type_id</Data>
+<Order>hr_overtime_type_id</Order></DbDetails>
+<OnClick><assign name="created_by[xerp_user_id]" expr="%{hr_overtime_typeLst[created_by]}" function="SetSel"/><assign name="last_update_by[xerp_user_id]" expr="%{hr_overtime_typeLst[last_update_by]}" function="SetSel"/>
+<if cond="%{hr_overtime_type_id}"><SetVisible name="inserthr_overtime_type" Visible="0"/><SetVisible name="modifyhr_overtime_type" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

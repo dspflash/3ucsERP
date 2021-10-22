@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="payment_term" Name="payment_term" Ver="2">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\payment_term.xml"/>
+<Ctrls>
+<GroupBox Text="payment_term" Name="GBpayment_term" id="payment_term" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="payment_term_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="payment_term_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="payment_term_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="payment_term_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

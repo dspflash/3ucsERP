@@ -1,0 +1,101 @@
+<WndTap Text="Inspection" Name="vQA_inspection" Ver="2">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_result_Vem.xml" popup="1"/>
+	<WndTap Text="InspectLine" Name="vInspectLine" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_receipt_line.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_result.xml"/>
+		<Ctrls>
+		<GroupBox Text="InspectLine" Name="GBvReceiptLine" id="vInspectLine" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinv_receipt_line"><Ctrls>
+<ListCtrl Heading="transaction_type,120;transaction_quantity,60;item_number,120;item_name,120;item_specification,120;item_description,120;accept_anyway,120;final_mark,120;QA_result_action,120;subinventory_id,120;locator_id,120;lot_number,120;creator,60;updator,60;item_id_m,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;uom,10;inv_receipt_line_id,60;" loadedclick="0" ToolTip="ttp_inv_receipt_line" Name="inv_receipt_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_receipt_line i left join xbs.item i0 on i.item_id_m=i0.item_id_m left join xbs.subinventory s on i.subinventory_id=s.subinventory_id left join xbs.locator l on i.locator_id=l.locator_id left join xbs.inv_lot_number i1 on i.lot_number=i1.inv_lot_number_id left join xbs.currency c on i.currency=c.currency_id left join xbs.xerp_user x on i.created_by=x.xerp_user_id left join xbs.xerp_user x0 on i.last_update_by=x0.xerp_user_id join transaction_type tt on i.transaction_type_id=tt.transaction_type_id left join qa_result q on q.reference_key_name='inv_receipt_line' and q.reference_key_value=i.inv_receipt_line_id left join option_line qra on q.result_action_id=qra.option_line_id</DbTable>
+<Index>inv_receipt_line_id</Index>
+<Data>tt.transaction_type,i.transaction_quantity,i0.item_number,item_name,item_specification,i0.item_description,q.accept_anyway,q.final_mark,qra.option_line_value,s.subinventory subinventory_id,l.locator locator_id,i1.lot_number lot_number,x.username AS creator,x0.username AS updator,i.item_id_m,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.uom_id,i.inv_receipt_line_id,i1.inv_lot_number_id,i.status,i.reference_key_value,qa_result_id</Data>
+<Order>inv_receipt_line_id</Order></DbDetails><OnClick><assign name="reference_key_value[refid]" function="setsel" expr="inv_receipt_lineLst[reference_key_value]"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="inspect"><submit next="$parent.qa_result.GBqa_result" function="reset"/>
+<assign name="$parent.qa_result.reference_key_name" expr="inv_receipt_line"/>
+<assign name="$parent.qa_result.reference_key_value" expr="%{inv_receipt_lineLst[inv_receipt_line_id]}"/>
+<DbDetails><DbTable>qa_cp_header qp JOIN qa_specification_header qs ON qp.qa_specification_header_id=qs.qa_specification_header_id</DbTable><Where>item_id_m=%{inv_receipt_lineLst[item_id_m]}</Where></DbDetails><submit next="$parent.qa_result.qa_cp_header_id" namelist="DbDetails"/>
+<!--assign name="$parent.GBqa_result." expr="%{inv_receipt_lineLst[transaction_quantity]}"/>
+<DbDetails><Where>uom_id=%{inv_receipt_lineLst[uom_id]}</Where></DbDetails><submit next="$parent.inv_receipt_line_adm.uom_id" namelist="DbDetails"/>
+<assign name="vReceipt.inv_receipt_line_adm.subinventory_id" expr="%{inv_receipt_lineLst[subinventory_id]}" function="setsel"/>
+<assign name="vReceipt.inv_receipt_line_adm.locator_id" expr="%{inv_receipt_lineLst[locator_id]}" function="setsel"/-->
+<DbDetails><Where>qa_result_id='%{inv_receipt_lineLst[qa_result_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.qa_result.qa_resultLst"/>
+</op>
+<!--op text="qa_resuts"><assign name="$parent.vQA.inv_receipt_line_id" expr="%{inv_receipt_lineLst[inv_receipt_line_id]}"/><DbDetails><Where>inv_receipt_line_id='%{$parent.vQA.inv_receipt_line_id}'</Where></DbDetails><submit next="$parent.vQA.vQALst" namelist="DbDetails"/>
+</op-->
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	</WndTaps>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_result.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_receipt_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="Inspection" Name="GBvReceipt" id="vQA_inspection" Size="100,100"><Ctrls>
+<GroupBox Name="GBDEDITinv_receipt_header"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_receipt_number"><Ctrls>
+<Label Align="Right" Text="receipt_number" Name="lb_receipt_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_receipt_number" Name="receipt_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right" onload="init"/>
+<ComboBox Name="status" Size="170,100" Weight="170"  ToolTip="ttp_status" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=297</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearch.xml"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPEinv_receipt_header" Size="100,10" cols="xs12 sm12 md12 lg12"><Ctrls>
+<TAB/><Button Name="resetinv_receipt_header" Size="50,20" Text="reset" ToolTip="ttp_resetinv_receipt_header">
+	<OnClick>
+	<submit next="GBDEDITinv_receipt_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="gsearchinv_receipt_header" Size="50,20" Text="gsearch" ToolTip="ttp_gsearchinv_receipt_header">
+			  <OnClick>
+	<search next="vReceiptLst" listed="0" prefixwhere="1" inputed="1"><receipt_number format="receipt_number like '%%{opvalue}%'"/>
+
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search>
+	<submit next="GBDEDITinv_receipt_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<!--Button Name="barcode" Size="80,20" Text="barcode"><OnClick><assign name="barcode_res" expr=""/><assign name="barcode_res" expr="barcode" function=""/></OnClick></Button><TAB/>
+<TextBox Weight="170" Name="po_info" Size="170,20" visible="1" ToolTip="采购单信息（采购接收搜索条件），可以是采购单号或物品名称"/>
+<Button Name="po_receipt" Size="80,20" Text="po_receipt" ToolTip="根据po_info信息(采购单号或物品名称)搜索可接收的采购"><OnClick><if cond="%{po_info}">
+<DbDetails><Where>pl.status=1498 and (item_number='%{po_info}' or po_number='%{po_info}')</Where></DbDetails><submit next="$this.ir_pick.irLst" namelist="DbDetails"/></if></OnClick></Button>
+<TextBox Weight="170" Name="barcode_res" Size="170,20" visible="0"><OnEnChange>
+<if cond="%{barcode_res}"><assign name="po_info" expr="%{barcode_res}"/><DbDetails><where>where receipt_number='%{barcode_res}'</where></DbDetails><submit next="vReceiptLst" namelist="DbDetails"/></if></OnEnChange></TextBox-->
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="vReceiptLst" Size="700,420">
+			<DbDetails>
+			<DbTable>inv_receipt_header_v</DbTable>
+			<Index>inv_receipt_header_id</Index>
+			<Data>*</Data>
+			<Order>inv_receipt_header_id</Order>
+			<Where>where inv_receipt_header_id in (select inv_receipt_header_id from inv_receipt_line where (status,inspection_status)=(1520,0))</Where>
+			<queryFormat>select %{data} from %{dbtable} %{where} order by inv_receipt_header_id desc limit %{StartRow},%{PgSize}</queryFormat>
+			</DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<op text="view"><DbDetails><Where>inv_receipt_header_id='%{vReceiptLst[inv_receipt_header_id]}' and inspection_status is not null</Where></DbDetails><submit next="$this.vInspectLine.inv_receipt_lineLst" namelist="DbDetails"/></op>
+			<op text="confirm" needconfirm="1"><DbDetails><queryFormat>UPDATE inv_receipt_line ir JOIN qa_result qr ON ir.inv_receipt_line_id=qr.reference_key_value AND qr.reference_key_name='inv_receipt_line' SET final_mark=1,inspection_status=1,ir.inspection_quality=qr.accept_anyway WHERE inv_receipt_header_id='%{vReceiptLst[inv_receipt_header_id]}' AND accept_anyway IS NOT NULL AND inspection_status=0;</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>update qa_result set final_mark=1 where reference_key_name='inv_receipt_line' and reference_key_value in (select inv_receipt_line_id from inv_receipt_line where inv_receipt_header_id='%{vReceiptLst[inv_receipt_header_id]}');UPDATE inv_receipt_line SET inspection_status=1 where inv_receipt_header_id='%{vReceiptLst[inv_receipt_header_id]}' and inspection_quality is not null and inspection_status=0;
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

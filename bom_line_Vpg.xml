@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGbom_line"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_bom_line" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>bom_line_id</Index>
+<DbTable>xbs.bom_line b left join xbs.bom_routing_line b0 on b.routing_sequence=b0.routing_sequence left join xbs.item i on b.component_item_id_m=i.item_id_m left join xbs.option_line o on b.usage_basis=o.option_line_id left join xbs.option_line o0 on b.wip_supply_type=o0.option_line_id left join xbs.subinventory s on b.supply_sub_inventory=s.subinventory_id left join xbs.locator l on b.supply_locator=l.locator_id</DbTable>
+<Data>count(*) records</Data>
+<Order>bom_line_id</Order><Queryformat>select %{data} from (select b.bom_line_id from %{dbtable} %{where} GROUP BY b.bom_line_id  ORDER BY b.bom_line_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_bom_line" expr="js(Math.ceil(%{records_bom_line}/%{bom_line_vLst[countsperpage]}))"/>
+<assign name="pgscb_bom_line" expr="js('1~'+Math.ceil(%{records_bom_line}/%{bom_line_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_bom_line" Size="60,20"><OnSelEndOK><submit next="bom_line_vLst" function="GetPage(%{pgscb_bom_line}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_bom_line" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_bom_line" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagebom_line_vLst" Size="50,20"><OnClick><submit next="bom_line_vLst" function="GetPage(%{pgcur_bom_line}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

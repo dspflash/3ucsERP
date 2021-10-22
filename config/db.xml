@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+	<DbDetails>
+		<SubDriver>MySQL</SubDriver>
+		<Host>localhost</Host>
+		<database>xbs</database>
+		<!--sqlMode>NO_BACKSLASH_ESCAPES</sqlMode-->
+		<characterset>utf8</characterset>
+		<User>i3u</User>
+		<password id="pass">i3u</password>
+		<config>select PASSWORD,layout,org_id as orgid,xerp_user_id as user_id,role_id from user_v where username='%{UserName}';</config>
+		<!--purview>SELECT `class` FROM xerp_role_permission rp JOIN user_role ur ON ur.role_code=rp.role_id JOIN xerp_user xu ON xu.xerp_user_id=ur.user_id WHERE username='%{UserName}';</purview-->
+		</DbDetails>	

@@ -1,0 +1,100 @@
+﻿<GroupBox Name="GBDEDIThr_timesheet_line"><Ctrls>
+<GroupBox Name="GB_work_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_work_date" Size="60,20" Text="work_date" Align="Right"/>
+<DateTime Name="work_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_work_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_day1" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_day1" Size="60,20" Text="day1" Align="Right"/>
+<TextBox Name="day1" Size="170,20" Text="" Weight="170" ToolTip="ttp_day1"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_day2" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_day2" Size="60,20" Text="day2" Align="Right"/>
+<TextBox Name="day2" Size="170,20" Text="" Weight="170" ToolTip="ttp_day2"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_day3" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_day3" Size="60,20" Text="day3" Align="Right"/>
+<TextBox Name="day3" Size="170,20" Text="" Weight="170" ToolTip="ttp_day3"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_day4" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_day4" Size="60,20" Text="day4" Align="Right"/>
+<TextBox Name="day4" Size="170,20" Text="" Weight="170" ToolTip="ttp_day4"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_day5" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_day5" Size="60,20" Text="day5" Align="Right"/>
+<TextBox Name="day5" Size="170,20" Text="" Weight="170" ToolTip="ttp_day5"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_day6" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_day6" Size="60,20" Text="day6" Align="Right"/>
+<TextBox Name="day6" Size="170,20" Text="" Weight="170" ToolTip="ttp_day6"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_day7" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_day7" Size="60,20" Text="day7" Align="Right"/>
+<TextBox Name="day7" Size="170,20" Text="" Weight="170" ToolTip="ttp_day7"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_prj_project_line_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_prj_project_line_id" Size="60,20" Text="prj_project_line_id" Align="Right"/>
+<ComboBox Name="prj_project_line_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_prj_project_line_id">
+	<DbDetails>
+<DbTable>xbs.prj_project_line</DbTable>
+<Index>prj_project_line_id</Index>
+<Data>task_name,prj_project_line_id</Data>
+<Where>prj_project_header_id='%{prj_project_header_id[prj_project_header_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_prj_work_type_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_prj_work_type_id" Size="60,20" Text="prj_work_type_id" Align="Right"/>
+<ComboBox Name="prj_work_type_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_prj_work_type_id">
+	<DbDetails>
+<DbTable>xbs.prj_work_type</DbTable>
+<Index>prj_work_type_id</Index>
+<Data>work_type,prj_work_type_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_prj_project_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_prj_project_header_id" Size="60,20" Text="prj_project_header_id" Align="Right"/>
+<ComboBox Name="prj_project_header_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_prj_project_header_id">
+	<DbDetails>
+<DbTable>xbs.prj_project_header</DbTable>
+<Index>prj_project_header_id</Index>
+<Data>project_number,prj_project_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSELENDOK><submit next="prj_project_line_id"/></OnSELENDOK></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right"/>
+<TextBox Name="status" Size="170,20" Text="" Weight="170" ToolTip="ttp_status"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_purpose" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_purpose" Size="60,20" Text="purpose" Align="Right"/>
+<TextBox Name="purpose" Size="170,20" Text="" Weight="170" ToolTip="ttp_purpose"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_timesheet_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hr_timesheet_line_id" Size="60,20" Text="hr_timesheet_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hr_timesheet_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hr_timesheet_line_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{hr_timesheet_line_id}'"><SetVisible name="inserthr_timesheet_line" Visible="0"/><SetVisible name="modifyhr_timesheet_line" Visible="1"/><else/><SetVisible name="inserthr_timesheet_line" Visible="1"/><SetVisible name="modifyhr_timesheet_line" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_timesheet_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hr_timesheet_header_id" Size="60,20" Text="hr_timesheet_header_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hr_timesheet_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hr_timesheet_header_id" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

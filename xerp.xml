@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><XI3uWnd>
+	<DbDetails>
+		<SubDriver>MySQL</SubDriver>
+		<Host>localhost</Host>
+		<database>xbs</database>
+		<sqlMode>NO_BACKSLASH_ESCAPES</sqlMode>
+		<User>i3u</User>
+		<password>i3u</password>
+		
+		</DbDetails>	
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pos.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="general.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="finance.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="contact.xml"></xi:include>
+	</WndTaps>
+</XI3uWnd>

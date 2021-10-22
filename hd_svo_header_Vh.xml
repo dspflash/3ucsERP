@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhd_svo_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hd_svo_headerLst" ToolTip="ttp_hd_svo_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_svo_header</DbTable>
+<Index>hd_svo_header_id</Index>
+<Data>order_number,payment_term_id,ar_customer_id,ar_customer_site_id,doc_currency,ship_to_id,bill_to_id,currency,exchange_rate,description,prepaid_status,exchange_rate_type,hd_svo_header_id,hd_service_type_header_id,hd_service_request_id,promise_date,service_team_id,service_person_employee_id,item_id_m,inv_serial_number_id,lot_number_id,quantity,estimate_amount,warrenty_status,escalation,inventory_org_id,close_date,repair_status,estimate_status,primary_sd_so_header_id,created_by,creation_date,last_update_by,last_update_date,bu_org_id</Data>
+<Order>hd_svo_header_id</Order></DbDetails>
+<OnClick><assign name="payment_term_id[payment_term_id]" expr="%{hd_svo_headerLst[payment_term_id]}" function="SetSel"/><assign name="ar_customer_id[ar_customer_id]" expr="%{hd_svo_headerLst[ar_customer_id]}" function="SetSel"/><assign name="ar_customer_site_id[ar_customer_site_id]" expr="%{hd_svo_headerLst[ar_customer_site_id]}" function="SetSel"/><assign name="doc_currency[currency_id]" expr="%{hd_svo_headerLst[doc_currency]}" function="SetSel"/><assign name="ship_to_id[address_id]" expr="%{hd_svo_headerLst[ship_to_id]}" function="SetSel"/><assign name="bill_to_id[address_id]" expr="%{hd_svo_headerLst[bill_to_id]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{hd_svo_headerLst[currency]}" function="SetSel"/><assign name="exchange_rate_type[gl_currency_conversion_id]" expr="%{hd_svo_headerLst[exchange_rate_type]}" function="SetSel"/><assign name="hd_service_type_header_id[hd_service_type_header_id]" expr="%{hd_svo_headerLst[hd_service_type_header_id]}" function="SetSel"/><assign name="hd_service_request_id[hd_service_request_id]" expr="%{hd_svo_headerLst[hd_service_request_id]}" function="SetSel"/><assign name="escalation[option_line_id]" expr="%{hd_svo_headerLst[escalation]}" function="SetSel"/>
+<if cond="%{hd_svo_header_id}"><SetVisible name="inserthd_svo_header" Visible="0"/><SetVisible name="modifyhd_svo_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

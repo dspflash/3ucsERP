@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVwip_move_transaction"><Ctrls>
+<ListCtrl Heading="wip_wo_header_id,120;item_id_m,120;from_routing_sequence,120;from_operation_step,240;to_routing_sequence,120;to_operation_step,240;move_quantity,100;transaction_type,240;transaction_date,150;reason,240;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;wip_move_transaction_id,100;org_id,50;" loadedclick="0" ToolTip="ttp_wip_move_transaction" Name="wip_move_transactionLst" Size="300,180">
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_move_transaction w left join xbs.wip_wo_header w0 on w.wip_wo_header_id=w0.wip_wo_header_id left join xbs.item i on w.item_id_m=i.item_id_m</DbTable>
+<Index>wip_move_transaction_id</Index>
+<Data>w0.wo_number wip_wo_header_id,i.item_number item_id_m,w.from_routing_sequence,w.from_operation_step,w.to_routing_sequence,w.to_operation_step,w.move_quantity,w.transaction_type,w.transaction_date,w.reason,w.created_by,w.creation_date,w.last_update_by,w.last_update_date,w.wip_move_transaction_id,w.org_id</Data>
+<Order>wip_move_transaction_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,10 @@
+﻿<GroupBox Name="GBDVinv_count_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="inv_count_header_vLst" ToolTip="ttp_inv_count_header" Size="700,420" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.inv_count_header i left join xbs.option_line o on i.approval_required=o.option_line_id left join xbs.option_line o0 on i.status=o0.option_line_id left join xbs.org o1 on i.org_id=o1.org_id</DbTable>
+<Index>inv_count_header_id</Index>
+<Data>i.count_name,i.count_type,o.option_line_value approval_required,i.quantity_variance_positive,i.quantity_variance_negative,i.description,o0.option_line_value status,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,o1.org org_id,i.inv_count_header_id</Data>
+<Order>inv_count_header_id</Order></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_count_header_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

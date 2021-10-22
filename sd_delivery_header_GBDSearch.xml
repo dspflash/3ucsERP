@@ -1,0 +1,27 @@
+<GroupBox Name="GBDEDITsd_delivery_header"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_delivery_number"><Ctrls>
+<Label Align="Right" Text="delivery_number" Name="lb_delivery_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_delivery_number" Name="delivery_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_shipping_org_id"><Ctrls>
+<Label Align="Right" Text="shipping_org_id" onload="init" Name="lb_shipping_org_id" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" ToolTip="ttp_shipping_org_id" onload="init" Name="shipping_org_id" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org_id</Data>
+<Where>parent_org_id='%{orgid}' or (org_id='%{orgid}' and type=74)</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" Name="lb_status" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_status" Name="status" onload="init" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=167</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearch.xml"/>
+</Ctrls></GroupBox>

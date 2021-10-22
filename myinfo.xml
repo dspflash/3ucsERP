@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="myinfo" Name="myinfo" Ver="2">
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\myinfo.xml"/>
+<Ctrls>
+<GroupBox Text="hr_employee_v" Name="GBhr_employee_v" id="hr_employee_v" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="myinfo_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="myinfo_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="myinfo_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="myinfo_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

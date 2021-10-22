@@ -1,0 +1,9 @@
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{mdm_price_list_header_id}"><alert expr="mdm_price_list_header_id is Empty!"/><else/><submit next="$parent.mdm_price_list_line.GBDEDITmdm_price_list_line" function="reset"/><assign name="$parent.mdm_price_list_line.mdm_price_list_header_id" expr="%{mdm_price_list_header_id}"/><submit next="$parent.mdm_price_list_line.org_id"/><submit next="$parent.mdm_price_list_line.item_id_m"/></if></op>
+<op text="modify"><DbDetails><Where>mdm_price_list_line_id='%{mdm_price_list_line_vLst[mdm_price_list_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.mdm_price_list_line.mdm_price_list_lineLst"/><assign name="$parent.mdm_price_list_line.mdm_price_list_header_id" expr="%{mdm_price_list_header_id}"/><submit next="$parent.mdm_price_list_line.org_id"/><DbDetails><Where>item_id_m='%{mdm_price_list_line_vLst[item_id_m]}' and org_id='%{mdm_price_list_line_vLst[org_id]}' and item_status!=278</Where></DbDetails><submit namelist="DbDetails" next="$parent.mdm_price_list_line.item_id_m"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.mdm_price_list_line</DbTable>
+<Where>mdm_price_list_line_id='%{mdm_price_list_line_vLst[mdm_price_list_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

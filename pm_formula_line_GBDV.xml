@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_formula_line"><Ctrls>
+<ListCtrl Heading="line_no,20;line_type,75;item_id_m,120;quantity,75;description,640;cost_allocation,75;scale_type,120;yield_type,120;required_qty,75;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_formula_line_id,60;" loadedclick="0" ToolTip="ttp_pm_formula_line" Name="pm_formula_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_formula_line</DbTable>
+<Index>pm_formula_line_id</Index>
+<Data>line_no,line_type,item_id_m,quantity,description,cost_allocation,scale_type,yield_type,required_qty,created_by,creation_date,last_update_by,last_update_date,pm_formula_line_id</Data>
+<Order>pm_formula_line_id</Order></DbDetails>
+<OnClick><assign name="item_id_m[item_id_m]" function="SetSel" expr="%{pm_formula_lineLst[item_id_m]}"/><assign name="scale_type[option_line_id]" function="SetSel" expr="%{pm_formula_lineLst[scale_type]}"/><assign name="yield_type[option_line_id]" function="SetSel" expr="%{pm_formula_lineLst[yield_type]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

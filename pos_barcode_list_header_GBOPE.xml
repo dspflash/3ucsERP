@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEpos_barcode_list_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="pos_barcode_list_header_id" Text="create" ToolTip="ttp_createpos_barcode_list_header" Name="insertpos_barcode_list_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pos_barcode_list_header</DbTable>
+<Data>list_name,description,org_id,status</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpos_barcode_list_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypos_barcode_list_header" Name="modifypos_barcode_list_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pos_barcode_list_header</DbTable>
+<Data>list_name,description,org_id,status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>pos_barcode_list_header_id='%{pos_barcode_list_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpos_barcode_list_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpos_barcode_list_header" Name="resetpos_barcode_list_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpos_barcode_list_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchpos_barcode_list_header" Name="gsearchpos_barcode_list_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="pos_barcode_list_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITpos_barcode_list_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd errorpush="1" debug="1" title="3UCS人力资源管理">
+	<webconfig theme="../biz/theme/materialadmin/theme.html"/>	
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\error_map.xml"/>
+	<var name="opinv" expr="op"/>
+	<WndTaps id="hr">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmyinfo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vhr_employee.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_attendance_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vhr_attendance.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_header_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payroll_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_leave_entitlement_header_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_leave_transaction_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_overtime_transaction_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_employee_termination_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_employee_crew_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_crew_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_crew_shift_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_shift_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_department_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_position_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_job_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_compensation_element_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_tpl_header_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_leave_type_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_holiday_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_overtime_type_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payroll_payment_method_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_perdiem_rate_v.xml"/>
+	<xi:include module="pd_process" xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_process_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" popup="1" href="sys_pd_process_flow_diagram_v.xml"/>
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_team_header_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_timesheet_header_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_timesheet_period_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_location_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_grade_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_control_v.xml"/-->
+	</WndTaps>
+</XI3uWnd>

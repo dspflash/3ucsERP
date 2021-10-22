@@ -1,0 +1,18 @@
+<WndTap Text="inv_receipt_header" Name="inv_receipt_header" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_receipt_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_receipt_line.xml"/>
+	<Language name="wip_move_transaction">
+<Lang name="reference_key_value" value="采购单号"/>
+<Lang name="ttp_reference_key_value" value=""/>
+</Language>
+	<Ctrls>
+	<GroupBox Text="inv_receipt_header" Name="GBinv_receipt_header" id="inv_receipt_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_header_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_header_GBOPEm.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_header_Vh.xml"/>
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_Vvm.xml"/>
+</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate><SetVisible name="insertinv_receipt_header" Visible="1"/><SetVisible name="modifyinv_receipt_header" Visible="0"/></OnActivate>
+		</WndTap>

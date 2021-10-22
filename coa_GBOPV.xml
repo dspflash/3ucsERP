@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVcoa" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletecoa" Name="deletecoa" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.coa</DbTable>
+<Where>coa_id='%{coaLst[coa_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchcoa" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshcoa" Name="searchcoa" Size="50,20">
+			  <OnClick><submit next="coaLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPcoaLst" OnClick="(coaLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREcoaLst" OnClick="(coaLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPcoaLst" OnClick="(coaLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

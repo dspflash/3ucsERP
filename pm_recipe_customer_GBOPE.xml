@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEpm_recipe_customer" Size="100,100"><Ctrls>
+<Button sqlpkinsert="pm_recipe_customer_id" Text="create" ToolTip="ttp_createpm_recipe_customer" Name="insertpm_recipe_customer" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_recipe_customer</DbTable>
+<Data>pm_recipe_header_id[pm_recipe_header_id],org_id,ar_customer_id[ar_customer_id],ar_customer_site_id,description</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpm_recipe_customer" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypm_recipe_customer" Name="modifypm_recipe_customer" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_recipe_customer</DbTable>
+<Data>pm_recipe_header_id[pm_recipe_header_id],org_id,ar_customer_id[ar_customer_id],ar_customer_site_id,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>pm_recipe_customer_id='%{pm_recipe_customer_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpm_recipe_customer" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpm_recipe_customer" Name="resetpm_recipe_customer" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpm_recipe_customer" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchpm_recipe_customer" Name="gsearchpm_recipe_customer" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="pm_recipe_customerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITpm_recipe_customer" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

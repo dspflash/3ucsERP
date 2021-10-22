@@ -1,0 +1,64 @@
+﻿<GroupBox Name="GBDEDITmdm_price_list_detail"><Ctrls>
+<GroupBox Name="GB_qty_from" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_qty_from" Size="60,20" Text="qty_from" Align="Right"/>
+<TextBox Name="qty_from" Size="170,20" Text="" Weight="170" ToolTip="ttp_qty_from"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_qty_to" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_qty_to" Size="60,20" Text="qty_to" Align="Right"/>
+<TextBox Name="qty_to" Size="170,20" Text="" Weight="170" ToolTip="ttp_qty_to"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_uom_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_uom_id" Size="60,20" Text="uom_id" Align="Right"  selectedIndex="0"/>
+<ComboBox Name="uom_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_uom_id"  selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.uom</DbTable>
+<Index>uom_id</Index>
+<Data>uom_name,uom_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_unit_price" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_unit_price" Size="60,20" Text="unit_price" Align="Right"/>
+<TextBox Name="unit_price" Size="170,20" Text="" Weight="170" ToolTip="ttp_unit_price"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_effective_start_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_start_date" Size="60,20" Text="effective_start_date" Align="Right"/>
+<DateTime Name="effective_start_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_start_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_effective_end_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_end_date" Size="60,20" Text="effective_end_date" Align="Right"/>
+<DateTime Name="effective_end_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_end_date"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_mdm_price_list_detail_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_mdm_price_list_detail_id" Size="60,20" Text="mdm_price_list_detail_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="mdm_price_list_detail_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_mdm_price_list_detail_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{mdm_price_list_detail_id}'"><SetVisible name="insertmdm_price_list_detail" Visible="0"/><SetVisible name="modifymdm_price_list_detail" Visible="1"/><else/><SetVisible name="insertmdm_price_list_detail" Visible="1"/><SetVisible name="modifymdm_price_list_detail" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_mdm_price_list_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_mdm_price_list_line_id" Size="60,20" Text="mdm_price_list_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="mdm_price_list_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_mdm_price_list_line_id" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_mdm_price_list_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_mdm_price_list_header_id" Size="60,20" Text="mdm_price_list_header_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="mdm_price_list_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_mdm_price_list_header_id" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

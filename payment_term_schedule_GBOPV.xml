@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVpayment_term_schedule" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletepayment_term_schedule" Name="deletepayment_term_schedule" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.payment_term_schedule</DbTable>
+<Where>payment_term_schedule_id='%{payment_term_scheduleLst[payment_term_schedule_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpayment_term_schedule" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshpayment_term_schedule" Name="searchpayment_term_schedule" Size="50,20">
+			  <OnClick><submit next="payment_term_scheduleLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPpayment_term_scheduleLst" OnClick="(payment_term_scheduleLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREpayment_term_scheduleLst" OnClick="(payment_term_scheduleLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPpayment_term_scheduleLst" OnClick="(payment_term_scheduleLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

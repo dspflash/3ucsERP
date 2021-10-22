@@ -1,0 +1,50 @@
+<WndTap Name="vPrjProgress" Text="Project Progress">
+	<WndTaps>
+	<WndTap Name="vTaskProgress" Text="Task Progress" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\prj_project_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\prj_percent_line.xml"/>
+		<WndTaps>
+		</WndTaps>
+		<Ctrls>
+	<GroupBox cols="xs12 sm12 md12 lg12" Name="TaskProgress" text="Task Progress"><Ctrls>
+	<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+	<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="taskPercentLst" Size="700,420">
+		<DbDetails>
+	<DbTable>xbs.prj_percent_line_v</DbTable>
+	<Index>prj_project_line_id</Index>
+	<Data>*</Data>
+	<Order>prj_project_line_id</Order>
+	<queryFormat>select %{data} from %{dbtable} where %{where} order by %{order} limit %{StartRow},%{PgSize}</queryFormat>
+	</DbDetails>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls></GroupBox>
+	</Ctrls></WndTap>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\prj_project_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\prj_percent_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="PrjProgress" text="Project Progress"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_project_header_Vsm.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVprj_project_header" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetprj_project_header" Name="resetprj_project_header" Size="50,20">	<OnClick>	<submit next="GBDEDITprj_project_header" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchprj_project_header" Name="gsearchprj_project_header" Size="50,20" visible="true">
+	<OnClick>
+	<search next="prjPercentLst" listed="0" prefixwhere="0" inputed="1"></search>
+	<submit next="GBDEDITprj_project_header" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="prjPercentLst" onload="init" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.prj_percent_all_v</DbTable>
+<Index>prj_project_header_id</Index>
+<Data>*</Data>
+<Order>prj_project_header_id</Order>
+<queryFormat>select %{data} from %{dbtable} where bu_org_id='%{orgid}' %{where} order by %{order} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="taskprogress"><DbDetails><Where>prj_project_header_id='%{prjPercentLst[prj_project_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vTaskProgress.taskPercentLst"/></op>
+</operator>
+</ListCtrl></Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,42 @@
+﻿<GroupBox Name="GBDEDITinv_receipt_header" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_receipt_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_receipt_number" Size="60,20" Text="receipt_number" Align="Right"/>
+<TextBox Name="receipt_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_receipt_number">
+	<DbDetails>
+<Index>receipt_number</Index>
+<DbTable>xbs.inv_receipt_header</DbTable>
+<Data>receipt_number</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_transaction_type_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_transaction_type_id" Size="60,20" Text="transaction_type_id" Align="Right" selectedIndex="0"/>
+<ComboBox Name="transaction_type_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_transaction_type_id" selectedIndex="0">
+	<DbDetails>
+<Index>transaction_type_id</Index>
+<DbTable>xbs.transaction_type</DbTable>
+<Data>transaction_type,transaction_type_id</Data>
+<Where>status is true</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_reference_key_value" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_reference_key_value" Size="60,20" Text="reference_key_value" Align="Right" selectedIndex="0"/>
+<ComboBox Name="reference_key_value" Size="170,100" Text="" Weight="170"  ToolTip="ttp_reference_key_value" selectedIndex="0"></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_receipt_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_receipt_date" Size="60,20" Text="receipt_date" Align="Right"/>
+<DateTime Name="receipt_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_receipt_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_carrier" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_carrier" Size="60,20" Text="carrier" Align="Right"/>
+<TextBox Name="carrier" Size="170,20" Text="" Weight="170" ToolTip="ttp_carrier"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_vechile_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_vechile_number" Size="60,20" Text="vechile_number" Align="Right"/>
+<TextBox Name="vechile_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_vechile_number"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_comment" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_comment" Size="60,20" Text="comment" Align="Right"/>
+<TextBox Name="comment" Size="170,20" Text="" Weight="170" ToolTip="ttp_comment"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

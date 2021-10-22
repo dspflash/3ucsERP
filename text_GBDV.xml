@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_customer"><Ctrls>
+<ListCtrl Heading="customer_number,125;customer_name,300;customer_relationship,120;alt_name,250;supplier_id,120;customer_type,120;customer_category,120;tax_country,200;tax_reg_no,200;tax_payer_id,200;ship_to_id,60;bill_to_id,60;customer_contact_id,60;customer_credit_class,120;profile_name,125;status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_customer_id,60;" loadedclick="0" ToolTip="ttp_ar_customer" onload="init" Name="ar_customerLst" Size="800,480">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_customer</DbTable>
+<Index>ar_customer_id='%{ar_customerLst[ar_customer_id]}'</Index>
+<Data>customer_number,customer_name,customer_relationship,alt_name,supplier_id,customer_type,customer_category,tax_country,tax_reg_no,tax_payer_id,ship_to_id,bill_to_id,customer_contact_id,customer_credit_class,profile_name,status,created_by,creation_date,last_update_by,last_update_date,ar_customer_id</Data>
+<Order>ar_customer_id</Order></DbDetails>
+<OnClick><assign name="customer_relationship[option_line_code]" function="SetSel" expr="%{ar_customerLst[customer_relationship]}"/><assign name="customer_credit_class[option_line_code]" function="SetSel" expr="%{ar_customerLst[customer_credit_class]}"/></OnClick>
+<DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} limit %{StartRow},%{PgSize}</queryFormat></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

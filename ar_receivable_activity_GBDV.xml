@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_receivable_activity"><Ctrls>
+<ListCtrl Heading="activity_name,250;activity_type,20;active_cb,60;account_source,20;description,640;activity_ac_id,60;tax_code_source,75;tax_code_id,60;bu_org_id,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_receivable_activity_id,60;" loadedclick="0" ToolTip="ttp_ar_receivable_activity" Name="ar_receivable_activityLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_receivable_activity</DbTable>
+<Index>ar_receivable_activity_id</Index>
+<Data>activity_name,activity_type,active_cb,account_source,description,activity_ac_id,tax_code_source,tax_code_id,bu_org_id,created_by,creation_date,last_update_by,last_update_date,ar_receivable_activity_id</Data>
+<Order>ar_receivable_activity_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

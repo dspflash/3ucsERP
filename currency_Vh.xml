@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVcurrency" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="currencyLst" ToolTip="ttp_currency" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.currency</DbTable>
+<Index>currency_id</Index>
+<Data>title,code,symbol_left,symbol_right,decimal_place,status,currency_id</Data>
+<Order>currency_id</Order></DbDetails>
+<OnClick>
+<if cond="%{currency_id}"><SetVisible name="insertcurrency" Visible="0"/><SetVisible name="modifycurrency" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

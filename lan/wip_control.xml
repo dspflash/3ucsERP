@@ -1,0 +1,50 @@
+<Language name="wip_control">
+<Lang name="wip_control" value="wip_control"/>
+<Lang name="TabEditwip_control" value="wip_control Edit"/>
+<Lang name="TabViewwip_control" value="wip_control View"/>
+<Lang name="org_id" value=""/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="default_accounting_group" value=""/>
+<Lang name="ttp_default_accounting_group" value=""/>
+<Lang name="wo_number_type" value=""/>
+<Lang name="ttp_wo_number_type" value=""/>
+<Lang name="allow_one_operation_cb" value=""/>
+<Lang name="ttp_allow_one_operation_cb" value=""/>
+<Lang name="completion_subinventory_id" value=""/>
+<Lang name="ttp_completion_subinventory_id" value=""/>
+<Lang name="completion_locator_id" value=""/>
+<Lang name="ttp_completion_locator_id" value=""/>
+<Lang name="issue_subinventory_id" value=""/>
+<Lang name="ttp_issue_subinventory_id" value=""/>
+<Lang name="issue_locator_id" value=""/>
+<Lang name="ttp_issue_locator_id" value=""/>
+<Lang name="so_change_effect" value=""/>
+<Lang name="ttp_so_change_effect" value=""/>
+<Lang name="auto_release_days" value=""/>
+<Lang name="ttp_auto_release_days" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="wip_control_id" value=""/>
+<Lang name="ttp_wip_control_id" value=""/>
+<Lang name="ttp_operationwip_control" value="操作"/>
+<Lang name="ttp_createwip_control" value="新增"/>
+<Lang name="ttp_modifywip_control" value="修改"/>
+<Lang name="ttp_resetwip_control" value="清除数据"/>
+<Lang name="ttp_deletewip_control" value="删除"/>
+<Lang name="ttp_refreshwip_control" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

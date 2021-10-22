@@ -1,0 +1,21 @@
+﻿<WndTap Name="cc_co_template_header_v" Text="cc_co_template_header_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_template_header_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_template_line_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><template_name format="(c.template_name like '%%{opvalue}%')"/><reftbltp format="(c.reftbltp like '%%{opvalue}%')"/><description format="(c.description like '%%{opvalue}%')"/><created_by format="c.created_by='%{opvalue}'"/><creation_date format="(c.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="c.last_update_by='%{opvalue}'"/><last_update_date format="(c.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><org_id format="c.org_id='%{opvalue}'"/><cc_co_template_header_id format="(c.cc_co_template_header_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\cc_co_template_header.xml"/>
+<Ctrls><GroupBox  Name="GBcc_co_template_header" id="cc_co_template_header" Text="cc_co_template_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_template_header_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVcc_co_template_header" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.cc_co_template_header.GBDEDITcc_co_template_header" function="reset"/><assign name="$this.cc_co_template_header.frmwndctrl" expr="%{$this.cc_co_template_header_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetcc_co_template_header" Name="resetcc_co_template_header" Size="50,20">	<OnClick>	<submit next="GBDEDITcc_co_template_header" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchcc_co_template_header" Name="gsearchcc_co_template_header" Size="50,20">	<OnClick>	
+<search next="cc_co_template_header_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITcc_co_template_header" namelist="search" function="search"/>	
+<search next="records_cc_co_template_header" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITcc_co_template_header" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_template_header_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_template_header_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_template_header_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

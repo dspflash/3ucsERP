@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVcontact"><Ctrls>
+<ListCtrl Heading="firstname,100;lastname,100;phone,100;title,100;email,250;mobile,100;department,100;fax,100;training,100;otheremail,250;secondaryemail,250;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;contactid,95;org_id,55;" loadedclick="0" ToolTip="ttp_contact" Name="contactLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>contactid</Index>
+<DbTable>xbs.contact</DbTable>
+<Data>firstname,lastname,phone,title,email,mobile,department,fax,training,otheremail,secondaryemail,created_by,creation_date,last_update_by,last_update_date,contactid,org_id</Data>
+<Order>contactid</Order></DbDetails><DbDetails fcsm="1"><Where>reftbltp='%{reftbltp}' and refid='%{refid}' and org_id=%{orgid}</Where></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="contact_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

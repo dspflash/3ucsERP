@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVlocator" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="locator_vLst" ToolTip="ttp_locator" Size="700,420" Heading="locator,640;org_id,60;locator_structure,640;dimension_uom_id,120;length,75;height,75;width,75;x_coordinate,50;y_coordinate,50;z_coordinate,50;max_units,75;max_volume_uom_id,120;max_volume,75;max_weight_uom_id,120;max_weight,75;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;locator_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.locator l left join xbs.uom u on l.dimension_uom_id=u.uom_id left join xbs.uom u0 on l.max_volume_uom_id=u0.uom_id left join xbs.uom u1 on l.max_weight_uom_id=u1.uom_id</DbTable>
+<Index>locator_id</Index>
+<Data>l.locator,l.org_id,l.locator_structure,u.uom_name dimension_uom_id,l.length,l.height,l.width,l.x_coordinate,l.y_coordinate,l.z_coordinate,l.max_units,u0.uom_name max_volume_uom_id,l.max_volume,u1.uom_name max_weight_uom_id,l.max_weight,l.created_by,l.creation_date,l.last_update_by,l.last_update_date,l.locator_id</Data>
+<Order>locator_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.locator.GBDEDITlocator" function="reset"/><DbDetails><Where>subinventory_id='%{subinventory_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.locator.subinventory_id"/></op>
+<op text="modify"><DbDetails><Where>subinventory_id='%{subinventory_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.locator.subinventory_id"/><DbDetails><Where>locator_id='%{locator_vLst[locator_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.locator.locatorLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.locator</DbTable>
+<Where>locator_id='%{locator_vLst[locator_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

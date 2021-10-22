@@ -1,0 +1,45 @@
+<WndTap Text="xerp_role" Name="xerp_role" Ver="2">
+	<WndTaps>
+<WndTap Text="xerp_role" Name="xerp_role" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\xerp_role.xml"/>
+<Ctrls>
+<GroupBox Text="xerp_role" Name="GBxerp_role" id="xerp_role" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_role_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_role_GBOPE.xml"></xi:include>
+<TAB/><ListCtrl loadedclick="1" ToolTip="ttp_xerp_role" Name="xerp_roleLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.xerp_role</DbTable>
+<Index>role_id</Index>
+<Data>role_name_cn,role_name_eng,org_id,role_layout,created_by,creation_date,last_update_by,last_update_date,role_id</Data>
+<Where>role_id='%{role_id}'</Where>
+<Order>role_id</Order>
+</DbDetails>
+<OnClick><assign name="org_id[org_id]" function="SetSel" expr="%{xerp_roleLst[org_id]}"/>
+<if cond="%{role_id}"><SetVisible name="insertxerp_role" Visible="0"/><SetVisible name="modifyxerp_role" Visible="1"/></if></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertxerp_role" Visible="1"/><SetVisible name="modifyxerp_role" Visible="0"/><SetVisible name="resetxerp_role" Visible="0"/></OnActivate>
+	</WndTap>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\xerp_role.xml"/>
+<Ctrls>
+<GroupBox Text="xerp_role" Name="xerp_role" id="xerp_role" Size="100,100"><Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVxerp_role_V"><Ctrls>
+<ListCtrl Heading="role_name_cn,100;role_name_eng,250;role_layout,500;org,50;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;role_id,20;" loadedclick="0" ToolTip="ttp_xerp_role" Name="xerp_roleLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.xerp_role r left join org o on r.org_id=o.org_id</DbTable>
+<Index>role_id</Index>
+<Data>role_name_cn,role_name_eng,role_layout,org,r.created_by,r.creation_date,r.last_update_by,r.last_update_date,role_id,r.org_id</Data>
+<Where>r.org_id='%{org_id}' or r.org_id=0</Where>
+<Order>role_id</Order>
+<queryFormat>select %{data} from %{dbtable} where %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="addone" mustselected="0"><submit next="$this.xerp_role.GBDEDITxerp_role" function="reset"/><assign name="$this.xerp_role.refid" expr="%{org_id}"/><DbDetails><Where>org_id='%{refid}'</Where></DbDetails><submit namelist="DbDetails" next="$this.xerp_role.org_id"/></op>
+<op text="modify"><assign name="$this.xerp_role.refid" expr="%{org_id}"/><DbDetails><Where>org_id='%{refid}'</Where></DbDetails><submit namelist="DbDetails" next="$this.xerp_role.org_id"/><!--assign name="$parent.xerp_role.xerp_role.role_id" expr="%{xerp_rolelst[role_id]}"/--><DbDetails><Where>role_id='%{xerp_rolelst[role_id]}' and org_id='%{refid}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.xerp_role.xerp_role.xerp_rolelst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+	</Ctrls></WndTap>

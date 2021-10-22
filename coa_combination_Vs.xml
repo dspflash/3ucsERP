@@ -1,0 +1,114 @@
+<GroupBox Name="GBDEDITcoa_combination"><Ctrls>
+<GroupBox Name="GB_coa_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_coa_id" Size="60,20" Text="coa_id" Align="Right" onload="init" selectedIndex="0"/>
+<ComboBox Name="coa_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_coa_id" onload="init" selectedIndex="0">
+	<DbDetails fcsm="true">
+<DbTable>xbs.coa</DbTable>
+<Index>coa_id</Index>
+<Data>coa_name,coa_structure_id,coa_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_ac_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_ac_type" Size="60,20" Text="ac_type" Align="Right" onload="init"/>
+<ComboBox Name="ac_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_ac_type" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=83</Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="field4"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_ac_usage_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_ac_usage_type" Size="60,20" Text="ac_usage_type" Align="Right"/>
+<ComboBox Name="ac_usage_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_ac_usage_type">
+	<DbDetails>
+<DbTable>xbs.ac_usage_type</DbTable>
+<Index>ac_usage_type_id</Index>
+<Data>ac_usage_type_value,ac_usage_type_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_field1" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field1" Size="60,20" Text="field1" Align="Right"/>
+<TextBox Name="field1" Size="170,20" Text="" Weight="170" ToolTip="ttp_field1"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_field2" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field2" Size="60,20" Text="field2" Align="Right"/>
+<TextBox Name="field2" Size="170,20" Text="" Weight="170" ToolTip="ttp_field2"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_field3" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field3" Size="60,20" Text="field3" Align="Right"/>
+<TextBox Name="field3" Size="170,20" Text="" Weight="170" ToolTip="ttp_field3"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_field4" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field4" Size="60,20" Text="field4" Align="Right" onload="init" type="2"/>
+<ComboBox Name="field4" Size="170,100" Text="" Weight="170"  ToolTip="ttp_field4" onload="init" type="2">
+	<DbDetails>
+<DbTable>xbs.gl_account_type</DbTable>
+<Index>account_type_code</Index>
+<Data>account_type,account_type_code</Data>
+<Where></Where>
+<queryFormat>select %{data} from %{dbtable} where account_group='%{ac_type[option_line_id]}' %{where}</queryFormat></DbDetails><OnEditChange><DbDetails><Where>and account_type_code like '%{field4[windowtext]}%'</Where></DbDetails><submit namelist="DbDetails"/></OnEditChange></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_field5" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field5" Size="60,20" Text="field5" Align="Right"/>
+<TextBox Name="field5" Size="170,20" Text="" Weight="170" ToolTip="ttp_field5"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_field6" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field6" Size="60,20" Text="field6" Align="Right"/>
+<TextBox Name="field6" Size="170,20" Text="" Weight="170" ToolTip="ttp_field6"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_field7" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field7" Size="60,20" Text="field7" Align="Right"/>
+<TextBox Name="field7" Size="170,20" Text="" Weight="170" ToolTip="ttp_field7"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_field8" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field8" Size="60,20" Text="field8" Align="Right"/>
+<TextBox Name="field8" Size="170,20" Text="" Weight="170" ToolTip="ttp_field8"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_combination" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_combination" Size="60,20" Text="combination" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="combination" Size="170,20" Text="" Weight="170" ToolTip="ttp_combination" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_coa_combination_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_coa_combination_id" Size="60,20" Text="coa_combination_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="coa_combination_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_coa_combination_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBcoa_combination" expr="TABEDITcoa_combination"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_org_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_org_id" Size="60,20" Text="org_id" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="org_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_org_id" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_reftbltp" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_reftbltp" Size="60,20" Text="reftbltp" Align="Right" Visible="false" overlap="pre"/>
+<ComboBox Name="reftbltp" Size="170,100" Text="" Weight="170" Items="customer|supplier|sd_store|mdm_bank_account|wip_accounting_group|subinventory|item|gl_ledger|hr_control|hr_employee|ap_payable_control|resource|overhead" ToolTip="ttp_reftbltp" Visible="false" overlap="pre"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_refid" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_refid" Size="60,20" Text="refid" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="refid" Size="170,20" Text="" Weight="170" ToolTip="ttp_refid" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_coa_structure_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_coa_structure_id" Size="60,20" Text="coa_structure_id" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="coa_structure_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_coa_structure_id" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

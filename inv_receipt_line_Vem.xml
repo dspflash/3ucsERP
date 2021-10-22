@@ -1,0 +1,26 @@
+<WndTap Name="inv_receipt_line" Text="inv_receipt_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="item_id_m[item_id_m],uom_id[uom_id],transaction_quantity,inv_receipt_header_id[inv_receipt_header_id],subinventory_id[subinventory_id],transaction_type_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\inv_receipt_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBinv_receipt_line" id="inv_receipt_line" Text="inv_receipt_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_GBOPE.xml"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEinv_lot_number" Size="100,100"><Ctrls>
+<Button Text="AddOne LotNumber" ToolTip="ttp_createinv_lot_number" Name="insertinv_lot_number" Size="100,20">
+	<OnClick><if cond="%{item_id_m[item_id_m]}">
+<DbDetails><Where>item_id_m='%{item_id_m[item_id_m]}' and org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.inv_lot_number.item_id_m"/>
+<assign name="$parent.inv_lot_number.quantity" expr="%{transaction_quantity}"/>
+<assign name="$parent.inv_lot_number.reference_key_name" expr="po_line"/>
+<assign name="$parent.inv_lot_number.reference_key_value" expr="%{reference_key_value[refid]}"/>
+<assign name="$parent.inv_lot_number.origination_type" expr="RECEVING" function="setsel"/>
+<assign name="$parent.inv_lot_number.generation" expr="At Receipt" function="setsel"/>
+<assign name="$parent.inv_lot_number.prewndtap" expr="inv_receipt_line"/>
+	</if></OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertinv_receipt_line" Visible="1"/><SetVisible name="modifyinv_receipt_line" Visible="0"/></OnActivate>
+</WndTap>

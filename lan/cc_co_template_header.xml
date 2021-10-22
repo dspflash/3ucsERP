@@ -1,0 +1,41 @@
+<Language name="cc_co_template_header">
+<Lang name="cc_co_template_header" value="工程更改模板"/>
+<Lang name="cc_co_template_header_v" value="工程更改模板V"/>
+<Lang name="TabEditcc_co_template_header" value="cc_co_template_header Edit"/>
+<Lang name="TabViewcc_co_template_header" value="cc_co_template_header View"/>
+<Lang name="template_name" value="模板名称"/>
+<Lang name="ttp_template_name" value=""/>
+<Lang name="reftbltp" value=""/>
+<Lang name="ttp_reftbltp" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="org_id" value=""/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="cc_co_template_header_id" value=""/>
+<Lang name="ttp_cc_co_template_header_id" value=""/>
+<Lang name="ttp_operationcc_co_template_header" value="操作"/>
+<Lang name="ttp_createcc_co_template_header" value="新增"/>
+<Lang name="ttp_modifycc_co_template_header" value="修改"/>
+<Lang name="ttp_resetcc_co_template_header" value="清除数据"/>
+<Lang name="ttp_deletecc_co_template_header" value="删除"/>
+<Lang name="ttp_refreshcc_co_template_header" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

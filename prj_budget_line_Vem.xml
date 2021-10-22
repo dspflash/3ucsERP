@@ -1,0 +1,13 @@
+<WndTap Name="prj_budget_line" Text="prj_budget_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="prj_resource_line_id,uom_id,quantity,raw_cost,revenue_quantity,revenue_amount,burden_cost,prj_project_header_id[prj_project_header_id],prj_project_line_id,prj_budget_header_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\prj_budget_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBprj_budget_line" id="prj_budget_line" Text="prj_budget_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_budget_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_budget_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_budget_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertprj_budget_line" Visible="1"/><SetVisible name="modifyprj_budget_line" Visible="0"/></OnActivate>
+</WndTap>

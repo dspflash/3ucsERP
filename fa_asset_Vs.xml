@@ -1,0 +1,10 @@
+﻿<GroupBox Name="GBDEDITfa_asset" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_asset_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_asset_number" Size="60,20" Text="asset_number" Align="Right"/>
+<TextBox Name="asset_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_asset_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_type" Size="60,20" Text="type" Align="Right"/>
+<TextBox Name="type" Size="170,20" Text="" Weight="170" ToolTip="ttp_type"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

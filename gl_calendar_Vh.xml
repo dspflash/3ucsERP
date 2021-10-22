@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVgl_calendar" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="gl_calendarLst" ToolTip="ttp_gl_calendar" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_calendar</DbTable>
+<Index>gl_calendar_id</Index>
+<Data>name,option_line_code,calendar_type,c_year,c_quarter,c_number,from_date,to_date,name_prefix,adjustment_period_cb,created_by,creation_date,last_update_by,last_update_date,gl_calendar_id</Data>
+<Order>gl_calendar_id</Order></DbDetails>
+<OnClick><assign name="option_line_code[option_line_id]" expr="%{gl_calendarLst[option_line_code]}" function="SetSel"/><assign name="calendar_type[option_line_id]" expr="%{gl_calendarLst[calendar_type]}" function="SetSel"/>
+<if cond="%{gl_calendar_id}"><SetVisible name="insertgl_calendar" Visible="0"/><SetVisible name="modifygl_calendar" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

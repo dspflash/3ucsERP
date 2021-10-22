@@ -1,0 +1,14 @@
+<WndTap Name="wip_wo_bom_v" Text="wip_wo_bom">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_bom_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_bom.xml"/>
+<Ctrls><GroupBox  Name="GBwip_wo_bom" id="wip_wo_bom" Text="wip_wo_bom" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_bom_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVwip_wo_bom" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.wip_wo_bom.GBDEDITwip_wo_bom" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetwip_wo_bom" Name="resetwip_wo_bom" Size="50,20">	<OnClick>	<submit next="GBDEDITwip_wo_bom" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchwip_wo_bom" Name="gsearchwip_wo_bom" Size="50,20" visible="true">	<OnClick>	<search next="wip_wo_bom_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITwip_wo_bom" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_bom_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,48 @@
+﻿<GroupBox Name="GBDEDITcontact" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_firstname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_firstname" Size="60,20" Text="firstname" Align="Right"/>
+<TextBox Name="firstname" Size="170,20" Text="" Weight="170" ToolTip="ttp_firstname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_lastname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_lastname" Size="60,20" Text="lastname" Align="Right"/>
+<TextBox Name="lastname" Size="170,20" Text="" Weight="170" ToolTip="ttp_lastname"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_phone" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_phone" Size="60,20" Text="phone" Align="Right"/>
+<TextBox Name="phone" Size="150,20" Text="" Weight="150" ToolTip="ttp_phone"></TextBox>
+<MagicCtrl Name="dialphone" button="type:0" images=" ,data/startcall_green.png" Size="20,20" OnClick="nis3ucs:%{phone}" ToolTip="DialToCall"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_title" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_title" Size="60,20" Text="title" Align="Right"/>
+<TextBox Name="title" Size="170,20" Text="" Weight="170" ToolTip="ttp_title"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_email" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_email" Size="60,20" Text="email" Align="Right"/>
+<TextBox Name="email" Size="170,20" Text="" Weight="170" ToolTip="ttp_email"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_mobile" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_mobile" Size="60,20" Text="mobile" Align="Right"/>
+<TextBox Name="mobile" Size="150,20" Text="" Weight="150" ToolTip="ttp_mobile"></TextBox>
+<MagicCtrl Name="dialmobile" button="type:0" images=" ,data/startcall_green.png" Size="20,20" OnClick="nis3ucs:%{mobile}" ToolTip="DialToCall"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_department" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_department" Size="60,20" Text="department" Align="Right"/>
+<TextBox Name="department" Size="170,20" Text="" Weight="170" ToolTip="ttp_department"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_fax" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_fax" Size="60,20" Text="fax" Align="Right"/>
+<TextBox Name="fax" Size="170,20" Text="" Weight="170" ToolTip="ttp_fax"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_training" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_training" Size="60,20" Text="training" Align="Right"/>
+<TextBox Name="training" Size="170,20" Text="" Weight="170" ToolTip="ttp_training"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_otheremail" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_otheremail" Size="60,20" Text="otheremail" Align="Right"/>
+<TextBox Name="otheremail" Size="170,20" Text="" Weight="170" ToolTip="ttp_otheremail"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_secondaryemail" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_secondaryemail" Size="60,20" Text="secondaryemail" Align="Right"/>
+<TextBox Name="secondaryemail" Size="170,20" Text="" Weight="170" ToolTip="ttp_secondaryemail"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

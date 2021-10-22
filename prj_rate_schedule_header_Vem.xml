@@ -1,0 +1,17 @@
+<WndTap Name="prj_rate_schedule_header" Text="prj_rate_schedule_header" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="schedule_name,rate_type"/>
+<var name="dataRequireless" expr=""/>
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_rate_schedule_line_Vem.xml" popup="1"/>
+</WndTaps>
+<xi:include href="lan\prj_rate_schedule_header.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBprj_rate_schedule_header" id="prj_rate_schedule_header" Text="prj_rate_schedule_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_rate_schedule_header_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_rate_schedule_header_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_rate_schedule_header_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_rate_schedule_line_Vvm.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertprj_rate_schedule_header" Visible="1"/><SetVisible name="modifyprj_rate_schedule_header" Visible="0"/></OnActivate>
+</WndTap>

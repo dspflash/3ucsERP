@@ -1,0 +1,43 @@
+<WndTap Text="sd_delivery_print" Name="sd_delivery_print" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_delivery_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_delivery_line.xml"/>
+	<Language name="reference_key">
+<Lang name="reference_key_value" value="工单号"/>
+<Lang name="ttp_reference_key_value" value=""/>
+</Language>
+	<Ctrls>
+	<GroupBox Text="sd_delivery_print" Name="GBsd_delivery_print" id="sd_delivery_print" Size="100,100"><Ctrls>
+		<MagicCtrl Name="qr_itemname" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="60,60" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_header_GBDEDIT.xml"></xi:include>
+	<BR AutoHeight="1"/>
+	<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_delivery_line"><Ctrls>
+<ListCtrl linesPerRow="2" AutoSizeCol="0" HeaderHeight="30" RowHeight="45" Heading="line_number,20;so_number,120;document_extn_ref,120;item_id_m,80;item_description,125;item_name,125;item_specification,125;line_uom,120;quantity,100;shipped_quantity,75;staging_subinventory_id,120;staging_locator_id,120;pkg_uom,120;pkg_quantity,55;pkg_description,250;picking_date,90;actual_ship_date,90;volume_uom,120;total_volume,100;weight_uom,120;total_weight,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;sd_delivery_line_id,60;shipping_org_id,60;delivery_status,125;" loadedclick="0" ToolTip="ttp_sd_delivery_line" Name="sd_delivery_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_delivery_line s left join xbs.sd_so_header s0 on s.sd_so_header_id=s0.sd_so_header_id left join xbs.sd_so_line_v s1 on s.sd_so_line_id=s1.sd_so_line_id left join xbs.item i on s.item_id_m=i.item_id_m left join xbs.uom u on s.line_uom_id=u.uom_id left join xbs.subinventory s2 on s.staging_subinventory_id=s2.subinventory_id left join xbs.locator l on s.staging_locator_id=l.locator_id left join xbs.uom u0 on s.pkg_uom_id=u0.uom_id left join xbs.uom u1 on s.volume_uom_id=u1.uom_id left join xbs.uom u2 on s.weight_uom_id=u2.uom_id</DbTable>
+<Index>sd_delivery_line_id</Index>
+<Data>line_number,s0.so_number,concat(ifnull(i.item_description,''),' \r\n',ifnull(s0.document_extn_ref,'')) cusinfo,concat(i.item_number,' \r\n', ifnull(i.item_name,'')) item_number,s.item_description,`i`.`item_name`,`i`.`item_specification`,u.uom_name line_uom,s.quantity,s.shipped_quantity,s2.subinventory staging_subinventory_id,l.locator staging_locator_id,u0.uom_name pkg_uom,s.pkg_quantity,s.pkg_description,s.picking_date,s.actual_ship_date,u1.uom_name volume_uom_id,s.total_volume,u2.uom_name weight_uom,s.total_weight,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,s.sd_delivery_line_id,s.shipping_org_id,s.delivery_status</Data>
+<Order>sd_delivery_line_id</Order></DbDetails><DbDetails><Where>sd_delivery_header_id='%{sd_delivery_header_id[sd_delivery_header_id]}'</Where></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><Button Text="print" ToolTip="ttp_print" Name="print" Size="50,20" visible="true">
+	<OnClick><submit next="GBsd_delivery_print" function="print"/>
+	</OnClick>
+	</Button><TAB/>
+		<ListCtrl loadedclick="1" Name="sd_delivery_headerLst" Size="70,20" visible="0">
+			<DbDetails fcsm="1">
+			<DbTable>xbs.sd_delivery_header</DbTable>
+			<Index>sd_delivery_header_id</Index>
+			<Data>delivery_number,comment,shipping_org_id,delivery_date,status,subinventory_id,locator_id,sd_delivery_header_id</Data>
+			<Order>sd_delivery_header_id</Order></DbDetails>
+			<OnClick><assign name="shipping_org_id[org_id]" function="SetSel" expr="%{sd_delivery_headerLst[shipping_org_id]}"/><assign name="subinventory_id[subinventory_id]" function="SetSel" expr="%{sd_delivery_headerLst[subinventory_id]}"/><assign name="locator_id[locator_id]" function="SetSel" expr="%{sd_delivery_headerLst[locator_id]}"/>
+			<magicdata filename="data/qr_sd_delivery_number.png"><data>%{sd_delivery_headerLst[delivery_number]}</data></magicdata>
+			<submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+	</OnClick>
+	</ListCtrl>	
+	</Ctrls></GroupBox>
+	</Ctrls>
+		</WndTap>

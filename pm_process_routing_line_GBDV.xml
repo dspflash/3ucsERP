@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_process_routing_line"><Ctrls>
+<ListCtrl Heading="step_no,60;pm_process_operation_header_id,120;uom_id,120;release_type,120;min_quantity,100;description,640;step_quantity,75;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_process_routing_line_id,60;" loadedclick="0" ToolTip="ttp_pm_process_routing_line" Name="pm_process_routing_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_process_routing_line</DbTable>
+<Index>pm_process_routing_line_id</Index>
+<Data>step_no,pm_process_operation_header_id,uom_id,release_type,min_quantity,description,step_quantity,created_by,creation_date,last_update_by,last_update_date,pm_process_routing_line_id</Data>
+<Order>pm_process_routing_line_id</Order></DbDetails>
+<OnClick><assign name="pm_process_operation_header_id[pm_process_operation_header_id]" function="SetSel" expr="%{pm_process_routing_lineLst[pm_process_operation_header_id]}"/><assign name="uom_id[uom_id]" function="SetSel" expr="%{pm_process_routing_lineLst[uom_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

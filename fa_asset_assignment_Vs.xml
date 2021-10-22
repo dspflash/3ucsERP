@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDEDITfa_asset_assignment" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_hr_employee_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hr_employee_id" Size="60,20" Text="hr_employee_id" Align="Right"/>
+<TextBox Name="hr_employee_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hr_employee_id">
+	<DbDetails>
+<Index>hr_employee_id</Index>
+<DbTable>xbs.hr_employee_v</DbTable>
+<Data>name,hr_employee_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_address_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_address_id" Size="60,20" Text="address_id" Align="Right"/>
+<TextBox Name="address_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_address_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_expense_ac_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_expense_ac_id" Size="60,20" Text="expense_ac_id" Align="Right"/>
+<TextBox Name="expense_ac_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_expense_ac_id"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

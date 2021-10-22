@@ -1,0 +1,46 @@
+<Language name="sys_process_flow_line">
+<Lang name="sys_process_flow_line" value="流程行"/>
+<Lang name="TabEditsys_process_flow_line" value="sys_process_flow_line Edit"/>
+<Lang name="TabViewsys_process_flow_line" value="sys_process_flow_line View"/>
+<Lang name="line_type" value="行类型"/>
+<Lang name="ttp_line_type" value=""/>
+<Lang name="line_name" value="行名"/>
+<Lang name="ttp_line_name" value=""/>
+<Lang name="line_number" value="行号"/>
+<Lang name="ttp_line_number" value=""/>
+<Lang name="description" value="描述"/>
+<Lang name="ttp_description" value=""/>
+<Lang name="next_line_seq_pass" value="通过后"/>
+<Lang name="ttp_next_line_seq_pass" value=""/>
+<Lang name="next_line_seq_fail" value="拒绝后"/>
+<Lang name="ttp_next_line_seq_fail" value=""/>
+<Lang name="next_line_seq_onhold" value="挂起后"/>
+<Lang name="ttp_next_line_seq_onhold" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="sys_process_flow_line_id" value=""/>
+<Lang name="ttp_sys_process_flow_line_id" value=""/>
+<Lang name="sys_process_flow_header_id" value=""/>
+<Lang name="ttp_sys_process_flow_header_id" value=""/>
+<Lang name="ttp_operationsys_process_flow_line" value="操作"/>
+<Lang name="ttp_createsys_process_flow_line" value="新增"/>
+<Lang name="ttp_modifysys_process_flow_line" value="修改"/>
+<Lang name="ttp_resetsys_process_flow_line" value="清除数据"/>
+<Lang name="ttp_deletesys_process_flow_line" value="删除"/>
+<Lang name="ttp_refreshsys_process_flow_line" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

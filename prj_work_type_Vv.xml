@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVprj_work_type" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_work_type_vLst" ToolTip="ttp_prj_work_type" Size="700,420" OnLoad="init" Heading="work_type,125;tp_amount_type,120;effective_from,90;effective_to,90;billable_cb,60;capitalizable_cb,60;training_cb,60;shadow_resource_cb,60;utilization_type,125;utilization_percentage,30;unassigned_cb,60;non_worked_cb,60;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_work_type_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_work_type p</DbTable>
+<Index>prj_work_type_id</Index>
+<Data>p.work_type,p.tp_amount_type,p.effective_from,p.effective_to,p.billable_cb,p.capitalizable_cb,p.training_cb,p.shadow_resource_cb,p.utilization_type,p.utilization_percentage,p.unassigned_cb,p.non_worked_cb,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_work_type_id</Data>
+<Order>prj_work_type_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>prj_work_type_id='%{prj_work_type_vLst[prj_work_type_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_work_type.prj_work_typeLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.prj_work_type</DbTable>
+<Where>prj_work_type_id='%{prj_work_type_vLst[prj_work_type_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

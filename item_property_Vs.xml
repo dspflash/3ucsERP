@@ -1,0 +1,10 @@
+﻿<GroupBox Name="GBDEDITitem_property" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_prop_display_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_prop_display_name" Size="60,20" Text="prop_display_name" Align="Right"/>
+<TextBox Name="prop_display_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_prop_display_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

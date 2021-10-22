@@ -1,0 +1,38 @@
+﻿<GroupBox Name="GBDEDITbom_dept_res_assignment" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_bom_department_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bom_department_id" Size="60,20" Text="bom_department_id" Align="Right"/>
+<ComboBox Name="bom_department_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_bom_department_id">
+	<DbDetails>
+<Index>bom_department_id</Index>
+<DbTable>xbs.bom_department</DbTable>
+<Data>department,bom_department_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_resource_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_resource_id" Size="60,20" Text="resource_id" Align="Right"/>
+<ComboBox Name="resource_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_resource_id">
+	<DbDetails fcsm="true">
+<Index>bom_resource_id</Index>
+<DbTable>bom_resource br inner join xbs.bom_resource_cost brc on br.bom_resource_id=brc.bom_resource_id</DbTable>
+<Data>resource,bom_cost_type as cost_type_id,br.bom_resource_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cost_type_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cost_type_id" Size="60,20" Text="cost_type_id" Align="Right"/>
+<TextBox Name="cost_type_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_cost_type_id"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_no_of_units" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_no_of_units" Size="60,20" Text="no_of_units" Align="Right"/>
+<TextBox Name="no_of_units" Size="170,20" Text="" Weight="170" ToolTip="ttp_no_of_units"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_utilization" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_utilization" Size="60,20" Text="utilization" Align="Right"/>
+<TextBox Name="utilization" Size="170,20" Text="" Weight="170" ToolTip="ttp_utilization"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_efficiency" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_efficiency" Size="60,20" Text="efficiency" Align="Right"/>
+<TextBox Name="efficiency" Size="170,20" Text="" Weight="170" ToolTip="ttp_efficiency"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

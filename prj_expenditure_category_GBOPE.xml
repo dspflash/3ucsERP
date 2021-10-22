@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEprj_expenditure_category" Size="100,100"><Ctrls>
+<Button sqlpkinsert="prj_expenditure_category_id" Text="create" ToolTip="ttp_createprj_expenditure_category" Name="insertprj_expenditure_category" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_expenditure_category</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>expenditure_category,description</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="prj_expenditure_categoryLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyprj_expenditure_category" Name="modifyprj_expenditure_category" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_expenditure_category</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>expenditure_category,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>prj_expenditure_category_id='%{prj_expenditure_category_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="prj_expenditure_categoryLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetprj_expenditure_category" Name="resetprj_expenditure_category" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITprj_expenditure_category" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchprj_expenditure_category" Name="gsearchprj_expenditure_category" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="prj_expenditure_categoryLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITprj_expenditure_category" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

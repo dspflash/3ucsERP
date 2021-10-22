@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEprj_rate_schedule_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="prj_rate_schedule_line_id" Text="create" ToolTip="ttp_createprj_rate_schedule_line" Name="insertprj_rate_schedule_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_rate_schedule_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>rate,uom_id[uom_id],reference_key_value[refid],mark_up_percentage,effective_from,effective_to,resource_name,description,prj_rate_schedule_header_id[prj_rate_schedule_header_id]</Data>
+<DataEx>reference_key_name,created_by,creation_date,last_update_by,last_update_date;'%{prj_rate_schedule_header_id[rate_type]}','%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="prj_rate_schedule_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyprj_rate_schedule_line" Name="modifyprj_rate_schedule_line" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_rate_schedule_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>rate,uom_id[uom_id],reference_key_value[refid],mark_up_percentage,effective_from,effective_to,resource_name,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>prj_rate_schedule_line_id='%{prj_rate_schedule_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="prj_rate_schedule_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetprj_rate_schedule_line" Name="resetprj_rate_schedule_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITprj_rate_schedule_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchprj_rate_schedule_line" Name="gsearchprj_rate_schedule_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="prj_rate_schedule_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITprj_rate_schedule_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

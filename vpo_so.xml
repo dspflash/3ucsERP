@@ -1,0 +1,55 @@
+<WndTap Name="vPoSo" Text="vPoSo">
+<Language name="vPoSo">
+<Lang name="vPoSo" value="订单采购单"/>
+<Lang name="po_number" value="采购订单号"/>
+<Lang name="so_number" value="客户订单号"/>
+<Lang name="order_date" value="下单日期"/>
+<Lang name="requested_date" value="交货日期"/>
+</Language>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_line.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vPO"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="poLst" listed="0" prefixand="1" inputed="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search>
+	<submit next="GBDEDITpo_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="export" Size="50,20" Text="导出">
+	<OnClick><!--import button="export" selected="1">sql:update s_order set o_state=3 where o_id=%0;update s_order set o_state=3 where o_id=%0</import><submit next="OrderList" namelist="import" method="post" function="import"/-->
+	<Save selected="1"></Save><submit next="POLst" namelist="Save" function="savetofile"/></OnClick></Button>
+<Button Name="exportall" Size="50,20" Text="导出全部">
+	<OnClick><!--import button="export" selected="1">sql:update s_order set o_state=3 where o_id=%0;update s_order set o_state=3 where o_id=%0</import><submit next="OrderList" namelist="import" method="post" function="import"/-->
+	<Save></Save><submit next="POLst" namelist="Save" function="savetofile"/></OnClick></Button>
+<Button Name="print" Size="50,20" Text="打印">
+	<OnClick><!--import button="export" selected="1">sql:update s_order set o_state=3 where o_id=%0;update s_order set o_state=3 where o_id=%0</import><submit next="OrderList" namelist="import" method="post" function="import"/-->
+	<Save></Save><submit next="POLst" namelist="Save" function="print"/></OnClick></Button>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="POLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.po_so_v</DbTable>
+<Index>po_header_id</Index>
+<Data>*</Data>
+<Order>po_header_id</Order>
+<Where>and status not in(1499,1500)</Where>
+<queryFormat>select %{data} from %{dbtable} where bu_org_id='%{orgid}' %{where} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

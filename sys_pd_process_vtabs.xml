@@ -1,0 +1,64 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<GroupBox feature="tab" Text="ProcessFlow" Name="ProcessFlow"><Ctrls>
+<ListCtrl Name="sys_process_flow_diagram_vLst" ToolTip="ttp_sys_process_flow_diagram" OnLoad="init" colsDisplay="12" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.sys_process_flow_header fh 
+JOIN xbs.sys_process_flow_line fl ON fh.sys_process_flow_header_id=fl.sys_process_flow_header_id 
+LEFT JOIN xbs.sys_process_flow_line flp ON fl.next_line_seq_pass=flp.sys_process_flow_line_id 
+LEFT JOIN xbs.sys_process_flow_line flf ON fl.next_line_seq_fail=flf.sys_process_flow_line_id
+JOIN xbs.sys_process_flow_action fa ON fl.sys_process_flow_line_id=fa.sys_process_flow_line_id 
+JOIN xbs.xerp_role r ON fa.role_code=r.role_id 
+LEFT JOIN xbs.user_v u ON fa.userid=u.xerp_user_id 
+JOIN xbs.sys_pd_header pd ON pd.process_flow_header_id=fh.sys_process_flow_header_id and pd.current_process_flow_line_id=fl.sys_process_flow_line_id
+LEFT JOIN xbs.sys_pd_process_flow_action pdfa ON pd.sys_pd_header_id=pdfa.sys_pd_header_id AND pdfa.sys_process_flow_line_id=fl.sys_process_flow_line_id AND pdfa.action_number=fa.action_number
+LEFT JOIN xbs.user_v ur ON pdfa.action_user_id=ur.xerp_user_id 
+LEFT JOIN hr_employee_v du ON pd.created_by=du.xerp_user_id
+,(SELECT role_code FROM user_role WHERE user_id='%{user_id}') roles
+,(SELECT department_id FROM hr_employee_v WHERE xerp_user_id='17') mydpt
+</DbTable>
+<Index>sys_process_flow_action_id</Index>
+<Data>pd.document_number,process_flow,fl.line_number,fl.line_name,field_value,ur.NAME user_real,flp.line_name pass_next,flf.line_name fail_next,fa.action_number,fa.pf_action_type,role_name_cn,u.NAME user,fa.userid,sys_process_flow_action_id,fl.sys_process_flow_line_id,fl.next_line_seq_pass,fl.next_line_seq_fail,fh.sys_process_flow_header_id,pd.primary_document,pd.primary_document_id,pd.sys_pd_header_id,du.department_id</Data>
+<Order>line_number,action_number </Order>
+<queryFormat>select %{data} from %{dbtable} where (fa.userid='%{user_id}' or (fa.userid=0 and fa.role_code IN (roles.role_code) AND IF(mydpt.department_id IS NULL,1,mydpt.department_id=du.department_id))) %{where} order by %{order} desc limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="process"><DbDetails><Where>sys_process_flow_action_id='%{sys_process_flow_diagram_vLst[sys_process_flow_action_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.sys_pd_process_flow_action.action_number"/><assign name="$this.sys_pd_process_flow_action.sys_pd_header_id" expr="%{sys_process_flow_diagram_vLst[sys_pd_header_id]}"/><assign name="$this.sys_pd_process_flow_action.frmwndctrl" expr="%{this}"/></op>
+<op text="view"><if cond="%{sys_process_flow_diagram_vLst[primary_document]}=='po_header'"><DbDetails><DbTable>xbs.supplier_all_v</DbTable><Where>supplier_id=(select supplier_id from po_header where po_header_id='%{sys_process_flow_diagram_vLst[primary_document_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.po_print.supplier_id"/><DbDetails><Where>po_header_id='%{sys_process_flow_diagram_vLst[primary_document_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.po_print.po_headerLst"/><submit next="$this.po_print.po_lineLst" namelist="DbDetails"/>
+<elseif cond="%{sys_process_flow_diagram_vLst[primary_document]}=='po_requisition_header'"/><assign name="$this.po_requisition_print.po_requisition_header_id" expr=""/><DbDetails><Where>po_requisition_header_id='%{sys_process_flow_diagram_vLst[primary_document_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.po_requisition_print.po_requisition_headerLst"/>
+<elseif cond="%{sys_process_flow_diagram_vLst[primary_document]}=='po_quote_header'"/><DbDetails><DbTable>xbs.supplier_all_v</DbTable><Where>supplier_id=(select supplier_id from po_quote_header where po_quote_header_id='%{sys_process_flow_diagram_vLst[primary_document_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.pq_print.supplier_id"/><DbDetails><Where>po_quote_header_id='%{sys_process_flow_diagram_vLst[primary_document_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.pq_print.po_quote_headerLst"/><submit next="$this.pq_print.pq_lineLst" namelist="DbDetails"/>
+<elseif cond="%{sys_process_flow_diagram_vLst[primary_document]}=='sd_so_header'"/><DbDetails><DbTable>xbs.ar_customer_v</DbTable><Where>ar_customer_id=(select ar_customer_id from sd_so_header where sd_so_header_id='%{sys_process_flow_diagram_vLst[primary_document_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.sd_so_print.ar_customer_id"/><DbDetails><Where>sd_so_header_id='%{sys_process_flow_diagram_vLst[primary_document_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.sd_so_print.sd_so_headerLst"/><submit namelist="DbDetails" next="$this.sd_so_print.sd_so_lineLst"/>
+<elseif cond="%{sys_process_flow_diagram_vLst[primary_document]}=='sd_quote_header'"/><DbDetails><DbTable>xbs.ar_customer_v</DbTable><Where>ar_customer_id=(select ar_customer_id from sd_quote_header where sd_quote_header_id='%{sys_process_flow_diagram_vLst[primary_document_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.sd_quote_print.ar_customer_id"/><DbDetails><Where>sd_quote_header_id='%{sys_process_flow_diagram_vLst[primary_document_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.sd_quote_print.sd_quote_headerLst"/><submit namelist="DbDetails" next="$this.sd_quote_print.sd_quote_lineLst"/>
+<elseif cond="%{sys_process_flow_diagram_vLst[primary_document]}=='hr_leave_transaction'"/><DbDetails><Where>hr_leave_transaction_id='%{sys_process_flow_diagram_vLst[primary_document_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_leave_transaction.hr_leave_transactionLst"/><DbDetails><Where>hr_employee_id=(select hr_employee_id from hr_leave_transaction where hr_leave_transaction_id='%{sys_process_flow_diagram_vLst[primary_document_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_leave_transaction.employee_id"/>
+<elseif cond="%{sys_process_flow_diagram_vLst[primary_document]}=='hr_overtime_transaction'"/><DbDetails><Where>hr_overtime_transaction_id='%{sys_process_flow_diagram_vLst[primary_document_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_overtime_transaction.hr_overtime_transactionLst"/><DbDetails><Where>hr_employee_id=(select hr_employee_id from hr_overtime_transaction where hr_overtime_transaction_id='%{sys_process_flow_diagram_vLst[primary_document_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_overtime_transaction.employee_id"/>
+<elseif cond="%{sys_process_flow_diagram_vLst[primary_document]}=='hr_employee_termination'"/><DbDetails><Where>hr_employee_termination_id='%{sys_process_flow_diagram_vLst[primary_document_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_employee_termination.hr_employee_terminationLst"/><DbDetails><Where>hr_employee_id=(select hr_employee_id from hr_employee_termination where hr_employee_termination_id='%{sys_process_flow_diagram_vLst[primary_document_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_employee_termination.employee_id"/>
+<elseif cond="%{sys_process_flow_diagram_vLst[primary_document]}=='hr_expense_header'"/><DbDetails><DbTable>xbs.hr_employee_v</DbTable><Where>hr_employee_id=(select hr_employee_id from hr_expense_header where hr_expense_header_id='%{sys_process_flow_diagram_vLst[primary_document_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_expense_print.hr_employee_id"/><DbDetails><Where>hr_expense_header_id='%{sys_process_flow_diagram_vLst[primary_document_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_expense_print.hr_expense_headerLst"/><submit namelist="DbDetails" next="$this.hr_expense_print.hr_expense_lineLst"/>
+<elseif cond="%{sys_process_flow_diagram_vLst[primary_document]}=='inv_count_header'"/><DbDetails><Where>inv_count_header_id=(select inv_count_header from inv_count_header where inv_count_header_id='%{sys_process_flow_diagram_vLst[primary_document_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.inv_count_print.inv_count_header_id"/><DbDetails><Where>and ih.inv_count_header_id='%{sys_process_flow_diagram_vLst[primary_document_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.inv_count_print.inv_count_headerLst"/><submit namelist="DbDetails" next="$this.inv_count_print.inv_count_entries_vLst"/>
+</if></op>
+</operator>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	<BR NULLHeight="1"/>
+	<GroupBox feature="tab" Text="ProcessFlowed" Name="ProcessFlowed"><Ctrls>
+<ListCtrl Name="sys_process_flowed_diagram_vLst" ToolTip="ttp_sys_process_flow_diagram" OnLoad="init" colsDisplay="13" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.sys_pd_process_flow_action pdfa  
+JOIN xbs.sys_process_flow_line fl ON pdfa.sys_process_flow_line_id=fl.sys_process_flow_line_id
+JOIN xbs.sys_process_flow_header fh ON fh.sys_process_flow_header_id=fl.sys_process_flow_header_id 
+LEFT JOIN xbs.sys_process_flow_line flp ON fl.next_line_seq_pass=flp.sys_process_flow_line_id 
+LEFT JOIN xbs.sys_process_flow_line flf ON fl.next_line_seq_fail=flf.sys_process_flow_line_id 
+JOIN xbs.sys_process_flow_action fa ON fl.sys_process_flow_line_id=fa.sys_process_flow_line_id AND pdfa.action_number=fa.action_number 
+JOIN xbs.xerp_role r ON fa.role_code=r.role_id 
+LEFT JOIN xbs.user_v u ON fa.userid=u.xerp_user_id 
+JOIN xbs.sys_pd_header pd ON pd.process_flow_header_id=fh.sys_process_flow_header_id AND pd.sys_pd_header_id=pdfa.sys_pd_header_id 
+LEFT JOIN xbs.user_v ur ON pdfa.action_user_id=ur.xerp_user_id
+</DbTable>
+<Index>sys_process_flow_action_id</Index>
+<Data>pd.document_number,process_flow,fl.line_number,fl.line_name,field_value,ur.NAME user_real,flp.line_name pass_next,flf.line_name fail_next,fa.action_number,fa.pf_action_type,role_name_cn,u.NAME user,pdfa.creation_date,fa.userid,sys_process_flow_action_id,fl.sys_process_flow_line_id,fl.next_line_seq_pass,fl.next_line_seq_fail,fh.sys_process_flow_header_id,pd.primary_document,pd.primary_document_id,pd.sys_pd_header_id,concat(pd.sys_pd_header_id,'_',sys_process_flow_action_id) pdfid</Data>
+<Order>pdfa.creation_date desc,line_number,action_number </Order>
+<queryFormat>select %{data} from %{dbtable} where pdfa.userid='%{user_id}' %{where} order by %{order} desc limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+		<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+		</operator>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls></GroupBox>

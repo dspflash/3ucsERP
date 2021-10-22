@@ -1,0 +1,64 @@
+﻿<GroupBox Name="GBDEDITfp_forecast_consumption"><Ctrls>
+<GroupBox Name="GB_fp_forecast_group_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_fp_forecast_group_id" Size="60,20" Text="fp_forecast_group_id" Align="Right"/>
+<ComboBox Name="fp_forecast_group_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_fp_forecast_group_id">
+	<DbDetails>
+<DbTable>xbs.fp_forecast_group</DbTable>
+<Index>fp_forecast_group_id</Index>
+<Data>forecast_group,fp_forecast_group_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_fp_forecast_line_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_fp_forecast_line_id" Size="60,20" Text="fp_forecast_line_id" Align="Right" readonly="true"/>
+<ComboBox Name="fp_forecast_line_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_fp_forecast_line_id" readonly="true">
+	<DbDetails>
+<DbTable>xbs.fp_forecast_line_date_v</DbTable>
+<Index>fp_forecast_line_id</Index>
+<Data>item_number,item_id_m,fp_forecast_line_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="fp_forecast_line_date_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_fp_forecast_line_date_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_fp_forecast_line_date_id" Size="60,20" Text="fp_forecast_line_date_id" Align="Right"/>
+<ComboBox Name="fp_forecast_line_date_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_fp_forecast_line_date_id">
+	<DbDetails>
+<DbTable>xbs.fp_forecast_line_date_v</DbTable>
+<Index>fp_forecast_line_date_id</Index>
+<Data>forecast_date,original_quantity,current_quantity,fp_forecast_line_date_id</Data>
+<Where>fp_forecast_line_id='%{fp_forecast_line_id[fp_forecast_line_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_quantity" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_quantity" Size="60,20" Text="quantity" Align="Right"/>
+<TextBox Name="quantity" Size="170,20" Text="" Weight="170" ToolTip="ttp_quantity"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_reason" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_reason" Size="60,20" Text="reason" Align="Right"/>
+<TextBox Name="reason" Size="170,20" Text="" Weight="170" ToolTip="ttp_reason"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_sd_so_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_sd_so_line_id" Size="60,20" Text="sd_so_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="sd_so_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_sd_so_line_id" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_fp_forecast_consumption_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_fp_forecast_consumption_id" Size="60,20" Text="fp_forecast_consumption_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="fp_forecast_consumption_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_fp_forecast_consumption_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{fp_forecast_consumption_id}'"><SetVisible name="insertfp_forecast_consumption" Visible="0"/><SetVisible name="modifyfp_forecast_consumption" Visible="1"/><else/><SetVisible name="insertfp_forecast_consumption" Visible="1"/><SetVisible name="modifyfp_forecast_consumption" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

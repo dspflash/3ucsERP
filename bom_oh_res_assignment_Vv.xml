@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVbom_oh_res_assignment" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bom_oh_res_assignment_vLst" ToolTip="ttp_bom_oh_res_assignment_v" Size="700,450" OnLoad="init" Heading="bom_overhead_id,120;bom_cost_type,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bom_oh_res_assignment_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>bom_oh_res_assignment_id</Index>
+<DbTable>xbs.bom_oh_res_assignment b left join xbs.bom_overhead b0 on b.bom_overhead_id=b0.bom_overhead_id left join xbs.bom_cost_type b1 on b.bom_cost_type=b1.bom_cost_type_id</DbTable>
+<Data>b0.overhead bom_overhead_id,b1.cost_type bom_cost_type,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_oh_res_assignment_id</Data>
+<Order>bom_oh_res_assignment_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>bom_oh_res_assignment_id='%{bom_oh_res_assignment_vLst[bom_oh_res_assignment_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_oh_res_assignment.bom_oh_res_assignmentLst"/><assign name="$this.bom_oh_res_assignment.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_oh_res_assignment</DbTable>
+<Where>bom_oh_res_assignment_id='%{bom_oh_res_assignment_vLst[bom_oh_res_assignment_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_bom_oh_res_assignment" expr="js(%{bom_oh_res_assignment_vLst[currentpage]}+1)"/>
+<assign name="pgscb_bom_oh_res_assignment" expr="js(%{bom_oh_res_assignment_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

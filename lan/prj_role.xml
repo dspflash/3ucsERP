@@ -1,0 +1,56 @@
+<Language name="prj_role">
+<Lang name="prj_role" value="项目角色"/>
+<Lang name="TabEditprj_role" value="prj_role Edit"/>
+<Lang name="TabViewprj_role" value="prj_role View"/>
+<Lang name="role_name" value="角色名"/>
+<Lang name="ttp_role_name" value=""/>
+<Lang name="user_role" value=""/>
+<Lang name="ttp_user_role" value=""/>
+<Lang name="hr_job_id" value=""/>
+<Lang name="ttp_hr_job_id" value=""/>
+<Lang name="min_job_level" value=""/>
+<Lang name="ttp_min_job_level" value=""/>
+<Lang name="max_job_level" value=""/>
+<Lang name="ttp_max_job_level" value=""/>
+<Lang name="effective_from" value=""/>
+<Lang name="ttp_effective_from" value=""/>
+<Lang name="effective_to" value=""/>
+<Lang name="ttp_effective_to" value=""/>
+<Lang name="labor_cost_cb" value=""/>
+<Lang name="ttp_labor_cost_cb" value=""/>
+<Lang name="contract_member_cb" value=""/>
+<Lang name="ttp_contract_member_cb" value=""/>
+<Lang name="project_member_cb" value=""/>
+<Lang name="ttp_project_member_cb" value=""/>
+<Lang name="task_member_cb" value=""/>
+<Lang name="ttp_task_member_cb" value=""/>
+<Lang name="scheduling_cb" value=""/>
+<Lang name="ttp_scheduling_cb" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="prj_role_id" value=""/>
+<Lang name="ttp_prj_role_id" value=""/>
+<Lang name="ttp_operationprj_role" value="操作"/>
+<Lang name="ttp_createprj_role" value="新增"/>
+<Lang name="ttp_modifyprj_role" value="修改"/>
+<Lang name="ttp_resetprj_role" value="清除数据"/>
+<Lang name="ttp_deleteprj_role" value="删除"/>
+<Lang name="ttp_refreshprj_role" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

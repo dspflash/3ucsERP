@@ -1,0 +1,329 @@
+<WndTap Name="vcustomer" Text="vcustomer">
+	<WndTaps>
+	<WndTap Text="ar_customer" Name="ar_customer" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer.xml"/>
+		<Ctrls>
+		<GroupBox Text="ar_customer" Name="GBar_customer" id="ar_customer" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_GBDEDIT.xml"></xi:include>
+		<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_GBOPE.xml"></xi:include>
+		<ListCtrl Name="ar_customerLst" ToolTip="ttp_ar_customer" Size="70,20" loadedclick="1" visible="0">
+		<DbDetails fcsm="1">
+			<DbTable>xbs.ar_customer</DbTable>
+			<Index>ar_customer_id</Index>
+			<Data>*</Data>
+			<Order>ar_customer_id</Order></DbDetails>
+			<OnClick><assign name="customer_relationship[option_line_id]" expr="%{ar_customerLst[customer_relationship]}" function="SetSel"/><assign name="supplier_id[supplier_id]" expr="%{ar_customerLst[supplier_id]}" function="SetSel"/><assign name="customer_type[option_line_id]" expr="%{ar_customerLst[customer_type]}" function="SetSel"/><assign name="customer_category[option_line_id]" expr="%{ar_customerLst[customer_category]}" function="SetSel"/><assign name="tax_country[country_id]" expr="%{ar_customerLst[tax_country]}" function="SetSel"/><assign name="customer_credit_class[option_line_id]" expr="%{ar_customerLst[customer_credit_class]}" function="SetSel"/><assign name="currency[currency_id]" function="SetSel" expr="%{ar_customerLst[currency]}"/>
+			<if cond="%{ar_customerLst[ar_customer_id]}"><SetVisible name="insertar_customer" Visible="0"/><SetVisible name="modifyar_customer" Visible="1"/><else/><SetVisible name="insertar_customer" Visible="1"/><SetVisible name="modifyar_customer" Visible="0"/></if>
+			</OnClick>
+			</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertar_customer" Visible="1"/><SetVisible name="modifyar_customer" Visible="0"/></OnActivate>
+	</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="address_Vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="contact_Vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_account_Vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_site_Vm.xml" popup="1"/>
+	<WndTap Text="ar_customer_bu" Name="ar_customer_bu" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer_bu.xml"/>
+	<Ctrls>
+	<GroupBox Text="ar_customer_bu" Name="GBar_customer_bu" id="ar_customer_bu" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_bu_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_bu_GBOPE.xml"></xi:include>
+	<TAB/><ListCtrl loadedclick="1" ToolTip="ttp_ar_customer_bu" Name="ar_customer_buLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+		<DbTable>xbs.ar_customer_bu</DbTable>
+		<Index>ar_customer_bu_id</Index>
+		<Data>payment_term_id,currency,order_type_id,price_list_id,status,ar_customer_bu_id</Data>
+		<Order>ar_customer_bu_id</Order></DbDetails>
+		<OnClick><assign name="payment_term_id[payment_term_id]" function="SetSel" expr="%{ar_customer_buLst[payment_term_id]}"/><assign name="currency[currency_id]" function="SetSel" expr="%{ar_customer_buLst[currency]}"/><assign name="order_type_id[sd_document_type_id]" function="SetSel" expr="%{ar_customer_buLst[order_type_id]}"/><assign name="price_list_id[mdm_price_list_header_id]" function="SetSel" expr="%{ar_customer_buLst[price_list_id]}"/>
+		<if cond="%{ar_customer_bu_id}"><SetVisible name="insertar_customer_bu" Visible="0"/><SetVisible name="modifyar_customer_bu" Visible="1"/></if></OnClick>
+		</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate><SetVisible name="insertar_customer_bu" Visible="1"/><SetVisible name="modifyar_customer_bu" Visible="0"/><SetVisible name="resetar_customer_bu" Visible="0"/></OnActivate>
+		</WndTap>
+	<WndTap Name="vSDSQ" Text="vSDSQ" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_quote_header.xml"/>
+	<Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vSDSQ"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" Name="sdsqLst" Size="700,420">
+			<DbDetails fcsm="1">
+		<DbTable>xbs.sd_quote_header_v</DbTable>
+		<Index>sd_quote_header_id</Index>
+		<Data>*</Data>
+		<Order>sd_quote_header_id desc</Order>
+		<queryFormat>select %{data} from %{dbtable} where %{where} order by %{order} limit %{StartRow},%{PgSize}</queryFormat> 
+		</DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<!--EvalTbl rules="" table="so_admin_menu_rule">
+			<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/so_admin_menu_rule.xml"/></rules>
+			<inputs status="%{sdsqLst[approval_status]}"/>
+			<outputs title="text" disabled="disabled"/></EvalTbl-->
+			<op text="modify"><DbDetails><DbTable>xbs.ar_customer_v</DbTable><Where>ar_customer_id='%{sdsqLst[ar_customer_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_quote_header.ar_customer_id"/><DbDetails><Where>sd_quote_header_id='%{vcustomer.vSDSQ.sdsqLst[sd_quote_header_id]}' and approval_status=321 and status=1486</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_quote_header.sd_quote_headerLst"/></op>
+			<!--op text="sd_quote_line"><DbDetails><Where>sd_quote_header_id='%{vcustomer.vSDSQ.sdsqLst[sd_quote_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_quote_line.sd_quote_header_id"/></op-->
+			<op text="view"><DbDetails><Where>sd_quote_header_id='%{vcustomer.vSDSQ.sdsqLst[sd_quote_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_quote_line_v.sd_quote_lineLst"/></op>
+			<op text="del" needconfirm="1"><assign name="topmost" expr="sql:update sd_quote_header set status=1488 where sd_quote_header_id='%{vcustomer.vSDSQ.sdsqLst[sd_quote_header_id]}'"/><submit namelist="DbDetails"/></op>
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls></WndTap>
+<WndTap Text="sd_quote_header" Name="sd_quote_header" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_quote_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_quote_line.xml"/>
+<var name="dataRequired" expr="ar_customer_id[ar_customer_id]"/>
+<Ctrls>
+<GroupBox Text="sd_quote_header" Name="GBsd_quote_header" id="sd_quote_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_quote_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_quote_header_GBOPE.xml"></xi:include>
+<TAB/>
+	<Button Name="attachment" Size="50,20" Text="attachment">
+			<OnClick><if cond="!%{sd_quote_header_id}"><alert expr="上传附件前请先生成单据！"/><else/><assign name="topmost" expr="SendFile:,filter=*.*|*.*|,dir=file/%{user_id},localdir=,query=insert into attachment (filename,path,attachment,reftbl, refid, created_by, creation_date, last_update_by, last_update_date) values('%{_upload_file_name}','file/%{user_id}/','file/%{user_id}/%{_upload_file_name}','sd_quote_header',%{sd_quote_header_id}, '%{user_id}',now(),'%{user_id}',now())"/>
+			<submit next="DocList"/></if></OnClick></Button><TAB/>
+			<!--Button Text="detailAdmin" ToolTip="ttp_detailAdmin" Name="detailAdmin" Size="50,20">
+			<OnClick><if cond="!%{sd_quote_header_id}"><alert expr="请先添加单据，若修改单据请从单据列表进入！"/><else/><DbDetails><Where>sd_quote_header_id='%{vcustomer.sd_quote_header.sd_quote_header_id}'</Where></DbDetails>
+			<submit namelist="DbDetails" next="vcustomer.sd_quote_line.sd_quote_header_id"/></if>
+			</OnClick>
+			</Button><TAB/-->
+	<Button Text="confirm" ToolTip="ttp_confirm" Name="confirm" clickneedconfirm="1" Size="50,20">
+		<OnClick><if cond="!%{sd_quote_header_id}"><alert expr="请先添加订单，若修改订单请从订单列表进入！"/><else/><DbDetails><queryFormat>update sd_quote_header set approval_status=320,status=1487 where sd_quote_header_id='%{sd_quote_header_id}' and approval_status=321 and (select count(sd_quote_line_id) from sd_quote_line where sd_quote_header_id='%{sd_quote_header_id}')!=0</queryFormat></DbDetails>
+		<submit namelist="DbDetails"/></if>
+		</OnClick>
+		</Button><TAB/>
+		<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_quote_line_Vvm.xml"/>
+<ListCtrl loadedclick="1" Name="sd_quote_headerLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_quote_header</DbTable>
+<Index>sd_quote_header_id</Index>
+<Data>quote_number,ar_customer_id,ar_customer_site_id,ship_to_id,bill_to_id,doc_currency,payment_term_id,payment_term_date,agreement_start_date,aggrement_end_date,approval_status,description,bu_org_id,header_amount,sd_quote_header_id,status</Data>
+<Order>sd_quote_header_id</Order></DbDetails>
+<OnClick><assign name="ar_customer_id[ar_customer_id]" function="SetSel" expr="%{sd_quote_headerLst[ar_customer_id]}"/><assign name="ar_customer_site_id[ar_customer_site_id]" function="SetSel" expr="%{sd_quote_headerLst[ar_customer_site_id]}"/><assign name="ship_to_id[address_id]" function="SetSel" expr="%{sd_quote_headerLst[ship_to_id]}"/><assign name="bill_to_id[address_id]" function="SetSel" expr="%{sd_quote_headerLst[bill_to_id]}"/><assign name="doc_currency[currency_id]" function="SetSel" expr="%{sd_quote_headerLst[doc_currency]}"/><assign name="payment_term_id[payment_term_id]" function="SetSel" expr="%{sd_quote_headerLst[payment_term_id]}"/><assign name="approval_status[option_line_id]" function="SetSel" expr="%{sd_quote_headerLst[approval_status]}"/><assign name="status[option_line_id]" function="SetSel" expr="%{sd_quote_headerLst[status]}"/>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertsd_quote_header" Visible="1"/><SetVisible name="modifysd_quote_header" Visible="0"/></OnActivate>
+	</WndTap>
+	<WndTap Text="productpick" Name="productpick" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\product.xml"/>
+	<Ctrls>
+	<GroupBox Text="item" Name="GBitem" id="item" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Product_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="productLst" listed="0" prefixand="1" inputed="1"><item_number format="item_number like '%%{opvalue}%'"/><item_name format="item_name like '%%{opvalue}%'"/><item_specification format="item_specification like '%%{opvalue}%'"/></search><submit next="GBDEDITitem" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+	<ListCtrl loadedclick="0" PageSize="50" ToolTip="ttp_item" Name="productLst" DataJoin="%{this(item_number,item_name,item_specification,item_description,org)}%{prop}" Size="700,420">
+	<operator refresh="1" firstpage="1" prepage="1" nextpage="1"/>
+		<MDX id="prop" datatype="string">
+		<DbDetails>
+					<DbTable>item_properties i left join item_property i0 on i.property_id=i0.property_id</DbTable> 
+					<MDX>item_id_m,propname,propvalue</MDX>
+					<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+					<Order></Order>
+					<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (select * from (SELECT org_id,item_id_m from item where customer_ordered_cb and item_status!=278 and org_id='%{org_id}' %{where} limit %{StartRow},%{PgSize}) as t)</queryFormat> 
+				</DbDetails>
+		</MDX>
+	<DbDetails>
+	<DbTable>xbs.item</DbTable>
+	<Index>item_id_m</Index>
+	<Data>item_id_m,item_number,item_name,item_specification,item_description,org_id</Data>
+	<Order>item_id_m</Order>
+	<queryFormat>select %{data} from %{dbtable} where customer_ordered_cb and item_status!=278 and org_id='%{org_id}' %{extcond} %{where} limit %{StartRow},%{PgSize}</queryFormat>
+	</DbDetails>
+	<OnClick><if cond="%{productLst[item_id_m]}"><if cond="'%{fromwintap}'=='vcustomer.sd_quote_line'"><DbDetails><Where>and org_id='%{productLst[org_id]}' and item_id_m='%{productLst[item_id_m]}'</Where></DbDetails><submit namelist="DbDetails" next="%{fromwintap}.item_id_m"/><else/><DbDetails><Where>and shipping_org_id='%{productLst[org_id]}' and item_id_m='%{productLst[item_id_m]}'</Where></DbDetails><submit namelist="DbDetails" next="%{fromwintap}.item_id_m"/></if><submit function="onok"/></if></OnClick>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+<!--WndTap Text="sd_quote_line" Name="sd_quote_line" Ver="2" popup="1">
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr="item_id_m[item_id_m],unit_price"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_quote_line.xml"/>
+<Ctrls>
+<GroupBox Text="sd_quote_line" Name="GBsd_quote_line" id="sd_quote_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_quote_line_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_quote_line_GBOPE.xml"></xi:include>
+		<Button Text="productpick" ToolTip="ttp_productpick" Name="productpick" Size="80,20">
+			<OnClick><DbDetails><Where>org_id='%{shipping_org_id[org_id]}'</Where></DbDetails>
+			<submit namelist="DbDetails" next="vcustomer.productpick.productLst"/>
+			</OnClick>
+			</Button><TAB/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_quote_line_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap-->
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_quote_line_Vem.xml" popup="1"/>
+<WndTap Text="sd_quote_line_v" Name="sd_quote_line_v" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_quote_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_quote_line.xml"/>
+	<Ctrls>
+<GroupBox Text="sd_quote_line" Name="GBsd_quote_line" id="sd_quote_line" Size="100,100"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_sd_quote_line" Name="sd_quote_lineLst" Size="700,420">
+	<DbDetails>
+<DbTable>sd_quote_v</DbTable>
+<Index>sd_quote_line_id</Index>
+<Data>*</Data>
+<Order>sd_quote_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	</WndTap>
+	<WndTap Name="vSDSO" Text="vSDSO" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+	<Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vsdso"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" Name="sdsoLst" Size="700,420">
+			<DbDetails fcsm="1">
+		<DbTable>xbs.sd_so_header_v</DbTable>
+		<Index>sd_so_header_id</Index>
+		<Data>*</Data>
+		<Order>sd_so_header_id desc</Order>
+		<queryFormat>select %{data} from %{dbtable} where %{where} order by %{order} limit %{StartRow},%{PgSize}</queryFormat> 
+		</DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<EvalTbl rules="" table="so_admin_menu_rule">
+			<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/so_admin_menu_rule.xml"/></rules>
+			<inputs status="%{sdsoLst[approval_status]}"/>
+			<outputs title="text" disabled="disabled"/></EvalTbl>
+			<op text="modify"><DbDetails><DbTable>xbs.ar_customer_v</DbTable><Where>ar_customer_id='%{sdsoLst[ar_customer_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_so_header.ar_customer_id"/>
+			<DbDetails><Where>sd_so_header_id='%{vcustomer.vSDSO.sdsoLst[sd_so_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_so_header.sd_so_headerLst"/></op>
+			<!--op text="sd_so_line"><DbDetails><Where>sd_so_header_id='%{vcustomer.vSDSO.sdsoLst[sd_so_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_so_line.sd_so_header_id"/></op>
+			<op text="sd_so_line_v"><DbDetails><Where>sd_so_header_id='%{vcustomer.vSDSO.sdsoLst[sd_so_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_so_line_v.sd_so_lineLst"/></op-->
+			<!--op text="del"><assign name="topmost" expr="sql:delete from sd_so_header where sd_so_header_id='%{vcustomer.vSDSO.sdsoLst[sd_so_header_id]}'"/><submit namelist="DbDetails"/></op-->
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls></WndTap>
+	<WndTap Text="sd_so_header" Name="sd_so_header" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_line.xml"/>
+		<var name="dataRequired" expr="ar_customer_id[ar_customer_id],payment_term_id[payment_term_id]"/>
+		<Ctrls>
+		<GroupBox Text="sd_so_header" Name="GBsd_so_header" id="sd_so_header" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_header_GBOPE.xml"></xi:include>
+		<ListCtrl loadedclick="1" ToolTip="ttp_sd_so_header" Name="sd_so_headerLst" Size="70,20" visible="0">
+			<DbDetails fcsm="1">
+				<DbTable>xbs.sd_so_header</DbTable>
+				<Index>sd_so_header_id</Index>
+				<Data>*</Data>
+				<Order>sd_so_header_id</Order></DbDetails>
+			<OnClick><assign name="ar_customer_id[ar_customer_id]" function="SetSel" expr="%{sd_so_headerLst[ar_customer_id]}"/><assign name="ar_customer_site_id[ar_customer_site_id]" function="SetSel" expr="%{sd_so_headerLst[ar_customer_site_id]}"/><assign name="hr_employee_id[hr_employee_id]" function="SetSel" expr="%{sd_so_headerLst[hr_employee_id]}"/><assign name="ship_to_id[address_id]" function="SetSel" expr="%{sd_so_headerLst[ship_to_id]}"/><assign name="bill_to_id[address_id]" function="SetSel" expr="%{sd_so_headerLst[bill_to_id]}"/><assign name="price_list_header_id[mdm_price_list_header_id]" function="SetSel" expr="%{sd_so_headerLst[price_list_header_id]}"/><assign name="doc_currency[currency_id]" function="SetSel" expr="%{sd_so_headerLst[doc_currency]}"/><assign name="currency[currency_id]" function="SetSel" expr="%{sd_so_headerLst[currency]}"/><assign name="payment_term_id[payment_term_id]" function="SetSel" expr="%{sd_so_headerLst[payment_term_id]}"/><assign name="so_status[option_line_id]" function="SetSel" expr="%{sd_so_headerLst[so_status]}"/>
+			</OnClick>
+			</ListCtrl>
+		<!--Button Text="detailAdmin" ToolTip="ttp_detailAdmin" Name="detailAdmin" Size="50,20">
+			<OnClick><if cond="!%{sd_so_header_id}"><alert expr="请先添加订单，若修改订单请从订单列表进入！"/><else/><DbDetails><Where>sd_so_header_id='%{vcustomer.sd_so_header.sd_so_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_so_line.sd_so_header_id"/>
+			<assign name="$parent.sd_so_line.requested_date" expr="%{request_date}"/></if>
+			</OnClick>
+			</Button><TAB/-->
+		<Button Text="confirm" ToolTip="ttp_confirm" Name="confirm" clickneedconfirm="1" Size="50,20">
+		<OnClick><if cond="!%{sd_so_header_id}"><alert expr="请先添加订单，若修改订单请从订单列表进入！"/><else/><DbDetails><queryFormat>update sd_so_header set approval_status=320 where sd_so_header_id='%{sd_so_header_id}' and approval_status=321 and header_amount!=0</queryFormat></DbDetails>
+		<submit namelist="DbDetails"/></if>
+		</OnClick>
+		</Button><TAB/>
+		<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_line_Vvm.xml"/>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate><SetVisible name="insertsd_so_header" Visible="1"/><SetVisible name="modifysd_so_header" Visible="0"/></OnActivate>
+			</WndTap>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_line_Vem.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_user_customer_Vem.xml" popup="1"/>
+	<!--WndTap Text="sd_so_line_v" Name="sd_so_line_v" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="sd_so_line" Name="GBsd_so_line" id="sd_so_line" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_line_GBDVv.xml"/>
+	</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate/>
+		</WndTap-->
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer_site.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer_bu.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="ar_customer"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">
+	<OnClick><submit next="vcustomer.ar_customer.GBDEDITar_customer" function="reset"/>
+	<assign name="vcustomer.ar_customer.ar_customer_id" expr=""/></OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITar_customer" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<!--Button Text="webtest" ToolTip="ttp_resetitem" Name="webtest" Size="50,20">
+	<OnClick>
+	<submit next="vcustomer.sd_so_header.GBDEDITsd_so_header" function="reset"/><submit function="resetcontent" next="sd_so_line_vLst"/><DbDetails><Where>ar_customer_id='%{customerLst[ar_customer_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_so_header.ar_customer_id"/>
+	</OnClick>
+	</Button><TAB/-->
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="customerLst" listed="0" prefixand="1" inputed="1"></search><submit next="GBDEDITar_customer" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" colsDisplay="17" ToolTip="ttp_item" onload="init" Name="customerLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.ar_customer_v</DbTable>
+<Index>ar_customer_id</Index>
+<Data>*</Data>
+<Order>ar_customer_id</Order>
+<queryFormat>select %{data} from %{dbtable} where (org_id=%{orgid} or owner_org_id=%{orgid}) and status %{where} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>ar_customer_id='%{customerLst[ar_customer_id]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vcustomer.ar_customer.ar_customerLst"/></op>
+<op text="address"><assign name="vcustomer.address_V.reftbltp" expr="customer"/>
+<assign name="vcustomer.address_V.refid" expr="%{customerLst[ar_customer_id]}"/>
+	<submit next="vcustomer.address_V.address_vlst"/></op>
+<op text="contact"><assign name="vcustomer.contact_V.reftbltp" expr="customer"/>
+<assign name="vcustomer.contact_V.refid" expr="%{customerLst[ar_customer_id]}"/>
+	<submit next="vcustomer.contact_V.contact_vlst"/></op>
+<op text="mdm_bank_account"><assign name="vcustomer.mdm_bank_account_V.reftbltp" expr="customer"/>
+<assign name="vcustomer.mdm_bank_account_V.refid" expr="%{customerLst[ar_customer_id]}"/>
+	<submit next="vcustomer.mdm_bank_account_V.mdm_bank_account_vlst"/></op>
+<op text="ar_customer_site"><assign name="vcustomer.ar_customer_site_V.ar_customer_id" expr="%{customerLst[ar_customer_id]}"/><DbDetails><Where>ar_customer_id='%{ar_customer_id}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.ar_customer_site_V.ar_customer_siteLst"/></op>
+<op text="ar_customer_bu"><submit next="vcustomer.ar_customer_bu.ar_customer_buLst" function="resetcontent"/><DbDetails><Where>ar_customer_id='%{customerLst[ar_customer_id]}' and org_id='%{orgid}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vcustomer.ar_customer_bu.ar_customer_id"/></op>
+<op text="del" needconfirm="1"><assign name="topmost" expr="sql:update ar_customer set status=0 where ar_customer_id='%{customerLst[ar_customer_id]}'"/></op>
+<op text="customer_user"><submit next="$this.xerp_user.GBDEDITxerp_user" function="reset"/><DbDetails><Where>ar_customer_id='%{customerLst[ar_customer_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.xerp_user.ar_customer_id"/><submit next="$this.xerp_user.xerp_userLst" namelist="DbDetails"/></op>
+<op text="viewQuote"><DbDetails><Where>ar_customer_id='%{customerLst[ar_customer_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.vsdsq.sdsqlst"/></op>
+<op text="viewQuoteline"><DbDetails><Where>ar_customer_id='%{customerLst[ar_customer_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_quote_line_v.sd_quote_lineLst"/></op>
+<op text="sd_quote_header"><submit next="vcustomer.sd_quote_header.GBDEDITsd_quote_header" function="reset"/><DbDetails><DbTable>xbs.ar_customer_v</DbTable><Where>ar_customer_id='%{customerLst[ar_customer_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_quote_header.ar_customer_id"/></op>
+<op text="viewOrder"><DbDetails><Where>ar_customer_id='%{customerLst[ar_customer_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.vsdso.sdsolst"/></op>
+<op text="sd_so_header"><submit next="vcustomer.sd_so_header.GBDEDITsd_so_header" function="reset"/><submit function="resetcontent" next="sd_so_line_vLst"/><DbDetails><DbTable>xbs.ar_customer_v</DbTable><Where>ar_customer_id='%{customerLst[ar_customer_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_so_header.ar_customer_id"/>
+</op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

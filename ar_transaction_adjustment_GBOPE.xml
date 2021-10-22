@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEar_transaction_adjustment" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ar_transaction_adjustment_id" Text="create" ToolTip="ttp_createar_transaction_adjustment" Name="insertar_transaction_adjustment" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_adjustment</DbTable>
+<Data>ar_transaction_line_id[ar_transaction_line_id],ar_receivable_activity_id[ar_receivable_activity_id],adjustment_quantity,adjustment_amount,description,adjustment_date,gl_adjustment_amount,exchange_rate,adjustment_ac_id,reason,status,line_source,reference_type,reference_key_name,reference_key_value,period_id,gl_journal_header_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_transaction_adjustment" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyar_transaction_adjustment" Name="modifyar_transaction_adjustment" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_adjustment</DbTable>
+<Data>ar_transaction_line_id[ar_transaction_line_id],ar_receivable_activity_id[ar_receivable_activity_id],adjustment_quantity,adjustment_amount,description,adjustment_date,gl_adjustment_amount,exchange_rate,adjustment_ac_id,reason,status,line_source,reference_type,reference_key_name,reference_key_value,period_id,gl_journal_header_id</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ar_transaction_adjustment_id='%{ar_transaction_adjustment_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_transaction_adjustment" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetar_transaction_adjustment" Name="resetar_transaction_adjustment" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITar_transaction_adjustment" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchar_transaction_adjustment" Name="gsearchar_transaction_adjustment" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ar_transaction_adjustmentLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITar_transaction_adjustment" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

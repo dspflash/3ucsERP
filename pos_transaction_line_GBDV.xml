@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpos_transaction_line"><Ctrls>
+<ListCtrl Heading="pos_transaction_header_id,120;item_number,250;unit_price,60;quantity,60;line_amount,60;discount_percentage,25;discount_amount,60;discount_code,125;amount_after_discount,75;status,20;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pos_transaction_line_id,60;" loadedclick="0" ToolTip="ttp_pos_transaction_line" onload="init" Name="pos_transaction_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pos_transaction_line</DbTable>
+<Index>pos_transaction_line_id</Index>
+<Data>pos_transaction_header_id,item_number,unit_price,quantity,line_amount,discount_percentage,discount_amount,discount_code,amount_after_discount,status,created_by,creation_date,last_update_by,last_update_date,pos_transaction_line_id</Data>
+<Order>pos_transaction_line_id</Order></DbDetails>
+<OnClick><assign name="pos_transaction_header_id[pos_transaction_header_id]" function="SetSel" expr="%{pos_transaction_lineLst[pos_transaction_header_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

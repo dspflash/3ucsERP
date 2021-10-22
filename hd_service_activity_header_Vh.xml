@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhd_service_activity_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hd_service_activity_headerLst" ToolTip="ttp_hd_service_activity_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_service_activity_header</DbTable>
+<Index>hd_service_activity_header_id</Index>
+<Data>activity_name,activity_description,line_category,start_date,end_date,allow_quantity_update_cb,create_charge_cb,create_cost_cb,zero_charge_cb,expense_cb,labor_cb,material_cb,created_by,creation_date,last_update_by,last_update_date,hd_service_activity_header_id</Data>
+<Order>hd_service_activity_header_id</Order></DbDetails>
+<OnClick><assign name="created_by[xerp_user_id]" expr="%{hd_service_activity_headerLst[created_by]}" function="SetSel"/>
+<if cond="%{hd_service_activity_header_id}"><SetVisible name="inserthd_service_activity_header" Visible="0"/><SetVisible name="modifyhd_service_activity_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

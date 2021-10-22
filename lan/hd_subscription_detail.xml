@@ -1,0 +1,50 @@
+﻿<Language name="hd_subscription_detail">
+<Lang name="hd_subscription_detail" value="hd_subscription_detail"/>
+<Lang name="TabEdithd_subscription_detail" value="hd_subscription_detail Edit"/>
+<Lang name="TabViewhd_subscription_detail" value="hd_subscription_detail View"/>
+<Lang name="line_type" value=""/>
+<Lang name="ttp_line_type" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hd_subscription_detail_id" value=""/>
+<Lang name="ttp_hd_subscription_detail_id" value=""/>
+<Lang name="hd_subscription_header_id" value=""/>
+<Lang name="ttp_hd_subscription_header_id" value=""/>
+<Lang name="hd_subscription_line_id" value=""/>
+<Lang name="ttp_hd_subscription_line_id" value=""/>
+<Lang name="member_name" value=""/>
+<Lang name="ttp_member_name" value=""/>
+<Lang name="member_dob" value=""/>
+<Lang name="ttp_member_dob" value=""/>
+<Lang name="vehcile_no" value=""/>
+<Lang name="ttp_vehcile_no" value=""/>
+<Lang name="vehcile_registration" value=""/>
+<Lang name="ttp_vehcile_registration" value=""/>
+<Lang name="road_tax_expiry_date" value=""/>
+<Lang name="ttp_road_tax_expiry_date" value=""/>
+<Lang name="vehcile_details" value=""/>
+<Lang name="ttp_vehcile_details" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="ttp_operationhd_subscription_detail" value=""/>
+<Lang name="ttp_createhd_subscription_detail" value=""/>
+<Lang name="ttp_modifyhd_subscription_detail" value=""/>
+<Lang name="ttp_resethd_subscription_detail" value=""/>
+<Lang name="ttp_deletehd_subscription_detail" value=""/>
+<Lang name="ttp_refreshhd_subscription_detail" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

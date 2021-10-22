@@ -1,0 +1,9 @@
+<WndTap Name="item_properties_v" Text="item_properties">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_properties_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\item_properties.xml"/>
+<Ctrls><GroupBox  Name="GBitem_properties" id="item_properties" Text="item_properties" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_properties_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

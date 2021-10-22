@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="POS" Name="pos" id="pos">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pos_barcode_list_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pos_barcode_list_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pos_inv_control.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pos_terminal.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pos_transaction_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pos_transaction_line.xml"></xi:include>
+	</WndTaps>
+	</WndTap>

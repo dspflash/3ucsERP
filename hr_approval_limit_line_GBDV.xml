@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_approval_limit_line"><Ctrls>
+<ListCtrl Heading="limit_object,120;limit_type,120;limit_range_low,640;limit_range_high,640;amount_limit,100;inactive_date,90;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_approval_limit_line_id,60;" loadedclick="0" ToolTip="ttp_hr_approval_limit_line" Name="hr_approval_limit_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_approval_limit_line h left join xbs.hr_approval_object h0 on h.limit_object=h0.hr_approval_object_id</DbTable>
+<Index>hr_approval_limit_line_id</Index>
+<Data>h0.object_name limit_object,h.limit_type,h.limit_range_low,h.limit_range_high,h.amount_limit,h.inactive_date,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_approval_limit_line_id</Data>
+<Order>hr_approval_limit_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

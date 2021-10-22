@@ -1,0 +1,85 @@
+<GroupBox Name="GBDEDITwip_wo_routing_line"><Ctrls>
+<GroupBox Name="GB_wip_wo_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_wip_wo_header_id" Size="60,20" Text="wip_wo_header_id" Align="Right" selectedIndex="0"/>
+<ComboBox Name="wip_wo_header_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_wip_wo_header_id" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.wip_wo_header</DbTable>
+<Index>wip_wo_header_id</Index>
+<Data>wo_number,item_id_m,wip_wo_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="routing_sequence"/><submit next="standard_operation_id"/><submit next="wip_wo_routing_lineLst"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_routing_sequence" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_routing_sequence" Size="60,20" Text="routing_sequence" Align="Right"/>
+<ComboBox Name="routing_sequence" Size="170,100" Text="" Weight="170"  ToolTip="ttp_routing_sequence">
+	<DbDetails fcsm="true">
+<DbTable>xbs.wip_wo_routing_line</DbTable>
+<Index>routing_sequence</Index>
+<Data>routing_sequence</Data>
+<Where>wip_wo_header_id='%{wip_wo_header_id[wip_wo_header_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_routing_seq_num" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="routing_seq_num" Size="230,20" Text="routing_seq_num" ToolTip="ttp_routing_seq_num"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_standard_operation_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_standard_operation_id" Size="60,20" Text="standard_operation_id" Align="Right"/>
+<ComboBox Name="standard_operation_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_standard_operation_id">
+	<DbDetails>
+<DbTable>xbs.bom_standard_operation</DbTable>
+<Index>bom_standard_operation_id</Index>
+<Data>standard_operation,department_id,bom_standard_operation_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="department_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_department_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_department_id" Size="60,20" Text="department_id" Align="Right"/>
+<ComboBox Name="department_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_department_id">
+	<DbDetails>
+<DbTable>xbs.bom_department</DbTable>
+<Index>bom_department_id</Index>
+<Data>department,bom_department_id</Data>
+<Where>bom_department_id='%{standard_operation_id[department_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_minimum_transfer_quantity" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_minimum_transfer_quantity" Size="60,20" Text="minimum_transfer_quantity" Align="Right"/>
+<TextBox Name="minimum_transfer_quantity" Size="170,20" Text="" Weight="170" ToolTip="ttp_minimum_transfer_quantity"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_start_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_start_date" Size="60,20" Text="start_date" Align="Right"/>
+<DateTime Name="start_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_start_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_completion_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_completion_date" Size="60,20" Text="completion_date" Align="Right"/>
+<DateTime Name="completion_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_completion_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_yield" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_yield" Size="60,20" Text="yield" Align="Right"/>
+<TextBox Name="yield" Size="170,20" Text="" Weight="170" ToolTip="ttp_yield"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_wip_wo_routing_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_wip_wo_routing_line_id" Size="60,20" Text="wip_wo_routing_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="wip_wo_routing_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_wip_wo_routing_line_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBwip_wo_routing_line" expr="TABEDITwip_wo_routing_line"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

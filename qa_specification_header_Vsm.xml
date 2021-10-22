@@ -1,0 +1,37 @@
+<GroupBox Name="GBDEDITqa_specification_header"><Ctrls>
+<GroupBox Name="GB_specification_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_specification_name" Size="60,20" Text="specification_name" Align="Right"/>
+<TextBox Name="specification_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_specification_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_number"><Ctrls>
+<Label Align="Right" Text="item_number" Name="lb_item_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_item_number" Name="item_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_name"><Ctrls>
+<Label Align="Right" Text="item_name" Name="lb_item_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_name" Name="item_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_ap_supplier_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_ap_supplier_id" Size="60,20" Text="ap_supplier_id" Align="Right" onload="init"/>
+<ComboBox Name="ap_supplier_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_ap_supplier_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.supplier</DbTable>
+<Index>supplier_id</Index>
+<Data>supplier_name,supplier_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_ar_customer_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_ar_customer_id" Size="60,20" Text="ar_customer_id" Align="Right" onload="init"/>
+<ComboBox Name="ar_customer_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_ar_customer_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.ar_customer</DbTable>
+<Index>ar_customer_id</Index>
+<Data>customer_name,ar_customer_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<!--GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status" checked="true"></CheckBox>
+</Ctrls></GroupBox-->
+</Ctrls></GroupBox>

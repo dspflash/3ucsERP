@@ -1,0 +1,33 @@
+<GroupBox Name="GBDEDITsupplier"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supplier_name"><Ctrls>
+<Label Align="Right" Text="supplier_name" Name="lb_supplier_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_supplier_name" Name="supplier_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supplier_number"><Ctrls>
+<Label Align="Right" Text="supplier_number" Name="lb_supplier_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_supplier_number" Name="supplier_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_supplier_type"><Ctrls>
+<Label Align="Right" Text="supplier_type" OnLoad="init" Name="lb_supplier_type" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_supplier_type" OnLoad="init" Name="supplier_type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=124</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_supplier_category"><Ctrls>
+<Label Align="Right" Text="supplier_category" OnLoad="init" Name="lb_supplier_category" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_supplier_category" OnLoad="init" Name="supplier_category" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=238</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" Size="230,20" checked="1"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

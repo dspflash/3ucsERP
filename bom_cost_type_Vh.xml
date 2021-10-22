@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVbom_cost_type" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bom_cost_typeLst" ToolTip="ttp_bom_cost_type" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>bom_cost_type_id</Index>
+<DbTable>xbs.bom_cost_type</DbTable>
+<Data>cost_type_code,cost_type,cost_method,description,status,multi_org_cb,created_by,creation_date,last_update_by,last_update_date,org_id,bom_cost_type_id</Data>
+<Order>bom_cost_type_id</Order></DbDetails>
+<OnClick><assign name="cost_method[option_line_id]" expr="%{bom_cost_typeLst[cost_method]}" function="SetSel"/>
+<if cond="%{bom_cost_type_id}"><SetVisible name="insertbom_cost_type" Visible="0"/><SetVisible name="modifybom_cost_type" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

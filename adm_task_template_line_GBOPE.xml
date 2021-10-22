@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEadm_task_template_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="adm_task_template_line_id" Text="create" ToolTip="ttp_createadm_task_template_line" Name="insertadm_task_template_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.adm_task_template_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>adm_task_template_header_id[adm_task_template_header_id],status[option_line_id],task_type_id[adm_task_type_id],priority_code,subject,description,duration_uom_id,duration,planned_uom_id,planned_uom,holiday_cb,milestone_cb,confirm_required_cb,publish_cb,billable_cb,private_cb</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="adm_task_template_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyadm_task_template_line" Name="modifyadm_task_template_line" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.adm_task_template_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>adm_task_template_header_id[adm_task_template_header_id],status[option_line_id],task_type_id[adm_task_type_id],priority_code,subject,description,duration_uom_id,duration,planned_uom_id,planned_uom,holiday_cb,milestone_cb,confirm_required_cb,publish_cb,billable_cb,private_cb</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>adm_task_template_line_id='%{adm_task_template_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="adm_task_template_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetadm_task_template_line" Name="resetadm_task_template_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITadm_task_template_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchadm_task_template_line" Name="gsearchadm_task_template_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="adm_task_template_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITadm_task_template_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,14 @@
+<WndTap Name="sd_so_line_v" Text="sd_so_line">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_line_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_line.xml"/>
+<Ctrls><GroupBox  Name="GBsd_so_line" id="sd_so_line" Text="sd_so_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_line_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVsd_so_line" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.sd_so_line.GBDEDITsd_so_line" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetsd_so_line" Name="resetsd_so_line" Size="50,20">	<OnClick>	<submit next="GBDEDITsd_so_line" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchsd_so_line" Name="gsearchsd_so_line" Size="50,20" visible="true">	<OnClick>	<search next="sd_so_line_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITsd_so_line" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_line_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

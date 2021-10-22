@@ -1,0 +1,37 @@
+<WndTap Text="wip_wo_print" Name="wip_wo_print" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="wip_wo_header" Name="GBwip_wo_header" id="wip_wo_header" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_GBDPRINT.xml"></xi:include><BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVwip_wo_bom"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_wip_wo_bom" Name="wip_wo_bomLst" Size="700,420" sum="0,1" sumcols="13,14" printfixheight="0">
+	<DbDetails fcsm="1">
+<DbTable>wip_wo_bom_v</DbTable>
+<Index>wip_wo_bom_id</Index>
+<Data>*</Data>
+<Order>wip_wo_bom_id</Order></DbDetails>mustselected
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+	<op text="导出"><Save></Save><submit next="wip_wo_bomLst" namelist="Save" function="savetofile"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox><BR AutoHeight="1"/>
+		<Button Text="print" ToolTip="ttp_print" Name="print" Size="50,20" visible="true"><OnClick><submit next="GBwip_wo_header" function="print"/></OnClick></Button>
+		<ListCtrl loadedclick="1" ToolTip="ttp_wip_wo_header" Name="wip_wo_headerLst" Size="70,20" visible="0">
+			<DbDetails fcsm="1">
+			<DbTable>xbs.wip_wo_header</DbTable>
+			<Index>wip_wo_header_id</Index>
+			<Data>*</Data><Where>item_id_m='%{item_id_m[item_id_m]}'</Where>
+			<Order>wip_wo_header_id</Order></DbDetails>
+			<OnClick><assign name="reference_routing_item_id_m[bom_routing_header_id]" function="SetSel" expr="%{wip_wo_headerLst[reference_routing_item_id_m]}"/><assign name="reference_bom_item_id_m[bom_header_id]" function="SetSel" expr="%{wip_wo_headerLst[reference_bom_item_id_m]}"/><assign name="wo_type[option_line_id]" function="SetSel" expr="%{wip_wo_headerLst[wo_type]}"/><assign name="wip_accounting_group_id[wip_accounting_group_id]" function="SetSel" expr="%{wip_wo_headerLst[wip_accounting_group_id]}"/><assign name="completion_sub_inventory[subinventory_id]" function="SetSel" expr="%{wip_wo_headerLst[completion_sub_inventory]}"/><assign name="completion_locator[locator_id]" function="SetSel" expr="%{wip_wo_headerLst[completion_locator]}"/>
+			<magicdata filename="data/qr_wip_wo_number.png"><data>%{wip_wo_headerLst[wo_number]}</data></magicdata>
+			<submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+			<if cond="%{wip_wo_header_id}"><SetVisible name="insertwip_wo_header" Visible="0"/><SetVisible name="modifywip_wo_header" Visible="1"/><else/><SetVisible name="insertwip_wo_header" Visible="1"/><SetVisible name="modifywip_wo_header" Visible="0"/></if></OnClick></ListCtrl>
+		<MagicCtrl Name="qr_itemname" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="120,120" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate><SetVisible name="insertwip_wo_header" Visible="1"/><SetVisible name="modifywip_wo_header" Visible="0"/></OnActivate>
+			</WndTap>

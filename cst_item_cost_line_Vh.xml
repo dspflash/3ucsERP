@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVcst_item_cost_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="cst_item_cost_lineLst" ToolTip="ttp_cst_item_cost_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.cst_item_cost_line</DbTable>
+<Index>cst_item_cost_line_id</Index>
+<Data>cost_element_type,cost_element_id,amount,cost_basis,this_level_cb,status,created_by,creation_date,last_update_by,last_update_date,cst_item_cost_line_id</Data>
+<Order>cst_item_cost_line_id</Order></DbDetails>
+<OnClick><assign name="cost_element_type[option_line_id]" expr="%{cst_item_cost_lineLst[cost_element_type]}" function="SetSel"/><assign name="cost_element_id[element_id]" expr="%{cst_item_cost_lineLst[cost_element_id]}" function="SetSel"/><assign name="cost_basis[option_line_id]" expr="%{cst_item_cost_lineLst[cost_basis]}" function="SetSel"/>
+<if cond="%{cst_item_cost_line_id}"><SetVisible name="insertcst_item_cost_line" Visible="0"/><SetVisible name="modifycst_item_cost_line" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

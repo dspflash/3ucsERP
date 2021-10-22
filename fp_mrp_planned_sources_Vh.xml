@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVfp_mrp_planned_sources" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="fp_mrp_planned_sourcesLst" ToolTip="ttp_fp_mrp_planned_sources" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_mrp_planned_sources</DbTable>
+<Index>fp_mrp_planned_sources_id</Index>
+<Data>source_type,source_header_id,source_line_id,source_date,deleted,decription,org_id,created_by,creation_date,last_update_by,last_update_date,fp_mrp_planned_sources_id</Data>
+<Order>fp_mrp_planned_sources_id</Order></DbDetails>
+<OnClick>
+<if cond="%{fp_mrp_planned_sources_id}"><SetVisible name="insertfp_mrp_planned_sources" Visible="0"/><SetVisible name="modifyfp_mrp_planned_sources" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

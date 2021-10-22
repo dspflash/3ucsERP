@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEhr_employee_education" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hr_employee_education_id" Text="create" ToolTip="ttp_createhr_employee_education" Name="inserthr_employee_education" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hr_employee_education</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>degree_name,university,university_address,specialization,edu_start_date,edu_end_date,mode_of_education[option_line_id],grade,marks_percentage,comments,employee_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{inserthr_employee_education[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_employee_educationLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_employee_education_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_employee_education" Name="modifyhr_employee_education" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hr_employee_education</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>degree_name,university,university_address,specialization,edu_start_date,edu_end_date,mode_of_education[option_line_id],grade,marks_percentage,comments</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hr_employee_education_id='%{hr_employee_education_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyhr_employee_education[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_employee_educationLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_employee_education_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_employee_education" Name="resethr_employee_education" Size="50,20">
+<OnClick>
+<submit next="GBDEDIThr_employee_education" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchhr_employee_education" Name="gsearchhr_employee_education" Size="50,20" visible="false">
+<OnClick>
+<search next="hr_employee_educationLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDIThr_employee_education" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

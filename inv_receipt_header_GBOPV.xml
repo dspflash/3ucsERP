@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVinv_receipt_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteinv_receipt_header" Name="deleteinv_receipt_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_receipt_header</DbTable>
+<Where>inv_receipt_header_id='%{inv_receipt_headerLst[inv_receipt_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchinv_receipt_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshinv_receipt_header" Name="searchinv_receipt_header" Size="50,20">
+			  <OnClick><submit next="inv_receipt_headerLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPinv_receipt_headerLst" OnClick="(inv_receipt_headerLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREinv_receipt_headerLst" OnClick="(inv_receipt_headerLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPinv_receipt_headerLst" OnClick="(inv_receipt_headerLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

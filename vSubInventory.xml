@@ -1,0 +1,48 @@
+<WndTap Name="vSubInventory" Text="vSubInventory">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="locator_Vm.xml" popup="1"/>
+		<!--WndTap Text="locator" Name="locator" Ver="2" popup="1">
+		<var name="refreshAfterEdit" expr="1"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\locator.xml"/>
+		<Ctrls>
+		<GroupBox Text="locator" Name="GBlocator" id="locator" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="locator_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="locator_GBOPE.xml"></xi:include>
+		<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="locator_GBDV.xml"></xi:include></Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap-->
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\subinventory.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="Material"><Ctrls>
+<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="subinventory_GBDEDIT.xml"/>
+<BR autoHeight="1"/-->
+<!--GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="invOnhandLst" listed="0" prefixand="1" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITitem" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/-->
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="subinventoryLst" Size="700,420" colsDisplay="3">
+	<DbDetails>
+<DbTable>xbs.subinventory_v</DbTable>
+<Index>subinventory_id</Index>
+<Data>*</Data>
+<Order>subinventory_id</Order>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="locator"><assign name="$this.locator_v.subinventory_id" expr="%{subinventoryLst[subinventory_id]}"/><DbDetails><Where>subinventory_id='%{subinventoryLst[subinventory_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vSubInventory.locator_v.locator_vLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

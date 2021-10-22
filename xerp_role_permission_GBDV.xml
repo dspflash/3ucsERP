@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVxerp_role_permission"><Ctrls>
+<ListCtrl Heading="role_id,120;class,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;xerp_role_permission_id,55;" loadedclick="0" ToolTip="ttp_xerp_role_permission" Name="xerp_role_permissionLst" Size="300,180">
+	<DbDetails fcsm="1">
+<DbTable>xbs.xerp_role_permission x left join xbs.xerp_role x0 on x.role_id=x0.role_id left join xbs.module_class m on x.class=m.name</DbTable>
+<Index>xerp_role_permission_id</Index>
+<Data>x0.role_name_cn role_id,m.description class,x.created_by,x.creation_date,x.last_update_by,x.last_update_date,x.xerp_role_permission_id</Data>
+<Order>xerp_role_permission_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

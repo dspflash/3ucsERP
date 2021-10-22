@@ -1,0 +1,56 @@
+﻿<GroupBox Name="GBDEDITcc_co_template_line" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_field_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field_name" Size="60,20" Text="field_name" Align="Right"/>
+<ComboBox Name="field_name" Size="170,100" Text="" Weight="170"  ToolTip="ttp_field_name">
+	<DbDetails fcsm="true">
+<Index></Index>
+<DbTable></DbTable>
+<Data></Data>
+<Where></Where>
+<queryFormat>SELECT 'bom_routing_line' COLUMN_NAME, 'int' value_type UNION SELECT COLUMN_NAME,DATA_TYPE value_type FROM INFORMATION_SCHEMA.Columns WHERE table_name=(SELECT reftbltp FROM cc_co_template_header WHERE cc_co_template_header_id='%{cc_co_template_header_id}') AND table_schema='xbs'</queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_label" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_label" Size="60,20" Text="label" Align="Right"/>
+<TextBox Name="label" Size="170,20" Text="" Weight="170" ToolTip="ttp_label"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_required_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="required_cb" Size="230,20" Text="required_cb" ToolTip="ttp_required_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_control_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_control_type" Size="60,20" Text="control_type" Align="Right"/>
+<ComboBox Name="control_type" Size="170,100" Text="" Weight="170" Items="Select|Text|Check" ToolTip="ttp_control_type"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_control_value" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_control_value" Size="60,20" Text="control_value" Align="Right"/>
+<TextBox Name="control_value" Size="170,20" Text="" Weight="170" ToolTip="ttp_control_value"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_control_uom" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_control_uom" Size="60,20" Text="control_uom" Align="Right" onload="init"/>
+<ComboBox Name="control_uom" Size="170,100" Text="" Weight="170"  ToolTip="ttp_control_uom" onload="init">
+	<DbDetails>
+<Index>uom_id</Index>
+<DbTable>xbs.uom</DbTable>
+<Data>uom_name,uom_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_list_values" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_list_values" Size="60,20" Text="list_values" Align="Right"/>
+<TextBox Name="list_values" Size="170,20" Text="" Weight="170" ToolTip="ttp_list_values"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_lower_limit" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_lower_limit" Size="60,20" Text="lower_limit" Align="Right"/>
+<TextBox Name="lower_limit" Size="170,20" Text="" Weight="170" ToolTip="ttp_lower_limit"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_upper_limit" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_upper_limit" Size="60,20" Text="upper_limit" Align="Right"/>
+<TextBox Name="upper_limit" Size="170,20" Text="" Weight="170" ToolTip="ttp_upper_limit"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_list_value_option_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_list_value_option_type" Size="60,20" Text="list_value_option_type" Align="Right"/>
+<TextBox Name="list_value_option_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_list_value_option_type"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_active_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="active_cb" Size="230,20" Text="active_cb" ToolTip="ttp_active_cb" checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

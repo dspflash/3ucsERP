@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="user_subinventory" Name="user_subinventory" Ver="2">
+<var name="refreshAfterEdit" expr="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\user_subinventory.xml"/>
+<Ctrls>
+<GroupBox Text="user_subinventory" Name="GBuser_subinventory" id="user_subinventory" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_subinventory_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_subinventory_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_subinventory_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_subinventory_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

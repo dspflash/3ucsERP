@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVqa_ce_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="qa_ce_header_vLst" ToolTip="ttp_qa_ce_header" Size="700,420" OnLoad="init" Heading="element_name,250;element_type,120;uom_id,120;target_value,250;user_range_low,250;user_range_high,250;specification_range_high,250;specification_range_low,250;reasonable_range_high,250;reasonable_range_low,250;description,640;active_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;qa_ce_header_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.qa_ce_header q left join xbs.option_line o on q.element_type=o.option_line_code left join xbs.uom u on q.uom_id=u.uom_id</DbTable>
+<Index>qa_ce_header_id</Index>
+<Data>q.element_name,o.option_line_value element_type,u.uom_name uom_id,q.target_value,q.user_range_low,q.user_range_high,q.specification_range_high,q.specification_range_low,q.reasonable_range_high,q.reasonable_range_low,q.description,q.active_cb,q.created_by,q.creation_date,q.last_update_by,q.last_update_date,q.qa_ce_header_id</Data>
+<Order>qa_ce_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>qa_ce_header_id='%{qa_ce_header_vLst[qa_ce_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.qa_ce_header.qa_ce_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.qa_ce_header</DbTable>
+<Where>qa_ce_header_id='%{qa_ce_header_vLst[qa_ce_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

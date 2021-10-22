@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVhr_payroll_schedule" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_payroll_schedule_vLst" ToolTip="ttp_hr_payroll_schedule_v" Size="700,450" OnLoad="init" Heading="scheduled_date,90;start_date,90;end_date,90;period_name,250;description,640;status,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_payroll_schedule_id,60;hr_payroll_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>hr_payroll_schedule_id</Index>
+<DbTable>xbs.hr_payroll_schedule h</DbTable>
+<Data>h.scheduled_date,h.start_date,h.end_date,h.period_name,h.description,h.status,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_payroll_schedule_id,h.hr_payroll_id</Data>
+<Order>hr_payroll_schedule_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>hr_payroll_schedule_id='%{hr_payroll_schedule_vLst[hr_payroll_schedule_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_payroll_schedule.hr_payroll_scheduleLst"/><assign name="$this.hr_payroll_schedule.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_payroll_schedule</DbTable>
+<Where>hr_payroll_schedule_id='%{hr_payroll_schedule_vLst[hr_payroll_schedule_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_hr_payroll_schedule" expr="js(%{hr_payroll_schedule_vLst[currentpage]}+1)"/>
+<assign name="pgscb_hr_payroll_schedule" expr="js(%{hr_payroll_schedule_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

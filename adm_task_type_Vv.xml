@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVadm_task_type" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="adm_task_type_vLst" ToolTip="ttp_adm_task_type" Size="700,420" OnLoad="init" Heading="access_level,125;task_type,250;process_flow_header_id,60;description,640;from_date,90;to_date,90;effort_uom_id,60;effort_value,75;send_notification_cb,60;schedule_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;adm_task_type_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.adm_task_type a</DbTable>
+<Index>adm_task_type_id</Index>
+<Data>a.access_level,a.task_type,a.process_flow_header_id,a.description,a.from_date,a.to_date,a.effort_uom_id,a.effort_value,a.send_notification_cb,a.schedule_cb,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.adm_task_type_id</Data>
+<Order>adm_task_type_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>adm_task_type_id='%{adm_task_type_vLst[adm_task_type_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.adm_task_type.adm_task_typeLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

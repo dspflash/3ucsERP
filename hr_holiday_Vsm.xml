@@ -1,0 +1,23 @@
+﻿<GroupBox Name="GBDEDIThr_holiday"><Ctrls>
+<GroupBox Name="GB_holiday_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_holiday_date" Size="60,20" Text="holiday_date" Align="Right"/>
+<TextBox Name="holiday_date" Size="170,20" Text="" Weight="170" ToolTip="ttp_holiday_date"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_holiday_type_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_holiday_type_id" Size="60,20" Text="holiday_type_id" Align="Right"/>
+<TextBox Name="holiday_type_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_holiday_type_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_org_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_org_id" Size="60,20" Text="org_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="org_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_org_id" Visible="false" overlap="pre" readonly="true">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status"  checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,55 @@
+<WndTap Name="vMDM_price" Text="vMDM_price">
+	<WndTaps>
+	<WndTap Text="sd_so_line" Name="sd_so_line" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="sd_so_line" Name="GBsd_so_line" id="sd_so_line" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_line_GBDV.xml"></xi:include></Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap>
+			</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vSDSO"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_so_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="sdsoLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITsd_so_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="sdsoLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_so_header_v</DbTable>
+<Index>sd_so_header_id</Index>
+<Data>*</Data>
+<Order>sd_so_header_id</Order>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="so_approval_menu_rule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/so_approval_menu_rule.xml"/></rules>
+<inputs status="%{sdsoLst[approval_status]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="sd_so_line"><DbDetails><Where>sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</Where></DbDetails>
+	<submit next="vSDSO.sd_so_line.sd_so_lineLst" namelist="DbDetails"/></op>
+<op text="approve" needconfirm="1"><DbDetails><queryFormat>update sd_so_header set approval_status=326 where sd_so_header_id='%{sdsoLst[sd_so_header_id]}';UPDATE sd_so_line SET line_status=533 WHERE sd_so_header_id='%{sdsoLst[sd_so_header_id]}';
+</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="decline" needconfirm="1"><DbDetails><queryFormat>update sd_so_header set approval_status=325 where sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="cancel" needconfirm="1"><DbDetails><queryFormat>update sd_so_header set approval_status=322 where sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="hold" needconfirm="1"><DbDetails><queryFormat>update sd_so_header set approval_status=336 where sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

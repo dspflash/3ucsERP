@@ -1,0 +1,10 @@
+﻿<GroupBox Name="GBDVdocuments" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="documents_vLst" ToolTip="ttp_documents" Size="700,420" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.documents d</DbTable>
+<Index>idx</Index>
+<Data>d.filenameany,d.keywords,d.up_dt,d.expire_dt,d.owner_id,d.path,d.id_corp,d.idx</Data>
+<Order>idx</Order></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="documents_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

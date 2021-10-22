@@ -1,0 +1,22 @@
+﻿<WndTap Name="fa_asset_pick" Text="fa_asset_Pick">
+<var name="searchtmpl"><asset_number format="(f.asset_number like '%%{opvalue}%')"/><type format="(f.type like '%%{opvalue}%')"/><tag_number format="(f.tag_number like '%%{opvalue}%')"/><serial_number format="(f.serial_number like '%%{opvalue}%')"/><key_number format="(f.key_number like '%%{opvalue}%')"/><description format="(f.description like '%%{opvalue}%')"/><status format="(f.status like '%%{opvalue}%')"/><fa_asset_category_id format="f.fa_asset_category_id='%{opvalue}'"/><units format="(f.units like '%%{opvalue}%')"/><parent_asset_id format="(f.parent_asset_id like '%%{opvalue}%')"/><manufacturer format="(f.manufacturer like '%%{opvalue}%')"/><ap_supplier_id format="(f.ap_supplier_id like '%%{opvalue}%')"/><ap_supplier_site_id format="(f.ap_supplier_site_id like '%%{opvalue}%')"/><model_number format="(f.model_number like '%%{opvalue}%')"/><warrranty_number format="(f.warrranty_number like '%%{opvalue}%')"/><lease_number format="(f.lease_number like '%%{opvalue}%')"/><physical_inventory_cb format="f.physical_inventory_cb is %{opvalue}"/><rev_enabled format="(f.rev_enabled like '%%{opvalue}%')"/><rev_number format="(f.rev_number like '%%{opvalue}%')"/><created_by format="(f.created_by like '%%{opvalue}%')"/><creation_date format="(f.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(f.last_update_by like '%%{opvalue}%')"/><last_update_date format="(f.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><fa_asset_id format="(f.fa_asset_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\fa_asset.xml"/>
+<Ctrls><GroupBox  Name="GBfa_asset" id="fa_asset" Text="fa_asset" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fa_asset_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVfa_asset" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetfa_asset" Name="resetfa_asset" Size="50,20">	<OnClick>	<submit next="GBDEDITfa_asset" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchfa_asset" Name="gsearchfa_asset" Size="50,20">	<OnClick>	
+<search next="fa_asset_vLst" listed="0" prefixwhere="0" prefixand="1" inputed="1">%{searchtmpl}</search><submit next="GBDEDITfa_asset" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVfa_asset" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="fa_asset_vLst" ToolTip="ttp_fa_asset_v" Size="700,450" Heading="asset_number,150;type,125;tag_number,250;serial_number,150;key_number,150;description,640;status,125;fa_asset_category_id,120;units,50;parent_asset_id,60;manufacturer,150;ap_supplier_id,60;ap_supplier_site_id,60;model_number,150;warrranty_number,150;lease_number,150;physical_inventory_cb,60;rev_enabled,100;rev_number,50;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;fa_asset_id,50;" loadedclick="0">
+	<DbDetails >
+<Index>fa_asset_id</Index>
+<DbTable>xbs.fa_asset f left join xbs.fa_asset_category f0 on f.fa_asset_category_id=f0.fa_asset_category_id</DbTable>
+<Data>f.asset_number,f.type,f.tag_number,f.serial_number,f.key_number,f.description,f.status,f0.asset_category fa_asset_category_id,f.units,f.parent_asset_id,f.manufacturer,f.ap_supplier_id,f.ap_supplier_site_id,f.model_number,f.warrranty_number,f.lease_number,f.physical_inventory_cb,f.rev_enabled,f.rev_number,f.created_by,f.creation_date,f.last_update_by,f.last_update_date,f.fa_asset_id</Data>
+<Order>fa_asset_id</Order></DbDetails>
+<OnClick><if cond="%{fa_asset_vLst[fa_asset_id]}"><DbDetails><Where>fa_asset_id='%{fa_asset_vLst[fa_asset_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

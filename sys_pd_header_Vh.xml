@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVsys_pd_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="sys_pd_headerLst" ToolTip="ttp_sys_pd_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sys_pd_header</DbTable>
+<Index>sys_pd_header_id</Index>
+<Data>primary_document_id,process_flow_header_id,security_level,status,priority,originator,current_process_flow_line_id,origination_date,owner_user_id,release_date,completion_date,description,created_by,creation_date,last_update_by,last_update_date,org_id,sys_pd_header_id,primary_document,document_number</Data>
+<Order>sys_pd_header_id</Order></DbDetails>
+<OnClick><assign name="primary_document_id[id]" expr="%{sys_pd_headerLst[primary_document_id]}" function="SetSel"/><assign name="process_flow_header_id[sys_process_flow_header_id]" expr="%{sys_pd_headerLst[process_flow_header_id]}" function="SetSel"/><assign name="status[option_line_id]" expr="%{sys_pd_headerLst[status]}" function="SetSel"/><assign name="originator[xerp_user_id]" expr="%{sys_pd_headerLst[originator]}" function="SetSel"/><assign name="current_process_flow_line_id[sys_process_flow_line_id]" expr="%{sys_pd_headerLst[current_process_flow_line_id]}" function="SetSel"/><assign name="owner_user_id[xerp_user_id]" expr="%{sys_pd_headerLst[owner_user_id]}" function="SetSel"/><assign name="created_by[xerp_user_id]" expr="%{sys_pd_headerLst[created_by]}" function="SetSel"/><assign name="last_update_by[xerp_user_id]" expr="%{sys_pd_headerLst[last_update_by]}" function="SetSel"/><assign name="org_id[org_id]" expr="%{sys_pd_headerLst[org_id]}" function="SetSel"/>
+<if cond="%{sys_pd_header_id}"><SetVisible name="insertsys_pd_header" Visible="0"/><SetVisible name="modifysys_pd_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

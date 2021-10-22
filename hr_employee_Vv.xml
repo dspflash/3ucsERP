@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVhr_employee" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_employee_vLst" ToolTip="ttp_hr_employee_v" Size="700,450" OnLoad="init" Heading="first_name,250;last_name,250;title,125;email,500;other_email,250;gender,120;identification_type,120;identification_id,250;citizen_number,640;phone,150;mobile_number,125;status,60;employee_number,125;person_type,120;start_date,90;org_id,120;position_id,120;department_id,120;supervisor_employee_id,120;vehicle_number,640;asset_numbers,640;tax_reg_number,125;date_of_birth,90;city_of_birth,250;country_of_birth,50;nationality,250;marital_status,120;no_of_children,25;degree,125;social_ac_no,250;social_ac_no2,250;passport_number,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_employee_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>hr_employee_id</Index>
+<DbTable>xbs.hr_employee h left join xbs.option_line o on h.identification_type=o.option_line_id left join xbs.option_line o0 on h.person_type=o0.option_line_id left join xbs.org o1 on h.org_id=o1.org_id left join xbs.hr_position h0 on h.position_id=h0.hr_position_id left join xbs.hr_department h1 on h.department_id=h1.dept_id left join xbs.hr_employee h2 on h.supervisor_employee_id=h2.hr_employee_id left join xbs.option_line o2 on h.marital_status=o2.option_line_id</DbTable>
+<Data>h.first_name,h.last_name,h.title,h.email,h.other_email,h.gender,o.option_line_value identification_type,h.identification_id,h.citizen_number,h.phone,h.mobile_number,h.status,h.employee_number,o0.option_line_value person_type,h.start_date,o1.org org_id,h0.position_name position_id,h1.department department_id,h2.first_name supervisor_employee_id,h.vehicle_number,h.asset_numbers,h.tax_reg_number,h.date_of_birth,h.city_of_birth,h.country_of_birth,h.nationality,o2.option_line_value marital_status,h.no_of_children,h.degree,h.social_ac_no,h.social_ac_no2,h.passport_number,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_employee_id</Data>
+<Order>hr_employee_id</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hr_employee_id='%{hr_employee_vLst[hr_employee_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_employee.hr_employeeLst"/><assign name="$this.hr_employee.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_employee</DbTable>
+<Where>hr_employee_id='%{hr_employee_vLst[hr_employee_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_hr_employee" expr="js(%{hr_employee_vLst[currentpage]}+1)"/>
+<assign name="pgscb_hr_employee" expr="js(%{hr_employee_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_quote_line"><Ctrls>
+<ListCtrl Heading="item_id_m,60;line_type,120;shipping_org_id,120;line_number,60;unit_price,100;tax_code_id,120;customer_item_number,125;price_date,90;line_quantity,100;tax_amount,100;requested_date,90;promise_date,90;destination_type,120;line_description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;line_status,120;sd_quote_line_id,60;" loadedclick="0" ToolTip="ttp_sd_quote_line" Name="sd_quote_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_quote_line s left join xbs.item i on s.item_id_m=i.item_id_m left join xbs.option_line o on s.line_type=o.option_line_id left join xbs.org o0 on s.shipping_org_id=o0.org_id left join xbs.mdm_tax_code m on s.tax_code_id=m.mdm_tax_code_id left join xbs.option_line o1 on s.destination_type=o1.option_line_id left join xbs.option_line o2 on s.line_status=o2.option_line_id</DbTable>
+<Index>sd_quote_line_id</Index>
+<Data>i.concat item_id_m,o.option_line_value line_type,o0.org shipping_org_id,s.line_number,s.unit_price,m.tax_code tax_code_id,s.customer_item_number,s.price_date,s.line_quantity,s.tax_amount,s.requested_date,s.promise_date,o1.option_line_value destination_type,s.line_description,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,o2.option_line_value line_status,s.sd_quote_line_id</Data>
+<Order>sd_quote_line_id</Order></DbDetails>
+<DbDetails><Where>sd_quote_header_id='%{sd_quote_header_id[sd_quote_header_id]}'</Where></DbDetails><DbDetails><Where>sd_quote_header_id='%{sd_quote_header_id[sd_quote_header_id]}'</Where></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>sd_quote_line_id='%{sd_quote_line_vLst[sd_quote_line_id]}'</Where></DbDetails><submit next="$this.sd_quote_line.sd_quote_lineLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.sd_quote_line</DbTable>
+<Where>sd_quote_line_id='%{sd_quote_line_vLst[sd_quote_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,81 @@
+<GroupBox Name="GBDEDITpm_formula_ingredient"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_pm_formula_header_id"><Ctrls>
+<Label Align="Right" Text="pm_formula_header_id" OnLoad="init" Name="lb_pm_formula_header_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_pm_formula_header_id" OnLoad="init" Name="pm_formula_header_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.pm_formula_header</DbTable>
+<Index>pm_formula_header_id</Index>
+<Data>formula_name,pm_formula_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><DbDetails><Where>pm_formula_header_id='%{pm_formula_header_id[pm_formula_header_id]}'</Where></DbDetails><submit next="pm_formula_ingredientLst" namelist="DbDetails"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_no"><Ctrls>
+<Label Align="Right" Text="line_no" Name="lb_line_no" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_line_no" Name="line_no" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_revision_name"><Ctrls>
+<Label Align="Right" Text="revision_name" Name="lb_revision_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_revision_name" Name="revision_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_item_id_m"><Ctrls>
+<Label Align="Right" Text="item_id_m" OnLoad="init" Name="lb_item_id_m" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_item_id_m" OnLoad="init" Name="item_id_m" Size="170,100">
+	<DbDetails fcsm="true">
+<DbTable>xbs.item</DbTable>
+<Index>item_id_m</Index>
+<Data>item_number,uom_id,item_id_m</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_uom_id"><Ctrls>
+<Label Align="Right" Text="uom_id" Name="lb_uom_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_uom_id" Name="uom_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_quantity"><Ctrls>
+<Label Align="Right" Text="quantity" Name="lb_quantity" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_quantity" Name="quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_buffer_cb"><Ctrls>
+<CheckBox Text="buffer_cb" ToolTip="ttp_buffer_cb" Name="buffer_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_contribute_yield_cb"><Ctrls>
+<CheckBox Text="contribute_yield_cb" ToolTip="ttp_contribute_yield_cb" Name="contribute_yield_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_consumption_type"><Ctrls>
+<Label Align="Right" Text="consumption_type" OnLoad="init" Name="lb_consumption_type" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_consumption_type" OnLoad="init" Name="consumption_type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=285</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_required_qty"><Ctrls>
+<Label Align="Right" Text="required_qty" Name="lb_required_qty" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_required_qty" Name="required_qty" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_pm_formula_ingredient_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="pm_formula_ingredient_id" overlap="pre" Name="lb_pm_formula_ingredient_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_pm_formula_ingredient_id" overlap="pre" Name="pm_formula_ingredient_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBpm_formula_ingredient" expr="TABEDITpm_formula_ingredient"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

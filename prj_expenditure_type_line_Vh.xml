@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_expenditure_type_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_expenditure_type_lineLst" ToolTip="ttp_prj_expenditure_type_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_expenditure_type_line</DbTable>
+<Index>prj_expenditure_type_line_id</Index>
+<Data>rate,uom_id,currency,effective_from,effective_to,description,created_by,creation_date,last_update_by,last_update_date,prj_expenditure_type_line_id,bu_org_id</Data>
+<Order>prj_expenditure_type_line_id</Order></DbDetails>
+<OnClick><assign name="uom_id[uom_id]" expr="%{prj_expenditure_type_lineLst[uom_id]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{prj_expenditure_type_lineLst[currency]}" function="SetSel"/>
+<if cond="%{prj_expenditure_type_line_id}"><SetVisible name="insertprj_expenditure_type_line" Visible="0"/><SetVisible name="modifyprj_expenditure_type_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

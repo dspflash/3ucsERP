@@ -1,0 +1,34 @@
+<GroupBox Name="GBDEDITxbs_log"><Ctrls>
+<GroupBox Name="GB_xbs_log_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_xbs_log_id" Size="60,20" Text="xbs_log_id" Align="Right"/>
+<TextBox Name="xbs_log_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_xbs_log_id"><OnEnChange><assign name="GBxbs_log" expr="TABEDITxbs_log"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_log_level" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_log_level" Size="60,20" Text="log_level" Align="Right"/>
+<ComboBox Name="log_level" Size="170,100" Text="" Weight="170" Items="error|warning|debug|info" ToolTip="ttp_log_level"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_task" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_task" Size="60,20" Text="task" Align="Right"/>
+<TextBox Name="task" Size="170,20" Text="" Weight="170" ToolTip="ttp_task"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_program" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_program" Size="60,20" Text="program" Align="Right"/>
+<TextBox Name="program" Size="170,20" Text="" Weight="170" ToolTip="ttp_program"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_msg" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_msg" Size="60,50" Text="msg" Align="Right"/>
+<TextBox Name="msg" Size="170,50" Text="" Weight="170" ToolTip="ttp_msg"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_user_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_user_id" Size="60,20" Text="user_id" Align="Right"/>
+<TextBox Name="user_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_user_id"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_org_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_org_id" Size="60,20" Text="org_id" Align="Right"/>
+<TextBox Name="org_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_org_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_dt" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_dt" Size="60,20" Text="dt" Align="Right"/>
+<DateTime Name="dt" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_dt"></DateTime>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

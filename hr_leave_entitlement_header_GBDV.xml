@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_leave_entitlement_header"><Ctrls>
+<ListCtrl Heading="entitlement_name,640;leave_group,125;job_id,120;position_id,120;employee_id,120;grade_id,120;description,640;status,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_leave_entitlement_header_id,60;" loadedclick="0" ToolTip="ttp_hr_leave_entitlement_header" Name="hr_leave_entitlement_headerLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>hr_leave_entitlement_header_id</Index>
+<DbTable>xbs.hr_leave_entitlement_header h left join xbs.hr_job h0 on h.job_id=h0.hr_job_id left join xbs.hr_position h1 on h.position_id=h1.hr_position_id left join xbs.hr_employee_v h2 on h.employee_id=h2.hr_employee_id left join xbs.hr_grade h3 on h.grade_id=h3.hr_grade_id</DbTable>
+<Data>h.entitlement_name,h.leave_group,h0.job_name job_id,h1.position_name position_id,h2.name employee_id,h3.grade grade_id,h.description,h.status,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_leave_entitlement_header_id</Data>
+<Order>hr_leave_entitlement_header_id</Order></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>hr_leave_entitlement_header_id='%{hr_leave_entitlement_header_vLst[hr_leave_entitlement_header_id]}'</Where></DbDetails><submit next="$this.hr_leave_entitlement_header.hr_leave_entitlement_headerLst" namelist="DbDetails"/><assign name="$this.hr_leave_entitlement_header.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_leave_entitlement_header</DbTable>
+<Where>hr_leave_entitlement_header_id='%{hr_leave_entitlement_header_vLst[hr_leave_entitlement_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

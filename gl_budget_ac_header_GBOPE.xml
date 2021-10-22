@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEgl_budget_ac_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="gl_budget_ac_header_id" Text="create" ToolTip="ttp_creategl_budget_ac_header" Name="insertgl_budget_ac_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_budget_ac_header</DbTable>
+<Data>ac_name,description,gl_ledger_id[gl_ledger_id],start_date,end_date,role_code</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchgl_budget_ac_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifygl_budget_ac_header" Name="modifygl_budget_ac_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_budget_ac_header</DbTable>
+<Data>ac_name,description,gl_ledger_id[gl_ledger_id],start_date,end_date,role_code</Data>
+<DataEx>last_update_date;now()</DataEx>
+<Where>gl_budget_ac_header_id='%{gl_budget_ac_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchgl_budget_ac_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetgl_budget_ac_header" Name="resetgl_budget_ac_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITgl_budget_ac_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchgl_budget_ac_header" Name="gsearchgl_budget_ac_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="gl_budget_ac_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITgl_budget_ac_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEhr_attendance" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hr_attendance_id" Text="create" ToolTip="ttp_createhr_attendance" Name="inserthr_attendance" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hr_attendance</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>hr_employee_id[hr_employee_id],date,punch_in,punch_in_note,punch_out,punch_out_note,description</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{inserthr_attendance[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_attendanceLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_attendance_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_attendance" Name="modifyhr_attendance" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hr_attendance</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>date,punch_in,punch_in_note,punch_out,punch_out_note,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hr_attendance_id='%{hr_attendance_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyhr_attendance[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_attendanceLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_attendance_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_attendance" Name="resethr_attendance" Size="50,20">
+<OnClick>
+<submit next="GBDEDIThr_attendance" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchhr_attendance" Name="gsearchhr_attendance" Size="50,20" visible="false">
+<OnClick>
+<search next="hr_attendanceLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDIThr_attendance" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPViot_dev" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteiot_dev" Name="deleteiot_dev" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.iot_dev</DbTable>
+<Where>dev_idx='%{iot_devLst[dev_idx]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchiot_dev" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshiot_dev" Name="searchiot_dev" Size="50,20">
+			  <OnClick><submit next="iot_devLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPiot_devLst" OnClick="(iot_devLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREiot_devLst" OnClick="(iot_devLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPiot_devLst" OnClick="(iot_devLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

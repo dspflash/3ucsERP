@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVgl_budget"><Ctrls>
+<ListCtrl Heading="ledger_id,120;budget_name,250;description,640;status,125;created_on,90;frozen_date,90;first_period_id,120;current_period_id,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;gl_budget_id,60;" loadedclick="0" ToolTip="ttp_gl_budget" onload="init" Name="gl_budgetLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_budget</DbTable>
+<Index>gl_budget_id</Index>
+<Data>ledger_id,budget_name,description,status,created_on,frozen_date,first_period_id,current_period_id,created_by,creation_date,last_update_by,last_update_date,gl_budget_id</Data>
+<Order>gl_budget_id</Order></DbDetails>
+<OnClick><assign name="ledger_id[gl_ledger_id]" function="SetSel" expr="%{gl_budgetLst[ledger_id]}"/><assign name="first_period_id[gl_period_id]" function="SetSel" expr="%{gl_budgetLst[first_period_id]}"/><assign name="current_period_id[gl_period_id]" function="SetSel" expr="%{gl_budgetLst[current_period_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

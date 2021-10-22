@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVsd_shipping_control" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="sd_shipping_controlLst" ToolTip="ttp_sd_shipping_control" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_shipping_control</DbTable>
+<Index>sd_shipping_control_id</Index>
+<Data>staging_subinventory_id,staging_locator_id,default_picking_rule_id,delivery_onpicking_cb,autosplit_onpicking_cb,deffer_invoicing_cb,default_requested_date_cb,default_schedule_ship_date_cb,default_promise_date_cb,rev_number,rev_enabled,created_by,creation_date,last_update_by,last_update_date,org_id,sd_shipping_control_id</Data>
+<Order>sd_shipping_control_id</Order></DbDetails>
+<OnClick><assign name="staging_subinventory_id[subinventory_id]" expr="%{sd_shipping_controlLst[staging_subinventory_id]}" function="SetSel"/><assign name="staging_locator_id[locator_id]" expr="%{sd_shipping_controlLst[staging_locator_id]}" function="SetSel"/>
+<if cond="%{sd_shipping_control_id}"><SetVisible name="insertsd_shipping_control" Visible="0"/><SetVisible name="modifysd_shipping_control" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

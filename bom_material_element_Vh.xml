@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVbom_material_element" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bom_material_elementLst" ToolTip="ttp_bom_material_element" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>bom_material_element_id</Index>
+<DbTable>xbs.bom_material_element</DbTable>
+<Data>material_element,description,status,default_basis,created_by,creation_date,last_update_by,last_update_date,org_id,bom_material_element_id</Data>
+<Order>bom_material_element_id</Order></DbDetails>
+<OnClick><assign name="default_basis[option_line_id]" expr="%{bom_material_elementLst[default_basis]}" function="SetSel"/>
+<if cond="%{bom_material_element_id}"><SetVisible name="insertbom_material_element" Visible="0"/><SetVisible name="modifybom_material_element" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

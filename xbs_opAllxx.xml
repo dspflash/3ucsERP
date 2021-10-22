@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="0">
+	<DbDetails comment="must beforemost">
+		<SubDriver>MySQL</SubDriver>
+		<Host>localhost</Host>
+		<database>xbs</database>
+		<!--sqlMode>NO_BACKSLASH_ESCAPES</sqlMode-->
+		<characterset>utf8</characterset>
+		<User>i3u</User>
+		<password>i3u</password>
+		</DbDetails>	
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>
+	<WndTaps id="opAll">
+	<WndTap Text="sd" Name="sd" Ver="2">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xbs_sd.xml" xpointer="sd"/>
+	</WndTap>
+	<WndTap Text="purchase" Name="purchase" Ver="2">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xbs_purchase.xml" xpointer="purchase"/>
+	</WndTap>
+	<WndTap Text="admin" Name="admin" Ver="2">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xbs_admin.xml" xpointer="admin"/>
+	</WndTap>
+	</WndTaps>
+</XI3uWnd>

@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVhd_subscription_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hd_subscription_header_vLst" ToolTip="ttp_hd_subscription_header" Size="700,420" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hd_subscription_header h left join xbs.option_line o on h.document_type=o.option_line_id left join xbs.hr_employee_v h0 on h.hr_employee_id=h0.hr_employee_id left join xbs.ar_customer a on h.ar_customer_id=a.ar_customer_id left join xbs.ar_customer_site a0 on h.ar_customer_site_id=a0.ar_customer_site_id left join xbs.option_line o0 on h.gender=o0.option_line_id left join xbs.option_line o1 on h.marital_status=o1.option_line_id</DbTable>
+<Index>hd_subscription_header_id</Index>
+<Data>h.number,h.subscription_type,o.option_line_value document_type,h0.name hr_employee_id,a.customer_name ar_customer_id,a0.customer_site_name ar_customer_site_id,h.header_amount,h.tax_amount,h.ship_to_address_id,h.bill_to_address_id,h.first_name,h.last_name,h.full_name,h.passport_number,h.dob,o0.option_line_value gender,o1.option_line_value marital_status,h.occupation,h.nationality,h.address_line1,h.address_line2,h.postal_code,h.state,h.house_phone,h.office_phone,h.mobile_phone1,h.mobile_phone2,h.fax_no,h.email,h.status,h.description,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hd_subscription_header_id,h.org_id</Data>
+<Order>hd_subscription_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hd_subscription_header_id='%{hd_subscription_header_vLst[hd_subscription_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hd_subscription_header.hd_subscription_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_subscription_header</DbTable>
+<Where>hd_subscription_header_id='%{hd_subscription_header_vLst[hd_subscription_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

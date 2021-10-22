@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVbom_overhead" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletebom_overhead" Name="deletebom_overhead" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_overhead</DbTable>
+<Where>bom_overhead_id='%{bom_overheadLst[bom_overhead_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchbom_overhead" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshbom_overhead" Name="searchbom_overhead" Size="50,20">
+			  <OnClick><submit next="bom_overheadLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPbom_overheadLst" OnClick="(bom_overheadLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREbom_overheadLst" OnClick="(bom_overheadLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPbom_overheadLst" OnClick="(bom_overheadLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

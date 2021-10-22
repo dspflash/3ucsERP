@@ -1,0 +1,78 @@
+﻿<GroupBox Name="GBDEDITmdm_price_list_header"><Ctrls>
+<GroupBox Name="GB_price_list" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_price_list" Size="60,20" Text="price_list" Align="Right"/>
+<TextBox Name="price_list" Size="170,20" Text="" Weight="170" ToolTip="ttp_price_list"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_module_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_module_name" Size="60,20" Text="module_name" Align="Right"  onload="init"/>
+<ComboBox Name="module_name" Size="170,100" Text="" Weight="170"  ToolTip="ttp_module_name"  onload="init">
+	<DbDetails>
+<DbTable>xbs.module</DbTable>
+<Index>name</Index>
+<Data>name</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_currency_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_currency_code" Size="60,20" Text="currency_code" Align="Right" onload="init"/>
+<ComboBox Name="currency_code" Size="170,100" Text="" Weight="170"  ToolTip="ttp_currency_code" onload="init">
+	<DbDetails>
+<DbTable>xbs.currency</DbTable>
+<Index>currency_id</Index>
+<Data>title,(SELECT currency_code FROM xbs.org_ledger_v WHERE org_id='%{orgid}') ledger_currency,currency_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><if cond="%{currency_code[currency_id]}"><if cond="%{currency_code[ledger_currency]}"><submit next="currency_conversion_type"/></if></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_currency_conversion_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_currency_conversion_type" Size="60,20" Text="currency_conversion_type" Align="Right" selectedIndex="0"/>
+<ComboBox Name="currency_conversion_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_currency_conversion_type" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.gl_currency_conversion</DbTable>
+<Index>currency_conversion_type</Index>
+<Data>currency_conversion_type</Data>
+<Where>from_currency='%{currency_code[currency_id]}' and to_currency='%{currency_code[ledger_currency]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_allow_mutli_currency_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="allow_mutli_currency_cb" Size="230,20" Text="allow_mutli_currency_cb" ToolTip="ttp_allow_mutli_currency_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status"  checked="true"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>NAME,username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre">
+	<DbDetails>
+<DbTable>xbs.user_v </DbTable>
+<Index>xerp_user_id</Index>
+<Data>NAME,username,xerp_user_id </Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_mdm_price_list_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_mdm_price_list_header_id" Size="60,20" Text="mdm_price_list_header_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="mdm_price_list_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_mdm_price_list_header_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{mdm_price_list_header_id}'"><SetVisible name="insertmdm_price_list_header" Visible="0"/><SetVisible name="modifymdm_price_list_header" Visible="1"/><else/><SetVisible name="insertmdm_price_list_header" Visible="1"/><SetVisible name="modifymdm_price_list_header" Visible="0"/></if><DbDetails><Where>mdm_price_list_header_id='%{mdm_price_list_header_id}'</Where></DbDetails><submit next="mdm_price_list_line_vLst" namelist="DbDetails"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

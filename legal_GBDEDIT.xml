@@ -1,0 +1,61 @@
+<GroupBox Name="GBDEDITlegal"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_registration_number"><Ctrls>
+<Label Align="Right" Text="registration_number" Name="lb_registration_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_registration_number" Name="registration_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_place_of_registration"><Ctrls>
+<Label Align="Right" Text="place_of_registration" Name="lb_place_of_registration" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_place_of_registration" Name="place_of_registration" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_country_of_registration"><Ctrls>
+<Label Align="Right" Text="country_of_registration" onload="init" Name="lb_country_of_registration" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_country_of_registration" onload="init" Name="country_of_registration" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.country</DbTable>
+<Index>country_id</Index>
+<Data>namecn,country_id</Data>
+<Where>namecn is not null</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_identification_number"><Ctrls>
+<Label Align="Right" Text="identification_number" Name="lb_identification_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_identification_number" Name="identification_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_ledger_id"><Ctrls>
+<Label Align="Right" Text="ledger_id" onload="init" Name="lb_ledger_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_ledger_id" onload="init" Name="ledger_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.gl_ledger</DbTable>
+<Index>gl_ledger_id</Index>
+<Data>ledger,gl_ledger_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_balancing_segments"><Ctrls>
+<Label Align="Right" Text="balancing_segments" Name="lb_balancing_segments" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_balancing_segments" Name="balancing_segments" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_legal_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="legal_id" overlap="pre" Name="lb_legal_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_legal_id" overlap="pre" Name="legal_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBlegal" expr="TABEDITlegal"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_org_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="org_id" overlap="pre" Name="lb_org_id" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_org_id" overlap="pre" Name="org_id" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

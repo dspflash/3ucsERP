@@ -1,0 +1,25 @@
+﻿<GroupBox Name="GBDEDIThr_crew_shift" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_hr_crew_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hr_crew_id" Size="60,20" Text="hr_crew_id" Align="Right"  onload="init"/>
+<ComboBox Name="hr_crew_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_hr_crew_id"  onload="init">
+	<DbDetails>
+<Index>hr_crew_id</Index>
+<DbTable>xbs.hr_crew</DbTable>
+<Data>crew_number,hr_crew_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_shift_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hr_shift_id" Size="60,20" Text="hr_shift_id" Align="Right"  onload="init"/>
+<ComboBox Name="hr_shift_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_hr_shift_id"  onload="init">
+	<DbDetails>
+<Index>hr_shift_id</Index>
+<DbTable>xbs.hr_shift</DbTable>
+<Data>shift_name,hr_shift_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_active" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="active" Size="230,20" Text="active" ToolTip="ttp_active"  checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

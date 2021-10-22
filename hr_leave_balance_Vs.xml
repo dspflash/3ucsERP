@@ -1,0 +1,24 @@
+﻿<GroupBox Name="GBDEDIThr_leave_balance" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_leave_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_leave_type" Size="60,20" Text="leave_type" Align="Right"  onload="init"/>
+<ComboBox Name="leave_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_leave_type"  onload="init">
+	<DbDetails>
+<Index>hr_leave_type_id</Index>
+<DbTable>xbs.hr_leave_type</DbTable>
+<Data>leave_type,hr_leave_type_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_leave_per_year" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_leave_per_year" Size="60,20" Text="leave_per_year" Align="Right"/>
+<TextBox Name="leave_per_year" Size="170,20" Text="" Weight="170" ToolTip="ttp_leave_per_year"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_total_available" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_total_available" Size="60,20" Text="total_available" Align="Right"/>
+<TextBox Name="total_available" Size="170,20" Text="" Weight="170" ToolTip="ttp_total_available"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_total_used" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_total_used" Size="60,20" Text="total_used" Align="Right"/>
+<TextBox Name="total_used" Size="170,20" Text="" Weight="170" ToolTip="ttp_total_used"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

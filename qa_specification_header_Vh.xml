@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVqa_specification_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="qa_specification_headerLst" ToolTip="ttp_qa_specification_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_specification_header</DbTable>
+<Index>qa_specification_header_id</Index>
+<Data>specification_name,effective_from,effective_to,description,item_id_m,item_revision,ap_supplier_id,ar_customer_id,status,created_by,creation_date,last_update_by,last_update_date,qa_specification_header_id</Data>
+<Order>qa_specification_header_id</Order></DbDetails>
+<OnClick><assign name="item_id_m[item_id_m]" expr="%{qa_specification_headerLst[item_id_m]}" function="SetSel"/><assign name="ap_supplier_id[supplier_id]" expr="%{qa_specification_headerLst[ap_supplier_id]}" function="SetSel"/><assign name="ar_customer_id[ar_customer_id]" expr="%{qa_specification_headerLst[ar_customer_id]}" function="SetSel"/>
+<if cond="%{qa_specification_header_id}"><SetVisible name="insertqa_specification_header" Visible="0"/><SetVisible name="modifyqa_specification_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

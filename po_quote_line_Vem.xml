@@ -1,0 +1,18 @@
+<WndTap Name="po_quote_line" Text="po_quote_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="item_id_m[item_id_m],uom_id[uom_id],tax_code_id[mdm_tax_code_id],quote_unit_price,po_quote_header_id[po_quote_header_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\po_quote_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBpo_quote_line" id="po_quote_line" Text="po_quote_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_line_GBOPEm.xml"/>
+<Button Text="MaterialPick" ToolTip="ttp_materialpick" Name="materialpick" Size="80,20">
+			<OnClick><assign name="vSupplier.Materialpick.fromwintap" expr="vSupplier.po_quote_line"/><DbDetails><Where></Where></DbDetails>
+			<submit namelist="DbDetails" next="vSupplier.Materialpick.MaterialLst"/>
+			</OnClick>
+			</Button><TAB/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertpo_quote_line" Visible="1"/><SetVisible name="modifypo_quote_line" Visible="0"/></OnActivate>
+</WndTap>

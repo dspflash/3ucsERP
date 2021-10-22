@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVdocsharel" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="docsharelLst" ToolTip="ttp_docsharel" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.docsharel</DbTable>
+<Index>idx</Index>
+<Data>doc_id,shared2,type,dt2share,sharedby,idx</Data>
+<Order>idx</Order></DbDetails>
+<OnClick><assign name="doc_id[idx]" expr="%{docsharelLst[doc_id]}" function="SetSel"/><assign name="shared2[shid]" expr="%{docsharelLst[shared2]}" function="SetSel"/>
+<if cond="%{idx}"><SetVisible name="insertdocsharel" Visible="0"/><SetVisible name="modifydocsharel" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

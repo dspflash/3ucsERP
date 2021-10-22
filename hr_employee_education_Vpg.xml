@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGhr_employee_education"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_hr_employee_education" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>hr_employee_education_id</Index>
+<DbTable>xbs.hr_employee_education h left join xbs.option_line o on h.mode_of_education=o.option_line_id</DbTable>
+<Data>count(*) records</Data>
+<Order>hr_employee_education_id</Order><Queryformat>select %{data} from (select h.hr_employee_education_id from %{dbtable} %{where} GROUP BY h.hr_employee_education_id  ORDER BY h.hr_employee_education_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_hr_employee_education" expr="js(Math.ceil(%{records_hr_employee_education}/%{hr_employee_education_vLst[countsperpage]}))"/>
+<assign name="pgscb_hr_employee_education" expr="js('1~'+Math.ceil(%{records_hr_employee_education}/%{hr_employee_education_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_hr_employee_education" Size="60,20"><OnSelEndOK><submit next="hr_employee_education_vLst" function="GetPage(%{pgscb_hr_employee_education}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_hr_employee_education" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_hr_employee_education" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagehr_employee_education_vLst" Size="50,20"><OnClick><submit next="hr_employee_education_vLst" function="GetPage(%{pgcur_hr_employee_education}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

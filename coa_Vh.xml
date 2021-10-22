@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVcoa" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="coaLst" ToolTip="ttp_coa" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.coa</DbTable>
+<Index>coa_id</Index>
+<Data>coa_name,coa_structure_id,description,balancing,cost_center,natural_account,inter_company,field1,field2,field3,field4,field5,field6,field7,field8,status,created_by,creation_date,last_update_by,last_update_date,coa_id</Data>
+<Order>coa_id</Order></DbDetails>
+<OnClick><assign name="coa_structure_id[option_line_id]" expr="%{coaLst[coa_structure_id]}" function="SetSel"/>
+<if cond="%{coa_id}"><SetVisible name="insertcoa" Visible="0"/><SetVisible name="modifycoa" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

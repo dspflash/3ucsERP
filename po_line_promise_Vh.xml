@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVpo_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="po_lineLst" ToolTip="ttp_po_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_line</DbTable>
+<Index>po_line_id</Index>
+<Data>line_description,status,created_by,creation_date,last_update_by,last_update_date,po_line_id,need_by_date,promise_date,reference_header_id,reference_line_id,po_req_line_id,promise_by</Data>
+<Order>po_line_id</Order></DbDetails>
+<OnClick><assign name="status[option_line_id]" expr="%{po_lineLst[status]}" function="SetSel"/>
+<if cond="%{po_line_id}"><SetVisible name="insertpo_line" Visible="0"/><SetVisible name="modifypo_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

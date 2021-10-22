@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEhr_payroll" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hr_payroll_id" Text="create" ToolTip="ttp_createhr_payroll" Name="inserthr_payroll" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hr_payroll</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>payroll,period_type[option_line_id],payment_method_id[hr_payroll_payment_method_id],start_date,end_date,description</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{inserthr_payroll[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_payrollLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_payroll_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_payroll" Name="modifyhr_payroll" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hr_payroll</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>payroll,period_type[option_line_id],payment_method_id[hr_payroll_payment_method_id],start_date,end_date,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hr_payroll_id='%{hr_payroll_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyhr_payroll[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_payrollLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_payroll_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_payroll" Name="resethr_payroll" Size="50,20">
+<OnClick>
+<submit next="GBDEDIThr_payroll" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchhr_payroll" Name="gsearchhr_payroll" Size="50,20" visible="false">
+<OnClick>
+<search next="hr_payrollLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDIThr_payroll" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

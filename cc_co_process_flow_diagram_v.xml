@@ -1,0 +1,27 @@
+<WndTap Text="cc_co_process_flow_diagram" Name="cc_co_process_flow_diagram" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_line.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_action.xml"/>
+<Ctrls>
+<GroupBox Text="sys_process_flow_diagram" Name="GBsys_process_flow_diagram" id="sys_process_flow_diagram" Size="100,100"><Ctrls>
+<ListCtrl Name="sys_process_flow_diagram_vLst" ToolTip="ttp_sys_process_flow_diagram" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sys_process_flow_header fh 
+JOIN xbs.sys_process_flow_line fl ON fh.sys_process_flow_header_id=fl.sys_process_flow_header_id 
+LEFT JOIN xbs.sys_process_flow_line flp ON fl.next_line_seq_pass=flp.sys_process_flow_line_id 
+LEFT JOIN xbs.sys_process_flow_line flf ON fl.next_line_seq_fail=flf.sys_process_flow_line_id
+JOIN xbs.sys_process_flow_action fa ON fl.sys_process_flow_line_id=fa.sys_process_flow_line_id 
+JOIN xbs.xerp_role r ON fa.role_code=r.role_id 
+JOIN xbs.user_v u ON fa.userid=u.xerp_user_id 
+JOIN cc_co_header co ON co.process_flow_header_id=fh.sys_process_flow_header_id
+LEFT JOIN cc_co_process_flow_action cofa ON co.cc_co_header_id=cofa.cc_co_header_id AND cofa.sys_process_flow_line_id=fl.sys_process_flow_line_id AND cofa.action_number=fa.action_number
+LEFT JOIN xbs.user_v ur ON cofa.action_user_id=ur.xerp_user_id 
+</DbTable>
+<Index>sys_process_flow_action_id</Index>
+<Data>process_flow,fl.line_number,fl.line_type,fl.line_name,field_value,ur.NAME user_real,role_name_cn,u.NAME user,flp.line_name pass_next,flf.line_name fail_next,fa.action_number,fa.pf_action_type,fa.userid,sys_process_flow_action_id,fl.sys_process_flow_line_id,fl.next_line_seq_pass,fl.next_line_seq_fail,fh.sys_process_flow_header_id </Data>
+<Order>line_number,action_number </Order>
+<Where>co.cc_co_header_id='%{cc_co_header_id}'</Where></DbDetails>
+	</ListCtrl>	
+	</Ctrls></GroupBox>
+	</Ctrls>
+		</WndTap>

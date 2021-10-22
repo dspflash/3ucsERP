@@ -1,0 +1,26 @@
+﻿<GroupBox Name="GBDEDITitem_properties" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_item_id_m" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_id_m" Size="60,20" Text="item_id_m" Align="Right"/>
+<TextBox Name="item_id_m" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_id_m">
+	<DbDetails>
+<Index>item_id_m</Index>
+<DbTable>xbs.item</DbTable>
+<Data>item_number,item_id_m</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_property_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_property_id" Size="60,20" Text="property_id" Align="Right" onload="init" selectedIndex="0"/>
+<ComboBox Name="property_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_property_id" onload="init" selectedIndex="0">
+	<DbDetails>
+<Index>property_id</Index>
+<DbTable>xbs.item_property</DbTable>
+<Data>prop_display_name,property_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_property_value" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_property_value" Size="60,20" Text="property_value" Align="Right"/>
+<TextBox Name="property_value" Size="170,20" Text="" Weight="170" ToolTip="ttp_property_value"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

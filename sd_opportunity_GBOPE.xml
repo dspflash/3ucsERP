@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEsd_opportunity" Size="100,100"><Ctrls>
+<Button sqlpkinsert="sd_opportunity_id" Text="create" ToolTip="ttp_createsd_opportunity" Name="insertsd_opportunity" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_opportunity</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>opportunity_number,ar_customer_id[ar_customer_id],ar_customer_site_id[ar_customer_site_id],last_name,first_name,sales_channel[option_line_id],mobile_number,office_number,email_id,contact_website,fax_no,timezone,time_to_contact,hr_employee_id[hr_employee_id],sales_team[hr_team_header_id],referral_source,close_reason,description,sd_lead_id,bu_org_id[org_id],win_probability,forecast_amount,currency[currency_id],expected_close_date</Data>
+<DataEx>status,created_by,creation_date,last_update_by,last_update_date;1552,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="sd_opportunityLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifysd_opportunity" Name="modifysd_opportunity" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_opportunity</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>opportunity_number,ar_customer_id[ar_customer_id],ar_customer_site_id[ar_customer_site_id],last_name,first_name,sales_channel[option_line_id],mobile_number,office_number,email_id,contact_website,fax_no,timezone,time_to_contact,hr_employee_id[hr_employee_id],sales_team[hr_team_header_id],referral_source,close_reason,description,sd_lead_id,bu_org_id[org_id],win_probability,forecast_amount,currency[currency_id],expected_close_date</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>sd_opportunity_id='%{sd_opportunity_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="sd_opportunityLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetsd_opportunity" Name="resetsd_opportunity" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_opportunity" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchsd_opportunity" Name="gsearchsd_opportunity" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="sd_opportunityLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITsd_opportunity" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

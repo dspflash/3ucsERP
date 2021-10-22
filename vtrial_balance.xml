@@ -1,0 +1,20 @@
+	<WndTap Text="trial_balance" Name="trial_balance" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\gl_ledger.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\gl_journal_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\gl_journal_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="trial_balance" Name="GBtrial_balance" id="trial_balance" Size="100,100"><Ctrls>
+	<ListCtrl loadedclick="1" ToolTip="ttp_trial_balance" Name="trial_balanceLst" Size="700,420" visible="1" sum="0,1" SumCols="2,3,4,5">
+		<DbDetails fcsm="1">WHERE code_combination_id IN (SELECT coa_combination_id FROM coa_combination WHERE org_id=4 AND (reftbltp,refid)=('subinventory',2))
+	<DbTable>gl_unposted_balance_v</DbTable>
+	<Index>gl_period_id</Index>
+	<Data>*</Data>
+	<Order>gl_period_id</Order></DbDetails>
+	<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="post" needconfirm="1"><DbDetails><queryFormat>update gl_journal_line set STATUS=434 where gl_journal_header_id='%{trial_balanceLst[gl_journal_header_id]}' and status=486;</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="postPeriod" needconfirm="1"><DbDetails><queryFormat>update gl_journal_line set STATUS=434 where (gl_journal_header_id in (select gl_journal_header_id from gl_journal_header where period_id='%{trial_balanceLst[gl_period_id]}')) and status=486 and code_combination_id is not null;</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+	</operator>
+	</ListCtrl>	
+	</Ctrls></GroupBox>
+	</Ctrls>
+		</WndTap>

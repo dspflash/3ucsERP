@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVcategory" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialcategory" Size="50,20">
+<OnClick><submit next="category_vLst" function="initial"/><submit next="records_category" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPcategory_vLst" Size="50,20">
+<OnClick><submit next="category_vLst" function="GetPage(first)"/><submit next="records_category"/></OnClick></Button>
+<Button Text="prepage" Name="PREcategory_vLst" Size="50,20">
+<OnClick><submit next="category_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPcategory_vLst" Size="50,20">
+<OnClick><submit next="category_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

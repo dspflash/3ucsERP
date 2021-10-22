@@ -1,0 +1,13 @@
+﻿<GroupBox Name="GBDVuser_bom_department" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="user_bom_department_vLst" ToolTip="ttp_user_bom_department_v" Size="700,450" OnLoad="init" Heading="xerp_user_id,120;active,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;user_bom_department_id,60;"    onload="0" loadedclick="0">
+	<DbDetails >
+<Index>user_bom_department_id</Index>
+<DbTable>xbs.user_bom_department u left join xbs.user_v u0 on u.xerp_user_id=u0.xerp_user_id</DbTable>
+<Data>u0.username xerp_user_id,u.active,u.created_by,u.creation_date,u.last_update_by,u.last_update_date,u.user_bom_department_id</Data>
+<Order>user_bom_department_id</Order></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_bom_department_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_user_bom_department" expr="js(%{user_bom_department_vLst[currentpage]}+1)"/>
+<assign name="pgscb_user_bom_department" expr="js(%{user_bom_department_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVmdm_price_list_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="mdm_price_list_lineLst" ToolTip="ttp_mdm_price_list_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_price_list_line</DbTable>
+<Index>mdm_price_list_line_id</Index>
+<Data>line_type,item_id_m,org_id,effective_start_date,effective_end_date,use_price_break_cb,created_by,creation_date,last_update_by,last_update_date,mdm_price_list_line_id</Data>
+<Order>mdm_price_list_line_id</Order></DbDetails>
+<OnClick><assign name="line_type[option_line_id]" expr="%{mdm_price_list_lineLst[line_type]}" function="SetSel"/><assign name="item_id_m[item_id_m]" expr="%{mdm_price_list_lineLst[item_id_m]}" function="SetSel"/><assign name="org_id[org_id]" expr="%{mdm_price_list_lineLst[org_id]}" function="SetSel"/>
+<if cond="%{mdm_price_list_line_id}"><SetVisible name="insertmdm_price_list_line" Visible="0"/><SetVisible name="modifymdm_price_list_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

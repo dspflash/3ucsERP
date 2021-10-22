@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVuser_role" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteuser_role" Name="deleteuser_role" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.user_role</DbTable>
+<Where>user_role_id='%{user_roleLst[user_role_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchuser_role" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshuser_role" Name="searchuser_role" Size="50,20">
+			  <OnClick><submit next="user_roleLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPuser_roleLst" OnClick="(user_roleLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREuser_roleLst" OnClick="(user_roleLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPuser_roleLst" OnClick="(user_roleLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

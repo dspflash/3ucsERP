@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVadm_task_template_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="adm_task_template_lineLst" ToolTip="ttp_adm_task_template_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.adm_task_template_line</DbTable>
+<Index>adm_task_template_line_id</Index>
+<Data>status,task_type_id,priority_code,subject,description,duration_uom_id,duration,planned_uom_id,planned_uom,holiday_cb,milestone_cb,confirm_required_cb,publish_cb,billable_cb,private_cb,created_by,creation_date,last_update_by,last_update_date,adm_task_template_line_id</Data>
+<Order>adm_task_template_line_id</Order></DbDetails>
+<OnClick><assign name="status[option_line_id]" expr="%{adm_task_template_lineLst[status]}" function="SetSel"/><assign name="task_type_id[adm_task_type_id]" expr="%{adm_task_template_lineLst[task_type_id]}" function="SetSel"/>
+<if cond="%{adm_task_template_line_id}"><SetVisible name="insertadm_task_template_line" Visible="0"/><SetVisible name="modifyadm_task_template_line" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

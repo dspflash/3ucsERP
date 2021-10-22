@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGuser_bom_department"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_user_bom_department" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>user_bom_department_id</Index>
+<DbTable>xbs.user_bom_department u left join xbs.user_v u0 on u.xerp_user_id=u0.xerp_user_id</DbTable>
+<Data>count(*) records</Data>
+<Order>user_bom_department_id</Order><Queryformat>select %{data} from (select u.user_bom_department_id from %{dbtable} %{where} GROUP BY u.user_bom_department_id  ORDER BY u.user_bom_department_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_user_bom_department" expr="js(Math.ceil(%{records_user_bom_department}/%{user_bom_department_vLst[countsperpage]}))"/>
+<assign name="pgscb_user_bom_department" expr="js('1~'+Math.ceil(%{records_user_bom_department}/%{user_bom_department_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_user_bom_department" Size="60,20"><OnSelEndOK><submit next="user_bom_department_vLst" function="GetPage(%{pgscb_user_bom_department}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_user_bom_department" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_user_bom_department" Size="30,20"/>
+<Button Text="go2Page" Name="go2pageuser_bom_department_vLst" Size="50,20"><OnClick><submit next="user_bom_department_vLst" function="GetPage(%{pgcur_user_bom_department}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

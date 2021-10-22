@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhd_svo_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hd_svo_lineLst" ToolTip="ttp_hd_svo_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_svo_line</DbTable>
+<Index>hd_svo_line_id</Index>
+<Data>item_id_m,destination_type,line_number,requested_date,price_date,line_price,line_description,line_status,sd_so_line_id,inv_org_id,hd_service_type_header_id,quantity,action_type_id,status,service_activity_header_id,return_reason,created_by,creation_date,last_update_by,last_update_date,hd_svo_line_id,hd_svo_header_id</Data>
+<Order>hd_svo_line_id</Order></DbDetails>
+<OnClick><assign name="item_id_m[item_id_m]" expr="%{hd_svo_lineLst[item_id_m]}" function="SetSel"/><assign name="destination_type[option_line_id]" expr="%{hd_svo_lineLst[destination_type]}" function="SetSel"/><assign name="line_status[option_line_id]" expr="%{hd_svo_lineLst[line_status]}" function="SetSel"/><assign name="service_activity_header_id[hd_service_activity_header_id]" expr="%{hd_svo_lineLst[service_activity_header_id]}" function="SetSel"/>
+<if cond="%{hd_svo_line_id}"><SetVisible name="inserthd_svo_line" Visible="0"/><SetVisible name="modifyhd_svo_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

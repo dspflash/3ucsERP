@@ -1,0 +1,130 @@
+﻿<GroupBox Name="GBDEDIThr_compensation_element"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_element_name"><Ctrls>
+<Label Align="Right" Text="element_name" Name="lb_element_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_element_name" Name="element_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_start_date"><Ctrls>
+<Label Align="Right" Text="start_date" Name="lb_start_date" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_start_date" Name="start_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_end_date"><Ctrls>
+<Label Align="Right" Text="end_date" Name="lb_end_date" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_end_date" Name="end_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_element_type"><Ctrls>
+<Label Align="Right" Text="element_type" onload="init" Name="lb_element_type" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_element_type" onload="init" Name="element_type" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=192</Where>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="classification"/><submit next="category"/><if cond="%{element_type[selectedIndex]}==0"><submit next="calculation_rule" function="resetcontent"/><submit next="deduction_rule"/><submit next="deduction_start_rule"/><elseif cond="%{element_type[selectedIndex]}==1"/><submit next="calculation_rule"/><submit next="deduction_rule" function="resetcontent"/><submit next="deduction_start_rule" function="resetcontent"/></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_classification"><Ctrls>
+<Label Align="Right" Text="classification" Name="lb_classification" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_classification" Name="classification" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=193 and value_group_id='%{element_type[selectedIndex]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_category"><Ctrls>
+<Label Align="Right" Text="category" Name="lb_category" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_category" Name="category" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=194 and value_group_id='%{element_type[selectedIndex]}' </Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_calculation_rule"><Ctrls>
+<Label Align="Right" Text="calculation_rule" onload="init" Name="lb_calculation_rule" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_calculation_rule" onload="init" Name="calculation_rule" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=276</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_deduction_rule"><Ctrls>
+<Label Align="Right" Text="deduction_rule" onload="init" Name="lb_deduction_rule" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_deduction_rule" onload="init" Name="deduction_rule" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=277</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_deduction_start_rule"><Ctrls>
+<Label Align="Right" Text="deduction_start_rule" onload="init" Name="lb_deduction_start_rule" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_deduction_start_rule" onload="init" Name="deduction_start_rule" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=278</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_priority"><Ctrls>
+<Label Align="Right" Text="priority" Name="lb_priority" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_priority" Name="priority" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_frequency_months"><Ctrls>
+<Label Align="Right" Text="frequency_months" Name="lb_frequency_months" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_frequency_months" Name="frequency_months" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_recurring_cb"><Ctrls>
+<CheckBox Text="recurring_cb" ToolTip="ttp_recurring_cb" Name="recurring_cb" Size="230,20" checked="true"><OnChecked><SetEnabled name="frequency_months" enabled="%{recurring_cb}"/> </OnChecked></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_separate_check_cb"><Ctrls>
+<CheckBox Text="separate_check_cb" ToolTip="ttp_separate_check_cb" Name="separate_check_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_standard_link_cb"><Ctrls>
+<CheckBox Text="standard_link_cb" ToolTip="ttp_standard_link_cb" Name="standard_link_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" Size="230,20" checked="true"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>xerp_user_id</Index>
+<DbTable>xbs.user_v</DbTable>
+<Data>NAME,username,xerp_user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>xerp_user_id</Index>
+<DbTable>xbs.user_v</DbTable>
+<Data>NAME,username,xerp_user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_hr_compensation_element_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="hr_compensation_element_id" overlap="pre" Name="lb_hr_compensation_element_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hr_compensation_element_id" overlap="pre" Name="hr_compensation_element_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{hr_compensation_element_id}'"><SetVisible name="inserthr_compensation_element" Visible="0"/><SetVisible name="modifyhr_compensation_element" Visible="1"/><else/><SetVisible name="inserthr_compensation_element" Visible="1"/><SetVisible name="modifyhr_compensation_element" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

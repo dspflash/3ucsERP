@@ -1,0 +1,73 @@
+﻿<GroupBox Name="GBDEDITbom_line" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_bom_sequence" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bom_sequence" Size="60,20" Text="bom_sequence" Align="Right"/>
+<ComboBox Name="bom_sequence" Size="170,100" Text="" Weight="170" Items="1~50*10" ToolTip="ttp_bom_sequence"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_routing_sequence" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_routing_sequence" Size="60,20" Text="routing_sequence" Align="Right"/>
+<ComboBox Name="routing_sequence" Size="170,100" Text="" Weight="170"  ToolTip="ttp_routing_sequence">
+	<DbDetails fcsm="true">
+<Index>routing_sequence</Index>
+<DbTable>xbs.bom_routing_line</DbTable>
+<Data>routing_sequence,routing_seq_num,routing_sequence</Data>
+<Where>bom_header_id='%{bom_header_id[bom_header_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_routing_seq_num" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="routing_seq_num" Size="230,20" Text="routing_seq_num" ToolTip="ttp_routing_seq_num"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_component_item_id_m" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_component_item_id_m" Size="60,20" Text="component_item_id_m" Align="Right"/>
+<TextBox Name="component_item_id_m" Size="150,20" Text="" Weight="150" ToolTip="ttp_component_item_id_m">
+	<DbDetails>
+<Index>item_id_m</Index>
+<DbTable>xbs.item</DbTable>
+<Data>item_number,wip_supply_subinventory,wip_supply_locator,wip_supply_type,item_id_m</Data>
+<Where>(item_type=106 or item_type=105) and org_id='%{orgid}'</Where>
+<queryFormat></queryFormat></DbDetails><OnEditChange><DbDetails><Where>and item_number like'%%{component_item_id_m[windowtext]}%'</Where></DbDetails><submit namelist="DbDetails"/></OnEditChange> <OnEnChange><if cond="!%{bom_lineLst[wip_supply_type]}"><assign name="wip_supply_type[option_line_id]" expr="%{component_item_id_m[wip_supply_type]}" function="SetSel"/></if><if cond="!%{bom_lineLst[supply_sub_inventory]}"><assign name="supply_sub_inventory[subinventory_id]" expr="%{component_item_id_m[wip_supply_subinventory]}" function="SetSel"/></if><if cond="!%{bom_lineLst[supply_locator]}"><assign name="supply_locator[locator_id]" expr="%{component_item_id_m[wip_supply_locator]}" function="SetSel"/></if></OnEnChange></TextBox>
+<MagicCtrl Name="pickcomponent_item_id_m" Link="tip:Pick" images=",data/search.png" button="type:0" Size="20,20"><OnClick><assign name="$this.itempick.frmwndctrl" expr="component_item_id_m"/><assign name="$this.itempick.org_id" expr="%{orgid}"/><assign name="$this.itempick.excond" expr="and item_type in (105,106)"/><submit next="$this.itempick.itemLst"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_usage_basis" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_usage_basis" Size="60,20" Text="usage_basis" Align="Right" onload="init" SelectedIndex="0"/>
+<ComboBox Name="usage_basis" Size="170,100" Text="" Weight="170"  ToolTip="ttp_usage_basis" onload="init" SelectedIndex="0">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=138</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_usage_quantity" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_usage_quantity" Size="60,20" Text="usage_quantity" Align="Right"/>
+<TextBox Name="usage_quantity" Size="170,20" Text="" Weight="170" ToolTip="ttp_usage_quantity"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_wip_supply_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_wip_supply_type" Size="60,20" Text="wip_supply_type" Align="Right" onload="init"/>
+<ComboBox Name="wip_supply_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_wip_supply_type" onload="init">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=135 and status is true</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_supply_sub_inventory" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_supply_sub_inventory" Size="60,20" Text="supply_sub_inventory" Align="Right" onload="init"/>
+<ComboBox Name="supply_sub_inventory" Size="170,100" Text="" Weight="170"  ToolTip="ttp_supply_sub_inventory" onload="init">
+	<DbDetails>
+<Index>subinventory_id</Index>
+<DbTable>xbs.subinventory</DbTable>
+<Data>subinventory,subinventory_id</Data>
+<Where>org_id='%{orgid}'</Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="supply_locator"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_supply_locator" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_supply_locator" Size="60,20" Text="supply_locator" Align="Right"/>
+<ComboBox Name="supply_locator" Size="170,100" Text="" Weight="170"  ToolTip="ttp_supply_locator">
+	<DbDetails>
+<Index>locator_id</Index>
+<DbTable>xbs.locator</DbTable>
+<Data>locator,locator_id</Data>
+<Where>subinventory_id='%{supply_sub_inventory[subinventory_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

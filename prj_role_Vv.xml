@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVprj_role" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_role_vLst" ToolTip="ttp_prj_role" Size="700,420" OnLoad="init" Heading="role_name,125;user_role,120;hr_job_id,120;min_job_level,20;max_job_level,20;effective_from,90;effective_to,90;labor_cost_cb,60;contract_member_cb,60;project_member_cb,60;task_member_cb,60;scheduling_cb,60;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_role_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_role p left join xbs.xerp_role x on p.user_role=x.role_id left join xbs.hr_job h on p.hr_job_id=h.hr_job_id</DbTable>
+<Index>prj_role_id</Index>
+<Data>p.role_name,x.role_name_cn user_role,h.job_name hr_job_id,p.min_job_level,p.max_job_level,p.effective_from,p.effective_to,p.labor_cost_cb,p.contract_member_cb,p.project_member_cb,p.task_member_cb,p.scheduling_cb,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_role_id</Data>
+<Order>prj_role_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>prj_role_id='%{prj_role_vLst[prj_role_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_role.prj_roleLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.prj_role</DbTable>
+<Where>prj_role_id='%{prj_role_vLst[prj_role_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

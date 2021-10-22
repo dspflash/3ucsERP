@@ -1,0 +1,22 @@
+﻿<GroupBox Name="GBDEDITbom_oh_rate_assignment" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_bom_overhead_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bom_overhead_id" Size="60,20" Text="bom_overhead_id" Align="Right"/>
+<TextBox Name="bom_overhead_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_bom_overhead_id">
+	<DbDetails>
+<Index>bom_overhead_id</Index>
+<DbTable>xbs.bom_overhead</DbTable>
+<Data>overhead,default_basis,bom_overhead_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnEnChange><assign name="default_basis[option_line_id]" expr="%{bom_overhead_id[default_basis]}" function="SetSel"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bom_cost_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bom_cost_type" Size="60,20" Text="bom_cost_type" Align="Right" onload="init"/>
+<ComboBox Name="bom_cost_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_bom_cost_type" onload="init">
+	<DbDetails>
+<Index>bom_cost_type_id</Index>
+<DbTable>xbs.bom_cost_type</DbTable>
+<Data>cost_type,bom_cost_type_id</Data>
+<Where>status</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVpm_process_routing_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletepm_process_routing_header" Name="deletepm_process_routing_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_process_routing_header</DbTable>
+<Where>pm_process_routing_header_id='%{pm_process_routing_headerLst[pm_process_routing_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpm_process_routing_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshpm_process_routing_header" Name="searchpm_process_routing_header" Size="50,20">
+			  <OnClick><submit next="pm_process_routing_headerLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPpm_process_routing_headerLst" OnClick="(pm_process_routing_headerLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREpm_process_routing_headerLst" OnClick="(pm_process_routing_headerLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPpm_process_routing_headerLst" OnClick="(pm_process_routing_headerLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

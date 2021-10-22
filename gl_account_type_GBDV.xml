@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVgl_account_type"><Ctrls>
+<ListCtrl Heading="account_type_code,50;account_type,100;account_group,120;remark,500;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;gl_account_type_id,55;" loadedclick="1" ToolTip="ttp_gl_account_type" Name="gl_account_typeLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_account_type</DbTable>
+<Index>gl_account_type_id</Index>
+<Data>account_type_code,account_type,account_group,remark,created_by,creation_date,last_update_by,last_update_date,gl_account_type_id</Data>
+<Order>gl_account_type_id</Order></DbDetails>
+<OnClick><assign name="account_group[option_line_id]" function="SetSel" expr="%{gl_account_typeLst[account_group]}"/><assign name="created_by[option_line_id]" function="SetSel" expr="%{gl_account_typeLst[created_by]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

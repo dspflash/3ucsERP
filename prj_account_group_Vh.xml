@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_account_group" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_account_groupLst" ToolTip="ttp_prj_account_group" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_account_group</DbTable>
+<Index>prj_account_group_id</Index>
+<Data>accounting_group,status,effective_start_date,effective_end_date,description,created_by,creation_date,last_update_by,last_update_date,prj_account_group_id,bu_org_id</Data>
+<Order>prj_account_group_id</Order></DbDetails>
+<OnClick>
+<if cond="%{prj_account_group_id}"><SetVisible name="insertprj_account_group" Visible="0"/><SetVisible name="modifyprj_account_group" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

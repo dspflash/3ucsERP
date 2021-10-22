@@ -1,0 +1,78 @@
+<GroupBox Name="GBDEDITqa_result"><Ctrls>
+<GroupBox Name="GB_qa_cp_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_qa_cp_header_id" Size="60,20" Text="qa_cp_header_id" Align="Right" selectedIndex="0"/>
+<ComboBox Name="qa_cp_header_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_qa_cp_header_id" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.qa_cp_header</DbTable>
+<Index>qa_cp_header_id</Index>
+<Data>plan_name,qa_cp_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><DbDetails><DbTable>xbs.qa_cp_line q LEFT JOIN xbs.qa_ce_header q0 ON q.qa_ce_header_id=q0.qa_ce_header_id</DbTable><Data>q0.element_name,q.qa_cp_line_id</Data><Where>qa_cp_header_id='%{qa_cp_header_id[qa_cp_header_id]}'</Where></DbDetails><submit next="qa_result_res" namelist="DbDetails"/><assign name="qa_result_res" expr="-1" function="setsel"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_accept_anyway" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="accept_anyway" Size="230,20" Text="accept_anyway" ToolTip="ttp_accept_anyway"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_result_action_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_result_action_id" Size="60,20" Text="result_action_id" Align="Right" onload="init" selectedIndex="-1"/>
+<ComboBox Name="result_action_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_result_action_id" onload="init" selectedIndex="-1">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=267</Where>
+<queryFormat>select %{data} from %{dbtable} where %{where} order by option_line_id</queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_qa_result_res" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_qa_result_res" Size="60,20" Text="qa_result_res" Align="Right"/>
+<ComboBox Name="qa_result_res" Size="170,100" Text="" Weight="170"  ToolTip="ttp_qa_result_res">
+	<DbDetails>
+<DbTable>xbs.qa_cp_line</DbTable>
+<Index>qa_cp_line_id</Index>
+<Data>sequence,qa_cp_line_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_qa_result_value" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_qa_result_value" Size="60,20" Text="qa_result_value" Align="Right"/>
+<TextBox Name="qa_result_value" Size="170,20" Text="" Weight="170" ToolTip="ttp_qa_result_value"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_reference_key_value" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_reference_key_value" Size="60,20" Text="reference_key_value" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="reference_key_value" Size="170,20" Text="" Weight="170" ToolTip="ttp_reference_key_value" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_reference_key_name" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_reference_key_name" Size="60,20" Text="reference_key_name" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="reference_key_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_reference_key_name" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_reference_type" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_reference_type" Size="60,20" Text="reference_type" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="reference_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_reference_type" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_qa_result_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_qa_result_id" Size="60,20" Text="qa_result_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="qa_result_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_qa_result_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBqa_result" expr="TABEDITqa_result"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_final_mark" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<CheckBox Name="final_mark" Size="230,20" Text="final_mark" ToolTip="ttp_final_mark" Visible="false" overlap="pre" readonly="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

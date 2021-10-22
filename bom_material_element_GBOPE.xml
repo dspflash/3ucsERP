@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEbom_material_element" Size="100,100"><Ctrls>
+<Button sqlpkinsert="bom_material_element_id" Text="create" ToolTip="ttp_createbom_material_element" Name="insertbom_material_element" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.bom_material_element</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>material_element,description,status,default_basis[option_line_id]</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,org_id;'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertbom_material_element[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="bom_material_elementLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.bom_material_element_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifybom_material_element" Name="modifybom_material_element" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.bom_material_element</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>material_element,description,status,default_basis[option_line_id]</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>bom_material_element_id='%{bom_material_element_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifybom_material_element[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="bom_material_elementLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.bom_material_element_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetbom_material_element" Name="resetbom_material_element" Size="50,20">
+<OnClick>
+<submit next="GBDEDITbom_material_element" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchbom_material_element" Name="gsearchbom_material_element" Size="50,20" visible="false">
+<OnClick>
+<search next="bom_material_elementLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITbom_material_element" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

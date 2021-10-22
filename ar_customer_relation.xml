@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="ar_customer_relation" Name="ar_customer_relation" Ver="2">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer_relation.xml"/>
+<Ctrls>
+<GroupBox Text="ar_customer_relation" Name="GBar_customer_relation" id="ar_customer_relation" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_relation_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_relation_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_relation_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_relation_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

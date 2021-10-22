@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_formula_ingredient"><Ctrls>
+<ListCtrl Heading="line_no,20;revision_name,75;item_id_m,120;quantity,75;description,640;buffer_cb,60;contribute_yield_cb,60;consumption_type,120;required_qty,75;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_formula_ingredient_id,60;" loadedclick="0" ToolTip="ttp_pm_formula_ingredient" Name="pm_formula_ingredientLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_formula_ingredient</DbTable>
+<Index>pm_formula_ingredient_id</Index>
+<Data>line_no,revision_name,item_id_m,quantity,description,buffer_cb,contribute_yield_cb,consumption_type,required_qty,created_by,creation_date,last_update_by,last_update_date,pm_formula_ingredient_id</Data>
+<Order>pm_formula_ingredient_id</Order></DbDetails>
+<OnClick><assign name="item_id_m[item_id_m]" function="SetSel" expr="%{pm_formula_ingredientLst[item_id_m]}"/><assign name="consumption_type[option_line_id]" function="SetSel" expr="%{pm_formula_ingredientLst[consumption_type]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

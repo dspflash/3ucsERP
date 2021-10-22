@@ -1,0 +1,9 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{hr_payroll_process_id}"><alert expr="hr_payroll_process_id is Empty!"/><else/><submit next="$this.hr_payslip_header.GBDEDIThr_payslip_header" function="reset"/><assign name="$this.hr_payslip_header.hr_payroll_process_id" expr="%{hr_payroll_process_id}"/></if></op>
+<op text="modify"><DbDetails><Where>hr_payslip_header_id='%{hr_payslip_header_vLst[hr_payslip_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_payslip_header.hr_payslip_headerLst"/><DbDetails><Where>hr_employee_id=%{hr_payslip_header_vLst[employee_id]}</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_payslip_header.employee_id"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_payslip_header</DbTable>
+<Where>hr_payslip_header_id='%{hr_payslip_header_vLst[hr_payslip_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

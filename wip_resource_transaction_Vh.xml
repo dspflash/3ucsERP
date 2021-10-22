@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVwip_resource_transaction" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="wip_resource_transactionLst" ToolTip="ttp_wip_resource_transaction" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_resource_transaction</DbTable>
+<Index>wip_resource_transaction_id</Index>
+<Data>wip_wo_routing_detail_id,transaction_date,transaction_quantity,reason,reference,created_by,creation_date,last_update_by,last_update_date,wip_resource_transaction_id,org_id,transaction_type,wip_wo_header_id,wip_wo_routing_line_id</Data>
+<Order>wip_resource_transaction_id</Order></DbDetails>
+<OnClick><assign name="wip_wo_routing_detail_id[wip_wo_routing_detail_id]" expr="%{wip_resource_transactionLst[wip_wo_routing_detail_id]}" function="SetSel"/>
+<if cond="%{wip_resource_transaction_id}"><SetVisible name="insertwip_resource_transaction" Visible="0"/><SetVisible name="modifywip_resource_transaction" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

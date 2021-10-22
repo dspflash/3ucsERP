@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEhr_control" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hr_control_id" Text="create" ToolTip="ttp_createhr_control" Name="inserthr_control" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hr_control</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>bu_org_id[org_id],default_job_id[hr_job_id],default_grade_id[hr_grade_id],expense_claim_approval[option_line_id],supplier_id,supplier_site_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hr_controlLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_control" Name="modifyhr_control" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hr_control</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>bu_org_id[org_id],default_job_id[hr_job_id],default_grade_id[hr_grade_id],expense_claim_approval[option_line_id],supplier_id,supplier_site_id</Data>
+<DataEx>creation_date,last_update_by,last_update_date;now(),'%{user_id}',now()</DataEx>
+<Where>hr_control_id='%{hr_control_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hr_controlLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_control" Name="resethr_control" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIThr_control" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchhr_control" Name="gsearchhr_control" Size="50,20" visible="false">
+	<OnClick>
+	<search next="hr_controlLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDIThr_control" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

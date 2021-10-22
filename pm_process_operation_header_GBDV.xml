@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_process_operation_header"><Ctrls>
+<ListCtrl Heading="operation_name,125;org_id,60;operation_class,125;description,640;version,100;start_date,90;end_date,90;status,125;min_quantity,75;department,125;material_ac_id,60;material_oh_ac_id,60;overhead_ac_id,60;resource_ac_id,60;osp_ac_id,60;expense_ac_id,60;uom_id,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_process_operation_header_id,60;" loadedclick="0" ToolTip="ttp_pm_process_operation_header" onload="init" Name="pm_process_operation_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_process_operation_header</DbTable>
+<Index>pm_process_operation_header_id</Index>
+<Data>operation_name,org_id,operation_class,description,version,start_date,end_date,status,min_quantity,department,material_ac_id,material_oh_ac_id,overhead_ac_id,resource_ac_id,osp_ac_id,expense_ac_id,uom_id,created_by,creation_date,last_update_by,last_update_date,pm_process_operation_header_id</Data>
+<Order>pm_process_operation_header_id</Order></DbDetails>
+<OnClick><assign name="uom_id[uom_id]" function="SetSel" expr="%{pm_process_operation_headerLst[uom_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

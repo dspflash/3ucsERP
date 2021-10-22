@@ -1,0 +1,32 @@
+<WndTap Name="vPrjTasks" Text="Project Tasks">
+	<WndTaps>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_percent_line_Vem.xml" popup="1"/>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\prj_project_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\prj_project_line.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\prj_percent_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="PrjProgress" text="Project Tasks"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_project_header_Vsm.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVprj_project_header" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetprj_project_header" Name="resetprj_project_header" Size="50,20">	<OnClick>	<submit next="GBDEDITprj_project_header" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchprj_project_header" Name="gsearchprj_project_header" Size="50,20" visible="true">
+	<OnClick>
+	<search next="prjPercentLst" listed="0" prefixwhere="0" inputed="1"></search>
+	<submit next="GBDEDITprj_project_header" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="prjTaskLst" onload="init" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.prj_project_all_v</DbTable>
+<Index>prj_project_line_id</Index>
+<Data>*</Data>
+<Order>prj_project_line_id</Order>
+<queryFormat>select %{data} from %{dbtable} where project_status=370 and task_manager_user_id='%{user_id}' or manager_user_id='%{user_id}' %{where} order by %{order} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="percent"><DbDetails><Where>prj_project_line_id='%{prjTaskLst[prj_project_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_percent_line.prj_project_line_id"/></op>
+</operator>
+</ListCtrl></Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

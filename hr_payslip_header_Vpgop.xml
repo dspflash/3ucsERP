@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVhr_payslip_header" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialhr_payslip_header" Size="50,20">
+<OnClick><submit next="hr_payslip_header_vLst" function="initial"/><submit next="records_hr_payslip_header" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPhr_payslip_header_vLst" Size="50,20">
+<OnClick><submit next="hr_payslip_header_vLst" function="GetPage(first)"/><submit next="records_hr_payslip_header"/></OnClick></Button>
+<Button Text="prepage" Name="PREhr_payslip_header_vLst" Size="50,20">
+<OnClick><submit next="hr_payslip_header_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPhr_payslip_header_vLst" Size="50,20">
+<OnClick><submit next="hr_payslip_header_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

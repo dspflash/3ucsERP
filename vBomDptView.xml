@@ -1,0 +1,76 @@
+<WndTap Name="vBomDptView" Text="vBomDepartment1">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_stnd_op_res_assignment_V.xml" popup="1"/>
+<!--WndTap Text="bom_stnd_op_res_assignment" Name="bom_stnd_op_res_assignment" Ver="2" popup="1">
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_stnd_op_res_assignment.xml"/>
+<Ctrls>
+<GroupBox Text="bom_stnd_op_res_assignment" Name="GBbom_stnd_op_res_assignment" id="bom_stnd_op_res_assignment" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_stnd_op_res_assignment_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_stnd_op_res_assignment_GBOPE.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_stnd_op_res_assignment_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap-->
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_department.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_standard_operation.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\user_bom_department.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_resource.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_stnd_op_res_assignment.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vBomDepartment"><Ctrls>
+<GroupBox Name="GBDEDITbom_DeptOpUser"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_department_id"><Ctrls>
+<Label Align="Right" Text="department_id" Name="lb_department_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_department_id" Name="department_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_standard_operation"><Ctrls>
+<Label Align="Right" Text="standard_operation" Name="lb_standard_operation" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_standard_operation" Name="standard_operation" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_xerp_user_id"><Ctrls>
+<Label Align="Right" Text="xerp_user_id" onload="init" Name="lb_xerp_user_id" Size="60,20" type="2"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_xerp_user_id" onload="init" Name="xerp_user_id" Size="170,100" type="2">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>username,xerp_user_id</Data>
+<Where/>
+<queryFormat>select %{data} from %{dbtable} where org_id='%{orgid}' %{where} limit 0,20</queryFormat></DbDetails><OnEditChange><DbDetails><Where>and username like '%%{xerp_user_id[windowtext]}%'</Where></DbDetails><submit namelist="DbDetails"/></OnEditChange></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITbom_DeptOpUser" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="bduserLst" listed="0" prefixand="1" inputed="1">
+	<department_id format="department like '%%{opvalue}%'"/><standard_operation format="standard_operation like '%%{opvalue}%'"/></search>
+	<submit next="GBDEDITbom_DeptOpUser" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="bduserLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.bom_department_user_v</DbTable>
+<Index>user_bom_department_id</Index>
+<Data>*</Data>
+<Order>user_bom_department_id</Order>
+<Queryformat>select %{data} from %{dbtable} where find_in_set(org_id,getChildOrgs(%{orgid})) %{where} limit %{StartRow},%{PgSize}</Queryformat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

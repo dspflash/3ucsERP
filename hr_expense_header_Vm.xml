@@ -1,0 +1,23 @@
+﻿<WndTap Name="hr_expense_header_v" Text="hr_expense_header">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_header_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_line_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="employee_pick.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_header_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><claim_number format="(h.claim_number like '%%{opvalue}%')"/><department_id format="h.department_id='%{opvalue}'"/><hr_employee_id format="h.hr_employee_id='%{opvalue}'"/><claim_date format="(h.claim_date between '%{claim_date[datetime]}' and '%{claim_date[datetime2]}')"/><approved_date format="(h.approved_date between '%{approved_date[datetime]}' and '%{approved_date[datetime2]}')"/><approved_by_employee_id format="h.approved_by_employee_id='%{opvalue}'"/><status format="h.status='%{opvalue}'"/><purpose format="(h.purpose like '%%{opvalue}%')"/><expense_template_id format="h.expense_template_id='%{opvalue}'"/><currency format="h.currency='%{opvalue}'"/><doc_currency format="h.doc_currency='%{opvalue}'"/><header_amount format="(h.header_amount like '%%{opvalue}%')"/><reason format="(h.reason like '%%{opvalue}%')"/><contact_details format="(h.contact_details like '%%{opvalue}%')"/><bu_org_id format="h.bu_org_id='%{opvalue}'"/><created_by format="(h.created_by like '%%{opvalue}%')"/><creation_date format="(h.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(h.last_update_by like '%%{opvalue}%')"/><last_update_date format="(h.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><hr_expense_header_id format="(h.hr_expense_header_id like '%%{opvalue}%')"/><exchange_rate_type format="h.exchange_rate_type='%{opvalue}'"/><exchange_rate format="(h.exchange_rate like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hr_expense_header.xml"/>
+<Ctrls><GroupBox  Name="GBhr_expense_header" id="hr_expense_header" Text="hr_expense_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_header_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVhr_expense_header" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.hr_expense_header.GBDEDIThr_expense_header" function="reset"/><assign name="$this.hr_expense_header.frmwndctrl" expr="%{$this.hr_expense_header_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resethr_expense_header" Name="resethr_expense_header" Size="50,20">	<OnClick>	<submit next="GBDEDIThr_expense_header" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchhr_expense_header" Name="gsearchhr_expense_header" Size="50,20">	<OnClick>	
+<search next="hr_expense_header_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDIThr_expense_header" namelist="search" function="search"/>	
+<search next="records_hr_expense_header" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDIThr_expense_header" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_header_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_header_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_header_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

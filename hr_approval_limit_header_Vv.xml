@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVhr_approval_limit_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_approval_limit_header_vLst" ToolTip="ttp_hr_approval_limit_header" Size="700,420" OnLoad="init" Heading="limit_name,250;description,640;status,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_approval_limit_header_id,60;bu_org_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hr_approval_limit_header h</DbTable>
+<Index>hr_approval_limit_header_id</Index>
+<Data>h.limit_name,h.description,h.status,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_approval_limit_header_id,h.bu_org_id</Data>
+<Order>hr_approval_limit_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hr_approval_limit_header_id='%{hr_approval_limit_header_vLst[hr_approval_limit_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_approval_limit_header.hr_approval_limit_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_approval_limit_header</DbTable>
+<Where>hr_approval_limit_header_id='%{hr_approval_limit_header_vLst[hr_approval_limit_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVcst_item_cost_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="cst_item_cost_header_vLst" ToolTip="ttp_cst_item_cost_header" Size="700,420" OnLoad="init" Heading="item_id_m,60;bom_cost_type,120;based_on_rollup_cb,60;purchase_price,100;sales_price,100;include_in_rollup_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;cst_item_cost_header_id,60;org_id,120;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.cst_item_cost_header c left join xbs.item i on c.item_id_m=i.item_id_m left join xbs.bom_cost_type b on c.bom_cost_type=b.bom_cost_type_id left join xbs.org o on c.org_id=o.org_id</DbTable>
+<Index>cst_item_cost_header_id</Index>
+<Data>i.item_number item_id_m,b.cost_type bom_cost_type,c.based_on_rollup_cb,c.purchase_price,c.sales_price,c.include_in_rollup_cb,c.created_by,c.creation_date,c.last_update_by,c.last_update_date,c.cst_item_cost_header_id,o.org org_id</Data>
+<Order>cst_item_cost_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>cst_item_cost_header_id='%{cst_item_cost_header_vLst[cst_item_cost_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.cst_item_cost_header.cst_item_cost_headerLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

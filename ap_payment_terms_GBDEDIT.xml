@@ -1,0 +1,17 @@
+<GroupBox Name="GBDEDITap_payment_terms"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_term_name"><Ctrls>
+<Label Align="Right" Text="term_name" Name="lb_term_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_term_name" Name="term_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_term_description"><Ctrls>
+<Label Align="Right" Text="term_description" Name="lb_term_description" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_term_description" Name="term_description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_end_date"><Ctrls>
+<Label Align="Right" Text="end_date" Name="lb_end_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_end_date" Name="end_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_term_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="term_id" overlap="pre" Name="lb_term_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_term_id" overlap="pre" Name="term_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBap_payment_terms" expr="TABEDITap_payment_terms"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

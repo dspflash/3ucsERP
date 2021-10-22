@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_resource_list_line"><Ctrls>
+<ListCtrl Heading="resource_type,120;hr_employee_id,120;hr_job_id,120;prj_expenditure_type_id,120;revenue_category,120;expenditure_category,120;effective_from,90;effective_to,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_resource_list_line_id,60;org_id,75;" loadedclick="0" ToolTip="ttp_prj_resource_list_line" Name="prj_resource_list_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_resource_list_line p left join xbs.employees_v e on p.hr_employee_id=e.hr_employee_id left join xbs.hr_job h on p.hr_job_id=h.hr_job_id left join xbs.prj_expenditure_type_header p0 on p.prj_expenditure_type_id=p0.prj_expenditure_type_header_id left join xbs.option_line o on p.revenue_category=o.option_line_id left join xbs.option_line o0 on p.expenditure_category=o0.option_line_id</DbTable>
+<Index>prj_resource_list_line_id</Index>
+<Data>p.resource_type,e.employee_name hr_employee_id,h.job_name hr_job_id,p0.expenditure_type prj_expenditure_type_id,o.option_line_value revenue_category,o0.option_line_value expenditure_category,p.effective_from,p.effective_to,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_resource_list_line_id,p.org_id</Data>
+<Order>prj_resource_list_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

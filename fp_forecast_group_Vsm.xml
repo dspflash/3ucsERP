@@ -1,0 +1,19 @@
+﻿<GroupBox Name="GBDEDITfp_forecast_group"><Ctrls>
+<GroupBox Name="GB_forecast_group" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_forecast_group" Size="60,20" Text="forecast_group" Align="Right"/>
+<TextBox Name="forecast_group" Size="170,20" Text="" Weight="170" ToolTip="ttp_forecast_group"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_org_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_org_id" Size="60,20" Text="org_id" Align="Right" onload="init" selectedIndex="0"/>
+<ComboBox Name="org_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_org_id" onload="init" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org.org_id</Data>
+<Where>type=74 and org_id in (select org_id FROM xbs.org WHERE IF((SELECT TYPE FROM xbs.org WHERE org_id='%{orgid}')=74,org_id='%{orgid}',org_id IN (SELECT org_id FROM xbs.org WHERE parent_org_id='%{orgid}')))  </Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="forecast_group_id"/><submit next="ar_customer_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status" checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

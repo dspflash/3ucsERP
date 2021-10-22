@@ -1,0 +1,36 @@
+﻿<Language name="bom_calendars">
+<Lang name="bom_calendars" value="bom_calendars"/>
+<Lang name="TabEditbom_calendars" value="bom_calendars Edit"/>
+<Lang name="TabViewbom_calendars" value="bom_calendars View"/>
+<Lang name="calendar_code" value=""/>
+<Lang name="ttp_calendar_code" value=""/>
+<Lang name="quarterly_calendar_type" value=""/>
+<Lang name="ttp_quarterly_calendar_type" value=""/>
+<Lang name="calendar_start_date" value=""/>
+<Lang name="ttp_calendar_start_date" value=""/>
+<Lang name="calendar_end_date" value=""/>
+<Lang name="ttp_calendar_end_date" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="ttp_operationbom_calendars" value=""/>
+<Lang name="ttp_createbom_calendars" value=""/>
+<Lang name="ttp_modifybom_calendars" value=""/>
+<Lang name="ttp_resetbom_calendars" value=""/>
+<Lang name="ttp_deletebom_calendars" value=""/>
+<Lang name="ttp_refreshbom_calendars" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

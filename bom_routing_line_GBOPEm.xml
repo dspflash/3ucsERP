@@ -1,0 +1,44 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEbom_routing_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="bom_routing_line_id" Text="create" ToolTip="ttp_createbom_routing_line" Name="insertbom_routing_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_routing_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>standard_operation_id[bom_standard_operation_id],routing_sequence,routing_seq_num,department_id[bom_department_id],minimum_transfer_quantity,lead_time_percentage,effective_start_date,effective_end_date,yield,description,bom_routing_header_id[bom_routing_header_id]</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="bom_routing_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifybom_routing_line" Name="modifybom_routing_line" Size="50,20">
+			  <OnClick>UPDATE xbs.bom_line bl 
+LEFT JOIN xbs.bom_header bh ON bh.bom_header_id=bl.bom_header_id
+LEFT JOIN xbs.bom_routing_header brh ON brh.item_id_m=bh.item_id_m AND brh.org_id=bh.org_id 
+LEFT JOIN xbs.bom_routing_line brll ON brll.bom_routing_header_id=brh.bom_routing_header_id AND brll.routing_sequence=bl.routing_sequence AND brll.routing_seq_num=bl.routing_seq_num 
+ SET bl.routing_sequence='10',bl.routing_seq_num='0',bl.last_update_by='1',bl.last_update_date=NOW() 
+WHERE bom_routing_line_id='81';
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_routing_line brl JOIN xbs.bom_routing_header brh ON brl.bom_routing_header_id=brh.bom_routing_header_id 
+LEFT JOIN xbs.bom_header bh ON brh.item_id_m=bh.item_id_m AND brh.org_id=bh.org_id 
+LEFT JOIN xbs.bom_line bl ON bh.bom_header_id=bl.bom_header_id AND brl.routing_sequence=bl.routing_sequence AND brl.routing_seq_num=bl.routing_seq_num</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>standard_operation_id[bom_standard_operation_id],department_id[bom_department_id],minimum_transfer_quantity,lead_time_percentage</Data>,bom_routing_header_id[bom_routing_header_id]
+<DataEx>brl.routing_sequence,brl.routing_seq_num,bl.routing_sequence,bl.routing_seq_num,brl.effective_start_date,brl.effective_end_date,brl.yield,brl.description,brl.last_update_by,brl.last_update_date;'%{routing_sequence}','%{routing_seq_num}','%{routing_sequence}','%{routing_seq_num}','%{effective_start_date}','%{effective_end_date}','%{yield}','%{description}','%{user_id}',now()</DataEx>
+<Where>bom_routing_line_id='%{bom_routing_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="bom_routing_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetbom_routing_line" Name="resetbom_routing_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITbom_routing_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchbom_routing_line" Name="gsearchbom_routing_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="bom_routing_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITbom_routing_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

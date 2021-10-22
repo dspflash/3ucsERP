@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVhr_pos_hierarchy_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletehr_pos_hierarchy_header" Name="deletehr_pos_hierarchy_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_pos_hierarchy_header</DbTable>
+<Where>hr_pos_hierarchy_header_id='%{hr_pos_hierarchy_headerLst[hr_pos_hierarchy_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhr_pos_hierarchy_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshhr_pos_hierarchy_header" Name="searchhr_pos_hierarchy_header" Size="50,20">
+			  <OnClick><submit next="hr_pos_hierarchy_headerLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPhr_pos_hierarchy_headerLst" OnClick="(hr_pos_hierarchy_headerLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREhr_pos_hierarchy_headerLst" OnClick="(hr_pos_hierarchy_headerLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPhr_pos_hierarchy_headerLst" OnClick="(hr_pos_hierarchy_headerLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

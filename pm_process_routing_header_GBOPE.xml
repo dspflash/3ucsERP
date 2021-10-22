@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEpm_process_routing_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="pm_process_routing_header_id" Text="create" ToolTip="ttp_createpm_process_routing_header" Name="insertpm_process_routing_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_process_routing_header</DbTable>
+<Data>routing_name,org_id,status,description,revision,start_date,end_date,routing_class,owner_employee_id,quantity,uom_id,planned_loss,theoretical_loss,fixed_loss</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpm_process_routing_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypm_process_routing_header" Name="modifypm_process_routing_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_process_routing_header</DbTable>
+<Data>routing_name,org_id,status,description,revision,start_date,end_date,routing_class,owner_employee_id,quantity,uom_id,planned_loss,theoretical_loss,fixed_loss</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>pm_process_routing_header_id='%{pm_process_routing_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpm_process_routing_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpm_process_routing_header" Name="resetpm_process_routing_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpm_process_routing_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchpm_process_routing_header" Name="gsearchpm_process_routing_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="pm_process_routing_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITpm_process_routing_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

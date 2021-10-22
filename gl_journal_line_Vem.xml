@@ -1,0 +1,13 @@
+<WndTap Name="gl_journal_line" Text="gl_journal_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="code_combination_id[coa_combination_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\gl_journal_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBgl_journal_line" id="gl_journal_line" Text="gl_journal_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertgl_journal_line" Visible="1"/><SetVisible name="modifygl_journal_line" Visible="0"/></OnActivate>
+</WndTap>

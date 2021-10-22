@@ -1,0 +1,10 @@
+﻿<GroupBox Name="GBDVmdm_price_list_detail" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="mdm_price_list_detail_vLst" ToolTip="ttp_mdm_price_list_detail" Size="500,300" Heading="qty_from,100;qty_to,100;uom_id,120;unit_price,60;effective_start_date,90;effective_end_date,90;description,440;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;mdm_price_list_detail_id,60;mdm_price_list_line_id,60;mdm_price_list_header_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.mdm_price_list_detail m left join xbs.uom u on m.uom_id=u.uom_id</DbTable>
+<Index>mdm_price_list_detail_id</Index>
+<Data>m.qty_from,m.qty_to,u.uom_name uom_id,m.unit_price,m.effective_start_date,m.effective_end_date,m.description,m.created_by,m.creation_date,m.last_update_by,m.last_update_date,m.mdm_price_list_detail_id,m.mdm_price_list_line_id,m.mdm_price_list_header_id</Data>
+<Order>mdm_price_list_detail_id</Order></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_price_list_detail_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,13 @@
+<WndTap Name="po_rfq_line" Text="po_rfq_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="item_id_m[item_id_m],uom_id[uom_id],minimum_quantity,maximum_quantity,po_rfq_header_id[po_rfq_header_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\po_rfq_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBpo_rfq_line" id="po_rfq_line" Text="po_rfq_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_rfq_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_rfq_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_rfq_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertpo_rfq_line" Visible="1"/><SetVisible name="modifypo_rfq_line" Visible="0"/></OnActivate>
+</WndTap>

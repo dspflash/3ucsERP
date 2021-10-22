@@ -1,0 +1,13 @@
+<WndTap Name="sd_quote_line" Text="sd_quote_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="sd_quote_header_id[sd_quote_header_id],shipping_org_id[org_id],item_id_m[item_id_m],uom_id[uom_id],unit_price,tax_code_id[mdm_tax_code_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\sd_quote_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBsd_quote_line" id="sd_quote_line" Text="sd_quote_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_quote_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_quote_line_GBOPEm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_quote_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertsd_quote_line" Visible="1"/><SetVisible name="modifysd_quote_line" Visible="0"/></OnActivate>
+</WndTap>

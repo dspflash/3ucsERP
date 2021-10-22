@@ -1,0 +1,8 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hr_employee_crew_id='%{hr_employee_crew_vLst[hr_employee_crew_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_employee_crew.hr_employee_crewLst"/><DbDetails><Where>hr_employee_id=%{hr_employee_crew_vLst[hr_employee_id]}</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_employee_crew.hr_employee_id"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_employee_crew</DbTable>
+<Where>hr_employee_crew_id='%{hr_employee_crew_vLst[hr_employee_crew_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

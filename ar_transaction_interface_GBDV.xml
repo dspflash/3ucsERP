@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_transaction_interface"><Ctrls>
+<ListCtrl Heading="bu_org_id,60;transaction_type,120;ar_customer_id,60;ar_customer_site_id,60;currency,125;payment_term_id,60;payment_term_date,90;document_date,90;ledger_id,60;receivable_ac_id,60;revenue_ac_id,60;line_number,60;item_id_m,60;item_description,640;inv_line_quantity,100;inv_unit_price,100;inv_line_price,100;gl_tax_amount,75;gl_inv_line_price,75;tax_code_id,60;tax_amount,100;line_type,250;line_description,640;asset_cb,60;fa_asset_category_id,60;prj_project_header_id,60;prj_project_line_id,60;uom_id,60;ef_id,60;status,250;line_source,125;reference_type,125;reference_key_name,125;reference_key_value,125;sd_so_header_id,60;sd_so_line_id,60;sd_so_detail_id,60;period_id,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_transaction_interface_id,60;" loadedclick="0" ToolTip="ttp_ar_transaction_interface" Name="ar_transaction_interfaceLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_interface</DbTable>
+<Index>ar_transaction_interface_id</Index>
+<Data>bu_org_id,transaction_type,ar_customer_id,ar_customer_site_id,currency,payment_term_id,payment_term_date,document_date,ledger_id,receivable_ac_id,revenue_ac_id,line_number,item_id_m,item_description,inv_line_quantity,inv_unit_price,inv_line_price,gl_tax_amount,gl_inv_line_price,tax_code_id,tax_amount,line_type,line_description,asset_cb,fa_asset_category_id,prj_project_header_id,prj_project_line_id,uom_id,ef_id,status,line_source,reference_type,reference_key_name,reference_key_value,sd_so_header_id,sd_so_line_id,sd_so_detail_id,period_id,created_by,creation_date,last_update_by,last_update_date,ar_transaction_interface_id</Data>
+<Order>ar_transaction_interface_id</Order></DbDetails>
+<OnClick><assign name="transaction_type[ar_transaction_type_id]" function="SetSel" expr="%{ar_transaction_interfaceLst[transaction_type]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

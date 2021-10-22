@@ -1,0 +1,13 @@
+﻿<WndTap Name="po_requisition_line" Text="po_requisition_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="po_requisition_header_id[po_requisition_header_id],receving_org_id[org_id],item_id_m[item_id_m],uom_id[uom_id],line_quantity"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\po_requisition_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBpo_requisition_line" id="po_requisition_line" Text="po_requisition_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_requisition_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_requisition_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_requisition_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertpo_requisition_line" Visible="1"/><SetVisible name="modifypo_requisition_line" Visible="0"/></OnActivate>
+</WndTap>

@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVgl_account_type" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="gl_account_type_vLst" ToolTip="ttp_gl_account_type" Size="700,420" OnLoad="init" Heading="account_type_code,50;account_type,100;account_group,120;remark,500;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;gl_account_type_id,55;" loadedclick="1">
+	<DbDetails >
+<DbTable>xbs.gl_account_type g left join xbs.option_line o on g.account_group=o.option_line_id left join xbs.option_line o0 on g.created_by=o0.option_line_id</DbTable>
+<Index>gl_account_type_id</Index>
+<Data>g.account_type_code,g.account_type,o.option_line_value account_group,g.remark,o0.option_line_id created_by,g.creation_date,g.last_update_by,g.last_update_date,g.gl_account_type_id</Data>
+<Order>gl_account_type_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>gl_account_type_id='%{gl_account_type_vLst[gl_account_type_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.gl_account_type.gl_account_typeLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

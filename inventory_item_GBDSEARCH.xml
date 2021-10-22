@@ -1,0 +1,45 @@
+<GroupBox Name="GBDEDITitem"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_number"><Ctrls>
+<Label Align="Right" Text="item_number" Name="lb_item_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_item_number" Name="item_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_name"><Ctrls>
+<Label Align="Right" Text="item_name" Name="lb_item_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_name" Name="item_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_specification"><Ctrls>
+<Label Align="Right" Text="item_specification" Name="lb_item_specification" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_specification" Name="item_specification" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_item_category"><Ctrls>
+<Label Align="Right" Text="item_category" OnLoad="init" Name="lb_item_category" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_item_category" OnLoad="init" Name="item_category" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.category</DbTable>
+<Index>category_id</Index>
+<Data>category,category_id</Data>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_item_status"><Ctrls>
+<Label Align="Right" Text="item_status" OnLoad="init" Name="lb_item_status" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_item_status" OnLoad="init" Name="item_status" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=123</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supply_sub_inventory"><Ctrls>
+<Label Align="Right" Text="supply_sub_inventory" onload="init" Name="lb_supply_sub_inventory" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_supply_sub_inventory" onload="init" Name="subinventory_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.subinventory</DbTable>
+<Index>subinventory_id</Index>
+<Data>subinventory,subinventory_id</Data>
+<Where>org_id='%{orgid}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_inventory_item_cb"><Ctrls>
+<CheckBox Text="inventory_item_cb" ToolTip="ttp_inventory_item_cb" Name="inventory_item_cb" checked="true" Size="230,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

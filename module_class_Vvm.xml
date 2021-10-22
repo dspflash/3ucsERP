@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVmodule_class" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="module_class_vLst" ToolTip="ttp_module_class" Size="700,420" OnLoad="init" Heading="name,640;module_code,120;description,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;module_class_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.module_class m left join xbs.option_line o on m.module_code=o.option_line_code and option_header_id=182</DbTable>
+<Index>module_class_id</Index>
+<Data>m.name,o.option_line_value module_code,m.description,m.status,m.created_by,m.creation_date,m.last_update_by,m.last_update_date,m.module_class_id</Data>
+<Order>module_class_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>module_class_id='%{module_class_vLst[module_class_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.module_class.module_classLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.module_class</DbTable>
+<Where>module_class_id='%{module_class_vLst[module_class_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

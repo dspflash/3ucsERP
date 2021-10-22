@@ -1,0 +1,56 @@
+﻿<Language name="hd_svo_estimates">
+<Lang name="hd_svo_estimates" value="hd_svo_estimates"/>
+<Lang name="TabEdithd_svo_estimates" value="hd_svo_estimates Edit"/>
+<Lang name="TabViewhd_svo_estimates" value="hd_svo_estimates View"/>
+<Lang name="item_id_m" value=""/>
+<Lang name="ttp_item_id_m" value=""/>
+<Lang name="unit_price" value=""/>
+<Lang name="ttp_unit_price" value=""/>
+<Lang name="uom_id" value=""/>
+<Lang name="ttp_uom_id" value=""/>
+<Lang name="line_price" value=""/>
+<Lang name="ttp_line_price" value=""/>
+<Lang name="line_status" value=""/>
+<Lang name="ttp_line_status" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="sd_so_line_id" value=""/>
+<Lang name="ttp_sd_so_line_id" value=""/>
+<Lang name="hd_svo_header_id" value=""/>
+<Lang name="ttp_hd_svo_header_id" value=""/>
+<Lang name="quantity" value=""/>
+<Lang name="ttp_quantity" value=""/>
+<Lang name="billing_type" value=""/>
+<Lang name="ttp_billing_type" value=""/>
+<Lang name="hd_svo_estimates_id" value=""/>
+<Lang name="ttp_hd_svo_estimates_id" value=""/>
+<Lang name="billing_source" value=""/>
+<Lang name="ttp_billing_source" value=""/>
+<Lang name="price_list_header_id" value=""/>
+<Lang name="ttp_price_list_header_id" value=""/>
+<Lang name="action_type_id" value=""/>
+<Lang name="ttp_action_type_id" value=""/>
+<Lang name="price_date" value=""/>
+<Lang name="ttp_price_date" value=""/>
+<Lang name="ttp_operationhd_svo_estimates" value=""/>
+<Lang name="ttp_createhd_svo_estimates" value=""/>
+<Lang name="ttp_modifyhd_svo_estimates" value=""/>
+<Lang name="ttp_resethd_svo_estimates" value=""/>
+<Lang name="ttp_deletehd_svo_estimates" value=""/>
+<Lang name="ttp_refreshhd_svo_estimates" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

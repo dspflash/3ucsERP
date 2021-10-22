@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="hr_element_entry_tpl_line" Name="hr_element_entry_tpl_line" Ver="2">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hr_element_entry_tpl_line.xml"/>
+<Ctrls>
+<GroupBox Text="hr_element_entry_tpl_line" Name="GBhr_element_entry_tpl_line" id="hr_element_entry_tpl_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_element_entry_tpl_line_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_element_entry_tpl_line_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_element_entry_tpl_line_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_element_entry_tpl_line_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

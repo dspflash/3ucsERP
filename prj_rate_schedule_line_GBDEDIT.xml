@@ -1,0 +1,74 @@
+<GroupBox Name="GBDEDITprj_rate_schedule_line"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_rate"><Ctrls>
+<Label Align="Right" Text="rate" Name="lb_rate" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_rate" Name="rate" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_uom_id"><Ctrls>
+<Label Align="Right" Text="uom_id" onload="init" Name="lb_uom_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_uom_id" onload="init" Name="uom_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.uom</DbTable>
+<Index>uom_id</Index>
+<Data>uom_name,uom_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_reference_key_name" Visible="false"><Ctrls>
+<Label Align="Right" Text="reference_key_name" overlap="pre" Name="lb_reference_key_name" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_reference_key_name" overlap="pre" Name="reference_key_name" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_reference_key_value"><Ctrls>
+<Label Align="Right" Text="reference_key_value" Name="lb_reference_key_value" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_reference_key_value" Name="reference_key_value" Size="170,100"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mark_up_percentage"><Ctrls>
+<Label Align="Right" Text="mark_up_percentage" Name="lb_mark_up_percentage" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_mark_up_percentage" Items="1~10*10" Name="mark_up_percentage" Size="170,100"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_effective_from"><Ctrls>
+<Label Align="Right" Text="effective_from" Name="lb_effective_from" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_effective_from" Name="effective_from" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_effective_to"><Ctrls>
+<Label Align="Right" Text="effective_to" Name="lb_effective_to" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_effective_to" Name="effective_to" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_resource_name"><Ctrls>
+<Label Align="Right" Text="resource_name" Name="lb_resource_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_resource_name" Name="resource_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_prj_rate_schedule_line_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="prj_rate_schedule_line_id" overlap="pre" Name="lb_prj_rate_schedule_line_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_prj_rate_schedule_line_id" overlap="pre" Name="prj_rate_schedule_line_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBprj_rate_schedule_line" expr="TABEDITprj_rate_schedule_line"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_prj_rate_schedule_header_id"><Ctrls>
+<Label Align="Right" Text="prj_rate_schedule_header_id" Name="lb_prj_rate_schedule_header_id" readonly="true" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_prj_rate_schedule_header_id" Name="prj_rate_schedule_header_id" readonly="true" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.prj_rate_schedule_header</DbTable>
+<Index>prj_rate_schedule_header_id</Index>
+<Data>schedule_name,rate_type,prj_rate_schedule_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk> <if cond="%{prj_rate_schedule_header_id[rate_type]}=='Employee'"><DbDetails><DbTable>xbs.employees_v</DbTable><Data>employee_name as name,hr_employee_id refid</Data></DbDetails><submit next="reference_key_value" namelist="DbDetails"/> <elseif cond="%{prj_rate_schedule_header_id[rate_type]}=='JOB'"/><DbDetails><DbTable>xbs.hr_job</DbTable><Data>job_name as name,hr_job_id refid</Data></DbDetails><submit next="reference_key_value" namelist="DbDetails"/> </if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

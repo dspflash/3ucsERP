@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhd_subscription_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hd_subscription_headerLst" ToolTip="ttp_hd_subscription_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_subscription_header</DbTable>
+<Index>hd_subscription_header_id</Index>
+<Data>number,subscription_type,document_type,hr_employee_id,ar_customer_id,ar_customer_site_id,header_amount,tax_amount,ship_to_address_id,bill_to_address_id,first_name,last_name,full_name,passport_number,dob,gender,marital_status,occupation,nationality,address_line1,address_line2,postal_code,state,house_phone,office_phone,mobile_phone1,mobile_phone2,fax_no,email,status,description,created_by,creation_date,last_update_by,last_update_date,hd_subscription_header_id,org_id</Data>
+<Order>hd_subscription_header_id</Order></DbDetails>
+<OnClick><assign name="document_type[option_line_id]" expr="%{hd_subscription_headerLst[document_type]}" function="SetSel"/><assign name="hr_employee_id[hr_employee_id]" expr="%{hd_subscription_headerLst[hr_employee_id]}" function="SetSel"/><assign name="ar_customer_id[ar_customer_id]" expr="%{hd_subscription_headerLst[ar_customer_id]}" function="SetSel"/><assign name="ar_customer_site_id[ar_customer_site_id]" expr="%{hd_subscription_headerLst[ar_customer_site_id]}" function="SetSel"/><assign name="gender[option_line_id]" expr="%{hd_subscription_headerLst[gender]}" function="SetSel"/><assign name="marital_status[option_line_id]" expr="%{hd_subscription_headerLst[marital_status]}" function="SetSel"/>
+<if cond="%{hd_subscription_header_id}"><SetVisible name="inserthd_subscription_header" Visible="0"/><SetVisible name="modifyhd_subscription_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

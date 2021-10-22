@@ -1,0 +1,20 @@
+<GroupBox Name="GBDVprj_budget_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_budget_line_vLst" ToolTip="ttp_prj_budget_line" Size="700,220" Heading="prj_resource_line_id,60;uom_id,60;quantity,75;raw_cost,75;revenue_quantity,75;revenue_amount,75;burden_cost,75;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_project_line_id,60;prj_budget_line_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_budget_line p left join xbs.prj_resource_list_line p0 on p.prj_resource_line_id=p0.prj_resource_list_line_id left join xbs.uom u on p.uom_id=u.uom_id</DbTable>
+<Index>prj_budget_line_id</Index>
+<Data>p0.resource_type prj_resource_line_id,u.uom_name uom_id,p.quantity,p.raw_cost,p.revenue_quantity,p.revenue_amount,p.burden_cost,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_budget_line_id</Data>
+<Where>prj_budget_header_id='%{prj_budget_header_id}'</Where>
+<Order>prj_budget_line_id</Order>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$parent.prj_budget_line.GBDEDITprj_budget_line" function="reset"/><assign name="$parent.prj_budget_line.prj_budget_header_id" expr="%{prj_budget_header_id}"/><DbDetails><Where>prj_resource_list_header_id=(select ResourceList from prj_budget_header where prj_budget_header_id='%{prj_budget_header_id}')</Where></DbDetails><submit next="$parent.prj_budget_line.prj_resource_line_id" namelist="DbDetails"/></op>
+<op text="modify"><DbDetails><Where>prj_budget_line_id='%{prj_budget_line_vLst[prj_budget_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_budget_line.prj_budget_lineLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.prj_budget_line</DbTable>
+<Where>prj_budget_line_id='%{prj_budget_line_vLst[prj_budget_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,26 @@
+﻿<GroupBox Name="GBDEDIThr_payroll_schedule" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_scheduled_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_scheduled_date" Size="60,20" Text="scheduled_date" Align="Right"/>
+<DateTime Name="scheduled_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_scheduled_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_start_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_start_date" Size="60,20" Text="start_date" Align="Right"/>
+<DateTime Name="start_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_start_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_end_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_end_date" Size="60,20" Text="end_date" Align="Right"/>
+<DateTime Name="end_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_end_date"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_period_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_period_name" Size="60,20" Text="period_name" Align="Right"/>
+<TextBox Name="period_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_period_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right"/>
+<TextBox Name="status" Size="170,20" Text="" Weight="170" ToolTip="ttp_status"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

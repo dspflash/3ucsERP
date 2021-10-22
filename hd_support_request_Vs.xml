@@ -1,0 +1,129 @@
+﻿<GroupBox Name="GBDEDIThd_support_request"><Ctrls>
+<GroupBox Name="GB_support_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_support_number" Size="60,20" Text="support_number" Align="Right"/>
+<TextBox Name="support_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_support_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_subject" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_subject" Size="60,20" Text="subject" Align="Right"/>
+<TextBox Name="subject" Size="170,20" Text="" Weight="170" ToolTip="ttp_subject"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_urgency" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_urgency" Size="60,20" Text="urgency" Align="Right"/>
+<TextBox Name="urgency" Size="170,20" Text="" Weight="170" ToolTip="ttp_urgency"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_priority" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_priority" Size="60,20" Text="priority" Align="Right"/>
+<TextBox Name="priority" Size="170,20" Text="" Weight="170" ToolTip="ttp_priority"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_reason" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_reason" Size="60,20" Text="reason" Align="Right"/>
+<TextBox Name="reason" Size="170,20" Text="" Weight="170" ToolTip="ttp_reason"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_escalation" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_escalation" Size="60,20" Text="escalation" Align="Right"  onload="init"/>
+<ComboBox Name="escalation" Size="170,100" Text="" Weight="170"  ToolTip="ttp_escalation"  onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=235</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="status" Size="170,20" Text="" Weight="170" ToolTip="ttp_status" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_request_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_request_type" Size="60,20" Text="request_type" Align="Right"  onload="init"/>
+<ComboBox Name="request_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_request_type"  onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=233</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_request_category" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_request_category" Size="60,20" Text="request_category" Align="Right"  onload="init"/>
+<ComboBox Name="request_category" Size="170,100" Text="" Weight="170"  ToolTip="ttp_request_category"  onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=234</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_assignment_group" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_assignment_group" Size="60,20" Text="assignment_group" Align="Right"/>
+<TextBox Name="assignment_group" Size="170,20" Text="" Weight="170" ToolTip="ttp_assignment_group"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_assigned_to_user_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_assigned_to_user_id" Size="60,20" Text="assigned_to_user_id" Align="Right"/>
+<TextBox Name="assigned_to_user_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_assigned_to_user_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hd_change_request_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hd_change_request_id" Size="60,20" Text="hd_change_request_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hd_change_request_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hd_change_request_id" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_close_code" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_close_code" Size="60,20" Text="close_code" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="close_code" Size="170,20" Text="" Weight="170" ToolTip="ttp_close_code" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_closed_by_user_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_closed_by_user_id" Size="60,20" Text="closed_by_user_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="closed_by_user_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_closed_by_user_id" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_closed_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_closed_date" Size="60,20" Text="closed_date" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<DateTime Name="closed_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  ToolTip="ttp_closed_date" Visible="false" overlap="pre" readonly="true"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_requester_user_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_requester_user_id" Size="60,20" Text="requester_user_id" Align="Right"/>
+<TextBox Name="requester_user_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_requester_user_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_requester_username" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_requester_username" Size="60,20" Text="requester_username" Align="Right"/>
+<TextBox Name="requester_username" Size="170,20" Text="" Weight="170" ToolTip="ttp_requester_username"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_requester_email" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_requester_email" Size="60,20" Text="requester_email" Align="Right"/>
+<TextBox Name="requester_email" Size="170,20" Text="" Weight="170" ToolTip="ttp_requester_email"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_requester_phone" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_requester_phone" Size="60,20" Text="requester_phone" Align="Right"/>
+<TextBox Name="requester_phone" Size="150,20" Text="" Weight="150" ToolTip="ttp_requester_phone"></TextBox>
+<MagicCtrl Name="dialrequester_phone" button="type:0" images=" ,data/startcall_green.png" Size="20,20" OnClick="nis3ucs:%{requester_phone}" ToolTip="DialToCall"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_impact" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_impact" Size="60,20" Text="impact" Align="Right"/>
+<TextBox Name="impact" Size="170,20" Text="" Weight="170" ToolTip="ttp_impact"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,50" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,50" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_resolution_details" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_resolution_details" Size="60,50" Text="resolution_details" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="resolution_details" Size="170,50" Text="" Weight="170" ToolTip="ttp_resolution_details" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hd_support_request_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hd_support_request_id" Size="60,20" Text="hd_support_request_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hd_support_request_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hd_support_request_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{hd_support_request_id}'"><SetVisible name="inserthd_support_request" Visible="0"/><SetVisible name="modifyhd_support_request" Visible="1"/><else/><SetVisible name="inserthd_support_request" Visible="1"/><SetVisible name="modifyhd_support_request" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

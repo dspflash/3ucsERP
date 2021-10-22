@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVtransaction_type" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Heading="transaction_type_number,60;transaction_type,200;type_class,120;transaction_action,120;description,250;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;transaction_type_id,60;" loadedclick="0" ToolTip="ttp_transaction_type" onload="init" Name="transaction_type_vLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.transaction_type</DbTable>
+<Index>transaction_type_id</Index>
+<Data>transaction_type_number,transaction_type,type_class,transaction_action,description,status,created_by,creation_date,last_update_by,last_update_date,transaction_type_id</Data>
+<Order>transaction_type_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>transaction_type_id='%{transaction_type_vLst[transaction_type_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.transaction_type.transaction_typeLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

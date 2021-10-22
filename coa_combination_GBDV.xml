@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVcoa_combination"><Ctrls>
+<ListCtrl Heading="coa_id,120;ac_type,120;ac_usage_type,120;field1,60;field2,60;field3,60;field4,120;field5,60;field6,60;field7,60;field8,60;combination,640;description,640;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;coa_combination_id,55;org_id,55;reftbltp,120;refid,55;coa_structure_id,55;" loadedclick="0" ToolTip="ttp_coa_combination" Name="coa_combinationLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.coa_combination c left join xbs.coa c0 on c.coa_id=c0.coa_id left join xbs.option_line o on c.ac_type=o.option_line_id left join xbs.ac_usage_type a on c.ac_usage_type=a.ac_usage_type_id left join xbs.gl_account_type g on c.field4=g.account_type_code</DbTable>
+<Index>coa_combination_id</Index>
+<Data>c0.coa_name coa_id,o.option_line_value ac_type,a.ac_usage_type_value ac_usage_type,c.field1,c.field2,c.field3,g.account_type field4,c.field5,c.field6,c.field7,c.field8,c.combination,c.description,c.created_by,c.creation_date,c.last_update_by,c.last_update_date,c.coa_combination_id,c.org_id,c.reftbltp,c.refid,c.coa_structure_id</Data>
+<Order>coa_combination_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

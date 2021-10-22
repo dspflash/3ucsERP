@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_quote_header"><Ctrls>
+<ListCtrl Heading="quote_number,250;ar_customer_id,120;ar_customer_site_id,120;ship_to_id,120;bill_to_id,120;doc_currency,120;payment_term_id,120;agreement_start_date,90;aggrement_end_date,90;approval_status,120;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bu_org_id,60;header_amount,100;tax_amount,100;sd_quote_header_id,60;status,120;" loadedclick="0" ToolTip="ttp_sd_quote_header" Name="sd_quote_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_quote_header s left join xbs.ar_customer a on s.ar_customer_id=a.ar_customer_id left join xbs.ar_customer_site a0 on s.ar_customer_site_id=a0.ar_customer_site_id left join xbs.address a1 on s.ship_to_id=a1.address_id left join xbs.address a2 on s.bill_to_id=a2.address_id left join xbs.currency c on s.doc_currency=c.currency_id left join xbs.payment_term p on s.payment_term_id=p.payment_term_id left join xbs.option_line o on s.approval_status=o.option_line_id left join xbs.option_line o0 on s.status=o0.option_line_id</DbTable>
+<Index>sd_quote_header_id</Index>
+<Data>s.quote_number,a.customer_name ar_customer_id,a0.customer_site_name ar_customer_site_id,a1.address ship_to_id,a2.address bill_to_id,c.title doc_currency,p.payment_term payment_term_id,s.agreement_start_date,s.aggrement_end_date,o.option_line_value approval_status,s.description,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,s.bu_org_id,s.header_amount,s.tax_amount,s.sd_quote_header_id,o0.option_line_value status</Data>
+<Order>sd_quote_header_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

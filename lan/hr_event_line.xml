@@ -1,0 +1,44 @@
+﻿<Language name="hr_event_line">
+<Lang name="hr_event_line" value="hr_event_line"/>
+<Lang name="TabEdithr_event_line" value="hr_event_line Edit"/>
+<Lang name="TabViewhr_event_line" value="hr_event_line View"/>
+<Lang name="user_id" value=""/>
+<Lang name="ttp_user_id" value=""/>
+<Lang name="resource_id" value=""/>
+<Lang name="ttp_resource_id" value=""/>
+<Lang name="required_cb" value=""/>
+<Lang name="ttp_required_cb" value=""/>
+<Lang name="expected_status" value=""/>
+<Lang name="ttp_expected_status" value=""/>
+<Lang name="actual_status" value=""/>
+<Lang name="ttp_actual_status" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hr_event_header_id" value=""/>
+<Lang name="ttp_hr_event_header_id" value=""/>
+<Lang name="hr_event_line_id" value=""/>
+<Lang name="ttp_hr_event_line_id" value=""/>
+<Lang name="ttp_operationhr_event_line" value=""/>
+<Lang name="ttp_createhr_event_line" value=""/>
+<Lang name="ttp_modifyhr_event_line" value=""/>
+<Lang name="ttp_resethr_event_line" value=""/>
+<Lang name="ttp_deletehr_event_line" value=""/>
+<Lang name="ttp_refreshhr_event_line" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

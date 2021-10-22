@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhd_service_contract_schedule"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_hd_service_contract_schedule" Name="hd_service_contract_scheduleLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_service_contract_schedule</DbTable>
+<Index>hd_service_contract_schedule_id</Index>
+<Data>hd_service_contract_line_id,hd_service_contract_detail_id,hd_service_contract_header_id,line_num,amount,gl_amount,invoice_date,from_date,to_date,interface_date,description,created_by,creation_date,last_update_by,last_update_date,hd_service_contract_schedule_id</Data>
+<Order>hd_service_contract_schedule_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op mustselected="0" text="addone"><if cond="!%{hd_service_contract_detail_id}"><alert expr="hd_service_contract_detail_id is Empty!"/><else/><submit next="$parent.hd_service_contract_schedule.GBDEDIThd_service_contract_schedule" function="reset"/><assign name="$parent.hd_service_contract_schedule.hd_service_contract_detail_id" expr="%{hd_service_contract_detail_id}"/></if></op>
+<op text="modify"><DbDetails><Where>hd_service_contract_schedule_id='%{hd_service_contract_schedule_vLst[hd_service_contract_schedule_id]}'</Where></DbDetails><submit next="$parent.hd_service_contract_schedule.hd_service_contract_scheduleLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_service_contract_schedule</DbTable>
+<Where>hd_service_contract_schedule_id='%{hd_service_contract_schedule_vLst[hd_service_contract_schedule_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

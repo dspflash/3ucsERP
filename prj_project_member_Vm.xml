@@ -1,0 +1,9 @@
+<WndTap Name="prj_project_member_v" Text="prj_project_member">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_project_member_Vem.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\prj_project_member.xml"/>
+<Ctrls><GroupBox  Name="GBprj_project_member" id="prj_project_member" Text="prj_project_member" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_project_member_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

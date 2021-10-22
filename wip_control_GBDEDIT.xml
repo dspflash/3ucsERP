@@ -1,0 +1,65 @@
+<GroupBox Name="GBDEDITwip_control"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_org_id"><Ctrls>
+<Label Align="Right" Text="org_id" Name="lb_org_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_org_id" Name="org_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_default_accounting_group"><Ctrls>
+<Label Align="Right" Text="default_accounting_group" OnLoad="init" Name="lb_default_accounting_group" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_default_accounting_group" OnLoad="init" Name="default_accounting_group" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.wip_accounting_group</DbTable>
+<Index>wip_accounting_group_id</Index>
+<Data>wip_accounting_group,wip_accounting_group_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_wo_number_type"><Ctrls>
+<Label Align="Right" Text="wo_number_type" Name="lb_wo_number_type" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_wo_number_type" Name="wo_number_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_allow_one_operation_cb"><Ctrls>
+<CheckBox Text="allow_one_operation_cb" ToolTip="ttp_allow_one_operation_cb" Name="allow_one_operation_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_completion_subinventory_id"><Ctrls>
+<Label Align="Right" Text="completion_subinventory_id" Name="lb_completion_subinventory_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_completion_subinventory_id" Name="completion_subinventory_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_completion_locator_id"><Ctrls>
+<Label Align="Right" Text="completion_locator_id" Name="lb_completion_locator_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_completion_locator_id" Name="completion_locator_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_issue_subinventory_id"><Ctrls>
+<Label Align="Right" Text="issue_subinventory_id" Name="lb_issue_subinventory_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_issue_subinventory_id" Name="issue_subinventory_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_issue_locator_id"><Ctrls>
+<CheckBox Text="issue_locator_id" ToolTip="ttp_issue_locator_id" Name="issue_locator_id" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_so_change_effect"><Ctrls>
+<Label Align="Right" Text="so_change_effect" Name="lb_so_change_effect" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_so_change_effect" Name="so_change_effect" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_auto_release_days"><Ctrls>
+<Label Align="Right" Text="auto_release_days" Name="lb_auto_release_days" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_auto_release_days" Name="auto_release_days" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_wip_control_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="wip_control_id" overlap="pre" Name="lb_wip_control_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_wip_control_id" overlap="pre" Name="wip_control_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBwip_control" expr="TABEDITwip_control"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

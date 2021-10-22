@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_burden_list_line"><Ctrls>
+<ListCtrl Heading="prj_burden_costcode_id,120;multiplier,50;burden_value,60;formula,640;effective_start_date,90;effective_end_date,90;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bu_org_id,60;prj_burden_list_line_id,60;" loadedclick="0" ToolTip="ttp_prj_burden_list_line" Name="prj_burden_list_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_burden_list_line p left join xbs.prj_burden_costcode p0 on p.prj_burden_costcode_id=p0.prj_burden_costcode_id</DbTable>
+<Index>prj_burden_list_line_id</Index>
+<Data>p0.costcode prj_burden_costcode_id,p.multiplier,p.burden_value,p.formula,p.effective_start_date,p.effective_end_date,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.bu_org_id,p.prj_burden_list_line_id</Data>
+<Order>prj_burden_list_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

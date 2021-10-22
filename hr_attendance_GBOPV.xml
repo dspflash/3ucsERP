@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVhr_attendance" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletehr_attendance" Name="deletehr_attendance" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_attendance</DbTable>
+<Where>hr_attendance_id='%{hr_attendanceLst[hr_attendance_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhr_attendance" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshhr_attendance" Name="searchhr_attendance" Size="50,20">
+			  <OnClick><submit next="hr_attendanceLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPhr_attendanceLst" OnClick="(hr_attendanceLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREhr_attendanceLst" OnClick="(hr_attendanceLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPhr_attendanceLst" OnClick="(hr_attendanceLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

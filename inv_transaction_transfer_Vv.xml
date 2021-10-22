@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVinv_transaction" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="inv_transaction_vLst" ToolTip="ttp_inv_transaction" Size="700,420" OnLoad="init" Heading="item_id_m,120;uom_id,120;quantity,20;from_subinventory_id,120;from_locator_id,120;lot_number_id,120;to_subinventory_id,120;to_locator_id,120;reason,125;description,640;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;org_id,55;inv_transaction_id,100;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.inv_transaction i left join xbs.item i0 on i.item_id_m=i0.item_id_m left join xbs.uom u on i.uom_id=u.uom_id left join xbs.subinventory s on i.from_subinventory_id=s.subinventory_id left join xbs.locator l on i.from_locator_id=l.locator_id left join xbs.inv_lot_number i1 on i.lot_number_id=i1.inv_lot_number_id left join xbs.subinventory s0 on i.to_subinventory_id=s0.subinventory_id left join xbs.locator l0 on i.to_locator_id=l0.locator_id</DbTable>
+<Index>inv_transaction_id</Index>
+<Data>i0.item_number item_id_m,u.uom_name uom_id,i.quantity,s.subinventory from_subinventory_id,l.locator from_locator_id,i1.lot_number lot_number_id,s0.subinventory to_subinventory_id,l0.locator to_locator_id,i.reason,i.description,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.org_id,i.inv_transaction_id</Data>
+<Order>inv_transaction_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>inv_transaction_id='%{inv_transaction_vLst[inv_transaction_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.inv_transaction.inv_transactionLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.inv_transaction</DbTable>
+<Where>inv_transaction_id='%{inv_transaction_vLst[inv_transaction_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

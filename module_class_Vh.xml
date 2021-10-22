@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVmodule_class" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="module_classLst" ToolTip="ttp_module_class" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.module_class</DbTable>
+<Index>module_class_id</Index>
+<Data>name,module_code,description,status,created_by,creation_date,last_update_by,last_update_date,module_class_id</Data>
+<Order>module_class_id</Order></DbDetails>
+<OnClick><assign name="module_code[option_line_code]" expr="%{module_classLst[module_code]}" function="SetSel"/>
+<if cond="%{module_class_id}"><SetVisible name="insertmodule_class" Visible="0"/><SetVisible name="modifymodule_class" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

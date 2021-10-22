@@ -1,0 +1,17 @@
+﻿<WndTap Name="documents_v" Text="documents">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="documents_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="docsharel_vm.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\documents.xml"/>
+<Ctrls><GroupBox  Name="GBdocuments" id="documents" Text="documents" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="documents_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVdocuments" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetdocuments" Name="resetdocuments" Size="50,20">	<OnClick>	<submit next="GBDEDITdocuments" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchdocuments" Name="gsearchdocuments" Size="50,20" visible="true">	<OnClick>	<search next="documents_vLst" listed="0" prefixwhere="0" inputed="1"><filenameany format="(filenameany like '%%{opvalue}%')"/><keywords format="(keywords like '%%{opvalue}%')"/></search><submit next="GBDEDITdocuments" namelist="search" function="search"/>	</OnClick>	</Button><TAB/>
+<Button Name="SendFile" Size="50,20" Text="upload"><OnClick><assign name="topmost" expr="SendFile:,filter=*.*|*.*|,dir=file/%{UserName},localdir=,query=insert into xbs.documents (OWNER_ID,path,FILENAMEANY,up_dt) values(%{user_id},'file/%{UserName}','%{_upload_file_name}',UNIX_TIMESTAMP()) ON DUPLICATE KEY UPDATE up_dt=UNIX_TIMESTAMP()"/></OnClick><OnSendFileEnd><submit next="documents_vLst"/></OnSendFileEnd></Button><TAB/>
+<Button Name="Download"  Size="50,20" Text="download"><OnClick><assign name="topmost" expr="GetFile:%{documents_vLst[filenameany]},dir=%{documents_vLst[path]},localdir="/></OnClick><!--OnFecthFileEnd><alert next="GroupBox" expr="xiazai"/></OnFecthFileEnd--></Button><TAB/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="documents_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

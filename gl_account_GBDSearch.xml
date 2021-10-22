@@ -1,0 +1,35 @@
+<GroupBox Name="GBDEDITgl_account"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_account_number"><Ctrls>
+<Label Align="Right" Text="account_number" Name="lb_account_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_account_number" Name="account_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_org_id"><Ctrls>
+<Label Align="Right" Text="org_id" onload="init" Name="lb_org_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_org_id" onload="init" Name="org_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org_id</Data>
+<Where>org_id='%{orgid}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_account_group"><Ctrls>
+<Label Align="Right" Text="account_group" onload="init" Name="lb_account_group" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_account_group" onload="init" Name="account_group" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=83</Where>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="account_type"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_account_type"><Ctrls>
+<Label Align="Right" Text="account_type" Name="lb_account_type" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_account_type" Name="account_type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.gl_account_type</DbTable>
+<Index>gl_account_type_id</Index>
+<Data>account_type,gl_account_type_id</Data>
+<Where>account_group='%{account_group[option_line_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

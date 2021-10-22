@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="仓库" Name="inv" id="inv">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="subinventory.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="locator.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="onhand.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_lot_number.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_misc_issue.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_misc_receipt.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_po_dlv.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_po_rtn.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_wip_return.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_wip_issue.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_wo_cr.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_po.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_misc.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_wip.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_header.xml"></xi:include>
+	</WndTaps>
+	</WndTap>

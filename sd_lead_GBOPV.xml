@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVsd_lead" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletesd_lead" Name="deletesd_lead" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_lead</DbTable>
+<Where>sd_lead_id='%{sd_leadLst[sd_lead_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchsd_lead" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshsd_lead" Name="searchsd_lead" Size="50,20">
+			  <OnClick><submit next="sd_leadLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPsd_leadLst" OnClick="(sd_leadLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREsd_leadLst" OnClick="(sd_leadLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPsd_leadLst" OnClick="(sd_leadLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

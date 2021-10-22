@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_budget_change_reason"><Ctrls>
+<ListCtrl Heading="budget_change_reason,125;description,240;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_budget_change_reason_id,60;" loadedclick="0" ToolTip="ttp_prj_budget_change_reason" Name="prj_budget_change_reasonLst" Size="300,180">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_budget_change_reason</DbTable>
+<Index>prj_budget_change_reason_id</Index>
+<Data>budget_change_reason,description,created_by,creation_date,last_update_by,last_update_date,prj_budget_change_reason_id</Data>
+<Order>prj_budget_change_reason_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

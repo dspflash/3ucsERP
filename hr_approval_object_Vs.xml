@@ -1,0 +1,46 @@
+<GroupBox Name="GBDEDIThr_approval_object"><Ctrls>
+<GroupBox Name="GB_object_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_object_code" Size="60,20" Text="object_code" Align="Right"/>
+<TextBox Name="object_code" Size="170,20" Text="" Weight="170" ToolTip="ttp_object_code"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_object_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_object_name" Size="60,20" Text="object_name" Align="Right"/>
+<TextBox Name="object_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_object_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_value_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_value_type" Size="60,20" Text="value_type" Align="Right"/>
+<TextBox Name="value_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_value_type"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_object_value" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_object_value" Size="60,50" Text="object_value" Align="Right"/>
+<TextBox Name="object_value" Size="170,50" Text="" Weight="170" ToolTip="ttp_object_value"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_return_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_return_type" Size="60,20" Text="return_type" Align="Right"/>
+<TextBox Name="return_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_return_type"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_approval_object_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hr_approval_object_id" Size="60,20" Text="hr_approval_object_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hr_approval_object_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hr_approval_object_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBhr_approval_object" expr="TABEDIThr_approval_object"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

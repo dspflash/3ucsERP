@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVgl_journal_interface" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletegl_journal_interface" Name="deletegl_journal_interface" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_journal_interface</DbTable>
+<Where>gl_journal_interface_id='%{gl_journal_interfaceLst[gl_journal_interface_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchgl_journal_interface" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshgl_journal_interface" Name="searchgl_journal_interface" Size="50,20">
+			  <OnClick><submit next="gl_journal_interfaceLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPgl_journal_interfaceLst" OnClick="(gl_journal_interfaceLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREgl_journal_interfaceLst" OnClick="(gl_journal_interfaceLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPgl_journal_interfaceLst" OnClick="(gl_journal_interfaceLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

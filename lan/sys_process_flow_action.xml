@@ -1,0 +1,45 @@
+<Language name="sys_process_flow_action">
+<Lang name="sys_process_flow_action" value="步骤动作"/>
+<Lang name="TabEditsys_process_flow_action" value="sys_process_flow_action Edit"/>
+<Lang name="TabViewsys_process_flow_action" value="sys_process_flow_action View"/>
+<Lang name="role_name_cn" value="角色"/>
+<Lang name="role_code" value="角色"/>
+<Lang name="ttp_role_code" value=""/>
+<Lang name="userid" value="用户"/>
+<Lang name="ttp_userid" value=""/>
+<Lang name="pf_action_type" value="动作类型"/>
+<Lang name="ttp_pf_action_type" value=""/>
+<Lang name="required_cb" value="必要项"/>
+<Lang name="ttp_required_cb" value=""/>
+<Lang name="field_value" value="结果"/>
+<Lang name="user_real" value="审批人"/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="sys_process_flow_line_id" value=""/>
+<Lang name="ttp_sys_process_flow_line_id" value=""/>
+<Lang name="sys_process_flow_action_id" value=""/>
+<Lang name="ttp_sys_process_flow_action_id" value=""/>
+<Lang name="action_number" value="动作编号"/>
+<Lang name="ttp_action_number" value=""/>
+<Lang name="ttp_operationsys_process_flow_action" value="操作"/>
+<Lang name="ttp_createsys_process_flow_action" value="新增"/>
+<Lang name="ttp_modifysys_process_flow_action" value="修改"/>
+<Lang name="ttp_resetsys_process_flow_action" value="清除数据"/>
+<Lang name="ttp_deletesys_process_flow_action" value="删除"/>
+<Lang name="ttp_refreshsys_process_flow_action" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

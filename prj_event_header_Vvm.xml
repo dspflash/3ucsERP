@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVprj_event_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_event_header_vLst" ToolTip="ttp_prj_event_header" Size="500,300" Heading="event_name,250;event_number,60;billing_amount,75;revenue_amount,75;description,440;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_event_header_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_event_header p</DbTable>
+<Index>prj_event_header_id</Index>
+<Data>p.event_name,p.event_number,p.billing_amount,p.revenue_amount,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_event_header_id</Data>
+<Order>prj_event_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.prj_event_header.GBDEDITprj_event_header" function="reset"/><assign name="$this.prj_event_header.prj_project_header_id" expr="%{prj_project_header_id}"/></op>
+<op text="modify"><DbDetails><Where>prj_event_header_id='%{prj_event_header_vLst[prj_event_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_event_header.prj_event_headerLst"/><assign name="$this.prj_event_header.prj_project_header_id" expr="%{prj_project_header_id}"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.prj_event_header</DbTable>
+<Where>prj_event_header_id='%{prj_event_header_vLst[prj_event_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

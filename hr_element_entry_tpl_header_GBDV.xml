@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_element_entry_tpl_header"><Ctrls>
+<ListCtrl Heading="template_name,250;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_element_entry_tpl_header_id,60;" loadedclick="0" ToolTip="ttp_hr_element_entry_tpl_header" onload="init" Name="hr_element_entry_tpl_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_element_entry_tpl_header</DbTable>
+<Index>hr_element_entry_tpl_header_id</Index>
+<Data>template_name,description,created_by,creation_date,last_update_by,last_update_date,hr_element_entry_tpl_header_id</Data>
+<Order>hr_element_entry_tpl_header_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

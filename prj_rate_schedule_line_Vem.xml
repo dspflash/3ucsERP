@@ -1,0 +1,13 @@
+<WndTap Name="prj_rate_schedule_line" Text="prj_rate_schedule_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="rate,uom_id[uom_id],reference_key_value[refid],mark_up_percentage,prj_rate_schedule_header_id[prj_rate_schedule_header_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\prj_rate_schedule_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBprj_rate_schedule_line" id="prj_rate_schedule_line" Text="prj_rate_schedule_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_rate_schedule_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_rate_schedule_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_rate_schedule_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertprj_rate_schedule_line" Visible="1"/><SetVisible name="modifyprj_rate_schedule_line" Visible="0"/></OnActivate>
+</WndTap>

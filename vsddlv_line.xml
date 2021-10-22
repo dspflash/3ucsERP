@@ -1,0 +1,41 @@
+<WndTap Name="vSDDLV_line" Text="Delivery Line">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_delivery_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_delivery_line.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="sd_delivery_header"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_delivery_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="sddlvLst" listed="0" prefixand="1" inputed="1"><delivery_number format="delivery_number like '%%{opvalue}%'"/><expetced_delivery_date0 format="expetced_delivery_date&gt;='%{opvalue}'"/><expetced_delivery_date1 format="expetced_delivery_date&lt;='%{opvalue}'"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/>
+</search><submit next="GBDEDITsd_delivery_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+	<Button Name="export" Size="50,20" Text="导出"><TAB/>
+	<OnClick><!--Save selected="1" columns="3,0,7,8,9,11"></Save--><submit next="sddlvLst" namelist="Save" function="savetofile"/></OnClick></Button>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="sddlvLst" Size="700,420">
+	<DbDetails>
+<DbTable>(SELECT sl.*,delivery_number,STATUS,expetced_delivery_date FROM xbs.sd_dlv_line_v sl JOIN sd_delivery_header sd ON sl.sd_delivery_header_id=sd.sd_delivery_header_id) t</DbTable>
+<Index>sd_delivery_line_id</Index>
+<Data>*</Data>
+<Order>sd_delivery_header_id</Order>
+<Where>and status not in (1551) and expetced_delivery_date BETWEEN CURDATE() AND CURDATE()</Where>
+<queryFormat>select %{data} from %{dbtable} where IF((SELECT TYPE FROM xbs.org WHERE org_id='%{orgid}')=74,shipping_org_id='%{orgid}',shipping_org_id IN (SELECT org_id FROM xbs.org WHERE parent_org_id='%{orgid}' and type=74)) %{where} order by sd_delivery_header_id desc limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="Copyitem"><Copy columns="item_number"/><submit namelist="Copy" function="Copy"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

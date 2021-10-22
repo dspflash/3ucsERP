@@ -1,0 +1,85 @@
+<GroupBox Name="GBDEDITprj_expenditure_header"><Ctrls>
+<GroupBox Name="GB_batch_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_batch_name" Size="60,20" Text="batch_name" Align="Right"/>
+<TextBox Name="batch_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_batch_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_expenditure_class" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_expenditure_class" Size="60,20" Text="expenditure_class" Align="Right"/>
+<ComboBox Name="expenditure_class" Size="170,100" Text="" Weight="170" Items="Time Sheet|Expense Report|Inventory|WIP|Supplier Invoice|Burden|Usage|Miscellaneous" ToolTip="ttp_expenditure_class"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_effective_to" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_to" Size="60,20" Text="effective_to" Align="Right"/>
+<DateTime Name="effective_to" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_to"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right"/>
+<ComboBox Name="status" Size="170,100" Text="" Weight="170" Items="Working|Released|Costed|Reversed" ToolTip="ttp_status"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_submitted_by_user_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_submitted_by_user_id" Size="60,20" Text="submitted_by_user_id" Align="Right" onload="init"/>
+<ComboBox Name="submitted_by_user_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_submitted_by_user_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.xerp_user</DbTable>
+<Index>xerp_user_id</Index>
+<Data>username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_submitted_on" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_submitted_on" Size="60,20" Text="submitted_on" Align="Right"/>
+<DateTime Name="submitted_on" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_submitted_on"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_misc_transaction_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="misc_transaction_cb" Size="230,20" Text="misc_transaction_cb" ToolTip="ttp_misc_transaction_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_over_time_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="over_time_cb" Size="230,20" Text="over_time_cb" ToolTip="ttp_over_time_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_invoice_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="invoice_cb" Size="230,20" Text="invoice_cb" ToolTip="ttp_invoice_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_usages_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="usages_cb" Size="230,20" Text="usages_cb" ToolTip="ttp_usages_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_wip_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="wip_cb" Size="230,20" Text="wip_cb" ToolTip="ttp_wip_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_prj_expenditure_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_prj_expenditure_header_id" Size="60,20" Text="prj_expenditure_header_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="prj_expenditure_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_prj_expenditure_header_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBprj_expenditure_header" expr="TABEDITprj_expenditure_header"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bu_org_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_bu_org_id" Size="60,20" Text="bu_org_id" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="bu_org_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_bu_org_id" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_prj_project_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_prj_project_header_id" Size="60,20" Text="prj_project_header_id" Align="Right" readonly="true"/>
+<TextBox Name="prj_project_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_prj_project_header_id" readonly="true">
+	<DbDetails>
+<DbTable>xbs.prj_project_header</DbTable>
+<Index>prj_project_header_id</Index>
+<Data>project_number,prj_project_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

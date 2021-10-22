@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="0">
+	<DbDetails>
+		<SubDriver>MySQL</SubDriver>
+		<Host>localhost</Host>
+		<database>xbs</database>
+		<!--sqlMode>NO_BACKSLASH_ESCAPES</sqlMode-->
+		<characterset>utf8</characterset>
+		<User>i3u</User>
+		<password>i3u</password>
+		<config>select supplier_id from xerp_user where username='%{UserName}';</config>
+		</DbDetails>	
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>
+	<WndTaps id="purchase">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmyinfo_supplier.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_supplier.xml"/>
+	</WndTaps>
+</XI3uWnd>

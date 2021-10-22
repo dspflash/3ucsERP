@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVgl_journal_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="gl_journal_line_vLst" ToolTip="ttp_gl_journal_line" Size="700,120" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.gl_journal_line g left join xbs.coa_combination c on g.code_combination_id=c.coa_combination_id left join xbs.option_line o on g.status=o.option_line_id</DbTable>
+<Index>gl_journal_line_id</Index>
+<Data>g.total_dr,g.total_cr,g.line_num,c.combination code_combination_id,g.total_ac_dr,g.total_ac_cr,g.description,g.reference_type,g.reference_key_name,g.reference_key_value,g.created_by,g.creation_date,g.last_update_by,g.last_update_date,g.gl_journal_line_id,o.option_line_value status</Data>
+<Order>gl_journal_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{gl_journal_header_id}"><alert expr="请先添加或选择已有项目！"/><else/><DbDetails><Where>gl_journal_header_id='%{gl_journal_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.gl_journal_line.gl_journal_header_id"/></if></op>
+<!--op text="modify"><DbDetails><Where>gl_journal_line_id='%{gl_journal_line_vLst[gl_journal_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.gl_journal_line.gl_journal_lineLst"/></op-->
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVqa_results_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="qa_results_line_vLst" ToolTip="ttp_qa_results_line" Size="700,220">
+	<DbDetails >
+<DbTable>xbs.qa_results_line q left join xbs.qa_results q0 on q.qa_results_id=q0.qa_results_id LEFT JOIN item i ON q0.item_id_m=i.item_id_m AND q0.org_id=i.org_id left join xbs.option_line o on q.qa_result_value=o.option_line_id</DbTable>
+<Index>qa_results_line_id</Index>
+<Data>i.item_number,o.option_line_value qa_result_value,q.quantity,q.created_by,q.creation_date,q.last_update_by,q.last_update_date,q.description,q.org_id,q.qa_results_line_id</Data>
+<Order>qa_results_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{qa_results_id}"><alert expr="请先添加单据，若修改单据请从单据列表进入！"/><else/><DbDetails><Where>qa_results_id='%{qa_results_id}'</Where></DbDetails><submit next="$parent.qa_results_line.qa_results_id" namelist="DbDetails"/></if></op>
+<op text="modify"><DbDetails><Where>qa_results_id='%{qa_results_id}'</Where></DbDetails><submit next="$parent.qa_results_line.qa_results_id" namelist="DbDetails"/><DbDetails><Where>qa_results_line_id='%{qa_results_line_vLst[qa_results_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.qa_results_line.qa_results_lineLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

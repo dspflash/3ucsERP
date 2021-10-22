@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhd_subscription_detail" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hd_subscription_detailLst" ToolTip="ttp_hd_subscription_detail" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_subscription_detail</DbTable>
+<Index>hd_subscription_detail_id</Index>
+<Data>line_type,created_by,creation_date,last_update_by,last_update_date,hd_subscription_detail_id,hd_subscription_header_id,hd_subscription_line_id,member_name,member_dob,vehcile_no,vehcile_registration,road_tax_expiry_date,vehcile_details,description</Data>
+<Order>hd_subscription_detail_id</Order></DbDetails>
+<OnClick><assign name="line_type[option_line_id]" expr="%{hd_subscription_detailLst[line_type]}" function="SetSel"/>
+<if cond="%{hd_subscription_detail_id}"><SetVisible name="inserthd_subscription_detail" Visible="0"/><SetVisible name="modifyhd_subscription_detail" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_nlr_line"><Ctrls>
+<ListCtrl Heading="rate,75;currency,125;uom_id,120;effective_from,90;effective_to,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_nlr_header_id,60;prj_nlr_line_id,60;bu_org_id,60;" loadedclick="0" ToolTip="ttp_prj_nlr_line" Name="prj_nlr_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>prj_nlr_line</DbTable>
+<Index>prj_nlr_line_id</Index>
+<Data>rate,currency,uom_id,effective_from,effective_to,description,created_by,creation_date,last_update_by,last_update_date,prj_nlr_header_id,prj_nlr_line_id,bu_org_id</Data>
+<Order>prj_nlr_line_id</Order></DbDetails>
+<OnClick><assign name="uom_id[uom_id]" function="SetSel" expr="%{prj_nlr_lineLst[uom_id]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

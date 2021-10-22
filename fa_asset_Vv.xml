@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVfa_asset" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="fa_asset_vLst" ToolTip="ttp_fa_asset_v" Size="700,450" OnLoad="init" Heading="asset_number,150;type,125;tag_number,250;serial_number,150;key_number,150;description,640;status,125;fa_asset_category_id,120;units,50;parent_asset_id,60;manufacturer,150;ap_supplier_id,60;ap_supplier_site_id,60;model_number,150;warrranty_number,150;lease_number,150;physical_inventory_cb,60;rev_enabled,100;rev_number,50;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;fa_asset_id,50;" loadedclick="0">
+	<DbDetails >
+<Index>fa_asset_id</Index>
+<DbTable>xbs.fa_asset f left join xbs.fa_asset_category f0 on f.fa_asset_category_id=f0.fa_asset_category_id</DbTable>
+<Data>f.asset_number,f.type,f.tag_number,f.serial_number,f.key_number,f.description,f.status,f0.asset_category fa_asset_category_id,f.units,f.parent_asset_id,f.manufacturer,f.ap_supplier_id,f.ap_supplier_site_id,f.model_number,f.warrranty_number,f.lease_number,f.physical_inventory_cb,f.rev_enabled,f.rev_number,f.created_by,f.creation_date,f.last_update_by,f.last_update_date,f.fa_asset_id</Data>
+<Order>fa_asset_id</Order></DbDetails>
+<DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} where i.org_id='%{orgid}' %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>fa_asset_id='%{fa_asset_vLst[fa_asset_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.fa_asset.fa_assetLst"/><assign name="$this.fa_asset.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.fa_asset</DbTable>
+<Where>fa_asset_id='%{fa_asset_vLst[fa_asset_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_fa_asset" expr="js(%{fa_asset_vLst[currentpage]}+1)"/>
+<assign name="pgscb_fa_asset" expr="js(%{fa_asset_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

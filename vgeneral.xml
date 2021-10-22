@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="通用" Name="vgeneral" id="vgeneral">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="uom_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="payment_term_V.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_account_type_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_property_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_currency_conversion_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="country_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="currency_v.xml"/>
+	
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_V.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_tax_code_V.xml"/>
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="coa_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="coa_combination_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="adm_task_type_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="adm_task_template_header_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="adm_task_template_line_v.xml"/-->
+	</WndTaps>
+	</WndTap>

@@ -1,0 +1,44 @@
+﻿<Language name="hd_task_type">
+<Lang name="hd_task_type" value="hd_task_type"/>
+<Lang name="TabEdithd_task_type" value="hd_task_type Edit"/>
+<Lang name="TabViewhd_task_type" value="hd_task_type View"/>
+<Lang name="task_type" value=""/>
+<Lang name="ttp_task_type" value=""/>
+<Lang name="from_date" value=""/>
+<Lang name="ttp_from_date" value=""/>
+<Lang name="to_date" value=""/>
+<Lang name="ttp_to_date" value=""/>
+<Lang name="effort_duration" value=""/>
+<Lang name="ttp_effort_duration" value=""/>
+<Lang name="effort_uom_id" value=""/>
+<Lang name="ttp_effort_uom_id" value=""/>
+<Lang name="auto_schedule_cb" value=""/>
+<Lang name="ttp_auto_schedule_cb" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hd_task_type_id" value=""/>
+<Lang name="ttp_hd_task_type_id" value=""/>
+<Lang name="ttp_operationhd_task_type" value=""/>
+<Lang name="ttp_createhd_task_type" value=""/>
+<Lang name="ttp_modifyhd_task_type" value=""/>
+<Lang name="ttp_resethd_task_type" value=""/>
+<Lang name="ttp_deletehd_task_type" value=""/>
+<Lang name="ttp_refreshhd_task_type" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

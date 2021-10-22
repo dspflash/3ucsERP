@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEhd_svo_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hd_svo_line_id" Text="create" ToolTip="ttp_createhd_svo_line" Name="inserthd_svo_line" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hd_svo_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],destination_type[option_line_id],requested_date,unit_price,uom_id[uom_id],price_date,line_price,line_description,sd_so_header_id,inv_org_id,hd_service_type_header_id,quantity,action_type_id,service_activity_header_id[hd_service_activity_header_id],return_reason,hd_svo_header_id</Data>
+<DataEx>line_status,created_by,creation_date,last_update_by,last_update_date;1529,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_svo_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhd_svo_line" Name="modifyhd_svo_line" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hd_svo_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],destination_type[option_line_id],requested_date,unit_price,uom_id[uom_id],price_date,line_price,line_description,inv_org_id,hd_service_type_header_id,quantity,action_type_id,service_activity_header_id[hd_service_activity_header_id],return_reason</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hd_svo_line_id='%{hd_svo_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_svo_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethd_svo_line" Name="resethd_svo_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIThd_svo_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchhd_svo_line" Name="gsearchhd_svo_line" Size="50,20" visible="false">
+	<OnClick>
+	<search next="hd_svo_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDIThd_svo_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

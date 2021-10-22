@@ -1,0 +1,13 @@
+<WndTap Name="fp_mds_header" Text="fp_mds_header" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\fp_mds_header.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBfp_mds_header" id="fp_mds_header" Text="fp_mds_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fp_mds_header_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fp_mds_header_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fp_mds_header_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertfp_mds_header" Visible="1"/><SetVisible name="modifyfp_mds_header" Visible="0"/></OnActivate>
+</WndTap>

@@ -1,0 +1,9 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_employee_v"><Ctrls>
+<ListCtrl Heading="name,505;username,640;status,60;org,250;department,100;supervisor,505;email,500;phone,150;emp_email,500;person_type,125;org_id,60;job_id,60;xerp_user_id,60;department_id,55;position_id,60;supervisor_employee_id,60;hr_employee_id,60;" loadedclick="1" ToolTip="ttp_hr_employee_v" onload="init" Name="hr_employee_vLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_employee_v</DbTable>
+
+<Data>name,username,status,org,department,supervisor,email,phone,emp_email,person_type,org_id,job_id,xerp_user_id,department_id,position_id,supervisor_employee_id,hr_employee_id</Data>
+</DbDetails><operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

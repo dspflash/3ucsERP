@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><biztoolcfg tableNm="bizdep" tableTxt="bizdep" LstTP="Lst"><Ctrls><Ctrl name="dep_id"/><Ctrl name="dep_name_cn"/><Ctrl name="dep_name_eng"/><Ctrl name="zone_id"/><Ctrl noused="1" name="id_corp" ctrldbtable="corporation" xTp="ComboBox" ctrldbdata="name,idx" ctrldbdatarel="idx" ctrltype="ComboBox"/></Ctrls></biztoolcfg>

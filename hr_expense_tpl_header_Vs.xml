@@ -1,0 +1,6 @@
+﻿<GroupBox Name="GBDEDIThr_expense_tpl_header" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_template_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_template_name" Size="60,20" Text="template_name" Align="Right"/>
+<TextBox Name="template_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_template_name"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

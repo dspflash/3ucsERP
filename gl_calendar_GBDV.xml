@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVgl_calendar"><Ctrls>
+<ListCtrl Heading="name,250;option_line_code,120;calendar_type,120;c_year,120;c_quarter,120;c_number,120;from_date,90;to_date,90;name_prefix,120;adjustment_period_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;gl_calendar_id,60;" loadedclick="0" ToolTip="ttp_gl_calendar" Name="gl_calendarLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_calendar g left join xbs.option_line o on g.option_line_code=o.option_line_id left join xbs.option_line o0 on g.calendar_type=o0.option_line_id</DbTable>
+<Index>gl_calendar_id</Index>
+<Data>g.name,o.option_line_value option_line_code,o0.option_line_value calendar_type,g.c_year,g.c_quarter,g.c_number,g.from_date,g.to_date,g.name_prefix,g.adjustment_period_cb,g.created_by,g.creation_date,g.last_update_by,g.last_update_date,g.gl_calendar_id</Data>
+<Order>gl_calendar_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

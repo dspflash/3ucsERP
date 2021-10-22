@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVinv_transaction" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="inv_transactionLst" ToolTip="ttp_inv_transaction" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_transaction</DbTable>
+<Index>inv_transaction_id</Index>
+<Data>item_id_m,uom_id,quantity,from_subinventory_id,from_locator_id,lot_number_id,to_subinventory_id,to_locator_id,reason,description,created_by,creation_date,last_update_by,last_update_date,org_id,inv_transaction_id</Data>
+<Order>inv_transaction_id</Order></DbDetails>
+<OnClick><assign name="item_id_m[item_id_m]" expr="%{inv_transactionLst[item_id_m]}" function="SetSel"/><assign name="uom_id[uom_id]" expr="%{inv_transactionLst[uom_id]}" function="SetSel"/><assign name="from_subinventory_id[subinventory_id]" expr="%{inv_transactionLst[from_subinventory_id]}" function="SetSel"/><assign name="from_locator_id[locator_id]" expr="%{inv_transactionLst[from_locator_id]}" function="SetSel"/><assign name="lot_number_id[inv_lot_number_id]" expr="%{inv_transactionLst[lot_number_id]}" function="SetSel"/><assign name="to_subinventory_id[subinventory_id]" expr="%{inv_transactionLst[to_subinventory_id]}" function="SetSel"/><assign name="to_locator_id[locator_id]" expr="%{inv_transactionLst[to_locator_id]}" function="SetSel"/>
+<if cond="%{inv_transaction_id}"><SetVisible name="insertinv_transaction" Visible="0"/><SetVisible name="modifyinv_transaction" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

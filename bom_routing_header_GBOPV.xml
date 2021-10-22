@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVbom_routing_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletebom_routing_header" Name="deletebom_routing_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_routing_header</DbTable>
+<Where>bom_routing_header_id='%{bom_routing_headerLst[bom_routing_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchbom_routing_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshbom_routing_header" Name="searchbom_routing_header" Size="50,20">
+			  <OnClick><submit next="bom_routing_headerLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPbom_routing_headerLst" OnClick="(bom_routing_headerLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREbom_routing_headerLst" OnClick="(bom_routing_headerLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPbom_routing_headerLst" OnClick="(bom_routing_headerLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

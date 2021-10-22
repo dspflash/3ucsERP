@@ -1,0 +1,77 @@
+<GroupBox Name="GBDEDITitem"><Ctrls>
+<GroupBox Name="BasicInfo"><Ctrls>
+<GroupBox Name="GB_item_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_type" Size="60,20" Text="item_type" Align="Right" onload="init"/>
+<ComboBox Name="item_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_item_type" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=84</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_status" Size="60,20" Text="item_status" Align="Right" onload="init"/>
+<ComboBox Name="item_status" Size="170,100" Text="" Weight="170"  ToolTip="ttp_item_status" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=123</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox><BR autoheight="1"/>
+<GroupBox Name="MasterTab" comment="Tab should seperate from other groupbox"><Ctrls>
+<GroupBox Name="Master" Text="Master" feature="tab"><Ctrls>
+<GroupBox Name="GB_item_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_number" Size="60,20" Text="item_number" Align="Right"/>
+<TextBox Name="item_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_name"><Ctrls>
+<Label Align="Right" Text="item_name" Name="lb_item_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_name" Name="item_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_specification"><Ctrls>
+<Label Align="Right" Text="item_specification" Name="lb_item_specification" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_specification" Name="item_specification" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR/><GroupBox Name="GB_product_line" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_product_line" Size="60,20" Text="product_line" Align="Right"/>
+<TextBox Name="product_line" Size="170,20" Text="" Weight="170" ToolTip="ttp_product_line"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_category" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_category" Size="60,20" Text="item_category" Align="Right" onload="init"/>
+<ComboBox Name="item_category" Size="170,100" Text="" Weight="170"  ToolTip="ttp_item_category" onload="init">
+	<DbDetails>
+<DbTable>xbs.category</DbTable>
+<Index>category_id</Index>
+<Data>category,category_id</Data>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR NULLHeight="1"/><GroupBox Name="Inventory" Text="Inventory" feature="tab"><Ctrls>
+<GroupBox Name="GB_inventory_item_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="inventory_item_cb" Size="230,20" Text="inventory_item_cb" ToolTip="ttp_inventory_item_cb"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR NULLHeight="1"/><GroupBox Name="Sales" Text="Sales" feature="tab"><Ctrls>
+<GroupBox Name="GB_customer_ordered_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="customer_ordered_cb" Size="230,20" Text="customer_ordered_cb" ToolTip="ttp_customer_ordered_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_internal_ordered_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="internal_ordered_cb" Size="230,20" Text="internal_ordered_cb" ToolTip="ttp_internal_ordered_cb"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR NULLHeight="1"/><GroupBox Name="Purchasing" Text="Purchasing" feature="tab"><Ctrls>
+<GroupBox Name="GB_purchased_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="purchased_cb" Size="230,20" Text="purchased_cb" ToolTip="ttp_purchased_cb"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR NULLHeight="1"/><GroupBox Name="Manufacturing" Text="Manufacturing" feature="tab"><Ctrls>
+<GroupBox Name="GB_make_buy" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_make_buy" Size="60,20" Text="make_buy" Align="Right" selectedIndex="1"/>
+<ComboBox Name="make_buy" Size="170,100" Text="" Weight="170" Items="Make|Buy" ToolTip="ttp_make_buy" selectedIndex="1"></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVgl_calendar" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletegl_calendar" Name="deletegl_calendar" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_calendar</DbTable>
+<Where>gl_calendar_id='%{gl_calendarLst[gl_calendar_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchgl_calendar" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshgl_calendar" Name="searchgl_calendar" Size="50,20">
+			  <OnClick><submit next="gl_calendarLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPgl_calendarLst" OnClick="(gl_calendarLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREgl_calendarLst" OnClick="(gl_calendarLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPgl_calendarLst" OnClick="(gl_calendarLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

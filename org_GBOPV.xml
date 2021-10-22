@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVorg" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteorg" Name="deleteorg" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.org</DbTable>
+<Where>org_id='%{orgLst[org_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchorg" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshorg" Name="searchorg" Size="50,20">
+			  <OnClick><submit next="orgLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPorgLst" OnClick="(orgLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREorgLst" OnClick="(orgLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPorgLst" OnClick="(orgLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

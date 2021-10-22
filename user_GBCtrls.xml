@@ -1,0 +1,74 @@
+<GroupBox Name="GBCtrlsuser"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_hr_employee_id"><Ctrls>
+<Label Align="Right" Text="hr_employee_id" OnLoad="init" Name="lb_hr_employee_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_hr_employee_id" OnLoad="init" Name="hr_employee_id" Size="170,100" SelectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.hr_employee</DbTable>
+<Data>concat(first_name,last_name) as name,hr_employee_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_first_name"><Ctrls>
+<Label Align="Right" Text="first_name" Name="lb_first_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_first_name" Name="first_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_name"><Ctrls>
+<Label Align="Right" Text="last_name" Name="lb_last_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_last_name" Name="last_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_username"><Ctrls>
+<Label Align="Right" Text="username" Name="lb_username" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_username" Name="username" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" PASSWORD="true" Name="GB_password"><Ctrls>
+<Label Align="Right" Text="password" PASSWORD="true" Name="lb_password" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_password" PASSWORD="true" Name="password" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_phone"><Ctrls>
+<Label Align="Right" Text="phone" Name="lb_phone" Size="60,20"/>
+<TextBox Weight="140" ToolTip="ttp_phone" Name="phone" Size="140,20"/>
+<MagicCtrl ToolTip="DialToCall" Name="dialphone" OnClick="nis3ucs:%{phone}" images=" ,data/startcall_green.png" button="type:0" Size="20,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_email"><Ctrls>
+<Label Align="Right" Text="email" Name="lb_email" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_email" Name="email" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_user_language"><Ctrls>
+<Label Align="Right" Text="user_language" Name="lb_user_language" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_user_language" Name="user_language" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_visit_date"><Ctrls>
+<Label Align="Right" Text="last_visit_date" Name="lb_last_visit_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_last_visit_date" Name="last_visit_date" Size="170,20" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_image_file_id"><Ctrls>
+<Label Align="Right" Text="image_file_id" Name="lb_image_file_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_image_file_id" Name="image_file_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pos"><Ctrls>
+<Label Align="Right" Text="pos" Name="lb_pos" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_pos" Name="pos" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" Size="230,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_created_by"><Ctrls>
+<Label Align="Right" Text="created_by" Name="lb_created_by" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" Name="created_by" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_creation_date"><Ctrls>
+<Label Align="Right" Text="creation_date" Name="lb_creation_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" Name="creation_date" Size="170,20" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_update_by"><Ctrls>
+<Label Align="Right" Text="last_update_by" Name="lb_last_update_by" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" Name="last_update_by" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_update_date"><Ctrls>
+<Label Align="Right" Text="last_update_date" Name="lb_last_update_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" Name="last_update_date" Size="170,20" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_user_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="user_id" overlap="pre" Name="lb_user_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_user_id" overlap="pre" Name="user_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

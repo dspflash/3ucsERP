@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_receipt_source"><Ctrls>
+<ListCtrl Heading="receipt_source,250;receipt_type,120;creation_method,125;bu_org_id,60;description,640;remittance,125;clearance,125;mdm_bank_account_id,60;sync_receipt_number_cb,60;status,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_receipt_source_id,60;" loadedclick="0" ToolTip="ttp_ar_receipt_source" Name="ar_receipt_sourceLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_receipt_source</DbTable>
+<Index>ar_receipt_source_id</Index>
+<Data>receipt_source,receipt_type,creation_method,bu_org_id,description,remittance,clearance,mdm_bank_account_id,sync_receipt_number_cb,status,created_by,creation_date,last_update_by,last_update_date,ar_receipt_source_id</Data>
+<Order>ar_receipt_source_id</Order></DbDetails>
+<OnClick><assign name="receipt_type[option_line_code]" function="SetSel" expr="%{ar_receipt_sourceLst[receipt_type]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

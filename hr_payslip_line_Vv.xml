@@ -1,0 +1,19 @@
+﻿<GroupBox Name="GBDVhr_payslip_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_payslip_line_vLst" ToolTip="ttp_hr_payslip_line_v" Size="700,450" Heading="hr_compensation_element_id,120;element_value,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_payslip_line_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>hr_payslip_line_id</Index>
+<DbTable>xbs.hr_payslip_line h left join xbs.hr_compensation_element h0 on h.hr_compensation_element_id=h0.hr_compensation_element_id</DbTable>
+<Data>h0.element_name hr_compensation_element_id,h.element_value,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_payslip_line_id</Data>
+<Order>hr_payslip_line_id</Order></DbDetails>
+<dfmap><map name="text" value="name"/></dfmap>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="addone" mustselected="0"><if cond="!%{hr_payslip_header_id}"><alert expr="hr_payslip_header_id is Empty!"/><else/><submit next="$parent.hr_payslip_line.GBDEDIThr_payslip_line" function="reset"/><assign name="$parent.hr_payslip_line.hr_payslip_header_id" expr="%{hr_payslip_header_id}"/><assign name="$parent.hr_payslip_line.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>hr_payslip_line_id='%{hr_payslip_line_vLst[hr_payslip_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.hr_payslip_line.hr_payslip_lineLst"/><assign name="$parent.hr_payslip_line.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_payslip_line</DbTable>
+<Where>hr_payslip_line_id='%{hr_payslip_line_vLst[hr_payslip_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

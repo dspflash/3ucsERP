@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_project_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_project_headerLst" ToolTip="ttp_prj_project_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_project_header</DbTable>
+<Index>prj_project_header_id</Index>
+<Data>project_number,name,prj_project_type_id,ar_customer_id,ar_customer_site_id,current_phase,accounting_group,currency,doc_currency,manager_user_id,start_date,completion_date,source,reference_type,direct_labor_cb,is_template_cb,project_status,approval_status,created_by,creation_date,last_update_by,last_update_date,bu_org_id,description,header_amount,prj_project_header_id</Data>
+<Order>prj_project_header_id</Order></DbDetails>
+<OnClick><assign name="prj_project_type_id[prj_project_type_header_id]" expr="%{prj_project_headerLst[prj_project_type_id]}" function="SetSel"/><assign name="ar_customer_id[ar_customer_id]" expr="%{prj_project_headerLst[ar_customer_id]}" function="SetSel"/><assign name="ar_customer_site_id[ar_customer_site_id]" expr="%{prj_project_headerLst[ar_customer_site_id]}" function="SetSel"/><assign name="current_phase[option_line_id]" expr="%{prj_project_headerLst[current_phase]}" function="SetSel"/><assign name="accounting_group[option_line_id]" expr="%{prj_project_headerLst[accounting_group]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{prj_project_headerLst[currency]}" function="SetSel"/><assign name="doc_currency[currency_id]" expr="%{prj_project_headerLst[doc_currency]}" function="SetSel"/><assign name="manager_user_id[xerp_user_id]" expr="%{prj_project_headerLst[manager_user_id]}" function="SetSel"/><assign name="project_status[option_line_id]" expr="%{prj_project_headerLst[project_status]}" function="SetSel"/><assign name="approval_status[option_line_id]" expr="%{prj_project_headerLst[approval_status]}" function="SetSel"/>
+<if cond="%{prj_project_header_id}"><SetVisible name="insertprj_project_header" Visible="0"/><SetVisible name="modifyprj_project_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,134 @@
+<WndTap Name="vSDSO" Text="vSDSO">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_header_Ve.xml" popup="1"/>
+	<WndTap Text="sd_so_line" Name="sd_so_line" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="sd_so_line" Name="GBsd_so_line" id="sd_so_line" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_line_GBDVv.xml"/></Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap>
+	<WndTap Text="so_wo" Name="so_wo" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_line.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="so_wo" Name="GBso_wo" id="so_wo" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVso_wo"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_so_wo" Name="so_woLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>sd_so_line sl JOIN item p ON p.item_id_m=sl.item_id_m AND sl.shipping_org_id=p.org_id LEFT JOIN wip_wo_allocation wa ON sl.sd_so_line_id=wa.demand_source_line_id LEFT JOIN wip_wo_header wo ON wa.wip_wo_header_id=wo.wip_wo_header_id join item cp on wo.item_id_m=cp.item_id_m and wo.org_id=cp.org_id join option_line wost on wo.wo_status=option_line_id</DbTable>
+<Index>sd_so_line_id</Index>
+<Data>p.item_number,cp.item_number component,sl.schedule_ship_date,wo.quantity,wo_number,wost.option_line_value wo_status,wo.start_date,wo.completed_quantity,wo.completion_date</Data>
+<Order>sd_so_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox></Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap>
+<WndTap Name="vAR_SDSO" Text="vAR_SDSO" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_line.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_transaction_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_receipt_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vAR_SDSO"><Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="sdsoLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.ar_sdso_v</DbTable>
+<Index>sd_so_header_id</Index>
+<Data>*</Data>
+<Order>sd_so_header_id</Order>
+</DbDetails>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_header_m.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_line_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_header_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_v.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_print_v.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_print_v.xml" popup="1"/>
+			</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vSDSO"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_so_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="sdsoLst" listed="0" prefixand="1" inputed="1"><item_number format="sd_so_header_id IN (SELECT sd_so_header_id FROM sd_so_line_v WHERE item_number like '%%{opvalue}%')"/><customer_name format="ar_customer_name like '%%{opvalue}%'"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search><submit next="GBDEDITsd_so_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="sdsoLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.sd_so_header_v</DbTable>
+<Index>sd_so_header_id</Index>
+<Data>*</Data>
+<Order>sd_so_header_id</Order>
+<Where>and so_status!=538</Where>
+<queryFormat>select %{data} from %{dbtable} where bu_org_id=%{orgid} and created_by=%{user_id} %{where} order by sd_so_header_id desc limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="so_process_menu_rule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/so_process_menu_rule.xml"/></rules>
+<inputs astatus="%{sdsoLst[approval_status]}" status="%{sdsoLst[so_status]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="view"><DbDetails><Where>sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</Where></DbDetails>
+	<submit next="vSDSO.sd_so_line.sd_so_lineLst" namelist="DbDetails"/></op>
+<op text="modify"><assign name="vcustomer.sd_so_header.sd_so_header_id" expr=""/><DbDetails><DbTable>xbs.ar_customer_v</DbTable><Where>ar_customer_id='%{sdsoLst[ar_customer_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_so_header.ar_customer_id"/><DbDetails><Where>sd_so_header_id='%{sdsoLst[sd_so_header_id]}' and created_by=%{user_id} and so_status=537</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_so_header.sd_so_headerLst"/></op>
+<op text="so_wo"><DbDetails><Where>sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</Where></DbDetails>
+	<submit next="vSDSO.so_wo.so_woLst" namelist="DbDetails"/></op>
+<op text="AR_SDSO"><DbDetails><Where>sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</Where></DbDetails>
+	<submit next="vSDSO.vAR_SDSO.sdsoLst" namelist="DbDetails"/></op>
+<op text="submit" needconfirm="1"><DbDetails><queryFormat>update sd_so_header set approval_status=320 where sd_so_header_id='%{sdsoLst[sd_so_header_id]}' and approval_status=321 and header_amount!=0</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/>
+<submit next="$this.sys_pd_header.GBDEDITsys_pd_header" function="reset"/>
+<assign name="$this.sys_pd_header.primary_document" expr="sd_so_header"/>
+<DbDetails>
+<DbTable>xbs.sd_so_header so LEFT JOIN sys_pd_header pd ON pd.primary_document='sd_so_header' AND so.sd_so_header_id=pd.primary_document_id AND pd.status!=325</DbTable>
+<Index>sd_so_header_id</Index>
+<Data>so_number document_number,sd_so_header_id id</Data>
+<Where>sd_so_header_id='%{sdsoLst[sd_so_header_id]}' and approval_status=320 AND sys_pd_header_id IS null</Where>
+</DbDetails><submit next="$this.sys_pd_header.primary_document_id" namelist="DbDetails"/>
+<DbDetails><Where>module_name=632 and access_org_type=73</Where></DbDetails><submit next="$this.sys_pd_header.process_flow_header_id" namelist="DbDetails"/></op>
+<op text="cancel" needconfirm="1"><DbDetails><queryFormat>update sd_so_header set approval_status=322,so_status=538 where sd_so_header_id='%{sdsoLst[sd_so_header_id]}';UPDATE sd_so_line SET line_status=1537 WHERE sd_so_header_id='%{sdsoLst[sd_so_header_id]}';</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<!--op text="hold"><DbDetails><queryFormat>update sd_so_header set approval_status=336 where sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op-->
+<op text="close" needconfirm="1"><DbDetails><queryFormat>update sd_so_header set approval_status=323,so_status=538 where sd_so_header_id='%{sdsoLst[sd_so_header_id]}';UPDATE sd_so_line SET line_status=1537 WHERE sd_so_header_id='%{sdsoLst[sd_so_header_id]}';</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="delivery"><assign name="sd_so_header_id" expr="%{sdsoLst[sd_so_header_id]}"/><submit next="$this.sd_delivery_header.GBDEDITsd_delivery_header" function="reset"/></op>
+<op text="ReOpen" needconfirm="1"><DbDetails><queryFormat>update sd_so_header set approval_status=326,so_status=535 where sd_so_header_id='%{sdsoLst[sd_so_header_id]}' and approval_status in (323,326) and so_status in (534,538,539);UPDATE sd_so_line SET line_status=1534 WHERE sd_so_header_id='%{sdsoLst[sd_so_header_id]}' and line_status=1533;</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="RMA"><submit next="$this.inv_receipt_header.GBDEDITinv_receipt_header" function="reset"/><DbDetails><Where>type_class='OM' and transaction_action=27 and status is true</Where></DbDetails><submit namelist="dbdetails" next="$this.inv_receipt_header.transaction_type_id"/><assign name="$this.inv_receipt_header.reference_key_name" expr="sd_so_header" function="setsel"/><DbDetails><DbTable>xbs.sd_so_header</DbTable><Index>sd_so_header_id</Index><Data>so_number,sd_so_header_id refid</Data><Where>sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</Where></DbDetails><submit next="$this.inv_receipt_header.reference_key_value" namelist="DbDetails"/></op>
+<op text="RMALst"><DbDetails><Where>reference_key_name='sd_so_header' and reference_key_value='%{sdsoLst[sd_so_header_id]}'</Where></DbDetails><submit namelist="dbdetails" next="$this.vReceipt.vReceiptLst"/></op>
+<op text="print"><DbDetails><DbTable>xbs.ar_customer_v</DbTable><Where>ar_customer_id='%{sdsoLst[ar_customer_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.sd_so_print.ar_customer_id"/><DbDetails><Where>sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.sd_so_print.sd_so_headerLst"/><submit namelist="DbDetails" next="$this.sd_so_print.sd_so_lineLst"/></op>
+<op text="approval_diagram"><DbDetails><Where>pd.sys_pd_header_id in (select sys_pd_header_id from sys_pd_header where primary_document='sd_so_header' and primary_document_id='%{sdsoLst[sd_so_header_id]}')</Where></DbDetails><submit namelist="DbDetails" next="sys_pd_process_flow_diagram.sys_process_flow_diagram_vLst"/></op>
+</operator>
+</ListCtrl>SELECT so.so_number,wo.wo_number,wo_ir.receipt_number,wo_il.subinventory_id,wo_il.locator_id,dlv.delivery_number,iln.lot_number
+FROM sd_so_line sl JOIN sd_so_header so ON sl.sd_so_header_id=so.sd_so_header_id
+JOIN wip_wo_header wo
+JOIN wip_wo_allocation wa ON wa.wip_wo_header_id=wo.wip_wo_header_id AND (wa.demand_source_line_id=sl.sd_so_line_id AND wa.demand_source_type='sd_so_header')
+JOIN inv_receipt_header wo_ir ON wo_ir.reference_key_value=wo.wip_wo_header_id AND wo_ir.reference_key_name='wip_wo_header'
+JOIN inv_receipt_line wo_il ON wo_ir.inv_receipt_header_id=wo_il.inv_receipt_header_id AND sl.item_id_m=wo_il.item_id_m
+JOIN sd_delivery_line dlvl ON dlvl.sd_so_line_id=sl.sd_so_line_id
+JOIN sd_delivery_header dlv ON dlv.sd_delivery_header_id=dlvl.sd_delivery_header_id
+LEFT JOIN inv_lot_number iln ON wo_il.lot_number=iln.inv_lot_number_id
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

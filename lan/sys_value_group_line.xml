@@ -1,0 +1,54 @@
+<Language name="sys_value_group_line">
+<Lang name="sys_value_group_line" value="sys_value_group_line"/>
+<Lang name="TabEditsys_value_group_line" value="sys_value_group_line Edit"/>
+<Lang name="TabViewsys_value_group_line" value="sys_value_group_line View"/>
+<Lang name="sys_value_group_header_id" value=""/>
+<Lang name="ttp_sys_value_group_header_id" value=""/>
+<Lang name="code" value=""/>
+<Lang name="ttp_code" value=""/>
+<Lang name="code_value" value=""/>
+<Lang name="ttp_code_value" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="account_qualifier" value=""/>
+<Lang name="ttp_account_qualifier" value=""/>
+<Lang name="allow_budgeting_cb" value=""/>
+<Lang name="ttp_allow_budgeting_cb" value=""/>
+<Lang name="allow_posting_cb" value=""/>
+<Lang name="ttp_allow_posting_cb" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="parent_cb" value=""/>
+<Lang name="ttp_parent_cb" value=""/>
+<Lang name="parent_line_id" value=""/>
+<Lang name="ttp_parent_line_id" value=""/>
+<Lang name="effective_start_date" value=""/>
+<Lang name="ttp_effective_start_date" value=""/>
+<Lang name="effective_end_date" value=""/>
+<Lang name="ttp_effective_end_date" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="sys_value_group_line_id" value=""/>
+<Lang name="ttp_sys_value_group_line_id" value=""/>
+<Lang name="ttp_operationsys_value_group_line" value="操作"/>
+<Lang name="ttp_createsys_value_group_line" value="新增"/>
+<Lang name="ttp_modifysys_value_group_line" value="修改"/>
+<Lang name="ttp_resetsys_value_group_line" value="清除数据"/>
+<Lang name="ttp_deletesys_value_group_line" value="删除"/>
+<Lang name="ttp_refreshsys_value_group_line" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

@@ -1,0 +1,44 @@
+﻿<GroupBox Name="GBDEDITbom_routing_header" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_item_id_m" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_id_m" Size="60,20" Text="item_id_m" Align="Right" selectedIndex="0"/>
+<ComboBox Name="item_id_m" Size="170,100" Text="" Weight="170"  ToolTip="ttp_item_id_m" selectedIndex="0">
+	<DbDetails>
+<Index>item_id_m</Index>
+<DbTable>xbs.item</DbTable>
+<Data>item_number,receipt_sub_inventory,item_id_m</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><if cond="%{item_id_m[receipt_sub_inventory]}"><DbDetails><Where>subinventory_id='%{item_id_m[receipt_sub_inventory]}'</Where></DbDetails><submit namelist="DbDetails" next="completion_subinventory"/></if><submit next="bom_routing_headerLst"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_effective_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_date" Size="60,20" Text="effective_date" Align="Right"/>
+<DateTime Name="effective_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_effective_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_routing_revision" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_routing_revision" Size="60,20" Text="routing_revision" Align="Right"/>
+<TextBox Name="routing_revision" Size="170,20" Text="" Weight="170" ToolTip="ttp_routing_revision"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_completion_subinventory" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_completion_subinventory" Size="60,20" Text="completion_subinventory" Align="Right"/>
+<ComboBox Name="completion_subinventory" Size="170,100" Text="" Weight="170"  ToolTip="ttp_completion_subinventory">
+	<DbDetails>
+<Index>subinventory_id</Index>
+<DbTable>xbs.subinventory</DbTable>
+<Data>subinventory,subinventory_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="completion_locator"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_completion_locator" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_completion_locator" Size="60,20" Text="completion_locator" Align="Right"/>
+<ComboBox Name="completion_locator" Size="170,100" Text="" Weight="170"  ToolTip="ttp_completion_locator">
+	<DbDetails>
+<Index>locator_id</Index>
+<DbTable>xbs.locator</DbTable>
+<Data>locator,locator_id</Data>
+<Where>subinventory_id='%{completion_subinventory[subinventory_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

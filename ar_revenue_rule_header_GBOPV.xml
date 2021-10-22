@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVar_revenue_rule_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletear_revenue_rule_header" Name="deletear_revenue_rule_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_revenue_rule_header</DbTable>
+<Where>ar_revenue_rule_header_id='%{ar_revenue_rule_headerLst[ar_revenue_rule_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_revenue_rule_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshar_revenue_rule_header" Name="searchar_revenue_rule_header" Size="50,20">
+			  <OnClick><submit next="ar_revenue_rule_headerLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPar_revenue_rule_headerLst" OnClick="(ar_revenue_rule_headerLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREar_revenue_rule_headerLst" OnClick="(ar_revenue_rule_headerLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPar_revenue_rule_headerLst" OnClick="(ar_revenue_rule_headerLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhd_change_request"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_hd_change_request" Name="hd_change_requestLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_change_request h left join xbs.hd_support_request h0 on h.hd_support_request_id=h0.hd_support_request_id</DbTable>
+<Index>hd_change_request_id</Index>
+<Data>h0.support_number hd_support_request_id,h.test_results,h.hd_change_request_id</Data>
+<Order>hd_change_request_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>hd_change_request_id='%{hd_change_request_vLst[hd_change_request_id]}'</Where></DbDetails><submit next="$this.hd_change_request.hd_change_requestLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_change_request</DbTable>
+<Where>hd_change_request_id='%{hd_change_request_vLst[hd_change_request_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVinv_count_entries" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteinv_count_entries" Name="deleteinv_count_entries" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_count_entries</DbTable>
+<Where>inv_count_entries_id='%{inv_count_entriesLst[inv_count_entries_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchinv_count_entries" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshinv_count_entries" Name="searchinv_count_entries" Size="50,20">
+			  <OnClick><submit next="inv_count_entriesLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPinv_count_entriesLst" OnClick="(inv_count_entriesLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREinv_count_entriesLst" OnClick="(inv_count_entriesLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPinv_count_entriesLst" OnClick="(inv_count_entriesLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

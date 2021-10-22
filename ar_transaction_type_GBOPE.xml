@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEar_transaction_type" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ar_transaction_type_id" Text="create" ToolTip="ttp_createar_transaction_type" Name="insertar_transaction_type" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_type</DbTable>
+<Data>ar_transaction_type,transaction_class[option_line_code],bu_org_id,legal_org_id,invoice_type_id,description,cm_type_id,payment_term_id,status,receivable_ac_id,revenue_ac_id,freight_ac_id,tax_ac_id,clearing_ac_id,unbilled_receivable_ac_id,unearned_revenue_ac_id,br_receivable_ac_id,br_offset_ac_id,receivable_rule,ar_revenue_rule_header_id[ar_revenue_rule_header_id]</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_transaction_type" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyar_transaction_type" Name="modifyar_transaction_type" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_type</DbTable>
+<Data>ar_transaction_type,transaction_class[option_line_code],bu_org_id,legal_org_id,invoice_type_id,description,cm_type_id,payment_term_id,status,receivable_ac_id,revenue_ac_id,freight_ac_id,tax_ac_id,clearing_ac_id,unbilled_receivable_ac_id,unearned_revenue_ac_id,br_receivable_ac_id,br_offset_ac_id,receivable_rule,ar_revenue_rule_header_id[ar_revenue_rule_header_id]</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ar_transaction_type_id='%{ar_transaction_type_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_transaction_type" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetar_transaction_type" Name="resetar_transaction_type" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITar_transaction_type" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchar_transaction_type" Name="gsearchar_transaction_type" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ar_transaction_typeLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITar_transaction_type" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

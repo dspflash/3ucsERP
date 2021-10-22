@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_opportunity"><Ctrls>
+<ListCtrl Heading="opportunity_number,125;ar_customer_id,120;ar_customer_site_id,120;last_name,125;first_name,125;sales_channel,120;mobile_number,100;office_number,100;email_id,200;contact_website,250;fax_no,150;timezone,150;time_to_contact,150;hr_employee_id,120;sales_team,120;referral_source,125;close_reason,125;description,640;status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;sd_lead_id,60;bu_org_id,120;win_probability,20;forecast_amount,75;currency,120;expected_close_date,90;sd_opportunity_id,60;" loadedclick="1" ToolTip="ttp_sd_opportunity" Name="sd_opportunityLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_opportunity</DbTable>
+<Index>sd_opportunity_id</Index>
+<Data>opportunity_number,ar_customer_id,ar_customer_site_id,last_name,first_name,sales_channel,mobile_number,office_number,email_id,contact_website,fax_no,timezone,time_to_contact,hr_employee_id,sales_team,referral_source,close_reason,description,status,created_by,creation_date,last_update_by,last_update_date,sd_lead_id,bu_org_id,win_probability,forecast_amount,currency,expected_close_date,sd_opportunity_id</Data>
+<Order>sd_opportunity_id</Order></DbDetails>
+<OnClick><assign name="ar_customer_id[ar_customer_id]" function="SetSel" expr="%{sd_opportunityLst[ar_customer_id]}"/><assign name="ar_customer_site_id[ar_customer_site_id]" function="SetSel" expr="%{sd_opportunityLst[ar_customer_site_id]}"/><assign name="sales_channel[option_line_id]" function="SetSel" expr="%{sd_opportunityLst[sales_channel]}"/><assign name="hr_employee_id[hr_employee_id]" function="SetSel" expr="%{sd_opportunityLst[hr_employee_id]}"/><assign name="sales_team[hr_team_header_id]" function="SetSel" expr="%{sd_opportunityLst[sales_team]}"/><assign name="status[option_line_id]" function="SetSel" expr="%{sd_opportunityLst[status]}"/><assign name="bu_org_id[org_id]" function="SetSel" expr="%{sd_opportunityLst[bu_org_id]}"/><assign name="currency[currency_id]" function="SetSel" expr="%{sd_opportunityLst[currency]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

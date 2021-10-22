@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVpo_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="po_line_vLst" ToolTip="ttp_po_line" Size="700,420" OnLoad="init" Heading="line_type,120;line_number,60;receving_org_id,120;item_id_m,120;price_date,90;line_quantity,100;line_price,100;tax_code_id,120;tax_amount,100;line_description,640;status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;po_line_id,60;need_by_date,90;reference_header_id,100;reference_line_id,100;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.po_line p left join xbs.option_line o on p.line_type=o.option_line_id left join xbs.org o0 on p.receving_org_id=o0.org_id left join xbs.po_quote_v p0 on p.item_id_m=p0.item_id_m left join xbs.mdm_tax_code m on p.tax_code_id=m.mdm_tax_code_id left join xbs.option_line o1 on p.status=o1.option_line_id</DbTable>
+<Index>po_line_id</Index>
+<Data>o.option_line_value line_type,p.line_number,o0.org receving_org_id,p0.item_number item_id_m,p.price_date,p.line_quantity,p.line_price,m.tax_code tax_code_id,p.tax_amount,p.line_description,o1.option_line_value status,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.po_line_id,p.need_by_date,p.reference_header_id,p.reference_line_id</Data>
+<Order>po_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>po_line_id='%{po_line_vLst[po_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.po_line.po_lineLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

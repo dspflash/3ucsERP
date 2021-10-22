@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVcontact" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletecontact" Name="deletecontact" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.contact</DbTable>
+<Where>contactid='%{contactLst[contactid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchcontact" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshcontact" Name="searchcontact" Size="50,20">
+			  <OnClick><submit next="contactLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPcontactLst" OnClick="(contactLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREcontactLst" OnClick="(contactLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPcontactLst" OnClick="(contactLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

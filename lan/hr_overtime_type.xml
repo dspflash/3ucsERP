@@ -1,0 +1,38 @@
+﻿<Language name="hr_overtime_type">
+<Lang name="hr_overtime_type" value="加班类型"/>
+<Lang name="TabEdithr_overtime_type" value="hr_overtime_type Edit"/>
+<Lang name="TabViewhr_overtime_type" value="hr_overtime_type View"/>
+<Lang name="overtime_type" value="类型名称"/>
+<Lang name="ttp_overtime_type" value=""/>
+<Lang name="auto_convert_salary_cb" value="自动转换工资"/>
+<Lang name="ttp_auto_convert_salary_cb" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hr_overtime_type_id" value=""/>
+<Lang name="ttp_hr_overtime_type_id" value=""/>
+<Lang name="ttp_operationhr_overtime_type" value=""/>
+<Lang name="ttp_createhr_overtime_type" value=""/>
+<Lang name="ttp_modifyhr_overtime_type" value=""/>
+<Lang name="ttp_resethr_overtime_type" value=""/>
+<Lang name="ttp_deletehr_overtime_type" value=""/>
+<Lang name="ttp_refreshhr_overtime_type" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

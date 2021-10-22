@@ -1,0 +1,36 @@
+<GroupBox Name="GBDEDITmdm_bank_site"><Ctrls>
+<GroupBox Name="GB_bank_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bank_name" Size="60,20" Text="bank_name" Align="Right"/>
+<TextBox Name="bank_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_bank_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bank_name_short" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bank_name_short" Size="60,20" Text="bank_name_short" Align="Right"/>
+<TextBox Name="bank_name_short" Size="170,20" Text="" Weight="170" ToolTip="ttp_bank_name_short"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bank_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bank_number" Size="60,20" Text="bank_number" Align="Right"/>
+<TextBox Name="bank_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_bank_number"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+<GroupBox Name="GB_branch_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_branch_name" Size="60,20" Text="branch_name" Align="Right"/>
+<TextBox Name="branch_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_branch_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_branch_name_short" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_branch_name_short" Size="60,20" Text="branch_name_short" Align="Right"/>
+<TextBox Name="branch_name_short" Size="170,20" Text="" Weight="170" ToolTip="ttp_branch_name_short"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_branch_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_branch_number" Size="60,20" Text="branch_number" Align="Right"/>
+<TextBox Name="branch_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_branch_number"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+<GroupBox Name="GB_swift_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_swift_code" Size="60,20" Text="swift_code" Align="Right"/>
+<TextBox Name="swift_code" Size="170,20" Text="" Weight="170" ToolTip="ttp_swift_code"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_ifsc_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_ifsc_code" Size="60,20" Text="ifsc_code" Align="Right"/>
+<TextBox Name="ifsc_code" Size="170,20" Text="" Weight="170" ToolTip="ttp_ifsc_code"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

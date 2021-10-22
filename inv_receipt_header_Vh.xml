@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVinv_receipt_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="inv_receipt_headerLst" ToolTip="ttp_inv_receipt_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>inv_receipt_header_id</Index>
+<DbTable>xbs.inv_receipt_header</DbTable>
+<Data>receipt_number,transaction_type_id,reference_key_value,receipt_date,carrier,vechile_number,comment,created_by,creation_date,last_update_by,last_update_date,org_id,inv_receipt_header_id</Data>
+<Order>inv_receipt_header_id</Order></DbDetails>
+<OnClick><assign name="receipt_number[receipt_number]" expr="%{inv_receipt_headerLst[receipt_number]}" function="SetSel"/><assign name="transaction_type_id[transaction_type_id]" expr="%{inv_receipt_headerLst[transaction_type_id]}" function="SetSel"/><assign name="reference_key_value[refid]" expr="%{inv_receipt_headerLst[reference_key_value]}" function="SetSel"/><assign name="org_id[org_id]" expr="%{inv_receipt_headerLst[org_id]}" function="SetSel"/>
+<if cond="%{inv_receipt_header_id}"><SetVisible name="insertinv_receipt_header" Visible="0"/><SetVisible name="modifyinv_receipt_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

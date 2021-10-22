@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhd_svo_estimates" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hd_svo_estimatesLst" ToolTip="ttp_hd_svo_estimates" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_svo_estimates</DbTable>
+<Index>hd_svo_estimates_id</Index>
+<Data>item_id_m,line_price,line_status,quantity,billing_type,billing_source,sd_so_line_id,price_list_header_id,action_type_id,price_date,created_by,creation_date,last_update_by,last_update_date,hd_svo_header_id,hd_svo_estimates_id</Data>
+<Order>hd_svo_estimates_id</Order></DbDetails>
+<OnClick><assign name="item_id_m[item_id_m]" expr="%{hd_svo_estimatesLst[item_id_m]}" function="SetSel"/><assign name="line_status[option_line_id]" expr="%{hd_svo_estimatesLst[line_status]}" function="SetSel"/><assign name="billing_type[option_line_id]" expr="%{hd_svo_estimatesLst[billing_type]}" function="SetSel"/>
+<if cond="%{hd_svo_estimates_id}"><SetVisible name="inserthd_svo_estimates" Visible="0"/><SetVisible name="modifyhd_svo_estimates" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_revenue_category"><Ctrls>
+<ListCtrl Heading="revenue_category,125;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_revenue_category_id,60;" loadedclick="0" ToolTip="ttp_prj_revenue_category" Name="prj_revenue_categoryLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_revenue_category</DbTable>
+<Index>prj_revenue_category_id</Index>
+<Data>revenue_category,description,created_by,creation_date,last_update_by,last_update_date,prj_revenue_category_id</Data>
+<Order>prj_revenue_category_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

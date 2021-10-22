@@ -1,0 +1,86 @@
+<WndTap Text="cc_co_process" Name="cc_co_process" Ver="2">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_process_flow_action_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_line.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_action.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\cc_co_header.xml"/>
+<Ctrls>
+<GroupBox Text="sys_process_flow_diagram" Name="GBsys_process_flow_diagram" id="sys_process_flow_diagram" Size="100,100"><Ctrls>
+<ListCtrl Name="sys_process_flow_diagram_vLst" ToolTip="ttp_sys_process_flow_diagram" OnLoad="init" colsDisplay="9" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sys_process_flow_header fh 
+JOIN xbs.sys_process_flow_line fl ON fh.sys_process_flow_header_id=fl.sys_process_flow_header_id 
+LEFT JOIN xbs.sys_process_flow_line flp ON fl.next_line_seq_pass=flp.sys_process_flow_line_id 
+LEFT JOIN xbs.sys_process_flow_line flf ON fl.next_line_seq_fail=flf.sys_process_flow_line_id
+JOIN xbs.sys_process_flow_action fa ON fl.sys_process_flow_line_id=fa.sys_process_flow_line_id 
+JOIN xbs.xerp_role r ON fa.role_code=r.role_id 
+JOIN xbs.user_v u ON fa.userid=u.xerp_user_id 
+JOIN cc_co_header co ON co.process_flow_header_id=fh.sys_process_flow_header_id and co.current_process_flow_line_id=fl.sys_process_flow_line_id
+LEFT JOIN cc_co_process_flow_action cofa ON co.cc_co_header_id=cofa.cc_co_header_id AND cofa.sys_process_flow_line_id=fa.sys_process_flow_line_id and cofa.action_number=fa.action_number
+LEFT JOIN xbs.user_v ur ON cofa.action_user_id=ur.xerp_user_id 
+</DbTable>
+<Index>sys_process_flow_action_id</Index>
+<Data>co.change_number,co.change_type,process_flow,fl.line_number,fl.line_name,field_value,ur.NAME user_real,flp.line_name pass_next,flf.line_name fail_next,fa.action_number,fa.pf_action_type,role_name_cn,u.NAME user,fa.userid,sys_process_flow_action_id,fl.sys_process_flow_line_id,fl.next_line_seq_pass,fl.next_line_seq_fail,fh.sys_process_flow_header_id,co.cc_co_header_id  </Data>
+<Order>line_number,action_number </Order>
+<Where>fa.userid='%{user_id}' and co.status=1566</Where></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="process"><DbDetails><Where>sys_process_flow_action_id='%{sys_process_flow_diagram_vLst[sys_process_flow_action_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.cc_co_process_flow_action.action_number"/><assign name="$this.cc_co_process_flow_action.cc_co_header_id" expr="%{sys_process_flow_diagram_vLst[cc_co_header_id]}"/></op>
+</operator>
+	</ListCtrl>SELECT CONCAT('update ',reftbltp,IF(reftbltp='item','',
+CONCAT(' bl join ',REPLACE(reftbltp,'line','header'),' bh on bh.',REPLACE(reftbltp,'line','header'),'_id=bl.',REPLACE(reftbltp,'line','header'),'_id'
+)),' set ',fieldvs,' where item.org_id=4 and item.item_id_m=',item_id_m) into @tsql FROM
+(SELECT reftbltp,item_id_m,GROUP_CONCAT(CONCAT(field_name,'=',field_value)) fieldvs,coh.cc_co_header_id
+FROM cc_co_line_value colv 
+JOIN cc_co_template_line cotl ON colv.cc_co_template_line_id=cotl.cc_co_template_line_id 
+JOIN cc_co_template_header coth ON cotl.cc_co_template_header_id=coth.cc_co_template_header_id
+JOIN cc_co_header coh ON cotl.cc_co_template_header_id=coh.template_id 
+JOIN cc_co_line col ON colv.cc_co_line_id=col.cc_co_line_id 
+GROUP BY coth.cc_co_template_header_id) t
+WHERE cc_co_header_id=%{sys_process_flow_diagram_vLst[cc_co_header_id]}
+SELECT CONCAT('update ',reftbltp,' set ',fieldvs,' where cc_co_header_id=%{cc_co_header_id}') FROM
+(SELECT reftbltp,GROUP_CONCAT(CONCAT(field_name,'=',field_value)) fieldvs,cc_co_header_id
+FROM cc_co_line_value colv 
+JOIN cc_co_template_line cotl ON colv.cc_co_template_line_id=cotl.cc_co_template_line_id 
+JOIN cc_co_template_header coth ON cotl.cc_co_template_header_id=coth.cc_co_template_header_id
+JOIN cc_co_header coh ON cotl.cc_co_template_header_id=coh.template_id GROUP BY coth.cc_co_template_header_id) t
+WHERE cc_co_header_id=%{cc_co_header_id}
+INSERT INTO inoerp1.cc_co_process_flow_action 
+	(cc_co_header_id, 
+	sys_process_flow_line_id, 
+	action_number, 
+	role_code, 
+	user_id, 
+	pf_action_type, 
+	required_cb, 
+	field_value, 
+	COMMENT, 
+	action_user_id, 
+	action_duration, 
+	created_by, 
+	creation_date, 
+	last_update_by, 
+	last_update_date
+	)
+	SELECT 
+	('cc_co_header_id', 
+	sys_process_flow_line_id, 
+	action_number, 
+	role_code, 
+	user_id, 
+	pf_action_type, 
+	required_cb, 
+	'field_value', 
+	COMMENT, 
+	'action_user_id', 
+	'action_duration', 
+	'created_by', 
+	NOW(), 
+	'last_update_by', 
+	NOW(), 
+	);
+
+	</Ctrls></GroupBox>
+	</Ctrls>
+		</WndTap>

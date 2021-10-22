@@ -1,0 +1,72 @@
+<GroupBox Name="GBDEDITwip_wo_allocation"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_wip_wo_header_id"><Ctrls>
+<Label Align="Right" Text="wip_wo_header_id" Name="lb_wip_wo_header_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_wip_wo_header_id" Name="wip_wo_header_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls>
+<Label Align="Right" Text="item_id_m" Name="lb_item_id_m" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_id_m" Name="item_id_m" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_demand_source_type"><Ctrls>
+<Label Align="Right" Text="demand_source_type" Name="lb_demand_source_type" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_demand_source_type" Items="sd_so_header|fp_forecast_header" Name="demand_source_type" Size="170,100"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_demand_source_header_id"><Ctrls>
+<Label Align="Right" Text="demand_source_header_id" Name="lb_demand_source_header_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_demand_source_header_id" Name="demand_source_header_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_demand_source_line_id"><Ctrls>
+<Label Align="Right" Text="demand_source_line_id" Name="lb_demand_source_line_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_demand_source_line_id" Name="demand_source_line_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_user_line_num"><Ctrls>
+<Label Align="Right" Text="user_line_num" Name="lb_user_line_num" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_user_line_num" Name="user_line_num" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_demand_source_delivery" Visible="false"><Ctrls>
+<Label Align="Right" Text="demand_source_delivery" overlap="pre" Name="lb_demand_source_delivery" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_demand_source_delivery" overlap="pre" Name="demand_source_delivery" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_quantity_allocated"><Ctrls>
+<Label Align="Right" Text="quantity_allocated" Name="lb_quantity_allocated" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_quantity_allocated" Name="quantity_allocated" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_quantity_completed" Visible="false"><Ctrls>
+<Label Align="Right" Text="quantity_completed" overlap="pre" Name="lb_quantity_completed" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_quantity_completed" overlap="pre" Name="quantity_completed" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_demand_class"><Ctrls>
+<Label Align="Right" Text="demand_class" Name="lb_demand_class" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_demand_class" Name="demand_class" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_org_id"><Ctrls>
+<Label Align="Right" Text="org_id" Name="lb_org_id" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_org_id" Name="org_id" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_wip_allocation_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="wip_allocation_id" overlap="pre" Name="lb_wip_allocation_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_wip_allocation_id" overlap="pre" Name="wip_allocation_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBwip_wo_allocation" expr="TABEDITwip_wo_allocation"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

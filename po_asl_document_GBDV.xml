@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpo_asl_document"><Ctrls>
+<ListCtrl Heading="po_asl_line_id,120;document_type,125;document_header_id,60;document_line_id,60;priority,25;start_date,90;end_date,90;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;po_asl_document_id,60;" loadedclick="0" ToolTip="ttp_po_asl_document" Name="po_asl_documentLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_asl_document</DbTable>
+<Index>po_asl_document_id</Index>
+<Data>po_asl_line_id,document_type,document_header_id,document_line_id,priority,start_date,end_date,created_by,creation_date,last_update_by,last_update_date,po_asl_document_id</Data>
+<Order>po_asl_document_id</Order></DbDetails>
+<OnClick><assign name="po_asl_line_id[po_asl_line_id]" function="SetSel" expr="%{po_asl_documentLst[po_asl_line_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

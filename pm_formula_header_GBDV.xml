@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_formula_header"><Ctrls>
+<ListCtrl Heading="formula_name,250;org_id,60;owner_employee_id,120;type,120;revision,100;comment,640;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_formula_header_id,60;" loadedclick="0" ToolTip="ttp_pm_formula_header" onload="init" Name="pm_formula_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_formula_header</DbTable>
+<Index>pm_formula_header_id</Index>
+<Data>formula_name,org_id,owner_employee_id,type,revision,comment,description,created_by,creation_date,last_update_by,last_update_date,pm_formula_header_id</Data>
+<Order>pm_formula_header_id</Order></DbDetails>
+<OnClick><assign name="owner_employee_id[hr_employee_id]" function="SetSel" expr="%{pm_formula_headerLst[owner_employee_id]}"/><assign name="type[option_line_id]" function="SetSel" expr="%{pm_formula_headerLst[type]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

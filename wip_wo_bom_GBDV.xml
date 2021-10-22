@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVwip_wo_bom"><Ctrls>
+<ListCtrl Heading="bom_sequence,120;routing_sequence,120;routing_seq_num,60;component_item_id_m,120;usage_basis,120;usage_quantity,75;effective_start_date,90;effective_end_date,90;wip_supply_type,120;supply_sub_inventory,120;supply_locator,120;required_quantity,75;issued_quantity,75;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;wip_wo_bom_id,100;" loadedclick="0" ToolTip="ttp_wip_wo_bom" Name="wip_wo_bomLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_wo_bom w left join xbs.wip_wo_routing_line w0 on w.routing_sequence=w0.routing_sequence left join xbs.item i on w.component_item_id_m=i.item_id_m left join xbs.option_line o on w.usage_basis=o.option_line_id left join xbs.option_line o0 on w.wip_supply_type=o0.option_line_id left join xbs.subinventory s on w.supply_sub_inventory=s.subinventory_id left join xbs.locator l on w.supply_locator=l.locator_id</DbTable>
+<Index>wip_wo_bom_id</Index>
+<Data>w.bom_sequence,w0.routing_sequence routing_sequence,w.routing_seq_num,i.item_number component_item_id_m,o.option_line_value usage_basis,w.usage_quantity,w.effective_start_date,w.effective_end_date,o0.option_line_value wip_supply_type,s.subinventory supply_sub_inventory,l.locator supply_locator,w.required_quantity,w.issued_quantity,w.created_by,w.creation_date,w.last_update_by,w.last_update_date,w.wip_wo_bom_id</Data>
+<Order>wip_wo_bom_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

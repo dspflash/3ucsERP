@@ -1,0 +1,13 @@
+﻿<WndTap Name="bom_routing_line" Text="bom_routing_line" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="standard_operation_id[bom_standard_operation_id],routing_sequence,department_id[bom_department_id],bom_routing_header_id[bom_routing_header_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\bom_routing_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBbom_routing_line" id="bom_routing_line" Text="bom_routing_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertbom_routing_line" Visible="1"/><SetVisible name="modifybom_routing_line" Visible="0"/></OnActivate>
+</WndTap>

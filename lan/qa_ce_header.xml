@@ -1,0 +1,54 @@
+<Language name="qa_ce_header">
+<Lang name="qa_ce_header" value="检测项目"/>
+<Lang name="TabEditqa_ce_header" value="qa_ce_header Edit"/>
+<Lang name="TabViewqa_ce_header" value="qa_ce_header View"/>
+<Lang name="element_name" value="项目名称"/>
+<Lang name="ttp_element_name" value=""/>
+<Lang name="element_type" value="项目类型"/>
+<Lang name="ttp_element_type" value=""/>
+<Lang name="description" value="描述"/>
+<Lang name="ttp_description" value=""/>
+<Lang name="uom_id" value="单位"/>
+<Lang name="ttp_uom_id" value=""/>
+<Lang name="target_value" value="目标值"/>
+<Lang name="ttp_target_value" value=""/>
+<Lang name="user_range_low" value="用户下限值"/>
+<Lang name="ttp_user_range_low" value=""/>
+<Lang name="user_range_high" value="用户上限值"/>
+<Lang name="ttp_user_range_high" value=""/>
+<Lang name="specification_range_high" value="规定上限值"/>
+<Lang name="ttp_specification_range_high" value=""/>
+<Lang name="specification_range_low" value="规定下限值"/>
+<Lang name="ttp_specification_range_low" value=""/>
+<Lang name="reasonable_range_high" value="理想上限值"/>
+<Lang name="ttp_reasonable_range_high" value=""/>
+<Lang name="reasonable_range_low" value="理想下限值"/>
+<Lang name="ttp_reasonable_range_low" value=""/>
+<Lang name="active_cb" value="活动"/>
+<Lang name="ttp_active_cb" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="qa_ce_header_id" value="检测项目ID"/>
+<Lang name="ttp_qa_ce_header_id" value=""/>
+<Lang name="ttp_operationqa_ce_header" value="操作"/>
+<Lang name="ttp_createqa_ce_header" value="新增"/>
+<Lang name="ttp_modifyqa_ce_header" value="修改"/>
+<Lang name="ttp_resetqa_ce_header" value="清除数据"/>
+<Lang name="ttp_deleteqa_ce_header" value="删除"/>
+<Lang name="ttp_refreshqa_ce_header" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

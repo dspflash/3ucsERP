@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEar_transaction_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ar_transaction_header_id" Text="create" ToolTip="ttp_createar_transaction_header" Name="insertar_transaction_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>transaction_number,transaction_class[option_line_id],reference_key_value[refid],ar_customer_id[ar_customer_id],ar_customer_site_id[ar_customer_site_id],payment_term_id[payment_term_id],payment_term_date,ship_to_id[address_id],bill_to_id[address_id],currency[currency_id],doc_currency[currency_id],description,document_date,ledger_id[gl_ledger_id],period_id[gl_period_id],reference_key_name</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,reference_type,bu_org_id,transaction_status;'%{user_id}',now(),'%{user_id}',now(),'table','%{reference_key_value[bu_org_id]}',1526</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="ar_transaction_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyar_transaction_header" Name="modifyar_transaction_header" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>transaction_number,transaction_class[option_line_id],reference_key_value[refid],ar_customer_id[ar_customer_id],ar_customer_site_id[ar_customer_site_id],payment_term_id[payment_term_id],payment_term_date,ship_to_id[address_id],bill_to_id[address_id],currency[currency_id],doc_currency[currency_id],description,document_date,ledger_id[gl_ledger_id],period_id[gl_period_id]</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ar_transaction_header_id='%{ar_transaction_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="ar_transaction_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetar_transaction_header" Name="resetar_transaction_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITar_transaction_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchar_transaction_header" Name="gsearchar_transaction_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ar_transaction_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITar_transaction_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

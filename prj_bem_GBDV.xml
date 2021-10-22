@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_bem"><Ctrls>
+<ListCtrl Heading="bem,125;budget_entry_level,120;time_phased_by,120;effective_from,90;effective_to,90;description,640;quantity_cost_cb,60;raw_cost_cb,60;burdened_cost_cb,60;categorized_by_resource_cb,60;revenue_cb,60;quantity_revenue_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_bem_id,60;" loadedclick="0" ToolTip="ttp_prj_bem" Name="prj_bemLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_bem p left join xbs.option_line o on p.budget_entry_level=o.option_line_id left join xbs.option_line o0 on p.time_phased_by=o0.option_line_id</DbTable>
+<Index>prj_bem_id</Index>
+<Data>p.bem,o.option_line_value budget_entry_level,o0.option_line_value time_phased_by,p.effective_from,p.effective_to,p.description,p.quantity_cost_cb,p.raw_cost_cb,p.burdened_cost_cb,p.categorized_by_resource_cb,p.revenue_cb,p.quantity_revenue_cb,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_bem_id</Data>
+<Order>prj_bem_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

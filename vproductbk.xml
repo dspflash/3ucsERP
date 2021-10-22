@@ -1,0 +1,179 @@
+<WndTap Name="vProduct" Text="vProduct">
+	<WndTaps>
+	<WndTap Text="product" Name="product" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\product.xml"/>
+	<Ctrls>
+	<GroupBox Text="item" Name="GBitem" id="item" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_GBDEDIT.xml"></xi:include>
+	<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_GBOPE.xml"></xi:include>
+	<ListCtrl loadedclick="1" ToolTip="ttp_item" Name="itemLst" Size="50,20" visible="0">
+	<DbDetails fcsm="1">
+		<DbTable>xbs.item</DbTable>
+		<Index>item_id</Index>
+		<Data>*</Data>
+		<Order>item_id</Order></DbDetails>
+		<OnClick><assign name="item_category[category_id]" function="SetSel" expr="%{itemLst[item_category]}"/><assign name="item_status[option_line_id]" function="SetSel" expr="%{itemLst[item_status]}"/><assign name="uom_id[uom_id]" function="SetSel" expr="%{itemLst[uom_id]}"/>
+		<if cond="%{item_id}"><SetVisible name="insertitem" Visible="0"/><SetVisible name="modifyitem" Visible="1"/><else/><SetVisible name="insertitem" Visible="1"/><SetVisible name="modifyitem" Visible="0"/></if></OnClick>
+		</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="bom_routing_header" Name="bom_routing_header" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_routing_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="bom_routing_header" Name="GBbom_routing_header" id="bom_routing_header" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_header_GBOPE.xml"></xi:include>
+		<Button Text="create" ToolTip="ttp_createtitem" Name="createitem" Size="50,20">
+		<OnClick><if cond="!%{bom_routing_header_id}"><alert expr="请先添加或选择已有项目！"/><else/><DbDetails><Where>bom_routing_header_id='%{vProduct.bom_routing_header.bom_routing_header_id}'</Where></DbDetails>
+		<submit namelist="DbDetails" next="vProduct.bom_routing_line.bom_routing_header_id"/></if>
+		</OnClick>
+		</Button><TAB/>
+		<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_header_GBDV.xml"></xi:include>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_line.xml" popup="1"/>
+	<WndTap Text="bom_header" Name="bom_header" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="bom_header" Name="GBbom_header" id="bom_header" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_header_GBOPE.xml"></xi:include>
+		<Button Text="create" ToolTip="ttp_createtitem" Name="createitem" Size="50,20">
+		<OnClick><if cond="!%{bom_header_id}"><alert expr="请先添加或选择已有项目！"/><else/><DbDetails><Where>bom_header_id='%{vProduct.bom_header.bom_header_id}'</Where></DbDetails>
+		<submit namelist="DbDetails" next="vProduct.bom_line.bom_header_id"/></if>
+		</OnClick>
+		</Button><TAB/>
+		<Button Text="createwo" ToolTip="ttp_createtwo" Name="createwo" Size="50,20">
+		<OnClick><if cond="!%{bom_header_id}"><alert expr="请先添加或选择已有项目！"/><else/>
+		<DbDetails><Where>item_id_m='%{vProduct.bom_header.item_id_m[item_id_m]}'</Where></DbDetails>
+		<submit namelist="DbDetails" next="vProduct.wip_wo_header.item_id_m"/></if>
+		</OnClick>
+		</Button><TAB/>
+		<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_header_GBDV.xml"></xi:include></Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_line.xml" popup="1"/>
+	<WndTap Name="vWO" Text="vWO" popup="1"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vWO"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="woLst" Size="700,420">
+			<DbDetails fcsm="1">
+		<DbTable>xbs.wip_wo_header_v</DbTable>
+		<Index>wip_wo_header_id</Index>
+		<Data>*</Data>
+		<Order>wip_wo_header_id</Order>
+		</DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<op text="modify"><DbDetails><Where>item_id_m='%{vProduct.vWO.woLst[item_id_m]}'</Where></DbDetails>
+			<submit namelist="DbDetails" next="vProduct.wip_wo_header.item_id_m"/>
+			<DbDetails><Where>wip_wo_header_id='%{vProduct.vWO.woLst[wip_wo_header_id]}'</Where></DbDetails>
+			<submit namelist="DbDetails" next="vproduct.wip_wo_header.wip_wo_headerLst"/></op>
+			<op text="del"><assign name="topmost" expr="sql:delete from x"/></op>
+			<op text="wip_wo_bom"><DbDetails><Where>wip_wo_header_id='%{vProduct.vWO.woLst[wip_wo_header_id]}'</Where></DbDetails>
+			<submit namelist="DbDetails" next="vProduct.wip_wo_bom.wip_wo_header_id"/></op>
+			<op><EvalTbl rules="%{menurules}" table="menurule">
+			<rules></rules>
+			<inputs input1="%{userid}" position="%{position}" status="%{supplierLst[status]}"/>
+			<outputs title="text" handler="handler"/></EvalTbl>
+			</op>
+			<op text="del1"><DbDetails><queryFormat>delete from y where x='%{supplierLst[supplier_id]}'</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op></operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls></WndTap>
+	<WndTap Text="wip_wo_header" Name="wip_wo_header" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="wip_wo_header" Name="GBwip_wo_header" id="wip_wo_header" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_GBOPE.xml"></xi:include>
+		<Button Text="createwobom" ToolTip="ttp_createtwobom" Name="createwobom" Size="50,20">
+		<OnClick><if cond="!%{wip_wo_header_id}"><alert expr="请先添加或选择已有项目！"/><else/>
+		<DbDetails><queryformat>INSERT INTO xbs.wip_wo_bom (bom_sequence, routing_sequence, component_item_id_m, component_revision, usage_basis, usage_quantity, auto_request_material_cb, effective_start_date, effective_end_date, eco_number, eco_implemented_cb, planning_percentage, yield, include_in_cost_rollup_cb, wip_supply_type, supply_sub_inventory, supply_locator, ef_id, created_by, creation_date, last_update_by, last_update_date,wip_wo_header_id ) SELECT bom_sequence, routing_sequence, component_item_id_m, component_revision, usage_basis, usage_quantity, auto_request_material_cb, effective_start_date, effective_end_date, eco_number, eco_implemented_cb, planning_percentage, yield, include_in_cost_rollup_cb, wip_supply_type, supply_sub_inventory, supply_locator, ef_id, '%{user_id}', NOW(), '%{user_id}', NOW(),%{wip_wo_header_id} FROM xbs.bom_line WHERE bom_header_id=%{reference_bom_item_id_m[bom_header_id]}</queryformat></DbDetails>
+		<submit namelist="DbDetails"/></if>
+		</OnClick>
+		</Button><TAB/>
+		<Button Text="createwobomrouting" ToolTip="ttp_createtwobomrouting" Name="createwobomrouting" Size="50,20">
+		<OnClick><if cond="!%{wip_wo_header_id}"><alert expr="请先添加或选择已有项目！"/><else/>
+		<DbDetails><queryformat>INSERT INTO xbs.wip_wo_routing_line (wip_wo_header_id, routing_sequence, standard_operation_id, department_id, description,  count_point_cb, auto_charge_cb,   backflush_cb, yield, created_by, creation_date, last_update_by, last_update_date) SELECT %{wip_wo_header_id}, routing_sequence, standard_operation_id, department_id, description, count_point_cb, auto_charge_cb, backflush_cb,yield, '%{user_id}',now(),'%{user_id}',now() from xbs.bom_routing_line where bom_routing_header_id=%{reference_routing_item_id_m[bom_routing_header_id]}</queryformat></DbDetails>
+		<submit namelist="DbDetails"/></if>
+		</OnClick>
+		</Button><TAB/>
+		<Button Text="wobom" ToolTip="ttp_createtitem" Name="wobom" Size="50,20">
+		<OnClick><if cond="!%{wip_wo_header_id}"><alert expr="请先添加或选择已有项目！"/><else/><DbDetails><Where>wip_wo_header_id='%{vProduct.wip_wo_header.wip_wo_header_id}'</Where></DbDetails>
+		<submit namelist="DbDetails" next="vProduct.wip_wo_bom.wip_wo_header_id"/></if>
+		</OnClick>
+		</Button><TAB/>
+		<Button Text="worouting" ToolTip="ttp_createtitem" Name="wobom" Size="50,20">
+		<OnClick><if cond="!%{wip_wo_header_id}"><alert expr="请先添加或选择已有项目！"/><else/><DbDetails><Where>wip_wo_header_id='%{vProduct.wip_wo_header.wip_wo_header_id}'</Where></DbDetails>
+		<submit namelist="DbDetails" next="vProduct.wip_wo_routing_line.wip_wo_header_id"/></if>
+		</OnClick>
+		</Button><TAB/>
+		<ListCtrl loadedclick="1" ToolTip="ttp_wip_wo_header" Name="wip_wo_headerLst" Size="70,20" visible="0">
+			<DbDetails fcsm="1">
+			<DbTable>xbs.wip_wo_header</DbTable>
+			<Index>wip_wo_header_id</Index>
+			<Data>*</Data><Where>item_id_m='%{item_id_m[item_id_m]}'</Where>
+			<Order>wip_wo_header_id</Order></DbDetails>
+			<OnClick><assign name="wo_type[option_line_id]" function="SetSel" expr="%{wip_wo_headerLst[wo_type]}"/><assign name="wo_status[option_line_id]" function="SetSel" expr="%{wip_wo_headerLst[wo_status]}"/><assign name="reference_bom_item_id_m[bom_header_id]" function="SetSel" expr="%{wip_wo_headerLst[reference_bom_item_id_m]}"/><assign name="reference_routing_item_id_m[bom_routing_header_id]" function="SetSel" expr="%{wip_wo_headerLst[reference_routing_item_id_m]}"/><assign name="completion_sub_inventory[subinventory_id]" function="SetSel" expr="%{wip_wo_headerLst[completion_sub_inventory]}"/><assign name="completion_locator[locator_id]" function="SetSel" expr="%{wip_wo_headerLst[completion_locator]}"/>
+			<if cond="%{wip_wo_header_id}"><SetVisible name="insertwip_wo_header" Visible="0"/><SetVisible name="modifywip_wo_header" Visible="1"/><else/><SetVisible name="insertwip_wo_header" Visible="1"/><SetVisible name="modifywip_wo_header" Visible="0"/></if></OnClick></ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_bom.xml" popup="1"/>			
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_routing_line.xml" popup="1"/>			
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\Product.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="Product"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Product_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="create" ToolTip="ttp_createtitem" Name="createitem" Size="50,20">
+	<OnClick>
+	<submit next="vProduct.product.itemLst" function="resetcontent"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="itemLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITitem" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="itemLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.Product_v</DbTable>
+<Index>item_id</Index>
+<Data>*</Data>
+<Order>item_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>item_id_m='%{vProduct.itemLst[item_id_m]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vProduct.product.itemLst"/></op>
+<op text="bom_routing"><DbDetails><Where>item_id_m='%{itemLst[item_id_m]}'</Where></DbDetails>
+	<submit next="vProduct.bom_routing_header.item_id_m" namelist="DbDetails"/></op>
+<op text="bom"><DbDetails><Where>item_id_m='%{itemLst[item_id_m]}'</Where></DbDetails>
+	<submit next="vProduct.bom_header.item_id_m" namelist="DbDetails"/></op>
+<op text="wipwo"><DbDetails><Where>item_id_m='%{itemLst[item_id_m]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vProduct.wip_wo_header.item_id_m"/>
+	<submit function="resetcontent" next="vproduct.wip_wo_header.wip_wo_headerLst"/></op>
+<op text="vwipwo"><DbDetails><Where>item_id_m='%{itemLst[item_id_m]}'</Where></DbDetails>
+	<submit next="vProduct.vwo.woLst" namelist="DbDetails"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,101 @@
+<WndTap Name="vUser" Text="vUser">
+	<WndTaps>
+	<!--WndTap Text="xerp_user" Name="xerp_user" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\xerp_user.xml"/>
+		<var name="dataRequired" expr="username,email"/>
+		<Ctrls>
+		<GroupBox Text="xerp_user" Name="GBxerp_user" id="xerp_user" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_user_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_user_GBOPE.xml"></xi:include>
+		<Button Text="modifyPass" ToolTip="ttp_modifyPass" Name="modifyPass" Size="50,20">
+			<OnClick>
+			<DbDetails fcsm="1">
+		<DbTable>xbs.xerp_user</DbTable>
+		<DataEx>password,last_update_by,last_update_date;md5('%{password}'),'%{user_id}',now()</DataEx>
+		<Where>xerp_user_id='%{xerp_user_id}'</Where>
+		<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+			<submit namelist="DbDetails"/></OnClick>
+			</Button><TAB/>
+			<ListCtrl loadedclick="1" ToolTip="ttp_xerp_user" Name="xerp_userLst" Size="70,20" visible="0">
+				<DbDetails fcsm="1">
+			<DbTable>xbs.xerp_user</DbTable>
+			<Index>xerp_user_id</Index>
+			<Data>username,hr_employee_id,email,status,xerp_user_id</Data>
+			<Order>xerp_user_id</Order></DbDetails>
+			<OnClick><assign name="hr_employee_id[hr_employee_id]" function="SetSel" expr="%{xerp_userLst[hr_employee_id]}"/>
+			<if cond="%{xerp_user_id}"><SetVisible name="insertxerp_user" Visible="0"/><SetVisible name="modifyxerp_user" Visible="1"/><else/><SetVisible name="insertxerp_user" Visible="1"/><SetVisible name="modifyxerp_user" Visible="0"/></if></OnClick>
+			</ListCtrl>
+			</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap-->
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_user_Ve.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="employee_pick.xml" popup="1"/>
+	<WndTap Text="user_role" Name="user_role" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\user_role.xml"/>
+		<Ctrls>
+		<GroupBox Text="user_role" Name="GBuser_role" id="user_role" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_role_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_role_GBOPE.xml"></xi:include>
+		<ListCtrl loadedclick="1" ToolTip="ttp_user_role" Name="user_roleLst" Size="70,20" visible="0">
+			<DbDetails fcsm="1">
+		<DbTable>xbs.user_role</DbTable>
+		<Index>user_role_id</Index>
+		<Data>user_id,role_code,user_role_id</Data>
+		<Order>user_role_id</Order></DbDetails>
+		<OnClick><assign name="user_id[xerp_user_id]" function="SetSel" expr="%{user_roleLst[user_id]}"/><assign name="role_code[role_id]" function="SetSel" expr="%{user_roleLst[role_code]}"/>
+		<if cond="%{user_role_id}"><SetVisible name="insertuser_role" Visible="0"/><SetVisible name="modifyuser_role" Visible="1"/><else/><SetVisible name="insertuser_role" Visible="1"/><SetVisible name="modifyuser_role" Visible="0"/></if></OnClick>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate><SetVisible name="insertuser_role" Visible="1"/><SetVisible name="modifyuser_role" Visible="0"/></OnActivate>
+			</WndTap>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\xerp_user.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="User"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_user_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">
+	<OnClick><submit next="vUser.xerp_user.GBDEDITxerp_user" function="reset"/></OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITxerp_user" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="userLst" listed="0" prefixwhere="1" inputed="1">
+	<agreement_start_date op="(" ref=""/>
+	<agreement_end_date op=")" ref=""/></search>
+	<submit next="GBDEDITxerp_user" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<!--Button Name="resettrans" Size="50,20" Text="resettrans" OnClick="sql:load install/reset_trans.sql"/><TAB/-->
+<Button Name="print" Size="50,20" Text="打印">
+	<OnClick><!--import button="export" selected="1">sql:update s_order set o_state=3 where o_id=%0;update s_order set o_state=3 where o_id=%0</import><submit next="OrderList" namelist="import" method="post" function="import"/-->
+	<Save></Save><submit next="userLst" namelist="Save" function="print"/></OnClick></Button><TAB/>
+<Button Name="SendFile" Size="100,20" Text="上传Layout" OnClick="SendFile:,filter=*.xml|*.xml|,dir=layout/ucin/xbs,localdir="></Button>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVUser"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="userLst" Size="700,420" Heading="username,100;NAME,100;position_name,100;role,100;org,100;STATUS,100;email,100;layout,100;user_language,100;">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>*</Data>
+<Order>xerp_user_id</Order>
+<Queryformat>select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</Queryformat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="xim"><assign name="topmost" expr="nis3ucs:im|%{userLst[username]}"/></op>
+<op text="modify"><DbDetails><Where>xerp_user_id='%{vUser.userLst[xerp_user_id]}'</Where></DbDetails><submit next="vUser.xerp_user.xerp_userLst" namelist="DbDetails"/><DbDetails><Where>if('%{vUser.userLst[hr_employee_id]}'='',1,hr_employee_id='%{vUser.userLst[hr_employee_id]}')</Where></DbDetails><submit next="vUser.xerp_user.hr_employee_id" namelist="DbDetails"/></op>
+<op text="user_role"><DbDetails><Where>org_id=0 OR org_id=(SELECT org_id FROM user_v WHERE xerp_user_id='%{vUser.userLst[xerp_user_id]}')</Where></DbDetails><submit next="vUser.user_role.role_code" namelist="DbDetails"/><DbDetails><Where>user_id='%{vUser.userLst[xerp_user_id]}'</Where></DbDetails><submit next="vUser.user_role.user_roleLst" namelist="DbDetails"/><DbDetails><Where>xerp_user_id='%{vUser.userLst[xerp_user_id]}'</Where></DbDetails><submit next="vUser.user_role.user_id" namelist="DbDetails"/></op>
+<op text="print"><submit next="GBDVUser" function="print"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

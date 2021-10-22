@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpo_asl_line"><Ctrls>
+<ListCtrl Heading="supplier_id,60;supplier_site_id,60;mfg_part_number,500;manufacturer,500;business_type,250;description,640;release_method,250;min_order_quantity,100;fix_lot_multiplier,50;country_of_origin,125;status,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;po_asl_line_id,60;" loadedclick="0" ToolTip="ttp_po_asl_line" Name="po_asl_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_asl_line</DbTable>
+<Index>po_asl_line_id</Index>
+<Data>supplier_id,supplier_site_id,mfg_part_number,manufacturer,business_type,description,release_method,min_order_quantity,fix_lot_multiplier,country_of_origin,status,created_by,creation_date,last_update_by,last_update_date,po_asl_line_id</Data>
+<Order>po_asl_line_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

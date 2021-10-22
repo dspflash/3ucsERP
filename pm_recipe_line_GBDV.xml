@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_recipe_line"><Ctrls>
+<ListCtrl Heading="org_id,60;org_type,125;planned_loss,75;fixed_loss_uom_id,60;fixed_loss,100;description,640;contiguous_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_recipe_line_id,60;" loadedclick="0" ToolTip="ttp_pm_recipe_line" Name="pm_recipe_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_recipe_line</DbTable>
+<Index>pm_recipe_line_id</Index>
+<Data>org_id,org_type,planned_loss,fixed_loss_uom_id,fixed_loss,description,contiguous_cb,created_by,creation_date,last_update_by,last_update_date,pm_recipe_line_id</Data>
+<Order>pm_recipe_line_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVfp_mrp_header"><Ctrls>
+<ListCtrl Heading="mrp_name,125;org_id,120;include_so_cb,60;demand_source,120;planning_horizon_days,120;status,60;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;fp_mrp_header_id,60;" loadedclick="0" ToolTip="ttp_fp_mrp_header" Name="fp_mrp_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_mrp_header f left join xbs.org o on f.org_id=o.org_id left join xbs.fp_mds_header f0 on f.demand_source=f0.fp_mds_header_id</DbTable>
+<Index>fp_mrp_header_id</Index>
+<Data>f.mrp_name,o.org org_id,f.include_so_cb,f0.mds_name demand_source,f.planning_horizon_days,f.status,f.description,f.created_by,f.creation_date,f.last_update_by,f.last_update_date,f.fp_mrp_header_id</Data>
+<Order>fp_mrp_header_id</Order></DbDetails>org_id in (select org_id FROM xbs.org WHERE IF((SELECT TYPE FROM xbs.org WHERE org_id=%{orgid})=74,org_id=%{orgid},org_id IN (SELECT org_id FROM xbs.org WHERE parent_org_id=%{orgid})))
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

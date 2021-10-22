@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVfa_asset_assignment"><Ctrls>
+<ListCtrl Heading="hr_employee_id,60;address_id,60;expense_ac_id,60;description,640;units,50;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;fa_asset_id,60;fa_asset_assignment_id,60;" loadedclick="0" ToolTip="ttp_fa_asset_assignment" Name="fa_asset_assignmentLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>fa_asset_assignment_id</Index>
+<DbTable>xbs.fa_asset_assignment f left join xbs.hr_employee_v h on f.hr_employee_id=h.hr_employee_id</DbTable>
+<Data>h.name hr_employee_id,f.address_id,f.expense_ac_id,f.description,f.units,f.created_by,f.creation_date,f.last_update_by,f.last_update_date,f.fa_asset_id,f.fa_asset_assignment_id</Data>
+<Order>fa_asset_assignment_id</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>fa_asset_assignment_id='%{fa_asset_assignment_vLst[fa_asset_assignment_id]}'</Where></DbDetails><submit next="$this.fa_asset_assignment.fa_asset_assignmentLst" namelist="DbDetails"/><assign name="$this.fa_asset_assignment.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.fa_asset_assignment</DbTable>
+<Where>fa_asset_assignment_id='%{fa_asset_assignment_vLst[fa_asset_assignment_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,35 @@
+﻿<GroupBox Name="MasterTab" comment="Tab should seperate from other groupbox"><Ctrls>
+<GroupBox Name="OpenExcel" Text="OpenExcel" feature="tab"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_filename"><Ctrls>
+	<Label Name="lb_filename" Size="30,20"	Text="文件"></Label>
+	<TextBox Name="excel_file" Size="150,20" Text=""></TextBox>
+    <Button Name="Browse" Size="80,20" Text="浏览"><OnClick><assign name="excel_file" expr="browsefile:,filter=Excel (*.xls)|*.xls|Excel (*.xlsx)|*.xlsx|Execl Files (*.xls;*.xlsx)|*.xls;*.xlsx||" function=""/></OnClick></Button>
+</Ctrls></GroupBox><TAB/>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_tbname"><Ctrls>
+	<Label Name="lb_tbname" Size="30,20" Text="表名"></Label>
+	<TextBox Name="sheetname" Size="150,20" Text=""></TextBox>
+	<MagicCtrl Name="xExcel" fadeout="min:0;" link="tip:read excel to list" text="xExcel" images="" Size="80,20">
+		<interface id="xExcelA" type="IBizInterface" codebase="xexcel.dll" dir="layout/ucin/" classid="6BACF5C9-AF7A-481E-AE7A-B81378D097BF" version="1.0"/>
+			<OnClick><magicdata x="" function="read" sheet="%{sheetname}" filename="%{excel_file}"/><submit next="xexcel" namelist="magicdata" function="6BACF5C9-AF7A-481E-AE7A-B81378D097BF"/></OnClick>
+			<OnEvent_6BACF5C9-AF7A-481E-AE7A-B81378D097BF_1><info next="tst" expr="%{xExcel[6BACF5C9-AF7A-481E-AE7A-B81378D097BF.stat]};%{xExcel[6BACF5C9-AF7A-481E-AE7A-B81378D097BF.statmsg]}"/><if cond="0==%{xExcel[6BACF5C9-AF7A-481E-AE7A-B81378D097BF.stat]}"><ExchangeData name="dataList"/><submit next="xexcel" dataSect="6BACF5C9-AF7A-481E-AE7A-B81378D097BF" namelist="ExchangeData" function="ExchangeData"/></if></OnEvent_6BACF5C9-AF7A-481E-AE7A-B81378D097BF_1>
+		</MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR NULLHeight="1"/><GroupBox Name="ServerProcess" Text="UploadToServer" feature="tab"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_filename"><Ctrls>
+	<Label Name="lb_filename" Size="30,20"	Text="文件"></Label>
+	<TextBox Name="TB_filename" Size="150,20" Text="bom.mdb"><OnEnchange><assign name="filetp" expr="js('%{TB_filename}'.substr('%{TB_filename}'.indexOf('.')))"/></OnEnchange></TextBox>
+    <!--Button Name="SendFile0" Size="80,20" Text="上传文件" OnClick="SendFile:,filter=Access (*.mdb)|*.mdb|Excel (*.xls)|*.xls||,dir=%{importdir},localdir="><OnSendFileEnd><assign name="TB_filename" expr="%{SendFile0[filename]}"/><submit next="dataList" function="resetcontent"/></OnSendFileEnd></Button-->
+    <Button Name="SendFile" Size="80,20" Text="上传文件" OnClick="SendFile:,filter=Access (*.mdb)|*.mdb|Access (*.accdb)|*.accdb|Excel (*.xls)|*.xls|Excel (*.xlsx)|*.xlsx||,dir=%{importdir},localdir="><OnSendFileEnd><assign name="TB_filename" expr="%{SendFile[filename]}"/><submit next="dataList" function="resetcontent"/></OnSendFileEnd></Button>
+</Ctrls></GroupBox><TAB/>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_tbname"><Ctrls>
+	<Label Name="lb_tbname" Size="30,20" Text="表名"></Label>
+	<TextBox Name="TB_tbname" Size="150,20" Text="sheet1"></TextBox>
+	<TextBox Name="filetp" Size="50,20" Text=".mdb" visible="0" overlap="pre"><OnEnchange><if cond="%{filetp}=='.xls'"><info expr="须注意：Excel表格里不应该有公式之类的元素，以避免数据混乱"/></if></OnEnchange></TextBox>
+    <!--Button Name="search0" Size="80,20" Text="数据预览">
+	<OnClick><if cond="%{filetp}=='.xls'"><assign name="dbtp" expr="Excel"/><assign name="dbtbl" expr="[%{TB_tbname}$]"/><elseif cond="%{filetp}=='.mdb'"/><assign name="dbtp" expr="MSAccess"/><assign name="dbtbl" expr="`%{TB_tbname}`"/></if><DbDetails><SubDriver>%{dbtp}</SubDriver><DbTable>%{dbtbl}</DbTable></DbDetails><submit next="dataList" namelist="DbDetails"/></OnClick></Button-->
+	<Button Name="search" Size="80,20" Text="数据预览">
+	<OnClick><if cond="'.xls.xlsx'.indexOf('%{filetp}')!=-1"><assign name="dbtp" expr="Excel"/><assign name="dbtbl" expr="[%{TB_tbname}$]"/><elseif cond="'.mdb.accdb'.indexOf('%{filetp}')!=-1"/><assign name="dbtp" expr="MSAccess"/><assign name="dbtbl" expr="`%{TB_tbname}`"/></if><DbDetails><SubDriver>%{dbtp}</SubDriver><DbTable>%{dbtbl}</DbTable></DbDetails><submit next="dataList" namelist="DbDetails"/></OnClick></Button>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

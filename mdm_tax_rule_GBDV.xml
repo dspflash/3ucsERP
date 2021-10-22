@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVmdm_tax_rule"><Ctrls>
+<ListCtrl Heading="ship_to_region_id,60;op_tax_class,125;weightage,50;tax_code_id,120;ip_tax_class,125;ship_from_region_id,60;status,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;mdm_tax_rule_id,60;org_id,60;" loadedclick="0" ToolTip="ttp_mdm_tax_rule" onload="init" Name="mdm_tax_ruleLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_tax_rule</DbTable>
+<Index>mdm_tax_rule_id</Index>
+<Data>ship_to_region_id,op_tax_class,weightage,tax_code_id,ip_tax_class,ship_from_region_id,status,created_by,creation_date,last_update_by,last_update_date,mdm_tax_rule_id,org_id</Data>
+<Order>mdm_tax_rule_id</Order></DbDetails>
+<OnClick><assign name="tax_code_id[mdm_tax_code_id]" function="SetSel" expr="%{mdm_tax_ruleLst[tax_code_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

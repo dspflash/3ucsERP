@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="ar_payment_process" Name="ar_payment_process" Ver="2">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_payment_process.xml"/>
+<Ctrls>
+<GroupBox Text="ar_payment_process" Name="GBar_payment_process" id="ar_payment_process" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_payment_process_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_payment_process_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_payment_process_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_payment_process_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

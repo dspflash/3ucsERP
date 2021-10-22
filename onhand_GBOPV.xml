@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVonhand" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteonhand" Name="deleteonhand" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.onhand</DbTable>
+<Where>onhand_id='%{onhandLst[onhand_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchonhand" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshonhand" Name="searchonhand" Size="50,20">
+			  <OnClick><submit next="onhandLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPonhandLst" OnClick="(onhandLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREonhandLst" OnClick="(onhandLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPonhandLst" OnClick="(onhandLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

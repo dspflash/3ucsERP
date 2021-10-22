@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVxerp_user" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="xerp_user_vLst" ToolTip="ttp_xerp_user" Size="700,420" OnLoad="init" Heading="username,640;email,500;ar_customer_id,120;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;last_visit_date,150;xerp_user_id,60;"  selectedIndex="0" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.xerp_user x left join xbs.ar_customer a on x.ar_customer_id=a.ar_customer_id</DbTable>
+<Index>xerp_user_id</Index>
+<Data>x.username,x.email,a.customer_name ar_customer_id,x.status,x.created_by,x.creation_date,x.last_update_by,x.last_update_date,x.last_visit_date,x.xerp_user_id</Data>
+<Order>xerp_user_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>xerp_user_id='%{xerp_user_vLst[xerp_user_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.xerp_user.xerp_userLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.xerp_user</DbTable>
+<Where>xerp_user_id='%{xerp_user_vLst[xerp_user_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

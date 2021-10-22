@@ -1,0 +1,37 @@
+﻿<GroupBox Name="GBDEDITdocsharel"><Ctrls>
+<GroupBox Name="GB_doc_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_doc_id" Size="60,20" Text="doc_id" Align="Right" readonly="true"/>
+<TextBox Name="doc_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_doc_id" readonly="true">
+	<DbDetails>
+<DbTable>xbs.documents</DbTable>
+<Index>idx</Index>
+<Data>filenameany,idx</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_shared2" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_shared2" Size="60,20" Text="shared2" Align="Right"/>
+<TextBox Name="shared2" Size="150,20" Text="" Weight="150" ToolTip="ttp_shared2">
+	<DbDetails>
+<DbTable></DbTable>
+<Index>shid</Index>
+<Data></Data>
+<Where></Where>
+<queryFormat>select concat(username,'(',name,')'),xerp_user_id shid from user_v where %{where}</queryFormat></DbDetails></TextBox>
+<MagicCtrl Name="pickshared2" Link="tip:Pick" images=",data/search.png" button="type:0" Size="20,20"><OnClick><assign name="$parent.userPick.frmwndctrl" expr="docsharel.shared2"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_type" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<CheckBox Name="type" Size="230,20" Text="type" ToolTip="ttp_type" Visible="false" overlap="pre" readonly="true"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_dt2share" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_dt2share" Size="60,20" Text="dt2share" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<DateTime Name="dt2share" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_dt2share" Visible="false" overlap="pre" readonly="true"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_sharedby" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_sharedby" Size="60,20" Text="sharedby" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="sharedby" Size="170,20" Text="" Weight="170" ToolTip="ttp_sharedby" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_idx" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_idx" Size="60,20" Text="idx" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="idx" Size="170,20" Text="" Weight="170" ToolTip="ttp_idx" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{idx}'"><SetVisible name="insertdocsharel" Visible="0"/><SetVisible name="modifydocsharel" Visible="1"/><else/><SetVisible name="insertdocsharel" Visible="1"/><SetVisible name="modifydocsharel" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

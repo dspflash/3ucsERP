@@ -1,0 +1,9 @@
+﻿<GroupBox Name="GBDEDIThr_overtime_type" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_overtime_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_overtime_type" Size="60,20" Text="overtime_type" Align="Right"/>
+<TextBox Name="overtime_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_overtime_type"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status"  checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

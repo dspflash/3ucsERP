@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVxbs_log" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletexbs_log" Name="deletexbs_log" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.xbs_log</DbTable>
+<Where>xbs_log_id='%{xbs_logLst[xbs_log_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchxbs_log" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshxbs_log" Name="searchxbs_log" Size="50,20">
+			  <OnClick><submit next="xbs_logLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPxbs_logLst" OnClick="(xbs_logLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PRExbs_logLst" OnClick="(xbs_logLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPxbs_logLst" OnClick="(xbs_logLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

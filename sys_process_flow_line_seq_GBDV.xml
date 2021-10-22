@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsys_process_flow_line"><Ctrls>
+<ListCtrl Heading="line_name,125;next_line_seq_pass,120;next_line_seq_fail,120;last_update_by,60;last_update_date,150;sys_process_flow_line_id,60;" loadedclick="0" ToolTip="ttp_sys_process_flow_line" Name="sys_process_flow_lineLst" Size="300,450">
+	<DbDetails fcsm="1">
+<Index>sys_process_flow_line_id</Index>
+<DbTable>xbs.sys_process_flow_line s left join xbs.sys_process_flow_line s0 on s.next_line_seq_pass=s0.sys_process_flow_line_id left join xbs.sys_process_flow_line s1 on s.next_line_seq_fail=s1.sys_process_flow_line_id left join xbs.user_v u on s.last_update_by=u.xerp_user_id</DbTable>
+<Data>s.line_name,s0.line_name next_line_seq_pass,s1.line_name next_line_seq_fail,u.NAME last_update_by,s.last_update_date,s.sys_process_flow_line_id</Data>
+<Order>sys_process_flow_line_id</Order></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>sys_process_flow_line_id='%{sys_process_flow_line_vLst[sys_process_flow_line_id]}'</Where></DbDetails><submit next="$this.sys_process_flow_line.sys_process_flow_lineLst" namelist="DbDetails"/><assign name="$this.sys_process_flow_line.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.sys_process_flow_line</DbTable>
+<Where>sys_process_flow_line_id='%{sys_process_flow_line_vLst[sys_process_flow_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

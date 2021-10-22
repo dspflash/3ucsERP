@@ -1,0 +1,206 @@
+<WndTap Text="vSDDLV" Name="vInvDLV" Ver="2">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vOnhand.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="trackinglabel.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_line_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_header_m.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vLotOnhand.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_print_v.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_print_v.xml" popup="1"/>
+	<WndTap Text="sd_delivery_linev" Name="sd_delivery_linev" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_delivery_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_delivery_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="sd_delivery_line" Name="GBsd_delivery_line" id="sd_delivery_line" Size="100,100"><Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_delivery_line"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_sd_delivery_line" Name="sd_delivery_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>sd_dlv_line_v</DbTable>
+<Index>sd_delivery_line_id</Index>
+<Data>so_number,document_extn_ref,customer_name,delivery_statusv,item_number,item_name,item_specification,item_description,line_uom,quantity,shipped_quantity,pkg_uom,pkg_quantity,pkg_description,picking_date,actual_ship_date,customer_site_name,ship_address,subinventory,locator,volume_uom,total_volume,line_number,weight_uom,total_weight,creator,updator,item_id_m,item_rev_number,ar_customer_id,sd_delivery_line_id,sd_delivery_header_id,sd_so_header_id,sd_so_line_id,line_uom_id,volume_uom_id,weight_uom_id,staging_subinventory_id,staging_locator_id,shipping_org_id,delivery_status,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>sd_delivery_line_id</Order></DbDetails><DbDetails><Where>sd_delivery_header_id='%{sd_delivery_header_id[sd_delivery_header_id]}'</Where></DbDetails><operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><assign name="vInvDLV.sd_delivery_line_adm.sd_delivery_line_id" expr="%{sd_delivery_lineLst[sd_delivery_line_id]}"/>
+<assign name="vInvDLV.sd_delivery_line_adm.item_id_m" expr="%{sd_delivery_lineLst[item_id_m]}"/>
+<assign name="vInvDLV.sd_delivery_line_adm.shipped_quantity" expr="%{sd_delivery_lineLst[shipped_quantity]}"/>
+<assign name="vInvDLV.sd_delivery_line_adm.staging_subinventory_id[subinventory_id]" expr="%{sd_delivery_lineLst[staging_subinventory_id]}" function="setsel"/>
+<assign name="vInvDLV.sd_delivery_line_adm.staging_locator_id[locator_id]" expr="%{sd_delivery_lineLst[staging_locator_id]}" function="setsel"/>
+</op>
+<op text="onhand"><assign name="$parent.vOnhand.item_id_m" expr="%{sd_delivery_lineLst[item_id_m]}"/><DbDetails><Where>and item_id_m='%{$parent.vOnhand.item_id_m}'</Where></DbDetails><submit next="$parent.vOnhand.onhandLst" namelist="DbDetails"/>
+</op>
+<op text="LotOnhand"><assign name="$parent.vLotOnhand.item_id_m" expr="%{sd_delivery_lineLst[item_id_m]}"/><DbDetails><Where>and item_id_m='%{$parent.vLotOnhand.item_id_m}'</Where></DbDetails><submit next="$parent.vLotOnhand.onhandLst" namelist="DbDetails"/>
+</op>
+<!--op text="tracking label"><DbDetails fcsm="1"><DbTable>sd_dlv_line_v</DbTable>
+<Data>ar_customer_id customer,item_number itemname,shipped_quantity quantity,'123456' vendor,concat(ar_customer_id,CURDATE()+0) lot,CONCAT(YEAR(actual_ship_date),WEEKOFYEAR(actual_ship_date)) dt,item_id_m as itemnumber,item_rev_number itemrev</Data><Where>sd_delivery_line_id='%{sd_delivery_lineLst[sd_delivery_line_id]}'</Where></DbDetails><submit next="$parent.TrackingLabel.trackinfoList" namelist="DbDetails"/>
+</op-->
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>	
+	</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate/>
+		</WndTap>
+<WndTap Text="sd_delivery_line_adm" Name="sd_delivery_line_adm" Ver="2" popup="1">
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_delivery_line.xml"/>
+<Ctrls>
+<GroupBox Text="sd_delivery_line" Name="GBsd_delivery_line" id="sd_delivery_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_line_adm_GBDEDIT.xml"></xi:include>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="modify" ToolTip="ttp_modifysd_delivery_line" Name="modifysd_delivery_line" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_delivery_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>staging_subinventory_id[subinventory_id],staging_locator_id[locator_id],shipped_quantity</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>sd_delivery_line_id='%{sd_delivery_line_id}' and delivery_status!=534</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="sd_delivery_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="vIssue" Name="vIssue" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_issue_header.xml"/>
+	<Language name="reference_key">
+<Lang name="reference_key_value" value="工单号"/>
+<Lang name="ttp_reference_key_value" value=""/>
+</Language>
+		<Ctrls>
+		<GroupBox Text="vIssue" Name="GBvIssue" id="vIssue" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="vIssueLst" Size="700,420">
+			<DbDetails>
+			<DbTable>inv_issue_header_v</DbTable>
+			<Index>inv_issue_header_id</Index>
+			<Data>*</Data>
+			<Order>inv_issue_header_id</Order>
+			</DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<EvalTbl rules="" table="inv_receipt_admin_menu_rule">
+			<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/inv_receipt_admin_menu_rule.xml"/></rules>
+			<inputs status="%{vIssueLst[status]}"/>
+			<outputs title="text" disabled="disabled"/></EvalTbl>
+			<op text="modify">
+			<submit next="$parent.inv_issue_header.GBDEDITinv_issue_header" function="reset"/><DbDetails><Where>type_class='OM' and transaction_action=2 and status is true</Where></DbDetails><submit namelist="dbdetails" next="$parent.inv_issue_header.transaction_type_id"/><assign name="$parent.inv_issue_header.reference_key_name" expr="sd_delivery_header" function="setsel"/><DbDetails><DbTable>sd_delivery_header</DbTable><Index>sd_delivery_header</Index><Data>delivery_number,sd_delivery_header_id refid</Data><Where>sd_delivery_header_id='%{vIssueLst[reference_key_value]}'</Where></DbDetails><submit next="$parent.inv_issue_header.reference_key_value" namelist="DbDetails"/><DbDetails><Where>inv_issue_header_id='%{$parent.vIssue.vIssueLst[inv_issue_header_id]}' and status=1519</Where></DbDetails><submit next="$parent.inv_issue_header.inv_issue_headerLst" namelist="DbDetails"/></op>
+			<op text="print">
+			<DbDetails><Where>type_class='OM' and transaction_action=2 and status is true</Where></DbDetails><submit namelist="dbdetails" next="$parent.inv_issue_print.transaction_type_id"/><assign name="$parent.inv_issue_print.reference_key_name" expr="wip_wo_header" function="setsel"/><DbDetails><DbTable>xbs.wip_wo_header</DbTable><Index>wip_wo_header_id</Index><Data>wo_number,wip_wo_header_id refid</Data><Where>wip_wo_header_id='%{$parent.vIssue.vIssueLst[reference_key_value]}'</Where></DbDetails><submit next="$parent.inv_issue_print.reference_key_value" namelist="DbDetails"/><DbDetails><Where>inv_issue_header_id='%{$parent.vIssue.vIssueLst[inv_issue_header_id]}'</Where></DbDetails><submit next="$parent.inv_issue_print.inv_issue_headerLst" namelist="DbDetails"/><submit next="$parent.inv_issue_print.inv_issue_lineLst" namelist="DbDetails"/></op>
+			<op text="view"><DbDetails><Where>inv_issue_header_id='%{$parent.vIssue.vIssueLst[inv_issue_header_id]}'</Where></DbDetails><submit next="$parent.vIssueLine.inv_issue_lineLst" namelist="DbDetails"/></op>
+			<op text="confirm" needconfirm="1"><DbDetails><queryFormat>update inv_issue_header set status=1520 where inv_issue_header_id='%{$parent.vIssue.vIssueLst[inv_issue_header_id]}' and status=1519;update inv_issue_line set status=1520 where inv_issue_header_id='%{$parent.vIssue.vIssueLst[inv_issue_header_id]}' and status=1519;
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			<op text="cancel" needconfirm="1"><DbDetails><queryFormat>update inv_issue_header set status=1522,last_update_by='%{user_id}',last_update_date=now() where status=1519 and created_by='%{user_id}' and inv_issue_header_id='%{$parent.vIssue.vIssueLst[inv_issue_header_id]}';
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="vIssueLine" Name="vIssueLine" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_issue_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="vIssueLine" Name="GBvIssueLine" id="vIssueLine" Size="100,100"><Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinv_issue_line"><Ctrls>
+<ListCtrl Heading="reference_key_value,120;transaction_quantity,60;uom_name,100;item_number,120;item_name,120;item_specification,120;item_description,120;subinventory_id,120;locator_id,120;lot_number,120;creator,60;updator,60;item_id_m,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;inv_issue_line_id,60;status,125;" loadedclick="0" ToolTip="ttp_inv_issue_line" Name="inv_issue_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_issue_line i left join xbs.item i0 on i.item_id_m=i0.item_id_m join xbs.uom u on i.uom_id=u.uom_id left join xbs.subinventory s on i.subinventory_id=s.subinventory_id left join xbs.locator l on i.locator_id=l.locator_id left join xbs.inv_lot_number i1 on i.lot_number=i1.inv_lot_number_id left join xbs.currency c on i.currency=c.currency_id left join xbs.xerp_user x on i.created_by=x.xerp_user_id left join xbs.xerp_user x0 on i.last_update_by=x0.xerp_user_id</DbTable>
+<Index>inv_issue_line_id</Index>
+<Data>i.reference_key_value,i.transaction_quantity,uom_name,i0.item_number,item_name,item_specification,i0.item_description,s.subinventory subinventory_id,l.locator locator_id,i1.lot_number lot_number,x.username AS creator,x0.username AS updator, i.item_id_m,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.inv_issue_line_id,i.status</Data>
+<Order>inv_issue_line_id</Order></DbDetails><OnClick><assign name="reference_key_value" function="setsel" expr="inv_issue_lineLst[reference_key_value]"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="tracking label"><DbDetails fcsm="1"><DbTable>xbs.inv_issue_line i LEFT JOIN xbs.item i0 ON i.item_id_m=i0.item_id_m AND i.org_id=i0.org_id LEFT JOIN sd_delivery_line dlvl ON dlvl.sd_delivery_line_id=i.reference_key_value AND i.reference_key_name='sd_delivery_line' LEFT JOIN sd_so_line sol ON sol.sd_so_line_id=dlvl.sd_so_line_id LEFT JOIN sd_so_header so ON sol.sd_so_header_id=so.sd_so_header_id LEFT JOIN xbs.inv_lot_number i1 ON i.lot_number=i1.inv_lot_number_id</DbTable>
+<Data>so.ar_customer_id customer,'123456' vendor,so.so_number,i.transaction_quantity quantity,i0.item_number itemname,i1.lot_number lot, i.item_id_m itemnumber,i0.item_rev_number itemrev,substring(CONCAT(YEAR(dlvl.picking_date),WEEKOFYEAR(dlvl.picking_date)),3) dt</Data><Where>inv_issue_line_id='%{inv_issue_lineLst[inv_issue_line_id]}'</Where></DbDetails><submit next="$parent.TrackingLabel.trackinfoList" namelist="DbDetails"/>
+</op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	</WndTaps>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_delivery_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="vSDDLV" Name="GBvInvDLV" id="vInvDLV" Size="100,100"><Ctrls>
+<GroupBox Name="GBDEDITsd_delivery_header"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_delivery_number"><Ctrls>
+<Label Align="Right" Text="delivery_number" Name="lb_delivery_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_delivery_number" Name="delivery_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right" onload="init"/>
+<ComboBox Name="status" Size="170,100" Weight="170"  ToolTip="ttp_status" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=167 and option_line_id in (604,536,534)</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearch.xml"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPEsd_delivery_header" Size="100,10" cols="xs12 sm12 md12 lg12"><Ctrls>
+<TAB/><Button Name="resetsd_delivery_header" Size="50,20" Text="reset" ToolTip="ttp_resetsd_delivery_header">
+	<OnClick>
+	<submit next="GBDEDITsd_delivery_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="gsearchsd_delivery_header" Size="50,20" Text="gsearch" ToolTip="ttp_gsearchsd_delivery_header">
+			  <OnClick>
+	<search next="sddlvLst" listed="0" prefixand="1" inputed="1"><delivery_number format="delivery_number like '%%{opvalue}%'"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search>
+	<submit next="GBDEDITsd_delivery_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="barcode" Size="80,20" Text="barcode" OnClick="(barcode_res)barcode"/><TAB/>
+<TextBox Weight="170" Name="barcode_res" Size="170,20" visible="0"><OnEnChange>
+<if cond="%{barcode_res}"><DbDetails><where>delivery_number='%{barcode_res}'</where></DbDetails><submit next="sddlvLst" namelist="DbDetails"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" colsDisplay="23" PageSize="500" ToolTip="ttp_item" onload="init" Name="sddlvLst" Size="700,420">
+			<DbDetails>
+		<DbTable>xbs.sd_delivery_header_v</DbTable>
+		<Index>sd_delivery_header_id</Index>
+		<Data>*</Data>
+		<Order>sd_delivery_header_id</Order>
+		<Where>and status in (604,536) and expetced_delivery_date BETWEEN CURDATE() AND CURDATE()</Where>
+		<queryFormat>select %{data} from %{dbtable} where shipping_org_id='%{orgid}' %{where} order by sd_delivery_header_id desc limit %{StartRow},%{PgSize}</queryFormat>
+		</DbDetails>
+		<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+		<EvalTbl rules="" table="so_dlv_menu_rule">
+		<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/so_dlv_menu_rule.xml"/></rules>
+		<inputs status="%{sddlvLst[status]}"/>
+		<outputs title="text" disabled="disabled"/></EvalTbl>
+		<op text="withdraw" needconfirm="1"><DbDetails><queryFormat>update sd_delivery_header sdh JOIN sd_delivery_line sdl ON sdh.sd_delivery_header_id=sdl.sd_delivery_header_id set status=537,delivery_status=537 where sdh.sd_delivery_header_id='%{sddlvLst[sd_delivery_header_id]}' and status in(604,536)</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+		<op text="pick"><submit next="$this.inv_issue_header.GBDEDITinv_issue_header" function="reset"/><DbDetails><Where>type_class='OM' and transaction_action=2 and status is true</Where></DbDetails><submit namelist="dbdetails" next="$this.inv_issue_header.transaction_type_id"/><assign name="$this.inv_issue_header.reference_key_name" expr="sd_delivery_header" function="setsel"/><DbDetails><DbTable>sd_delivery_header</DbTable><Index>sd_delivery_header</Index><Data>delivery_number,sd_delivery_header_id refid</Data><Where>sd_delivery_header_id='%{sddlvLst[sd_delivery_header_id]}'</Where></DbDetails><submit next="$this.inv_issue_header.reference_key_value" namelist="DbDetails"/>
+		<!--DbDetails><queryFormat>update sd_delivery_header set status=536 where sd_delivery_header_id='%{sddlvLst[sd_delivery_header_id]}' and status=604;update sd_delivery_line set delivery_status=536 where sd_delivery_header_id='%{sddlvLst[sd_delivery_header_id]}' and delivery_status=604</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/--></op>
+		<op text="pickLst"><assign name="$this.vIssue.sd_delivery_header_id" expr="%{sddlvLst[sd_delivery_header_id]}"/><DbDetails><Where>reference_key_name='sd_delivery_header' and reference_key_value='%{$this.vIssue.sd_delivery_header_id}' and created_by='%{user_id}'</Where></DbDetails><submit namelist="dbdetails" next="$this.vIssue.vIssueLst"/></op>
+		<op text="view"><DbDetails><Where>sd_delivery_header_id='%{sddlvLst[sd_delivery_header_id]}'</Where></DbDetails>
+			<submit namelist="DbDetails" next="vInvDLV.sd_delivery_linev.sd_delivery_linelst"/></op>
+		<op text="print"><DbDetails><Where>sd_delivery_header_id='%{sddlvLst[sd_delivery_header_id]}'</Where></DbDetails>
+			<submit namelist="DbDetails" next="$this.sd_delivery_print.sd_delivery_headerLst"/><submit namelist="DbDetails" next="$this.sd_delivery_print.sd_delivery_lineLst"/></op>
+		<op text="FinishDelivery" needconfirm="1"><DbDetails><queryFormat>call sddeliverydone('%{sddlvLst[sd_delivery_header_id]}');</queryFormat><!--queryFormat>UPDATE sd_delivery_header SET delivery_date=NOW(),STATUS=534 WHERE sd_delivery_header_id='%{sddlvLst[sd_delivery_header_id]}' and status=536;UPDATE sd_delivery_line SET actual_ship_date=NOW(),delivery_status=534 WHERE sd_delivery_header_id='%{sddlvLst[sd_delivery_header_id]}' and delivery_status=536;</queryFormat--></DbDetails><submit namelist="DbDetails"/><submit/></op>
+		<!--op text="Cancel" needconfirm="1"><DbDetails><queryFormat>UPDATE sd_delivery_header SET STATUS=1551,last_update_by='%{user_id}',last_update_date=now() WHERE sd_delivery_header_id='%{sddlvLst[sd_delivery_header_id]}' and status=534;UPDATE sd_delivery_line SET delivery_status=1551,last_update_by='%{user_id}',last_update_date=now() WHERE sd_delivery_header_id='%{sddlvLst[sd_delivery_header_id]}' and delivery_status=534;
+</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op-->
+		</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

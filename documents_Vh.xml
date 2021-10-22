@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVdocuments" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="documentsLst" ToolTip="ttp_documents" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.documents</DbTable>
+<Index>idx</Index>
+<Data>filenameany,keywords,up_dt,expire_dt,owner_id,path,id_corp,idx</Data>
+<Order>idx</Order></DbDetails>
+<OnClick>
+<if cond="%{idx}"><SetVisible name="insertdocuments" Visible="0"/><SetVisible name="modifydocuments" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

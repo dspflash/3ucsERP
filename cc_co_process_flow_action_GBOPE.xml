@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEcc_co_process_flow_action" Size="100,100"><Ctrls>
+<Button sqlpkinsert="cc_co_process_flow_action_id" Text="create" ToolTip="ttp_createcc_co_process_flow_action" Name="insertcc_co_process_flow_action" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.cc_co_process_flow_action</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>field_value,comment,action_number[action_number],role_code,pf_action_type,required_cb,cc_co_header_id,sys_process_flow_line_id</Data>
+<DataEx>userid,action_user_id,created_by,creation_date,last_update_by,last_update_date;%{action_number[userid]},'%{user_id}','%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="cc_co_process_flow_actionLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifycc_co_process_flow_action" Name="modifycc_co_process_flow_action" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.cc_co_process_flow_action</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>field_value,comment,action_number[action_number],role_code,pf_action_type,required_cb</Data>
+<DataEx>userid,last_update_by,last_update_date;%{action_number[userid]},'%{user_id}',now()</DataEx>
+<Where>cc_co_process_flow_action_id='%{cc_co_process_flow_action_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="cc_co_process_flow_actionLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetcc_co_process_flow_action" Name="resetcc_co_process_flow_action" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITcc_co_process_flow_action" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchcc_co_process_flow_action" Name="gsearchcc_co_process_flow_action" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="cc_co_process_flow_actionLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITcc_co_process_flow_action" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

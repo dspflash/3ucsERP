@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEbom_config_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="bom_config_line_id" Text="create" ToolTip="ttp_createbom_config_line" Name="insertbom_config_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_config_line</DbTable>
+<Data>bom_config_header_id[bom_config_header_id],bom_sequence,routing_sequence,component_item_id_m[item_id_m],component_revision,usage_basis,usage_quantity,line_quantity,transacted_quantity,auto_request_material_cb,planning_percentage,yield,wip_supply_type,supply_sub_inventory,supply_locator</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchbom_config_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifybom_config_line" Name="modifybom_config_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_config_line</DbTable>
+<Data>bom_config_header_id[bom_config_header_id],bom_sequence,routing_sequence,component_item_id_m[item_id_m],component_revision,usage_basis,usage_quantity,line_quantity,transacted_quantity,auto_request_material_cb,planning_percentage,yield,wip_supply_type,supply_sub_inventory,supply_locator</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>bom_config_line_id='%{bom_config_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchbom_config_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetbom_config_line" Name="resetbom_config_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITbom_config_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchbom_config_line" Name="gsearchbom_config_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="bom_config_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITbom_config_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

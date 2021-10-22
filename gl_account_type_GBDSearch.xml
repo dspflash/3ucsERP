@@ -1,0 +1,19 @@
+<GroupBox Name="GBDEDITgl_account_type"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_account_type"><Ctrls>
+<Label Align="Right" Text="account_type" Name="lb_account_type" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_account_type" Name="account_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_account_group"><Ctrls>
+<Label Align="Right" Text="account_group" onload="init" Name="lb_account_group" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_account_group" onload="init" Name="account_group" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=83</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_remark"><Ctrls>
+<Label Align="Right" Text="remark" Name="lb_remark" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_remark" Name="remark" Size="170,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

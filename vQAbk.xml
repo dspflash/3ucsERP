@@ -1,0 +1,142 @@
+<WndTap Name="vQA" Text="vQA">
+	<WndTaps>
+	<WndTap Text="material" Name="material" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\material.xml"/>
+	<Ctrls>
+	<GroupBox Text="item" Name="GBitem" id="item" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="material_GBDEDIT.xml"></xi:include>
+	<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="material_GBOPE.xml"></xi:include>
+	<ListCtrl loadedclick="1" ToolTip="ttp_item" Name="itemLst" Size="50,20" visible="0">
+	<DbDetails fcsm="1">
+		<DbTable>xbs.item</DbTable>
+		<Index>item_id</Index>
+		<Data>*</Data>
+		<Order>item_id</Order></DbDetails>
+		<OnClick><assign name="item_category[category_id]" function="SetSel" expr="%{itemLst[item_category]}"/><assign name="item_status[option_line_id]" function="SetSel" expr="%{itemLst[item_status]}"/><assign name="uom_id[uom_id]" function="SetSel" expr="%{itemLst[uom_id]}"/>
+		<if cond="%{item_id}"><SetVisible name="insertitem" Visible="0"/><SetVisible name="modifyitem" Visible="1"/><else/><SetVisible name="insertitem" Visible="1"/><SetVisible name="modifyitem" Visible="0"/></if></OnClick>
+		</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+<WndTap Text="qa_specification_header" Name="qa_specification_header" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_specification_header.xml"/>
+<Ctrls>
+<GroupBox Text="qa_specification_header" Name="GBqa_specification_header" id="qa_specification_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_specification_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_specification_header_GBOPE.xml"></xi:include>
+	<Button Text="qa_specification_line" ToolTip="ttp_qa_specification_line" Name="qa_specification_line" Size="50,20">
+		<OnClick><if cond="!%{qa_specification_header_id}"><alert expr="请先添加单据，若修改单据请从单据列表进入！"/><else/><DbDetails><Where>qa_specification_header_id='%{vQA.qa_specification_header.qa_specification_header_id}'</Where></DbDetails>
+		<submit namelist="DbDetails" next="vQA.qa_specification_line.qa_specification_header_id"/></if>
+		</OnClick>
+		</Button><TAB/>
+<ListCtrl loadedclick="1" Name="qa_specification_headerLst" Size="70,20">
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_specification_header</DbTable>
+<Index>qa_specification_header_id</Index>
+<Data>specification_name,effective_from,effective_to,description,item_id_m,item_revision,ap_supplier_id,ar_customer_id,statusqa_specification_header_id</Data>
+<Order>qa_specification_header_id</Order></DbDetails>
+<OnClick><assign name="item_id_m[item_id_m]" function="SetSel" expr="%{qa_specification_headerLst[item_id_m]}"/><assign name="ap_supplier_id[supplier_id]" function="SetSel" expr="%{qa_specification_headerLst[ap_supplier_id]}"/><assign name="ar_customer_id[ar_customer_id]" function="SetSel" expr="%{qa_specification_headerLst[ar_customer_id]}"/><if cond="%{qa_specification_header_id}"><SetVisible name="insertqa_specification_header" Visible="0"/><SetVisible name="modifyqa_specification_header" Visible="1"/><else/><SetVisible name="insertqa_specification_header" Visible="1"/><SetVisible name="modifyqa_specification_header" Visible="0"/></if></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+<WndTap Text="vqa_specification" Name="vqa_specification" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_specification_header.xml"/>
+<Ctrls>
+<GroupBox Text="qa_specification_header" Name="GBqa_specification_header" id="qa_specification_header" Size="100,100"><Ctrls>
+<ListCtrl loadedclick="1" Name="qa_specification_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_specification_header q left join xbs.item i on q.item_id_m=i.item_id_m left join xbs.supplier s on q.ap_supplier_id=s.supplier_id left join xbs.ar_customer a on q.ar_customer_id=a.ar_customer_id</DbTable>
+<Index>qa_specification_header_id</Index>
+<Data>q.specification_name,q.effective_from,q.effective_to,q.description,i.item_number item_id_m,q.item_revision,s.supplier_name ap_supplier_id,a.customer_name ar_customer_id,q.status,q.qa_specification_header_id</Data>
+<Order>qa_specification_header_id</Order></DbDetails>
+	<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/>
+	<op text="create"><submit next="vQA.qa_specification_header.qa_specification_headerLst" function="resetcontent"/></op>
+	<op text="modify"><DbDetails><Where>qa_specification_header_id='%{qa_specification_headerLst[qa_specification_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vQA.qa_specification_header.qa_specification_header_id"/><DbDetails><Where>qa_specification_header_id='%{vQA.vqa_specification.qa_specification_headerLst[qa_specification_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vQA.qa_specification_header.qa_specification_headerLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_specification_line.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_header.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_line.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_action.xml" popup="1"/>
+<WndTap Text="qa_cp_header" Name="qa_cp_header" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_cp_header.xml"/>
+<Ctrls>
+<GroupBox Text="qa_cp_header" Name="GBqa_cp_header" id="qa_cp_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_cp_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_cp_header_GBOPE.xml"></xi:include>
+	<Button Text="qa_cp_line" ToolTip="ttp_qa_cp_line" Name="qa_cp_line" Size="50,20">
+		<OnClick><if cond="!%{qa_cp_header_id}"><alert expr="请先添加单据，若修改单据请从单据列表进入！"/><else/><DbDetails><Where>qa_cp_header_id='%{vQA.qa_cp_header.qa_cp_header_id}'</Where></DbDetails>
+		<submit namelist="DbDetails" next="vQA.qa_cp_line.qa_cp_header_id"/></if>
+		</OnClick>
+		</Button><TAB/>
+<ListCtrl loadedclick="1" Name="qa_cp_headerLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_cp_header</DbTable>
+<Index>qa_cp_header_id</Index>
+<Data>plan_name,plan_type,effective_from,qa_specification_header_id,specification_type,effective_to,description,qa_cp_header_id</Data>
+<Order>qa_cp_header_id</Order></DbDetails>
+<OnClick><assign name="plan_type[option_line_code]" function="SetSel" expr="%{qa_cp_headerLst[plan_type]}"/><assign name="qa_specification_header_id[qa_specification_header_id]" function="SetSel" expr="%{qa_cp_headerLst[qa_specification_header_id]}"/><assign name="specification_type[option_line_id]" function="SetSel" expr="%{qa_cp_headerLst[specification_type]}"/>
+<if cond="%{qa_cp_header_id}"><SetVisible name="insertqa_cp_header" Visible="0"/><SetVisible name="modifyqa_cp_header" Visible="1"/><else/><SetVisible name="insertqa_cp_header" Visible="1"/><SetVisible name="modifyqa_cp_header" Visible="0"/></if></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_cp_line.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_action_type.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_cp_assignment_header.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_cp_assignment_line.xml" popup="1"/>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_ce_result.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvQA" text="vQA"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="material_GBDSEARCH.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVvQA"><Ctrls>
+<Button Text="qa_specification" ToolTip="ttp_qa_specification" Name="qa_specification" Size="50,20">
+	<OnClick><submit next="vQA.vqa_specification.*"/></OnClick>
+	</Button><TAB/>
+<Button Text="qa_ce" ToolTip="ttp_qa_ce" Name="qa_ce" Size="50,20">
+	<OnClick><submit next="vQA.qa_ce_header.qa_ce_headerLst" function="resetcontent"/></OnClick>
+	</Button><TAB/>
+<Button Text="qa_cp" ToolTip="ttp_qa_cp" Name="qa_cp" Size="50,20">
+	<OnClick><submit next="vQA.qa_cp_header.qa_cp_headerLst" function="resetcontent"/></OnClick>
+	</Button><TAB/>
+<Button Text="qa_cp_assignment" ToolTip="ttp_qa_cp_assignment" Name="qa_cp_assignment" Size="50,20">
+	<OnClick><submit next="vQA.qa_cp_assignment_header.qa_cp_assignment_headerLst" function="resetcontent"/></OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="itemLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITitem" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="vQALst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.qa_ce_result_v</DbTable>
+<Index>qa_ce_result_idqa_ce_result_id</Index>
+<Data>*</Data>
+<Order>qa_ce_result_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

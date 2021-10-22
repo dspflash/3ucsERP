@@ -1,0 +1,40 @@
+<WndTap Text="pq_print" Name="pq_print" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_quote_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_quote_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="pq_print" Name="GBpq_print" id="pq_print" Size="100,100">
+	<Ctrls>
+		<MagicCtrl Name="qr_itemname" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="60,60" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_header_GBDEDIT.xml"></xi:include>
+	<BR AutoHeight="1"/><GroupBox Text="po_line" Name="GBpo_line" id="po_line" Size="100,100"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="pq_lineLst" Size="700,220">
+			<DbDetails>
+			<DbTable>xbs.po_quote_v</DbTable>
+			<Index>po_quote_line_id</Index>
+			<Data>*</Data>
+			<Order>po_quote_line_id</Order>
+			</DbDetails>
+		</ListCtrl></Ctrls></GroupBox>
+<BR AutoHeight="1"/><Button Text="print" ToolTip="ttp_print" Name="print" Size="50,20" visible="true">
+	<OnClick><submit next="GBpq_print" function="print"/></OnClick>
+	</Button><TAB/>
+<ListCtrl Name="po_quote_headerLst" ToolTip="ttp_po_quote_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_quote_header</DbTable>
+<Index>po_quote_header_id</Index>
+<Data>quote_number,po_rfq_header_id,quote_type,supplier_id,supplier_site_id,payment_term_id,ship_to_id,bill_to_id,currency,effective_start_date,effective_end_date,valid_date,description,rev,created_by,creation_date,last_update_by,last_update_date,po_quote_header_id,bu_org_id,quote_status</Data>
+<Order>po_quote_header_id</Order></DbDetails>
+<OnClick><assign name="po_rfq_header_id[po_rfq_header_id]" expr="%{po_quote_headerLst[po_rfq_header_id]}" function="SetSel"/><assign name="quote_type[option_line_id]" expr="%{po_quote_headerLst[quote_type]}" function="SetSel"/><assign name="supplier_id[supplier_id]" expr="%{po_quote_headerLst[supplier_id]}" function="SetSel"/><assign name="supplier_site_id[supplier_site_id]" expr="%{po_quote_headerLst[supplier_site_id]}" function="SetSel"/><assign name="payment_term_id[payment_term_id]" expr="%{po_quote_headerLst[payment_term_id]}" function="SetSel"/><assign name="ship_to_id[address_id]" expr="%{po_quote_headerLst[ship_to_id]}" function="SetSel"/><assign name="bill_to_id[address_id]" expr="%{po_quote_headerLst[bill_to_id]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{po_quote_headerLst[currency]}" function="SetSel"/><assign name="quote_status[option_line_id]" expr="%{po_quote_headerLst[quote_status]}" function="SetSel"/>
+			<magicdata filename="data/qr_po_number.png"><data>%{po_quote_headerLst[quote_number]}</data></magicdata>
+			<submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate><SetVisible name="insertpo_header" Visible="1"/><SetVisible name="modifypo_header" Visible="0"/></OnActivate>
+		</WndTap>

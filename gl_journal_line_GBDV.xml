@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVgl_journal_line"><Ctrls>
+<ListCtrl Heading="total_dr,100;total_cr,100;line_num,55;code_combination_id,120;total_ac_dr,100;total_ac_cr,100;description,640;reference_type,125;reference_key_name,250;reference_key_value,100;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;gl_journal_line_id,55;status,120;" loadedclick="0" ToolTip="ttp_gl_journal_line" Name="gl_journal_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_journal_line g left join xbs.coa_combination c on g.code_combination_id=c.coa_combination_id left join xbs.option_line o on g.status=o.option_line_id</DbTable>
+<Index>gl_journal_line_id</Index>
+<Data>g.total_dr,g.total_cr,g.line_num,c.combination code_combination_id,g.total_ac_dr,g.total_ac_cr,g.description,g.reference_type,g.reference_key_name,g.reference_key_value,g.created_by,g.creation_date,g.last_update_by,g.last_update_date,g.gl_journal_line_id,o.option_line_value status</Data>
+<Order>gl_journal_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

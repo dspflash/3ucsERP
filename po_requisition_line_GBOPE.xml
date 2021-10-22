@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEpo_requisition_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="po_requisition_line_id" Text="create" ToolTip="ttp_createpo_requisition_line" Name="insertpo_requisition_line" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.po_requisition_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>po_requisition_header_id[po_requisition_header_id],line_type[option_line_id],need_by_date,item_id_m[item_id_m],item_description,uom_id[uom_id],unit_price,line_quantity,line_price,line_description,reference_key_name,reference_header_id,reference_line_id</Data>
+<DataEx>receving_org_id,created_by,creation_date,last_update_by,last_update_date;'%{orgid}','%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="po_requisition_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypo_requisition_line" Name="modifypo_requisition_line" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.po_requisition_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>po_requisition_header_id[po_requisition_header_id],line_type[option_line_id],need_by_date,item_id_m[item_id_m],item_description,uom_id[uom_id],unit_price,line_quantity,line_price,line_description,reference_header_id,reference_line_id</Data>
+<DataEx>receving_org_id,last_update_by,last_update_date;'%{orgid}','%{user_id}',now()</DataEx>
+<Where>po_requisition_line_id='%{po_requisition_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="po_requisition_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpo_requisition_line" Name="resetpo_requisition_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_requisition_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchpo_requisition_line" Name="gsearchpo_requisition_line" Size="50,20" visible="false">
+	<OnClick>
+	<search next="po_requisition_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITpo_requisition_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

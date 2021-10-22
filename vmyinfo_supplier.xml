@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="myinfo" Name="myinfo" Ver="2">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_modify_pass.xml" popup="1"/>
+			</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\xerp_user.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\supplier.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\supplier_site.xml"/>
+<Ctrls>
+<GroupBox Text="myinfo" Name="GBhr_employee_v" id="hr_employee_v" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="supplier_all_v_GBDEDIT.xml"></xi:include>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<TAB/><Button Text="modifyPass" ToolTip="ttp_modifyPass" Name="modify_Pass" Size="50,20"><OnClick><submit next="$this.xerp_user.GBDEDITxerp_user" function="reset"/></OnClick></Button><TAB/>
+</Ctrls></GroupBox>
+<ListCtrl onload="init" Name="hr_employee_vLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.supplier_all_v</DbTable>
+<Data>supplier_number,supplier_name,supplier_site_number,supplier_site_name,tax_country,tax_reg_no,ap_currency,payment_term,status</Data>
+</DbDetails><DbDetails><Where>supplier_id='%{supplier_id}'</Where></DbDetails><operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

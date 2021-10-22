@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="0">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>
+<!--css><![CDATA[
+ComboBox,TextBox,,BUTTON,DateTime {
+  bgcolor: RGB(123,234,225) RGB(123,234,0);
+  background: gradient rectangle,orientation TOP_BOTTOM,colors RGB(51,139,192) RGB(255,255,255) RGB(51,139,192);
+  margin: 0;
+  textcolor: RGB(123,234,255);  
+}
+LISTCTRL{
+  bgcolor: gradient rectangle,orientation TOP_BOTTOM,colors RGB(253,253,253) (0,159,232);
+  selected:gradient rectangle,orientation TOP_BOTTOM,colors RGB(123,234,0) RGB(123,234,123) RGB(123,234,0);
+  hdbgcolor:gradient rectangle,orientation BOTTOM_TOP,colors RGB(0,175,255) RGB(0,159,0);
+}
+BUTTON:actived{
+  bgcolor: RGB(123,234,250) RGB(123,234,0);
+}
+navibtn.xfrm{background: gradient,orientation top_bottom,stroke RGB(255,255,5) 1 3 2,corners 15 0 0 10,colors #D11B1E #000000 #64DE0E;}
+navitab.xfrm{background: gradient rectangle,type sweep,colors RGB(123,234,245) RGB(123,234,0);
+dividercolor:RGB(255,0,0);indicatorcolor:RGB(0,255,0);Underlinecolor:RGB(0,0,255);}
+menu.xfrm{background: gradient,orientation top_bottom,corners 0 0 0 0,colors #6cb4db #bbdbf2;}
+body.xfrm{background: gradient,orientation top_bottom,corners 15 10 15 15,colors #6cb4db #bbdbf2;}
+navi.xfrm {background: gradient,orientation top_bottom,corners 15 0 0 0,colors RGB(26,134,235) RGB(25,24,245);}
+actionbar.xfrm {background: gradient,orientation top_bottom,corners 0 10 0 0,colors RGB(26,134,235) RGB(25,24,245);}
+navitab.xfrm : visited {color: #FF0000}
+magicctrl:first-letter
+{
+  color:#ff0000;
+  font-size:xx-large;
+}
+body {
+  margin: 0;
+}
+]]>
+</css--><!--css><![CDATA[
+ComboBox,TextBox,,BUTTON,DateTime {
+  bgcolor: RGB(123,234,225) RGB(123,234,0);
+  background: gradient rectangle,type radial 80 0.5 0.5,orientation left_right,stroke RGB(255,255,5) 1 3 2,colors RGB(255,24,245) RGB(123,234,0);
+  margin: 0;
+  textcolor: RGB(123,234,255);  
+}
+LISTCTRL{
+  background: gradient rectangle,orientation TOP_BOTTOM,colors RGB(255,24,245) RGB(123,234,0);
+  selected:gradient rectangle,orientation TOP_BOTTOM,colors RGB(123,234,0) RGB(225,124,245) RGB(123,234,0);
+  header:gradient rectangle,orientation BOTTOM_TOP,colors RGB(25,24,245) RGB(123,24,0);
+}
+BUTTON:actived{
+  bgcolor: RGB(123,234,250) RGB(123,234,0);
+}
+navibtn.xfrm{background: gradient,orientation top_bottom,stroke RGB(255,255,5) 1 3 2,corners 15 0 0 10,colors #D11B1E #000000 #64DE0E;}
+navitab.xfrm{background: gradient rectangle,type sweep,colors RGB(123,234,245) RGB(123,234,0);
+dividercolor:RGB(255,0,0);indicatorcolor:RGB(0,255,0);Underlinecolor:RGB(0,0,255);}
+menu.xfrm{background: gradient,orientation top_bottom,corners 0 0 0 0,colors #D11B1E #000000 #64DE0E;}
+body.xfrm{background: gradient,orientation top_bottom,corners 15 10 15 15,colors #D11B1E #000000 #64DE0E;}
+navi.xfrm {background: gradient,orientation top_bottom,corners 15 0 0 0,colors #D11B1E #000000 #64DE0E;}
+actionbar.xfrm {background: gradient,orientation top_bottom,corners 0 10 0 0,colors #D11B1E #000000 #64DE0E;}
+navitab.xfrm : visited {color: #FF0000}
+magicctrl:first-letter
+{
+  color:#ff0000;
+  font-size:xx-large;
+}
+body {
+  margin: 0;
+}
+]]>
+</css-->
+	<!--EventTriggers>
+		<Trigger name="click" oneshot="0" Interval="10" dest="sys_pd_process_flow.timedrefresh"></Trigger>
+	</EventTriggers-->
+	<WndTaps id="admin">
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmaterial.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vMRP.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vsupplier.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpoquote.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vinventory.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vbom_department.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vproduct.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vPRP.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vcustomer.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vwip.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vwipwo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vsdso.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vsddlv.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vledger.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vQA.xml"/-->
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmyinfo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vorg.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vhr_employee.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vuser.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vgeneral.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_header_Vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_role_permission_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vsystem.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_process_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_process_flow_diagram_v.xml" popup="1"/>
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_approval_limit_assign_V.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_approval_object_V.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_approval_limit_header_Vm.xml"/-->
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xbs_log_v.xml"/>
+	</WndTaps>
+</XI3uWnd>

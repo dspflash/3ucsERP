@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_leave_transaction" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_leave_transactionLst" ToolTip="ttp_hr_leave_transaction" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_leave_transaction_id</Index>
+<DbTable>xbs.hr_leave_transaction</DbTable>
+<Data>employee_id,requsted_date,approved_date,approved_by_employee_id,leave_status,leave_type,leave_quantity,from_date,to_date,reason,contact_details,sys_notification_id,sys_notification_group_id,created_by,creation_date,last_update_by,last_update_date,hr_leave_transaction_id</Data>
+<Order>hr_leave_transaction_id</Order></DbDetails>
+<OnClick><assign name="employee_id[hr_employee_id]" expr="%{hr_leave_transactionLst[employee_id]}" function="SetSel"/><assign name="approved_by_employee_id[hr_employee_id]" expr="%{hr_leave_transactionLst[approved_by_employee_id]}" function="SetSel"/><assign name="leave_status[option_line_id]" expr="%{hr_leave_transactionLst[leave_status]}" function="SetSel"/><assign name="leave_type[hr_leave_type_id]" expr="%{hr_leave_transactionLst[leave_type]}" function="SetSel"/>
+<if cond="%{hr_leave_transaction_id}"><SetVisible name="inserthr_leave_transaction" Visible="0"/><SetVisible name="modifyhr_leave_transaction" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

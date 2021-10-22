@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsupplier_site"><Ctrls>
+<ListCtrl Heading="supplier_site_number,60;supplier_site_name,300;supplier_site_type,120;payment_term_id,120;pay_on,120;currency,120;site_tax_country,120;site_tax_reg_no,500;ap_invoice_match_level,120;receipt_routing,120;qty_variance,250;receipt_days_variance,250;primary_cb,60;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;supplier_site_id,60;" loadedclick="0" ToolTip="ttp_supplier_site" Name="supplier_siteLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.supplier_site</DbTable>
+<Index>supplier_site_id</Index>
+<Data>supplier_site_number,supplier_site_name,supplier_site_type,payment_term_id,pay_on,currency,site_tax_country,site_tax_reg_no,ap_invoice_match_level,receipt_routing,qty_variance,receipt_days_variance,primary_cb,status,created_by,creation_date,last_update_by,last_update_date,supplier_site_id</Data>
+<Order>supplier_site_id</Order></DbDetails>
+<OnClick><assign name="supplier_site_type[option_line_id]" function="SetSel" expr="%{supplier_siteLst[supplier_site_type]}"/><assign name="payment_term_id[payment_term_id]" function="SetSel" expr="%{supplier_siteLst[payment_term_id]}"/><assign name="pay_on[option_line_id]" function="SetSel" expr="%{supplier_siteLst[pay_on]}"/><assign name="currency[currency_id]" function="SetSel" expr="%{supplier_siteLst[currency]}"/><assign name="site_tax_country[country_id]" function="SetSel" expr="%{supplier_siteLst[site_tax_country]}"/><assign name="ap_invoice_match_level[option_line_id]" function="SetSel" expr="%{supplier_siteLst[ap_invoice_match_level]}"/><assign name="receipt_routing[option_line_id]" function="SetSel" expr="%{supplier_siteLst[receipt_routing]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

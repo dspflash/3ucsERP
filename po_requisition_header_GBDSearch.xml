@@ -1,0 +1,35 @@
+<GroupBox Name="GBDEDITpo_requisition_header"><Ctrls><!--GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_po_requisition_type"><Ctrls>
+<Label Align="Right" Text="po_requisition_type" onload="init" Name="lb_po_requisition_type" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" ToolTip="ttp_po_requisition_type" onload="init" Name="po_requisition_type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=171</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox-->
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_po_requisition_number"><Ctrls>
+<Label Align="Right" Text="po_requisition_number" Name="lb_po_requisition_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_po_requisition_number" Name="po_requisition_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls>
+<Label Align="Right" Text="item_number" Name="lb_item_number" Size="60,20"/>
+<TextBox Weight="170" Text="" type="2" ToolTip="ttp_item_number" Name="item_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<!--BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supply_org_id"><Ctrls>
+<Label Align="Right" Text="supply_org_id" Name="lb_supply_org_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_supply_org_id" Name="supply_org_id" Size="170,20"/>
+</Ctrls></GroupBox-->
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_requisition_status"><Ctrls>
+<Label Align="Right" Text="requisition_status" Name="lb_requisition_status" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_requisition_status" Name="requisition_status" onload="init" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=132</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearch.xml"/>
+</Ctrls></GroupBox>

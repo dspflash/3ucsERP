@@ -1,0 +1,104 @@
+<GroupBox Name="GBDEDITap_transaction_line"><Ctrls>
+<GroupBox Name="GB_reference_key_value" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_reference_key_value" Size="60,20" Text="reference_key_value" Align="Right"/>
+<ComboBox Name="reference_key_value" Size="170,100" Text="" Weight="170"  ToolTip="ttp_reference_key_value"><OnSelEndOk><submit next="item_id_m"/><submit next="uom_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_line_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_line_type" Size="60,20" Text="line_type" Align="Right" onload="init" SelectedIndex="2"/>
+<ComboBox Name="line_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_line_type" onload="init" SelectedIndex="2">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=133</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_id_m" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_id_m" Size="60,20" Text="item_id_m" Align="Right" SelectedIndex="0"/>
+<ComboBox Name="item_id_m" Size="170,100" Text="" Weight="170"  ToolTip="ttp_item_id_m" SelectedIndex="0">
+	<DbDetails fcsm="true">
+<DbTable>xbs.item</DbTable>
+<Index>item_id_m</Index>
+<Data>item_number,item_id_m</Data>
+<Where>item_id_m='%{reference_key_value[item_id_m]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_line_number" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_line_number" Size="60,20" Text="line_number" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="line_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_line_number" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_description" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_item_description" Size="60,20" Text="item_description" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="item_description" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_description" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_uom_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_uom_id" Size="60,20" Text="uom_id" Align="Right" selectedIndex="0"/>
+<ComboBox Name="uom_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_uom_id" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.uom</DbTable>
+<Index>uom_id</Index>
+<Data>uom_name,uom_id</Data>
+<Where>uom_id='%{reference_key_value[uom_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_inv_line_quantity" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_inv_line_quantity" Size="60,20" Text="inv_line_quantity" Align="Right"/>
+<TextBox Name="inv_line_quantity" Size="170,20" Text="" Weight="170" ToolTip="ttp_inv_line_quantity"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_inv_unit_price" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_inv_unit_price" Size="60,20" Text="inv_unit_price" Align="Right"/>
+<TextBox Name="inv_unit_price" Size="170,20" Text="" Weight="170" ToolTip="ttp_inv_unit_price"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_inv_line_price" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_inv_line_price" Size="60,20" Text="inv_line_price" Align="Right"/>
+<TextBox Name="inv_line_price" Size="170,20" Text="" Weight="170" ToolTip="ttp_inv_line_price"><OnEnChange><if cond="%{ap_transaction_header_id[exchange_rate]}"><assign name="gl_inv_line_price" expr="js(%{inv_line_price}*%{ap_transaction_header_id[exchange_rate]})"/><else/><assign name="gl_inv_line_price" expr="%{inv_line_price}"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_gl_inv_line_price" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_gl_inv_line_price" Size="60,20" Text="gl_inv_line_price" Align="Right"/>
+<TextBox Name="gl_inv_line_price" Size="170,20" Text="" Weight="170" ToolTip="ttp_gl_inv_line_price"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_line_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_line_description" Size="60,20" Text="line_description" Align="Right"/>
+<TextBox Name="line_description" Size="170,20" Text="" Weight="170" ToolTip="ttp_line_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right" Visible="false" overlap="pre"/>
+<ComboBox Name="status" Size="170,100" Text="" Weight="170"  ToolTip="ttp_status" Visible="false" overlap="pre">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=299</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_ap_transaction_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_ap_transaction_line_id" Size="60,20" Text="ap_transaction_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="ap_transaction_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_ap_transaction_line_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBap_transaction_line" expr="TABEDITap_transaction_line"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_ap_transaction_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_ap_transaction_header_id" Size="60,20" Text="ap_transaction_header_id" Align="Right" Visible="false" overlap="pre" readonly="true" SelectedIndex="0"/>
+<ComboBox Name="ap_transaction_header_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_ap_transaction_header_id" Visible="false" overlap="pre" readonly="true" SelectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.ap_transaction_header</DbTable>
+<Index>ap_transaction_header_id</Index>
+<Data>transaction_number,exchange_rate,period_id,ap_transaction_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

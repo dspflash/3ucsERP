@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVmdm_price_list_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="mdm_price_list_headerLst" ToolTip="ttp_mdm_price_list_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_price_list_header</DbTable>
+<Index>mdm_price_list_header_id</Index>
+<Data>price_list,module_name,description,currency_code,currency_conversion_type,allow_mutli_currency_cb,status,created_by,creation_date,last_update_by,last_update_date,mdm_price_list_header_id</Data>
+<Order>mdm_price_list_header_id</Order></DbDetails>
+<OnClick><assign name="module_name[name]" expr="%{mdm_price_list_headerLst[module_name]}" function="SetSel"/><assign name="currency_code[currency_id]" expr="%{mdm_price_list_headerLst[currency_code]}" function="SetSel"/><assign name="currency_conversion_type[currency_conversion_type]" expr="%{mdm_price_list_headerLst[currency_conversion_type]}" function="SetSel"/><assign name="created_by[xerp_user_id]" expr="%{mdm_price_list_headerLst[created_by]}" function="SetSel"/><assign name="last_update_by[xerp_user_id]" expr="%{mdm_price_list_headerLst[last_update_by]}" function="SetSel"/>
+<if cond="%{mdm_price_list_header_id}"><SetVisible name="insertmdm_price_list_header" Visible="0"/><SetVisible name="modifymdm_price_list_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

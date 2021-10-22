@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="WIP" Name="wip" id="wip">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_bom.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_routing_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_routing_detail.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_move_transaction.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wol_transaction.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_accounting_group.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_control.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_resource_transaction.xml"></xi:include>
+	</WndTaps>
+	</WndTap>

@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVsd_shipping_control" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletesd_shipping_control" Name="deletesd_shipping_control" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_shipping_control</DbTable>
+<Where>sd_shipping_control_id='%{sd_shipping_controlLst[sd_shipping_control_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchsd_shipping_control" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshsd_shipping_control" Name="searchsd_shipping_control" Size="50,20">
+			  <OnClick><submit next="sd_shipping_controlLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPsd_shipping_controlLst" OnClick="(sd_shipping_controlLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREsd_shipping_controlLst" OnClick="(sd_shipping_controlLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPsd_shipping_controlLst" OnClick="(sd_shipping_controlLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

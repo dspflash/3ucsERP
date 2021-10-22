@@ -1,0 +1,20 @@
+﻿<WndTap Name="mdm_bank_account_v" Text="mdm_bank_account">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_account_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><mdm_bank_site_id format="m.mdm_bank_site_id='%{opvalue}'"/><account_number format="(m.account_number like '%%{opvalue}%')"/><currency_code format="m.currency_code='%{opvalue}'"/><account_type format="m.account_type='%{opvalue}'"/><description format="(m.description like '%%{opvalue}%')"/><status format="m.status is %{opvalue}"/><created_by format="(m.created_by like '%%{opvalue}%')"/><creation_date format="(m.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(m.last_update_by like '%%{opvalue}%')"/><last_update_date format="(m.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><mdm_bank_account_id format="(m.mdm_bank_account_id like '%%{opvalue}%')"/><mdm_bank_header_id format="m.mdm_bank_header_id='%{opvalue}'"/><org_id format="m.org_id='%{opvalue}'"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\mdm_bank_account.xml"/>
+<Ctrls><GroupBox  Name="GBmdm_bank_account" id="mdm_bank_account" Text="mdm_bank_account" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_account_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVmdm_bank_account" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.mdm_bank_account.GBDEDITmdm_bank_account" function="reset"/><assign name="$this.mdm_bank_account.frmwndctrl" expr="%{$this.mdm_bank_account_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetmdm_bank_account" Name="resetmdm_bank_account" Size="50,20">	<OnClick>	<submit next="GBDEDITmdm_bank_account" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchmdm_bank_account" Name="gsearchmdm_bank_account" Size="50,20">	<OnClick>	
+<search next="mdm_bank_account_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITmdm_bank_account" namelist="search" function="search"/>	
+<search next="records_mdm_bank_account" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITmdm_bank_account" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_account_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_account_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_account_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

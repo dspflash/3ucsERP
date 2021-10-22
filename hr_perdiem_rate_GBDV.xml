@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_perdiem_rate"><Ctrls>
+<ListCtrl Heading="hr_location_id,120;hr_grade_id,120;rate,75;from_date,90;to_date,90;currency,120;description,250;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_perdiem_rate_id,60;" loadedclick="0" ToolTip="ttp_hr_perdiem_rate" Name="hr_perdiem_rateLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>hr_perdiem_rate_id</Index>
+<DbTable>xbs.hr_perdiem_rate h left join xbs.hr_location h0 on h.hr_location_id=h0.hr_location_id left join xbs.hr_grade h1 on h.hr_grade_id=h1.hr_grade_id left join xbs.currency c on h.currency=c.currency_id</DbTable>
+<Data>h0.combination hr_location_id,h1.grade hr_grade_id,h.rate,h.from_date,h.to_date,c.title currency,h.description,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_perdiem_rate_id</Data>
+<Order>hr_perdiem_rate_id</Order></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>hr_perdiem_rate_id='%{hr_perdiem_rate_vLst[hr_perdiem_rate_id]}'</Where></DbDetails><submit next="$this.hr_perdiem_rate.hr_perdiem_rateLst" namelist="DbDetails"/><assign name="$this.hr_perdiem_rate.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_perdiem_rate</DbTable>
+<Where>hr_perdiem_rate_id='%{hr_perdiem_rate_vLst[hr_perdiem_rate_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

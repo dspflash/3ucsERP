@@ -1,0 +1,9 @@
+﻿<WndTap Name="bom_stnd_op_res_assignment_v" Text="bom_stnd_op_res_assignment">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_stnd_op_res_assignment_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_stnd_op_res_assignment.xml"/>
+<Ctrls><GroupBox  Name="GBbom_stnd_op_res_assignment" id="bom_stnd_op_res_assignment" Text="bom_stnd_op_res_assignment" Size="100,100"><Ctrls>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_stnd_op_res_assignment_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

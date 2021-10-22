@@ -1,0 +1,13 @@
+﻿<WndTap Name="mdm_bank_account" Text="mdm_bank_account" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="mdm_bank_site_id[mdm_bank_site_id],account_number,currency_code[currency_id],account_type[option_line_code],reftbltp,refid"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\mdm_bank_account.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBmdm_bank_account" id="mdm_bank_account" Text="mdm_bank_account" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_account_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_account_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_account_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertmdm_bank_account" Visible="1"/><SetVisible name="modifymdm_bank_account" Visible="0"/></OnActivate>
+</WndTap>

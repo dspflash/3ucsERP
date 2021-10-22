@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEgl_calendar" Size="100,100"><Ctrls>
+<Button sqlpkinsert="gl_calendar_id" Text="create" ToolTip="ttp_creategl_calendar" Name="insertgl_calendar" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_calendar</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>name,option_line_code[option_line_id],calendar_type[option_line_id],c_year,c_quarter,c_number,from_date,to_date,name_prefix,adjustment_period_cb</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="gl_calendarLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifygl_calendar" Name="modifygl_calendar" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_calendar</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>name,option_line_code[option_line_id],calendar_type[option_line_id],c_year,c_quarter,c_number,from_date,to_date,name_prefix,adjustment_period_cb</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>gl_calendar_id='%{gl_calendar_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="gl_calendarLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetgl_calendar" Name="resetgl_calendar" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITgl_calendar" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchgl_calendar" Name="gsearchgl_calendar" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="gl_calendarLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITgl_calendar" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

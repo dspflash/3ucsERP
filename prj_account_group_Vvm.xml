@@ -1,0 +1,20 @@
+<GroupBox Name="GBDVprj_account_group" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_account_group_vLst" ToolTip="ttp_prj_account_group" Size="500,300" Heading="accounting_group,125;status,60;effective_start_date,90;effective_end_date,90;description,440;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;prj_account_group_id,50;bu_org_id,55;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_account_group p</DbTable>
+<Index>prj_account_group_id</Index>
+<Data>p.accounting_group,p.status,p.effective_start_date,p.effective_end_date,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_account_group_id,p.bu_org_id</Data>
+<Order>prj_account_group_id</Order>
+<Where>bu_org_id='%{org_id}'</Where></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.prj_account_group.GBDEDITprj_account_group" function="reset"/><assign name="$this.prj_account_group.bu_org_id" expr="%{org_id}"/></op>
+<op text="modify"><DbDetails><Where>prj_account_group_id='%{prj_account_group_vLst[prj_account_group_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_account_group.prj_account_groupLst"/></op>
+<op text="coa"><assign name="$parent.coa_combination_V.org_id" expr="%{org_id}"/><assign name="$parent.coa_combination_V.reftbltp" expr="prj_account_group"/><assign name="$parent.coa_combination_V.refid" expr="%{prj_account_group_vLst[prj_account_group_id]}"/><submit next="$parent.coa_combination_V.coa_combination_VLst"/><assign name="$parent.coa_combination_V.ac_usage_class" expr="prj"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.prj_account_group</DbTable>
+<Where>prj_account_group_id='%{prj_account_group_vLst[prj_account_group_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

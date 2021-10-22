@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVap_transaction_line"><Ctrls>
+<ListCtrl Heading="reference_key_value,120;line_type,120;item_id_m,120;line_number,60;inv_line_quantity,100;inv_unit_price,100;inv_line_price,100;gl_inv_line_price,75;line_description,640;tax_amount,100;gl_tax_amount,75;status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ap_transaction_line_id,60;" loadedclick="0" ToolTip="ttp_ap_transaction_line" Name="ap_transaction_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_transaction_line a left join xbs.option_line o on a.line_type=o.option_line_id left join xbs.item i on a.item_id_m=i.item_id_m left join xbs.option_line o0 on a.status=o0.option_line_id</DbTable>
+<Index>ap_transaction_line_id</Index>
+<Data>a.reference_key_value,o.option_line_value line_type,i.item_number item_id_m,a.line_number,a.inv_line_quantity,a.inv_unit_price,a.inv_line_price,a.gl_inv_line_price,a.line_description,a.tax_amount,a.gl_tax_amount,o0.option_line_value status,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.ap_transaction_line_id</Data>
+<Order>ap_transaction_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

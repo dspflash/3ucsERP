@@ -1,0 +1,42 @@
+<GroupBox Name="GBDEDITprj_agreement_header"><Ctrls>
+<GroupBox Name="GB_agreement_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_agreement_number" Size="60,20" Text="agreement_number" Align="Right"/>
+<TextBox Name="agreement_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_agreement_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_agreement_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_agreement_type" Size="60,20" Text="agreement_type" Align="Right"/>
+<TextBox Name="agreement_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_agreement_type"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_admin_employee_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_admin_employee_id" Size="60,20" Text="admin_employee_id" Align="Right" type="2"/>
+<ComboBox Name="admin_employee_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_admin_employee_id" type="2">
+	<DbDetails>
+<DbTable>xbs.employees_v</DbTable>
+<Index>hr_employee_id</Index>
+<Data>employee_name as name,phone,hr_employee_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnEditChange><DbDetails><Where>employee_name like '%%{hr_employee_id[windowtext]}%'</Where></DbDetails><submit namelist="DbDetails"/></OnEditChange></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_ar_customer_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_ar_customer_id" Size="60,20" Text="ar_customer_id" Align="Right" onload="init" type="2"/>
+<ComboBox Name="ar_customer_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_ar_customer_id" onload="init" type="2">
+	<DbDetails>
+<DbTable>xbs.ar_customer_v</DbTable>
+<Index>ar_customer_id</Index>
+<Data>customer_name,currency_id,payment_term_id,ar_customer_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="ar_customer_site_id"/><submit next="doc_currency"/><submit next="payment_term_id"/></OnSelEndOk><OnEditChange><DbDetails><Where>customer_name like '%%{ar_customer_id[windowtext]}%' or customer_number like '%%{ar_customer_id[windowtext]}%'</Where></DbDetails><submit namelist="DbDetails"/></OnEditChange></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_start_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_start_date" Size="60,20" Text="start_date" Align="Right"/>
+<DateTime Name="start_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_start_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_end_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_end_date" Size="60,20" Text="end_date" Align="Right"/>
+<DateTime Name="end_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_end_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bu_org_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_bu_org_id" Size="60,20" Text="bu_org_id" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="bu_org_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_bu_org_id" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

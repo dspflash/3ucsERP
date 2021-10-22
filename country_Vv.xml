@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVcountry" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="country_vLst" ToolTip="ttp_country" Size="700,420" OnLoad="init" Heading="namecn,250;name,640;iso_code_2,20;iso_code_3,20;postcode_required,60;status,60;country_id,55;" onload="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.country c</DbTable>
+<Index>country_id</Index>
+<Data>c.namecn,c.name,c.iso_code_2,c.iso_code_3,c.postcode_required,c.status,c.country_id</Data>
+<Order>country_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>country_id='%{country_vLst[country_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.country.countryLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

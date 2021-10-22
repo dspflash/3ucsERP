@@ -1,0 +1,44 @@
+<Language name="hr_timesheet_period">
+<Lang name="hr_timesheet_period" value="记工期间"/>
+<Lang name="TabEdithr_timesheet_period" value="hr_timesheet_period Edit"/>
+<Lang name="TabViewhr_timesheet_period" value="hr_timesheet_period View"/>
+<Lang name="timesheet_period" value="记工期间"/>
+<Lang name="ttp_timesheet_period" value=""/>
+<Lang name="from_date" value="开始日期"/>
+<Lang name="ttp_from_date" value=""/>
+<Lang name="to_date" value="结束日期"/>
+<Lang name="ttp_to_date" value=""/>
+<Lang name="max_work_hour" value="工时上限"/>
+<Lang name="ttp_max_work_hour" value=""/>
+<Lang name="max_billable_hour" value="有效工时上限"/>
+<Lang name="ttp_max_billable_hour" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hr_timesheet_period_id" value=""/>
+<Lang name="ttp_hr_timesheet_period_id" value=""/>
+<Lang name="ttp_operationhr_timesheet_period" value="操作"/>
+<Lang name="ttp_createhr_timesheet_period" value="新增"/>
+<Lang name="ttp_modifyhr_timesheet_period" value="修改"/>
+<Lang name="ttp_resethr_timesheet_period" value="清除数据"/>
+<Lang name="ttp_deletehr_timesheet_period" value="删除"/>
+<Lang name="ttp_refreshhr_timesheet_period" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

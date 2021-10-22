@@ -1,0 +1,14 @@
+<WndTap Name="gl_journal_line_v" Text="gl_journal_line">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_line_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\gl_journal_line.xml"/>
+<Ctrls><GroupBox  Name="GBgl_journal_line" id="gl_journal_line" Text="gl_journal_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_line_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVgl_journal_line" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.gl_journal_line.GBDEDITgl_journal_line" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetgl_journal_line" Name="resetgl_journal_line" Size="50,20">	<OnClick>	<submit next="GBDEDITgl_journal_line" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchgl_journal_line" Name="gsearchgl_journal_line" Size="50,20" visible="true">	<OnClick>	<search next="gl_journal_line_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITgl_journal_line" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_line_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,101 @@
+<WndTap Name="vPoRequisition" Text="PO_Requisition">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xbs_log_vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_requisition_header_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_requisition_print_v.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_header_Ve.xml" popup="1"/>
+	<WndTap Text="PoReqLine" Name="vPoReqLine" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_requisition_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="PoReqLine" Name="PoReqLine" id="PoReqLine" Size="100,100"><Ctrls>
+			<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpo_requisition_line"><Ctrls>
+			<ListCtrl loadedclick="0" ToolTip="ttp_po_requisition_line" Name="po_requisition_lineLst" Size="700,420">
+			<DbDetails>
+				<DbTable>xbs.po_requisition_line_v</DbTable> 
+				<Data>*</Data>
+			</DbDetails>
+			<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+			</ListCtrl>
+			</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			</WndTap>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_requisition_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="PO_Requisition"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_requisition_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">
+	<OnClick><submit next="$this.po_requisition_header.GBDEDITpo_requisition_header" function="reset"/></OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_requisition_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="POrqLst" listed="0" prefixand="1" inputed="1"><po_requisition_number format="(po_requisition_number like '%%{opvalue}%')"/>
+	<item_number format="(po_requisition_header_id IN (SELECT po_requisition_header_id FROM po_requisition_line_v WHERE item_number like '%%{opvalue}%'))"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search>
+	<submit next="GBDEDITpo_requisition_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="export" Size="50,20" Text="导出">
+	<OnClick><!--import button="export" selected="1">sql:update s_order set o_state=3 where o_id=%0;update s_order set o_state=3 where o_id=%0</import><submit next="OrderList" namelist="import" method="post" function="import"/-->
+	<Save selected="1" columns="3,0,7,8,9,11"></Save><submit next="POrqLst" namelist="Save" function="savetofile"/></OnClick></Button>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="POrqLst" Size="700,420">
+<OnChanged><if cond="%{POrqLst[lastSqlErrMsg]}"><info expr="%{POrqLst[lastSqlErrMsg]}"/><elseif cond="%{POrqLst[sqlok]}"/><info expr="Processing..."/></if></OnChanged>
+	<DbDetails>
+<DbTable>(select prh.* from xbs.po_requisition_header_v prh left join po_requisition_line prl on prh.po_requisition_header_id=prl.po_requisition_header_id and (bu_org_id='%{orgid}' or receving_org_id='%{orgid}') group by prh.po_requisition_header_id) tmp</DbTable>
+<Index>po_requisition_header_id</Index>
+<Data>*</Data>
+<Order>po_requisition_header_id</Order>
+<Where>and requisition_status not in (322,323)</Where>
+<queryFormat>select %{data} from %{dbtable} where ((bu_org_id='%{orgid}' and requisition_status=326) or created_by='%{user_id}') %{where} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="po_req_approval_rule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/po_req_approval_rule.xml"/></rules>
+<inputs input1="%{userid}" position="%{position}" opinv="%{app.opinv}" status="%{POrqLst[requisition_status]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="view"><DbDetails><Where>po_requisition_header_id=%{POrqLst[po_requisition_header_id]}</Where></DbDetails><submit namelist="DbDetails" next="$this.vPoReqLine.po_requisition_lineLst"/></op>
+<op text="modify"><assign name="$this.po_requisition_header.po_requisition_header_id" expr=""/><DbDetails><Where>po_requisition_header_id='%{POrqLst[po_requisition_header_id]}' and requisition_status=321 and created_by='%{user_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.po_requisition_header.po_requisition_headerLst"/><if cond="%{POrqLst[supplier_id]}"><DbDetails><Where>supplier_id in (SELECT supplier_id FROM (SELECT 
+COUNT(pql.item_id_m) qnt,pqh.supplier_id
+FROM po_quote_line pql 
+JOIN po_quote_header pqh ON pql.po_quote_header_id=pqh.po_quote_header_id AND pqh.quote_status=1489
+JOIN po_requisition_line prl ON pql.item_id_m=prl.item_id_m
+JOIN po_requisition_header prh ON prl.po_requisition_header_id=prh.po_requisition_header_id AND pqh.bu_org_id=prh.bu_org_id
+WHERE prl.po_requisition_header_id=%{POrqLst[po_requisition_header_id]} 
+GROUP BY pqh.supplier_id) AS q 
+JOIN (SELECT COUNT(0) rnt FROM po_requisition_line prl WHERE prl.po_requisition_header_id=%{POrqLst[po_requisition_header_id]}) r ON q.qnt=r.rnt)
+</Where></DbDetails>supplier_id in (SELECT pqs.supplier_id
+FROM xbs.po_quote_supplier_v pqs, po_requisition_header prh  JOIN po_requisition_line prl ON prh.po_requisition_header_id=prl.po_requisition_header_id 
+WHERE pqs.item_id_m=prl.item_id_m AND prh.po_requisition_header_id=%{POrqLst[po_requisition_header_id]})<submit namelist="DbDetails" next="$this.po_requisition_header.supplier_id"/><else/><submit function="resetcontent" next="$this.po_requisition_header.supplier_id"/></if></op>
+<op text="submit" needconfirm="1"><DbDetails><queryFormat>update po_requisition_header set requisition_status=320 where po_requisition_header_id='%{POrqLst[po_requisition_header_id]}' and requisition_status=321 and created_by='%{user_id}' and (select count(po_requisition_line_id) from po_requisition_line where po_requisition_header_id='%{POrqLst[po_requisition_header_id]}')!=0</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/>
+<submit next="$this.sys_pd_header.GBDEDITsys_pd_header" function="reset"/>
+<assign name="$this.sys_pd_header.primary_document" expr="po_requisition_header"/>
+<DbDetails>
+<DbTable>xbs.po_requisition_header pr LEFT JOIN sys_pd_header pd ON pd.primary_document='po_requisition_header' AND pr.po_requisition_header_id=pd.primary_document_id AND pd.status!=325</DbTable>
+<Index>po_requisition_header_id</Index>
+<Data>po_requisition_number document_number,po_requisition_header_id id</Data>
+<Where>po_requisition_header_id='%{POrqLst[po_requisition_header_id]}' and requisition_status=320 AND sys_pd_header_id IS null</Where>
+</DbDetails><submit next="$this.sys_pd_header.primary_document_id" namelist="DbDetails"/>
+<DbDetails><Where>module_name=631 and access_org_type=74</Where></DbDetails><submit next="$this.sys_pd_header.process_flow_header_id" namelist="DbDetails"/></op>
+<!--op text="approve" needconfirm="1"><DbDetails><queryFormat>UPDATE po_requisition_header ph JOIN po_requisition_line pl ON ph.po_requisition_header_id=pl.po_requisition_header_id SET requisition_status=326 WHERE ph.po_requisition_header_id='%{POrqLst[po_requisition_header_id]}' AND requisition_status=320 AND receving_org_id='%{orgid}';</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op-->
+<op text="cancel" needconfirm="1"><DbDetails><queryFormat>update po_requisition_header set requisition_status=322 where po_requisition_header_id='%{POrqLst[po_requisition_header_id]}';update po_requisition_line set status=1500 where po_requisition_header_id='%{POrqLst[po_requisition_header_id]}';</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="close" needconfirm="1"><DbDetails><queryFormat>update po_requisition_header set requisition_status=323 where po_requisition_header_id='%{POrqLst[po_requisition_header_id]}';update po_requisition_line set status=1500 where po_requisition_header_id='%{POrqLst[po_requisition_header_id]}';</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="Convert2PO" needconfirm="1"><DbDetails><queryFormat>CALL convertPOfromPRQ(%{POrqLst[po_requisition_header_id]},%{user_id},%{orgid});</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="ViewResultConvert2PO"><DbDetails><Where>(user_id,org_id,task)=(%{user_id},%{orgid},'PRQ2PO')</Where></DbDetails><submit next="$this.xbs_log_v.xbs_log_vLst" namelist="DbDetails"/></op>
+<op text="print"><assign name="$this.po_requisition_print.po_requisition_header_id" expr=""/><DbDetails><Where>po_requisition_header_id='%{POrqLst[po_requisition_header_id]}' and requisition_status=326</Where></DbDetails><submit namelist="DbDetails" next="$this.po_requisition_print.po_requisition_headerLst"/></op>
+<op text="approval_diagram"><DbDetails><Where>pd.sys_pd_header_id in (select sys_pd_header_id from sys_pd_header where primary_document='po_requisition_header' and primary_document_id='%{POrqLst[po_requisition_header_id]}')</Where></DbDetails><submit namelist="DbDetails" next="sys_pd_process_flow_diagram.sys_process_flow_diagram_vLst"/></op>
+</operator> and created_by='%{user_id}'
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

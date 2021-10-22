@@ -1,0 +1,7 @@
+﻿wip value report
+SELECT i.item_number,i.item_name,SUM(wo.quantity),SUM(c.total_cost*wo.quantity) total_value FROM
+wip_wo_header wo 
+LEFT JOIN item i ON (wo.item_id_m=i.item_id_m AND wo.org_id=i.org_id) 
+LEFT JOIN cst_item_cost_v c ON (wo.item_id_m=c.item_id_m AND wo.org_id=c.org_id AND c.cost_type='frozen')
+WHERE wo.wo_status =370
+GROUP BY wo.item_id_m,wo.org_id

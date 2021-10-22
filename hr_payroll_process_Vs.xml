@@ -1,0 +1,24 @@
+﻿<GroupBox Name="GBDEDIThr_payroll_process" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_proces_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_proces_name" Size="60,20" Text="proces_name" Align="Right"/>
+<TextBox Name="proces_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_proces_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_payroll_schedule_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hr_payroll_schedule_id" Size="60,20" Text="hr_payroll_schedule_id" Align="Right"  onload="init"/>
+<ComboBox Name="hr_payroll_schedule_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_hr_payroll_schedule_id"  onload="init">
+	<DbDetails>
+<Index>hr_payroll_schedule_id</Index>
+<DbTable>xbs.hr_payroll_schedule</DbTable>
+<Data>scheduled_date,hr_payroll_schedule_id</Data>
+<Where>hr_payroll_id='%{hr_payroll_id}'</Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><if cond="!%{proces_name}"><assign name="proces_name" expr="%{hr_payroll_schedule_id[scheduled_date]}"/></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right"/>
+<TextBox Name="status" Size="170,20" Text="" Weight="170" ToolTip="ttp_status"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

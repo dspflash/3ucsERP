@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinv_receipt_header"><Ctrls>
+<ListCtrl Heading="receipt_number,250;transaction_type_id,120;reference_key_value,120;receipt_date,90;carrier,640;vechile_number,640;comment,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,120;inv_receipt_header_id,60;" loadedclick="0" ToolTip="ttp_inv_receipt_header" Name="inv_receipt_headerLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>inv_receipt_header_id</Index>
+<DbTable>xbs.inv_receipt_header i left join xbs.transaction_type t on i.transaction_type_id=t.transaction_type_id left join xbs.org o on i.org_id=o.org_id</DbTable>
+<Data>i.receipt_number,t.transaction_type transaction_type_id,i.reference_key_value,i.receipt_date,i.carrier,i.vechile_number,i.comment,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,o.org org_id,i.inv_receipt_header_id</Data>
+<Order>inv_receipt_header_id</Order></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>inv_receipt_header_id='%{inv_receipt_header_vLst[inv_receipt_header_id]}'</Where></DbDetails><submit next="$this.inv_receipt_header.inv_receipt_headerLst" namelist="DbDetails"/><assign name="$this.inv_receipt_header.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.inv_receipt_header</DbTable>
+<Where>inv_receipt_header_id='%{inv_receipt_header_vLst[inv_receipt_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

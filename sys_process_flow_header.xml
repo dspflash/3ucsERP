@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><WndTap Text="sys_process_flow_header" Name="sys_process_flow_header" Ver="2">
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr="process_flow,module_name[option_line_id],access_org_type[option_line_id],type"/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_line.xml"/>
+<Ctrls>
+<GroupBox Text="sys_process_flow_header" Name="GBsys_process_flow_header" id="sys_process_flow_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_header_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_header_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_header_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

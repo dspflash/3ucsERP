@@ -1,0 +1,78 @@
+<GroupBox Name="GBDEDITgl_account"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_org_id"><Ctrls>
+<Label Align="Right" Text="org_id" Name="lb_org_id" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_org_id" Name="org_id" readonly="true" Size="170,20">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_account_group"><Ctrls>
+<Label Align="Right" Text="account_group" onload="init" Name="lb_account_group" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_account_group" onload="init" Name="account_group" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=83</Where>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="account_type_code"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_account_type_code"><Ctrls>
+<Label Align="Right" Text="account_type_code" Name="lb_account_type_code" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_account_type_code" Name="account_type_code" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.gl_account_type</DbTable>
+<Index>account_type_code</Index>
+<Data>account_type,account_type_code</Data>
+<Where>account_group='%{account_group[option_line_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_subtype"><Ctrls>
+<Label Align="Right" Text="subtype" Name="lb_subtype" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_subtype" Items=" |item|subinventory|resource|wip|cost|wipcost|cogs" Name="subtype" Size="170,100"><OnSelEndOk><if cond="%{subtype[SelectedIndex]}==1"><assign name="subtpdb" expr="item"/><assign name="subtpdata" expr="item_number,item_id_m subid"/><assign name="subtpw" expr="org_id='%{org_id[org_id]}' and item_status!=278"/>
+<elseif cond="%{subtype[SelectedIndex]}==2"/><assign name="subtpdb" expr="subinventory"/><assign name="subtpdata" expr="subinventory,subinventory_id  subid"/><assign name="subtpw" expr="org_id='%{org_id[org_id]}'"/>
+<elseif cond="%{subtype[SelectedIndex]}==3"/><assign name="subtpdb" expr="bom_resource"/><assign name="subtpdata" expr="resource,bom_resource_id  subid"/><assign name="subtpw" expr="org_id='%{org_id[org_id]}'"/>
+<elseif cond="%{subtype[SelectedIndex]}==4"/><assign name="subtpdb" expr="wip_accounting_group"/><assign name="subtpdata" expr="wip_accounting_group,wip_accounting_group_id  subid"/><assign name="subtpw" expr="org_id='%{org_id[org_id]}'"/>
+<elseif cond="%{subtype[SelectedIndex]}==5"/><assign name="subtpdb" expr="option_line"/><assign name="subtpdata" expr="option_line_value,option_line_id  subid"/><assign name="subtpw" expr="option_header_id=168"/>
+<elseif cond="%{subtype[SelectedIndex]}==6"/><assign name="subtpdb" expr="option_line"/><assign name="subtpdata" expr="option_line_value,option_line_id  subid"/><assign name="subtpw" expr="option_header_id=168"/>
+<elseif cond="%{subtype[SelectedIndex]}==7"/><assign name="subtpdb" expr="item"/><assign name="subtpdata" expr="item_number,item_id_m subid"/><assign name="subtpw" expr="org_id='%{org_id[org_id]}' and item_status!=278 and customer_ordered_cb"/>
+<else/><assign name="subtpdb" expr=""/><assign name="subtpdata" expr=""/><assign name="subtpw" expr=""/><submit next="subid" function="resetcontent"/></if>
+<DbDetails><DbTable>%{subtpdb}</DbTable><Data>%{subtpdata}</Data><Where>%{subtpw}</Where></DbDetails><submit next="subid" namelist="DbDetails"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_subid"><Ctrls>
+<Label Align="Right" Text="subid" Name="lb_subid" Size="60,20" type="2"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_subid" Name="subid" Size="170,100" type="2"><OnEditChange><if cond="%{subtype[SelectedIndex]}==1"><assign name="subtpw" expr="org_id='%{org_id[org_id]}' and item_status!=278 and item_number like '%%{subid[windowtext]}%'"/><DbDetails><Where>%{subtpw}</Where></DbDetails><submit namelist="DbDetails"/></if></OnEditChange></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_decription"><Ctrls>
+<Label Align="Right" Text="decription" Name="lb_decription" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_decription" Name="decription" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_id,option_line_id,option_line_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_gl_account_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="gl_account_id" overlap="pre" Name="lb_gl_account_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_gl_account_id" overlap="pre" Name="gl_account_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBgl_account" expr="TABEDITgl_account"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

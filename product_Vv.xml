@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVitem" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="item_vLst" ToolTip="ttp_item_v" Size="700,450" OnLoad="init" Heading="item_number,250;item_name,250;item_specification,250;item_description,640;item_category,120;item_status,120;uom_id,120;list_price,75;make_buy,120;processing_lt,55;post_processing_lt,55;image_file,500;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;item_id_m,55;item_id,55;org_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>item_id</Index>
+<DbTable>xbs.Product_v i</DbTable>
+<Data>i.item_number,i.item_name,i.item_specification,i.item_description,c.category item_category,o.option_line_value item_status,u.uom_name uom_id,i.list_price,i.make_buy,i.processing_lt,i.post_processing_lt,i.image_file,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.item_id_m,i.item_id,i.org_id</Data>
+<Order>item_id</Order></DbDetails>
+<DbDetails><Where>and item_status!=278</Where><queryFormat>select %{data} from %{dbtable} where org_id=%{orgid} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>item_id='%{item_vLst[item_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.item.itemLst"/><assign name="$this.item.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.item</DbTable>
+<Where>item_id='%{item_vLst[item_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_item" expr="js(%{item_vLst[currentpage]}+1)"/>
+<assign name="pgscb_item" expr="js(%{item_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

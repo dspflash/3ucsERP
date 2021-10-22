@@ -1,0 +1,50 @@
+<Language name="ar_receipt_source">
+<Lang name="ar_receipt_source" value="ar_receipt_source"/>
+<Lang name="TabEditar_receipt_source" value="ar_receipt_source Edit"/>
+<Lang name="TabViewar_receipt_source" value="ar_receipt_source View"/>
+<Lang name="receipt_source" value=""/>
+<Lang name="ttp_receipt_source" value=""/>
+<Lang name="receipt_type" value=""/>
+<Lang name="ttp_receipt_type" value=""/>
+<Lang name="creation_method" value=""/>
+<Lang name="ttp_creation_method" value=""/>
+<Lang name="bu_org_id" value=""/>
+<Lang name="ttp_bu_org_id" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="remittance" value=""/>
+<Lang name="ttp_remittance" value=""/>
+<Lang name="clearance" value=""/>
+<Lang name="ttp_clearance" value=""/>
+<Lang name="mdm_bank_account_id" value=""/>
+<Lang name="ttp_mdm_bank_account_id" value=""/>
+<Lang name="sync_receipt_number_cb" value=""/>
+<Lang name="ttp_sync_receipt_number_cb" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="ar_receipt_source_id" value=""/>
+<Lang name="ttp_ar_receipt_source_id" value=""/>
+<Lang name="ttp_operationar_receipt_source" value="操作"/>
+<Lang name="ttp_createar_receipt_source" value="新增"/>
+<Lang name="ttp_modifyar_receipt_source" value="修改"/>
+<Lang name="ttp_resetar_receipt_source" value="清除数据"/>
+<Lang name="ttp_deletear_receipt_source" value="删除"/>
+<Lang name="ttp_refreshar_receipt_source" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

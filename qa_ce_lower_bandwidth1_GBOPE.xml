@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEqa_ce_lower_bandwidth1" Size="100,100"><Ctrls>
+<Button sqlpkinsert="qa_ce_lower_bandwidth1_id" Text="create" ToolTip="ttp_createqa_ce_lower_bandwidth1" Name="insertqa_ce_lower_bandwidth1" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_ce_lower_bandwidth1</DbTable>
+<Data>qa_cp_header_id[qa_cp_header_id],qa_ce_lower_bandwidth1_value,reference_type,reference_entity,reference_key_name,reference_key_value</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchqa_ce_lower_bandwidth1" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyqa_ce_lower_bandwidth1" Name="modifyqa_ce_lower_bandwidth1" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_ce_lower_bandwidth1</DbTable>
+<Data>qa_cp_header_id[qa_cp_header_id],qa_ce_lower_bandwidth1_value,reference_type,reference_entity,reference_key_name,reference_key_value</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>qa_ce_lower_bandwidth1_id='%{qa_ce_lower_bandwidth1_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchqa_ce_lower_bandwidth1" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetqa_ce_lower_bandwidth1" Name="resetqa_ce_lower_bandwidth1" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITqa_ce_lower_bandwidth1" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchqa_ce_lower_bandwidth1" Name="gsearchqa_ce_lower_bandwidth1" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="qa_ce_lower_bandwidth1Lst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITqa_ce_lower_bandwidth1" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

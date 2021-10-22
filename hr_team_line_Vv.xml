@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVhr_team_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_team_line_vLst" ToolTip="ttp_hr_team_line" Size="700,420" Heading="member_employee_id,120;role,120;responsibility,120;region,250;start_date,90;end_date,90;objective,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_team_line_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hr_team_line h left join xbs.hr_employee h0 on h.member_employee_id=h0.hr_employee_id left join xbs.xerp_role x on h.role=x.role_id</DbTable>
+<Index>hr_team_line_id</Index>
+<Data>h0.first_name member_employee_id,x.role_name_cn role,h.responsibility,h.region,h.start_date,h.end_date,h.objective,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_team_line_id</Data>
+<Order>hr_team_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{hr_team_header_id}"><alert expr="hr_team_header_id is Empty!"/><else/><submit next="$parent.hr_team_line.GBDEDIThr_team_line" function="reset"/><assign name="$parent.hr_team_line.hr_team_header_id" expr="%{hr_team_header_id}"/></if></op>
+<op text="modify"><DbDetails><Where>hr_team_line_id='%{hr_team_line_vLst[hr_team_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.hr_team_line.hr_team_lineLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_team_line</DbTable>
+<Where>hr_team_line_id='%{hr_team_line_vLst[hr_team_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,117 @@
+<GroupBox Name="GBDEDITap_payable_control"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_org_id"><Ctrls>
+<Label Align="Right" Text="org_id" Name="lb_org_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_org_id" Name="org_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_payment_term_id"><Ctrls>
+<Label Align="Right" Text="payment_term_id" OnLoad="init" Name="lb_payment_term_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_payment_term_id" OnLoad="init" Name="payment_term_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.ap_payment_terms</DbTable>
+<Index>term_id</Index>
+<Data>term_description,term_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_ship_to_id"><Ctrls>
+<Label Align="Right" Text="ship_to_id" Name="lb_ship_to_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_ship_to_id" Name="ship_to_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bill_to_id"><Ctrls>
+<Label Align="Right" Text="bill_to_id" Name="lb_bill_to_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_bill_to_id" Name="bill_to_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_inv_approval_hierarchy"><Ctrls>
+<Label Align="Right" Text="inv_approval_hierarchy" OnLoad="init" Name="lb_inv_approval_hierarchy" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_inv_approval_hierarchy" OnLoad="init" Name="inv_approval_hierarchy" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=288</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_payment_approval_hierarchy"><Ctrls>
+<Label Align="Right" Text="payment_approval_hierarchy" OnLoad="init" Name="lb_payment_approval_hierarchy" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_payment_approval_hierarchy" OnLoad="init" Name="payment_approval_hierarchy" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=288</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_tax_ac_id"><Ctrls>
+<Label Align="Right" Text="tax_ac_id" Name="lb_tax_ac_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_tax_ac_id" Name="tax_ac_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_liability_ac_id"><Ctrls>
+<Label Align="Right" Text="liability_ac_id" Name="lb_liability_ac_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_liability_ac_id" Name="liability_ac_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pre_payment_ac_id"><Ctrls>
+<Label Align="Right" Text="pre_payment_ac_id" Name="lb_pre_payment_ac_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_pre_payment_ac_id" Name="pre_payment_ac_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_discount_ac_id"><Ctrls>
+<Label Align="Right" Text="discount_ac_id" Name="lb_discount_ac_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_discount_ac_id" Name="discount_ac_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_rate_gain_ac_id"><Ctrls>
+<Label Align="Right" Text="rate_gain_ac_id" Name="lb_rate_gain_ac_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_rate_gain_ac_id" Name="rate_gain_ac_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_rate_loss_ac_id"><Ctrls>
+<Label Align="Right" Text="rate_loss_ac_id" Name="lb_rate_loss_ac_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_rate_loss_ac_id" Name="rate_loss_ac_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cash_ac_id"><Ctrls>
+<Label Align="Right" Text="cash_ac_id" Name="lb_cash_ac_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_cash_ac_id" Name="cash_ac_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_default_exchange_rate_type"><Ctrls>
+<Label Align="Right" Text="default_exchange_rate_type" Name="lb_default_exchange_rate_type" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_default_exchange_rate_type" Name="default_exchange_rate_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_expense_payment_term"><Ctrls>
+<Label Align="Right" Text="expense_payment_term" Name="lb_expense_payment_term" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_expense_payment_term" Name="expense_payment_term" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_expense_pay_group"><Ctrls>
+<Label Align="Right" Text="expense_pay_group" OnLoad="init" Name="lb_expense_pay_group" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_expense_pay_group" OnLoad="init" Name="expense_pay_group" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=256</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_expense_payment_priority"><Ctrls>
+<Label Align="Right" Text="expense_payment_priority" Name="lb_expense_payment_priority" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_expense_payment_priority" Name="expense_payment_priority" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_expense_template_id"><Ctrls>
+<Label Align="Right" Text="expense_template_id" Name="lb_expense_template_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_expense_template_id" Name="expense_template_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_ap_payable_control_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="ap_payable_control_id" overlap="pre" Name="lb_ap_payable_control_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_ap_payable_control_id" overlap="pre" Name="ap_payable_control_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBap_payable_control" expr="TABEDITap_payable_control"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

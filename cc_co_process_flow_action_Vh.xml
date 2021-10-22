@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVcc_co_process_flow_action" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="cc_co_process_flow_actionLst" ToolTip="ttp_cc_co_process_flow_action" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.cc_co_process_flow_action</DbTable>
+<Index>cc_co_process_flow_action_id</Index>
+<Data>field_value,comment,action_number,role_code,userid,pf_action_type,required_cb,action_user_id,action_duration,created_by,creation_date,last_update_by,last_update_date,cc_co_process_flow_action_id,cc_co_header_id,sys_process_flow_line_id</Data>
+<Order>cc_co_process_flow_action_id</Order></DbDetails>
+<OnClick><assign name="action_number[action_number]" expr="%{cc_co_process_flow_actionLst[action_number]}" function="SetSel"/><assign name="userid[xerp_user_id]" expr="%{cc_co_process_flow_actionLst[userid]}" function="SetSel"/><assign name="action_user_id[xerp_user_id]" expr="%{cc_co_process_flow_actionLst[action_user_id]}" function="SetSel"/><assign name="created_by[xerp_user_id]" expr="%{cc_co_process_flow_actionLst[created_by]}" function="SetSel"/><assign name="last_update_by[xerp_user_id]" expr="%{cc_co_process_flow_actionLst[last_update_by]}" function="SetSel"/>
+<if cond="%{cc_co_process_flow_action_id}"><SetVisible name="insertcc_co_process_flow_action" Visible="0"/><SetVisible name="modifycc_co_process_flow_action" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVqa_cp_assignment_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteqa_cp_assignment_header" Name="deleteqa_cp_assignment_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_cp_assignment_header</DbTable>
+<Where>qa_cp_assignment_header_id='%{qa_cp_assignment_headerLst[qa_cp_assignment_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchqa_cp_assignment_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshqa_cp_assignment_header" Name="searchqa_cp_assignment_header" Size="50,20">
+			  <OnClick><submit next="qa_cp_assignment_headerLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPqa_cp_assignment_headerLst" OnClick="(qa_cp_assignment_headerLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREqa_cp_assignment_headerLst" OnClick="(qa_cp_assignment_headerLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPqa_cp_assignment_headerLst" OnClick="(qa_cp_assignment_headerLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,19 @@
+<GroupBox Name="GBDVprj_burden_structure_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_burden_structure_header_vLst" ToolTip="ttp_prj_burden_structure_header" Size="700,420" OnLoad="init" Heading="structure,125;structure_type,120;allow_override_cb,60;effective_from,90;effective_to,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_burden_structure_header_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_burden_structure_header p</DbTable>
+<Index>prj_burden_structure_header_id</Index>
+<Data>p.structure,p.structure_type,p.allow_override_cb,p.effective_from,p.effective_to,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_burden_structure_header_id</Data>
+<Order>prj_burden_structure_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>prj_burden_structure_header_id='%{prj_burden_structure_header_vLst[prj_burden_structure_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_burden_structure_header.prj_burden_structure_headerLst"/></op>
+<op text="costcode"><assign name="$this.prj_burden_struct_costcode_v.prj_burden_structure_header_id" expr="%{prj_burden_structure_header_vLst[prj_burden_structure_header_id]}"/><DbDetails><Where>prj_burden_structure_header_id='%{prj_burden_structure_header_vLst[prj_burden_structure_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_burden_struct_costcode_v.prj_burden_struct_costcode_vLst"/></op>
+<op text="exptype"><assign name="$this.prj_burden_struct_exptype_v.prj_burden_structure_header_id" expr="%{prj_burden_structure_header_vLst[prj_burden_structure_header_id]}"/><DbDetails><Where>prj_burden_structure_header_id='%{prj_burden_structure_header_vLst[prj_burden_structure_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_burden_struct_exptype_v.prj_burden_struct_exptype_vLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.prj_burden_structure_header</DbTable>
+<Where>prj_burden_structure_header_id='%{prj_burden_structure_header_vLst[prj_burden_structure_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

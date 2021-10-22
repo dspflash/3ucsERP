@@ -1,0 +1,44 @@
+<Language name="hr_approval_limit_line">
+<Lang name="hr_approval_limit_line" value="hr_approval_limit_line"/>
+<Lang name="TabEdithr_approval_limit_line" value="hr_approval_limit_line Edit"/>
+<Lang name="TabViewhr_approval_limit_line" value="hr_approval_limit_line View"/>
+<Lang name="hr_approval_limit_header_id" value=""/>
+<Lang name="ttp_hr_approval_limit_header_id" value=""/>
+<Lang name="limit_object" value=""/>
+<Lang name="ttp_limit_object" value=""/>
+<Lang name="limit_type" value=""/>
+<Lang name="ttp_limit_type" value=""/>
+<Lang name="limit_range_low" value=""/>
+<Lang name="ttp_limit_range_low" value=""/>
+<Lang name="limit_range_high" value=""/>
+<Lang name="ttp_limit_range_high" value=""/>
+<Lang name="amount_limit" value=""/>
+<Lang name="ttp_amount_limit" value=""/>
+<Lang name="inactive_date" value=""/>
+<Lang name="ttp_inactive_date" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hr_approval_limit_line_id" value=""/>
+<Lang name="ttp_hr_approval_limit_line_id" value=""/>
+<Lang name="ttp_operationhr_approval_limit_line" value="操作"/>
+<Lang name="ttp_createhr_approval_limit_line" value="新增"/>
+<Lang name="ttp_modifyhr_approval_limit_line" value="修改"/>
+<Lang name="ttp_resethr_approval_limit_line" value="清除数据"/>
+<Lang name="ttp_deletehr_approval_limit_line" value="删除"/>
+<Lang name="ttp_refreshhr_approval_limit_line" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVadm_task_template_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="adm_task_template_header_vLst" ToolTip="ttp_adm_task_template_header" Size="700,420" OnLoad="init" Heading="template_name,125;description,640;application,125;document_type,125;from_date,90;end_date,90;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;adm_task_template_header_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.adm_task_template_header a</DbTable>
+<Index>adm_task_template_header_id</Index>
+<Data>a.template_name,a.description,a.application,a.document_type,a.from_date,a.end_date,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.adm_task_template_header_id</Data>
+<Order>adm_task_template_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>adm_task_template_header_id='%{adm_task_template_header_vLst[adm_task_template_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.adm_task_template_header.adm_task_template_headerLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

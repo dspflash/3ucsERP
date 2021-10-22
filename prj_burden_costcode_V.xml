@@ -1,0 +1,14 @@
+<WndTap Name="prj_burden_costcode_v" Text="prj_burden_costcode">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_costcode_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\prj_burden_costcode.xml"/>
+<Ctrls><GroupBox  Name="GBprj_burden_costcode" id="prj_burden_costcode" Text="prj_burden_costcode" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_costcode_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVprj_burden_costcode" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.prj_burden_costcode.GBDEDITprj_burden_costcode" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetprj_burden_costcode" Name="resetprj_burden_costcode" Size="50,20">	<OnClick>	<submit next="GBDEDITprj_burden_costcode" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchprj_burden_costcode" Name="gsearchprj_burden_costcode" Size="50,20" visible="true">	<OnClick>	<search next="prj_burden_costcode_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITprj_burden_costcode" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_costcode_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

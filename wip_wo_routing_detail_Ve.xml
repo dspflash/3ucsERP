@@ -1,0 +1,13 @@
+<WndTap Name="wip_wo_routing_detail" Text="wip_wo_routing_detail" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\wip_wo_routing_detail.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBwip_wo_routing_detail" id="wip_wo_routing_detail" Text="wip_wo_routing_detail" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_routing_detail_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_routing_detail_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_routing_detail_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertwip_wo_routing_detail" Visible="1"/><SetVisible name="modifywip_wo_routing_detail" Visible="0"/></OnActivate>
+</WndTap>

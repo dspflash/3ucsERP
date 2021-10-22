@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_process_operation_detail"><Ctrls>
+<ListCtrl Heading="resource_sequence,25;description,640;bom_resource_id,120;process_quantity,50;resource_usage,50;process_uom_id,120;component_class,125;cost_analysis_code,125;plan_type,125;resource_count,20;offset_interval,75;scale_type,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_process_operation_detail_id,60;" loadedclick="0" ToolTip="ttp_pm_process_operation_detail" Name="pm_process_operation_detailLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_process_operation_detail</DbTable>
+<Index>pm_process_operation_detail_id</Index>
+<Data>resource_sequence,description,bom_resource_id,process_quantity,resource_usage,process_uom_id,component_class,cost_analysis_code,plan_type,resource_count,offset_interval,scale_type,created_by,creation_date,last_update_by,last_update_date,pm_process_operation_detail_id</Data>
+<Order>pm_process_operation_detail_id</Order></DbDetails>
+<OnClick><assign name="bom_resource_id[bom_resource_id]" function="SetSel" expr="%{pm_process_operation_detailLst[bom_resource_id]}"/><assign name="process_uom_id[uom_id]" function="SetSel" expr="%{pm_process_operation_detailLst[process_uom_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

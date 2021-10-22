@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_customer_v"><Ctrls>
+<ListCtrl Heading="customer_number,125;customer_name,300;customer_site_number,55;customer_site_name,300;payment_term,250;currency,160;tax_country,250;tax_reg_no,500;" loadedclick="0" ToolTip="ttp_ar_customer_v" Name="ar_customer_vLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_customer_v</DbTable>
+
+<Data>customer_number,customer_name,customer_site_number,customer_site_name,payment_term,currency,tax_country,tax_reg_no</Data>
+</DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

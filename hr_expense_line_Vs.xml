@@ -1,0 +1,97 @@
+﻿<GroupBox Name="GBDEDIThr_expense_line" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_claim_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_claim_date" Size="60,20" Text="claim_date" Align="Right"/>
+<DateTime Name="claim_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_claim_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_receipt_amount" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_receipt_amount" Size="60,20" Text="receipt_amount" Align="Right"/>
+<TextBox Name="receipt_amount" Size="170,20" Text="" Weight="170" ToolTip="ttp_receipt_amount"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_receipt_currency" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_receipt_currency" Size="60,20" Text="receipt_currency" Align="Right"  onload="init"/>
+<ComboBox Name="receipt_currency" Size="170,100" Text="" Weight="170"  ToolTip="ttp_receipt_currency"  onload="init">
+	<DbDetails>
+<Index>currency_id</Index>
+<DbTable>xbs.currency</DbTable>
+<Data>title,(SELECT currency_code FROM xbs.org_ledger_v WHERE org_id='%{orgid}') ledger_currency,currency_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><if cond="%{receipt_currency[currency_id]}"><if cond="%{receipt_currency[ledger_currency]}"><submit next="currency_conversion_type"/></if></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_exchange_rate" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_exchange_rate" Size="60,20" Text="exchange_rate" Align="Right"/>
+<TextBox Name="exchange_rate" Size="170,20" Text="" Weight="170" ToolTip="ttp_exchange_rate"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_expense_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_expense_type" Size="60,20" Text="expense_type" Align="Right"/>
+<ComboBox Name="expense_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_expense_type">
+	<DbDetails>
+<Index>hr_expense_tpl_line_id</Index>
+<DbTable>xbs.hr_expense_tpl_line</DbTable>
+<Data>expense_item,hr_expense_tpl_line_id</Data>
+<Where>hr_expense_tpl_header_id=(SELECT expense_template_id FROM hr_expense_header WHERE hr_expense_header_id='%{hr_expense_header_id}')</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_purpose" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_purpose" Size="60,20" Text="purpose" Align="Right"/>
+<TextBox Name="purpose" Size="170,20" Text="" Weight="170" ToolTip="ttp_purpose"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_start_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_start_date" Size="60,20" Text="start_date" Align="Right"/>
+<DateTime Name="start_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_start_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_daily_rate" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_daily_rate" Size="60,20" Text="daily_rate" Align="Right"/>
+<TextBox Name="daily_rate" Size="170,20" Text="0" Weight="170" ToolTip="ttp_daily_rate"><OnEnChange><submit next="cal_expense" function="click"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_no_of_days" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_no_of_days" Size="60,20" Text="no_of_days" Align="Right"/>
+<TextBox Name="no_of_days" Size="170,20" Text="0" Weight="170" ToolTip="ttp_no_of_days"><OnEnChange><submit next="cal_expense" function="click"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_expense_location" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_expense_location" Size="60,20" Text="expense_location" Align="Right"  onload="init"/>
+<ComboBox Name="expense_location" Size="170,100" Text="" Weight="170"  ToolTip="ttp_expense_location"  onload="init">
+	<DbDetails>
+<Index>hr_location_id</Index>
+<DbTable>xbs.hr_location</DbTable>
+<Data>combination,hr_location_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_per_diem_rate" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_per_diem_rate" Size="60,20" Text="per_diem_rate" Align="Right"/>
+<TextBox Name="per_diem_rate" Size="170,20" Text="0" Weight="170" ToolTip="ttp_per_diem_rate"><OnEnChange><submit next="cal_expense" function="click"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_per_diem_days" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_per_diem_days" Size="60,20" Text="per_diem_days" Align="Right"/>
+<TextBox Name="per_diem_days" Size="170,20" Text="0" Weight="170" ToolTip="ttp_per_diem_days"><OnEnChange><submit next="cal_expense" function="click"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_mileage_uom_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_mileage_uom_id" Size="60,20" Text="mileage_uom_id" Align="Right"  onload="init"/>
+<ComboBox Name="mileage_uom_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_mileage_uom_id"  onload="init">
+	<DbDetails>
+<Index>uom_id</Index>
+<DbTable>xbs.uom</DbTable>
+<Data>uom_name,uom_id</Data>
+<Where>class=111</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_mileage_distace" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_mileage_distace" Size="60,20" Text="mileage_distace" Align="Right"/>
+<TextBox Name="mileage_distace" Size="170,20" Text="0" Weight="170" ToolTip="ttp_mileage_distace"><OnEnChange><submit next="cal_expense" function="click"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_mileage_rate" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_mileage_rate" Size="60,20" Text="mileage_rate" Align="Right"/>
+<TextBox Name="mileage_rate" Size="170,20" Text="0" Weight="170" ToolTip="ttp_mileage_rate"><OnEnChange><submit next="cal_expense" function="click"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_vendor_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_vendor_name" Size="60,20" Text="vendor_name" Align="Right"/>
+<TextBox Name="vendor_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_vendor_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_vendor_details" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_vendor_details" Size="60,20" Text="vendor_details" Align="Right"/>
+<TextBox Name="vendor_details" Size="170,20" Text="" Weight="170" ToolTip="ttp_vendor_details"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_original_receipt_missing_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="original_receipt_missing_cb" Size="230,20" Text="original_receipt_missing_cb" ToolTip="ttp_original_receipt_missing_cb"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

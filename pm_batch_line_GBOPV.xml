@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVpm_batch_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletepm_batch_line" Name="deletepm_batch_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_batch_line</DbTable>
+<Where>pm_batch_line_id='%{pm_batch_lineLst[pm_batch_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpm_batch_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshpm_batch_line" Name="searchpm_batch_line" Size="50,20">
+			  <OnClick><submit next="pm_batch_lineLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPpm_batch_lineLst" OnClick="(pm_batch_lineLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREpm_batch_lineLst" OnClick="(pm_batch_lineLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPpm_batch_lineLst" OnClick="(pm_batch_lineLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

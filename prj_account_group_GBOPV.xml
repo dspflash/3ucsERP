@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVprj_account_group" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteprj_account_group" Name="deleteprj_account_group" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_account_group</DbTable>
+<Where>prj_account_group_id='%{prj_account_groupLst[prj_account_group_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchprj_account_group" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshprj_account_group" Name="searchprj_account_group" Size="50,20">
+			  <OnClick><submit next="prj_account_groupLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPprj_account_groupLst" OnClick="(prj_account_groupLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREprj_account_groupLst" OnClick="(prj_account_groupLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPprj_account_groupLst" OnClick="(prj_account_groupLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

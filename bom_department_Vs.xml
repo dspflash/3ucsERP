@@ -1,0 +1,13 @@
+﻿<GroupBox Name="GBDEDITbom_department" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_department" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_department" Size="60,20" Text="department" Align="Right"/>
+<TextBox Name="department" Size="170,20" Text="" Weight="170" ToolTip="ttp_department"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status" checked="true"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

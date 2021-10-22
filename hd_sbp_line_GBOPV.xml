@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVhd_sbp_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletehd_sbp_line" Name="deletehd_sbp_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_sbp_line</DbTable>
+<Where>hd_sbp_line_id='%{hd_sbp_lineLst[hd_sbp_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhd_sbp_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshhd_sbp_line" Name="searchhd_sbp_line" Size="50,20">
+			  <OnClick><submit next="hd_sbp_lineLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPhd_sbp_lineLst" OnClick="(hd_sbp_lineLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREhd_sbp_lineLst" OnClick="(hd_sbp_lineLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPhd_sbp_lineLst" OnClick="(hd_sbp_lineLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

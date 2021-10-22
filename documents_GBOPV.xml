@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVdocuments" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletedocuments" Name="deletedocuments" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.documents</DbTable>
+<Where>idx='%{documentsLst[idx]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchdocuments" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshdocuments" Name="searchdocuments" Size="50,20">
+			  <OnClick><submit next="documentsLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPdocumentsLst" OnClick="(documentsLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREdocumentsLst" OnClick="(documentsLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPdocumentsLst" OnClick="(documentsLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

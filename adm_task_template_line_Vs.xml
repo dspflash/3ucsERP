@@ -1,0 +1,97 @@
+<GroupBox Name="GBDEDITadm_task_template_line"><Ctrls><GroupBox Name="GB_adm_task_template_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_adm_task_template_header_id" Size="60,20" Text="adm_task_template_header_id" Align="Right"/>
+<ComboBox Name="adm_task_template_header_id" Size="170,100" Weight="170"  ToolTip="ttp_adm_task_template_header_id">
+	<DbDetails>
+<DbTable>xbs.adm_task_template_header</DbTable>
+<Index>adm_task_template_header_id</Index>
+<Data>template_name,adm_task_template_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><DbDetails><Where>adm_task_template_header_id='%{adm_task_template_header_id[adm_task_template_header_id]}'</Where></DbDetails><submit next="adm_task_template_list_lineLst" namelist="DbDetails"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right"/>
+<ComboBox Name="status" Size="170,100" Weight="170"  ToolTip="ttp_status">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=240</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_task_type_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_task_type_id" Size="60,20" Text="task_type_id" Align="Right"/>
+<ComboBox Name="task_type_id" Size="170,100" Weight="170"  ToolTip="ttp_task_type_id">
+	<DbDetails>
+<DbTable>xbs.adm_task_type</DbTable>
+<Index>adm_task_type_id</Index>
+<Data>task_type,adm_task_type_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_priority_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_priority_code" Size="60,20" Text="priority_code" Align="Right"/>
+<TextBox Name="priority_code" Size="170,20" Weight="170" ToolTip="ttp_priority_code"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_subject" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_subject" Size="60,20" Text="subject" Align="Right"/>
+<TextBox Name="subject" Size="170,20" Weight="170" ToolTip="ttp_subject"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_duration_uom_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_duration_uom_id" Size="60,20" Text="duration_uom_id" Align="Right"/>
+<TextBox Name="duration_uom_id" Size="170,20" Weight="170" ToolTip="ttp_duration_uom_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_duration" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_duration" Size="60,20" Text="duration" Align="Right"/>
+<TextBox Name="duration" Size="170,20" Weight="170" ToolTip="ttp_duration"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_planned_uom_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_planned_uom_id" Size="60,20" Text="planned_uom_id" Align="Right"/>
+<TextBox Name="planned_uom_id" Size="170,20" Weight="170" ToolTip="ttp_planned_uom_id"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_planned_uom" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_planned_uom" Size="60,20" Text="planned_uom" Align="Right"/>
+<TextBox Name="planned_uom" Size="170,20" Weight="170" ToolTip="ttp_planned_uom"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_holiday_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="holiday_cb" Size="230,20" Text="holiday_cb" ToolTip="ttp_holiday_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_milestone_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="milestone_cb" Size="230,20" Text="milestone_cb" ToolTip="ttp_milestone_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_confirm_required_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="confirm_required_cb" Size="230,20" Text="confirm_required_cb" ToolTip="ttp_confirm_required_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_publish_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="publish_cb" Size="230,20" Text="publish_cb" ToolTip="ttp_publish_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_billable_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="billable_cb" Size="230,20" Text="billable_cb" ToolTip="ttp_billable_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_private_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="private_cb" Size="230,20" Text="private_cb" ToolTip="ttp_private_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_adm_task_template_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_adm_task_template_line_id" Size="60,20" Text="adm_task_template_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="adm_task_template_line_id" Size="170,20" Weight="170" ToolTip="ttp_adm_task_template_line_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBadm_task_template_line" expr="TABEDITadm_task_template_line"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

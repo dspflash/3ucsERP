@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="myinfo" Name="myinfo" Ver="2">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_modify_pass.xml" popup="1"/>
+			</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\xerp_user.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer_site.xml"/>
+<Ctrls>
+<GroupBox Text="myinfo" Name="GBhr_employee_v" id="hr_employee_v" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_v_GBDEDIT.xml"></xi:include>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<TAB/><Button Text="modifyPass" ToolTip="ttp_modifyPass" Name="modify_Pass" Size="50,20"><OnClick><submit next="$this.xerp_user.GBDEDITxerp_user" function="reset"/></OnClick></Button><TAB/>
+</Ctrls></GroupBox>
+<ListCtrl onload="init" Name="hr_employee_vLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_customer_v</DbTable>
+<Data>customer_number,customer_name,customer_site_number,customer_site_name,payment_term,currency,tax_country,tax_reg_no</Data>
+</DbDetails><DbDetails><Where>ar_customer_id='%{customer_id}'</Where></DbDetails><operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

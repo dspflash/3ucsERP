@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_customer_bu"><Ctrls>
+<ListCtrl Heading="ar_customer_id,120;payment_term_id,120;currency,120;order_type_id,120;price_list_id,120;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_customer_bu_id,60;" loadedclick="0" ToolTip="ttp_ar_customer_bu" Name="ar_customer_buLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_customer_bu</DbTable>
+<Index>ar_customer_bu_id</Index>
+<Data>ar_customer_id,payment_term_id,currency,order_type_id,price_list_id,status,created_by,creation_date,last_update_by,last_update_date,ar_customer_bu_id</Data>
+<Order>ar_customer_bu_id</Order></DbDetails>
+<OnClick><assign name="ar_customer_id[ar_customer_id]" function="SetSel" expr="%{ar_customer_buLst[ar_customer_id]}"/><assign name="payment_term_id[payment_term_id]" function="SetSel" expr="%{ar_customer_buLst[payment_term_id]}"/><assign name="currency[currency_id]" function="SetSel" expr="%{ar_customer_buLst[currency]}"/><assign name="order_type_id[sd_document_type_id]" function="SetSel" expr="%{ar_customer_buLst[order_type_id]}"/><assign name="price_list_id[mdm_price_list_header_id]" function="SetSel" expr="%{ar_customer_buLst[price_list_id]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

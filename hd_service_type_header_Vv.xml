@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVhd_service_type_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hd_service_type_header_vLst" ToolTip="ttp_hd_service_type_header" Size="700,420" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hd_service_type_header h left join xbs.option_line o on h.primary_service_type=o.option_line_id left join xbs.hd_service_activity_header h0 on h.pre_repair_activity_rma=h0.hd_service_activity_header_id left join xbs.hd_service_activity_header h1 on h.pre_repair_activity_so=h1.hd_service_activity_header_id left join xbs.hd_service_activity_header h2 on h.post_repair_activity_rma=h2.hd_service_activity_header_id left join xbs.hd_service_activity_header h3 on h.post_repair_activity_so=h3.hd_service_activity_header_id left join xbs.hd_service_activity_header h4 on h.auto_create_so_rma_cb=h4.hd_service_activity_header_id left join xbs.mdm_price_list_header m on h.prices_list_id=m.mdm_price_list_header_id</DbTable>
+<Index>hd_service_type_header_id</Index>
+<Data>h.service_type,o.option_line_value primary_service_type,h.active_cb,h.repair_mode,h0.activity_name pre_repair_activity_rma,h1.activity_name pre_repair_activity_so,h2.activity_name post_repair_activity_rma,h3.activity_name post_repair_activity_so,h4.activity_name auto_create_so_rma_cb,m.price_list prices_list_id,h.description,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hd_service_type_header_id</Data>
+<Order>hd_service_type_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hd_service_type_header_id='%{hd_service_type_header_vLst[hd_service_type_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hd_service_type_header.hd_service_type_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_service_type_header</DbTable>
+<Where>hd_service_type_header_id='%{hd_service_type_header_vLst[hd_service_type_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

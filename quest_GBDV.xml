@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVquest"><Ctrls>
+<ListCtrl Heading="idx,55;qid,20;idparent,55;itvid,55;odridx,20;qtext,640;qtype,20;adetail,640;atype,60;" loadedclick="0" ToolTip="ttp_quest" Name="questLst" Size="700,420">
+  <DbDetails fcsm="1">
+<DbTable>cati.quest</DbTable>
+<Index>idx='%{questLst[idx]}'</Index>
+<Data>idx,qid,idparent,itvid,odridx,qtext,qtype,adetail,atype</Data>
+<Order>idx</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

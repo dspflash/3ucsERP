@@ -1,0 +1,9 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>calendar_code='%{bom_calendars_vLst[calendar_code]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_calendars.bom_calendarsLst"/></op>
+<op text="GenCalWeeks"><DbDetails><queryFormat>CALL GenCalWeeks('%{bom_calendars_vLst[calendar_code]}',NULL,NULL);</queryFormat></DbDetails><submit namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_calendars</DbTable>
+<Where>calendar_code='%{bom_calendars_vLst[calendar_code]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

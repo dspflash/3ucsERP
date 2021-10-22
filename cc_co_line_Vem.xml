@@ -1,0 +1,14 @@
+<WndTap Name="cc_co_line" Text="cc_co_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="item_id_m[item_id_m],new_revision,cc_co_header_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\cc_co_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBcc_co_line" id="cc_co_line" Text="cc_co_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_line_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_line_value_Vvm.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertcc_co_line" Visible="1"/><SetVisible name="modifycc_co_line" Visible="0"/></OnActivate>
+</WndTap>

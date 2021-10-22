@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVgl_account" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="gl_accountLst" ToolTip="ttp_gl_account" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_account</DbTable>
+<Index>gl_account_id</Index>
+<Data>account_group,account_type_code,subtype,subid,decription,created_by,creation_date,last_update_by,last_update_date,gl_account_id</Data>
+<Order>gl_account_id</Order></DbDetails>
+<OnClick><assign name="account_group[option_line_id]" expr="%{gl_accountLst[account_group]}" function="SetSel"/><assign name="account_type_code[account_type_code]" expr="%{gl_accountLst[account_type_code]}" function="SetSel"/><assign name="subid[subid]" expr="%{gl_accountLst[subid]}" function="SetSel"/><assign name="created_by[option_line_id]" expr="%{gl_accountLst[created_by]}" function="SetSel"/>
+<if cond="%{gl_account_id}"><SetVisible name="insertgl_account" Visible="0"/><SetVisible name="modifygl_account" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

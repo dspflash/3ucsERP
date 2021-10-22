@@ -1,0 +1,13 @@
+<WndTap Name="prj_percent_header" Text="prj_percent_header" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="as_of_date,percent,prj_project_header_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\prj_percent_header.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBprj_percent_header" id="prj_percent_header" Text="prj_percent_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_percent_header_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_percent_header_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_percent_header_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertprj_percent_header" Visible="1"/><SetVisible name="modifyprj_percent_header" Visible="0"/></OnActivate>
+</WndTap>

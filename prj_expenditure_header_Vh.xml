@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_expenditure_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_expenditure_headerLst" ToolTip="ttp_prj_expenditure_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_expenditure_header</DbTable>
+<Index>prj_expenditure_header_id</Index>
+<Data>batch_name,expenditure_class,effective_to,status,submitted_by_user_id,submitted_on,description,misc_transaction_cb,over_time_cb,invoice_cb,usages_cb,wip_cb,created_by,creation_date,last_update_by,last_update_date,prj_expenditure_header_id,bu_org_id</Data>
+<Order>prj_expenditure_header_id</Order></DbDetails>
+<OnClick><assign name="submitted_by_user_id[xerp_user_id]" expr="%{prj_expenditure_headerLst[submitted_by_user_id]}" function="SetSel"/>
+<if cond="%{prj_expenditure_header_id}"><SetVisible name="insertprj_expenditure_header" Visible="0"/><SetVisible name="modifyprj_expenditure_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

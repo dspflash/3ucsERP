@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="1" errorpush="1" navtype_="tab">
+	<webconfig theme="../biz/theme/materialadmin/theme.html"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\error_map.xml"/>
+	<var name="opinv" expr="inv"/>
+	<WndTaps id="inv">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmyinfo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vReceipt.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vIssue.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vInvTransfer.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vInvDLV.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vsddlv_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vinventory.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vSubInventory.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_count_header_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_count_entries_Vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_process_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_process_flow_diagram_v.xml" popup="1"/>
+	</WndTaps>
+</XI3uWnd>

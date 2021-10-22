@@ -1,0 +1,13 @@
+﻿<GroupBox Name="GBDVbom_standard_operation" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bom_standard_operation_vLst" ToolTip="ttp_bom_standard_operation_v" Size="700,450" OnLoad="init" Heading="standard_operation,250;description,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bom_standard_operation_id,60;org_id,60;"   onload="0" loadedclick="0">
+	<DbDetails >
+<Index>bom_standard_operation_id</Index>
+<DbTable>xbs.bom_standard_operation b</DbTable>
+<Data>b.standard_operation,b.description,b.status,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_standard_operation_id,b.org_id</Data>
+<Order>bom_standard_operation_id</Order></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_standard_operation_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_bom_standard_operation" expr="js(%{bom_standard_operation_vLst[currentpage]}+1)"/>
+<assign name="pgscb_bom_standard_operation" expr="js(%{bom_standard_operation_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

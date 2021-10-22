@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVap_transaction_detail" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="ap_transaction_detail_vLst" ToolTip="ttp_ap_transaction_detail" Size="700,120" Heading="account_type,120;detail_ac_id,120;description,640;amount,100;gl_amount,75;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ap_transaction_detail_id,60;status,250;detail_number,60;period_id,120;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.ap_transaction_detail a left join xbs.option_line o on a.account_type=o.option_line_id left join xbs.coa_combination c on a.detail_ac_id=c.coa_combination_id left join xbs.gl_period g on a.period_id=g.gl_period_id left join xbs.ap_transaction_header a0 on a.ap_transaction_header_id=a0.ap_transaction_header_id</DbTable>
+<Index>ap_transaction_detail_id</Index>
+<Data>o.option_line_value account_type,c.combination,a.description,a.amount,a.gl_amount, a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.ap_transaction_detail_id,a.status,a.detail_number,g.period_name period_id,detail_ac_id</Data>
+<Order>ap_transaction_detail_id</Order><Where>ap_transaction_line_id='%{ap_transaction_line_id}'</Where></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="adddetail" mustselected="0"><if cond="!%{ap_transaction_line_id}"><alert expr="请先添加或选择已有项目！"/><else/><submit next="$parent.ap_transaction_detail.GBDEDITap_transaction_detail" function="reset"/><DbDetails><Where>ap_transaction_line_id='%{ap_transaction_line_id}'</Where></DbDetails><submit next="$parent.ap_transaction_detail.ap_transaction_line_id" namelist="DbDetails"/><DbDetails><Where></Where></DbDetails><submit namelist="DbDetails" next="$parent.ap_transaction_detail.detail_ac_id"/></if></op>
+<op text="modify"><submit next="$parent.ap_transaction_detail.GBDEDITap_transaction_detail" function="reset"/><DbDetails><Where>ap_transaction_line_id='%{ap_transaction_line_id}'</Where></DbDetails><submit next="$parent.ap_transaction_detail.ap_transaction_line_id" namelist="DbDetails"/><DbDetails><Where>and coa_combination_id='%{ap_transaction_detail_vLst[detail_ac_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.ap_transaction_detail.detail_ac_id"/><DbDetails><Where>ap_transaction_detail_id='%{ap_transaction_detail_vLst[ap_transaction_detail_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.ap_transaction_detail.ap_transaction_detailLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.ap_transaction_detail</DbTable>
+<Where>ap_transaction_detail_id='%{ap_transaction_detail_vLst[ap_transaction_detail_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

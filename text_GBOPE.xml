@@ -1,0 +1,28 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEar_customer" Size="100,100"><Ctrls>
+<Button Text="create" ToolTip="ttp_createar_customer" Name="insertar_customer" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_customer</DbTable>
+<Data>customer_number,customer_name,customer_relationship[option_line_code],alt_name,supplier_id,customer_type,customer_category,tax_country,tax_reg_no,tax_payer_id,ship_to_id,bill_to_id,customer_contact_id,customer_credit_class[option_line_code],profile_name,status</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_customer" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyar_customer" Name="modifyar_customer" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_customer</DbTable>
+<Data>customer_number,customer_name,customer_relationship[option_line_code],alt_name,supplier_id,customer_type,customer_category,tax_country,tax_reg_no,tax_payer_id,ship_to_id,bill_to_id,customer_contact_id,customer_credit_class[option_line_code],profile_name,status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ar_customer_id='%{ar_customer_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_customer" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetar_customer" Name="resetar_customer" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITar_customer" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

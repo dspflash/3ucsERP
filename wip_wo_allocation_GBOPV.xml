@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVwip_wo_allocation" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletewip_wo_allocation" Name="deletewip_wo_allocation" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_wo_allocation</DbTable>
+<Where>wip_allocation_id='%{wip_wo_allocationLst[wip_allocation_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchwip_wo_allocation" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshwip_wo_allocation" Name="searchwip_wo_allocation" Size="50,20">
+			  <OnClick><submit next="wip_wo_allocationLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPwip_wo_allocationLst" OnClick="(wip_wo_allocationLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREwip_wo_allocationLst" OnClick="(wip_wo_allocationLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPwip_wo_allocationLst" OnClick="(wip_wo_allocationLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

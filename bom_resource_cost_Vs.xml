@@ -1,0 +1,26 @@
+﻿<GroupBox Name="GBDEDITbom_resource_cost" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_bom_resource_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bom_resource_id" Size="60,20" Text="bom_resource_id" Align="Right"/>
+<TextBox Name="bom_resource_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_bom_resource_id">
+	<DbDetails>
+<Index>bom_resource_id</Index>
+<DbTable>xbs.bom_resource</DbTable>
+<Data>resource,bom_resource_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bom_cost_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bom_cost_type" Size="60,20" Text="bom_cost_type" Align="Right" onload="init"/>
+<ComboBox Name="bom_cost_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_bom_cost_type" onload="init">
+	<DbDetails>
+<Index>bom_cost_type_id</Index>
+<DbTable>xbs.bom_cost_type</DbTable>
+<Data>cost_type,bom_cost_type_id</Data>
+<Where>org_id='%{orgid}' and status</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_resource_rate" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_resource_rate" Size="60,20" Text="resource_rate" Align="Right"/>
+<TextBox Name="resource_rate" Size="170,20" Text="" Weight="170" ToolTip="ttp_resource_rate"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEinv_count_entries" Size="100,100"><Ctrls>
+<Button sqlpkinsert="inv_count_entries_id" Text="create" Clickneedconfirm="1" ToolTip="ttp_createinv_count_entries" Name="insertinv_count_entries" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_count_entries</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],uom_id[uom_id],subinventory_id[subinventory_id],locator_id[locator_id],lot_number[inv_lot_number_id],system_qty,schedule_date,count_date,count_qty,adjusted_qty,reason,description,inv_count_schedule_id[inv_count_schedule_id]</Data>
+<DataEx>counted_by,created_by,creation_date,last_update_by,last_update_date,org_id;'%{user_id}','%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="inv_count_entriesLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyinv_count_entries" Clickneedconfirm="1" Name="modifyinv_count_entries" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_count_entries</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>uom_id[uom_id],subinventory_id[subinventory_id],locator_id[locator_id],lot_number[inv_lot_number_id],schedule_date,count_date,count_qty,adjusted_qty,reason,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>inv_count_entries_id='%{inv_count_entries_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="inv_count_entriesLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetinv_count_entries" Name="resetinv_count_entries" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITinv_count_entries" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchinv_count_entries" Name="gsearchinv_count_entries" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="inv_count_entriesLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITinv_count_entries" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

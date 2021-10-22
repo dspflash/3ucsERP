@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVhr_pos_hierarchy_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_pos_hierarchy_line_vLst" ToolTip="ttp_hr_pos_hierarchy_line" Size="700,420" Heading="position_id,120;description,640;effective_start_date,90;effective_end_date,90;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_pos_hierarchy_line_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hr_pos_hierarchy_line h left join xbs.hr_position h0 on h.position_id=h0.hr_position_id</DbTable>
+<Index>hr_pos_hierarchy_line_id</Index>
+<Data>h0.position_name position_id,h.description,h.effective_start_date,h.effective_end_date,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_pos_hierarchy_line_id</Data>
+<Order>hr_pos_hierarchy_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{hr_pos_hierarchy_header_id}"><alert expr="hr_pos_hierarchy_header_id is Empty!"/><else/><submit next="$parent.hr_pos_hierarchy_line.GBDEDIThr_pos_hierarchy_line" function="reset"/><assign name="$parent.hr_pos_hierarchy_line.hr_pos_hierarchy_header_id" expr="%{hr_pos_hierarchy_header_id}"/></if></op>
+<op text="modify"><DbDetails><Where>hr_pos_hierarchy_line_id='%{hr_pos_hierarchy_line_vLst[hr_pos_hierarchy_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.hr_pos_hierarchy_line.hr_pos_hierarchy_lineLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_pos_hierarchy_line</DbTable>
+<Where>hr_pos_hierarchy_line_id='%{hr_pos_hierarchy_line_vLst[hr_pos_hierarchy_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

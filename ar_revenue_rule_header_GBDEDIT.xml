@@ -1,0 +1,45 @@
+<GroupBox Name="GBDEDITar_revenue_rule_header"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bu_org_id"><Ctrls>
+<Label Align="Right" Text="bu_org_id" Name="lb_bu_org_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_bu_org_id" Name="bu_org_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_rule_type"><Ctrls>
+<Label Align="Right" Text="rule_type" Name="lb_rule_type" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_rule_type" Name="rule_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_rule_name"><Ctrls>
+<Label Align="Right" Text="rule_name" Name="lb_rule_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_rule_name" Name="rule_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_period"><Ctrls>
+<Label Align="Right" Text="period" Name="lb_period" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_period" Name="period" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_no_of_period"><Ctrls>
+<Label Align="Right" Text="no_of_period" Name="lb_no_of_period" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_no_of_period" Name="no_of_period" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_update_by"><Ctrls>
+<Label Align="Right" Text="last_update_by" Name="lb_last_update_by" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" Name="last_update_by" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_ar_revenue_rule_header_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="ar_revenue_rule_header_id" overlap="pre" Name="lb_ar_revenue_rule_header_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_ar_revenue_rule_header_id" overlap="pre" Name="ar_revenue_rule_header_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBar_revenue_rule_header" expr="TABEDITar_revenue_rule_header"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

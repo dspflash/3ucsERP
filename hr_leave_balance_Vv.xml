@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVhr_leave_balance" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_leave_balance_vLst" ToolTip="ttp_hr_leave_balance_v" Size="700,450" OnLoad="init" Heading="leave_type,120;leave_per_year,100;total_available,100;total_used,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_leave_balance_id,60;employee_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>hr_leave_balance_id</Index>
+<DbTable>xbs.hr_leave_balance h left join xbs.hr_leave_type h0 on h.leave_type=h0.hr_leave_type_id</DbTable>
+<Data>h0.leave_type leave_type,h.leave_per_year,h.total_available,h.total_used,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_leave_balance_id,h.employee_id</Data>
+<Order>hr_leave_balance_id</Order></DbDetails>
+<DbDetails><Where>employee_id='%{employee_id}'</Where></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hr_leave_balance_id='%{hr_leave_balance_vLst[hr_leave_balance_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_leave_balance.hr_leave_balanceLst"/><assign name="$this.hr_leave_balance.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_leave_balance</DbTable>
+<Where>hr_leave_balance_id='%{hr_leave_balance_vLst[hr_leave_balance_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_hr_leave_balance" expr="js(%{hr_leave_balance_vLst[currentpage]}+1)"/>
+<assign name="pgscb_hr_leave_balance" expr="js(%{hr_leave_balance_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

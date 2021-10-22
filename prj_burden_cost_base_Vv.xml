@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVprj_burden_cost_base" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_burden_cost_base_vLst" ToolTip="ttp_prj_burden_cost_base" Size="700,420" OnLoad="init" Heading="cost_base,125;cost_base_type,125;effective_from,90;effective_to,90;priority,20;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_burden_cost_base_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_burden_cost_base p</DbTable>
+<Index>prj_burden_cost_base_id</Index>
+<Data>p.cost_base,p.cost_base_type,p.effective_from,p.effective_to,p.priority,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_burden_cost_base_id</Data>
+<Order>prj_burden_cost_base_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>prj_burden_cost_base_id='%{prj_burden_cost_base_vLst[prj_burden_cost_base_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_burden_cost_base.prj_burden_cost_baseLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.prj_burden_cost_base</DbTable>
+<Where>prj_burden_cost_base_id='%{prj_burden_cost_base_vLst[prj_burden_cost_base_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

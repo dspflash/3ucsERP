@@ -1,0 +1,19 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hr_expense_header_id='%{hr_expense_header_vLst[hr_expense_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_expense_header.hr_expense_headerLst"/><DbDetails><Where>hr_employee_id=%{hr_expense_header_vLst[hr_employee_id]}</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_expense_header.hr_employee_id"/></op>
+<op text="submit" needconfirm="1"><DbDetails><queryFormat>update hr_expense_header set status=1491 where hr_expense_header_id='%{hr_expense_header_vLst[hr_expense_header_id]}' and status is null and header_amount!=0</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/>
+<submit next="$this.sys_pd_header.GBDEDITsys_pd_header" function="reset"/>
+<assign name="$this.sys_pd_header.primary_document" expr="hr_expense_header"/>
+<DbDetails>
+<DbTable>xbs.hr_expense_header heh LEFT JOIN xbs.sys_pd_header pd ON pd.primary_document='hr_expense_header' AND heh.hr_expense_header_id=pd.primary_document_id AND pd.status!=325</DbTable>
+<Index>hr_expense_header_id</Index>
+<Data>claim_number document_number,hr_expense_header_id id</Data>
+<Where>hr_expense_header_id='%{hr_expense_header_vLst[hr_expense_header_id]}' and heh.status=1491 AND sys_pd_header_id IS null</Where>
+</DbDetails><submit next="$this.sys_pd_header.primary_document_id" namelist="DbDetails"/>
+<DbDetails><Where>module_name=859 and access_org_type=73</Where></DbDetails><submit next="$this.sys_pd_header.process_flow_header_id" namelist="DbDetails"/></op>
+<op text="approval_diagram"><DbDetails><Where>pd.sys_pd_header_id in (select sys_pd_header_id from sys_pd_header where primary_document='hr_expense_header' and primary_document_id='%{hr_expense_header_vLst[hr_expense_header_id]}')</Where></DbDetails><submit namelist="DbDetails" next="sys_pd_process_flow_diagram.sys_process_flow_diagram_vLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_expense_header</DbTable>
+<Where>hr_expense_header_id='%{hr_expense_header_vLst[hr_expense_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

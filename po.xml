@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="采购" Name="po" id="po">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_purchasing_control.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_sourcing_rule_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_sourcing_rule_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_asl_document.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_asl_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_asl_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_requisition_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_requisition_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_rfq_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_rfq_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_detail.xml"></xi:include>
+	</WndTaps>
+	</WndTap>

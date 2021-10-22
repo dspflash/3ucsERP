@@ -1,0 +1,13 @@
+﻿<WndTap Name="fa_asset_assignment" Text="fa_asset_assignment" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="fa_asset_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\fa_asset_assignment.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBfa_asset_assignment" id="fa_asset_assignment" Text="fa_asset_assignment" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fa_asset_assignment_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fa_asset_assignment_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fa_asset_assignment_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertfa_asset_assignment" Visible="1"/><SetVisible name="modifyfa_asset_assignment" Visible="0"/></OnActivate>
+</WndTap>

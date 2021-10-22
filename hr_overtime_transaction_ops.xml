@@ -1,0 +1,19 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hr_overtime_transaction_id='%{hr_overtime_transaction_vLst[hr_overtime_transaction_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_overtime_transaction.hr_overtime_transactionLst"/><DbDetails><Where>hr_employee_id=%{hr_overtime_transaction_vLst[employee_id]}</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_overtime_transaction.employee_id"/></op>
+<op text="submit" needconfirm="1"><DbDetails><queryFormat>update hr_overtime_transaction set overtime_status=1491 where hr_overtime_transaction_id='%{hr_overtime_transaction_vLst[hr_overtime_transaction_id]}' and overtime_status is null</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/>
+<submit next="$this.sys_pd_header.GBDEDITsys_pd_header" function="reset"/>
+<assign name="$this.sys_pd_header.primary_document" expr="hr_overtime_transaction"/>
+<DbDetails>
+<DbTable>xbs.hr_overtime_transaction hlt JOIN hr_employee_v he ON hlt.employee_id=he.hr_employee_id LEFT JOIN xbs.sys_pd_header pd ON pd.primary_document='hr_overtime_transaction' AND hlt.hr_overtime_transaction_id=pd.primary_document_id AND pd.status!=325</DbTable>
+<Index>hr_overtime_transaction_id</Index>
+<Data>concat(name,'_overtime') document_number,hr_overtime_transaction_id id</Data>
+<Where>hr_overtime_transaction_id='%{hr_overtime_transaction_vLst[hr_overtime_transaction_id]}' and hlt.overtime_status=1491 AND sys_pd_header_id IS null</Where>
+</DbDetails><submit next="$this.sys_pd_header.primary_document_id" namelist="DbDetails"/>
+<DbDetails><Where>module_name=859 and access_org_type=73</Where></DbDetails><submit next="$this.sys_pd_header.process_flow_header_id" namelist="DbDetails"/></op>
+<op text="approval_diagram"><DbDetails><Where>pd.sys_pd_header_id in (select sys_pd_header_id from sys_pd_header where primary_document='hr_overtime_transaction' and primary_document_id='%{hr_overtime_transaction_vLst[hr_overtime_transaction_id]}')</Where></DbDetails><submit namelist="DbDetails" next="sys_pd_process_flow_diagram.sys_process_flow_diagram_vLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_overtime_transaction</DbTable>
+<Where>hr_overtime_transaction_id='%{hr_overtime_transaction_vLst[hr_overtime_transaction_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

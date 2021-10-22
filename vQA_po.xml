@@ -1,0 +1,88 @@
+<WndTap Name="vQA_po" Text="vQA_po">
+	<WndTaps>
+<WndTap Text="qa_result" Name="qa_result" Ver="2" popup="1">
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_result.xml"/>
+<Ctrls>
+<GroupBox Text="qa_result" Name="GBqa_result" id="qa_result" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_result_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_result_GBOPE.xml"></xi:include>
+<TAB/>
+<Button Text="QA" ToolTip="ttp_gsearchitem" Name="QA" Size="50,20" visible="true">
+	<OnClick>
+	<DbDetails><Where>qa_result_id='%{vQA_po.qa_result.qa_result_id}'</Where></DbDetails><submit namelist="DbDetails" next="vQA_po.qa_ce_result.qa_result_id"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+<WndTap Text="vqa_ce_result" Name="vqa_ce_result" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_ce_result.xml"/>
+<Ctrls>
+<GroupBox Text="vqa_ce_result" Name="GBvqa_result" id="vqa_ce_result" Size="100,100"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="vqa_ce_resultLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.qa_ce_result_v</DbTable>
+<Index>qa_ce_result_id</Index>
+<Data>*</Data>
+<Order>qa_ce_result_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+<WndTap Text="qa_ce_result" Name="qa_ce_result" Ver="2" popup="1">
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_ce_result.xml"/>
+<Ctrls>
+<GroupBox Text="qa_ce_result" Name="GBqa_ce_result" id="qa_ce_result" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_result_GBDEDIT.xml"></xi:include>
+<BR/><GroupBox cols="xs12 sm12 md12 lg12" Multiline="0" Name="GB_description"><Ctrls>
+<MagicCtrl Text="description" Name="description" Size="700,20" line_space="10" line_width="600" line_align="10"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_result_GBOPE.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_result_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_result.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvQA" text="vQA_po"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="material_GBDSEARCH.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVvQA"><Ctrls>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="itemLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITitem" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="vQALst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.inv_po_receipt_v</DbTable>
+<Index>po_header_id</Index>
+<Data>*</Data>
+<Order>po_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><submit next="vQA_po.qa_result.GBDEDITqa_result" function="reset"/><assign name="vQA_po.qa_result.reference_key_name" expr="inv_receipt_line"/><assign name="vQA_po.qa_result.reference_key_value" expr="%{vQA_po.vQALst[inv_receipt_line_id]}"/><DbDetails><queryFormat>select qa_result_id from qa_result where reference_key_name='inv_receipt_line' and reference_key_value='%{reference_key_value}'</queryFormat></DbDetails><submit namelist="DbDetails" next="vQA_po.qa_result.qa_result_id"/><DbDetails><Where>qa_specification_header_id in (select qa_specification_header_id from  qa_specification_header  where item_id_m='%{vQA_po.vQALst[item_id_m]}')</Where></DbDetails><submit namelist="DbDetails" next="vQA_po.qa_result.qa_cp_header_id"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

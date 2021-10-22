@@ -1,0 +1,10 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hr_payroll_id='%{hr_payroll_vLst[hr_payroll_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_payroll.hr_payrollLst"/><assign name="$this.hr_payroll.frmwndctrl" expr="%{this}"/></op>
+<op text="schedule"><DbDetails><Where>h.hr_payroll_id='%{hr_payroll_vLst[hr_payroll_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_payroll_schedule_v.hr_payroll_schedule_vLst"/><assign name="$this.hr_payroll_schedule_v.hr_payroll_id" expr='%{hr_payroll_vLst[hr_payroll_id]}'/><assign name="$this.hr_payroll_schedule_v.frmwndctrl" expr="%{this}"/></op>
+<op text="process"><DbDetails><Where>h.hr_payroll_id='%{hr_payroll_vLst[hr_payroll_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_payroll_process_v.hr_payroll_process_vLst"/><assign name="$this.hr_payroll_process_v.hr_payroll_id" expr='%{hr_payroll_vLst[hr_payroll_id]}'/><assign name="$this.hr_payroll_process_v.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_payroll</DbTable>
+<Where>hr_payroll_id='%{hr_payroll_vLst[hr_payroll_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

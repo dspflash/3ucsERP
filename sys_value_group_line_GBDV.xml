@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsys_value_group_line"><Ctrls>
+<ListCtrl Heading="code,250;code_value,250;description,640;account_qualifier,250;allow_budgeting_cb,60;allow_posting_cb,60;status,120;parent_cb,60;parent_line_id,60;effective_start_date,250;effective_end_date,250;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;sys_value_group_line_id,60;" loadedclick="0" ToolTip="ttp_sys_value_group_line" Name="sys_value_group_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sys_value_group_line</DbTable>
+<Index>sys_value_group_line_id</Index>
+<Data>code,code_value,description,account_qualifier,allow_budgeting_cb,allow_posting_cb,status,parent_cb,parent_line_id,effective_start_date,effective_end_date,created_by,creation_date,last_update_by,last_update_date,sys_value_group_line_id</Data>
+<Order>sys_value_group_line_id</Order></DbDetails><dfmap><map name="text" value="name"/></dfmap></ListCtrl>
+</Ctrls></GroupBox>

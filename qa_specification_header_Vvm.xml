@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVqa_specification_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="qa_specification_header_vLst" ToolTip="ttp_qa_specification_header" Size="700,420" OnLoad="init" Heading="specification_name,250;effective_from,90;effective_to,90;description,640;item_number,120;item_name,120;item_revision,50;ap_supplier_id,120;ar_customer_id,120;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;qa_specification_header_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.qa_specification_header q left join xbs.item i on q.item_id_m=i.item_id_m left join xbs.supplier s on q.ap_supplier_id=s.supplier_id left join xbs.ar_customer a on q.ar_customer_id=a.ar_customer_id</DbTable>
+<Index>qa_specification_header_id</Index>
+<Data>q.specification_name,q.effective_from,q.effective_to,q.description,i.item_number,i.item_name,q.item_revision,s.supplier_name ap_supplier_id,a.customer_name ar_customer_id,q.status,q.created_by, q.item_id_m,q.creation_date,q.last_update_by,q.last_update_date,q.qa_specification_header_id</Data>
+<Order>qa_specification_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>qa_specification_header_id='%{qa_specification_header_vLst[qa_specification_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.qa_specification_header.qa_specification_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.qa_specification_header</DbTable>
+<Where>qa_specification_header_id='%{qa_specification_header_vLst[qa_specification_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

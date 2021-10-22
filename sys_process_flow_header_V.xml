@@ -1,0 +1,21 @@
+﻿<WndTap Name="sys_process_flow_header_v" Text="sys_process_flow_header">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_header_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_line_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><process_flow format="(s.process_flow like '%%{opvalue}%')"/><module_name format="s.module_name='%{opvalue}'"/><access_org_type format="s.access_org_type='%{opvalue}'"/><type format="(s.type like '%%{opvalue}%')"/><description format="(s.description like '%%{opvalue}%')"/><status format="s.status is %{opvalue}"/><created_by format="s.created_by='%{opvalue}'"/><creation_date format="(s.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="s.last_update_by='%{opvalue}'"/><last_update_date format="(s.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><sys_process_flow_header_id format="(s.sys_process_flow_header_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_header.xml"/>
+<Ctrls><GroupBox  Name="GBsys_process_flow_header" id="sys_process_flow_header" Text="sys_process_flow_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_header_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVsys_process_flow_header" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.sys_process_flow_header.GBDEDITsys_process_flow_header" function="reset"/><assign name="$this.sys_process_flow_header.frmwndctrl" expr="%{$this.sys_process_flow_header_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetsys_process_flow_header" Name="resetsys_process_flow_header" Size="50,20">	<OnClick>	<submit next="GBDEDITsys_process_flow_header" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchsys_process_flow_header" Name="gsearchsys_process_flow_header" Size="50,20">	<OnClick>	
+<search next="sys_process_flow_header_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITsys_process_flow_header" namelist="search" function="search"/>	
+<search next="records_sys_process_flow_header" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITsys_process_flow_header" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_header_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_header_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_header_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

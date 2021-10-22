@@ -1,0 +1,10 @@
+<WndTap Name="cst_item_cost_line_v" Text="cst_item_cost_line">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cst_item_cost_line_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\cst_item_cost_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\cst_item_cost_line.xml"/>
+<Ctrls><GroupBox  Name="GBcst_item_cost_line" id="cst_item_cost_line" Text="cst_item_cost_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cst_item_cost_line_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVgl_budget_ac_header"><Ctrls>
+<ListCtrl Heading="ac_name,250;description,640;gl_ledger_id,120;start_date,90;end_date,90;role_code,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;gl_budget_ac_header_id,60;" loadedclick="0" ToolTip="ttp_gl_budget_ac_header" onload="init" Name="gl_budget_ac_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_budget_ac_header</DbTable>
+<Index>gl_budget_ac_header_id</Index>
+<Data>ac_name,description,gl_ledger_id,start_date,end_date,role_code,created_by,creation_date,last_update_by,last_update_date,gl_budget_ac_header_id</Data>
+<Order>gl_budget_ac_header_id</Order></DbDetails>
+<OnClick><assign name="gl_ledger_id[gl_ledger_id]" function="SetSel" expr="%{gl_budget_ac_headerLst[gl_ledger_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

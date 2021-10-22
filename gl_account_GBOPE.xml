@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEgl_account" Size="100,100"><Ctrls>
+<Button sqlpkinsert="gl_account_id" Text="create" ToolTip="ttp_creategl_account" Name="insertgl_account" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_account</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>org_id[org_id],account_group[option_line_id],account_type_code[account_type_code],subid[subid],decription</Data>
+<DataEx>subtype,created_by,creation_date,last_update_by,last_update_date;%{subtype[SelectedIndex]},'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="gl_accountLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifygl_account" Name="modifygl_account" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_account</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>account_group[option_line_id],account_type_code[account_type_code],subid[subid],decription</Data>
+<DataEx>subtype,last_update_by,last_update_date;%{subtype[SelectedIndex]},'%{user_id}',now()</DataEx>
+<Where>gl_account_id='%{gl_account_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="gl_accountLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetgl_account" Name="resetgl_account" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITgl_account" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchgl_account" Name="gsearchgl_account" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="gl_accountLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITgl_account" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

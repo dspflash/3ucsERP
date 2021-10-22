@@ -1,0 +1,35 @@
+<WndTap Text="userPick" Name="userPick" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\xerp_user.xml"/>
+	<Ctrls>
+	<GroupBox Text="xerp_user" Name="GBxerp_user" id="xerp_user" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_user_GBDSEARCH.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="hr_user_vLst" listed="0" prefixand="1" inputed="1"><first_name format="first_name like '%%{opvalue}%'"/><last_name format="last_name like '%%{opvalue}%'"/></search><submit next="GBDEDIThr_user" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIThr_user" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<ListCtrl loadedclick="0" PageSize="50" Onload="init" ToolTip="ttp_item" Name="hr_user_vLst" Size="700,420">
+	<operator refresh="1" firstpage="1" prepage="1" nextpage="1"/>
+	<DbDetails>
+	<DbTable>xbs.user_v</DbTable>
+	<Index>xerp_user_id</Index>
+	<Data>*</Data>
+	<Order>xerp_user_id</Order>
+	<!--queryFormat>select %{data} from %{dbtable} where FIND_IN_SET(org_id,(SELECT getChildOrgs('%{orgid}'))) %{where} limit %{StartRow},%{PgSize}</queryFormat-->
+	</DbDetails>
+	<OnClick><if cond="%{hr_user_vLst[xerp_user_id]}"><DbDetails><Where>xerp_user_id='%{hr_user_vLst[xerp_user_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><assign name="$parent.%{frmwndctrl}[selectedindex]" function="SetSel" expr="0"/><submit function="onok"/></if></OnClick>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

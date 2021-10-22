@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_customer"><Ctrls>
+<ListCtrl Heading="customer_number,125;customer_name,300;alt_name,250;customer_relationship,120;customer_category,120;customer_credit_class,120;payment_term_id,120;currency,120;tax_country,120;tax_reg_no,200;status,60;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;ar_customer_id,55;org_id,55;" loadedclick="0" ToolTip="ttp_ar_customer" Name="ar_customerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_customer a left join xbs.option_line o on a.customer_relationship=o.option_line_id left join xbs.option_line o0 on a.customer_category=o0.option_line_id left join xbs.option_line o1 on a.customer_credit_class=o1.option_line_id left join xbs.payment_term p on a.payment_term_id=p.payment_term_id left join xbs.currency c on a.currency=c.currency_id left join xbs.country c0 on a.tax_country=c0.country_id</DbTable>
+<Index>ar_customer_id</Index>
+<Data>a.customer_number,a.customer_name,a.alt_name,o.option_line_value customer_relationship,o0.option_line_value customer_category,o1.option_line_value customer_credit_class,p.payment_term payment_term_id,c.title currency,c0.namecn tax_country,a.tax_reg_no,a.status,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.ar_customer_id,a.org_id</Data>
+<Order>ar_customer_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

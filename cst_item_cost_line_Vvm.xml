@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVcst_item_cost_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="cst_item_cost_line_vLst" ToolTip="ttp_cst_item_cost_line" Size="700,420">
+	<DbDetails >
+<DbTable>cst_item_cost_d_v</DbTable>
+<Index>cst_item_cost_line_id</Index>
+<Data>*</Data>
+<Order>cst_item_cost_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$parent.cst_item_cost_line.GBDEDITcst_item_cost_line" function="reset"/><assign name="$parent.cst_item_cost_line.cst_item_cost_header_id" expr="%{cst_item_cost_header_id}"/></op>
+<op text="modify"><assign name="$parent.cst_item_cost_line.cst_item_cost_header_id" expr="%{cst_item_cost_header_id}"/><DbDetails><Where>cst_item_cost_line_id='%{cst_item_cost_line_vLst[cst_item_cost_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.cst_item_cost_line.cst_item_cost_lineLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

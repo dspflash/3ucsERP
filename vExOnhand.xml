@@ -1,0 +1,53 @@
+<WndTap Name="vExOnhand" Text="ExOnhand">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mrpdetail.xml" popup="1"/>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\product.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\subinventory.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\fp_mrp_planned_order.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="Product"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_GBDSEARCH.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="invOnhandLst" listed="0" prefixand="0" inputed="1"><item_number format="item_number like '%%{opvalue}%'"/><item_name format="item_name like '%%{opvalue}%'"/></search><submit next="GBDEDITitem" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="invOnhandLst" Size="700,420">
+	<DbDetails>
+<DbTable>(SELECT item_id_m,org_id,lt leadtime,calOnhandDT(item_id_m,ADDDATE(CURDATE(),lt),org_id) ltonhand FROM (
+SELECT item_id_m,org_id,pre_processing_lt+post_processing_lt+processing_lt lt FROM item WHERE IF((SELECT TYPE FROM xbs.org WHERE org_id='%{orgid}')=74,org_id='%{orgid}',org_id IN (SELECT org_id FROM xbs.org WHERE parent_org_id='%{orgid}' AND TYPE=74))) i) ltonhand join item i on ltonhand.item_id_m=i.item_id_m and ltonhand.org_id=i.org_id left join org on org.org_id=i.org_id left join uom u on i.uom_id=u.uom_id</DbTable>
+<Index>item_id_m</Index>
+<Data>item_number,item_name,item_specification,item_description,leadtime,ltonhand,uom_name,org,i.item_id_m,i.org_id</Data>
+<Order>item_id_m</Order>
+<Where>ltonhand&lt;saftey_stock_quantity</Where>
+<queryFormat>select %{data} from %{dbtable} WHERE %{where}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="po_req_opinv_menu_rule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/po_req_opinv_menu_rule.xml"/></rules>
+<inputs opinv="%{app.opinv}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="vMRPdetail"><assign name="$this.MRPdetail.materialid" expr="%{invOnhandLst[item_id_m]}"/><assign name="$this.MRPdetail.materialorgid" expr="%{invOnhandLst[org_id]}"/>
+	<submit next="$this.MRPdetail.MRPdetailLst" function="resetcontent"/><submit next="$this.MRPdetail.MRPdetailLst"/></op>
+<op text="po_lineAdd"><DbDetails><Where>item_id_m='%{invOnhandLst[item_id_m]}' and bu_org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="vSDSOPlan.po_pick.poLst"/><assign name="vSDSOPlan.po_pick.item_id_m" expr="%{invOnhandLst[item_id_m]}"/><assign name="vSDSOPlan.po_pick.ref_keyname" expr=""/><assign name="vSDSOPlan.po_pick.reqlineid" expr=""/><assign name="vSDSOPlan.po_pick.PRQPOed" expr=""/><assign name="vSDSOPlan.po_pick.quantity" expr="%{invOnhandLst[ltonhand]}"/><assign name="vSDSOPlan.po_pick.requesteddt" expr="%{invOnhandLst[leadtime]} days"/></op>
+<op text="po_requisition_lineAdd"><DbDetails><Where>`requisition_status` = 321 and created_by='%{user_id}'</Where></DbDetails><submit namelist="DbDetails" next="vSDSOPlan.po_requisition_pick.po_requisitionLst"/><assign name="vSDSOPlan.po_requisition_pick.item_id_m" expr="%{invOnhandLst[item_id_m]}"/><assign name="vSDSOPlan.po_requisition_pick.ref_keyname" expr=""/><assign name="vSDSOPlan.po_requisition_pick.quantity" expr="%{invOnhandLst[ltonhand]}"/><assign name="vSDSOPlan.po_requisition_pick.requesteddt" expr=""/></op>
+<op text="wipwo"><submit next="vSDSOPlan.wip_wo_header.GBDEDITwip_wo_header" function="reset"/><DbDetails fcsm="1"><DbTable>xbs.item</DbTable>
+<Index>item_id_m</Index>
+<Data>item_number,item_id_m,receipt_sub_inventory</Data>
+<Where>item_id_m='%{invOnhandLst[item_id_m]}' and org_id='%{invOnhandLst[org_id]}' and make_buy='make'</Where></DbDetails><submit namelist="DbDetails" next="vSDSOPlan.wip_wo_header.item_id_m"/><assign name="vSDSOPlan.wip_wo_header.start_date" expr=""/><assign name="vSDSOPlan.wip_wo_header.completion_date" expr=""/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

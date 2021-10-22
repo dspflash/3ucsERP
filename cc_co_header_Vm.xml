@@ -1,0 +1,22 @@
+<WndTap Name="cc_co_header_v" Text="cc_co_header">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_header_Vem.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_line_Vem.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_line_value_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_print_v.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_process_flow_diagram_v.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\cc_co_header.xml"/>
+<Ctrls><GroupBox  Name="GBcc_co_header" id="cc_co_header" Text="cc_co_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_header_Vsm.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVcc_co_header" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.cc_co_header.GBDEDITcc_co_header" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetcc_co_header" Name="resetcc_co_header" Size="50,20">	<OnClick>	<submit next="GBDEDITcc_co_header" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchcc_co_header" Name="gsearchcc_co_header" Size="50,20" visible="true">	<OnClick>	<search next="cc_co_header_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITcc_co_header" namelist="search" function="search"/>	</OnClick>	</Button><TAB/>
+<TextBox Name="cc_Implement" Size="170,20" Text="" Weight="170" ToolTip="" visible="0"><OnEnChange><if cond="%{cc_Implement}"><DbDetails>
+<queryFormat>%{cc_Implement}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_header_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

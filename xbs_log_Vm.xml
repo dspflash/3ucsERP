@@ -1,0 +1,14 @@
+<WndTap Name="xbs_log_v" Text="xbs_log">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\xbs_log.xml"/>
+<Ctrls><GroupBox  Name="GBxbs_log" id="xbs_log" Text="xbs_log" Size="100,100"><Ctrls>
+<GroupBox Name="GBDVxbs_log" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="xbs_log_vLst" ToolTip="ttp_xbs_log" Size="700,420" pagesize="1000" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.xbs_log x</DbTable>
+<Index>xbs_log_id</Index>
+<Data>x.xbs_log_id,x.log_level,x.task,x.program,x.msg,x.dt,x.user_id,x.org_id</Data>
+<Order>xbs_log_id</Order></DbDetails>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,34 @@
+﻿<GroupBox Name="GBDEDITdocuments"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_filenameany"><Ctrls>
+<Label Align="Right" Text="filenameany" Name="lb_filenameany" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_filenameany" Name="filenameany" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_keywords"><Ctrls>
+<Label Align="Right" Text="keywords" Name="lb_keywords" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_keywords" Name="keywords" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_up_dt" Visible="false"><Ctrls>
+<Label Align="Right" Text="up_dt" overlap="pre" Name="lb_up_dt" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_up_dt" overlap="pre" Name="up_dt" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_expire_dt" Visible="false"><Ctrls>
+<Label Align="Right" Text="expire_dt" overlap="pre" Name="lb_expire_dt" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_expire_dt" overlap="pre" Name="expire_dt" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_owner_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="owner_id" overlap="pre" Name="lb_owner_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_owner_id" overlap="pre" Name="owner_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_path" Visible="false"><Ctrls>
+<Label Align="Right" Text="path" overlap="pre" Name="lb_path" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_path" overlap="pre" Name="path" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_id_corp" Visible="false"><Ctrls>
+<Label Align="Right" Text="id_corp" overlap="pre" Name="lb_id_corp" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_id_corp" overlap="pre" Name="id_corp" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_idx" Visible="false"><Ctrls>
+<Label Align="Right" Text="idx" overlap="pre" Name="lb_idx" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_idx" overlap="pre" Name="idx" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{idx}'"><SetVisible name="insertdocuments" Visible="0"/><SetVisible name="modifydocuments" Visible="1"/><else/><SetVisible name="insertdocuments" Visible="1"/><SetVisible name="modifydocuments" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,8 @@
+﻿<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>bom_oh_rate_assignment_id='%{bom_oh_rate_assignment_vLst[bom_oh_rate_assignment_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_oh_rate_assignment.bom_oh_rate_assignmentLst"/><DbDetails><Where>bom_overhead_id='%{bom_oh_rate_assignment_vLst[bom_overhead_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_oh_rate_assignment.bom_overhead_id"/><assign name="$this.bom_oh_rate_assignment.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_oh_rate_assignment</DbTable>
+<Where>bom_oh_rate_assignment_id='%{bom_oh_rate_assignment_vLst[bom_oh_rate_assignment_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

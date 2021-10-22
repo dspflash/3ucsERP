@@ -1,0 +1,14 @@
+<GroupBox Name="GBDEDITso_search"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_sd_so_header_id"><Ctrls>
+<Label Align="Right" Text="so_number" Name="so_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_item_number" Name="so_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_requested_date"><Ctrls>
+<Label Align="Right" Text="requested_date" Name="lb_requested_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_requested_date" Name="requested_date0" Size="170,20" Format="yyyy-MM-dd">
+<!--OnChanged><assign name="requested_date1" expr="%{requested_date0};10:0:0:0"/></OnChanged--></DateTime>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_requested_date"><Ctrls>
+<Label Align="Right" Text="requested_date" Name="lb_requested_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_requested_date" Name="requested_date1" Size="170,20" Format="yyyy-MM-dd" text="1 months"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

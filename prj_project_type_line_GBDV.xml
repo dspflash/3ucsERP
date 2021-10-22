@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_project_type_line"><Ctrls>
+<ListCtrl Heading="prj_category_header_id,120;required_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_project_type_line_id,60;" loadedclick="0" ToolTip="ttp_prj_project_type_line" Name="prj_project_type_lineLst" Size="300,180">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_project_type_line p left join xbs.prj_category_header p0 on p.prj_category_header_id=p0.prj_category_header_id</DbTable>
+<Index>prj_project_type_line_id</Index>
+<Data>p0.category prj_category_header_id,p.required_cb,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_project_type_line_id</Data>
+<Order>prj_project_type_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

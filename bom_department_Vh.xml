@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVbom_department" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bom_departmentLst" ToolTip="ttp_bom_department" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>bom_department_id</Index>
+<DbTable>xbs.bom_department</DbTable>
+<Data>department,status,description,created_by,creation_date,last_update_by,last_update_date,bom_department_id</Data>
+<Order>bom_department_id</Order></DbDetails>
+<OnClick>
+<if cond="%{bom_department_id}"><SetVisible name="insertbom_department" Visible="0"/><SetVisible name="modifybom_department" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

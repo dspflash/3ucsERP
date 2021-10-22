@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVmdm_tax_rule" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletemdm_tax_rule" Name="deletemdm_tax_rule" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_tax_rule</DbTable>
+<Where>mdm_tax_rule_id='%{mdm_tax_ruleLst[mdm_tax_rule_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchmdm_tax_rule" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshmdm_tax_rule" Name="searchmdm_tax_rule" Size="50,20">
+			  <OnClick><submit next="mdm_tax_ruleLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPmdm_tax_ruleLst" OnClick="(mdm_tax_ruleLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREmdm_tax_ruleLst" OnClick="(mdm_tax_ruleLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPmdm_tax_ruleLst" OnClick="(mdm_tax_ruleLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

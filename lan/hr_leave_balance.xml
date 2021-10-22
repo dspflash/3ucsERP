@@ -1,0 +1,40 @@
+<Language name="hr_leave_balance">
+<Lang name="hr_leave_balance" value="可用假期"/>
+<Lang name="TabEdithr_leave_balance" value="hr_leave_balance Edit"/>
+<Lang name="TabViewhr_leave_balance" value="hr_leave_balance View"/>
+<Lang name="employee_id" value="雇员"/>
+<Lang name="ttp_employee_id" value=""/>
+<Lang name="leave_type" value="假期类型"/>
+<Lang name="ttp_leave_type" value=""/>
+<Lang name="leave_per_year" value="年度假期"/>
+<Lang name="ttp_leave_per_year" value=""/>
+<Lang name="total_available" value="总数"/>
+<Lang name="ttp_total_available" value=""/>
+<Lang name="total_used" value="已用假期"/>
+<Lang name="ttp_total_used" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hr_leave_balance_id" value=""/>
+<Lang name="ttp_hr_leave_balance_id" value=""/>
+<Lang name="ttp_operationhr_leave_balance" value="操作"/>
+<Lang name="ttp_createhr_leave_balance" value="新增"/>
+<Lang name="ttp_modifyhr_leave_balance" value="修改"/>
+<Lang name="ttp_resethr_leave_balance" value="清除数据"/>
+<Lang name="ttp_deletehr_leave_balance" value="删除"/>
+<Lang name="ttp_refreshhr_leave_balance" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEbom_commonbom_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="bom_commonbom_line_id" Text="create" ToolTip="ttp_createbom_commonbom_line" Name="insertbom_commonbom_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_commonbom_line</DbTable>
+<Data>bom_header_id,bom_line_id,routing_sequence,planning_percentage,yield,include_in_cost_rollup_cb,wip_supply_type,supply_sub_inventory,supply_locator</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchbom_commonbom_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifybom_commonbom_line" Name="modifybom_commonbom_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_commonbom_line</DbTable>
+<Data>bom_header_id,bom_line_id,routing_sequence,planning_percentage,yield,include_in_cost_rollup_cb,wip_supply_type,supply_sub_inventory,supply_locator</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>bom_commonbom_line_id='%{bom_commonbom_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchbom_commonbom_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetbom_commonbom_line" Name="resetbom_commonbom_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITbom_commonbom_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchbom_commonbom_line" Name="gsearchbom_commonbom_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="bom_commonbom_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITbom_commonbom_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

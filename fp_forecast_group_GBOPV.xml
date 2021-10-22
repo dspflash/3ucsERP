@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVfp_forecast_group" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletefp_forecast_group" Name="deletefp_forecast_group" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_forecast_group</DbTable>
+<Where>fp_forecast_group_id='%{fp_forecast_groupLst[fp_forecast_group_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchfp_forecast_group" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshfp_forecast_group" Name="searchfp_forecast_group" Size="50,20">
+			  <OnClick><submit next="fp_forecast_groupLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPfp_forecast_groupLst" OnClick="(fp_forecast_groupLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREfp_forecast_groupLst" OnClick="(fp_forecast_groupLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPfp_forecast_groupLst" OnClick="(fp_forecast_groupLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVcurrency" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="currency_vLst" ToolTip="ttp_currency" Size="700,420" OnLoad="init" Heading="title,160;code,20;symbol_left,60;symbol_right,60;decimal_place,20;status,60;currency_id,55;" onload="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.currency c</DbTable>
+<Index>currency_id</Index>
+<Data>c.title,c.code,c.symbol_left,c.symbol_right,c.decimal_place,c.status,c.currency_id</Data>
+<Order>currency_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>currency_id='%{currency_vLst[currency_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.currency.currencyLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

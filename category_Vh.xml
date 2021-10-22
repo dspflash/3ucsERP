@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVcategory" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="categoryLst" ToolTip="ttp_category" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>category_id</Index>
+<DbTable>xbs.category</DbTable>
+<Data>category,category_type,parent_id,description,created_by,creation_date,last_update_by,last_update_date,category_id</Data>
+<Order>category_id</Order></DbDetails>
+<OnClick><assign name="category_type[option_line_id]" expr="%{categoryLst[category_type]}" function="SetSel"/><assign name="parent_id[category_id]" expr="%{categoryLst[parent_id]}" function="SetSel"/>
+<if cond="%{category_id}"><SetVisible name="insertcategory" Visible="0"/><SetVisible name="modifycategory" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

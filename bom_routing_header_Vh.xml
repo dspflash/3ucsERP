@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVbom_routing_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bom_routing_headerLst" ToolTip="ttp_bom_routing_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>bom_routing_header_id</Index>
+<DbTable>xbs.bom_routing_header</DbTable>
+<Data>effective_date,routing_revision,completion_subinventory,completion_locator,description,created_by,creation_date,last_update_by,last_update_date,org_id,bom_routing_header_id</Data>
+<Order>bom_routing_header_id</Order></DbDetails>
+<OnClick><assign name="completion_subinventory[subinventory_id]" expr="%{bom_routing_headerLst[completion_subinventory]}" function="SetSel"/><assign name="completion_locator[locator_id]" expr="%{bom_routing_headerLst[completion_locator]}" function="SetSel"/>
+<if cond="%{bom_routing_header_id}"><SetVisible name="insertbom_routing_header" Visible="0"/><SetVisible name="modifybom_routing_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

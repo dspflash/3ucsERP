@@ -1,0 +1,22 @@
+﻿<WndTap Name="iot_dev_data_pick" Text="iot_dev_data_Pick">
+<var name="searchtmpl"><topic format="(i.topic like '%%{opvalue}%')"/><data_id format="(i.data_id like '%%{opvalue}%')"/><data_name format="(i.data_name like '%%{opvalue}%')"/><data_param format="(i.data_param like '%%{opvalue}%')"/><columns format="(i.columns like '%%{opvalue}%')"/><orderidx format="(i.orderidx like '%%{opvalue}%')"/><actived format="i.actived is %{opvalue}"/><dev_idx format="(i.dev_idx like '%%{opvalue}%')"/><dev_data_idx format="(i.dev_data_idx like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\iot_dev_data.xml"/>
+<Ctrls><GroupBox  Name="GBiot_dev_data" id="iot_dev_data" Text="iot_dev_data" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="iot_dev_data_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPViot_dev_data" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetiot_dev_data" Name="resetiot_dev_data" Size="50,20">	<OnClick>	<submit next="GBDEDITiot_dev_data" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchiot_dev_data" Name="gsearchiot_dev_data" Size="50,20">	<OnClick>	
+<search next="iot_dev_data_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITiot_dev_data" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDViot_dev_data" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="iot_dev_data_vLst" ToolTip="ttp_iot_dev_data_v" Size="700,450" Heading="topic,250;data_id,100;data_name,250;data_param,100;columns,640;orderidx,20;actived,60;dev_idx,55;dev_data_idx,55;" loadedclick="0">
+	<DbDetails >
+<Index>dev_data_idx</Index>
+<DbTable>xbs.iot_dev_data i</DbTable>
+<Data>i.topic,i.data_id,i.data_name,i.data_param,i.columns,i.orderidx,i.actived,i.dev_idx,i.dev_data_idx</Data>
+<Order>dev_data_idx</Order></DbDetails>
+<OnClick><if cond="%{iot_dev_data_vLst[dev_data_idx]}"><DbDetails><Where>dev_data_idx='%{iot_dev_data_vLst[dev_data_idx]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

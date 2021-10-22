@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDEDITbom_header" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_item_id_m" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_id_m" Size="60,20" Text="item_id_m" Align="Right" SelectedIndex="0"/>
+<ComboBox Name="item_id_m" Size="170,100" Text="" Weight="170"  ToolTip="ttp_item_id_m" SelectedIndex="0">
+	<DbDetails>
+<Index>item_id_m</Index>
+<DbTable>xbs.item</DbTable>
+<Data>item_number,item_id_m</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSELENDOK><DbDetails><Where>item_id_m='%{item_id_m[item_id_m]}' and org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="bom_headerLst"/></OnSELENDOK></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bom_revision" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bom_revision" Size="60,20" Text="bom_revision" Align="Right"/>
+<TextBox Name="bom_revision" Size="170,20" Text="" Weight="170" ToolTip="ttp_bom_revision"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_effective_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_date" Size="60,20" Text="effective_date" Align="Right"/>
+<DateTime Name="effective_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_effective_date"></DateTime>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

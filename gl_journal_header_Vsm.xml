@@ -1,0 +1,65 @@
+<GroupBox Name="GBDEDITgl_journal_header"><Ctrls>
+<GroupBox Name="GB_journal_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_journal_name" Size="60,20" Text="journal_name" Align="Right"/>
+<TextBox Name="journal_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_journal_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_period_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_period_id" Size="60,20" Text="period_id" Align="Right" SelectedIndex="0"/>
+<ComboBox Name="period_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_period_id" SelectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.gl_period</DbTable>
+<Index>gl_period_id</Index>
+<Data>period_name,gl_period_id</Data>
+<Where>ledger_id='%{ledger_id[gl_ledger_id]}' AND STATUS='OPEN'</Where>
+<queryFormat>SELECT %{data} FROM %{dbtable} WHERE %{where} ORDER BY gl_period_id DESC</queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right" onload="init" SelectedIndex="6"/>
+<ComboBox Name="status" Size="170,100" Text="" Weight="170"  ToolTip="ttp_status" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=156 and status</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_journal_source" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_journal_source" Size="60,20" Text="journal_source" Align="Right" onload="init" SelectedIndex="17"/>
+<ComboBox Name="journal_source" Size="170,100" Text="" Weight="170"  ToolTip="ttp_journal_source" onload="init" SelectedIndex="17">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_code</Index>
+<Data>option_line_value,option_line_code</Data>
+<Where>option_header_id=263</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_journal_category" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_journal_category" Size="60,20" Text="journal_category" Align="Right" onload="init"/>
+<ComboBox Name="journal_category" Size="170,100" Text="" Weight="170"  ToolTip="ttp_journal_category" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_code</Index>
+<Data>option_line_value,option_line_code</Data>
+<Where>option_header_id=157</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_balance_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_balance_type" Size="60,20" Text="balance_type" Align="Right" onload="init" SelectedIndex="0"/>
+<ComboBox Name="balance_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_balance_type" onload="init" SelectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=155</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_ledger_id" Multiline="0" cols="xs12 sm6 md4" visible="0" overlap="pre"><Ctrls>
+<Label Name="lb_ledger_id" Size="60,20" Text="ledger_id" Align="Right" onload="init" visible="0" overlap="pre" SelectedIndex="0"/>
+<ComboBox Name="ledger_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_ledger_id" visible="0" overlap="pre" SelectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.gl_ledger</DbTable>
+<Index>gl_ledger_id</Index>
+<Data>ledger,currency_code,gl_ledger_id</Data>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="period_id"/><submit next="currency"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVap_payment_process"><Ctrls>
+<ListCtrl Heading="payment_process,250;payment_type,120;cash_ac_id,60;bu_org_id,60;description,640;format_class_name,500;format_method_name,500;mdm_bank_account_id,60;clearing_method,125;sync_payment_number_cb,60;status,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ap_payment_process_id,60;" loadedclick="0" ToolTip="ttp_ap_payment_process" onload="init" Name="ap_payment_processLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payment_process</DbTable>
+<Index>ap_payment_process_id</Index>
+<Data>payment_process,payment_type,cash_ac_id,bu_org_id,description,format_class_name,format_method_name,mdm_bank_account_id,clearing_method,sync_payment_number_cb,status,created_by,creation_date,last_update_by,last_update_date,ap_payment_process_id</Data>
+<Order>ap_payment_process_id</Order></DbDetails>
+<OnClick><assign name="payment_type[option_line_code]" function="SetSel" expr="%{ap_payment_processLst[payment_type]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

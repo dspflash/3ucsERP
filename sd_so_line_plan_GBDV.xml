@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_so_line"><Ctrls>
+<ListCtrl Heading="item_id_m,120;supply_source,120;line_quantity,100;line_description,640;requested_date,90;promise_date,90;schedule_ship_date,90;line_status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;sd_so_line_id,60;" loadedclick="0" ToolTip="ttp_sd_so_line" Name="sd_so_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_so_line s left join xbs.item i on s.item_id_m=i.item_id_m left join xbs.option_line o on s.supply_source=o.option_line_id left join xbs.option_line o0 on s.line_status=o0.option_line_id</DbTable>
+<Index>sd_so_line_id</Index>
+<Data>i.item_number item_id_m,o.option_line_value supply_source,s.line_quantity,s.line_description,s.requested_date,s.promise_date,s.schedule_ship_date,o0.option_line_value line_status,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,s.sd_so_line_id</Data>
+<Order>sd_so_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

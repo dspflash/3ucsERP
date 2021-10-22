@@ -1,0 +1,36 @@
+<WndTap Text="inv_issue_header" Name="inv_issue_header" Ver="2" popup="1">
+<var name="dataRequired" expr="reference_key_value[refid]"/>
+	<Language name="reference_key">
+<Lang name="reference_key_value" value="工单号"/>
+<Lang name="ttp_reference_key_value" value=""/>
+</Language>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_issue_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_issue_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="inv_issue_header" Name="GBinv_issue_header" id="inv_issue_header" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_header_GBOPE.xml"></xi:include>
+	<!--Button Text="detailAdmin" ToolTip="ttp_detailAdmin" Name="detailAdmin" Size="50,20">
+	<OnClick>
+	<assign name="vWipWo.inv_issue_line.transaction_type_id" expr="%{vWipWo.inv_issue_header.transaction_type_id[transaction_type_id]}"/>
+		<assign name="vWipWo.inv_issue_line.reference_key_name" expr="wip_wo_bom" function="setsel"/><DbDetails><Where>inv_issue_header_id='%{vWipWo.inv_issue_header.inv_issue_header_id}'</Where></DbDetails><submit next="vWipWo.inv_issue_line.inv_issue_header_id" namelist="DbDetails"/><DbDetails fcsm="1"><DbTable>xbs.wip_routing_bom_v</DbTable><Index>wip_wo_bom_id</Index><Data>bom_sequence,item_id_m,transaction_quantity,wip_wo_bom_id refid</Data><Where>wip_wo_header_id='%{vWipWo.inv_issue_header.reference_key_value[refid]}' AND department_id='%{bom_department}'</Where></DbDetails><submit next="vWipWo.inv_issue_line.reference_key_value" namelist="DbDetails"/>
+	</OnClick>
+	</Button><TAB/-->
+	<Button Text="confirm" ToolTip="ttp_confirm" Name="confirm" clickneedconfirm="1" Size="50,20">
+		<OnClick><if cond="!%{inv_issue_header_id}"><alert expr="单据不存在，不可操作！"/><else/><DbDetails><queryFormat>update inv_issue_header set status=1520 where inv_issue_header_id='%{inv_issue_header_id}' and status=1519 and (select count(inv_issue_line_id) from inv_issue_line where inv_issue_header_id='%{inv_issue_header_id}')!=0;update inv_issue_line set status=1520 where inv_issue_header_id='%{inv_issue_header_id}' and status=1519;</queryFormat></DbDetails><submit namelist="DbDetails"/></if>
+		</OnClick>
+		</Button><TAB/>
+	<ListCtrl loadedclick="1" ToolTip="ttp_inv_issue_header" Name="inv_issue_headerLst" Size="70,20" visible="0">
+		<DbDetails fcsm="1">
+	<DbTable>xbs.inv_issue_header</DbTable>
+	<Index>inv_issue_header_id</Index>
+	<Data>issue_number,transaction_type_id,reference_key_value,issue_date,carrier,vechile_number,comment,inv_issue_header_id</Data>
+	<Order>inv_issue_header_id</Order></DbDetails>
+	<OnClick><assign name="transaction_type_id[transaction_type_id]" function="SetSel" expr="%{inv_issue_headerLst[transaction_type_id]}"/><assign name="reference_key_value[refid]" function="SetSel" expr="%{inv_issue_headerLst[reference_key_value]}"/>
+	</OnClick>
+	</ListCtrl>	
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_line_Vvm.xml"/>
+	</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate><SetVisible name="insertinv_issue_header" Visible="1"/><SetVisible name="modifyinv_issue_header" Visible="0"/></OnActivate>
+		</WndTap>

@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_budget_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_budget_headerLst" ToolTip="ttp_prj_budget_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_budget_header</DbTable>
+<Index>prj_budget_header_id</Index>
+<Data>version_name,budget_type,entrymethod,resourcelist,status,raw_cost,burdened_cost,labor_effort,nlr_effort,revenue,baselined_cb,baselined_by,baselined_date,original,changereason,description,current_cb,original_cb,created_by,creation_date,last_update_by,last_update_date,prj_project_header_id,prj_project_line_id,prj_budget_header_id</Data>
+<Order>prj_budget_header_id</Order></DbDetails>
+<OnClick><assign name="budget_type[option_line_id]" expr="%{prj_budget_headerLst[budget_type]}" function="SetSel"/><assign name="entrymethod[prj_bem_id]" expr="%{prj_budget_headerLst[entrymethod]}" function="SetSel"/><assign name="resourcelist[prj_resource_list_header_id]" expr="%{prj_budget_headerLst[resourcelist]}" function="SetSel"/><assign name="original[prj_budget_header_id]" expr="%{prj_budget_headerLst[original]}" function="SetSel"/><assign name="changereason[prj_budget_change_reason_id]" expr="%{prj_budget_headerLst[changereason]}" function="SetSel"/>
+<if cond="%{prj_budget_header_id}"><SetVisible name="insertprj_budget_header" Visible="0"/><SetVisible name="modifyprj_budget_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

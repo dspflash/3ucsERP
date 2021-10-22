@@ -1,0 +1,15 @@
+<GroupBox Name="GBDVhr_employee_education" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_employee_education_vLst" ToolTip="ttp_hr_employee_education" Size="700,420" OnLoad="init" Heading="degree_name,640;university,640;university_address,640;specialization,640;edu_start_date,90;edu_end_date,90;mode_of_education,120;grade,50;marks_percentage,100;comments,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_employee_education_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hr_employee_education h left join xbs.option_line o on h.mode_of_education=o.option_line_id</DbTable>
+<Index>hr_employee_education_id</Index>
+<Data>h.degree_name,h.university,h.university_address,h.specialization,h.edu_start_date,h.edu_end_date,o.option_line_value mode_of_education,h.grade,h.marks_percentage,h.comments,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_employee_education_id</Data>
+<Order>hr_employee_education_id</Order>
+<Where>employee_id='%{employee_id}'</Where>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.hr_employee_education.GBDEDIThr_employee_education" function="reset"/><assign name="$this.hr_employee_education.employee_id" expr="%{employee_id}"/></op>
+<op text="modify"><DbDetails><Where>hr_employee_education_id='%{hr_employee_education_vLst[hr_employee_education_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_employee_education.hr_employee_educationLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_billing_cycle" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_billing_cycleLst" ToolTip="ttp_prj_billing_cycle" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_billing_cycle</DbTable>
+<Index>prj_billing_cycle_id</Index>
+<Data>billing_cycle,type,value,effective_from,effective_to,description,created_by,creation_date,last_update_by,last_update_date,prj_billing_cycle_id</Data>
+<Order>prj_billing_cycle_id</Order></DbDetails>
+<OnClick><assign name="type[option_line_id]" expr="%{prj_billing_cycleLst[type]}" function="SetSel"/>
+<if cond="%{prj_billing_cycle_id}"><SetVisible name="insertprj_billing_cycle" Visible="0"/><SetVisible name="modifyprj_billing_cycle" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

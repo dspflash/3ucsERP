@@ -1,0 +1,29 @@
+﻿<GroupBox Name="GBDEDITsys_process_flow_action" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_role_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_role_code" Size="60,20" Text="role_code" Align="Right" onload="init"/>
+<ComboBox Name="role_code" Size="170,100" Text="" Weight="170"  ToolTip="ttp_role_code" onload="init">
+	<DbDetails>
+<Index>role_id</Index>
+<DbTable>xbs.xerp_role</DbTable>
+<Data>role_name_cn,role_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="userid"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_userid" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_userid" Size="60,20" Text="userid" Align="Right"/>
+<ComboBox Name="userid" Size="170,100" Text="" Weight="170"  ToolTip="ttp_userid">
+	<DbDetails>
+<Index>xerp_user_id</Index>
+<DbTable>xbs.user_v</DbTable>
+<Data>NAME,username,xerp_user_id</Data>
+<Where>xerp_user_id in (select user_id from user_role where role_code='%{role_code[role_id]}')</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_pf_action_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_pf_action_type" Size="60,20" Text="pf_action_type" Align="Right" selectedIndex="0"/>
+<ComboBox Name="pf_action_type" Size="170,100" Text="" Weight="170" Items="Approval|Information" ToolTip="ttp_pf_action_type" selectedIndex="0"></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_required_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="required_cb" Size="230,20" Text="required_cb" ToolTip="ttp_required_cb" checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

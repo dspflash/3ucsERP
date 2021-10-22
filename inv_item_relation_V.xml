@@ -1,0 +1,20 @@
+﻿<WndTap Name="inv_item_relation_v" Text="inv_item_relation">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_item_relation_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><from_item_id_m format="i.from_item_id_m='%{opvalue}'"/><relation_type format="i.relation_type='%{opvalue}'"/><description format="(i.description like '%%{opvalue}%')"/><from_date format="(i.from_date between '%{from_date[datetime]}' and '%{from_date[datetime2]}')"/><to_date format="(i.to_date between '%{to_date[datetime]}' and '%{to_date[datetime2]}')"/><planning_cb format="i.planning_cb is %{opvalue}"/><status format="i.status is %{opvalue}"/><created_by format="(i.created_by like '%%{opvalue}%')"/><creation_date format="(i.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(i.last_update_by like '%%{opvalue}%')"/><last_update_date format="(i.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><inv_item_relation_id format="(i.inv_item_relation_id like '%%{opvalue}%')"/><org_id format="(i.org_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_item_relation.xml"/>
+<Ctrls><GroupBox  Name="GBinv_item_relation" id="inv_item_relation" Text="inv_item_relation" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_item_relation_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVinv_item_relation" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.inv_item_relation.GBDEDITinv_item_relation" function="reset"/><assign name="$this.inv_item_relation.frmwndctrl" expr="%{$this.inv_item_relation_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetinv_item_relation" Name="resetinv_item_relation" Size="50,20">	<OnClick>	<submit next="GBDEDITinv_item_relation" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchinv_item_relation" Name="gsearchinv_item_relation" Size="50,20">	<OnClick>	
+<search next="inv_item_relation_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITinv_item_relation" namelist="search" function="search"/>	
+<search next="records_inv_item_relation" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITinv_item_relation" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_item_relation_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_item_relation_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_item_relation_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

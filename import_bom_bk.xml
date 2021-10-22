@@ -1,0 +1,65 @@
+﻿<WndTap Name="BomImport" Text="物料导入">
+<var name="importdir" expr="layout\ucin\xbs\"/>
+<Ctrls><GroupBox Name="BomImport" Text="物料导入"><Ctrls>
+<GroupBox Name="MasterTab" comment="Tab should seperate from other groupbox"><Ctrls>
+<GroupBox Name="OpenExcel" Text="OpenExcel" feature="tab"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_filename"><Ctrls>
+	<Label Name="lb_filename" Size="30,20"	Text="文件"></Label>
+	<TextBox Name="excel_file" Size="150,20" Text=""></TextBox>
+    <Button Name="Browse" Size="80,20" Text="浏览"><OnClick><assign name="excel_file" expr="browsefile:,filter=Excel (*.xls)|*.xls|Excel (*.xlsx)|*.xlsx|Execl Files (*.xls;*.xlsx)|*.xls;*.xlsx||" function=""/></OnClick></Button>
+</Ctrls></GroupBox><TAB/>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_tbname"><Ctrls>
+	<Label Name="lb_tbname" Size="30,20" Text="表名"></Label>
+	<TextBox Name="sheetname" Size="150,20" Text=""></TextBox>
+	<MagicCtrl Name="xExcel" fadeout="min:0;" link="tip:read excel to list" text="xExcel" images="" Size="80,20">
+		<interface id="xExcelA" type="IBizInterface" codebase="xexcel.dll" dir="layout/ucin/" classid="6BACF5C9-AF7A-481E-AE7A-B81378D097BF" version="1.0"/>
+			<OnClick><magicdata x="" function="read" sheet="%{sheetname}" filename="%{excel_file}"/><submit next="xexcel" namelist="magicdata" function="6BACF5C9-AF7A-481E-AE7A-B81378D097BF"/></OnClick>
+			<OnEvent_6BACF5C9-AF7A-481E-AE7A-B81378D097BF_1><info next="tst" expr="%{xExcel[6BACF5C9-AF7A-481E-AE7A-B81378D097BF.stat]};%{xExcel[6BACF5C9-AF7A-481E-AE7A-B81378D097BF.statmsg]}"/><if cond="0==%{xExcel[6BACF5C9-AF7A-481E-AE7A-B81378D097BF.stat]}"><ExchangeData name="dataList"/><submit next="xexcel" dataSect="6BACF5C9-AF7A-481E-AE7A-B81378D097BF" namelist="ExchangeData" function="ExchangeData"/></if></OnEvent_6BACF5C9-AF7A-481E-AE7A-B81378D097BF_1>
+		</MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR NULLHeight="1"/><GroupBox Name="ServerProcess" Text="UploadToServer" feature="tab"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_filename"><Ctrls>
+	<Label Name="lb_filename" Size="30,20"	Text="文件"></Label>
+	<TextBox Name="TB_filename" Size="150,20" Text="bom.mdb"><OnEnchange><assign name="filetp" expr="js('%{TB_filename}'.substr('%{TB_filename}'.indexOf('.')))"/></OnEnchange></TextBox>
+    <!--Button Name="SendFile0" Size="80,20" Text="上传文件" OnClick="SendFile:,filter=Access (*.mdb)|*.mdb|Excel (*.xls)|*.xls||,dir=%{importdir},localdir="><OnSendFileEnd><assign name="TB_filename" expr="%{SendFile0[filename]}"/><submit next="dataList" function="resetcontent"/></OnSendFileEnd></Button-->
+    <Button Name="SendFile" Size="80,20" Text="上传文件" OnClick="SendFile:,filter=Access (*.mdb)|*.mdb|Access (*.accdb)|*.accdb|Excel (*.xls)|*.xls|Excel (*.xlsx)|*.xlsx||,dir=%{importdir},localdir="><OnSendFileEnd><assign name="TB_filename" expr="%{SendFile[filename]}"/><submit next="dataList" function="resetcontent"/></OnSendFileEnd></Button>
+</Ctrls></GroupBox><TAB/>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_tbname"><Ctrls>
+	<Label Name="lb_tbname" Size="30,20" Text="表名"></Label>
+	<TextBox Name="TB_tbname" Size="150,20" Text="sheet1"></TextBox>
+	<TextBox Name="filetp" Size="50,20" Text=".mdb" visible="0" overlap="pre"><OnEnchange><if cond="%{filetp}=='.xls'"><info expr="须注意：Excel表格里不应该有公式之类的元素，以避免数据混乱"/></if></OnEnchange></TextBox>
+    <!--Button Name="search0" Size="80,20" Text="数据预览">
+	<OnClick><if cond="%{filetp}=='.xls'"><assign name="dbtp" expr="Excel"/><assign name="dbtbl" expr="[%{TB_tbname}$]"/><elseif cond="%{filetp}=='.mdb'"/><assign name="dbtp" expr="MSAccess"/><assign name="dbtbl" expr="`%{TB_tbname}`"/></if><DbDetails><SubDriver>%{dbtp}</SubDriver><DbTable>%{dbtbl}</DbTable></DbDetails><submit next="dataList" namelist="DbDetails"/></OnClick></Button-->
+	<Button Name="search" Size="80,20" Text="数据预览">
+	<OnClick><if cond="%{filetp}=='.xls'"><assign name="dbtp" expr="Excel"/><assign name="dbtbl" expr="[%{TB_tbname}$]"/><elseif cond="%{filetp}=='.xlsx'"/><assign name="dbtp" expr="Excel"/><assign name="dbtbl" expr="[%{TB_tbname}$]"/><elseif cond="%{filetp}=='.mdb'"/><assign name="dbtp" expr="MSAccess"/><assign name="dbtbl" expr="`%{TB_tbname}`"/><elseif cond="%{filetp}=='.accdb'"/><assign name="dbtp" expr="MSAccess"/><assign name="dbtbl" expr="`%{TB_tbname}`"/></if><DbDetails><SubDriver>%{dbtp}</SubDriver><DbTable>%{dbtbl}</DbTable></DbDetails><submit next="dataList" namelist="DbDetails"/></OnClick></Button>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox><BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_import"><Ctrls>
+	<Button Name="importbom" Text="BOM导入" Clickneedconfirm="true" Size="80,24" ToolTip="第1列产品/半成品料号，物料料号为第2列，名称为第3列，物料的规格、单位、单价分别为第4、5、6列，耗量(请使用小数而避免使用分数) 为第7列，标准操作 为第8列。部门、接收仓库、供料方式、供料仓库依次为9、10、11、12">
+		<OnClick><import button="import">sql:call bomimport('%0','%1','%2','%3','%4','%5','%6','%7','%8','%9','%{10}','%{11}',%{orgid},%{user_id});</import>
+		<submit next="dataList" namelist="import" function="import"/></OnClick></Button>
+	<TAB/><Button Name="bomResource" Text="BOM资源导入" Clickneedconfirm="true" Size="80,24" ToolTip="第1列产品/半成品料号，部门为第2列，操作为第3列，资源的名称、单位、用量、费率、OSP与否 分别为第4、5、6、7、8列，成本类型(Pending)为第9列，扣费类型为第10列。">
+		<OnClick><import button="import">sql:call bomResImport('%0','%1','%2','%3','%4','%5','%6','%7','%8','%9',%{orgid},%{user_id});</import>
+		<submit next="dataList" namelist="import" function="import"/></OnClick></Button>
+	<TAB/><Button Name="importOnHand" Text="库存导入" Clickneedconfirm="true" Size="80,24" ToolTip="（第1列为料号，单位为第2列，数量为第3列，仓库为为第4列">
+	<OnClick><import button="import">sql:insert into xbs.inv_transaction (item_id_m,uom_id,quantity,reason,description,to_org_id,to_subinventory_id,to_locator_id,lot_number_id,transaction_type_id,created_by,creation_date,last_update_by,last_update_date,org_id) values((select item_id_m from item where item_number='%0' and org_id=%{orgid}),(SELECT uom_id FROM uom WHERE uom_name='%1'),'%2','','','%{orgid}',(select subinventory_id from subinventory where subinventory='%3' and org_id=%{orgid}),'','',17,'%{user_id}',now(),'%{user_id}',now(),'%{orgid}');</import><submit next="dataList" namelist="import" function="import"/></OnClick></Button>
+	<TAB/><Button Name="import" Text="物料导入" Clickneedconfirm="true" Size="80,24" ToolTip="（第1列为行号）物料料号为第2列，名称为第3列，物料的规格、单位、物料描述分别为第4、5、6列">
+	<OnClick><import button="import">sql:INSERT INTO xbs.item (org_id, item_number,item_name,item_specification,uom_id,item_type, item_status, item_description,created_by, creation_date, last_update_by, last_update_date) VALUES(%{orgid},'%1','%2','%3',(SELECT uom_id FROM uom WHERE uom_name='%4'),106,277,'%5',%{user_id},NOW(),%{user_id},NOW()) on duplicate key UPDATE item_name='%2',item_specification='%3',uom_id=(SELECT uom_id FROM uom WHERE uom_name='%4'), item_description='%5', last_update_by=%{user_id}, last_update_date=NOW();UPDATE item SET item_id_m=item_id WHERE (item_id_m IS NULL and org_id=%{orgid});</import><submit next="dataList" namelist="import" function="import"/></OnClick></Button>
+		<!--TAB/><Button Name="import" Text="成本价导入" Clickneedconfirm="true" Size="80,24" ToolTip="（第1列为行号）物料料号为第2列，单价为第3列">
+	<OnClick><import button="import">sql:UPDATE item SET list_price='%{2}' WHERE item_number='%1' and org_id=%{orgid};</import><submit next="dataList" namelist="import" function="import"/></OnClick></Button>
+	<TAB/><Button Name="importbom" Text="BOM导入" Clickneedconfirm="true" Size="80,24" ToolTip="表名同时也是产品名称，（第1列为行号）物料料号为第2列，名称为第3列，物料的规格、单位、单价分别为第4、5、6列，耗量(请使用小数而避免使用分数) 为第7列，标准操作 为第8列。">
+		<OnClick><import button="import">sql:call bomimport('%{TB_tbname}','%1','%2','%3','%4','%5','%6','%7',%{orgid},%{user_id});</import>
+		<submit next="dataList" namelist="import" function="import"/></OnClick></Button-->
+</Ctrls></GroupBox>
+<BR/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_tbname"><Ctrls>
+	<ListCtrl Name="dataList" PageSize="1000" Size="700,500" OnLoad="">
+		<DbDetails>
+			<DbHost>local</DbHost>
+			<DbDatabase>%{importdir}%{TB_filename}</DbDatabase>
+			<Data>*</Data>
+		</DbDetails>
+		</ListCtrl>
+</Ctrls></GroupBox>
+	</Ctrls></GroupBox></Ctrls></WndTap>

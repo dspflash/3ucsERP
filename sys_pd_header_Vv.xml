@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVsys_pd_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="sys_pd_header_vLst" ToolTip="ttp_sys_pd_header" Size="700,420" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.sys_pd_header s left join xbs.po_header p on s.primary_document_id=p.id left join xbs.sys_process_flow_header s0 on s.process_flow_header_id=s0.sys_process_flow_header_id left join xbs.option_line o on s.status=o.option_line_id left join xbs.user_v u on s.originator=u.xerp_user_id left join xbs.sys_process_flow_line s1 on s.current_process_flow_line_id=s1.sys_process_flow_line_id left join xbs.user_v u0 on s.owner_user_id=u0.xerp_user_id left join xbs.user_v u1 on s.created_by=u1.xerp_user_id left join xbs.user_v u2 on s.last_update_by=u2.xerp_user_id left join xbs.org o0 on s.org_id=o0.org_id</DbTable>
+<Index>sys_pd_header_id</Index>
+<Data>p.po_number primary_document_id,s0.process_flow process_flow_header_id,s.security_level,o.option_line_value status,s.priority,u.NAME originator,s1.line_name current_process_flow_line_id,s.origination_date,u0.NAME owner_user_id,s.release_date,s.completion_date,s.description,u1.NAME created_by,s.creation_date,u2.NAME last_update_by,s.last_update_date,o0.org org_id,s.sys_pd_header_id,s.primary_document,s.document_number</Data>
+<Order>sys_pd_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>sys_pd_header_id='%{sys_pd_header_vLst[sys_pd_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.sys_pd_header.sys_pd_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.sys_pd_header</DbTable>
+<Where>sys_pd_header_id='%{sys_pd_header_vLst[sys_pd_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="pos_inv_control" Name="pos_inv_control" Ver="2">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\pos_inv_control.xml"/>
+<Ctrls>
+<GroupBox Text="pos_inv_control" Name="GBpos_inv_control" id="pos_inv_control" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pos_inv_control_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pos_inv_control_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pos_inv_control_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pos_inv_control_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVprj_billing_cycle" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_billing_cycle_vLst" ToolTip="ttp_prj_billing_cycle" Size="700,420" OnLoad="init" Heading="billing_cycle,125;type,120;value,55;effective_from,90;effective_to,90;description,640;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;prj_billing_cycle_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_billing_cycle p left join xbs.option_line o on p.type=o.option_line_id</DbTable>
+<Index>prj_billing_cycle_id</Index>
+<Data>p.billing_cycle,o.option_line_value type,p.value,p.effective_from,p.effective_to,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_billing_cycle_id</Data>
+<Order>prj_billing_cycle_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>prj_billing_cycle_id='%{prj_billing_cycle_vLst[prj_billing_cycle_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_billing_cycle.prj_billing_cycleLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.prj_billing_cycle</DbTable>
+<Where>prj_billing_cycle_id='%{prj_billing_cycle_vLst[prj_billing_cycle_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

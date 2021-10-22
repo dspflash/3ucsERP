@@ -1,0 +1,21 @@
+<GroupBox Name="GBDVfp_forecast_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="fp_forecast_line_vLst" ToolTip="ttp_fp_forecast_line" Size="700,220" Heading="item_id_m,120;bucket_type,120;start_date,90;end_date,90;no_of_bucket,25;original,100;total_original,100;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.fp_forecast_line f left join xbs.item i on f.item_id_m=i.item_id_m left join xbs.option_line o on f.bucket_type=o.option_line_id LEFT JOIN fp_forecast_line_date fd ON f.fp_forecast_line_id=fd.fp_forecast_line_id</DbTable>
+<Index>fp_forecast_line_id</Index>
+<Data>i.item_number,o.option_line_value bucket_type,f.start_date,f.end_date,COUNT(fp_forecast_line_date_id) no_of_bucket,f.original,SUM(fd.current_quantity) total_original,f.item_id_m, f.created_by,f.creation_date,f.last_update_by,f.last_update_date,f.fp_forecast_line_id</Data>
+<Order>fp_forecast_line_id</Order>
+<queryFormat>select %{data} from %{dbtable} where %{where} GROUP BY fp_forecast_line_id order by %{order}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{fp_forecast_header_id}"><alert expr="请先添加或选择已有项目！"/><else/><assign name="$parent.fp_forecast_line.extcond" expr="and (customer_ordered_cb or internal_ordered_cb)"/><if cond="%{ar_customer_id[ar_customer_id]}"><assign name="$parent.fp_forecast_line.extcond" expr="%{$parent.fp_forecast_line.extcond} and item_id_m in (select item_id_m from sd_quote_v where ar_customer_id='%{ar_customer_id[ar_customer_id]}')"/></if><assign name="$parent.fp_forecast_line.fp_forecast_header_id" expr="%{fp_forecast_header_id}"/></if></op>
+<op text="modify"><DbDetails><Where>org_id='%{org_id[org_id]}' and item_id_m='%{fp_forecast_line_vLst[item_id_m]}'</Where></DbDetails><submit next="$parent.fp_forecast_line.item_id_m" namelist="DbDetails"/><assign name="$parent.fp_forecast_line.fp_forecast_header_id" expr="%{fp_forecast_header_id}"/><DbDetails><Where>fp_forecast_line_id='%{fp_forecast_line_vLst[fp_forecast_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.fp_forecast_line.fp_forecast_lineLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.fp_forecast_line</DbTable>
+<Where>fp_forecast_line_id='%{fp_forecast_line_vLst[fp_forecast_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where};delete from fp_forecast_line_date where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+<!--op text="forecast_date"><assign name="$parent.fp_forecast_line_date_V.fp_forecast_line_date.fp_forecast_line_id" expr="%{fp_forecast_line_vLst[fp_forecast_line_id]}"/><assign name="$parent.fp_forecast_line_date_V.fp_forecast_line_date.original_quantity" expr="%{fp_forecast_line_vLst[original_quantity]}"/></op-->
+<op text="forecast_dates"><assign name="$parent.fp_forecast_line_date_V.fp_forecast_line_id" expr="%{fp_forecast_line_vLst[fp_forecast_line_id]}"/><DbDetails><Where>fp_forecast_line_id='%{fp_forecast_line_id}'</Where></DbDetails><submit next="$parent.fp_forecast_line_date_V.fp_forecast_line_date_VLst" namelist="DbDetails"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

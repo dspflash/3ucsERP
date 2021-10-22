@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVqa_cp_assignment_header"><Ctrls>
+<ListCtrl Heading="inv_transaction_id,60;description,640;effective_from,90;effective_to,90;mandatory_cb,60;enabled_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;qa_cp_assignment_header_id,60;" loadedclick="0" ToolTip="ttp_qa_cp_assignment_header" Name="qa_cp_assignment_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_cp_assignment_header</DbTable>
+<Index>qa_cp_assignment_header_id</Index>
+<Data>inv_transaction_id,description,effective_from,effective_to,mandatory_cb,enabled_cb,created_by,creation_date,last_update_by,last_update_date,qa_cp_assignment_header_id</Data>
+<Order>qa_cp_assignment_header_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

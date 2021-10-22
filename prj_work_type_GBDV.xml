@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_work_type"><Ctrls>
+<ListCtrl Heading="work_type,125;tp_amount_type,120;effective_from,90;effective_to,90;billable_cb,60;capitalizable_cb,60;training_cb,60;shadow_resource_cb,60;utilization_type,125;utilization_percentage,30;unassigned_cb,60;non_worked_cb,60;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_work_type_id,60;" loadedclick="0" ToolTip="ttp_prj_work_type" Name="prj_work_typeLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_work_type</DbTable>
+<Index>prj_work_type_id</Index>
+<Data>work_type,tp_amount_type,effective_from,effective_to,billable_cb,capitalizable_cb,training_cb,shadow_resource_cb,utilization_type,utilization_percentage,unassigned_cb,non_worked_cb,description,created_by,creation_date,last_update_by,last_update_date,prj_work_type_id</Data>
+<Order>prj_work_type_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

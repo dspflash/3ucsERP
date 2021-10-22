@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_agreement_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_agreement_headerLst" ToolTip="ttp_prj_agreement_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_agreement_header</DbTable>
+<Index>prj_agreement_header_id</Index>
+<Data>agreement_number,agreement_type,admin_employee_id,ar_customer_id,ar_customer_site_id,payment_term_id,header_amount,doc_currency,currency,start_date,end_date,bu_org_id,description,advanced_required_cb,r_hard_limt_cb,i_hard_limt_cb,created_by,creation_date,last_update_by,last_update_date,prj_agreement_header_id,exchange_rate_type,exchange_rate</Data>
+<Order>prj_agreement_header_id</Order></DbDetails>
+<OnClick><assign name="admin_employee_id[hr_employee_id]" expr="%{prj_agreement_headerLst[admin_employee_id]}" function="SetSel"/><assign name="ar_customer_id[ar_customer_id]" expr="%{prj_agreement_headerLst[ar_customer_id]}" function="SetSel"/><assign name="ar_customer_site_id[ar_customer_site_id]" expr="%{prj_agreement_headerLst[ar_customer_site_id]}" function="SetSel"/><assign name="payment_term_id[payment_term_id]" expr="%{prj_agreement_headerLst[payment_term_id]}" function="SetSel"/><assign name="doc_currency[currency_id]" expr="%{prj_agreement_headerLst[doc_currency]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{prj_agreement_headerLst[currency]}" function="SetSel"/><assign name="exchange_rate_type[gl_currency_conversion_id]" expr="%{prj_agreement_headerLst[exchange_rate_type]}" function="SetSel"/>
+<if cond="%{prj_agreement_header_id}"><SetVisible name="insertprj_agreement_header" Visible="0"/><SetVisible name="modifyprj_agreement_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

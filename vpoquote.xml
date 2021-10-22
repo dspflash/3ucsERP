@@ -1,0 +1,79 @@
+<WndTap Text="vpo_quote" Name="vpo_quote" Ver="2">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_quote_line.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_print_v.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_header_Ve.xml" popup="1"/>
+		</WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_quote_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_quote_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="vpo_quote" Name="GBvpo_quote" id="vpo_quote" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_header_GBDsearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_quote_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="PO_quoteLst" listed="0" prefixand="1" inputed="1"><item_number format="po_quote_header_id IN (SELECT po_quote_header_id FROM po_quote_v WHERE item_number like '%%{opvalue}%')"/><supplier_name format="supplier_name like '%%{opvalue}%'"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search><submit next="GBDEDITpo_quote_header" namelist="search" function="search"/>
+	<search next="PO_quoteLineLst" listed="0" prefixand="1" inputed="1"><item_number format="item_number like '%%{opvalue}%'"/><supplier_name format="po_quote_header_id IN (SELECT po_quote_header_id FROM po_quote_header_v WHERE supplier_name like '%%{opvalue}%')"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search><submit next="GBDEDITpo_quote_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+	<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+	<GroupBox feature="tab" Text="TabPQ" Name="PQs"><Ctrls>
+	<ListCtrl loadedclick="0" PageSize="500" colsDisplay="23" ToolTip="ttp_item" Name="PO_quoteLst" onload="init" Size="700,420">
+		<DbDetails>
+		<DbTable>xbs.po_quote_header_v</DbTable>
+		<Index>po_quote_header_id</Index>
+		<Data>*</Data>
+		<Order>po_quote_header_id</Order>
+		<Where>and quote_status!=1488 and approval_status not in (322,323)</Where>
+		<queryFormat>select %{data} from %{dbtable} where bu_org_id='%{orgid}' %{where} limit %{StartRow},%{PgSize}</queryFormat>
+		</DbDetails>
+		<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+		<op text="view"><DbDetails><Where>po_quote_header_id='%{$this.po_quotelst[po_quote_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vpo_quote_line.PO_quoteLst"/></op>
+		<op text="attachment"><DbDetails><Where>reftbl='po_quote_header' and refid='%{$this.po_quotelst[po_quote_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.attachment_v.attachment_vLst"/></op>
+		<op text="modify"><DbDetails><DbTable>xbs.supplier_all_v</DbTable><Where>supplier_id='%{PO_quoteLst[supplier_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vSupplier.po_quote_header.supplier_id"/><DbDetails><Where>po_quote_header_id='%{po_quotelst[po_quote_header_id]}' and quote_status=1486</Where></DbDetails><submit namelist="DbDetails" next="vSupplier.po_quote_header.po_quote_headerLst"/></op>
+		<op text="submit" needconfirm="1"><DbDetails><queryFormat>update po_quote_header set approval_status=320,quote_status=1487,last_update_by='%{user_id}',last_update_date=now() where po_quote_header_id='%{PO_quoteLst[po_quote_header_id]}' and (quote_status=1486 and approval_status=321)</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/><submit next="$this.sys_pd_header.GBDEDITsys_pd_header" function="reset"/>
+		<assign name="$this.sys_pd_header.primary_document" expr="po_quote_header"/>
+		<DbDetails>
+		<DbTable>xbs.po_quote_header pq LEFT JOIN sys_pd_header pd ON pd.primary_document='po_quote_header' AND pq.po_quote_header_id=pd.primary_document_id AND pd.status!=325</DbTable>
+		<Index>po_quote_header_id</Index>
+		<Data>quote_number document_number,po_quote_header_id id</Data>
+		<Where>po_quote_header_id='%{PO_quoteLst[po_quote_header_id]}' and approval_status=320 AND sys_pd_header_id IS null</Where>
+		</DbDetails><submit next="$this.sys_pd_header.primary_document_id" namelist="DbDetails"/>
+		<DbDetails><Where>module_name=631 and access_org_type=73</Where></DbDetails><submit next="$this.sys_pd_header.process_flow_header_id" namelist="DbDetails"/></op>
+		<op text="close" needconfirm="1"><DbDetails><queryFormat>update po_quote_header set quote_status=1488,last_update_by='%{user_id}',last_update_date=now() where po_quote_header_id='%{PO_quoteLst[po_quote_header_id]}' </queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+		<!--op text="accept" needconfirm="1"><DbDetails><queryFormat>update po_quote_header set quote_status=1489 where po_quote_header_id='%{PO_quoteLst[po_quote_header_id]}' and quote_status=1487</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op-->
+		<op text="print"><DbDetails><DbTable>xbs.supplier_all_v</DbTable><Where>supplier_id='%{PO_quoteLst[supplier_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.pq_print.supplier_id"/><DbDetails><Where>po_quote_header_id='%{PO_quoteLst[po_quote_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.pq_print.po_quote_headerLst"/><submit next="$this.pq_print.pq_lineLst" namelist="DbDetails"/></op>
+		<op text="approval_diagram"><DbDetails><Where>pd.sys_pd_header_id in (select sys_pd_header_id from sys_pd_header where primary_document='po_quote_header' and primary_document_id='%{PO_quoteLst[po_quote_header_id]}')</Where></DbDetails><submit namelist="DbDetails" next="sys_pd_process_flow_diagram.sys_process_flow_diagram_vLst"/></op>
+		</operator>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	<BR/>
+	<GroupBox feature="tab" Text="TabPQLines" Name="PQLines" remark="remove space in name for tab switch failed"><Ctrls>
+	<ListCtrl loadedclick="0" PageSize="500" colsDisplay="38" ToolTip="ttp_item" Name="PO_quoteLineLst" onload="init" Size="700,420">
+		<DbDetails>
+		<DbTable>xbs.po_quote_v</DbTable>
+		<Index>po_quote_line_id</Index>
+		<Data>*</Data>
+		<Order>po_quote_line_id</Order>
+		<Where>and quote_status!=1488</Where>
+		<queryFormat>select %{data} from %{dbtable} where bu_org_id='%{orgid}' %{where} limit %{StartRow},%{PgSize}</queryFormat>
+		</DbDetails>
+		<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+		</operator>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls></GroupBox>
+	</Ctrls></GroupBox>
+	</Ctrls>
+<OnChanged/>
+<OnActivate/>
+</WndTap>

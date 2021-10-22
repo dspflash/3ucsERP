@@ -1,0 +1,15 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>idx='%{documents_vLst[idx]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.documents.documentsLst"/></op>
+<op text="share"><assign name="$this.docsharel_v.docid" expr="%{documents_vLst[idx]}"/><DbDetails><Where>doc_id='%{documents_vLst[idx]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.docsharel_v.docsharel_VLst"/></op>
+<op text="delete" needconfirm="1">
+<DbDetails>
+<DbDatabase>%{documents_vLst[path]}</DbDatabase> 
+<datatype>dir</datatype> 
+<queryFormat>delete from . where filename='%{documents_vLst[filenameany]}'</queryFormat> 
+</DbDetails><submit namelist="DbDetails"/>
+<DbDetails>
+<DbTable>xbs.documents d left join xbs.docsharel r on d.idx=r.doc_id</DbTable>
+<Where>d.idx='%{documents_vLst[idx]}'</Where>
+<queryFormat>delete d,r from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

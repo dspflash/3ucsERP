@@ -1,0 +1,48 @@
+<Language name="inv_item_relation">
+<Lang name="inv_item_relation" value="项目关系"/>
+<Lang name="TabEditinv_item_relation" value="inv_item_relation Edit"/>
+<Lang name="TabViewinv_item_relation" value="inv_item_relation View"/>
+<Lang name="relation_type" value="关系"/>
+<Lang name="ttp_relation_type" value=""/>
+<Lang name="from_item_id_m" value="源项目"/>
+<Lang name="ttp_from_item_id_m" value=""/>
+<Lang name="to_item_id_m" value="目标项目"/>
+<Lang name="ttp_to_item_id_m" value=""/>
+<Lang name="from_date" value="起始日"/>
+<Lang name="ttp_from_date" value=""/>
+<Lang name="to_date" value="终止日"/>
+<Lang name="ttp_to_date" value=""/>
+<Lang name="description" value="描述"/>
+<Lang name="ttp_description" value=""/>
+<Lang name="planning_cb" value=""/>
+<Lang name="ttp_planning_cb" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="inv_item_relation_id" value="项目关系序号"/>
+<Lang name="ttp_inv_item_relation_id" value=""/>
+<Lang name="org_id" value=""/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="ttp_operationinv_item_relation" value="操作"/>
+<Lang name="ttp_createinv_item_relation" value="新增"/>
+<Lang name="ttp_modifyinv_item_relation" value="修改"/>
+<Lang name="ttp_resetinv_item_relation" value="清除数据"/>
+<Lang name="ttp_deleteinv_item_relation" value="删除"/>
+<Lang name="ttp_refreshinv_item_relation" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

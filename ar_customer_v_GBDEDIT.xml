@@ -1,0 +1,34 @@
+<GroupBox Name="GBDEDITar_customer_v"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_customer_number"><Ctrls>
+<Label Align="Right" Text="customer_number" Name="lb_customer_number" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_customer_number" Name="customer_number" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_customer_name"><Ctrls>
+<Label Align="Right" Text="customer_name" Name="lb_customer_name" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_customer_name" Name="customer_name" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_customer_site_number"><Ctrls>
+<Label Align="Right" Text="customer_site_number" Name="lb_customer_site_number" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_customer_site_number" Name="customer_site_number" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_customer_site_name"><Ctrls>
+<Label Align="Right" Text="customer_site_name" Name="lb_customer_site_name" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_customer_site_name" Name="customer_site_name" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_payment_term"><Ctrls>
+<Label Align="Right" Text="payment_term" Name="lb_payment_term" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_payment_term" Name="payment_term" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_currency"><Ctrls>
+<Label Align="Right" Text="currency" Name="lb_currency" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_currency" Name="currency" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_tax_country"><Ctrls>
+<Label Align="Right" Text="tax_country" Name="lb_tax_country" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_tax_country" Name="tax_country" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_tax_reg_no"><Ctrls>
+<Label Align="Right" Text="tax_reg_no" Name="lb_tax_reg_no" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_tax_reg_no" Name="tax_reg_no" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

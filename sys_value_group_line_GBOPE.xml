@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEsys_value_group_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="sys_value_group_line_id" Text="create" ToolTip="ttp_createsys_value_group_line" Name="insertsys_value_group_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sys_value_group_line</DbTable>
+<Data>sys_value_group_header_id[sys_value_group_header_id],code,code_value,description,account_qualifier,allow_budgeting_cb,allow_posting_cb,status,parent_cb,parent_line_id,effective_start_date,effective_end_date,sys_value_group_line_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchsys_value_group_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifysys_value_group_line" Name="modifysys_value_group_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sys_value_group_line</DbTable>
+<Data>sys_value_group_header_id[sys_value_group_header_id],code,code_value,description,account_qualifier,allow_budgeting_cb,allow_posting_cb,status,parent_cb,parent_line_id,effective_start_date,effective_end_date,sys_value_group_line_id</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>sys_value_group_line_id='%{sys_value_group_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchsys_value_group_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetsys_value_group_line" Name="resetsys_value_group_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsys_value_group_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchsys_value_group_line" Name="gsearchsys_value_group_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="sys_value_group_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITsys_value_group_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

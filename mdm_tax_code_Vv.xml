@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVmdm_tax_code" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="mdm_tax_code_vLst" ToolTip="ttp_mdm_tax_code" Size="700,420" OnLoad="init" Heading="tax_code,125;tax_type,120;dr_cr,120;in_out,120;calculation_method,120;percentage,50;tax_amount,100;effective_start_date,90;effective_end_date,90;description,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;mdm_tax_code_id,60;" loadedclick="1">
+	<DbDetails >
+<DbTable>xbs.mdm_tax_code m left join xbs.option_line o on m.tax_type=o.option_line_id left join xbs.option_line o0 on m.calculation_method=o0.option_line_id</DbTable>
+<Index>mdm_tax_code_id</Index>
+<Data>m.tax_code,o.option_line_value tax_type,m.dr_cr,m.in_out,o0.option_line_value calculation_method,m.percentage,m.tax_amount,m.effective_start_date,m.effective_end_date,m.description,m.status,m.created_by,m.creation_date,m.last_update_by,m.last_update_date,m.org_id,m.mdm_tax_code_id</Data>
+<Order>mdm_tax_code_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>mdm_tax_code_id='%{mdm_tax_code_vLst[mdm_tax_code_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.mdm_tax_code.mdm_tax_codeLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

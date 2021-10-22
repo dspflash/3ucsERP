@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDVcontact" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="contact_vLst" ToolTip="ttp_contact_v" Size="700,450" OnLoad="init" Heading="firstname,100;lastname,100;phone,100;title,100;email,250;mobile,100;department,100;fax,100;training,100;otheremail,250;secondaryemail,250;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;contactid,95;org_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>contactid</Index>
+<DbTable>xbs.contact c</DbTable>
+<Data>c.firstname,c.lastname,c.phone,c.title,c.email,c.mobile,c.department,c.fax,c.training,c.otheremail,c.secondaryemail,c.created_by,c.creation_date,c.last_update_by,c.last_update_date,c.contactid,c.org_id</Data>
+<Order>contactid</Order></DbDetails>
+<DbDetails fcsm="1"><Where>reftbltp='%{reftbltp}' and refid='%{refid}' and org_id=%{orgid}</Where></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="contact_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_contact" expr="js(%{contact_vLst[currentpage]}+1)"/>
+<assign name="pgscb_contact" expr="js(%{contact_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

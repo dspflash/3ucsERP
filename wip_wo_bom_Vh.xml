@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVwip_wo_bom" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="wip_wo_bomLst" ToolTip="ttp_wip_wo_bom" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_wo_bom</DbTable>
+<Index>wip_wo_bom_id</Index>
+<Data>bom_sequence,routing_sequence,routing_seq_num,component_item_id_m,usage_basis,usage_quantity,effective_start_date,effective_end_date,wip_supply_type,supply_sub_inventory,supply_locator,required_quantity,issued_quantity,created_by,creation_date,last_update_by,last_update_date,wip_wo_bom_id</Data>
+<Order>wip_wo_bom_id</Order></DbDetails>
+<OnClick><assign name="routing_sequence[routing_sequence]" expr="%{wip_wo_bomLst[routing_sequence]}" function="SetSel"/><assign name="component_item_id_m[item_id_m]" expr="%{wip_wo_bomLst[component_item_id_m]}" function="SetSel"/><assign name="usage_basis[option_line_id]" expr="%{wip_wo_bomLst[usage_basis]}" function="SetSel"/><assign name="wip_supply_type[option_line_id]" expr="%{wip_wo_bomLst[wip_supply_type]}" function="SetSel"/><assign name="supply_sub_inventory[subinventory_id]" expr="%{wip_wo_bomLst[supply_sub_inventory]}" function="SetSel"/><assign name="supply_locator[locator_id]" expr="%{wip_wo_bomLst[supply_locator]}" function="SetSel"/>
+<if cond="%{wip_wo_bom_id}"><SetVisible name="insertwip_wo_bom" Visible="0"/><SetVisible name="modifywip_wo_bom" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

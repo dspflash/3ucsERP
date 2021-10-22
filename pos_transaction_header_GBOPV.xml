@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVpos_transaction_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletepos_transaction_header" Name="deletepos_transaction_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pos_transaction_header</DbTable>
+<Where>pos_transaction_header_id='%{pos_transaction_headerLst[pos_transaction_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpos_transaction_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshpos_transaction_header" Name="searchpos_transaction_header" Size="50,20">
+			  <OnClick><submit next="pos_transaction_headerLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPpos_transaction_headerLst" OnClick="(pos_transaction_headerLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREpos_transaction_headerLst" OnClick="(pos_transaction_headerLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPpos_transaction_headerLst" OnClick="(pos_transaction_headerLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

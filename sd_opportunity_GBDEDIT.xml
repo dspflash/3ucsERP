@@ -1,0 +1,171 @@
+<GroupBox Name="GBDEDITsd_opportunity"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_opportunity_number"><Ctrls>
+<Label Align="Right" Text="opportunity_number" Name="lb_opportunity_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_opportunity_number" Name="opportunity_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_ar_customer_id"><Ctrls>
+<Label Align="Right" Text="ar_customer_id" Name="lb_ar_customer_id" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" ToolTip="ttp_ar_customer_id" Name="ar_customer_id" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.ar_customer</DbTable>
+<Index>ar_customer_id</Index>
+<Data>customer_name,ar_customer_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="ar_customer_site_id"/></OnSelEndOk>
+</ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_ar_customer_site_id"><Ctrls>
+<Label Align="Right" Text="ar_customer_site_id" Name="lb_ar_customer_site_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_ar_customer_site_id" Name="ar_customer_site_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.ar_customer_site</DbTable>
+<Index>ar_customer_site_id</Index>
+<Data>customer_site_name,ar_customer_site_id</Data>
+<Where>ar_customer_id='%{ar_customer_id[ar_customer_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_name"><Ctrls>
+<Label Align="Right" Text="last_name" Name="lb_last_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_last_name" Name="last_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_first_name"><Ctrls>
+<Label Align="Right" Text="first_name" Name="lb_first_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_first_name" Name="first_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_sales_channel"><Ctrls>
+<Label Align="Right" Text="sales_channel" onload="init" Name="lb_sales_channel" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_sales_channel" onload="init" Name="sales_channel" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=213</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mobile_number"><Ctrls>
+<Label Align="Right" Text="mobile_number" Name="lb_mobile_number" Size="60,20"/>
+<TextBox Weight="140" ToolTip="ttp_mobile_number" Name="mobile_number" Size="140,20"/>
+<MagicCtrl ToolTip="DialToCall" Name="dialmobile_number" OnClick="nis3ucs:%{mobile_number}" images=" ,data/startcall_green.png" button="type:0" Size="20,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_office_number"><Ctrls>
+<Label Align="Right" Text="office_number" Name="lb_office_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_office_number" Name="office_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_email_id"><Ctrls>
+<Label Align="Right" Text="email_id" Name="lb_email_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_email_id" Name="email_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_contact_website"><Ctrls>
+<Label Align="Right" Text="contact_website" Name="lb_contact_website" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_contact_website" Name="contact_website" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_fax_no"><Ctrls>
+<Label Align="Right" Text="fax_no" Name="lb_fax_no" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_fax_no" Name="fax_no" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_timezone"><Ctrls>
+<Label Align="Right" Text="timezone" Name="lb_timezone" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_timezone" Name="timezone" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_time_to_contact"><Ctrls>
+<Label Align="Right" Text="time_to_contact" Name="lb_time_to_contact" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_time_to_contact" Name="time_to_contact" Size="170,20" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_hr_employee_id"><Ctrls>
+<Label Align="Right" Text="hr_employee_id" onload="init" Name="lb_hr_employee_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_hr_employee_id" onload="init" Name="hr_employee_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.hr_employee_v</DbTable>
+<Index>hr_employee_id</Index>
+<Data>name,hr_employee_id</Data>
+<Where>org_id='%{orgid}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_sales_team"><Ctrls>
+<Label Align="Right" Text="sales_team" onload="init" Name="lb_sales_team" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_sales_team" onload="init" Name="sales_team" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.hr_team_header</DbTable>
+<Index>hr_team_header_id</Index>
+<Data>team_name,hr_team_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_referral_source"><Ctrls>
+<Label Align="Right" Text="referral_source" Name="lb_referral_source" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_referral_source" Name="referral_source" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_close_reason"><Ctrls>
+<Label Align="Right" Text="close_reason" Name="lb_close_reason" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_close_reason" Name="close_reason" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_status" Visible="false"><Ctrls>
+<Label Align="Right" Text="status" overlap="pre" Name="lb_status" Size="60,20" Visible="false"/>
+<ComboBox Weight="170" ToolTip="ttp_status" overlap="pre" Name="status" Size="170,100" Visible="false">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=305</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_sd_lead_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="sd_lead_id" overlap="pre" Name="lb_sd_lead_id" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_sd_lead_id" overlap="pre" Name="sd_lead_id" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bu_org_id"><Ctrls>
+<Label Align="Right" Text="bu_org_id" onload="init" Name="lb_bu_org_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_bu_org_id" onload="init" Name="bu_org_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org_id</Data>
+<Where>org_id='%{orgid}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_win_probability"><Ctrls>
+<Label Align="Right" Text="win_probability" Name="lb_win_probability" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_win_probability" Name="win_probability" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_forecast_amount"><Ctrls>
+<Label Align="Right" Text="forecast_amount" Name="lb_forecast_amount" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_forecast_amount" Name="forecast_amount" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_currency"><Ctrls>
+<Label Align="Right" Text="currency" onload="init" Name="lb_currency" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_currency" onload="init" Name="currency" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.currency</DbTable>
+<Index>currency_id</Index>
+<Data>title,currency_id</Data>
+<Where>title is not null</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_expected_close_date"><Ctrls>
+<Label Align="Right" Text="expected_close_date" Name="lb_expected_close_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_expected_close_date" Name="expected_close_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_sd_opportunity_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="sd_opportunity_id" overlap="pre" Name="lb_sd_opportunity_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_sd_opportunity_id" overlap="pre" Name="sd_opportunity_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBsd_opportunity" expr="TABEDITsd_opportunity"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

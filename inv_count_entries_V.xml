@@ -1,0 +1,14 @@
+﻿<WndTap Name="inv_count_entries_v" Text="inv_count_entries">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_count_entries_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_count_entries.xml"/>
+<Ctrls><GroupBox  Name="GBinv_count_entries" id="inv_count_entries" Text="inv_count_entries" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_count_entries_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVinv_count_entries" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.inv_count_entries.GBDEDITinv_count_entries" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetinv_count_entries" Name="resetinv_count_entries" Size="50,20">	<OnClick>	<submit next="GBDEDITinv_count_entries" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchinv_count_entries" Name="gsearchinv_count_entries" Size="50,20" visible="true">	<OnClick>	<search next="inv_count_entries_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITinv_count_entries" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_count_entries_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

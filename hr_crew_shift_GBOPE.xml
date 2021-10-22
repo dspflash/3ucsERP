@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEhr_crew_shift" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hr_crew_shift_id" Text="create" ToolTip="ttp_createhr_crew_shift" Name="inserthr_crew_shift" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hr_crew_shift</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>hr_crew_id[hr_crew_id],hr_shift_id[hr_shift_id],from_date,to_date,description,active</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{inserthr_crew_shift[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_crew_shiftLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_crew_shift_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_crew_shift" Name="modifyhr_crew_shift" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hr_crew_shift</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>hr_crew_id[hr_crew_id],hr_shift_id[hr_shift_id],from_date,to_date,description,active</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hr_crew_shift_id='%{hr_crew_shift_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyhr_crew_shift[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_crew_shiftLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_crew_shift_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_crew_shift" Name="resethr_crew_shift" Size="50,20">
+<OnClick>
+<submit next="GBDEDIThr_crew_shift" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchhr_crew_shift" Name="gsearchhr_crew_shift" Size="50,20" visible="false">
+<OnClick>
+<search next="hr_crew_shiftLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDIThr_crew_shift" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

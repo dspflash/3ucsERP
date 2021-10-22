@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVbom_calendars" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bom_calendarsLst" ToolTip="ttp_bom_calendars" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_calendars</DbTable>
+<Index>calendar_code</Index>
+<Data>calendar_code,calendar_start_date,calendar_end_date,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>calendar_code</Order></DbDetails>
+<OnClick>
+<if cond="%{calendar_code}"><SetVisible name="insertbom_calendars" Visible="0"/><SetVisible name="modifybom_calendars" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

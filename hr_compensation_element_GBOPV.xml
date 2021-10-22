@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVhr_compensation_element" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletehr_compensation_element" Name="deletehr_compensation_element" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_compensation_element</DbTable>
+<Where>hr_compensation_element_id='%{hr_compensation_elementLst[hr_compensation_element_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhr_compensation_element" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshhr_compensation_element" Name="searchhr_compensation_element" Size="50,20">
+			  <OnClick><submit next="hr_compensation_elementLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPhr_compensation_elementLst" OnClick="(hr_compensation_elementLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREhr_compensation_elementLst" OnClick="(hr_compensation_elementLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPhr_compensation_elementLst" OnClick="(hr_compensation_elementLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

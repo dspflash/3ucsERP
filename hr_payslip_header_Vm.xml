@@ -1,0 +1,16 @@
+﻿<WndTap Name="hr_payslip_header_v" Text="hr_payslip_header">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payslip_header_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payslip_line_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="employee_pick.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hr_payslip_header.xml"/>
+<Ctrls><GroupBox  Name="GBhr_payslip_header" id="hr_payslip_header" Text="hr_payslip_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payslip_header_Vsm.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVhr_payslip_header" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.hr_payslip_header.GBDEDIThr_payslip_header" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resethr_payslip_header" Name="resethr_payslip_header" Size="50,20">	<OnClick>	<submit next="GBDEDIThr_payslip_header" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchhr_payslip_header" Name="gsearchhr_payslip_header" Size="50,20" visible="true">	<OnClick>	<search next="hr_payslip_header_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDIThr_payslip_header" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payslip_header_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

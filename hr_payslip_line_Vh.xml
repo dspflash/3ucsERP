@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_payslip_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_payslip_lineLst" ToolTip="ttp_hr_payslip_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_payslip_line_id</Index>
+<DbTable>xbs.hr_payslip_line</DbTable>
+<Data>hr_compensation_element_id,element_value,created_by,creation_date,last_update_by,last_update_date,hr_payslip_line_id</Data>
+<Order>hr_payslip_line_id</Order></DbDetails>
+<OnClick><assign name="hr_compensation_element_id[hr_compensation_element_id]" expr="%{hr_payslip_lineLst[hr_compensation_element_id]}" function="SetSel"/>
+<if cond="%{hr_payslip_line_id}"><SetVisible name="inserthr_payslip_line" Visible="0"/><SetVisible name="modifyhr_payslip_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

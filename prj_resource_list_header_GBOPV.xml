@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVprj_resource_list_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteprj_resource_list_header" Name="deleteprj_resource_list_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_resource_list_header</DbTable>
+<Where>prj_resource_list_header_id='%{prj_resource_list_headerLst[prj_resource_list_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchprj_resource_list_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshprj_resource_list_header" Name="searchprj_resource_list_header" Size="50,20">
+			  <OnClick><submit next="prj_resource_list_headerLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPprj_resource_list_headerLst" OnClick="(prj_resource_list_headerLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREprj_resource_list_headerLst" OnClick="(prj_resource_list_headerLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPprj_resource_list_headerLst" OnClick="(prj_resource_list_headerLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,20 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_so_line"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_sd_so_line" Name="sd_so_lineLst" DataJoin="%{this}%{prop}" DataJoinKey="item_id_m" Size="700,420">
+			<MDX id="prop" datatype="string">
+			<DbDetails>
+				<DbTable>xbs.item_properties i left join xbs.item_property i0 on i.property_id=i0.property_id</DbTable> where 
+				<Index>h_id </Index>
+				<MDX>item_id_m,propname,propvalue</MDX>
+				<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+				<Order></Order>
+				<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (SELECT shipping_org_id,item_id_m from sd_so_line where %{where})</queryFormat> 
+			</DbDetails>
+			</MDX>
+	<DbDetails fcsm="1">
+<DbTable>sd_so_line_v</DbTable>
+<Index>sd_so_line_id</Index>
+<Data>*</Data>
+<Order>sd_so_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

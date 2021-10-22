@@ -1,0 +1,9 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVgl_budget_ac_line"><Ctrls>
+<ListCtrl Heading="gl_budget_ac_header_id,120;coa_combination_id,120;type,125;currency,120;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;gl_budget_ac_line_id,60;" loadedclick="0" ToolTip="ttp_gl_budget_ac_line" Name="gl_budget_ac_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_budget_ac_line g left join xbs.gl_budget_ac_header g0 on g.gl_budget_ac_header_id=g0.gl_budget_ac_header_id left join xbs.coa_combination c on g.coa_combination_id=c.coa_combination_id left join xbs.currency c0 on g.currency=c0.currency_id</DbTable>
+<Index>gl_budget_ac_line_id</Index>
+<Data>g0.ac_name gl_budget_ac_header_id,c.combination coa_combination_id,g.type,c0.title currency,g.description,g.created_by,g.creation_date,g.last_update_by,g.last_update_date,g.gl_budget_ac_line_id</Data>
+<Order>gl_budget_ac_line_id</Order></DbDetails>%{extelmt}<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

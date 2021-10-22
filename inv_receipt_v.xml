@@ -1,0 +1,37 @@
+<WndTap Text="vReceipt" Name="vReceipt" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_receipt_header.xml"/>
+	<Language name="wip_move_transaction">
+<Lang name="reference_key_value" value="采购单号"/>
+<Lang name="ttp_reference_key_value" value=""/>
+</Language>
+		<Ctrls>
+		<GroupBox Text="vReceipt" Name="GBvReceipt" id="vReceipt" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="vReceiptLst" Size="700,420">
+			<DbDetails>
+			<DbTable>inv_receipt_header_v</DbTable>
+			<Index>inv_receipt_header_id</Index>
+			<Data>*</Data>
+			<Order>inv_receipt_header_id</Order></DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<EvalTbl rules="" table="inv_receipt_admin_menu_rule">
+			<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/inv_receipt_admin_menu_rule.xml"/></rules>
+			<inputs status="%{vReceiptLst[status]}"/>
+			<outputs title="text" disabled="disabled"/></EvalTbl>
+			<op text="modify"><assign name="$parent.inv_receipt_header.reference_key_name" expr="%{vReceiptLst[reference_key_name]}" function="setsel"/><if cond="%{vReceiptLst[reference_key_name]}=='po_header'"><assign name="trantp" expr="po"/><assign name="trantpc" expr="po"/><assign name="trantpn" expr="po"/><elseif cond="%{vReceiptLst[reference_key_name]}=='sd_so_header'"/><assign name="trantp" expr="sd_so"/><assign name="trantpc" expr="om"/><assign name="trantpn" expr="so"/></if>
+			<DbDetails><Where>type_class='%{trantpc}' and transaction_action=27 and status is true</Where></DbDetails><submit namelist="dbdetails" next="$parent.inv_receipt_header.transaction_type_id"/><DbDetails><DbTable>%{trantp}_header</DbTable><Index>%{trantp}_header_id</Index><Data>%{trantpn}_number,%{trantp}_header_id refid</Data><Where>%{trantp}_header_id='%{$parent.vReceipt.vReceiptLst[reference_key_value]}'</Where></DbDetails><submit next="$parent.inv_receipt_header.reference_key_value" namelist="DbDetails"/><DbDetails><Where>inv_receipt_header_id='%{$parent.vReceipt.vReceiptLst[inv_receipt_header_id]}' and status=1519</Where></DbDetails><submit next="$parent.inv_receipt_header.inv_receipt_headerLst" namelist="DbDetails"/></op>
+			<op text="print"><assign name="$parent.inv_receipt_print.reference_key_name" expr="%{vReceiptLst[reference_key_name]}" function="setsel"/>
+			<if cond="%{vReceiptLst[reference_key_name]}=='po_header'"><assign name="trantp" expr="po"/><assign name="trantpc" expr="po"/><assign name="trantpn" expr="po"/><elseif cond="%{vReceiptLst[reference_key_name]}=='sd_so_header'"/><assign name="trantp" expr="sd_so"/><assign name="trantpc" expr="om"/><assign name="trantpn" expr="so"/></if><DbDetails><Where>type_class='%{trantpc}' and transaction_action=27 and status is true</Where></DbDetails><submit namelist="dbdetails" next="$parent.inv_receipt_print.transaction_type_id"/><DbDetails><DbTable>%{trantp}_header</DbTable><Index>%{trantp}_header_id</Index><Data>%{trantpn}_number,%{trantp}_header_id refid</Data><Where>%{trantp}_header_id='%{$parent.vReceipt.vReceiptLst[reference_key_value]}'</Where></DbDetails><submit next="$parent.inv_receipt_print.reference_key_value" namelist="DbDetails"/><DbDetails><Where>inv_receipt_header_id='%{$parent.vReceipt.vReceiptLst[inv_receipt_header_id]}'</Where></DbDetails><submit next="$parent.inv_receipt_print.inv_receipt_headerLst" namelist="DbDetails"/><submit next="$parent.inv_receipt_print.inv_receipt_lineLst" namelist="DbDetails"/></op>
+			<op text="view"><DbDetails><Where>inv_receipt_header_id='%{$parent.vReceipt.vReceiptLst[inv_receipt_header_id]}'</Where></DbDetails><submit next="$parent.vReceiptLine.inv_receipt_lineLst" namelist="DbDetails"/></op>
+			<op text="confirm" needconfirm="1"><DbDetails><queryFormat>update inv_receipt_header set status=1520 where inv_receipt_header_id='%{$parent.vReceipt.vReceiptLst[inv_receipt_header_id]}' and status=1519;update inv_receipt_line set status=1520 where inv_receipt_header_id='%{$parent.vReceipt.vReceiptLst[inv_receipt_header_id]}' and status=1519;
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			<op text="cancel" needconfirm="1"><DbDetails><queryFormat>update inv_receipt_header set status=1522,last_update_by='%{user_id}',last_update_date=now() where (status=1519 and created_by='%{user_id}') and inv_receipt_header_id='%{$parent.vReceipt.vReceiptLst[inv_receipt_header_id]}';
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

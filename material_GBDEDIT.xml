@@ -1,0 +1,107 @@
+﻿<GroupBox Name="GBDEDITitem"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_number"><Ctrls>
+<Label Align="Right" Text="item_number" Name="lb_item_number" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_number" Name="item_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_name"><Ctrls>
+<Label Align="Right" Text="item_name" Name="lb_item_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_name" Name="item_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_specification"><Ctrls>
+<Label Align="Right" Text="item_specification" Name="lb_item_specification" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_specification" Name="item_specification" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_category"><Ctrls>
+<Label Align="Right" Text="item_category" onload="init" Name="lb_item_category" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_item_category" onload="init" Name="item_category" Size="170,100">
+	<DbDetails>
+<Index>category_id</Index>
+<DbTable>xbs.category</DbTable>
+<Data>category,category_id</Data>
+<Where>category_type=106</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_status"><Ctrls>
+<Label Align="Right" Text="item_status" onload="init" Name="lb_item_status" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_item_status" onload="init" Name="item_status" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=123</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_uom_id"><Ctrls>
+<Label Align="Right" Text="uom_id" onload="init" Name="lb_uom_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_uom_id" onload="init" Name="uom_id" Size="170,100">
+	<DbDetails>
+<Index>uom_id</Index>
+<DbTable>xbs.uom</DbTable>
+<Data>uom_name,uom_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_list_price"><Ctrls>
+<Label Align="Right" Text="list_price" Name="lb_list_price" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_list_price" Name="list_price" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_description"><Ctrls>
+<Label Align="Right" Text="item_description" Name="lb_item_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_description" Name="item_description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_inventory_item_cb"><Ctrls>
+<CheckBox Text="inventory_item_cb" ToolTip="ttp_inventory_item_cb" Name="inventory_item_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_make_buy"><Ctrls>
+<Label Align="Right" Text="make_buy" Name="lb_make_buy" Size="60,20" selectedIndex="1"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_make_buy" Items="Make|Buy" Name="make_buy" Size="170,100" selectedIndex="1"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pre_processing_lt"><Ctrls>
+<Label Align="Right" Text="pre_processing_lt" Name="lb_pre_processing_lt" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_pre_processing_lt" Name="pre_processing_lt" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_post_processing_lt"><Ctrls>
+<Label Align="Right" Text="post_processing_lt" Name="lb_post_processing_lt" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_post_processing_lt" Name="post_processing_lt" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_processing_lt"><Ctrls>
+<Label Align="Right" Text="processing_lt" Name="lb_processing_lt" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_processing_lt" Name="processing_lt" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_image_file" Visible="false"><Ctrls>
+<Label Align="Right" Text="image_file" overlap="pre" Name="lb_image_file" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_image_file" overlap="pre" Name="image_file" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_item_id_m" Visible="false"><Ctrls>
+<Label Align="Right" Text="item_id_m" overlap="pre" Name="lb_item_id_m" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_id_m" overlap="pre" Name="item_id_m" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_item_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="item_id" overlap="pre" Name="lb_item_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_id" overlap="pre" Name="item_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{item_id}'"><if cond="%{item_id}!='%{item_id_m}'"><DbDetails><Queryformat>update xbs.item set item_id_m=%{item_id} where item_id=%{item_id}</Queryformat></DbDetails><submit namelist="DbDetails"/></if></if></OnEnChange><OnEnChange><if cond="'%{item_id}'"><SetVisible name="insertitem" Visible="0"/><SetVisible name="modifyitem" Visible="1"/><else/><SetVisible name="insertitem" Visible="1"/><SetVisible name="modifyitem" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_org_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="org_id" overlap="pre" Name="lb_org_id" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_org_id" overlap="pre" Name="org_id" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_item_type" Visible="false"><Ctrls>
+<Label Align="Right" Text="item_type" overlap="pre" Name="lb_item_type" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_type" overlap="pre" Name="item_type" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

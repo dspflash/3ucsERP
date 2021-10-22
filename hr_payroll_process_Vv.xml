@@ -1,0 +1,13 @@
+﻿<GroupBox Name="GBDVhr_payroll_process" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_payroll_process_vLst" ToolTip="ttp_hr_payroll_process_v" Size="700,450" OnLoad="init" Heading="proces_name,250;hr_payroll_schedule_id,120;status,100;gl_journal_header_id,120;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_payroll_process_id,60;hr_payroll_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>hr_payroll_process_id</Index>
+<DbTable>xbs.hr_payroll_process h left join xbs.hr_payroll_schedule h0 on h.hr_payroll_schedule_id=h0.hr_payroll_schedule_id left join xbs.gl_journal_header g on h.gl_journal_header_id=g.gl_journal_header_id</DbTable>
+<Data>h.proces_name,h0.scheduled_date hr_payroll_schedule_id,h.status,g.journal_name gl_journal_header_id,h.description,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_payroll_process_id,h.hr_payroll_id</Data>
+<Order>hr_payroll_process_id</Order></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payroll_process_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_hr_payroll_process" expr="js(%{hr_payroll_process_vLst[currentpage]}+1)"/>
+<assign name="pgscb_hr_payroll_process" expr="js(%{hr_payroll_process_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

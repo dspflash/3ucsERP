@@ -1,0 +1,8 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>fp_forecast_header_id='%{fp_forecast_header_vLst[fp_forecast_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.fp_forecast_header.fp_forecast_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.fp_forecast_header</DbTable>
+<Where>fp_forecast_header_id='%{fp_forecast_header_vLst[fp_forecast_header_id]}'</Where>
+<queryFormat>update %{table} set status=0 where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

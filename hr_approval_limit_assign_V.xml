@@ -1,0 +1,14 @@
+<WndTap Name="hr_approval_limit_assign_v" Text="hr_approval_limit_assign">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_approval_limit_assign_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hr_approval_limit_assign.xml"/>
+<Ctrls><GroupBox  Name="GBhr_approval_limit_assign" id="hr_approval_limit_assign" Text="hr_approval_limit_assign" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_approval_limit_assign_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVhr_approval_limit_assign" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.hr_approval_limit_assign.GBDEDIThr_approval_limit_assign" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resethr_approval_limit_assign" Name="resethr_approval_limit_assign" Size="50,20">	<OnClick>	<submit next="GBDEDIThr_approval_limit_assign" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchhr_approval_limit_assign" Name="gsearchhr_approval_limit_assign" Size="50,20" visible="true">	<OnClick>	<search next="hr_approval_limit_assign_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDIThr_approval_limit_assign" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_approval_limit_assign_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

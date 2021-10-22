@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVmdm_price_list_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="mdm_price_list_header_vLst" ToolTip="ttp_mdm_price_list_header" Size="700,420" OnLoad="init" Heading="price_list,125;module_name,120;description,640;currency_code,120;currency_conversion_type,120;allow_mutli_currency_cb,60;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;mdm_price_list_header_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.mdm_price_list_header m left join xbs.currency c on m.currency_code=c.currency_id left join xbs.user_v u on m.created_by=u.xerp_user_id left join xbs.user_v  u0 on m.last_update_by=u0.xerp_user_id</DbTable>
+<Index>mdm_price_list_header_id</Index>
+<Data>m.price_list,m.module_name,m.description,c.title currency_code,m.currency_conversion_type,m.allow_mutli_currency_cb,m.status,u.NAME created_by,m.creation_date,u0.NAME last_update_by,m.last_update_date,m.mdm_price_list_header_id</Data>
+<Order>mdm_price_list_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>mdm_price_list_header_id='%{mdm_price_list_header_vLst[mdm_price_list_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.mdm_price_list_header.mdm_price_list_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.mdm_price_list_header</DbTable>
+<Where>mdm_price_list_header_id='%{mdm_price_list_header_vLst[mdm_price_list_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

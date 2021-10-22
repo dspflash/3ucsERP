@@ -1,0 +1,44 @@
+﻿<Language name="fp_mrp_planned_sources">
+<Lang name="fp_mrp_planned_sources" value="fp_mrp_planned_sources"/>
+<Lang name="TabEditfp_mrp_planned_sources" value="fp_mrp_planned_sources Edit"/>
+<Lang name="TabViewfp_mrp_planned_sources" value="fp_mrp_planned_sources View"/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="fp_mrp_planned_sources_id" value=""/>
+<Lang name="ttp_fp_mrp_planned_sources_id" value=""/>
+<Lang name="source_type" value=""/>
+<Lang name="ttp_source_type" value=""/>
+<Lang name="source_header_id" value=""/>
+<Lang name="ttp_source_header_id" value=""/>
+<Lang name="source_line_id" value=""/>
+<Lang name="ttp_source_line_id" value=""/>
+<Lang name="source_date" value=""/>
+<Lang name="ttp_source_date" value=""/>
+<Lang name="deleted" value=""/>
+<Lang name="ttp_deleted" value=""/>
+<Lang name="decription" value=""/>
+<Lang name="ttp_decription" value=""/>
+<Lang name="org_id" value=""/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="ttp_operationfp_mrp_planned_sources" value=""/>
+<Lang name="ttp_createfp_mrp_planned_sources" value=""/>
+<Lang name="ttp_modifyfp_mrp_planned_sources" value=""/>
+<Lang name="ttp_resetfp_mrp_planned_sources" value=""/>
+<Lang name="ttp_deletefp_mrp_planned_sources" value=""/>
+<Lang name="ttp_refreshfp_mrp_planned_sources" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

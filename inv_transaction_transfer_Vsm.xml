@@ -1,0 +1,19 @@
+<GroupBox Name="GBDEDITinv_transaction"><Ctrls>
+<GroupBox Name="GB_product" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_product" Size="60,20" Text="product" Align="Right" selectedIndex="0"/>
+<TextBox Name="product" Size="170,20" Text="" Weight="170" ToolTip="ttp_product"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_material" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_material" Size="60,20" Text="material" Align="Right" selectedIndex="0"/>
+<TextBox Name="material" Size="170,20" Text="" Weight="170" ToolTip="ttp_material"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supply_sub_inventory"><Ctrls>
+<Label Align="Right" Text="supply_sub_inventory" onload="init" Name="lb_supply_sub_inventory" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_supply_sub_inventory" onload="init" Name="supply_sub_inventory_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.subinventory</DbTable>
+<Index>subinventory_id</Index>
+<Data>subinventory,subinventory_id</Data>
+<Where>org_id='%{orgid}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox></Ctrls></GroupBox>

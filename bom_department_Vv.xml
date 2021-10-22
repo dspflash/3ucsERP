@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVbom_department" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bom_department_vLst" ToolTip="ttp_bom_department_v" Size="700,450" OnLoad="init" Heading="department,250;status,60;description,640;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;bom_department_id,50;" loadedclick="0">
+	<DbDetails >
+<Index>bom_department_id</Index>
+<DbTable>xbs.bom_department b</DbTable>
+<Data>b.department,b.status,b.description,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_department_id</Data>
+<Order>bom_department_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>bom_department_id='%{bom_department_vLst[bom_department_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_department.bom_departmentLst"/><assign name="$this.bom_department.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_department</DbTable>
+<Where>bom_department_id='%{bom_department_vLst[bom_department_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_bom_department" expr="js(%{bom_department_vLst[currentpage]}+1)"/>
+<assign name="pgscb_bom_department" expr="js(%{bom_department_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,46 @@
+<GroupBox Name="GBDEDITprj_burden_cost_base"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cost_base"><Ctrls>
+<Label Align="Right" Text="cost_base" Name="lb_cost_base" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_cost_base" Name="cost_base" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cost_base_type"><Ctrls>
+<Label Align="Right" Text="cost_base_type" Name="lb_cost_base_type" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_cost_base_type" Name="cost_base_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_effective_from"><Ctrls>
+<Label Align="Right" Text="effective_from" Name="lb_effective_from" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_effective_from" Name="effective_from" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_effective_to"><Ctrls>
+<Label Align="Right" Text="effective_to" Name="lb_effective_to" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_effective_to" Name="effective_to" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_priority"><Ctrls>
+<Label Align="Right" Text="priority" Name="lb_priority" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_priority" Name="priority" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_prj_burden_cost_base_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="prj_burden_cost_base_id" overlap="pre" Name="lb_prj_burden_cost_base_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_prj_burden_cost_base_id" overlap="pre" Name="prj_burden_cost_base_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBprj_burden_cost_base" expr="TABEDITprj_burden_cost_base"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEwip_accounting_group" Size="100,100"><Ctrls>
+<Button sqlpkinsert="wip_accounting_group_id" Text="create" ToolTip="ttp_createwip_accounting_group" Name="insertwip_accounting_group" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_accounting_group</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>wip_accounting_group,wo_type[option_line_id],status,description,org_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="wip_accounting_groupLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifywip_accounting_group" Name="modifywip_accounting_group" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_accounting_group</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>wip_accounting_group,wo_type[option_line_id],status,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>wip_accounting_group_id='%{wip_accounting_group_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="wip_accounting_groupLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetwip_accounting_group" Name="resetwip_accounting_group" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITwip_accounting_group" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchwip_accounting_group" Name="gsearchwip_accounting_group" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="wip_accounting_groupLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITwip_accounting_group" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

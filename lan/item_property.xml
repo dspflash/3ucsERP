@@ -1,0 +1,36 @@
+<Language name="item_property">
+<Lang name="item_property" value="属性"/>
+<Lang name="TabEdititem_property" value="item_property Edit"/>
+<Lang name="TabViewitem_property" value="item_property View"/>
+<Lang name="prop_display_name" value="显示名"/>
+<Lang name="ttp_prop_display_name" value=""/>
+<Lang name="description" value="描述"/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="property_id" value="属性编号"/>
+<Lang name="ttp_property_id" value=""/>
+<Lang name="org_id" value="组织"/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="ttp_operationitem_property" value="操作"/>
+<Lang name="ttp_createitem_property" value="新增"/>
+<Lang name="ttp_modifyitem_property" value="修改"/>
+<Lang name="ttp_resetitem_property" value="清除数据"/>
+<Lang name="ttp_deleteitem_property" value="删除"/>
+<Lang name="ttp_refreshitem_property" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

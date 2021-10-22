@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVadm_task_type" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="adm_task_typeLst" ToolTip="ttp_adm_task_type" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.adm_task_type</DbTable>
+<Index>adm_task_type_id</Index>
+<Data>access_level,task_type,process_flow_header_id,description,from_date,to_date,effort_uom_id,effort_value,send_notification_cb,schedule_cb,created_by,creation_date,last_update_by,last_update_date,adm_task_type_id</Data>
+<Order>adm_task_type_id</Order></DbDetails>
+<OnClick>
+<if cond="%{adm_task_type_id}"><SetVisible name="insertadm_task_type" Visible="0"/><SetVisible name="modifyadm_task_type" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

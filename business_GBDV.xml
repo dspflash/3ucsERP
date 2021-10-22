@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbusiness"><Ctrls>
+<ListCtrl Heading="manager,250;cash_ac_id,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;business_id,60;" loadedclick="1" ToolTip="ttp_business" Name="businessLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.business</DbTable>
+<Index>business_id</Index>
+<Data>manager,cash_ac_id,created_by,creation_date,last_update_by,last_update_date,business_id</Data>
+<Order>business_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

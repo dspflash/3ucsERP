@@ -1,0 +1,11 @@
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{sys_process_flow_header_id}"><alert expr="请先添加单据，若修改单据请从单据列表进入！"/><else/><submit next="$parent.sys_process_flow_line.GBDEDITsys_process_flow_line" function="reset"/><DbDetails><Where>sys_process_flow_header_id='%{sys_process_flow_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.sys_process_flow_line.sys_process_flow_header_id"/><assign name="$parent.sys_process_flow_line.frmwndctrl" expr="%{this}"/>
+</if></op>
+<op text="modify"><DbDetails><Where>sys_process_flow_header_id='%{sys_process_flow_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.sys_process_flow_line.sys_process_flow_header_id"/><DbDetails><Where>sys_process_flow_line_id='%{sys_process_flow_line_vLst[sys_process_flow_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.sys_process_flow_line.sys_process_flow_lineLst"/><assign name="$parent.sys_process_flow_line.frmwndctrl" expr="%{this}"/></op>
+<op text="next_seq_assign"><DbDetails><Where>sys_process_flow_header_id='%{sys_process_flow_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.sys_process_flow_line_seq.sys_process_flow_header_id"/><DbDetails><Where>sys_process_flow_line_id='%{sys_process_flow_line_vLst[sys_process_flow_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.sys_process_flow_line_seq.sys_process_flow_lineLst"/><assign name="$parent.sys_process_flow_line_seq.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.sys_process_flow_line</DbTable>
+<Where>sys_process_flow_line_id='%{sys_process_flow_line_vLst[sys_process_flow_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

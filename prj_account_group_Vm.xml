@@ -1,0 +1,9 @@
+<WndTap Name="prj_account_group_v" Text="prj_account_group">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_account_group_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\prj_account_group.xml"/>
+<Ctrls><GroupBox  Name="GBprj_account_group" id="prj_account_group" Text="prj_account_group" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_account_group_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_category_line"><Ctrls>
+<ListCtrl Heading="category_code,150;effective_from,90;effective_to,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_category_line_id,60;" loadedclick="0" ToolTip="ttp_prj_category_line" Name="prj_category_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_category_line</DbTable>
+<Index>prj_category_line_id</Index>
+<Data>category_code,effective_from,effective_to,description,created_by,creation_date,last_update_by,last_update_date,prj_category_line_id</Data>
+<Order>prj_category_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

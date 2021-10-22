@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEhd_sbp_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hd_sbp_header_id" Text="create" ToolTip="ttp_createhd_sbp_header" Name="inserthd_sbp_header" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hd_sbp_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>business_process,service_order_cb,service_request_cb,service_contract_cb,description</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_sbp_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhd_sbp_header" Name="modifyhd_sbp_header" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hd_sbp_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>business_process,service_order_cb,service_request_cb,service_contract_cb,description</Data>
+<DataEx>creation_date,last_update_by,last_update_date;now(),'%{user_id}',now()</DataEx>
+<Where>hd_sbp_header_id='%{hd_sbp_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_sbp_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethd_sbp_header" Name="resethd_sbp_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIThd_sbp_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchhd_sbp_header" Name="gsearchhd_sbp_header" Size="50,20" visible="false">
+	<OnClick>
+	<search next="hd_sbp_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDIThd_sbp_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,24 @@
+<WndTap Text="po_pick" Name="po_pick" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_header.xml"/>
+	<Ctrls>
+	<GroupBox Text="vpo" Name="GBvpo" id="vpo" Size="100,100"><Ctrls>
+	<ListCtrl loadedclick="0" ToolTip="ttp_poLst" Name="poLst" Size="700,420">
+	<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+	<op text="po_header" mustselected="0"><submit next="$parent.po_header.GBDEDITpo_header" function="reset"/><DbDetails><DbTable>xbs.supplier_all_v</DbTable><Where>supplier_id in (select supplier_id from xbs.po_quote_supplier_v where bu_org_id='%{orgid}' and item_id_m='%{$parent.po_pick.item_id_m}')</Where></DbDetails><submit namelist="DbDetails" next="$parent.po_header.supplier_id"/><assign name="$parent.po_header.back" expr="1"/></op>
+	</operator>
+		<DbDetails>
+		<DbTable>xbs.supplier_quote_po_v</DbTable>
+		<Index>po_header_id</Index>
+		<Data>*</Data>
+		<Order>po_header_id</Order>
+		<queryFormat>select %{data} from %{dbtable} where %{where} group by po_header_id</queryFormat>
+		</DbDetails>
+	<OnClick><if cond="%{poLst[po_header_id]}"><assign name="$parent.po_line.po_line_id" expr=""/><DbDetails><Data>po_number,po_header_id</Data><Where>po_header_id='%{poLst[po_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.po_line.po_header_id"/><DbDetails><Where>and supplier_id='%{poLst[supplier_id]}' and item_id_m='%{$parent.po_pick.item_id_m}' and bu_org_id='%{orgid}' and quote_status=1489 and supplier_id='%{poLst[supplier_id]}' AND item_id_m NOT IN (SELECT prl.item_id_m FROM po_requisition_line prl JOIN po_line pl ON prl.po_requisition_line_id=pl.po_req_line_id JOIN po_header po ON (pl.po_header_id=po.po_header_id AND po.po_status!=322) WHERE po_requisition_line_id='%{$parent.po_pick.reqlineid}')</Where></DbDetails><submit namelist="DbDetails" next="$parent.po_line.item_id_m"/><assign name="$parent.po_line.po_req_line_id" expr="%{$parent.po_pick.reqlineid}"/><if cond="'%{ref_keyname}'"><assign name="$parent.po_line.reference_key_name" function="SetSel" expr="%{ref_keyname}"/><assign name="$parent.po_line.reference_header_id" expr="%{$parent.po_pick.ref_header_id}"/><assign name="$parent.po_line.reference_line_id" expr="%{$parent.po_pick.ref_line_id}"/><assign name="$parent.po_line.need_by_date" expr="%{requesteddt}"/><else/><assign name="$parent.po_line.reference_key_name" function="SetSel" expr="-1"/><assign name="$parent.po_line.reference_header_id" expr=""/><assign name="$parent.po_line.reference_line_id" expr=""/></if><assign name="$parent.po_line.line_quantity" expr="%{$parent.po_pick.quantity}"/><submit function="onok"/></if></OnClick>
+	</ListCtrl>
+	<BR AutoHeight="1"/>
+	<TextBox Weight="230" Text="" ToolTip="ttp_PRQPOed" Name="PRQPOed" Size="100,20" visible="0">
+		<DbDetails>
+		<queryFormat>SELECT CASE cnts WHEN 0 THEN '' ELSE '该请购行已存在对应的采购行' END msg,cnts FROM (SELECT COUNT(0) cnts from po_requisition_line prl JOIN po_line pl ON prl.po_requisition_line_id=pl.po_req_line_id JOIN po_header po ON (pl.po_header_id=po.po_header_id AND po.po_status!=322) WHERE %{where}) t</queryFormat></DbDetails><OnEnchange><if cond="%{PRQPOed[cnts]}"><info expr="%{PRQPOed[msg]}"/></if></OnEnchange></TextBox>
+	</Ctrls></GroupBox>
+	</Ctrls>
+</WndTap>

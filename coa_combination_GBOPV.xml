@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVcoa_combination" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletecoa_combination" Name="deletecoa_combination" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.coa_combination</DbTable>
+<Where>coa_combination_id='%{coa_combinationLst[coa_combination_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchcoa_combination" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshcoa_combination" Name="searchcoa_combination" Size="50,20">
+			  <OnClick><submit next="coa_combinationLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPcoa_combinationLst" OnClick="(coa_combinationLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREcoa_combinationLst" OnClick="(coa_combinationLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPcoa_combinationLst" OnClick="(coa_combinationLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

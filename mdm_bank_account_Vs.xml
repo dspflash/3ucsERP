@@ -1,0 +1,43 @@
+﻿<GroupBox Name="GBDEDITmdm_bank_account" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_mdm_bank_site_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_mdm_bank_site_id" Size="60,20" Text="mdm_bank_site_id" Align="Right" type="2" onload="init"/>
+<ComboBox Name="mdm_bank_site_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_mdm_bank_site_id" type="2" onload="init">
+	<DbDetails>
+<Index>mdm_bank_site_id</Index>
+<DbTable>xbs.mdm_bank_site</DbTable>
+<Data>branch_name,mdm_bank_header_id,mdm_bank_site_id</Data>
+<Where>1</Where>
+<queryFormat>select %{data} from %{dbtable} where %{where} limit 0,20</queryFormat></DbDetails><OnEditChange><DbDetails><Where>branch_name like '%%{mdm_bank_site_id[windowtext]}%' or  branch_name_short like '%%{mdm_bank_site_id[windowtext]}%' or branch_number like '%%{mdm_bank_site_id[windowtext]}%'</Where></DbDetails><submit namelist="DbDetails"/></OnEditChange></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_account_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_account_number" Size="60,20" Text="account_number" Align="Right"/>
+<TextBox Name="account_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_account_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_currency_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_currency_code" Size="60,20" Text="currency_code" Align="Right" onload="init" selectedIndex="0"/>
+<ComboBox Name="currency_code" Size="170,100" Text="" Weight="170"  ToolTip="ttp_currency_code" onload="init" selectedIndex="0">
+	<DbDetails>
+<Index>currency_id</Index>
+<DbTable>xbs.currency</DbTable>
+<Data>title,currency_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_account_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_account_type" Size="60,20" Text="account_type" Align="Right" onload="init"/>
+<ComboBox Name="account_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_account_type" onload="init">
+	<DbDetails>
+<Index>option_line_code</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_code</Data>
+<Where>option_header_id=185</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status" checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

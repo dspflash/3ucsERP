@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVmdm_bank_account" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletemdm_bank_account" Name="deletemdm_bank_account" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_bank_account</DbTable>
+<Where>mdm_bank_account_id='%{mdm_bank_accountLst[mdm_bank_account_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchmdm_bank_account" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshmdm_bank_account" Name="searchmdm_bank_account" Size="50,20">
+			  <OnClick><submit next="mdm_bank_accountLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPmdm_bank_accountLst" OnClick="(mdm_bank_accountLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREmdm_bank_accountLst" OnClick="(mdm_bank_accountLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPmdm_bank_accountLst" OnClick="(mdm_bank_accountLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

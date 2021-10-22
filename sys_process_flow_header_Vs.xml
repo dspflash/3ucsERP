@@ -1,0 +1,37 @@
+﻿<GroupBox Name="GBDEDITsys_process_flow_header" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_process_flow" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_process_flow" Size="60,20" Text="process_flow" Align="Right"/>
+<TextBox Name="process_flow" Size="170,20" Text="" Weight="170" ToolTip="ttp_process_flow"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_module_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_module_name" Size="60,20" Text="module_name" Align="Right" onload="init"/>
+<ComboBox Name="module_name" Size="170,100" Text="" Weight="170"  ToolTip="ttp_module_name" onload="init">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=182</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_access_org_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_access_org_type" Size="60,20" Text="access_org_type" Align="Right" onload="init"/>
+<ComboBox Name="access_org_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_access_org_type" onload="init">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=77</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_type" Size="60,20" Text="type" Align="Right"/>
+<ComboBox Name="type" Size="170,100" Text="" Weight="170" Items="APPROVAL|DOCUMENT|SYS_DOCUMENT" ToolTip="ttp_type"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status" checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

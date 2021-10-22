@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbom_department_user_v"><Ctrls>
+<ListCtrl Heading="org,250;department,250;standard_operation,250;username,100;active,20;description,640;org_id,55;xerp_user_id,60;bd_status,60;bo_status,60;bu_active,60;bom_department_id,50;bom_standard_operation_id,60;user_bom_department_id,60;" loadedclick="0" ToolTip="ttp_bom_department_user_v" Name="bom_department_user_vLst" Size="700,450">
+	<DbDetails fcsm="1">
+
+<DbTable>xbs.bom_department_user_v</DbTable>
+<Data>org,department,standard_operation,username,active,description,org_id,xerp_user_id,bd_status,bo_status,bu_active,bom_department_id,bom_standard_operation_id,user_bom_department_id</Data>
+</DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} where org_id='%{orgid}' %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>%{primary}='%{bom_department_user_v_vLst[%{primary}]}'</Where></DbDetails><submit next="$this.bom_department_user_v.bom_department_user_vLst" namelist="DbDetails"/><assign name="$this.bom_department_user_v.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_department_user_v</DbTable>
+<Where>%{primary}='%{bom_department_user_v_vLst[%{primary}]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

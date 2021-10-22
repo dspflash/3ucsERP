@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDEDITiot_dev"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_dev_id"><Ctrls>
+<Label Align="Right" Text="dev_id" Name="lb_dev_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_dev_id" Name="dev_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_dev_name"><Ctrls>
+<Label Align="Right" Text="dev_name" Name="lb_dev_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_dev_name" Name="dev_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_dev_type"><Ctrls>
+<Label Align="Right" Text="dev_type" Name="lb_dev_type" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_dev_type" Name="dev_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_actived"><Ctrls>
+<CheckBox Text="actived" ToolTip="ttp_actived" Name="actived" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_dev_idx" Visible="false"><Ctrls>
+<Label Align="Right" Text="dev_idx" overlap="pre" Name="lb_dev_idx" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_dev_idx" overlap="pre" Name="dev_idx" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{dev_idx}'"><SetVisible name="insertiot_dev" Visible="0"/><SetVisible name="modifyiot_dev" Visible="1"/><else/><SetVisible name="insertiot_dev" Visible="1"/><SetVisible name="modifyiot_dev" Visible="0"/></if><if cond="'%{dev_idx}'"><DbDetails><Where>dev_idx='%{dev_idx}'</Where></DbDetails><submit next="iot_dev_data_vLst" namelist="DbDetails"/><else/><submit next="iot_dev_data_vLst" function="resetcontent"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

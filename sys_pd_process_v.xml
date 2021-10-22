@@ -1,0 +1,47 @@
+﻿<WndTap Text="sys_pd_process_flow" Name="sys_pd_process_flow" Ver="2">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_process_flow_action_Vem.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_print_v.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_requisition_print_v.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_print_v.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_print_v.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_quote_print_v.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_leave_transaction_print_v.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_overtime_transaction_print_v.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_employee_termination_print_v.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_print_v.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_count_print_v.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_pd_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_line.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_action.xml"/>
+<Ctrls>
+<GroupBox Text="sys_process_flow_diagram" Name="GBsys_process_flow_diagram" id="sys_process_flow_diagram" Size="100,100"><Ctrls>
+<GroupBox Name="GBDEDITsys_pd_header"><Ctrls>
+<GroupBox Name="GB_document_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_document_number" Size="60,20" Text="document_number" Align="Right" readonly="true"/>
+<TextBox Name="document_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_document_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right"/>
+<ComboBox Name="status" Size="170,100" Text="" Weight="170"  ToolTip="ttp_status" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=132</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox><BR AutoHeight="1"/><GroupBox  Name="GBOPVsys_pd_header" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="gsearch" ToolTip="ttp_gsearchsys_pd_header" Name="gsearchsys_pd_header" Size="50,20" visible="true">	<OnClick>	
+<search next="sys_process_flow_diagram_vLst" listed="0" prefixand="1" inputed="1"><document_number format="pd.document_number like '%%{opvalue}%'"/><status format="pd.status='%{opvalue}'"/></search><submit next="GBDEDITsys_pd_header" namelist="search" function="search"/>
+<search next="sys_process_flowed_diagram_vLst" listed="0" prefixand="1" inputed="1"><document_number format="pd.document_number like '%%{opvalue}%'"/><status format="pd.status='%{opvalue}'"/></search><submit next="GBDEDITsys_pd_header" namelist="search" function="search"/>	</OnClick>	</Button><TAB/><Button Text="reset" ToolTip="ttp_resetsys_pd_header" Name="resetsys_pd_header" Size="50,20">	<OnClick>	<submit next="GBDEDITsys_pd_header" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Name="timedrefresh" Visible="false" Enabled="true" Size="50,20"><OnClick><submit next="sys_process_flow_diagram_vLst" function="initial"/></OnClick></Button>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_process_vtabs.xml"/>
+	</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged><if cond="%{sys_pd_process_flow.sys_process_flow_diagram_vLst[rowcount]}&gt;0"><notify next="tst" expr="您有单据需审批"/><assign name="spdfid" expr="%{pdfid}"/><elseif cond="!tstdbidx"/><assign name="spdfid" expr="%{pdfid}"/></if></OnChanged>
+		</WndTap>

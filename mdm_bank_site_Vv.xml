@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVmdm_bank_site" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="mdm_bank_site_vLst" ToolTip="ttp_mdm_bank_site" Size="700,420" OnLoad="init" Heading="branch_name,640;branch_name_short,250;country,120;branch_name_alt,640;branch_number,60;swift_code,250;ifsc_code,250;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;mdm_bank_site_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.mdm_bank_site m left join xbs.country c on m.country=c.country_id</DbTable>
+<Index>mdm_bank_site_id</Index>
+<Data>m.branch_name,m.branch_name_short,c.namecn country,m.branch_name_alt,m.branch_number,m.swift_code,m.ifsc_code,m.status,m.created_by,m.creation_date,m.last_update_by,m.last_update_date,m.mdm_bank_site_id</Data>
+<Order>mdm_bank_site_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>mdm_bank_site_id='%{mdm_bank_site_vLst[mdm_bank_site_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.mdm_bank_site.mdm_bank_siteLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.mdm_bank_site</DbTable>
+<Where>mdm_bank_site_id='%{mdm_bank_site_vLst[mdm_bank_site_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

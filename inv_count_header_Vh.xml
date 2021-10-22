@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVinv_count_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="inv_count_headerLst" ToolTip="ttp_inv_count_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_count_header</DbTable>
+<Index>inv_count_header_id</Index>
+<Data>count_name,count_type,approval_required,quantity_variance_positive,quantity_variance_negative,description,status,created_by,creation_date,last_update_by,last_update_date,org_id,inv_count_header_id</Data>
+<Order>inv_count_header_id</Order></DbDetails>
+<OnClick><assign name="approval_required[option_line_id]" expr="%{inv_count_headerLst[approval_required]}" function="SetSel"/><assign name="status[option_line_id]" expr="%{inv_count_headerLst[status]}" function="SetSel"/><assign name="org_id[org_id]" expr="%{inv_count_headerLst[org_id]}" function="SetSel"/>
+<if cond="%{inv_count_header_id}"><SetVisible name="insertinv_count_header" Visible="0"/><SetVisible name="modifyinv_count_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

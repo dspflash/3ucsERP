@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_payroll"><Ctrls>
+<ListCtrl Heading="payroll,500;period_type,120;payment_method_id,120;start_date,90;end_date,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_payroll_id,60;" loadedclick="0" ToolTip="ttp_hr_payroll" Name="hr_payrollLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>hr_payroll_id</Index>
+<DbTable>xbs.hr_payroll h left join xbs.option_line o on h.period_type=o.option_line_id left join xbs.hr_payroll_payment_method h0 on h.payment_method_id=h0.hr_payroll_payment_method_id</DbTable>
+<Data>h.payroll,o.option_line_value period_type,h0.payment_method payment_method_id,h.start_date,h.end_date,h.description,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_payroll_id</Data>
+<Order>hr_payroll_id</Order></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payroll_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

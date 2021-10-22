@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_milestone"><Ctrls>
+<ListCtrl Heading="revenue_amount,70;invoice_amount,70;status,120;signoff_cb,60;comment,440;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_milestone_id,60;" loadedclick="0" ToolTip="ttp_prj_milestone" Name="prj_milestoneLst" Size="500,300">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_milestone</DbTable>
+<Index>prj_milestone_id</Index>
+<Data>revenue_amount,invoice_amount,status,signoff_cb,comment,created_by,creation_date,last_update_by,last_update_date,prj_milestone_id</Data>
+<Order>prj_milestone_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

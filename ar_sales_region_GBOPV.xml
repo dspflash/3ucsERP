@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVar_sales_region" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletear_sales_region" Name="deletear_sales_region" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_sales_region</DbTable>
+<Where>ar_sales_region_id='%{ar_sales_regionLst[ar_sales_region_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_sales_region" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshar_sales_region" Name="searchar_sales_region" Size="50,20">
+			  <OnClick><submit next="ar_sales_regionLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPar_sales_regionLst" OnClick="(ar_sales_regionLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREar_sales_regionLst" OnClick="(ar_sales_regionLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPar_sales_regionLst" OnClick="(ar_sales_regionLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

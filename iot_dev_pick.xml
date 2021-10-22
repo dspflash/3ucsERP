@@ -1,0 +1,22 @@
+﻿<WndTap Name="iot_dev_pick" Text="iot_dev_Pick">
+<var name="searchtmpl"><dev_id format="(i.dev_id like '%%{opvalue}%')"/><dev_name format="(i.dev_name like '%%{opvalue}%')"/><dev_type format="(i.dev_type like '%%{opvalue}%')"/><actived format="i.actived is %{opvalue}"/><dev_idx format="(i.dev_idx like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\iot_dev.xml"/>
+<Ctrls><GroupBox  Name="GBiot_dev" id="iot_dev" Text="iot_dev" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="iot_dev_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPViot_dev" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetiot_dev" Name="resetiot_dev" Size="50,20">	<OnClick>	<submit next="GBDEDITiot_dev" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchiot_dev" Name="gsearchiot_dev" Size="50,20">	<OnClick>	
+<search next="iot_dev_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITiot_dev" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDViot_dev" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="iot_dev_vLst" ToolTip="ttp_iot_dev_v" Size="700,450" Heading="dev_id,100;dev_name,250;dev_type,50;actived,60;dev_idx,55;" loadedclick="0">
+	<DbDetails >
+<Index>dev_idx</Index>
+<DbTable>xbs.iot_dev i</DbTable>
+<Data>i.dev_id,i.dev_name,i.dev_type,i.actived,i.dev_idx</Data>
+<Order>dev_idx</Order></DbDetails>
+<OnClick><if cond="%{iot_dev_vLst[dev_idx]}"><DbDetails><Where>dev_idx='%{iot_dev_vLst[dev_idx]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

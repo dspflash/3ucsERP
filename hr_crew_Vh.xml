@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_crew" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_crewLst" ToolTip="ttp_hr_crew" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_crew_id</Index>
+<DbTable>xbs.hr_crew</DbTable>
+<Data>crew_number,leader_employee_id,org_id,description,bdefault,active,created_by,creation_date,last_update_by,last_update_date,hr_crew_id</Data>
+<Order>hr_crew_id</Order></DbDetails>
+<OnClick><assign name="leader_employee_id[hr_employee_id]" expr="%{hr_crewLst[leader_employee_id]}" function="SetSel"/><assign name="org_id[org_id]" expr="%{hr_crewLst[org_id]}" function="SetSel"/>
+<if cond="%{hr_crew_id}"><SetVisible name="inserthr_crew" Visible="0"/><SetVisible name="modifyhr_crew" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

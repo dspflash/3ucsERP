@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVwip_control" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletewip_control" Name="deletewip_control" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_control</DbTable>
+<Where>wip_control_id='%{wip_controlLst[wip_control_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchwip_control" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshwip_control" Name="searchwip_control" Size="50,20">
+			  <OnClick><submit next="wip_controlLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPwip_controlLst" OnClick="(wip_controlLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREwip_controlLst" OnClick="(wip_controlLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPwip_controlLst" OnClick="(wip_controlLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

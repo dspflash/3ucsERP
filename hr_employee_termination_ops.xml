@@ -1,0 +1,19 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hr_employee_termination_id='%{hr_employee_termination_vLst[hr_employee_termination_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_employee_termination.hr_employee_terminationLst"/><DbDetails><Where>hr_employee_id=%{hr_employee_termination_vLst[employee_id]}</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_employee_termination.employee_id"/></op>
+<op text="submit" needconfirm="1"><DbDetails><queryFormat>update hr_employee_termination set status=1491 where hr_employee_termination_id='%{hr_employee_termination_vLst[hr_employee_termination_id]}' and status is null</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/>
+<submit next="$this.sys_pd_header.GBDEDITsys_pd_header" function="reset"/>
+<assign name="$this.sys_pd_header.primary_document" expr="hr_employee_termination"/>
+<DbDetails>
+<DbTable>xbs.hr_employee_termination het JOIN hr_employee_v he ON het.employee_id=he.hr_employee_id LEFT JOIN xbs.sys_pd_header pd ON pd.primary_document='hr_employee_termination' AND het.hr_employee_termination_id=pd.primary_document_id AND pd.status!=325</DbTable>
+<Index>hr_employee_termination_id</Index>
+<Data>concat(name,'_termination') document_number,hr_employee_termination_id id</Data>
+<Where>hr_employee_termination_id='%{hr_employee_termination_vLst[hr_employee_termination_id]}' and het.status=1491 AND sys_pd_header_id IS null</Where>
+</DbDetails><submit next="$this.sys_pd_header.primary_document_id" namelist="DbDetails"/>
+<DbDetails><Where>module_name=859 and access_org_type=73</Where></DbDetails><submit next="$this.sys_pd_header.process_flow_header_id" namelist="DbDetails"/></op>
+<op text="approval_diagram"><DbDetails><Where>pd.sys_pd_header_id in (select sys_pd_header_id from sys_pd_header where primary_document='hr_employee_termination' and primary_document_id='%{hr_employee_termination_vLst[hr_employee_termination_id]}')</Where></DbDetails><submit namelist="DbDetails" next="sys_pd_process_flow_diagram.sys_process_flow_diagram_vLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_employee_termination</DbTable>
+<Where>hr_employee_termination_id='%{hr_employee_termination_vLst[hr_employee_termination_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

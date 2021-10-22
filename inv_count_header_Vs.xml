@@ -1,0 +1,72 @@
+﻿<GroupBox Name="GBDEDITinv_count_header"><Ctrls>
+<GroupBox Name="GB_count_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_count_name" Size="60,20" Text="count_name" Align="Right"/>
+<TextBox Name="count_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_count_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_count_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_count_type" Size="60,20" Text="count_type" Align="Right"/>
+<ComboBox Name="count_type" Size="170,100" Text="" Weight="170" Items="Cycle Count|Physical Inventory" ToolTip="ttp_count_type"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_approval_required" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_approval_required" Size="60,20" Text="approval_required" Align="Right"  onload="init" selectedIndex="0"/>
+<ComboBox Name="approval_required" Size="170,100" Text="" Weight="170"  ToolTip="ttp_approval_required"  onload="init" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=312</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_quantity_variance_positive" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_quantity_variance_positive" Size="60,20" Text="quantity_variance_positive" Align="Right"/>
+<TextBox Name="quantity_variance_positive" Size="170,20" Text="" Weight="170" ToolTip="ttp_quantity_variance_positive"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_quantity_variance_negative" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_quantity_variance_negative" Size="60,20" Text="quantity_variance_negative" Align="Right"/>
+<TextBox Name="quantity_variance_negative" Size="170,20" Text="" Weight="170" ToolTip="ttp_quantity_variance_negative"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right" Visible="false" overlap="pre" readonly="true" onload="init"/>
+<ComboBox Name="status" Size="170,100" Text="" Weight="170" Items="active|inactive||" ToolTip="ttp_status" Visible="false" overlap="pre" readonly="true" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=313</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_org_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_org_id" Size="60,20" Text="org_id" Align="Right" Visible="false" overlap="pre"/>
+<ComboBox Name="org_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_org_id" Visible="false" overlap="pre">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_inv_count_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_inv_count_header_id" Size="60,20" Text="inv_count_header_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="inv_count_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_inv_count_header_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{inv_count_header_id}'"><SetVisible name="insertinv_count_header" Visible="0"/><SetVisible name="modifyinv_count_header" Visible="1"/><else/><SetVisible name="insertinv_count_header" Visible="1"/><SetVisible name="modifyinv_count_header" Visible="0"/></if><DbDetails><Where>inv_count_header_id='%{inv_count_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="inv_count_schedule_vLst"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

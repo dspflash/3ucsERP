@@ -1,0 +1,66 @@
+<WndTap Name="vQA_Plan" Text="vQA_Plan">
+	<WndTaps>
+<WndTap Text="qa_cp_header" Name="qa_cp_header" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_cp_header.xml"/>
+<Ctrls>
+<GroupBox Text="qa_cp_header" Name="GBqa_cp_header" id="qa_cp_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_cp_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_cp_header_GBOPE.xml"></xi:include>
+	<Button Text="detailAdmin" ToolTip="ttp_detailAdmin" Name="detailAdmin" Size="50,20">
+		<OnClick><if cond="!%{qa_cp_header_id}"><alert expr="请先添加单据，若修改单据请从单据列表进入！"/><else/><DbDetails><Where>qa_cp_header_id='%{vQA_Plan.qa_cp_header.qa_cp_header_id}'</Where></DbDetails>
+		<submit namelist="DbDetails" next="vQA_Plan.qa_cp_line.qa_cp_header_id"/></if>
+		</OnClick>
+		</Button><TAB/>
+<ListCtrl loadedclick="1" Name="qa_cp_headerLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_cp_header</DbTable>
+<Index>qa_cp_header_id</Index>
+<Data>plan_name,plan_type,effective_from,qa_specification_header_id,specification_type,effective_to,description,qa_cp_header_id</Data>
+<Order>qa_cp_header_id</Order></DbDetails>
+<OnClick><assign name="plan_type[option_line_id]" function="SetSel" expr="%{qa_cp_headerLst[plan_type]}"/><assign name="qa_specification_header_id[qa_specification_header_id]" function="SetSel" expr="%{qa_cp_headerLst[qa_specification_header_id]}"/><assign name="specification_type[option_line_id]" function="SetSel" expr="%{qa_cp_headerLst[specification_type]}"/>
+<if cond="%{qa_cp_header_id}"><SetVisible name="insertqa_cp_header" Visible="0"/><SetVisible name="modifyqa_cp_header" Visible="1"/><else/><SetVisible name="insertqa_cp_header" Visible="1"/><SetVisible name="modifyqa_cp_header" Visible="0"/></if></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_cp_line.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_cp_assignment_header.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_cp_assignment_line.xml" popup="1"/>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_cp_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVvQA" text="vQA"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="material_GBDSEARCH.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVvQA"><Ctrls>
+<Button Text="qa_cp" ToolTip="ttp_qa_cp" Name="qa_cp" Size="50,20">
+	<OnClick><submit next="vQA_Plan.qa_cp_header.GBDEDITqa_cp_header" function="reset"/></OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="itemLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITitem" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="vQA_PlanLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.qa_cp_header_v</DbTable>
+<Index>qa_cp_header_id</Index>
+<Data>*</Data>
+<Order>qa_cp_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><submit next="vQA_Plan.qa_cp_header.GBDEDITqa_cp_header" function="reset"/><DbDetails><Where>qa_cp_header_id='%{vQA_Plan.vQA_PlanLst[qa_cp_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vQA_Plan.qa_cp_header.qa_cp_headerLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

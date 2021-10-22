@@ -1,0 +1,48 @@
+<Language name="hr_control">
+<Lang name="hr_control" value="hr_control"/>
+<Lang name="TabEdithr_control" value="hr_control Edit"/>
+<Lang name="TabViewhr_control" value="hr_control View"/>
+<Lang name="bu_org_id" value=""/>
+<Lang name="ttp_bu_org_id" value=""/>
+<Lang name="default_job_id" value=""/>
+<Lang name="ttp_default_job_id" value=""/>
+<Lang name="default_grade_id" value=""/>
+<Lang name="ttp_default_grade_id" value=""/>
+<Lang name="salary_cash_ac_id" value=""/>
+<Lang name="ttp_salary_cash_ac_id" value=""/>
+<Lang name="expense_claim_approval" value=""/>
+<Lang name="ttp_expense_claim_approval" value=""/>
+<Lang name="expense_claim_ac_id" value=""/>
+<Lang name="ttp_expense_claim_ac_id" value=""/>
+<Lang name="salary_exp_ac_id" value=""/>
+<Lang name="ttp_salary_exp_ac_id" value=""/>
+<Lang name="supplier_id" value=""/>
+<Lang name="ttp_supplier_id" value=""/>
+<Lang name="supplier_site_id" value=""/>
+<Lang name="ttp_supplier_site_id" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hr_control_id" value=""/>
+<Lang name="ttp_hr_control_id" value=""/>
+<Lang name="ttp_operationhr_control" value="操作"/>
+<Lang name="ttp_createhr_control" value="新增"/>
+<Lang name="ttp_modifyhr_control" value="修改"/>
+<Lang name="ttp_resethr_control" value="清除数据"/>
+<Lang name="ttp_deletehr_control" value="删除"/>
+<Lang name="ttp_refreshhr_control" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

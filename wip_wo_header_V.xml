@@ -1,0 +1,14 @@
+﻿<WndTap Name="wip_wo_header_v" Text="wip_wo_header">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_header.xml"/>
+<Ctrls><GroupBox  Name="GBwip_wo_header" id="wip_wo_header" Text="wip_wo_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVwip_wo_header" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.wip_wo_header.GBDEDITwip_wo_header" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetwip_wo_header" Name="resetwip_wo_header" Size="50,20">	<OnClick>	<submit next="GBDEDITwip_wo_header" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchwip_wo_header" Name="gsearchwip_wo_header" Size="50,20" visible="true">	<OnClick>	<search next="wip_wo_header_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITwip_wo_header" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

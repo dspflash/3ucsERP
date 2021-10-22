@@ -1,0 +1,19 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_timesheet_line"><Ctrls>
+<ListCtrl Heading="work_date,90;day1,25;day2,25;day3,25;day4,25;day5,25;day6,25;day7,25;prj_project_line_id,120;prj_work_type_id,120;prj_project_header_id,120;status,125;purpose,640;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_timesheet_line_id,60;" loadedclick="0" ToolTip="ttp_hr_timesheet_line" Name="hr_timesheet_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_timesheet_line h left join xbs.prj_project_line p on h.prj_project_line_id=p.prj_project_line_id left join xbs.prj_work_type p0 on h.prj_work_type_id=p0.prj_work_type_id left join xbs.prj_project_header p1 on h.prj_project_header_id=p1.prj_project_header_id</DbTable>
+<Index>hr_timesheet_line_id</Index>
+<Data>h.work_date,h.day1,h.day2,h.day3,h.day4,h.day5,h.day6,h.day7,p.task_name prj_project_line_id,p0.work_type prj_work_type_id,p1.project_number prj_project_header_id,h.status,h.purpose,h.description,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_timesheet_line_id</Data>
+<Order>hr_timesheet_line_id</Order></DbDetails>
+<dfmap><map name="text" value="name"/></dfmap><dfmap><map name="text" value="name"/></dfmap>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op mustselected="0" text="addone"><if cond="!%{hr_timesheet_header_id}"><alert expr="hr_timesheet_header_id is Empty!"/><else/><submit next="$parent.hr_timesheet_line.GBDEDIThr_timesheet_line" function="reset"/><assign name="$parent.hr_timesheet_line.hr_timesheet_header_id" expr="%{hr_timesheet_header_id}"/></if></op>
+<op text="modify"><DbDetails><Where>hr_timesheet_line_id='%{hr_timesheet_line_vLst[hr_timesheet_line_id]}'</Where></DbDetails><submit next="$parent.hr_timesheet_line.hr_timesheet_lineLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_timesheet_line</DbTable>
+<Where>hr_timesheet_line_id='%{hr_timesheet_line_vLst[hr_timesheet_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

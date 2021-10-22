@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVap_payable_control"><Ctrls>
+<ListCtrl Heading="org_id,60;payment_term_id,120;ship_to_id,60;bill_to_id,60;inv_approval_hierarchy,120;payment_approval_hierarchy,120;tax_ac_id,60;liability_ac_id,60;pre_payment_ac_id,60;discount_ac_id,60;rate_gain_ac_id,60;rate_loss_ac_id,60;cash_ac_id,60;default_exchange_rate_type,60;expense_payment_term,60;expense_pay_group,120;expense_payment_priority,60;expense_template_id,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ap_payable_control_id,60;" loadedclick="0" ToolTip="ttp_ap_payable_control" Name="ap_payable_controlLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payable_control a left join xbs.ap_payment_terms a0 on a.payment_term_id=a0.term_id left join xbs.option_line o on a.inv_approval_hierarchy=o.option_line_id left join xbs.option_line o0 on a.payment_approval_hierarchy=o0.option_line_id left join xbs.option_line o1 on a.expense_pay_group=o1.option_line_id</DbTable>
+<Index>ap_payable_control_id</Index>
+<Data>a.org_id,a0.term_description payment_term_id,a.ship_to_id,a.bill_to_id,o.option_line_value inv_approval_hierarchy,o0.option_line_value payment_approval_hierarchy,a.tax_ac_id,a.liability_ac_id,a.pre_payment_ac_id,a.discount_ac_id,a.rate_gain_ac_id,a.rate_loss_ac_id,a.cash_ac_id,a.default_exchange_rate_type,a.expense_payment_term,o1.option_line_value expense_pay_group,a.expense_payment_priority,a.expense_template_id,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.ap_payable_control_id</Data>
+<Order>ap_payable_control_id</Order></DbDetails><DbDetails fcsm="1"><Where>reftbltp='%{reftbltp}' and refid='%{refid}'</Where></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

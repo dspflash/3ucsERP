@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVbom_department" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialbom_department" Size="50,20">
+<OnClick><submit next="bom_department_vLst" function="initial"/><submit next="records_bom_department" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPbom_department_vLst" Size="50,20">
+<OnClick><submit next="bom_department_vLst" function="GetPage(first)"/><submit next="records_bom_department"/></OnClick></Button>
+<Button Text="prepage" Name="PREbom_department_vLst" Size="50,20">
+<OnClick><submit next="bom_department_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPbom_department_vLst" Size="50,20">
+<OnClick><submit next="bom_department_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

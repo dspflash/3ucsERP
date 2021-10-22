@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEar_transaction_interface" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ar_transaction_interface_id" Text="create" ToolTip="ttp_createar_transaction_interface" Name="insertar_transaction_interface" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_interface</DbTable>
+<Data>bu_org_id,transaction_type[ar_transaction_type_id],ar_customer_id,ar_customer_site_id,currency,payment_term_id,payment_term_date,document_date,ledger_id,receivable_ac_id,revenue_ac_id,line_number,item_id_m,item_description,inv_line_quantity,inv_unit_price,inv_line_price,gl_tax_amount,gl_inv_line_price,tax_code_id,tax_amount,line_type,line_description,asset_cb,fa_asset_category_id,prj_project_header_id,prj_project_line_id,uom_id,ef_id,status,line_source,reference_type,reference_key_name,reference_key_value,sd_so_header_id,sd_so_line_id,sd_so_detail_id,period_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_transaction_interface" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyar_transaction_interface" Name="modifyar_transaction_interface" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_interface</DbTable>
+<Data>bu_org_id,transaction_type[ar_transaction_type_id],ar_customer_id,ar_customer_site_id,currency,payment_term_id,payment_term_date,document_date,ledger_id,receivable_ac_id,revenue_ac_id,line_number,item_id_m,item_description,inv_line_quantity,inv_unit_price,inv_line_price,gl_tax_amount,gl_inv_line_price,tax_code_id,tax_amount,line_type,line_description,asset_cb,fa_asset_category_id,prj_project_header_id,prj_project_line_id,uom_id,ef_id,status,line_source,reference_type,reference_key_name,reference_key_value,sd_so_header_id,sd_so_line_id,sd_so_detail_id,period_id</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ar_transaction_interface_id='%{ar_transaction_interface_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_transaction_interface" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetar_transaction_interface" Name="resetar_transaction_interface" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITar_transaction_interface" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchar_transaction_interface" Name="gsearchar_transaction_interface" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ar_transaction_interfaceLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITar_transaction_interface" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

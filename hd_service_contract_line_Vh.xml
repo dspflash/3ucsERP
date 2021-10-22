@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhd_service_contract_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hd_service_contract_lineLst" ToolTip="ttp_hd_service_contract_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_service_contract_line</DbTable>
+<Index>hd_service_contract_line_id</Index>
+<Data>line_type,item_id_m,line_number,line_quantity,line_price,tax_code_id,tax_amount,gl_tax_amount,line_description,start_date,end_date,duration,duration_uom_id,renewal_type,status,line_source,counter_instance_id,event_id,termination_date,period_id,created_by,creation_date,last_update_by,last_update_date,hd_service_contract_line_id</Data>
+<Order>hd_service_contract_line_id</Order></DbDetails>
+<OnClick><assign name="item_id_m[item_id_m]" expr="%{hd_service_contract_lineLst[item_id_m]}" function="SetSel"/><assign name="tax_code_id[mdm_tax_code_id]" expr="%{hd_service_contract_lineLst[tax_code_id]}" function="SetSel"/><assign name="duration_uom_id[uom_id]" expr="%{hd_service_contract_lineLst[duration_uom_id]}" function="SetSel"/>
+<if cond="%{hd_service_contract_line_id}"><SetVisible name="inserthd_service_contract_line" Visible="0"/><SetVisible name="modifyhd_service_contract_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

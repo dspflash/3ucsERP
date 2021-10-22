@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEsd_delivery_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="sd_delivery_line_id" Text="create" ToolTip="ttp_createsd_delivery_line" Name="insertsd_delivery_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_delivery_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>staging_subinventory_id[subinventory_id],staging_locator_id[locator_id],shipped_quantity</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="sd_delivery_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifysd_delivery_line" Name="modifysd_delivery_line" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_delivery_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>staging_subinventory_id[subinventory_id],staging_locator_id[locator_id],shipped_quantity</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>sd_delivery_line_id='%{sd_delivery_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="sd_delivery_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetsd_delivery_line" Name="resetsd_delivery_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_delivery_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchsd_delivery_line" Name="gsearchsd_delivery_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="sd_delivery_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITsd_delivery_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

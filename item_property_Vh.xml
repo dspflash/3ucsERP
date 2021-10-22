@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVitem_property" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="item_propertyLst" ToolTip="ttp_item_property" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>property_id</Index>
+<DbTable>xbs.item_property</DbTable>
+<Data>prop_display_name,description,created_by,creation_date,last_update_by,last_update_date,property_id</Data>
+<Order>property_id</Order></DbDetails>
+<OnClick>
+<if cond="%{property_id}"><SetVisible name="insertitem_property" Visible="0"/><SetVisible name="modifyitem_property" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

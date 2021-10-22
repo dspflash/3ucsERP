@@ -1,0 +1,10 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="import" mustselected="0"><assign name="$this.hratd_import.excel_file" expr=""/></op>
+<op text="export" mustselected="0"><Save columns="0,1,2,3,4,5,6"></Save><submit namelist="Save" function="savetofile"/></op>
+<op text="modify"><DbDetails><Where>hr_attendance_id='%{hr_attendance_vLst[hr_attendance_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_attendance.hr_attendanceLst"/><DbDetails><Where>hr_employee_id=%{hr_attendance_vLst[hr_employee_id]}</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_attendance.hr_employee_id"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_attendance</DbTable>
+<Where>hr_attendance_id='%{hr_attendance_vLst[hr_attendance_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

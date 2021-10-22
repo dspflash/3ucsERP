@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVqa_cp_assignment_line"><Ctrls>
+<ListCtrl Heading="qa_cp_header_id,120;trigger_name,125;trigger_condition,50;value_from,125;value_to,125;description,640;enabled_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;qa_cp_assignment_line_id,60;" loadedclick="0" ToolTip="ttp_qa_cp_assignment_line" Name="qa_cp_assignment_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_cp_assignment_line</DbTable>
+<Index>qa_cp_assignment_line_id</Index>
+<Data>qa_cp_header_id,trigger_name,trigger_condition,value_from,value_to,description,enabled_cb,created_by,creation_date,last_update_by,last_update_date,qa_cp_assignment_line_id</Data>
+<Order>qa_cp_assignment_line_id</Order></DbDetails>
+<OnClick><assign name="qa_cp_header_id[qa_cp_header_id]" function="SetSel" expr="%{qa_cp_assignment_lineLst[qa_cp_header_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

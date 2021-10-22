@@ -1,0 +1,28 @@
+<WndTap Text="MRPdetail" Name="MRPdetail" Ver="2" popup="1">
+	<var name="materialid" expr=""/>
+	<var name="materialorgid" expr=""/>
+	<var name="dtStart" expr=""/>
+	<var name="dtEnd" expr=""/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="MRPdetail" Name="GBsd_so_line_promise" id="MRPdetail" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_so_line"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_sd_so_line" Name="MRPdetailLst" Size="700,420">
+		<DbDetails>
+		<queryFormat>SELECT %{materialid} AS material,calOnhandDT(%{materialid},week_start_date,%{materialorgid}) onhand,calRequiedDTs(%{materialid},week_start_date,week_end_date,%{materialorgid}) required,calOnWayDTs(%{materialid},week_start_date,week_end_date,%{materialorgid}) onway,seq_num,CONCAT(cwsd.week_start_date,'_',week_end_date) period FROM (SELECT WEEK(dt) seq_num,SUBDATE(dt,wd) week_start_date,ADDDATE(dt,6-wd) week_end_date FROM (
+SELECT DATE_FORMAT(CURDATE(),'%w') wd,ADDDATE(CURDATE(),7*(fake_id-1)) dt FROM a_fake_ids WHERE fake_id&lt;5
+) t 
+) cwsd
+LEFT JOIN po_line_v pl ON pl.promise_date BETWEEN cwsd.week_start_date AND cwsd.week_end_date 
+LEFT JOIN wip_wo_bom_v wwb ON wwb.start_date BETWEEN cwsd.week_start_date AND cwsd.week_end_date
+GROUP BY seq_num</queryFormat>
+			<!--queryFormat>SELECT %{materialid} AS material,calOnhandDT(%{materialid},week_start_date,%{materialorgid}) onhand,calRequiedDTs(%{materialid},week_start_date,week_end_date,%{materialorgid}) required,calOnWayDTs(%{materialid},week_start_date,week_end_date,%{materialorgid}) onway,seq_num,CONCAT(cwsd.week_start_date,'_',week_end_date) period FROM bom_cal_week_start_dates cwsd LEFT JOIN po_line_v pl ON pl.promise_date BETWEEN cwsd.week_start_date AND cwsd.week_end_date LEFT JOIN wip_wo_bom_v wwb ON wwb.start_date BETWEEN cwsd.week_start_date AND cwsd.week_end_date WHERE (week_start_date BETWEEN SUBDATE(CURDATE(),DATE_FORMAT(CURDATE(),'%w')) AND ADDDATE(CURDATE(),28)) GROUP BY seq_num;</queryFormat--> 
+			</DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate></OnActivate>
+			</WndTap>

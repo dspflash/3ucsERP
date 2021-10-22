@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEhd_subscription_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hd_subscription_header_id" Text="create" ToolTip="ttp_createhd_subscription_header" Name="inserthd_subscription_header" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hd_subscription_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>number,subscription_type,document_type[option_line_id],hr_employee_id[hr_employee_id],ar_customer_id[ar_customer_id],ar_customer_site_id[ar_customer_site_id],ship_to_address_id,bill_to_address_id,first_name,last_name,full_name,passport_number,dob,gender[option_line_id],marital_status[option_line_id],occupation,nationality,address_line1,address_line2,postal_code,state,house_phone,office_phone,mobile_phone1,mobile_phone2,fax_no,email,description</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,org_id;'%{user_id}',now(),'%{user_id}',now(),'%{org_id}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_subscription_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhd_subscription_header" Name="modifyhd_subscription_header" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hd_subscription_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>number,subscription_type,document_type[option_line_id],hr_employee_id[hr_employee_id],ar_customer_id[ar_customer_id],ar_customer_site_id[ar_customer_site_id],ship_to_address_id,bill_to_address_id,first_name,last_name,full_name,passport_number,dob,gender[option_line_id],marital_status[option_line_id],occupation,nationality,address_line1,address_line2,postal_code,state,house_phone,office_phone,mobile_phone1,mobile_phone2,fax_no,email,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hd_subscription_header_id='%{hd_subscription_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_subscription_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethd_subscription_header" Name="resethd_subscription_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIThd_subscription_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchhd_subscription_header" Name="gsearchhd_subscription_header" Size="50,20" visible="false">
+	<OnClick>
+	<search next="hd_subscription_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDIThd_subscription_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

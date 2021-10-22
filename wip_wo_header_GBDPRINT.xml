@@ -1,0 +1,62 @@
+<GroupBox Name="GBDEDITwip_wo_header"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls>
+<Label Align="Right" Text="item_id_m" Name="lb_item_id_m" readonly="true" Size="60,20" selectedindex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_item_id_m" Name="item_id_m" readonly="true" Size="170,100" selectedindex="0">
+	<DbDetails>
+<DbTable>xbs.item</DbTable>
+<Index>item_id_m</Index>
+<Data>item_number,receipt_sub_inventory,item_id_m</Data>
+<Where>item_type=99</Where>
+<queryFormat/></DbDetails><OnSELENDOK><submit next="reference_bom_item_id_m"/><submit next="reference_routing_item_id_m"/><submit next="completion_sub_inventory"/></OnSELENDOK></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_wo_number"><Ctrls>
+<Label Align="Right" Text="wo_number" Name="lb_wo_number" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_wo_number" Name="wo_number" Size="170,20">
+	<DbDetails>
+<DbTable>xbs.wip_wo_header</DbTable>
+<Index>wo_number</Index>
+<Data>wo_number</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_quantity"><Ctrls>
+<Label Align="Right" Text="quantity" Name="lb_quantity" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_quantity" Name="quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_released_date"><Ctrls>
+<Label Align="Right" Text="released_date" Name="lb_released_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_released_date" Name="released_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_start_date"><Ctrls>
+<Label Align="Right" Text="start_date" Name="lb_start_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_start_date" Name="start_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_completion_date"><Ctrls>
+<Label Align="Right" Text="completion_date" Name="lb_completion_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_completion_date" Name="completion_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_completion_sub_inventory"><Ctrls>
+<Label Align="Right" Text="completion_sub_inventory" Name="lb_completion_sub_inventory" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_completion_sub_inventory" Name="completion_sub_inventory" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.subinventory</DbTable>
+<Index>subinventory_id</Index>
+<Data>subinventory,subinventory_id</Data>
+<Where>subinventory_id='%{item_id_m[receipt_sub_inventory]}'</Where>
+<queryFormat/></DbDetails><OnSELENDOK><submit next="completion_locator"/></OnSELENDOK></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_completion_locator"><Ctrls>
+<Label Align="Right" Text="completion_locator" Name="lb_completion_locator" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_completion_locator" Name="completion_locator" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.locator</DbTable>
+<Index>locator_id</Index>
+<Data>locator,locator_id</Data>
+<Where>subinventory_id='%{completion_sub_inventory[subinventory_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_wo_prefix"><Ctrls>
+<Label Align="Right" Text="wo_prefix" Name="lb_wo_prefix" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_wo_prefix" Name="wo_prefix" Size="170,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="">
+	<var name="opinv" expr="op"/>
+	<webconfig theme="../biz/theme/beyond/theme.html"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>
+	<WndTaps id="purchase">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmyinfo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vsupplier.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_rfq_header_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpoquote.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_req.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_req_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_so.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_process_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmat.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vProdView.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmaterialonhand.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vproductonhand.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vExOnhand.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_process_flow_diagram_v.xml" popup="1"/>
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmrp.xml"/>
+	<xi:include module="vwip" xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_header_Vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vprp.xml"/-->
+	</WndTaps>
+</XI3uWnd>

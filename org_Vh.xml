@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVorg" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="orgLst" ToolTip="ttp_org" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,code,description,type,enterprise_org_id,legal_org_id,business_org_id,parent_org_id,status,created_by,creation_date,last_update_by,last_update_date,org_id</Data>
+<Order>org_id</Order></DbDetails>
+<OnClick><assign name="type[option_line_id]" expr="%{orgLst[type]}" function="SetSel"/><assign name="enterprise_org_id[org_id]" expr="%{orgLst[enterprise_org_id]}" function="SetSel"/><assign name="legal_org_id[org_id]" expr="%{orgLst[legal_org_id]}" function="SetSel"/><assign name="business_org_id[org_id]" expr="%{orgLst[business_org_id]}" function="SetSel"/><assign name="parent_org_id[org_id]" expr="%{orgLst[parent_org_id]}" function="SetSel"/>
+<if cond="%{org_id}"><SetVisible name="insertorg" Visible="0"/><SetVisible name="modifyorg" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

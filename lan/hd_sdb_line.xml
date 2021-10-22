@@ -1,0 +1,40 @@
+﻿<Language name="hd_sbp_line">
+<Lang name="hd_sbp_line" value="hd_sbp_line"/>
+<Lang name="TabEdithd_sbp_line" value="hd_sbp_line Edit"/>
+<Lang name="TabViewhd_sbp_line" value="hd_sbp_line View"/>
+<Lang name="hd_sbp_header_id" value=""/>
+<Lang name="ttp_hd_sbp_header_id" value=""/>
+<Lang name="hd_service_activity_header_id" value=""/>
+<Lang name="ttp_hd_service_activity_header_id" value=""/>
+<Lang name="start_date" value=""/>
+<Lang name="ttp_start_date" value=""/>
+<Lang name="end_date" value=""/>
+<Lang name="ttp_end_date" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hd_sbp_line_id" value=""/>
+<Lang name="ttp_hd_sbp_line_id" value=""/>
+<Lang name="ttp_operationhd_sbp_line" value=""/>
+<Lang name="ttp_createhd_sbp_line" value=""/>
+<Lang name="ttp_modifyhd_sbp_line" value=""/>
+<Lang name="ttp_resethd_sbp_line" value=""/>
+<Lang name="ttp_deletehd_sbp_line" value=""/>
+<Lang name="ttp_refreshhd_sbp_line" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

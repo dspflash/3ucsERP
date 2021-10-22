@@ -1,0 +1,48 @@
+﻿<GroupBox Name="GBDEDIThr_location"><Ctrls>
+<GroupBox Name="GB_country" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_country" Size="60,20" Text="country" Align="Right" onload="init"/>
+<ComboBox Name="country" Size="170,100" Text="" Weight="170"  ToolTip="ttp_country" onload="init">
+	<DbDetails>
+<DbTable>xbs.country</DbTable>
+<Index>country_id</Index>
+<Data>namecn,country_id</Data>
+<Where>namecn is not null</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_state" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_state" Size="60,20" Text="state" Align="Right"/>
+<TextBox Name="state" Size="170,20" Text="" Weight="170" ToolTip="ttp_state"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_city" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_city" Size="60,20" Text="city" Align="Right"/>
+<TextBox Name="city" Size="170,20" Text="" Weight="170" ToolTip="ttp_city"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_combination" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_combination" Size="60,20" Text="combination" Align="Right"/>
+<TextBox Name="combination" Size="170,20" Text="" Weight="170" ToolTip="ttp_combination"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_location_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hr_location_id" Size="60,20" Text="hr_location_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hr_location_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hr_location_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{hr_location_id}'"><SetVisible name="inserthr_location" Visible="0"/><SetVisible name="modifyhr_location" Visible="1"/><else/><SetVisible name="inserthr_location" Visible="1"/><SetVisible name="modifyhr_location" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

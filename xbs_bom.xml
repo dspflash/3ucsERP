@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><XI3uWnd Title="三优智造" debug="0">
+	<webconfig theme="../biz/theme/materialadmin/theme.html"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>
+	<var name="opinv" expr="inv"/>
+	<WndTaps id="bom">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmyinfo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="material_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vbom_department.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vproduct.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_Vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_material_element_V.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_resource_Vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_overhead_Vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="category_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="import_bom.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_cost_type_V.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_resource_cost_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_oh_rate_assignment_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vcost.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_template_header_V.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_header_Vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_process_v.xml"/>
+    <WndTap Name="filemanage" Text="文件管理"><Ctrls>
+		<GroupBox Name="GroupBox2" Text="文档管理"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12"><Ctrls>
+			<Button Name="refreshdir" Size="50,20" Text="刷新"><OnClick><submit next="DirList"/></OnClick></Button>
+			<Button Name="SendFile"  Size="80,20" Text="上传文件" OnClick="SendFile:,filter=All Files (*.*)|*.*||,dir=E:\cloud\files,localdir="></Button>
+			<Button Name="GetFile"  Size="80,20" Text="下载文件"><OnClick><assign name="topmost" expr="GetFile:%{DirList[0]},dir=E:\cloud\files,localdir="/></OnClick></Button>
+			</Ctrls></GroupBox><BR autoheight="1"/>
+		<GroupBox cols="xs12 sm12 md12 lg12"><Ctrls>
+			<ListCtrl Name="DirList" PageSize="10" loadedclick="1" OnLoad="init" Size="700,400"
+				Heading="文件名,200;类型,100;大小,100;修改时间,100">
+				<DbDetails>
+					<DbDatabase>E:\cloud\files</DbDatabase> 
+					<datatype>dir</datatype> 
+					<queryFormat>select * from .</queryFormat> 
+					</DbDetails>
+				<operator refresh="1">
+				<op text="download" mustselected="1"><assign name="topmost" expr="GetFile:%{DirList[0]},dir=E:\cloud\files,localdir="/></op>
+				</operator>
+				</ListCtrl>
+			</Ctrls></GroupBox> 
+		</Ctrls></GroupBox>
+      </Ctrls>
+    </WndTap>
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vwip.xml"/-->
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vreceipt.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vissue.xml"/-->
+	</WndTaps>
+</XI3uWnd>

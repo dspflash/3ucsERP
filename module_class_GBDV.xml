@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVmodule_class"><Ctrls>
+<ListCtrl Heading="name,640;module_code,120;description,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;module_class_id,60;" loadedclick="0" ToolTip="ttp_module_class" Name="module_classLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.module_class m left join xbs.option_line o on m.module_code=o.option_line_code</DbTable>
+<Index>module_class_id</Index>
+<Data>m.name,o.option_line_value module_code,m.description,m.status,m.created_by,m.creation_date,m.last_update_by,m.last_update_date,m.module_class_id</Data>
+<Order>module_class_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

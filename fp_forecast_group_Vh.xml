@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVfp_forecast_group" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="fp_forecast_groupLst" ToolTip="ttp_fp_forecast_group" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_forecast_group</DbTable>
+<Index>fp_forecast_group_id</Index>
+<Data>forecast_group,bucket_type,consume_cb,backward_days,forward_days,status,org_id,description,created_by,creation_date,last_update_by,last_update_date,fp_forecast_group_id</Data>
+<Order>fp_forecast_group_id</Order></DbDetails>
+<OnClick><assign name="bucket_type[option_line_id]" expr="%{fp_forecast_groupLst[bucket_type]}" function="SetSel"/><assign name="org_id[org_id]" expr="%{fp_forecast_groupLst[org_id]}" function="SetSel"/>
+<if cond="%{fp_forecast_group_id}"><SetVisible name="insertfp_forecast_group" Visible="0"/><SetVisible name="modifyfp_forecast_group" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

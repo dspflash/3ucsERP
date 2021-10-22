@@ -1,0 +1,46 @@
+<Language name="mdm_tax_rule">
+<Lang name="mdm_tax_rule" value="mdm_tax_rule"/>
+<Lang name="TabEditmdm_tax_rule" value="mdm_tax_rule Edit"/>
+<Lang name="TabViewmdm_tax_rule" value="mdm_tax_rule View"/>
+<Lang name="ship_to_region_id" value=""/>
+<Lang name="ttp_ship_to_region_id" value=""/>
+<Lang name="op_tax_class" value=""/>
+<Lang name="ttp_op_tax_class" value=""/>
+<Lang name="weightage" value=""/>
+<Lang name="ttp_weightage" value=""/>
+<Lang name="tax_code_id" value=""/>
+<Lang name="ttp_tax_code_id" value=""/>
+<Lang name="ip_tax_class" value=""/>
+<Lang name="ttp_ip_tax_class" value=""/>
+<Lang name="ship_from_region_id" value=""/>
+<Lang name="ttp_ship_from_region_id" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="mdm_tax_rule_id" value=""/>
+<Lang name="ttp_mdm_tax_rule_id" value=""/>
+<Lang name="org_id" value=""/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="ttp_operationmdm_tax_rule" value="操作"/>
+<Lang name="ttp_createmdm_tax_rule" value="新增"/>
+<Lang name="ttp_modifymdm_tax_rule" value="修改"/>
+<Lang name="ttp_resetmdm_tax_rule" value="清除数据"/>
+<Lang name="ttp_deletemdm_tax_rule" value="删除"/>
+<Lang name="ttp_refreshmdm_tax_rule" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="ap_payable_control" Name="ap_payable_control" Ver="2">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_payable_control.xml"/>
+<Ctrls>
+<GroupBox Text="ap_payable_control" Name="GBap_payable_control" id="ap_payable_control" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_payable_control_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_payable_control_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_payable_control_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_payable_control_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

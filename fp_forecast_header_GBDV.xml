@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVfp_forecast_header"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_fp_forecast_header" Name="fp_forecast_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_forecast_header f left join xbs.org o on f.org_id=o.org_id left join xbs.fp_forecast_group f0 on f.forecast_group_id=f0.fp_forecast_group_id left join xbs.ar_customer a on f.ar_customer_id=a.ar_customer_id</DbTable>
+<Index>fp_forecast_header_id</Index>
+<Data>f.forecast,o.org org_id,f0.forecast_group forecast_group_id,a.customer_name ar_customer_id,f.description,f.status,f.fp_forecast_header_id,f.created_by,f.creation_date,f.last_update_by,f.last_update_date</Data>
+<Order>fp_forecast_header_id</Order></DbDetails>
+<DbDetails><Data>f.forecast,o.org,f0.forecast_group,a.customer_name,f.description,f.status,f.fp_forecast_header_id,f.forecast_group_id,f.ar_customer_id,f.org_id,f.created_by,f.creation_date,f.last_update_by,f.last_update_date</Data></DbDetails><DbDetails><Data>f.forecast,o.org,f0.forecast_group,a.customer_name,f.description,f.status,f.fp_forecast_header_id,f.forecast_group_id,f.ar_customer_id,f.org_id,f.created_by,f.creation_date,f.last_update_by,f.last_update_date</Data></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>fp_forecast_header_id='%{fp_forecast_header_vLst[fp_forecast_header_id]}'</Where></DbDetails><submit next="$this.fp_forecast_header.fp_forecast_headerLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.fp_forecast_header</DbTable>
+<Where>fp_forecast_header_id='%{fp_forecast_header_vLst[fp_forecast_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

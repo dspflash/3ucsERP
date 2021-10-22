@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="text" Name="text" Ver="2">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer.xml"/>
+<Ctrls>
+<GroupBox Text="ar_customer" Name="GBar_customer" id="ar_customer" Size="100,100"><Ctrls>
+<GroupBox feature="tab" Text="TabEditar_customer" Name="TABEDITar_customer"><Ctrls><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="text_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="text_GBOPE.xml"></xi:include>
+</Ctrls></GroupBox><BR/><GroupBox feature="tab" Text="TabViewar_customer" Name="TABVIEWar_customer"><Ctrls><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="text_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="text_GBDV.xml"></xi:include></Ctrls></GroupBox></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

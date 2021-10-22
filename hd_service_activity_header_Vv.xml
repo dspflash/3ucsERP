@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVhd_service_activity_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hd_service_activity_header_vLst" ToolTip="ttp_hd_service_activity_header" Size="700,420" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hd_service_activity_header h left join xbs.user_v u on h.created_by=u.xerp_user_id</DbTable>
+<Index>hd_service_activity_header_id</Index>
+<Data>h.activity_name,h.activity_description,h.line_category,h.start_date,h.end_date,h.allow_quantity_update_cb,h.create_charge_cb,h.create_cost_cb,h.zero_charge_cb,h.expense_cb,h.labor_cb,h.material_cb,u.NAME created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hd_service_activity_header_id</Data>
+<Order>hd_service_activity_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hd_service_activity_header_id='%{hd_service_activity_header_vLst[hd_service_activity_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hd_service_activity_header.hd_service_activity_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_service_activity_header</DbTable>
+<Where>hd_service_activity_header_id='%{hd_service_activity_header_vLst[hd_service_activity_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

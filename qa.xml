@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="QA" Name="qa" id="qa">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_specification_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_specification_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_action.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_cp_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_cp_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_action_type.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_bgm_calibration_reading.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_enc_rating.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_higher_bandwidth1.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_lower_bandwidth1.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_lower_bandwidth2.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_quality_rating.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_spectra_reading.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_spectrum_range.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_cp_assignment_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_cp_assignment_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_result.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_result.xml"></xi:include>
+	</WndTaps>
+	</WndTap>

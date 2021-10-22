@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="0">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>
+	<var name="opinv" expr="inv"/>
+	<WndTaps id="wip">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmyinfo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vwipwo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmat.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vProdView.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vinventory.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_req.xml"/>
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vreceipt.xml"/-->
+	</WndTaps>
+</XI3uWnd>

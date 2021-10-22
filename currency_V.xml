@@ -1,0 +1,12 @@
+<WndTap Name="currency_v" Text="currency">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="currency_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\currency.xml"/>
+<Ctrls><GroupBox  Name="GBcurrency" id="currency" Text="currency" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="currency_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVcurrency" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.currency.GBDEDITcurrency" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetcurrency" Name="resetcurrency" Size="50,20">	<OnClick>	<submit next="GBDEDITcurrency" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchcurrency" Name="gsearchcurrency" Size="50,20" visible="true">	<OnClick>	<search next="currency_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITcurrency" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="currency_Vv.xml"/></Ctrls></GroupBox></Ctrls></WndTap>

@@ -1,0 +1,46 @@
+﻿<GroupBox Name="GBDEDITbom_stnd_op_res_assignment" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_bom_standard_operation_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bom_standard_operation_id" Size="60,20" Text="bom_standard_operation_id" Align="Right" selectedIndex="0"/>
+<ComboBox Name="bom_standard_operation_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_bom_standard_operation_id" selectedIndex="0">
+	<DbDetails>
+<Index>bom_standard_operation_id</Index>
+<DbTable>xbs.bom_standard_operation</DbTable>
+<Data>standard_operation,bom_standard_operation_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_resource_sequence" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_resource_sequence" Size="60,20" Text="resource_sequence" Align="Right"/>
+<ComboBox Name="resource_sequence" Size="170,100" Text="" Weight="170" Items="1~8*10" ToolTip="ttp_resource_sequence"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_resource_schedule" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_resource_schedule" Size="60,20" Text="resource_schedule" Align="Right" onload="init"/>
+<ComboBox Name="resource_schedule" Size="170,100" Text="" Weight="170"  ToolTip="ttp_resource_schedule" onload="init">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=141</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_resource_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_resource_id" Size="60,20" Text="resource_id" Align="Right" onload="init"/>
+<ComboBox Name="resource_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_resource_id" onload="init">
+	<DbDetails fcsm="true">
+<Index>bom_resource_id</Index>
+<DbTable>xbs.bom_resource</DbTable>
+<Data>resource,bom_resource_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_resource_usage" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_resource_usage" Size="60,20" Text="resource_usage" Align="Right"/>
+<TextBox Name="resource_usage" Size="170,20" Text="" Weight="170" ToolTip="ttp_resource_usage"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_twenty_four_hr_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="twenty_four_hr_cb" Size="230,20" Text="twenty_four_hr_cb" ToolTip="ttp_twenty_four_hr_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_standard_rate_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="standard_rate_cb" Size="230,20" Text="standard_rate_cb" ToolTip="ttp_standard_rate_cb" checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,81 @@
+<GroupBox Name="GBDEDITmdm_tax_code"><Ctrls>
+<GroupBox Name="GB_tax_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_tax_code" Size="60,20" Text="tax_code" Align="Right"/>
+<TextBox Name="tax_code" Size="170,20" Weight="170" ToolTip="ttp_tax_code"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_tax_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_tax_type" Size="60,20" Text="tax_type" Align="Right" onload="init"/>
+<ComboBox Name="tax_type" Size="170,100" Weight="170"  ToolTip="ttp_tax_type" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=180 and status</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_dr_cr" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_dr_cr" Size="60,20" Text="dr_cr" Align="Right"/>
+<ComboBox Name="dr_cr" Size="170,100" Weight="170" Items="DR|CR" ToolTip="ttp_dr_cr"></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_in_out" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_in_out" Size="60,20" Text="in_out" Align="Right"/>
+<ComboBox Name="in_out" Size="170,100" Weight="170" Items="IN|OUT" ToolTip="ttp_in_out"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_calculation_method" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_calculation_method" Size="60,20" Text="calculation_method" Align="Right" onload="init"/>
+<ComboBox Name="calculation_method" Size="170,100" Weight="170"  ToolTip="ttp_calculation_method" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=308</Where>
+<queryFormat>select %{data} from %{dbtable} where %{where} order by option_line_id</queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_percentage" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_percentage" Size="60,20" Text="percentage" Align="Right"/>
+<TextBox Name="percentage" Size="170,20" Weight="170" ToolTip="ttp_percentage"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_tax_amount" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_tax_amount" Size="60,20" Text="tax_amount" Align="Right"/>
+<TextBox Name="tax_amount" Size="170,20" Weight="170" ToolTip="ttp_tax_amount"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_effective_start_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_start_date" Size="60,20" Text="effective_start_date" Align="Right"/>
+<DateTime Name="effective_start_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_start_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_effective_end_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_end_date" Size="60,20" Text="effective_end_date" Align="Right"/>
+<DateTime Name="effective_end_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_end_date"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_org_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_org_id" Size="60,20" Text="org_id" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="org_id" Size="170,20" Weight="170" ToolTip="ttp_org_id" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_mdm_tax_code_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_mdm_tax_code_id" Size="60,20" Text="mdm_tax_code_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="mdm_tax_code_id" Size="170,20" Weight="170" ToolTip="ttp_mdm_tax_code_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBmdm_tax_code" expr="TABEDITmdm_tax_code"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

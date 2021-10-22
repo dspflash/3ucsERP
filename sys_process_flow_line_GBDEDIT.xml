@@ -1,0 +1,90 @@
+﻿<GroupBox Name="GBDEDITsys_process_flow_line"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_type"><Ctrls>
+<Label Align="Right" Text="line_type" Name="lb_line_type" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_line_type" Items="Start|End|Activity|Decision" Name="line_type" Size="170,100"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_name"><Ctrls>
+<Label Align="Right" Text="line_name" Name="lb_line_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_line_name" Name="line_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_line_number" Visible="false"><Ctrls>
+<Label Align="Right" Text="line_number" overlap="pre" Name="lb_line_number" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_line_number" overlap="pre" Name="line_number" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_next_line_seq_pass" Visible="false"><Ctrls>
+<Label Align="Right" Text="next_line_seq_pass" overlap="pre" Name="lb_next_line_seq_pass" readonly="true" Size="60,20" Visible="false"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_next_line_seq_pass" overlap="pre" Name="next_line_seq_pass" readonly="true" Size="170,100" Visible="false">
+	<DbDetails>
+<Index>sys_process_flow_line_id</Index>
+<DbTable>xbs.sys_process_flow_line</DbTable>
+<Data>line_name,sys_process_flow_line_id</Data>
+<Where>sys_process_flow_header_id='%{sys_process_flow_header_id[sys_process_flow_header_id]}' and sys_process_flow_line_id!='%{sys_process_flow_line_id}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_next_line_seq_fail" Visible="false"><Ctrls>
+<Label Align="Right" Text="next_line_seq_fail" overlap="pre" Name="lb_next_line_seq_fail" readonly="true" Size="60,20" Visible="false"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_next_line_seq_fail" overlap="pre" Name="next_line_seq_fail" readonly="true" Size="170,100" Visible="false">
+	<DbDetails>
+<Index>sys_process_flow_line_id</Index>
+<DbTable>xbs.sys_process_flow_line</DbTable>
+<Data>line_name,sys_process_flow_line_id</Data>
+<Where>sys_process_flow_header_id='%{sys_process_flow_header_id[sys_process_flow_header_id]}' and sys_process_flow_line_id!='%{sys_process_flow_line_id}' </Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_next_line_seq_onhold" Visible="false"><Ctrls>
+<Label Align="Right" Text="next_line_seq_onhold" overlap="pre" Name="lb_next_line_seq_onhold" readonly="true" Size="60,20" Visible="false"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_next_line_seq_onhold" overlap="pre" Name="next_line_seq_onhold" readonly="true" Size="170,100" Visible="false">
+	<DbDetails>
+<Index>sys_process_flow_line_id</Index>
+<DbTable>xbs.sys_process_flow_line</DbTable>
+<Data>line_name,sys_process_flow_line_id</Data>
+<Where>sys_process_flow_header_id='%{sys_process_flow_header_id[sys_process_flow_header_id]}' and sys_process_flow_line_id!='%{sys_process_flow_line_id}' </Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>xerp_user_id</Index>
+<DbTable>xbs.user_v</DbTable>
+<Data>NAME,username,xerp_user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>xerp_user_id</Index>
+<DbTable>xbs.user_v</DbTable>
+<Data>NAME,username,xerp_user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_sys_process_flow_line_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="sys_process_flow_line_id" overlap="pre" Name="lb_sys_process_flow_line_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_sys_process_flow_line_id" overlap="pre" Name="sys_process_flow_line_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><submit next="next_line_seq_pass"/><submit next="next_line_seq_fail"/><submit next="next_line_seq_onhold"/><DbDetails><Where>sys_process_flow_line_id='%{sys_process_flow_line_id}'</Where></DbDetails><submit next="sys_process_flow_action_vLst" namelist="DbDetails"/></OnEnChange><OnEnChange><if cond="'%{sys_process_flow_line_id}'"><SetVisible name="insertsys_process_flow_line" Visible="0"/><SetVisible name="modifysys_process_flow_line" Visible="1"/><else/><SetVisible name="insertsys_process_flow_line" Visible="1"/><SetVisible name="modifysys_process_flow_line" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_sys_process_flow_header_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="sys_process_flow_header_id" overlap="pre" Name="lb_sys_process_flow_header_id" readonly="true" Size="60,20" Visible="false" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_sys_process_flow_header_id" overlap="pre" Name="sys_process_flow_header_id" readonly="true" Size="170,100" Visible="false" selectedIndex="0">
+	<DbDetails>
+<Index>sys_process_flow_header_id</Index>
+<DbTable>xbs.sys_process_flow_header</DbTable>
+<Data>sys_process_flow_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="next_line_seq_pass"/><submit next="next_line_seq_fail"/><submit next="next_line_seq_onhold"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

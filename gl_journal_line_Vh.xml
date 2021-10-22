@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVgl_journal_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="gl_journal_lineLst" ToolTip="ttp_gl_journal_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_journal_line</DbTable>
+<Index>gl_journal_line_id</Index>
+<Data>total_dr,total_cr,line_num,code_combination_id,total_ac_dr,total_ac_cr,description,reference_type,reference_key_name,reference_key_value,created_by,creation_date,last_update_by,last_update_date,gl_journal_line_id,status</Data>
+<Order>gl_journal_line_id</Order></DbDetails>
+<OnClick><assign name="code_combination_id[coa_combination_id]" expr="%{gl_journal_lineLst[code_combination_id]}" function="SetSel"/><assign name="status[option_line_id]" expr="%{gl_journal_lineLst[status]}" function="SetSel"/>
+<if cond="%{gl_journal_line_id}"><SetVisible name="insertgl_journal_line" Visible="0"/><SetVisible name="modifygl_journal_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

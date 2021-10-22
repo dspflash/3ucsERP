@@ -1,0 +1,68 @@
+<GroupBox Name="GBDEDITprj_work_type"><Ctrls>
+<GroupBox Name="GB_work_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_work_type" Size="60,20" Text="work_type" Align="Right"/>
+<TextBox Name="work_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_work_type"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_tp_amount_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_tp_amount_type" Size="60,20" Text="tp_amount_type" Align="Right"/>
+<ComboBox Name="tp_amount_type" Size="170,100" Text="" Weight="170" Items="Revenue|Actual Cost|Cost Plus Markup" ToolTip="ttp_tp_amount_type"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_effective_from" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_from" Size="60,20" Text="effective_from" Align="Right"/>
+<DateTime Name="effective_from" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_from"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_effective_to" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_to" Size="60,20" Text="effective_to" Align="Right"/>
+<DateTime Name="effective_to" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_to"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_billable_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="billable_cb" Size="230,20" Text="billable_cb" ToolTip="ttp_billable_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_capitalizable_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="capitalizable_cb" Size="230,20" Text="capitalizable_cb" ToolTip="ttp_capitalizable_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_training_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="training_cb" Size="230,20" Text="training_cb" ToolTip="ttp_training_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_shadow_resource_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="shadow_resource_cb" Size="230,20" Text="shadow_resource_cb" ToolTip="ttp_shadow_resource_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_utilization_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_utilization_type" Size="60,20" Text="utilization_type" Align="Right"/>
+<TextBox Name="utilization_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_utilization_type"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_utilization_percentage" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_utilization_percentage" Size="60,20" Text="utilization_percentage" Align="Right"/>
+<TextBox Name="utilization_percentage" Size="170,20" Text="" Weight="170" ToolTip="ttp_utilization_percentage"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_unassigned_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="unassigned_cb" Size="230,20" Text="unassigned_cb" ToolTip="ttp_unassigned_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_non_worked_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="non_worked_cb" Size="230,20" Text="non_worked_cb" ToolTip="ttp_non_worked_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_prj_work_type_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_prj_work_type_id" Size="60,20" Text="prj_work_type_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="prj_work_type_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_prj_work_type_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBprj_work_type" expr="TABEDITprj_work_type"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

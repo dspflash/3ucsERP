@@ -1,0 +1,26 @@
+﻿<GroupBox Name="GBDEDITsys_process_flow_line" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_line_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_line_name" Size="60,20" Text="line_name" Align="Right"/>
+<TextBox Name="line_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_line_name"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_next_line_seq_pass" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_next_line_seq_pass" Size="60,20" Text="next_line_seq_pass" Align="Right"/>
+<ComboBox Name="next_line_seq_pass" Size="170,100" Text="" Weight="170"  ToolTip="ttp_next_line_seq_pass">
+	<DbDetails>
+<Index>sys_process_flow_line_id</Index>
+<DbTable>xbs.sys_process_flow_line</DbTable>
+<Data>line_name,sys_process_flow_line_id</Data>
+<Where>sys_process_flow_header_id='%{sys_process_flow_header_id[sys_process_flow_header_id]}' and sys_process_flow_line_id!='%{sys_process_flow_line_id}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_next_line_seq_fail" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_next_line_seq_fail" Size="60,20" Text="next_line_seq_fail" Align="Right"/>
+<ComboBox Name="next_line_seq_fail" Size="170,100" Text="" Weight="170"  ToolTip="ttp_next_line_seq_fail">
+	<DbDetails>
+<Index>sys_process_flow_line_id</Index>
+<DbTable>xbs.sys_process_flow_line</DbTable>
+<Data>line_name,sys_process_flow_line_id</Data>
+<Where>sys_process_flow_header_id='%{sys_process_flow_header_id[sys_process_flow_header_id]}' and sys_process_flow_line_id!='%{sys_process_flow_line_id}' </Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVqa_cp_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="qa_cp_line_vLst" ToolTip="ttp_qa_cp_line" Size="700,220" Heading="qa_ce_header_id,120;description,640;sequence,20;dafault_value,250;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;qa_cp_line_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.qa_cp_line q left join xbs.qa_ce_header q0 on q.qa_ce_header_id=q0.qa_ce_header_id</DbTable>
+<Index>qa_cp_line_id</Index>
+<Data>q0.element_name qa_ce_header_id,q.description,q.sequence,q.dafault_value,q.created_by,q.creation_date,q.last_update_by,q.last_update_date,q.qa_cp_line_id</Data>
+<Order>qa_cp_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="false"><if cond="!%{qa_cp_header_id}"><alert expr="请先添加或选择已有项目！"/><else/><submit next="$parent.qa_cp_line.GBDEDITqa_cp_line" function="reset"/><DbDetails><Where>qa_cp_header_id='%{$parent.qa_cp_header.qa_cp_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.qa_cp_line.qa_cp_header_id"/></if></op>
+<op text="modify"><submit next="$parent.qa_cp_line.GBDEDITqa_cp_line" function="reset"/><DbDetails><Where>qa_cp_header_id='%{$parent.qa_cp_header.qa_cp_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.qa_cp_line.qa_cp_header_id"/><DbDetails><Where>qa_cp_line_id='%{qa_cp_line_vLst[qa_cp_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.qa_cp_line.qa_cp_lineLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.qa_cp_line</DbTable>
+<Where>qa_cp_line_id='%{qa_cp_line_vLst[qa_cp_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

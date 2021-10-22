@@ -1,0 +1,11 @@
+﻿<GroupBox Name="GBDVfp_forecast_group" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="fp_forecast_group_vLst" ToolTip="ttp_fp_forecast_group" Size="700,420" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.fp_forecast_group f left join xbs.option_line o on f.bucket_type=o.option_line_id left join xbs.org o0 on f.org_id=o0.org_id</DbTable>
+<Index>fp_forecast_group_id</Index>
+<Data>f.forecast_group,o.option_line_value bucket_type,f.consume_cb,f.backward_days,f.forward_days,f.status,o0.org org_id,f.description,f.created_by,f.creation_date,f.last_update_by,f.last_update_date,f.fp_forecast_group_id</Data>
+<Order>fp_forecast_group_id</Order></DbDetails>
+<OnChanged><if cond="%{fp_forecast_group_vLst[lastSqlErrMsg]}"><info expr="%{fp_forecast_group_vLst[lastSqlErrMsg]}"/><elseif cond="%{fp_forecast_group_vLst[sqlok]}"/><info expr="Processing..."/></if></OnChanged>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fp_forecast_group_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

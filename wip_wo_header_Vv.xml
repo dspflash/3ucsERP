@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVwip_wo_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="wip_wo_header_vLst" ToolTip="ttp_wip_wo_header" Size="700,420" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.wip_wo_header w left join xbs.bom_routing_header b on w.reference_routing_item_id_m=b.bom_routing_header_id left join xbs.bom_header b0 on w.reference_bom_item_id_m=b0.bom_header_id left join xbs.option_line o on w.wo_type=o.option_line_id left join xbs.wip_accounting_group w0 on w.wip_accounting_group_id=w0.wip_accounting_group_id left join xbs.subinventory s on w.completion_sub_inventory=s.subinventory_id left join xbs.locator l on w.completion_locator=l.locator_id left join xbs.option_line o0 on w.wo_status=o0.option_line_id</DbTable>
+<Index>wip_wo_header_id</Index>
+<Data>w.wo_number,b.routing_revision reference_routing_item_id_m,b0.bom_revision reference_bom_item_id_m,o.option_line_value wo_type,w0.wip_accounting_group wip_accounting_group_id,w.start_date,w.completion_date,w.quantity,w.nettable_quantity,s.subinventory completion_sub_inventory,l.locator completion_locator,w.completed_quantity,w.scrapped_quantity,w.released_date,w.first_unit_completed_date,w.last_unit_completed_date,w.schedule_group,w.build_sequence,w.scheduling_priority,w.closed_date,w.created_by,w.creation_date,w.last_update_by,w.last_update_date,w.wip_wo_header_id,o0.option_line_value wo_status,w.parent_wo_id,w.primary_wo_id</Data>
+<Order>wip_wo_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>wip_wo_header_id='%{wip_wo_header_vLst[wip_wo_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.wip_wo_header.wip_wo_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.wip_wo_header</DbTable>
+<Where>wip_wo_header_id='%{wip_wo_header_vLst[wip_wo_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

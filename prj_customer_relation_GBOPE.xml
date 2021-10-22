@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEprj_customer_relation" Size="100,100"><Ctrls>
+<Button sqlpkinsert="prj_customer_relation_id" Text="create" ToolTip="ttp_createprj_customer_relation" Name="insertprj_customer_relation" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_customer_relation</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>prj_project_header_id[prj_project_header_id],ar_customer_id[ar_customer_id],relation[option_line_id],status</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="prj_customer_relationLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyprj_customer_relation" Name="modifyprj_customer_relation" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_customer_relation</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>ar_customer_id[ar_customer_id],relation[option_line_id],status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>prj_customer_relation_id='%{prj_customer_relation_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="prj_customer_relationLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetprj_customer_relation" Name="resetprj_customer_relation" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITprj_customer_relation" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchprj_customer_relation" Name="gsearchprj_customer_relation" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="prj_customer_relationLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITprj_customer_relation" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

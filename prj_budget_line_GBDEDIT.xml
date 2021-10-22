@@ -1,0 +1,84 @@
+<GroupBox Name="GBDEDITprj_budget_line"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_prj_resource_line_id"><Ctrls>
+<Label Align="Right" Text="prj_resource_line_id" Name="lb_prj_resource_line_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_prj_resource_line_id" Name="prj_resource_line_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.prj_resource_list_line</DbTable>
+<Index>prj_resource_list_line_id</Index>
+<Data>resource_type,prj_resource_list_line_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_uom_id"><Ctrls>
+<Label Align="Right" Text="uom_id" Name="lb_uom_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_uom_id" Name="uom_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.uom</DbTable>
+<Index>uom_id</Index>
+<Data>uom_name,uom_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_quantity"><Ctrls>
+<Label Align="Right" Text="quantity" Name="lb_quantity" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_quantity" Name="quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_raw_cost"><Ctrls>
+<Label Align="Right" Text="raw_cost" Name="lb_raw_cost" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_raw_cost" Name="raw_cost" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_revenue_quantity"><Ctrls>
+<Label Align="Right" Text="revenue_quantity" Name="lb_revenue_quantity" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_revenue_quantity" Name="revenue_quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_revenue_amount"><Ctrls>
+<Label Align="Right" Text="revenue_amount" Name="lb_revenue_amount" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_revenue_amount" Name="revenue_amount" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_burden_cost"><Ctrls>
+<Label Align="Right" Text="burden_cost" Name="lb_burden_cost" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_burden_cost" Name="burden_cost" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_prj_project_header_id"><Ctrls>
+<Label Align="Right" Text="prj_project_header_id" Name="lb_prj_project_header_id" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_prj_project_header_id" Name="prj_project_header_id" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_prj_project_line_id"><Ctrls>
+<Label Align="Right" Text="prj_project_line_id" Name="lb_prj_project_line_id" readonly="true" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_prj_project_line_id" Name="prj_project_line_id" readonly="true" Size="170,100">
+	<DbDetails fcsm="true">
+<DbTable>xbs.prj_project_line</DbTable>
+<Index>prj_project_line_id</Index>
+<Data>task_number,prj_project_header_id,prj_project_line_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_prj_budget_line_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="prj_budget_line_id" overlap="pre" Name="lb_prj_budget_line_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_prj_budget_line_id" overlap="pre" Name="prj_budget_line_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBprj_budget_line" expr="TABEDITprj_budget_line"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_prj_budget_header_id"><Ctrls>
+<Label Align="Right" Text="prj_budget_header_id" Name="lb_prj_budget_header_id" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_prj_budget_header_id" Name="prj_budget_header_id" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

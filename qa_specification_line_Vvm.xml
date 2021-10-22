@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVqa_specification_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="qa_specification_line_vLst" ToolTip="ttp_qa_specification_line" Size="700,220" Heading="qa_ce_header_id,120;uom_id,120;user_range_low,250;user_range_high,250;user_target_value,250;specification_range_high,250;specification_range_low,250;specification_target_value,250;reasonable_range_low,250;reasonable_range_high,250;reasonable_target_value,60;description,640;enabled_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;qa_specification_line_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.qa_specification_line q left join xbs.qa_ce_header q0 on q.qa_ce_header_id=q0.qa_ce_header_id left join xbs.uom u on q.uom_id=u.uom_id</DbTable>
+<Index>qa_specification_line_id</Index>
+<Data>q0.element_name qa_ce_header_id,u.uom_name uom_id,q.user_range_low,q.user_range_high,q.user_target_value,q.specification_range_high,q.specification_range_low,q.specification_target_value,q.reasonable_range_low,q.reasonable_range_high,q.reasonable_target_value,q.description,q.enabled_cb,q.created_by,q.creation_date,q.last_update_by,q.last_update_date,q.qa_specification_line_id</Data>
+<Order>qa_specification_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="false"><if cond="!%{qa_specification_header_id}"><alert expr="请先添加或选择已有项目！"/><else/><submit next="$parent.qa_specification_line.GBDEDITqa_specification_line" function="reset"/><DbDetails><Where>qa_specification_header_id='%{$parent.qa_specification_header.qa_specification_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.qa_specification_line.qa_specification_header_id"/></if></op>
+<op text="modify"><DbDetails><Where>qa_specification_header_id='%{$parent.qa_specification_header.qa_specification_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.qa_specification_line.qa_specification_header_id"/><DbDetails><Where>qa_specification_line_id='%{qa_specification_line_vLst[qa_specification_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.qa_specification_line.qa_specification_lineLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.qa_specification_line</DbTable>
+<Where>qa_specification_line_id='%{qa_specification_line_vLst[qa_specification_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,48 @@
+﻿<GroupBox Name="GBDEDIThr_employee_education" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_degree_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_degree_name" Size="60,20" Text="degree_name" Align="Right"/>
+<TextBox Name="degree_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_degree_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_university" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_university" Size="60,20" Text="university" Align="Right"/>
+<TextBox Name="university" Size="170,20" Text="" Weight="170" ToolTip="ttp_university"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_university_address" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_university_address" Size="60,20" Text="university_address" Align="Right"/>
+<TextBox Name="university_address" Size="170,20" Text="" Weight="170" ToolTip="ttp_university_address"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_specialization" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_specialization" Size="60,20" Text="specialization" Align="Right"/>
+<TextBox Name="specialization" Size="170,20" Text="" Weight="170" ToolTip="ttp_specialization"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_edu_start_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_edu_start_date" Size="60,20" Text="edu_start_date" Align="Right"/>
+<DateTime Name="edu_start_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_edu_start_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_edu_end_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_edu_end_date" Size="60,20" Text="edu_end_date" Align="Right"/>
+<DateTime Name="edu_end_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_edu_end_date"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_mode_of_education" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_mode_of_education" Size="60,20" Text="mode_of_education" Align="Right"/>
+<ComboBox Name="mode_of_education" Size="170,100" Text="" Weight="170"  ToolTip="ttp_mode_of_education">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=195</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_grade" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_grade" Size="60,20" Text="grade" Align="Right"/>
+<TextBox Name="grade" Size="170,20" Text="" Weight="170" ToolTip="ttp_grade"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_marks_percentage" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_marks_percentage" Size="60,20" Text="marks_percentage" Align="Right"/>
+<TextBox Name="marks_percentage" Size="170,20" Text="" Weight="170" ToolTip="ttp_marks_percentage"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_comments" Multiline="0" cols="xs12 sm12 md6 lg4"><Ctrls>
+<Label Name="lb_comments" Size="60,50" Text="comments" Align="Right"/>
+<TextBox Name="comments" Size="630,50" Text="" Weight="630" ToolTip="ttp_comments"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

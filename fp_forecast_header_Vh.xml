@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVfp_forecast_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="fp_forecast_headerLst" ToolTip="ttp_fp_forecast_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_forecast_header</DbTable>
+<Index>fp_forecast_header_id</Index>
+<Data>forecast,org_id,forecast_group_id,ar_customer_id,description,status,fp_forecast_header_id,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>fp_forecast_header_id</Order></DbDetails>
+<OnClick><assign name="org_id[org_id]" expr="%{fp_forecast_headerLst[org_id]}" function="SetSel"/><assign name="forecast_group_id[fp_forecast_group_id]" expr="%{fp_forecast_headerLst[forecast_group_id]}" function="SetSel"/><assign name="ar_customer_id[ar_customer_id]" expr="%{fp_forecast_headerLst[ar_customer_id]}" function="SetSel"/>
+<if cond="%{fp_forecast_header_id}"><SetVisible name="insertfp_forecast_header" Visible="0"/><SetVisible name="modifyfp_forecast_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

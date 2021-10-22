@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVwip_wol_transaction"><Ctrls>
+<ListCtrl Heading="item_id_m,120;reference_bom_item_id_m,120;reference_routing_item_id_m,120;transaction_type_id,120;start_date,90;completion_date,90;quantity,100;completion_sub_inventory,120;completion_locator,120;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;wip_wol_transaction_id,60;" loadedclick="0" ToolTip="ttp_wip_wol_transaction" Name="wip_wol_transactionLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_wol_transaction w left join xbs.item i on w.item_id_m=i.item_id_m left join xbs.bom_header b on w.reference_bom_item_id_m=b.bom_header_id left join xbs.bom_routing_header b0 on w.reference_routing_item_id_m=b0.bom_routing_header_id left join xbs.transaction_type t on w.transaction_type_id=t.transaction_type_id left join xbs.subinventory s on w.completion_sub_inventory=s.subinventory_id left join xbs.locator l on w.completion_locator=l.locator_id</DbTable>
+<Index>wip_wol_transaction_id</Index>
+<Data>i.item_number item_id_m,b.bom_revision reference_bom_item_id_m,b0.routing_revision reference_routing_item_id_m,t.transaction_type transaction_type_id,w.start_date,w.completion_date,w.quantity,s.subinventory completion_sub_inventory,l.locator completion_locator,w.description,w.created_by,w.creation_date,w.last_update_by,w.last_update_date,w.wip_wol_transaction_id</Data>
+<Order>wip_wol_transaction_id</Order></DbDetails><OnClick><if cond="%{wip_wo_header_id}"><SetVisible name="insertwip_wo_header" Visible="0"/><SetVisible name="modifywip_wo_header" Visible="1"/><else/><SetVisible name="insertwip_wo_header" Visible="1"/><SetVisible name="modifywip_wo_header" Visible="0"/></if></OnClick></ListCtrl>
+</Ctrls></GroupBox>

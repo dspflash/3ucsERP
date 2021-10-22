@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVar_receivable_activity" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletear_receivable_activity" Name="deletear_receivable_activity" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_receivable_activity</DbTable>
+<Where>ar_receivable_activity_id='%{ar_receivable_activityLst[ar_receivable_activity_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_receivable_activity" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshar_receivable_activity" Name="searchar_receivable_activity" Size="50,20">
+			  <OnClick><submit next="ar_receivable_activityLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPar_receivable_activityLst" OnClick="(ar_receivable_activityLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREar_receivable_activityLst" OnClick="(ar_receivable_activityLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPar_receivable_activityLst" OnClick="(ar_receivable_activityLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

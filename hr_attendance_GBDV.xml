@@ -1,0 +1,11 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_attendance"><Ctrls>
+<ListCtrl Heading="hr_employee_id,60;date,90;punch_in,150;punch_in_note,640;punch_out,150;punch_out_note,640;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_attendance_id,60;" loadedclick="0" ToolTip="ttp_hr_attendance" Name="hr_attendanceLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>hr_attendance_id</Index>
+<DbTable>xbs.hr_attendance h left join xbs.hr_employee_v h0 on h.hr_employee_id=h0.hr_employee_id left join xbs.user_v u on h.created_by=u.xerp_user_id left join xbs.user_v u0 on h.last_update_by=u0.xerp_user_id</DbTable>
+<Data>h0.name hr_employee_id,h.date,h.punch_in,h.punch_in_note,h.punch_out,h.punch_out_note,h.description,u.NAME created_by,h.creation_date,u0.NAME last_update_by,h.last_update_date,h.hr_attendance_id</Data>
+<Order>hr_attendance_id</Order></DbDetails>
+<DbDetails><Data>h0.name,h.date,h.punch_in,h.punch_in_note,h.punch_out,h.punch_out_note,h.description,u.NAME created_by,h.creation_date,u0.NAME last_update_by,h.last_update_date,h.hr_attendance_id, h.hr_employee_id</Data><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{Where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails><DbDetails><Data>h0.name,h.date,h.punch_in,h.punch_in_note,h.punch_out,h.punch_out_note,h.description,u.NAME created_by,h.creation_date,u0.NAME last_update_by,h.last_update_date,h.hr_attendance_id, h.hr_employee_id</Data><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{Where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<xi:include href="hr_attendance_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

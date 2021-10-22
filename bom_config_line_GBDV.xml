@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbom_config_line"><Ctrls>
+<ListCtrl Heading="bom_config_header_id,120;bom_sequence,50;routing_sequence,60;component_item_id_m,120;component_revision,50;usage_basis,250;usage_quantity,75;line_quantity,75;transacted_quantity,75;auto_request_material_cb,60;planning_percentage,30;yield,30;wip_supply_type,100;supply_sub_inventory,60;supply_locator,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bom_config_line_id,60;" loadedclick="0" ToolTip="ttp_bom_config_line" Name="bom_config_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_config_line</DbTable>
+<Index>bom_config_line_id</Index>
+<Data>bom_config_header_id,bom_sequence,routing_sequence,component_item_id_m,component_revision,usage_basis,usage_quantity,line_quantity,transacted_quantity,auto_request_material_cb,planning_percentage,yield,wip_supply_type,supply_sub_inventory,supply_locator,created_by,creation_date,last_update_by,last_update_date,bom_config_line_id</Data>
+<Order>bom_config_line_id</Order></DbDetails>
+<OnClick><assign name="bom_config_header_id[bom_config_header_id]" function="SetSel" expr="%{bom_config_lineLst[bom_config_header_id]}"/><assign name="component_item_id_m[item_id_m]" function="SetSel" expr="%{bom_config_lineLst[component_item_id_m]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVxbs_log" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="xbs_log_vLst" ToolTip="ttp_xbs_log" Size="700,420" OnLoad="init" pagesize="1000" Heading="xbs_log_id,100;log_level,120;task,100;program,250;msg,640;user_id,55;org_id,55;dt,150;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.xbs_log x</DbTable>
+<Index>xbs_log_id</Index>
+<Data>x.xbs_log_id,x.log_level,x.task,x.program,x.msg,x.user_id,x.org_id,x.dt</Data>
+<Order>xbs_log_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>xbs_log_id='%{xbs_log_vLst[xbs_log_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.xbs_log.xbs_logLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.xbs_log</DbTable>
+<Where>xbs_log_id='%{xbs_log_vLst[xbs_log_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

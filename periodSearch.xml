@@ -1,0 +1,4 @@
+<GroupBox id="option" Name="GB_period" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_period" Size="60,20" Text="period" Align="Right"/>
+<ComboBox Name="period" Size="170,100" Text="" Weight="170" Items="本日|本周|上周|本月|上月|本季度|上季度|本年|去年" ToolTip="ttp_period"></ComboBox>
+</Ctrls></GroupBox>

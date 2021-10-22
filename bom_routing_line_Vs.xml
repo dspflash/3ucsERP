@@ -1,0 +1,53 @@
+﻿<GroupBox Name="GBDEDITbom_routing_line" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_standard_operation_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_standard_operation_id" Size="60,20" Text="standard_operation_id" Align="Right" onload="init" SelectedIndex="0"/>
+<ComboBox Name="standard_operation_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_standard_operation_id" onload="init" SelectedIndex="0">
+	<DbDetails fcsm="true">
+<Index>bom_standard_operation_id</Index>
+<DbTable>xbs.bom_standard_operation</DbTable>
+<Data>standard_operation,department_id,bom_standard_operation_id</Data>
+<Where>org_id=%{orgid}</Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="department_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_routing_sequence" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_routing_sequence" Size="60,20" Text="routing_sequence" Align="Right"/>
+<ComboBox Name="routing_sequence" Size="170,100" Text="" Weight="170" Items="1~9*10" ToolTip="ttp_routing_sequence"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_routing_seq_num" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="routing_seq_num" Size="230,20" Text="routing_seq_num" ToolTip="ttp_routing_seq_num"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_department_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_department_id" Size="60,20" Text="department_id" Align="Right" selectedIndex="0"/>
+<ComboBox Name="department_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_department_id" selectedIndex="0">
+	<DbDetails>
+<Index>bom_department_id</Index>
+<DbTable>xbs.bom_department</DbTable>
+<Data>department,bom_department_id</Data>
+<Where>bom_department_id='%{standard_operation_id[department_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_minimum_transfer_quantity" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_minimum_transfer_quantity" Size="60,20" Text="minimum_transfer_quantity" Align="Right"/>
+<TextBox Name="minimum_transfer_quantity" Size="170,20" Text="" Weight="170" ToolTip="ttp_minimum_transfer_quantity"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_lead_time_percentage" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_lead_time_percentage" Size="60,20" Text="lead_time_percentage" Align="Right"/>
+<ComboBox Name="lead_time_percentage" Size="170,100" Text="" Weight="170" Items="0~10*10" ToolTip="ttp_lead_time_percentage"></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_effective_start_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_start_date" Size="60,20" Text="effective_start_date" Align="Right"/>
+<DateTime Name="effective_start_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_effective_start_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_effective_end_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_end_date" Size="60,20" Text="effective_end_date" Align="Right"/>
+<DateTime Name="effective_end_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_effective_end_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_yield" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_yield" Size="60,20" Text="yield" Align="Right"/>
+<TextBox Name="yield" Size="170,20" Text="" Weight="170" ToolTip="ttp_yield"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVgl_period" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="gl_period_vLst" ToolTip="ttp_gl_period" Size="700,420" OnLoad="init" Heading="period_name,125;ledger_id,120;status,120;gl_calendar_id,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;gl_period_id,60;" onload="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.gl_period g left join xbs.gl_ledger g0 on g.ledger_id=g0.gl_ledger_id left join xbs.gl_calendar g1 on g.gl_calendar_id=g1.gl_calendar_id</DbTable>
+<Index>gl_period_id</Index>
+<Data>g.period_name,g0.ledger ledger_id,g.status,g1.name gl_calendar_id,g.created_by,g.creation_date,g.last_update_by,g.last_update_date,g.gl_period_id</Data>
+<Order>gl_period_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>gl_period_id='%{gl_period_vLst[gl_period_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.gl_period.gl_periodLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

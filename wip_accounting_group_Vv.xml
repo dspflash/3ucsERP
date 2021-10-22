@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVwip_accounting_group" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="wip_accounting_group_vLst" ToolTip="ttp_wip_accounting_group" Size="700,420" OnLoad="init" Heading="wip_accounting_group,250;wo_type,120;status,60;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;wip_accounting_group_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.wip_accounting_group w left join xbs.option_line o on w.wo_type=o.option_line_id</DbTable>
+<Index>wip_accounting_group_id</Index>
+<Data>w.wip_accounting_group,o.option_line_value wo_type,w.status,w.description,w.created_by,w.creation_date,w.last_update_by,w.last_update_date,w.wip_accounting_group_id</Data>
+<Order>wip_accounting_group_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>wip_accounting_group_id='%{wip_accounting_group_vLst[wip_accounting_group_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.wip_accounting_group.wip_accounting_groupLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.wip_accounting_group</DbTable>
+<Where>wip_accounting_group_id='%{wip_accounting_group_vLst[wip_accounting_group_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

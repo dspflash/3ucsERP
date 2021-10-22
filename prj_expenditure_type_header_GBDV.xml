@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_expenditure_type_header"><Ctrls>
+<ListCtrl Heading="expenditure_type,125;expenditure_category,120;revenue_category,120;uom_id,120;expenditure_type_class,120;effective_from,90;effective_to,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_expenditure_type_header_id,60;" loadedclick="0" ToolTip="ttp_prj_expenditure_type_header" Name="prj_expenditure_type_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_expenditure_type_header p left join xbs.prj_expenditure_category p0 on p.expenditure_category=p0.prj_expenditure_category_id left join xbs.prj_revenue_category p1 on p.revenue_category=p1.prj_revenue_category_id left join xbs.uom u on p.uom_id=u.uom_id</DbTable>
+<Index>prj_expenditure_type_header_id</Index>
+<Data>p.expenditure_type,p0.expenditure_category expenditure_category,p1.Revenue_category revenue_category,u.uom_name uom_id,p.expenditure_type_class,p.effective_from,p.effective_to,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_expenditure_type_header_id</Data>
+<Order>prj_expenditure_type_header_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

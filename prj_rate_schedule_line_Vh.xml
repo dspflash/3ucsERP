@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_rate_schedule_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_rate_schedule_lineLst" ToolTip="ttp_prj_rate_schedule_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_rate_schedule_line</DbTable>
+<Index>prj_rate_schedule_line_id</Index>
+<Data>rate,uom_id,reference_key_name,reference_key_value,mark_up_percentage,effective_from,effective_to,resource_name,description,created_by,creation_date,last_update_by,last_update_date,prj_rate_schedule_line_id</Data>
+<Order>prj_rate_schedule_line_id</Order></DbDetails>
+<OnClick><assign name="uom_id[uom_id]" expr="%{prj_rate_schedule_lineLst[uom_id]}" function="SetSel"/><assign name="reference_key_value[refid]" expr="%{prj_rate_schedule_lineLst[reference_key_value]}" function="SetSel"/>
+<if cond="%{prj_rate_schedule_line_id}"><SetVisible name="insertprj_rate_schedule_line" Visible="0"/><SetVisible name="modifyprj_rate_schedule_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

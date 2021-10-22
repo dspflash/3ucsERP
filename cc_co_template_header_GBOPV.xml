@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVcc_co_template_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletecc_co_template_header" Name="deletecc_co_template_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.cc_co_template_header</DbTable>
+<Where>cc_co_template_header_id='%{cc_co_template_headerLst[cc_co_template_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchcc_co_template_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshcc_co_template_header" Name="searchcc_co_template_header" Size="50,20">
+			  <OnClick><submit next="cc_co_template_headerLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPcc_co_template_headerLst" OnClick="(cc_co_template_headerLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREcc_co_template_headerLst" OnClick="(cc_co_template_headerLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPcc_co_template_headerLst" OnClick="(cc_co_template_headerLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

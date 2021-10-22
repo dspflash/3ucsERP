@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEdocsharel" Size="100,100"><Ctrls>
+<Button sqlpkinsert="idx" Text="create" ToolTip="ttp_createdocsharel" Name="insertdocsharel" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.docsharel</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>doc_id[idx],shared2[shid],type</Data>
+<DataEx>dt2share,sharedby;now(),'%{user_id}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="docsharelLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifydocsharel" Name="modifydocsharel" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.docsharel</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>doc_id[idx],shared2[shid],type</Data>
+<DataEx>dt2share,sharedby;now(),'%{user_id}'</DataEx>
+<Where>idx='%{idx}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="docsharelLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetdocsharel" Name="resetdocsharel" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITdocsharel" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchdocsharel" Name="gsearchdocsharel" Size="50,20" visible="false">
+	<OnClick>
+	<search next="docsharelLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITdocsharel" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

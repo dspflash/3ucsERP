@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_percent_line"><Ctrls>
+<ListCtrl Heading="as_of_date,90;percent,120;description,240;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_percent_line_id,60;" loadedclick="0" ToolTip="ttp_prj_percent_line" Name="prj_percent_lineLst" Size="300,180">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_percent_line</DbTable>
+<Index>prj_percent_line_id</Index>
+<Data>as_of_date,percent,description,created_by,creation_date,last_update_by,last_update_date,prj_percent_line_id</Data>
+<Order>prj_percent_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

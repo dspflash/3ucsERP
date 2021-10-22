@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpo_line"><Ctrls>
+<ListCtrl Heading="line_description,240;status,120;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;po_line_id,55;need_by_date,90;promise_date,90;reference_header_id,100;reference_line_id,100;po_req_line_id,55;promise_by,55;" loadedclick="0" ToolTip="ttp_po_line" Name="po_lineLst" Size="300,180">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_line p left join xbs.option_line o on p.status=o.option_line_id</DbTable>
+<Index>po_line_id</Index>
+<Data>p.line_description,o.option_line_value status,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.po_line_id,p.need_by_date,p.promise_date,p.reference_header_id,p.reference_line_id,p.po_req_line_id,p.promise_by</Data>
+<Order>po_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

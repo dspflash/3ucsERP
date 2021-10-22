@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVsd_document_type" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletesd_document_type" Name="deletesd_document_type" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_document_type</DbTable>
+<Where>sd_document_type_id='%{sd_document_typeLst[sd_document_type_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchsd_document_type" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshsd_document_type" Name="searchsd_document_type" Size="50,20">
+			  <OnClick><submit next="sd_document_typeLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPsd_document_typeLst" OnClick="(sd_document_typeLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREsd_document_typeLst" OnClick="(sd_document_typeLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPsd_document_typeLst" OnClick="(sd_document_typeLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

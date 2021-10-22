@@ -1,0 +1,42 @@
+﻿<WndTap Name="bom_line_view" Text="bom_line">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_line.xml"/>
+<Ctrls><GroupBox  Name="GBbom_line" id="bom_line" Text="bom_line" Size="100,100"><Ctrls>
+<GroupBox Name="GBDVbom_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<GroupBox Text="bom_line" Name="bom_line" id="GB_bom_line" Size="100,100" feature="tab"><Ctrls>
+<ListCtrl ToolTip="ttp_bom_line" Name="bom_line_vLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>(SELECT getChildBoms(%{item_id_m},%{org_id}) boms) t,bom_line bl JOIN item cp ON bl.component_item_id_m=cp.item_id_m
+ LEFT JOIN subinventory sbi ON sbi.subinventory_id=IFNULL(bl.supply_sub_inventory,cp.receipt_sub_inventory)
+ left join uom on cp.uom_id=uom.uom_id
+ JOIN bom_header bh ON bl.bom_header_id=bh.bom_header_id AND cp.org_id=bh.org_id 
+ LEFT JOIN bom_routing_header brh ON bh.item_id_m=brh.item_id_m AND bh.org_id=brh.org_id
+ LEFT JOIN bom_routing_line brl ON brl.bom_routing_header_id=brh.bom_routing_header_id AND brl.routing_sequence=bl.routing_sequence AND brl.routing_seq_num=bl.routing_seq_num
+ LEFT JOIN bom_standard_operation stdop ON brl.standard_operation_id=stdop.bom_standard_operation_id
+ JOIN item i ON bh.item_id_m=i.item_id_m AND bh.org_id=i.org_id
+ left join onhand_summary_v oh on oh.item_id_m=cp.item_id_m and oh.org_id=cp.org_id 
+ LEFT JOIN option_line wsp ON wsp.option_line_id=ifnull(bl.wip_supply_type,cp.wip_supply_type)</DbTable>
+<Index>bom_line_id</Index>
+<Data>i.item_number,i.item_name product,cp.item_number component,cp.item_name,usage_quantity,onhand,uom_name,standard_operation,wsp.option_line_value wip_supply_type,subinventory,cp.item_specification,cp.item_description,bom_line_id</Data>
+<Where>FIND_IN_SET(bl.bom_header_id,boms)</Where>
+<Order>bom_line_id</Order></DbDetails>
+<operator><op text="bom导出"><DbDetails><Where>FIND_IN_SET(bl.bom_header_id,(SELECT getChildBoms(%{itemLst[item_id_m]},'%{itemLst[org_id]}')))</Where></DbDetails>
+<submit next="$this.bom_line_view.bom_line_vLst" namelist="Save" function="savetofile"/></op></operator>
+</ListCtrl>
+</Ctrls></GroupBox><BR NULLheight="1"/>
+<GroupBox Name="GBBomTree" Text="BomTree" feature="tab"><Ctrls>
+<MagicCtrl Name="BomTree" loadedclick="0" ToolTip="ttp_userpicture" Size="520,420" feature="tree" link="LinkLine:2;HoverColor:0x234511;UseHand:2;Tip:tooltipinfo" line_width="200"><dfmap><map name="text" value="itemname"/><map name="itemIdParent" value="product"/><map name="itemId" value="item_id_m"/></dfmap>
+	<DbDetails fcsm="1">
+<DbTable>(SELECT getChildBoms(%{item_id_m},%{org_id}) boms) t,(
+SELECT NULL product,bh.item_id_m,bh.bom_header_id,bh.org_id FROM bom_header bh LEFT JOIN bom_line bl ON (bh.item_id_m=bl.component_item_id_m) LEFT JOIN bom_header bh0 ON bh.org_id=bh0.org_id AND bh0.bom_header_id=bl.bom_header_id WHERE bh0.item_id_m IS NULL
+UNION SELECT item_id_m,component_item_id_m,bl.bom_header_id,org_id FROM bom_line bl JOIN bom_header bh ON bh.bom_header_id=bl.bom_header_id
+) tt JOIN item i ON tt.item_id_m=i.item_id_m AND tt.org_id=i.org_id</DbTable>
+<Index>item_id_m</Index>
+<Data>CONCAT(i.item_number,'(',IFNULL(i.item_name,''),')') itemname,product,i.item_id_m </Data>
+<Where>FIND_IN_SET(bom_header_id,boms)</Where>
+<Order>product,item_id_m desc</Order></DbDetails>
+			</MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<submit next="bom_line_vLst" namelist="Save" function="savetofile"/>
+</Ctrls></WndTap>

@@ -1,0 +1,23 @@
+﻿<GroupBox Name="GBDEDITbom_material_element" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_material_element" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_material_element" Size="60,20" Text="material_element" Align="Right"/>
+<TextBox Name="material_element" Size="170,20" Text="" Weight="170" ToolTip="ttp_material_element"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status" checked="true"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_default_basis" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_default_basis" Size="60,20" Text="default_basis" Align="Right" onload="init"/>
+<ComboBox Name="default_basis" Size="170,100" Text="" Weight="170"  ToolTip="ttp_default_basis" onload="init">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=138</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

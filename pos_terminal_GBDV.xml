@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpos_terminal"><Ctrls>
+<ListCtrl Heading="sd_store_id,60;location_id,60;terminal_name,125;description,640;primary_owner_id,60;terminal_type,125;status,100;refresh_time,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pos_terminal_id,60;" loadedclick="0" ToolTip="ttp_pos_terminal" onload="init" Name="pos_terminalLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pos_terminal</DbTable>
+<Index>pos_terminal_id</Index>
+<Data>sd_store_id,location_id,terminal_name,description,primary_owner_id,terminal_type,status,refresh_time,created_by,creation_date,last_update_by,last_update_date,pos_terminal_id</Data>
+<Order>pos_terminal_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

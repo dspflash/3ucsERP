@@ -1,0 +1,10 @@
+<WndTap Name="picView" Text="picView" popup="1"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\attachment.xml"/>
+	<GroupBox Name="picView" Text="picView" Location="20,0" Size="500,360"><Ctrls>
+	<MagicCtrl Name="picture" ToolTip="ttp_userpicture" Size="520,360" link="LinkLine:2;HoverColor:0x234511;UseHand:2;Tip:tooltipinfo" Onload="init">
+	<DbDetails fcsm="1"><DbTable>attachment</DbTable><Data>concat(path,',',attachment)as images</Data>
+		<where>0</where></DbDetails></MagicCtrl>
+			</Ctrls></GroupBox>
+	</Ctrls>
+	<OnActivate></OnActivate>
+</WndTap>

@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVhd_subscription_detail" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletehd_subscription_detail" Name="deletehd_subscription_detail" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_subscription_detail</DbTable>
+<Where>hd_subscription_detail_id='%{hd_subscription_detailLst[hd_subscription_detail_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhd_subscription_detail" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshhd_subscription_detail" Name="searchhd_subscription_detail" Size="50,20">
+			  <OnClick><submit next="hd_subscription_detailLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPhd_subscription_detailLst" OnClick="(hd_subscription_detailLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREhd_subscription_detailLst" OnClick="(hd_subscription_detailLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPhd_subscription_detailLst" OnClick="(hd_subscription_detailLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

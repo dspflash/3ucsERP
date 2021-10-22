@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVpo_requisition_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="po_requisition_header_vLst" ToolTip="ttp_po_requisition_header" Size="700,420" OnLoad="init" Heading="po_requisition_number,250;po_requisition_type,120;supplier_id,120;supplier_site_id,120;description,640;ship_to_id,120;bill_to_id,120;requisition_status,120;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;po_requisition_header_id,55;bu_org_id,120;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.po_requisition_header p left join xbs.option_line o on p.po_requisition_type=o.option_line_id left join xbs.supplier s on p.supplier_id=s.supplier_id left join xbs.supplier_site s0 on p.supplier_site_id=s0.supplier_site_id left join xbs.address a on p.ship_to_id=a.address_id left join xbs.address a0 on p.bill_to_id=a0.address_id left join xbs.option_line o0 on p.requisition_status=o0.option_line_id left join xbs.org o1 on p.bu_org_id=o1.org_id</DbTable>
+<Index>po_requisition_header_id</Index>
+<Data>p.po_requisition_number,o.option_line_value po_requisition_type,s.supplier_name supplier_id,s0.supplier_site_name supplier_site_id,p.description,a.address ship_to_id,a0.address bill_to_id,o0.option_line_value requisition_status,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.po_requisition_header_id,o1.IF bu_org_id</Data>
+<Order>po_requisition_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>po_requisition_header_id='%{po_requisition_header_vLst[po_requisition_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.po_requisition_header.po_requisition_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.po_requisition_header</DbTable>
+<Where>po_requisition_header_id='%{po_requisition_header_vLst[po_requisition_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpo_detail"><Ctrls>
+<ListCtrl Heading="uom,120;quantity,100;ship_to_location_id,120;subinventory_id,120;locator_id,120;invoice_match_type,120;shipment_number,60;requestor,640;need_by_date,90;promise_date,90;received_quantity,60;accepted_quantity,60;delivered_quantity,60;invoiced_quantity,60;paid_quantity,60;status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;po_detail_id,60;" loadedclick="1" ToolTip="ttp_po_detail" Name="po_detailLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_detail</DbTable>
+<Index>po_detail_id</Index>
+<Data>uom,quantity,ship_to_location_id,subinventory_id,locator_id,invoice_match_type,shipment_number,requestor,need_by_date,promise_date,received_quantity,accepted_quantity,delivered_quantity,invoiced_quantity,paid_quantity,status,created_by,creation_date,last_update_by,last_update_date,po_detail_id</Data>
+<Order>po_detail_id</Order></DbDetails>
+<OnClick><assign name="uom[uom_id]" function="SetSel" expr="%{po_detailLst[uom]}"/><assign name="ship_to_location_id[address_id]" function="SetSel" expr="%{po_detailLst[ship_to_location_id]}"/><assign name="subinventory_id[subinventory_id]" function="SetSel" expr="%{po_detailLst[subinventory_id]}"/><assign name="locator_id[locator_id]" function="SetSel" expr="%{po_detailLst[locator_id]}"/><assign name="invoice_match_type[option_line_id]" function="SetSel" expr="%{po_detailLst[invoice_match_type]}"/><assign name="status[option_line_id]" function="SetSel" expr="%{po_detailLst[status]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

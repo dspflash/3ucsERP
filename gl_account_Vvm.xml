@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVgl_account" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="gl_account_vLst" ToolTip="ttp_gl_account" Size="700,420" Heading="account_group,120;account_type_code,120;subtype,120;subid,55;decription,250;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;gl_account_id,55;">
+	<DbDetails >
+<DbTable>xbs.gl_account g left join xbs.org o on g.org_id=o.org_id left join xbs.option_line o0 on g.account_group=o0.option_line_id left join xbs.gl_account_type g0 on g.account_type_code=g0.account_type_code left join xbs.option_line o1 on g.created_by=o1.option_line_id</DbTable>
+<Index>gl_account_id</Index>
+<Data>o0.option_line_value account_group,g0.account_type account_type_code,g.subtype,g.subid,g.decription,o1.option_line_id created_by,g.creation_date,g.last_update_by,g.last_update_date,g.gl_account_id</Data>
+<Order>gl_account_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.gl_account.GBDEDITgl_account" function="reset"/><DbDetails><Where>org_id='%{org_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.gl_account.org_id"/><assign name="$this.gl_account.org_id" expr="0" function="SetSel"/></op>
+<op text="modify"><DbDetails><Where>org_id='%{org_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.gl_account.org_id"/><DbDetails><Where>gl_account_id='%{gl_account_vLst[gl_account_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.gl_account.gl_accountLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

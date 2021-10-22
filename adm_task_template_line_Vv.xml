@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVadm_task_template_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="adm_task_template_line_vLst" ToolTip="ttp_adm_task_template_line" Size="700,420" OnLoad="init" Heading="status,120;task_type_id,120;priority_code,125;subject,640;description,640;duration_uom_id,60;duration,75;planned_uom_id,60;planned_uom,125;holiday_cb,60;milestone_cb,60;confirm_required_cb,60;publish_cb,60;billable_cb,60;private_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;adm_task_template_line_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.adm_task_template_line a left join xbs.option_line o on a.status=o.option_line_id left join xbs.adm_task_type a0 on a.task_type_id=a0.adm_task_type_id</DbTable>
+<Index>adm_task_template_line_id</Index>
+<Data>o.option_line_value status,a0.task_type task_type_id,a.priority_code,a.subject,a.description,a.duration_uom_id,a.duration,a.planned_uom_id,a.planned_uom,a.holiday_cb,a.milestone_cb,a.confirm_required_cb,a.publish_cb,a.billable_cb,a.private_cb,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.adm_task_template_line_id</Data>
+<Order>adm_task_template_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>adm_task_template_line_id='%{adm_task_template_line_vLst[adm_task_template_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.adm_task_template_line.adm_task_template_lineLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

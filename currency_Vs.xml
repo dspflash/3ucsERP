@@ -1,0 +1,28 @@
+<GroupBox Name="GBDEDITcurrency"><Ctrls><GroupBox Name="GB_title" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_title" Size="60,20" Text="title" Align="Right"/>
+<TextBox Name="title" Size="170,20" Weight="170" ToolTip="ttp_title"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_code" Size="60,20" Text="code" Align="Right"/>
+<TextBox Name="code" Size="170,20" Weight="170" ToolTip="ttp_code"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_symbol_left" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_symbol_left" Size="60,20" Text="symbol_left" Align="Right"/>
+<TextBox Name="symbol_left" Size="170,20" Weight="170" ToolTip="ttp_symbol_left"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_symbol_right" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_symbol_right" Size="60,20" Text="symbol_right" Align="Right"/>
+<TextBox Name="symbol_right" Size="170,20" Weight="170" ToolTip="ttp_symbol_right"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_decimal_place" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_decimal_place" Size="60,20" Text="decimal_place" Align="Right"/>
+<TextBox Name="decimal_place" Size="170,20" Weight="170" ToolTip="ttp_decimal_place"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_currency_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_currency_id" Size="60,20" Text="currency_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="currency_id" Size="170,20" Weight="170" ToolTip="ttp_currency_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBcurrency" expr="TABEDITcurrency"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

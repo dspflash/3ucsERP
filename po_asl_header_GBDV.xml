@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpo_asl_header"><Ctrls>
+<ListCtrl Heading="bu_org_id,60;asl_type,120;item_id_m,120;item_category_id,60;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;po_asl_header_id,60;" loadedclick="0" ToolTip="ttp_po_asl_header" onload="init" Name="po_asl_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_asl_header</DbTable>
+<Index>po_asl_header_id</Index>
+<Data>bu_org_id,asl_type,item_id_m,item_category_id,description,created_by,creation_date,last_update_by,last_update_date,po_asl_header_id</Data>
+<Order>po_asl_header_id</Order></DbDetails>
+<OnClick><assign name="item_id_m[item_id_m]" function="SetSel" expr="%{po_asl_headerLst[item_id_m]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

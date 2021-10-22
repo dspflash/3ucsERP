@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVgl_currency_conversion" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="gl_currency_conversionLst" ToolTip="ttp_gl_currency_conversion" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_currency_conversion</DbTable>
+<Index>gl_currency_conversion_id</Index>
+<Data>currency_conversion_type,from_currency,to_currency,from_date,to_date,rate,created_by,creation_date,last_update_by,last_update_date,gl_currency_conversion_id</Data>
+<Order>gl_currency_conversion_id</Order></DbDetails>
+<OnClick><assign name="currency_conversion_type[option_line_id]" expr="%{gl_currency_conversionLst[currency_conversion_type]}" function="SetSel"/><assign name="from_currency[currency_id]" expr="%{gl_currency_conversionLst[from_currency]}" function="SetSel"/><assign name="to_currency[currency_id]" expr="%{gl_currency_conversionLst[to_currency]}" function="SetSel"/>
+<if cond="%{gl_currency_conversion_id}"><SetVisible name="insertgl_currency_conversion" Visible="0"/><SetVisible name="modifygl_currency_conversion" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

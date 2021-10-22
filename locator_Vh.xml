@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVlocator" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="locatorLst" ToolTip="ttp_locator" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.locator</DbTable>
+<Index>locator_id</Index>
+<Data>locator,org_id,locator_structure,dimension_uom_id,length,height,width,x_coordinate,y_coordinate,z_coordinate,max_units,max_volume_uom_id,max_volume,max_weight_uom_id,max_weight,created_by,creation_date,last_update_by,last_update_date,locator_id</Data>
+<Order>locator_id</Order></DbDetails>
+<OnClick><assign name="dimension_uom_id[uom_id]" expr="%{locatorLst[dimension_uom_id]}" function="SetSel"/><assign name="max_volume_uom_id[uom_id]" expr="%{locatorLst[max_volume_uom_id]}" function="SetSel"/><assign name="max_weight_uom_id[uom_id]" expr="%{locatorLst[max_weight_uom_id]}" function="SetSel"/>
+<if cond="%{locator_id}"><SetVisible name="insertlocator" Visible="0"/><SetVisible name="modifylocator" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

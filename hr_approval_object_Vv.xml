@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVhr_approval_object" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_approval_object_vLst" ToolTip="ttp_hr_approval_object" Size="700,420" OnLoad="init" Heading="object_code,125;object_name,250;description,640;value_type,125;object_value,640;return_type,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_approval_object_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hr_approval_object h</DbTable>
+<Index>hr_approval_object_id</Index>
+<Data>h.object_code,h.object_name,h.description,h.value_type,h.object_value,h.return_type,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_approval_object_id</Data>
+<Order>hr_approval_object_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hr_approval_object_id='%{hr_approval_object_vLst[hr_approval_object_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_approval_object.hr_approval_objectLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_approval_object</DbTable>
+<Where>hr_approval_object_id='%{hr_approval_object_vLst[hr_approval_object_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,13 @@
+﻿<GroupBox Name="GBDEDIThr_holiday" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_holiday_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_holiday_date" Size="60,20" Text="holiday_date" Align="Right"/>
+<DateTime Name="holiday_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_holiday_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_holiday_type_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_holiday_type_id" Size="60,20" Text="holiday_type_id" Align="Right"/>
+<TextBox Name="holiday_type_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_holiday_type_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status"  checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="0">
+	<DbDetails comment="must beforemost">
+		<SubDriver>MySQL</SubDriver>
+		<Host>localhost</Host>
+		<database>xbs</database>
+		<sqlMode>NO_BACKSLASH_ESCAPES</sqlMode>
+		<characterset>utf8</characterset>
+		<User>i3u</User>
+		<password>i3u</password>
+		<config>select 1 as orgid,1 as user_id, 1 as bom_department;</config>
+		</DbDetails>	
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmaterial.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vMRP.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vsupplier.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpoquote.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vinventory.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vbom_department.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vproduct.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vPRP.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vcustomer.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vwip.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vwipwo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vsdso.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vsddlv.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vQA.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vorg.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vledger.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vhr_employee.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vuser.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="voption.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vgeneral.xml"/>
+	</WndTaps>
+</XI3uWnd>

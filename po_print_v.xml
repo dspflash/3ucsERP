@@ -1,0 +1,52 @@
+	<WndTap Text="po_print" Name="po_print" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_detail.xml"/>
+	<Ctrls>
+	<GroupBox Text="po_print" Name="GBpo_print" id="po_print" Size="100,100">
+	<Ctrls>
+		<MagicCtrl Name="qr_itemname" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="60,60" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/><else/><info expr="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.statmsg]}"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_header_GBDEDIT.xml"></xi:include>
+	<BR AutoHeight="1"/><GroupBox Text="po_line" Name="GBpo_line" id="po_line" Size="100,100"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="po_lineLst" Size="700,220" printfixheight="false" sum="0,1" sumcols="6">
+			<DbDetails>
+			<DbTable>xbs.PO_line_v</DbTable>
+			<Index>po_line_id</Index>
+			<Data>line_number,item_number,item_name,item_specification,uom,line_quantity,(line_price+tax_amount)/line_quantity unit_price,(line_price+tax_amount) total_amount,need_by_date,line_description</Data>
+			<Order>po_line_id</Order>
+			</DbDetails>
+		</ListCtrl></Ctrls></GroupBox>
+	<BR AutoHeight="1"/><!--GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_item_status"><Ctrls>
+<Label Align="Right" Text="item_status" OnLoad="init" Name="lb_item_status" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_item_status" OnLoad="init" Name="item_status" Size="170,100" SelectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=123</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox-->
+<Button Text="print" ToolTip="ttp_print" Name="print" Size="50,20" visible="true">
+	<OnClick><submit next="GBpo_print" function="print"/><DbDetails><queryFormat>update po_header set printed_date=now() where po_header_id='%{po_header_id}';</queryFormat></DbDetails><submit namelist="DbDetails"/>
+	</OnClick>
+	</Button><TAB/>
+	<Button Name="export" Size="50,20" Text="导出"><TAB/>
+	<OnClick><Save></Save><submit next="po_lineLst" namelist="Save" function="savetofile"/></OnClick></Button>
+	<ListCtrl Name="po_headerLst" ToolTip="ttp_po_header" Size="70,20" loadedclick="1" visible="0">
+		<DbDetails fcsm="1">
+		<DbTable>xbs.po_header</DbTable>
+		<Index>po_header_id</Index>
+		<Data>*</Data>
+		<Order>po_header_id</Order></DbDetails>
+		<OnClick>
+		<assign name="po_type[option_line_id]" expr="%{po_headerLst[po_type]}" function="SetSel"/><assign name="supplier_id[supplier_id]" expr="%{po_headerLst[supplier_id]}" function="SetSel"/><assign name="supplier_site_id[supplier_site_id]" expr="%{po_headerLst[supplier_site_id]}" function="SetSel"/><assign name="payment_term_id[payment_term_id]" expr="%{po_headerLst[payment_term_id]}" function="SetSel"/><assign name="ship_to_id[address_id]" expr="%{po_headerLst[ship_to_id]}" function="SetSel"/><assign name="bill_to_id[address_id]" expr="%{po_headerLst[bill_to_id]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{po_headerLst[currency]}" function="SetSel"/><assign name="doc_currency[currency_id]" expr="%{po_headerLst[doc_currency]}" function="SetSel"/>
+			<magicdata filename="data/qr_po_number.png"><data>%{po_headerLst[po_number]}</data></magicdata>
+			<submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+		</OnClick>
+		</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+		</WndTap>

@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDViot_dev" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="iot_dev_vLst" ToolTip="ttp_iot_dev_v" Size="700,450" OnLoad="init" Heading="dev_id,100;dev_name,250;dev_type,50;actived,60;dev_idx,55;" loadedclick="0">
+	<DbDetails >
+<Index>dev_idx</Index>
+<DbTable>xbs.iot_dev i</DbTable>
+<Data>i.dev_id,i.dev_name,i.dev_type,i.actived,i.dev_idx</Data>
+<Order>dev_idx</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>dev_idx='%{iot_dev_vLst[dev_idx]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.iot_dev.iot_devLst"/><assign name="$this.iot_dev.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.iot_dev</DbTable>
+<Where>dev_idx='%{iot_dev_vLst[dev_idx]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_iot_dev" expr="js(%{iot_dev_vLst[currentpage]}+1)"/>
+<assign name="pgscb_iot_dev" expr="js(%{iot_dev_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

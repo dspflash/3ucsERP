@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpayment_term_discount"><Ctrls>
+<ListCtrl Heading="seq_number,120;discount_percentage,120;due_days,55;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;payment_term_discount_id,60;payment_term_id,60;" loadedclick="1" ToolTip="ttp_payment_term_discount" Name="payment_term_discountLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.payment_term_discount</DbTable>
+<Index>payment_term_discount_id</Index>
+<Data>seq_number,discount_percentage,due_days,created_by,creation_date,last_update_by,last_update_date,payment_term_discount_id,payment_term_id</Data>
+<Order>payment_term_discount_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

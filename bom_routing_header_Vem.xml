@@ -1,0 +1,16 @@
+﻿<WndTap Name="bom_routing_header" Text="bom_routing_header" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="item_id_m[item_id_m]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\bom_routing_header.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_routing_line.xml"/>
+<Ctrls>
+<GroupBox  Name="GBbom_routing_header" id="bom_routing_header" Text="bom_routing_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_header_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_header_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_header_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_line_Vvm.xml"/>
+</Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertbom_routing_header" Visible="1"/><SetVisible name="modifybom_routing_header" Visible="0"/></OnActivate>
+</WndTap>

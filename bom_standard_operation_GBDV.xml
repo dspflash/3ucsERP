@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbom_standard_operation"><Ctrls>
+<ListCtrl Heading="standard_operation,240;description,240;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bom_standard_operation_id,60;org_id,60;" loadedclick="0" ToolTip="ttp_bom_standard_operation" onload="0" Name="bom_standard_operationLst" Size="300,450">
+	<DbDetails fcsm="1">
+<Index>bom_standard_operation_id</Index>
+<DbTable>xbs.bom_standard_operation</DbTable>
+<Data>standard_operation,description,status,created_by,creation_date,last_update_by,last_update_date,bom_standard_operation_id,org_id</Data>
+<Order>bom_standard_operation_id</Order></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_standard_operation_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

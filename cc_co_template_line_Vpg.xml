@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGcc_co_template_line"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_cc_co_template_line" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>cc_co_template_line_id</Index>
+<DbTable>xbs.cc_co_template_line c left join xbs.uom u on c.control_uom=u.uom_id left join xbs.user_v u0 on c.created_by=u0.xerp_user_id left join xbs.user_v u1 on c.last_update_by=u1.xerp_user_id</DbTable>
+<Data>count(*) records</Data>
+<Order>cc_co_template_line_id</Order><Queryformat>select %{data} from (select c.cc_co_template_line_id from %{dbtable} %{where} GROUP BY c.cc_co_template_line_id  ORDER BY c.cc_co_template_line_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_cc_co_template_line" expr="js(Math.ceil(%{records_cc_co_template_line}/%{cc_co_template_line_vLst[countsperpage]}))"/>
+<assign name="pgscb_cc_co_template_line" expr="js('1~'+Math.ceil(%{records_cc_co_template_line}/%{cc_co_template_line_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_cc_co_template_line" Size="60,20"><OnSelEndOK><submit next="cc_co_template_line_vLst" function="GetPage(%{pgscb_cc_co_template_line}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_cc_co_template_line" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_cc_co_template_line" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagecc_co_template_line_vLst" Size="50,20"><OnClick><submit next="cc_co_template_line_vLst" function="GetPage(%{pgcur_cc_co_template_line}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

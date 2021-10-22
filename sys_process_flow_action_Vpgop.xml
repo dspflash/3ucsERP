@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVsys_process_flow_action" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialsys_process_flow_action" Size="50,20">
+<OnClick><submit next="sys_process_flow_action_vLst" function="initial"/><submit next="records_sys_process_flow_action" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPsys_process_flow_action_vLst" Size="50,20">
+<OnClick><submit next="sys_process_flow_action_vLst" function="GetPage(first)"/><submit next="records_sys_process_flow_action"/></OnClick></Button>
+<Button Text="prepage" Name="PREsys_process_flow_action_vLst" Size="50,20">
+<OnClick><submit next="sys_process_flow_action_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPsys_process_flow_action_vLst" Size="50,20">
+<OnClick><submit next="sys_process_flow_action_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

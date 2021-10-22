@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVqa_results" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="qa_results_vLst" ToolTip="ttp_qa_results" Size="700,420" OnLoad="init" Heading="qa_cp_header_id,120;item_id_m,120;reference_key_name,250;reference_key_value,60;reference_type,150;quantity,75;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;qa_results_id,60;description,640;org_id,55;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.qa_results q left join xbs.qa_cp_header q0 on q.qa_cp_header_id=q0.qa_cp_header_id left join xbs.item i on q.item_id_m=i.item_id_m</DbTable>
+<Index>qa_results_id</Index>
+<Data>q0.plan_name qa_cp_header_id,i.item_number item_id_m,q.reference_key_name,q.reference_key_value,q.reference_type,q.quantity,q.created_by,q.creation_date,q.last_update_by,q.last_update_date,q.qa_results_id,q.description,q.org_id</Data>
+<Order>qa_results_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>qa_results_id='%{qa_results_vLst[qa_results_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.qa_results.qa_resultsLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

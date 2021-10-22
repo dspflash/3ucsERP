@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsupplier"><Ctrls>
+<ListCtrl Heading="supplier_number,125;supplier_name,300;supplier_category,120;payment_term_id,120;currency,120;tax_country,120;tax_reg_no,200;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;supplier_id,60;org_id,55;" loadedclick="0" ToolTip="ttp_supplier" Name="supplierLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.supplier s left join xbs.option_line o on s.supplier_category=o.option_line_id left join xbs.payment_term p on s.payment_term_id=p.payment_term_id left join xbs.currency c on s.currency=c.currency_id left join xbs.country c0 on s.tax_country=c0.country_id</DbTable>
+<Index>supplier_id</Index>
+<Data>s.supplier_number,s.supplier_name,o.option_line_value supplier_category,p.payment_term payment_term_id,c.title currency,c0.namecn tax_country,s.tax_reg_no,s.status,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,s.supplier_id,s.org_id</Data>
+<Order>supplier_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

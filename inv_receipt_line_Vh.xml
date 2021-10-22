@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVinv_receipt_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="inv_receipt_lineLst" ToolTip="ttp_inv_receipt_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>inv_receipt_line_id</Index>
+<DbTable>xbs.inv_receipt_line</DbTable>
+<Data>reference_key_value,transaction_quantity,item_id_m,uom_id,subinventory_id,locator_id,lot_number,currency,doc_currency,created_by,creation_date,last_update_by,last_update_date,inv_receipt_line_id,status,inspection_status,inspection_quality</Data>
+<Order>inv_receipt_line_id</Order></DbDetails>
+<OnClick><assign name="reference_key_value[refid]" expr="%{inv_receipt_lineLst[reference_key_value]}" function="SetSel"/><assign name="item_id_m[item_id_m]" expr="%{inv_receipt_lineLst[item_id_m]}" function="SetSel"/><assign name="uom_id[uom_id]" expr="%{inv_receipt_lineLst[uom_id]}" function="SetSel"/><assign name="subinventory_id[subinventory_id]" expr="%{inv_receipt_lineLst[subinventory_id]}" function="SetSel"/><assign name="locator_id[locator_id]" expr="%{inv_receipt_lineLst[locator_id]}" function="SetSel"/><assign name="lot_number[inv_lot_number_id]" expr="%{inv_receipt_lineLst[lot_number]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{inv_receipt_lineLst[currency]}" function="SetSel"/>
+<if cond="%{inv_receipt_line_id}"><SetVisible name="insertinv_receipt_line" Visible="0"/><SetVisible name="modifyinv_receipt_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

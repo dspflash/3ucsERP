@@ -1,0 +1,37 @@
+1、 安装appserv-win32-2.5.10.exe（http://3ucs.com/dl29.html）
+	数据库为mysql,已安装mysql的可跳过第一步（需要使用高级IVR的可仅安装appserv及php）
+
+2、配置数据库(可直接运行install.bat<在第5步b完成后>,默认用户root)
+	1)删除多余用户
+	DROP USER 'root'@'production.mysql.com';
+	DROP USER ''@'production.mysql.com';
+	DROP USER ''@'%';
+	DROP USER ''@'localhost';
+	
+	2)创建i3u用户(你需要创建一个名为i3u的用户并拥有相应的权限)此处预设i3u用户的密码为i3u，您可以根据需要修改为自己的密码
+	CREATE USER 'i3u'@'%' IDENTIFIED BY 'i3u';
+	GRANT ALL PRIVILEGES ON * . * TO 'i3u'@'%' IDENTIFIED BY 'i3u' WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;
+	GRANT ALL PRIVILEGES ON `i3u\_%` . * TO 'i3u'@'%';
+	
+	3)数据库xerp_ht创建及表结构创建(xerp_ht.sql)(或运行loadmysql.bat)
+
+3、 安装mysql odbc driver
+	mysql-connector-odbc-3.51.30-win32.msi（http://3ucs.com/dl9.html）
+
+4、 安装硬件电话中继外线板驱动。（如使用电话外线）
+
+5、 安装3UCS server（http://3ucs.com/dl1.html）
+	下载安装完成后先完成下面步骤后启动"3UCS Server服务"，如先启动服务可完成下面步骤后在windows服务管理里重启3UCS Server服务。
+	a)参见（windows开始菜单）3UCS安装部署说明
+	b)将 xerp.zip 里所有文件解压至3UCS server的layout目录（3UCS\3UCS Server\layout\ucin）中
+	c)配置系统缺省路径为“layout/ucin/xerp/xerp_index.xml”
+	d)将 硬件的配置文件 复制至3UCS server安装目录中(未安装电话外线中继板硬件跳过)
+	//未使用高级IVR的用户可略过下面2行
+	将 help目录下 vxmlphp.rar 释放至apache 的 web目录中，\AppServ\www\vxmlphp
+	并将声音视频文件放置在相应目录，例如将IVR VXML.rar\IVR VXML\vxmlwww\dcli释放，AppServ\www\vxmlphp\dcli
+
+6、客户端安装
+（windows客户端：http://3ucs.com/dl8.html； android客户端：http://3ucs.com/dl35.html）
+	管理员初始用户名6178、密码6178、服务器为3UCS server的IP地址；
+	xerp的内置用户名5100~5108,5110、5111、5112；密码均为:123456
+	参见（windows开始菜单）帮助文档

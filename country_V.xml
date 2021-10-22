@@ -1,0 +1,12 @@
+<WndTap Name="country_v" Text="country">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="country_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\country.xml"/>
+<Ctrls><GroupBox  Name="GBcountry" id="country" Text="country" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="country_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVcountry" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.country.GBDEDITcountry" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetcountry" Name="resetcountry" Size="50,20">	<OnClick>	<submit next="GBDEDITcountry" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchcountry" Name="gsearchcountry" Size="50,20" visible="true">	<OnClick>	<search next="country_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITcountry" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="country_Vv.xml"/></Ctrls></GroupBox></Ctrls></WndTap>

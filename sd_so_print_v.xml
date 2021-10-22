@@ -1,0 +1,38 @@
+<WndTap Text="sd_so_print" Name="sd_so_print" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="sd_so_print" Name="GBsd_so_print" id="sd_so_print" Size="100,100">
+	<Ctrls>
+		<MagicCtrl Name="qr_itemname" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="60,60" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_header_GBDEDIT.xml"></xi:include>
+	<BR AutoHeight="1"/><GroupBox Text="sd_so_line" Name="GBsd_so_line" id="sd_so_line" Size="100,100"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="sd_so_lineLst" Size="700,220">
+			<DbDetails>
+			<DbTable>xbs.sd_so_line_v</DbTable>
+			<Index>sd_so_line_id</Index>
+			<Data>*</Data>
+			<Order>sd_so_line_id</Order>
+			</DbDetails>
+		</ListCtrl></Ctrls></GroupBox>
+<BR AutoHeight="1"/><Button Text="print" ToolTip="ttp_print" Name="print" Size="50,20" visible="true">
+	<OnClick><submit next="GBsd_so_print" function="print"/><!--DbDetails><queryFormat>update sd_so_header set printed_date=now() where sd_so_header_id='%{sd_so_header_id}';</queryFormat></DbDetails><submit namelist="DbDetails"/-->
+	</OnClick>
+	</Button><TAB/>
+		<ListCtrl loadedclick="1" ToolTip="ttp_sd_so_header" Name="sd_so_headerLst" Size="70,20" visible="0">
+			<DbDetails fcsm="1">
+				<DbTable>xbs.sd_so_header</DbTable>
+				<Index>sd_so_header_id</Index>
+				<Data>*</Data>
+				<Order>sd_so_header_id</Order></DbDetails>
+			<OnClick><assign name="ar_customer_id[ar_customer_id]" function="SetSel" expr="%{sd_so_headerLst[ar_customer_id]}"/><assign name="ar_customer_site_id[ar_customer_site_id]" function="SetSel" expr="%{sd_so_headerLst[ar_customer_site_id]}"/><assign name="hr_employee_id[hr_employee_id]" function="SetSel" expr="%{sd_so_headerLst[hr_employee_id]}"/><assign name="ship_to_id[address_id]" function="SetSel" expr="%{sd_so_headerLst[ship_to_id]}"/><assign name="bill_to_id[address_id]" function="SetSel" expr="%{sd_so_headerLst[bill_to_id]}"/><assign name="price_list_header_id[mdm_price_list_header_id]" function="SetSel" expr="%{sd_so_headerLst[price_list_header_id]}"/><assign name="doc_currency[currency_id]" function="SetSel" expr="%{sd_so_headerLst[doc_currency]}"/><assign name="currency[currency_id]" function="SetSel" expr="%{sd_so_headerLst[currency]}"/><assign name="payment_term_id[payment_term_id]" function="SetSel" expr="%{sd_so_headerLst[payment_term_id]}"/><assign name="so_status[option_line_id]" function="SetSel" expr="%{sd_so_headerLst[so_status]}"/>
+			<magicdata filename="data/qr_so_number.png"><data>%{sd_so_headerLst[so_number]}</data></magicdata>
+			<submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/></OnClick>
+			</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		</WndTap>

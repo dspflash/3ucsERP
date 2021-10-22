@@ -1,0 +1,13 @@
+﻿<WndTap Name="bom_line" Text="bom_line" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="bom_sequence,routing_sequence[routing_sequence],bom_header_id[bom_header_id],component_item_id_m[item_id_m],usage_basis[option_line_id],usage_quantity,wip_supply_type[option_line_id],supply_sub_inventory[subinventory_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\bom_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBbom_line" id="bom_line" Text="bom_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertbom_line" Visible="1"/><SetVisible name="modifybom_line" Visible="0"/></OnActivate>
+</WndTap>

@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVpo_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="po_header_vLst" ToolTip="ttp_po_header" Size="700,420" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.po_header p left join xbs.option_line o on p.po_type=o.option_line_id left join xbs.supplier s on p.supplier_id=s.supplier_id left join xbs.supplier_site s0 on p.supplier_site_id=s0.supplier_site_id left join xbs.payment_term p0 on p.payment_term_id=p0.payment_term_id left join xbs.address a on p.ship_to_id=a.address_id left join xbs.address a0 on p.bill_to_id=a0.address_id left join xbs.currency c on p.currency=c.currency_id left join xbs.currency c0 on p.doc_currency=c0.currency_id left join xbs.option_line o0 on p.po_status=o0.option_line_id left join xbs.gl_currency_conversion g on p.exchange_rate_type=g.gl_currency_conversion_id</DbTable>
+<Index>po_header_id</Index>
+<Data>p.po_number,o.option_line_value po_type,p.description,s.supplier_name supplier_id,s0.supplier_site_name supplier_site_id,p0.description payment_term_id,a.address ship_to_id,a0.address bill_to_id,p.header_amount,p.tax_amount,c.title currency,c0.title doc_currency,p.exchange_rate,p.agreement_start_date,p.agreement_end_date,p.rev_number,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.po_header_id,o0.option_line_value po_status,p.bu_org_id,p.printed_date,p.po_req_header_id,g.currency_conversion_type exchange_rate_type</Data>
+<Order>po_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>po_header_id='%{po_header_vLst[po_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.po_header.po_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.po_header</DbTable>
+<Where>po_header_id='%{po_header_vLst[po_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

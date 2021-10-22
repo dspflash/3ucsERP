@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Tables><Table name="menuruleop"><Inputs><Attr>userid
+</Attr>
+<Value op="2" id="3">0
+</Value>
+</Inputs>
+<Outputs><Attr>title
+</Attr>
+<Value op="1" id="4">evtest
+</Value>
+</Outputs>
+<Outputs><Attr>handler
+</Attr>
+<Value op="1" id="5"><DbDetails><queryFormat>delete from %{option} where x='%{supplierLst[supplier_id]}'</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/>
+
+</Value>
+</Outputs>
+<Outputs><Attr>option
+</Attr>
+<Value op="1" id="6">xxxxxx
+</Value>
+</Outputs>
+</Table>
+</Tables>

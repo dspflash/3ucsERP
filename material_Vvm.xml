@@ -1,0 +1,33 @@
+﻿<GroupBox Name="GBDVitem" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="item_vLst" DataJoinKey="item_id_m" DataJoin="%{this(item_id_m,item_number,item_name,item_specification,item_description,category,status,uom_name)}%{prop}" Size="700,420">
+			<MDX id="prop" datatype="string">
+			<DbDetails>
+				<DbTable>item_properties i left join item_property i0 on i.property_id=i0.property_id</DbTable> 
+				<Index>h_id </Index>
+				<MDX>item_id_m,propname,propvalue</MDX>
+				<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+				<Order></Order>
+				<Where>and item_status!=278</Where>
+				<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (select * from(SELECT org_id,item_id_m from material_v where org_id=%{orgid} %{where} limit %{StartRow},%{PgSize}) as orgitem)</queryFormat> 
+			</DbDetails>
+			</MDX>
+	<DbDetails>
+<DbTable>xbs.material_v</DbTable>
+<Index>item_id</Index>
+<Data>`item_number`,`item_name`,`item_specification`,`item_description`,`category`,`status`,`uom_name`,`inventory_item_cb`,`item_category`,`item_id_m`,`item_id`,`item_status`,`org_id`</Data>
+<Order>item_id</Order>
+<Where>and item_status!=278</Where>
+<queryFormat>select %{data} from %{dbtable} where org_id=%{orgid} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>item_id='%{item_vLst[item_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.Material.itemLst"/><assign name="$this.Material.frmwndctrl" expr="%{this}"/></op>
+<!--op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.item</DbTable>
+<Where>item_id='%{item_vLst[item_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op-->
+</operator>
+<OnChanged>
+<assign name="pgcur_item" expr="js(%{item_vLst[currentpage]}+1)"/>
+<assign name="pgscb_item" expr="js(%{item_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

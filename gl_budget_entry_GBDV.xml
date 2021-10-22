@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVgl_budget_entry"><Ctrls>
+<ListCtrl Heading="gl_budget_id,120;gl_budget_ac_line_id,120;status,100;currency,120;description,640;gl_ac_id,60;budget_amount,100;gl_period_id,120;reference_type,125;reference_key_name,250;reference_key_value,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;gl_budget_entry_id,60;" loadedclick="0" ToolTip="ttp_gl_budget_entry" onload="init" Name="gl_budget_entryLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_budget_entry</DbTable>
+<Index>gl_budget_entry_id</Index>
+<Data>gl_budget_id,gl_budget_ac_line_id,status,currency,description,gl_ac_id,budget_amount,gl_period_id,reference_type,reference_key_name,reference_key_value,created_by,creation_date,last_update_by,last_update_date,gl_budget_entry_id</Data>
+<Order>gl_budget_entry_id</Order></DbDetails>
+<OnClick><assign name="gl_budget_id[gl_budget_id]" function="SetSel" expr="%{gl_budget_entryLst[gl_budget_id]}"/><assign name="gl_budget_ac_line_id[gl_budget_ac_line_id]" function="SetSel" expr="%{gl_budget_entryLst[gl_budget_ac_line_id]}"/><assign name="currency[option_line_code]" function="SetSel" expr="%{gl_budget_entryLst[currency]}"/><assign name="gl_period_id[gl_period_id]" function="SetSel" expr="%{gl_budget_entryLst[gl_period_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

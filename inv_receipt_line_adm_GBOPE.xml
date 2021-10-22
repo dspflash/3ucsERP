@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEinv_receipt_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="inv_receipt_line_id" Text="create" ToolTip="ttp_createinv_receipt_line" Name="insertinv_receipt_line" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.inv_receipt_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>transaction_quantity,uom_id[uom_id],subinventory_id[subinventory_id],locator_id[locator_id],lot_number[inv_lot_number_id],amount,transaction_type_id,inspection_status,inspection_quality</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,org_id;'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertinv_receipt_line[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="inv_receipt_lineLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.inv_receipt_line_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyinv_receipt_line" Name="modifyinv_receipt_line" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.inv_receipt_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>transaction_quantity,uom_id[uom_id],subinventory_id[subinventory_id],locator_id[locator_id],lot_number[inv_lot_number_id],amount,inspection_status,inspection_quality</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>inv_receipt_line_id='%{inv_receipt_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyinv_receipt_line[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="inv_receipt_lineLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.inv_receipt_line_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetinv_receipt_line" Name="resetinv_receipt_line" Size="50,20">
+<OnClick>
+<submit next="GBDEDITinv_receipt_line" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchinv_receipt_line" Name="gsearchinv_receipt_line" Size="50,20" visible="false">
+<OnClick>
+<search next="inv_receipt_lineLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITinv_receipt_line" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGitem"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_item" Size="30,20" OnLoad="init" readonly="0">
+	<DbDetails fcsm="1">
+<Index>item_id</Index>
+<DbTable>xbs.material_v</DbTable>
+<Data>count(*) records</Data>
+<Order>item_id</Order><Queryformat>select %{data} from (select item__id from %{dbtable} where org_id=%{orgid} %{where} GROUP BY item_id  ORDER BY item_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_item" expr="js(Math.ceil(%{records_item}/%{item_vLst[countsperpage]}))"/>
+<assign name="pgscb_item" expr="js('1~'+Math.ceil(%{records_item}/%{item_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_item" Size="60,20"><OnSelEndOK><submit next="item_vLst" function="GetPage(%{pgscb_item}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_item" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_item" Size="30,20"/>
+<Button Text="go2Page" Name="go2pageitem_vLst" Size="50,20"><OnClick><submit next="item_vLst" function="GetPage(%{pgcur_item}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

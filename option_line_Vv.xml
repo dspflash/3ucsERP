@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVoption_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="option_line_vLst" ToolTip="ttp_option_line" Size="700,420" Heading="option_header_id,120;option_line_code,250;option_line_value,250;description,640;option_line_id,60;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;" loadedclick="1">
+	<DbDetails >
+<DbTable>xbs.option_line o left join xbs.option_header o0 on o.option_header_id=o0.option_header_id</DbTable>
+<Index>option_line_id</Index>
+<Data>o0.description option_header_id,o.option_line_code,o.option_line_value,o.description,o.option_line_id,o.status,o.created_by,o.creation_date,o.last_update_by,o.last_update_date</Data>
+<Order>option_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>option_line_id='%{option_line_vLst[option_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.option_line.option_lineLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

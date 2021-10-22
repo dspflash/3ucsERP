@@ -1,0 +1,6 @@
+1. Each Process Should Contains 3 process lines, 1st's line type should be "Start", Last's is "End", and Pre's of Last is "Decision". So, the simplest process is Start-->Decision-->End.
+2. Additional, Process May contain 1 or more lines with line type "Activity" between "Start" line and "Decision" line.
+3. Each Process Line may contain 1 or more actions,these actions are parallel to each other,  it will go to next process line while all of those required actions have been processed, depend on action value (pass_next if approval,fail_next if decline). 
+4. action value "decline" for actions in process lines will cause different result for documents, "Decline" with line type "Decision" but "ReEdit" with line type "Start" or "Activity".
+5. "decline" for only actions in process line will cause process line fail, in other words, success only when all action value of actions are "Approval".
+6. add "sys_pd_process_v.xml" to any root layout those need to process process_flow.

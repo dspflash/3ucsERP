@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDViot_dev" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="iot_devLst" ToolTip="ttp_iot_dev" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>dev_idx</Index>
+<DbTable>xbs.iot_dev</DbTable>
+<Data>dev_id,dev_name,dev_type,actived,dev_idx</Data>
+<Order>dev_idx</Order></DbDetails>
+<OnClick>
+<if cond="'%{dev_idx}'"><SetVisible name="insertiot_dev" Visible="0"/><SetVisible name="modifyiot_dev" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

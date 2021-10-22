@@ -1,0 +1,50 @@
+<WndTap Text="supplier_site_V" Name="supplier_site_V" Ver="2">
+	<WndTaps>
+<WndTap Text="supplier_site" Name="supplier_site" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\supplier_site.xml"/>
+<Ctrls>
+<GroupBox Text="supplier_site" Name="GBsupplier_site" id="supplier_site" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="supplier_site_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="supplier_site_GBOPE.xml"></xi:include>
+<TAB/><ListCtrl loadedclick="1" ToolTip="ttp_supplier_site" Name="supplier_siteLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.supplier_site</DbTable>
+<Index>supplier_site_id</Index>
+<Data>supplier_site_number,supplier_site_name,supplier_site_type,currency,payment_term_id,pay_on,transportation,ap_invoice_match_level,receipt_routing,qty_variance,receipt_days_variance,primary_cb,created_by,creation_date,last_update_by,last_update_date,supplier_site_id</Data>
+<Order>supplier_site_id</Order></DbDetails>
+<OnClick><assign name="supplier_site_type[option_line_id]" function="SetSel" expr="%{supplier_siteLst[supplier_site_type]}"/><assign name="currency[currency_id]" function="SetSel" expr="%{supplier_siteLst[currency]}"/><assign name="payment_term_id[payment_term_id]" function="SetSel" expr="%{supplier_siteLst[payment_term_id]}"/><assign name="pay_on[option_line_id]" function="SetSel" expr="%{supplier_siteLst[pay_on]}"/><assign name="ap_invoice_match_level[option_line_id]" function="SetSel" expr="%{supplier_siteLst[ap_invoice_match_level]}"/><assign name="receipt_routing[option_line_id]" function="SetSel" expr="%{supplier_siteLst[receipt_routing]}"/>
+<if cond="%{supplier_site_id}"><SetVisible name="insertsupplier_site" Visible="0"/><SetVisible name="modifysupplier_site" Visible="1"/></if></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertsupplier_site" Visible="1"/><SetVisible name="modifysupplier_site" Visible="0"/><SetVisible name="resetsupplier_site" Visible="0"/></OnActivate>
+	</WndTap>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\supplier_site.xml"/>
+<Ctrls>
+<GroupBox Text="supplier_site_V" Name="GBsupplier_site_V" id="supplier_site_V" Size="100,100"><Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsupplier_site_V"><Ctrls>
+<ListCtrl Heading="supplier_site_number,60;supplier_site_name,300;supplier_site_type,120;currency,120;payment_term_id,120;pay_on,120;transportation,250;ap_invoice_match_level,120;receipt_routing,120;qty_variance,250;receipt_days_variance,250;primary_cb,60;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;supplier_site_id,60;" loadedclick="0" ToolTip="ttp_supplier_site" Name="supplier_siteLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.supplier_site s left join xbs.option_line o on s.supplier_site_type=o.option_line_id left join xbs.currency c on s.currency=c.currency_id left join xbs.payment_term p on s.payment_term_id=p.payment_term_id left join xbs.option_line o0 on s.pay_on=o0.option_line_id left join xbs.option_line o1 on s.ap_invoice_match_level=o1.option_line_id left join xbs.option_line o2 on s.receipt_routing=o2.option_line_id</DbTable>
+<Index>supplier_site_id</Index>
+<Data>s.supplier_site_number,s.supplier_site_name,o.option_line_value supplier_site_type,c.title currency,p.description payment_term_id,o0.option_line_value pay_on,s.transportation,o1.option_line_value ap_invoice_match_level,o2.option_line_value receipt_routing,s.qty_variance,s.receipt_days_variance,s.primary_cb,s.status,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,s.supplier_site_id</Data>
+<Order>supplier_site_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="addone" mustselected="0"><submit next="$this.supplier_site.GBDEDITsupplier_site" function="reset"/><assign name="$this.supplier_site.refid" expr="%{supplier_id}"/><DbDetails><Where>supplier_id='%{refid}'</Where></DbDetails><submit namelist="DbDetails" next="$this.supplier_site.supplier_id"/></op>
+<op text="modify"><assign name="$this.supplier_site.refid" expr="%{supplier_id}"/><DbDetails><Where>supplier_id='%{refid}'</Where></DbDetails><submit namelist="DbDetails" next="$this.supplier_site.supplier_id"/><assign name="$parent.supplier_site_V.supplier_site.supplier_site_id" expr="%{supplier_sitelst[supplier_site_id]}"/><submit next="$parent.supplier_site_V.supplier_site.supplier_sitelst"/></op>
+<op text="address"><assign name="$parent.address_V.reftbltp" expr="suppliersite"/>
+<assign name="$parent.address_V.refid" expr="%{supplier_sitelst[supplier_site_id]}"/>
+	<submit next="$parent.address_V.address_vlst"/></op>
+<op text="contact"><assign name="$parent.contact_V.reftbltp" expr="suppliersite"/>
+<assign name="$parent.contact_V.refid" expr="%{supplier_sitelst[supplier_site_id]}"/>
+	<submit next="$parent.contact_V.contact_vlst"/></op>
+<op text="mdm_bank_account"><assign name="$parent.mdm_bank_account_V.reftbltp" expr="suppliersite"/>
+<assign name="$parent.mdm_bank_account_V.refid" expr="%{supplier_sitelst[supplier_site_id]}"/>
+	<submit next="$parent.mdm_bank_account_V.mdm_bank_account_vlst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+	</Ctrls></WndTap>

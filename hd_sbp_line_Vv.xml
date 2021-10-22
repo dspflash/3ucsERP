@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVhd_sbp_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hd_sbp_line_vLst" ToolTip="ttp_hd_sbp_line" Size="700,420" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hd_sbp_line h left join xbs.user_v u on h.created_by=u.xerp_user_id</DbTable>
+<Index>hd_sbp_line_id</Index>
+<Data>h.hd_service_activity_header_id,h.start_date,h.end_date,h.description,u.NAME created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hd_sbp_line_id</Data>
+<Order>hd_sbp_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{hd_sbp_header_id}"><alert expr="hd_sbp_header_id is Empty!"/><else/><submit next="$parent.hd_sbp_line.GBDEDIThd_sbp_line" function="reset"/><assign name="$parent.hd_sbp_line.hd_sbp_header_id" expr="%{hd_sbp_header_id}"/></if></op>
+<op text="modify"><DbDetails><Where>hd_sbp_line_id='%{hd_sbp_line_vLst[hd_sbp_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.hd_sbp_line.hd_sbp_lineLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_sbp_line</DbTable>
+<Where>hd_sbp_line_id='%{hd_sbp_line_vLst[hd_sbp_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

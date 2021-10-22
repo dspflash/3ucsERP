@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVinv_receipt_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteinv_receipt_line" Name="deleteinv_receipt_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_receipt_line</DbTable>
+<Where>inv_receipt_line_id='%{inv_receipt_lineLst[inv_receipt_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchinv_receipt_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshinv_receipt_line" Name="searchinv_receipt_line" Size="50,20">
+			  <OnClick><submit next="inv_receipt_lineLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPinv_receipt_lineLst" OnClick="(inv_receipt_lineLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREinv_receipt_lineLst" OnClick="(inv_receipt_lineLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPinv_receipt_lineLst" OnClick="(inv_receipt_lineLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

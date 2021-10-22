@@ -1,0 +1,103 @@
+﻿<GroupBox Name="GBDEDITbom_line"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bom_sequence"><Ctrls>
+<Label Align="Right" Text="bom_sequence" Name="lb_bom_sequence" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_bom_sequence" Items="1~50*10" Name="bom_sequence" Size="170,100"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_routing_sequence"><Ctrls>
+<Label Align="Right" Text="routing_sequence" Name="lb_routing_sequence" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_routing_sequence" Name="routing_sequence" Size="170,100">
+	<DbDetails fcsm="true">
+<Index>routing_sequence</Index>
+<DbTable>xbs.bom_routing_line</DbTable>
+<Data>routing_sequence,routing_seq_num,routing_sequence</Data>
+<Where>bom_header_id='%{bom_header_id[bom_header_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_routing_seq_num"><Ctrls>
+<CheckBox Text="routing_seq_num" ToolTip="ttp_routing_seq_num" Name="routing_seq_num" readonly="true" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_bom_header_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="bom_header_id" overlap="pre" Name="lb_bom_header_id" Size="60,20" Visible="false" selectedindex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_bom_header_id" overlap="pre" Name="bom_header_id" Size="170,100" Visible="false" selectedindex="0">
+	<DbDetails>
+<Index>bom_header_id</Index>
+<DbTable>xbs.bom_header</DbTable>
+<Data>bom_revision,bom_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSELENDOK><DbDetails fcsm="true"><DbTable>xbs.bom_routing_line brl JOIN xbs.bom_routing_header brh ON brl.bom_routing_header_id=brh.bom_routing_header_id JOIN xbs.bom_header bh ON bh.item_id_m=brh.item_id_m AND bh.org_id=brh.org_id JOIN xbs.bom_standard_operation bso ON brl.standard_operation_id=bso.bom_standard_operation_id</DbTable><Data>standard_operation,concat(routing_sequence,'-',routing_seq_num) rsrsn,routing_seq_num,routing_sequence</Data></DbDetails><submit next="routing_sequence" namelist="DbDetails"/></OnSELENDOK></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_component_item_id_m"><Ctrls>
+<Label Align="Right" Text="component_item_id_m" Name="lb_component_item_id_m" readonly="true" Size="60,20"/>
+<TextBox Weight="150" Text="" ToolTip="ttp_component_item_id_m" Name="component_item_id_m" readonly="true" Size="150,20">
+	<DbDetails>
+<Index>item_id_m</Index>
+<DbTable>xbs.item</DbTable>
+<Data>item_number,wip_supply_subinventory,wip_supply_locator,wip_supply_type,item_id_m</Data>
+<Where>(item_type=106 or item_type=105) and org_id='%{orgid}'</Where>
+<queryFormat/></DbDetails><OnEditChange><DbDetails><Where>and item_number like'%%{component_item_id_m[windowtext]}%'</Where></DbDetails><submit namelist="DbDetails"/></OnEditChange> <OnEnChange><if cond="!%{bom_lineLst[wip_supply_type]}"><assign name="wip_supply_type[option_line_id]" function="SetSel" expr="%{component_item_id_m[wip_supply_type]}"/></if><if cond="!%{bom_lineLst[supply_sub_inventory]}"><assign name="supply_sub_inventory[subinventory_id]" function="SetSel" expr="%{component_item_id_m[wip_supply_subinventory]}"/></if><if cond="!%{bom_lineLst[supply_locator]}"><assign name="supply_locator[locator_id]" function="SetSel" expr="%{component_item_id_m[wip_supply_locator]}"/></if></OnEnChange></TextBox>
+<MagicCtrl Name="pickcomponent_item_id_m" Link="tip:Pick" images=",data/search.png" button="type:0" Size="20,20"><OnClick><assign name="$parent.itempick.frmwndctrl" expr="bom_line.component_item_id_m"/><assign name="$parent.itempick.org_id" expr="%{orgid}"/><assign name="$parent.itempick.excond" expr="and item_type in (105,106)"/><submit next="$parent.itempick.itemLst"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_usage_basis"><Ctrls>
+<Label Align="Right" Text="usage_basis" onload="init" Name="lb_usage_basis" Size="60,20" SelectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_usage_basis" onload="init" Name="usage_basis" Size="170,100" SelectedIndex="0">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=138</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_usage_quantity"><Ctrls>
+<Label Align="Right" Text="usage_quantity" Name="lb_usage_quantity" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_usage_quantity" Name="usage_quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_wip_supply_type"><Ctrls>
+<Label Align="Right" Text="wip_supply_type" onload="init" Name="lb_wip_supply_type" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_wip_supply_type" onload="init" Name="wip_supply_type" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=135 and status is true</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supply_sub_inventory"><Ctrls>
+<Label Align="Right" Text="supply_sub_inventory" onload="init" Name="lb_supply_sub_inventory" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_supply_sub_inventory" onload="init" Name="supply_sub_inventory" Size="170,100">
+	<DbDetails>
+<Index>subinventory_id</Index>
+<DbTable>xbs.subinventory</DbTable>
+<Data>subinventory,subinventory_id</Data>
+<Where>org_id='%{orgid}'</Where>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="supply_locator"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supply_locator"><Ctrls>
+<Label Align="Right" Text="supply_locator" Name="lb_supply_locator" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_supply_locator" Name="supply_locator" Size="170,100">
+	<DbDetails>
+<Index>locator_id</Index>
+<DbTable>xbs.locator</DbTable>
+<Data>locator,locator_id</Data>
+<Where>subinventory_id='%{supply_sub_inventory[subinventory_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_bom_line_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="bom_line_id" overlap="pre" Name="lb_bom_line_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_bom_line_id" overlap="pre" Name="bom_line_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{bom_line_id}'"><SetVisible name="insertbom_line" Visible="0"/><SetVisible name="modifybom_line" Visible="1"/><else/><SetVisible name="insertbom_line" Visible="1"/><SetVisible name="modifybom_line" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

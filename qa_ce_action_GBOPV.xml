@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVqa_ce_action" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteqa_ce_action" Name="deleteqa_ce_action" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_ce_action</DbTable>
+<Where>qa_ce_action_id='%{qa_ce_actionLst[qa_ce_action_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchqa_ce_action" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshqa_ce_action" Name="searchqa_ce_action" Size="50,20">
+			  <OnClick><submit next="qa_ce_actionLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPqa_ce_actionLst" OnClick="(qa_ce_actionLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREqa_ce_actionLst" OnClick="(qa_ce_actionLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPqa_ce_actionLst" OnClick="(qa_ce_actionLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

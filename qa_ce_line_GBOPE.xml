@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEqa_ce_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="qa_ce_line_id" Text="create" ToolTip="ttp_createqa_ce_line" Name="insertqa_ce_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_ce_line</DbTable>
+<Data>qa_ce_header_id[qa_ce_header_id],element_value,description,end_date</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchqa_ce_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyqa_ce_line" Name="modifyqa_ce_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_ce_line</DbTable>
+<Data>qa_ce_header_id[qa_ce_header_id],element_value,description,end_date</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>qa_ce_line_id='%{qa_ce_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchqa_ce_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetqa_ce_line" Name="resetqa_ce_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITqa_ce_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchqa_ce_line" Name="gsearchqa_ce_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="qa_ce_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITqa_ce_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

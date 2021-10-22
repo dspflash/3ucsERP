@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVquest" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletequest" Name="deletequest" Size="50,20">
+  <OnClick>
+  <DbDetails fcsm="1">
+<DbTable>cati.quest</DbTable>
+<Where>idx='%{questLst[idx]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+  <submit namelist="DbDetails"/><submit next="searchquest" function="click"/>
+  </OnClick>
+  </Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshquest" Name="searchquest" Size="50,20">
+        <OnClick><submit next="questLst"/>  </OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPquestLst" OnClick="(questLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREquestLst" OnClick="(questLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPquestLst" OnClick="(questLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

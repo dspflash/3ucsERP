@@ -1,0 +1,13 @@
+﻿<GroupBox Name="GBDEDITbom_cost_type" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_cost_type_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cost_type_code" Size="60,20" Text="cost_type_code" Align="Right"/>
+<TextBox Name="cost_type_code" Size="170,20" Text="" Weight="170" ToolTip="ttp_cost_type_code"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cost_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cost_type" Size="60,20" Text="cost_type" Align="Right"/>
+<TextBox Name="cost_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_cost_type"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,22 @@
+[20180329]	wipissue [modify]	invqty,reqqty,issqty	DOUBLE(18,2)-->DECIMAL(15,5)
+[20180330]	invTransInsert	[add] transaction_type_id=3(subinventory transfer)
+			wip_wo_bom_v	[add] wo_statusv,supply_sub_inventory_id,supply_locator_id
+[20180331]	cst_item_cost_lineUpdate	[add]	old.amount!=0
+			_cost_rollup_4_material,_cost_rollup_forItem,_cost_update_standard	[add]	UPDATE cst_item_cost_line SET amount=0 WHERE cst_item_cost_header_id=@ich; delete
+[20180402]	ALTER TABLE `xbs`.`item`     CHANGE `make_buy` `make_buy` ENUM('Make','Buy') CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT 'Buy' NULL ;
+			bomimport	move "IF(@item IS NULL) THEN" and "IF(@product IS NOT NULL) THEN"
+			material_v add left before JOIN `uom`
+[20180405]	ALTER TABLE `xbs`.`wip_resource_transaction`     CHANGE `transaction_type` `transaction_type` ENUM('WIP_RESOURCE_TRANSACTION') NOT NULL;
+			wipResTransInsert	add	manualrestransupdater	IF @chargtp=343 THEN
+[20180408]	ALTER TABLE `xbs`.`item` ADD INDEX `item_specification` (`item_specification`);
+[20180412]	ALTER TABLE `xbs`.`bom_routing_line` DROP KEY `bom_header_id_2`, ADD UNIQUE `bom_header_id_2` (`bom_routing_header_id`, `department_id`, `standard_operation_id`);
+			modify PROCEDURE "bomimport"
+			add PROCEDURE "bomOspResImport"
+1013			
+[20180414]	CREATE DEFINER=`i3u`@`%` PROCEDURE `bomOspResImport`	==>	CREATE DEFINER=`i3u`@`localhost` PROCEDURE `bomOspResImport`
+1014
+[20180415]	invonhand_v,inv_issue_header_v,inv_receipt_header_v[modify]
+			add bizImport
+[20180415]	ALTER TABLE `xbs`.`po_quote_line`     CHANGE `item_description` `item_description` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL ;
+			add	QuoteImportPO,QuoteImportSD
+			bizImport[modify]

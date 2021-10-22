@@ -1,0 +1,130 @@
+<WndTap Name="vProduct" Text="vProduct">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_Ve.xml" popup="1"/>
+	<WndTap Text="productClone" Name="productClone" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\product.xml"/>
+	<Ctrls>
+	<GroupBox Text="item" Name="GBitem" id="item" Size="100,100"><Ctrls>
+<GroupBox Name="GBDEDITitem"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_number"><Ctrls>
+<Label Align="Right" Text="item_number" Name="lb_item_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_item_number" Name="item_number" Size="170,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+		<Button Text="Clone" ToolTip="ttp_Clone" Name="Clone" Size="50,20">
+		<OnClick><if cond="'%{item_number}'"><DbDetails><queryFormat>call productClone(%{productId},'%{item_number}',0,%{user_id},%{orgid},0)</queryFormat></DbDetails><submit namelist="DbDetails"/></if>
+		</OnClick>
+		</Button><TAB/>
+	</Ctrls></GroupBox>
+	</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_header_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vViewBom.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_line_Ve.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_detail_Vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_header_Ve.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_line_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_pick.xml" popup="1"/>
+	<WndTap Text="bom_pick" Name="bom_pick" Ver="2" popup="1">
+	<var name="bom_lineid" expr=""/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_header.xml"/>
+	<Ctrls>
+	<GroupBox Text="vbom" Name="GBvbom" id="vbom" Size="100,100"><Ctrls>
+	<ListCtrl loadedclick="0" ToolTip="ttp_bomLst" Name="bomLst" Size="700,420">
+	<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+	<!--op text="bom_header" mustselected="0"><submit next="vProduct.bom_header.GBDEDITbom_header" function="reset"/><DbDetails><Where>supplier_id in (select supplier_id from xbs.po_quote_supplier_v where item_id_m='%{vPo.po_pick.item_id_m}')</Where></DbDetails><submit namelist="DbDetails" next="vPo.po_header.supplier_id"/><assign name="vPo.po_header.back" expr="1"/></op-->
+	</operator>
+		<DbDetails>
+		<DbTable>xbs.bom_all_v</DbTable>
+		<Index>bom_header_id</Index>
+		<Data>*</Data>
+		<Order>bom_header_id</Order>
+		<queryFormat>select %{data} from %{dbtable} where %{where}</queryFormat>
+		</DbDetails>
+	<OnClick><if cond="%{bomLst[bom_header_id]}"><DbDetails><queryFormat>update bom_line set bom_header_id='%{bomLst[bom_header_id]}' where bom_line_id='%{bom_lineid}'</queryFormat></DbDetails><submit namelist="DbDetails"/><submit next="vProduct.bom_line.bom_lineLst"/><submit function="onok"/></if></OnClick>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_properties_vm.xml" popup="1"/>
+	</WndTaps>
+<var name="searchtmpl"><item_number format="item_number like '%%{opvalue}%'"/><item_description format="item_description like '%%{opvalue}%'"/><item_specification format="item_specification like '%%{opvalue}%'"/><item_name format="item_name like '%%{opvalue}%'"/>
+	<property_value format="item_id_m in (select item_id_m from item_properties where property_id=%{property_id[property_id]} and property_value like '%%{property_value}%')"/><property_id enabled="false"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\Product.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="Product"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Product_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm6 md4" Name="GBOPDVitem"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">
+	<OnClick>
+	<submit next="vProduct.product.itemLst" function="resetcontent"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+<search next="item_vLst" listed="0" prefixwhere="0" prefixand="1" inputed="1">%{searchtmpl}</search><submit next="GBDEDITitem" namelist="search" function="search"/>	
+<search next="records_item" listed="0" prefixwhere="0" prefixand="1"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITitem" namelist="search" function="search"/>	
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+
+	<Button Name="export" Size="50,20" Text="导出明细"><TAB/>
+	<OnClick><!--Save selected="1" columns="3,0,7,8,9,11"></Save--><submit next="item_vLst" namelist="Save" function="savetofile"/></OnClick></Button>
+</Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_Vpgop.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="item_vLst" DataJoin="%{this(item_id_m,item_number,item_description,item_specification,item_name,category,status,uom_name)}%{prop}" Size="700,420">
+			<MDX id="prop" datatype="string">
+			<DbDetails>
+				<DbTable>item_properties i left join item_property i0 on i.property_id=i0.property_id</DbTable> where 
+				<Index>h_id </Index>
+				<MDX>item_id_m,propname,propvalue</MDX>
+				<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+				<Order></Order>
+				<Where>and item_status!=278</Where>
+				<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (select * from(SELECT org_id,item_id_m from Product_v where org_id=%{orgid} %{where} limit %{StartRow},%{PgSize}) as orgitem)</queryFormat> 
+			</DbDetails>
+			</MDX>
+	<DbDetails>
+<DbTable>xbs.Product_v i</DbTable>
+<Index>item_id_m</Index>
+<Data>*</Data>
+<Order>item_id_m</Order>
+<Where>and item_status!=278</Where>
+<queryFormat>select %{data} from %{dbtable} where org_id=%{orgid} %{where} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>item_id_m='%{vProduct.item_vLst[item_id_m]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vProduct.product.itemLst"/></op>
+<op text="clone"><assign name="vProduct.productClone.ProductId" expr="%{vProduct.item_vLst[item_id_m]}"/><assign name="vProduct.productClone.item_number" expr="%{vProduct.item_vLst[item_number]}_x"/></op>
+<op text="property"><assign name="$this.item_properties_v.item_id_m" expr="%{item_vLst[item_id_m]}"/><assign name="$this.item_properties_v.org_id" expr="%{item_vLst[org_id]}"/><DbDetails><Where>item_id_m='%{item_id_m}' and org_id='%{org_id}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vProduct.item_properties_v.item_properties_vLst"/></op>
+<op text="bom_routing"><SetVisible name="$this.bom_routing_header.hasWO" Visible="%{item_vLst[hasWO]}"/><DbDetails><Where>item_id_m='%{item_vLst[item_id_m]}' and org_id='%{orgid}'</Where></DbDetails><submit next="$this.bom_routing_header.bom_routing_headerLst" namelist="DbDetails"/><submit next="$this.bom_routing_header.item_id_m" namelist="DbDetails"/></op>
+<op text="bom" icon="xi-diagram-2"><SetVisible name="$this.bom_header.hasWO" Visible="%{item_vLst[hasWO]}"/><DbDetails><Where>item_id_m='%{item_vLst[item_id_m]}' and org_id='%{orgid}'</Where></DbDetails>
+	<submit next="$this.bom_header.item_id_m" namelist="DbDetails"/></op>
+<op text="viewbom" icon="xi-diagram-3"><submit next="$this.bom_line_view.bom_line_vLst" function="resetcontent"/><!--DbDetails><Where>FIND_IN_SET(bh.bom_header_id,(SELECT getChildBoms(%{item_vLst[item_id_m]},'%{orgid}')))</Where></DbDetails--><assign name="$this.bom_line_view.item_id_m" expr="%{item_vLst[item_id_m]}"/><assign name="$this.bom_line_view.org_id" expr="%{orgid}"/><submit next="$this.bom_line_view.bom_line_vLst"/><submit next="$this.bom_line_view.BomTree"/></op>
+<!--op text="wipwo"><submit next="vProduct.wip_wo_header.GBDEDITwip_wo_header" function="reset"/><DbDetails><DbTable>xbs.item</DbTable>
+<Index>item_id_m</Index>
+<Data>item_number,receipt_sub_inventory,item_id_m</Data>
+<Where>item_id_m='%{item_vLst[item_id_m]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.wip_wo_header.item_id_m"/></op-->
+<!--op text="vwipwo"><DbDetails><Where>item_id_m='%{item_vLst[item_id_m]}'</Where></DbDetails>
+	<submit next="vProduct.vwo.woLst" namelist="DbDetails"/></op-->
+</operator>
+<OnChanged>
+<assign name="pgcur_item" expr="js(%{item_vLst[currentpage]}+1)"/>
+<assign name="pgscb_item" expr="js(%{item_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

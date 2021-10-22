@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_batch_operation_line"><Ctrls>
+<ListCtrl Heading="step_no,25;release_type,125;pm_process_routing_header_id,120;activity_code,125;description,740;activity_factror,50;sequence_dependency_cb,60;offset_interval,50;status,75;breakable_cb,60;material_scheduled_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_batch_operation_line_id,60;" loadedclick="0" ToolTip="ttp_pm_batch_operation_line" Name="pm_batch_operation_lineLst" Size="800,480">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_batch_operation_line</DbTable>
+<Index>pm_batch_operation_line_id</Index>
+<Data>step_no,release_type,pm_process_routing_header_id,activity_code,description,activity_factror,sequence_dependency_cb,offset_interval,status,breakable_cb,material_scheduled_cb,created_by,creation_date,last_update_by,last_update_date,pm_batch_operation_line_id</Data>
+<Order>pm_batch_operation_line_id</Order></DbDetails>
+<OnClick><assign name="pm_process_routing_header_id[pm_process_routing_header_id]" function="SetSel" expr="%{pm_batch_operation_lineLst[pm_process_routing_header_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,60 @@
+<GroupBox Name="GBDEDITar_transaction_source"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_transaction_source"><Ctrls>
+<Label Align="Right" Text="transaction_source" Name="lb_transaction_source" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_transaction_source" Name="transaction_source" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_source_type"><Ctrls>
+<Label Align="Right" Text="source_type" OnLoad="init" Name="lb_source_type" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_source_type" OnLoad="init" Items="Manual|Import" Name="source_type" Size="170,100"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bu_org_id"><Ctrls>
+<Label Align="Right" Text="bu_org_id" Name="lb_bu_org_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_bu_org_id" Name="bu_org_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_legal_org_id"><Ctrls>
+<Label Align="Right" Text="legal_org_id" Name="lb_legal_org_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_legal_org_id" Name="legal_org_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_invoice_type_id"><Ctrls>
+<Label Align="Right" Text="invoice_type_id" Name="lb_invoice_type_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_invoice_type_id" Name="invoice_type_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cm_type_id"><Ctrls>
+<Label Align="Right" Text="cm_type_id" Name="lb_cm_type_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_cm_type_id" Name="cm_type_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_payment_term_id"><Ctrls>
+<Label Align="Right" Text="payment_term_id" Name="lb_payment_term_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_payment_term_id" Name="payment_term_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" OnLoad="init" Name="lb_status" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_status" OnLoad="init" Items="active|inactive||" Name="status" Size="170,100"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_create_clearing_cb"><Ctrls>
+<CheckBox Text="create_clearing_cb" ToolTip="ttp_create_clearing_cb" Name="create_clearing_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_ar_transaction_source_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="ar_transaction_source_id" overlap="pre" Name="lb_ar_transaction_source_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_ar_transaction_source_id" overlap="pre" Name="ar_transaction_source_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBar_transaction_source" expr="TABEDITar_transaction_source"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

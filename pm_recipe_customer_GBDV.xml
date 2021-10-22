@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_recipe_customer"><Ctrls>
+<ListCtrl Heading="org_id,60;ar_customer_id,120;ar_customer_site_id,60;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_recipe_customer_id,60;" loadedclick="0" ToolTip="ttp_pm_recipe_customer" Name="pm_recipe_customerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_recipe_customer</DbTable>
+<Index>pm_recipe_customer_id</Index>
+<Data>org_id,ar_customer_id,ar_customer_site_id,description,created_by,creation_date,last_update_by,last_update_date,pm_recipe_customer_id</Data>
+<Order>pm_recipe_customer_id</Order></DbDetails>
+<OnClick><assign name="ar_customer_id[ar_customer_id]" function="SetSel" expr="%{pm_recipe_customerLst[ar_customer_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

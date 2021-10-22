@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVpm_formula_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletepm_formula_header" Name="deletepm_formula_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_formula_header</DbTable>
+<Where>pm_formula_header_id='%{pm_formula_headerLst[pm_formula_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpm_formula_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshpm_formula_header" Name="searchpm_formula_header" Size="50,20">
+			  <OnClick><submit next="pm_formula_headerLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPpm_formula_headerLst" OnClick="(pm_formula_headerLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREpm_formula_headerLst" OnClick="(pm_formula_headerLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPpm_formula_headerLst" OnClick="(pm_formula_headerLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,96 @@
+<GroupBox Name="GBDEDITcc_co_process_flow_action"><Ctrls>
+<GroupBox Name="GB_field_value" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field_value" Size="60,20" Text="field_value" Align="Right"/>
+<ComboBox Name="field_value" Size="170,100" Text="" Weight="170" Items="Approval|Decline" ToolTip="ttp_field_value"></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_comment" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_comment" Size="60,20" Text="comment" Align="Right"/>
+<TextBox Name="comment" Size="170,20" Text="" Weight="170" ToolTip="ttp_comment"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_action_number" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_action_number" Size="60,20" Text="action_number" Align="Right" Visible="false" overlap="pre" readonly="true" selectedIndex="0"/>
+<ComboBox Name="action_number" Size="170,100" Text="" Weight="170"  ToolTip="ttp_action_number" Visible="false" overlap="pre" readonly="true" selectedIndex="0">
+	<DbDetails fcsm="true">
+<DbTable>xbs.sys_process_flow_action</DbTable>
+<Index>action_number</Index>
+<Data>role_code,userid,pf_action_type,required_cb,sys_process_flow_line_id,action_number</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_role_code" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_role_code" Size="60,20" Text="role_code" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="role_code" Size="170,20" Text="" Weight="170" ToolTip="ttp_role_code" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_userid" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_userid" Size="60,20" Text="userid" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="userid" Size="170,20" Text="" Weight="170" ToolTip="ttp_userid" Visible="false" overlap="pre" readonly="true">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>NAME,username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_pf_action_type" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_pf_action_type" Size="60,20" Text="pf_action_type" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="pf_action_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_pf_action_type" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_required_cb" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_required_cb" Size="60,20" Text="required_cb" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="required_cb" Size="170,20" Text="" Weight="170" ToolTip="ttp_required_cb" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_action_user_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_action_user_id" Size="60,20" Text="action_user_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="action_user_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_action_user_id" Visible="false" overlap="pre" readonly="true">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>NAME,username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_action_duration" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_action_duration" Size="60,20" Text="action_duration" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="action_duration" Size="170,20" Text="" Weight="170" ToolTip="ttp_action_duration" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>NAME,username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>NAME,username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cc_co_process_flow_action_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_cc_co_process_flow_action_id" Size="60,20" Text="cc_co_process_flow_action_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="cc_co_process_flow_action_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_cc_co_process_flow_action_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{cc_co_process_flow_action_id}'"><SetVisible name="insertcc_co_process_flow_action" Visible="0"/><SetVisible name="modifycc_co_process_flow_action" Visible="1"/><else/><SetVisible name="insertcc_co_process_flow_action" Visible="1"/><SetVisible name="modifycc_co_process_flow_action" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cc_co_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_cc_co_header_id" Size="60,20" Text="cc_co_header_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="cc_co_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_cc_co_header_id" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_sys_process_flow_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_sys_process_flow_line_id" Size="60,20" Text="sys_process_flow_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="sys_process_flow_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_sys_process_flow_line_id" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

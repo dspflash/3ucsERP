@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVsys_process_flow_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletesys_process_flow_line" Name="deletesys_process_flow_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sys_process_flow_line</DbTable>
+<Where>sys_process_flow_line_id='%{sys_process_flow_lineLst[sys_process_flow_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchsys_process_flow_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshsys_process_flow_line" Name="searchsys_process_flow_line" Size="50,20">
+			  <OnClick><submit next="sys_process_flow_lineLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPsys_process_flow_lineLst" OnClick="(sys_process_flow_lineLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREsys_process_flow_lineLst" OnClick="(sys_process_flow_lineLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPsys_process_flow_lineLst" OnClick="(sys_process_flow_lineLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVuom"><Ctrls>
+<ListCtrl Heading="uom_name,125;class,120;description,640;primary_uom_id,120;primary_relation,20;primary_cb,60;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;uom_id,60;" loadedclick="0" ToolTip="ttp_uom" Name="uomLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.uom u left join xbs.option_line o on u.class=o.option_line_id left join xbs.uom u0 on u.primary_uom_id=u0.uom_id</DbTable>
+<Index>uom_id</Index>
+<Data>u.uom_name,o.option_line_value class,u.description,u0.uom_name primary_uom_id,u.primary_relation,u.primary_cb,u.status,u.created_by,u.creation_date,u.last_update_by,u.last_update_date,u.uom_id</Data>
+<Order>uom_id</Order></DbDetails><DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

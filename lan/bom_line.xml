@@ -1,0 +1,54 @@
+<Language name="bom_line">
+<Lang name="bom_line" value="物料清单明细"/>
+<Lang name="component" value="料件"/>
+<Lang name="standard_operation" value="标准操作"/>
+<Lang name="TabEditbom_line" value="bom_line Edit"/>
+<Lang name="TabViewbom_line" value="bom_line View"/>
+<Lang name="bom_header_id" value="物料清单"/>
+<Lang name="ttp_bom_header_id" value=""/>
+<Lang name="bom_sequence" value="清单序号"/>
+<Lang name="ttp_bom_sequence" value=""/>
+<Lang name="routing_sequence" value="工艺序号"/>
+<Lang name="ttp_routing_sequence" value=""/>
+<Lang name="routing_seq_num" value="并行工艺序号"/>
+<Lang name="ttp_routing_seq_num" value=""/>
+<Lang name="component_item_id_m" value="物料组件"/>
+<Lang name="ttp_component_item_id_m" value=""/>
+<Lang name="usage_basis" value="耗用方式"/>
+<Lang name="ttp_usage_basis" value=""/>
+<Lang name="usage_quantity" value="耗用量"/>
+<Lang name="ttp_usage_quantity" value=""/>
+<Lang name="wip_supply_type" value="工单供应方式"/>
+<Lang name="ttp_wip_supply_type" value=""/>
+<Lang name="supply_sub_inventory" value="供应仓库"/>
+<Lang name="ttp_supply_sub_inventory" value=""/>
+<Lang name="supply_locator" value="供应库位"/>
+<Lang name="ttp_supply_locator" value=""/>
+<Lang name="auto_request_material_cb" value=""/>
+<Lang name="ttp_auto_request_material_cb" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="bom_line_id" value=""/>
+<Lang name="ttp_bom_line_id" value="物料行编号"/>
+<Lang name="ttp_operationbom_line" value="操作"/>
+<Lang name="ttp_createbom_line" value="新增"/>
+<Lang name="ttp_modifybom_line" value="修改"/>
+<Lang name="ttp_resetbom_line" value="清除数据"/>
+<Lang name="ttp_deletebom_line" value="删除"/>
+<Lang name="ttp_refreshbom_line" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

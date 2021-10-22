@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEmdm_tax_code" Size="100,100"><Ctrls>
+<Button sqlpkinsert="mdm_tax_code_id" Text="create" ToolTip="ttp_createmdm_tax_code" Name="insertmdm_tax_code" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_tax_code</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>tax_code,tax_type[option_line_id],dr_cr,in_out,calculation_method[option_line_id],percentage,tax_amount,effective_start_date,effective_end_date,description,status</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,org_id;'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="mdm_tax_codeLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifymdm_tax_code" Name="modifymdm_tax_code" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_tax_code</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>tax_code,tax_type[option_line_id],dr_cr,in_out,calculation_method[option_line_id],percentage,tax_amount,effective_start_date,effective_end_date,description,status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>mdm_tax_code_id='%{mdm_tax_code_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="mdm_tax_codeLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetmdm_tax_code" Name="resetmdm_tax_code" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITmdm_tax_code" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchmdm_tax_code" Name="gsearchmdm_tax_code" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="mdm_tax_codeLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITmdm_tax_code" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

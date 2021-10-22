@@ -1,0 +1,64 @@
+<WndTap Name="vOption" Text="vOption">
+	<WndTaps>
+	<WndTap Text="option_header" Name="option_header" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\option_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="option_header" Name="GBoption_header" id="option_header" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="option_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="option_header_GBOPE.xml"></xi:include>
+		<ListCtrl loadedclick="1" ToolTip="ttp_option_header" Name="option_headerLst" Size="70,20" visible="0">
+			<DbDetails fcsm="1">
+			<DbTable>xbs.option_header</DbTable>
+			<Index>option_header_id</Index>
+			<Data>module_code,option_type,description,created_by,creation_date,last_update_by,last_update_date,option_header_id</Data>
+			<Order>option_header_id</Order></DbDetails>
+			<OnClick><assign name="module_code[option_line_code]" function="SetSel" expr="%{option_headerLst[module_code]}"/>
+			<if cond="%{option_header_id}"><SetVisible name="insertoption_header" Visible="0"/><SetVisible name="modifyoption_header" Visible="1"/></if></OnClick>
+		</ListCtrl></Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate><SetVisible name="insertoption_header" Visible="1"/><SetVisible name="modifyoption_header" Visible="0"/></OnActivate>
+			</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="option_line_v.xml" popup="1"/>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\option_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\option_line.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="User"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="option_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">
+	<OnClick><submit next="$this.option_header.option_headerLst" function="resetcontent"/></OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIToption_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="option_headerLst" listed="0" prefixwhere="0" inputed="1">
+		<option_header_id format="option_header_id='%{opvalue}' or option_type like '%%{opvalue}%'"/>
+		<option_line_id format="option_header_id in (select option_header_id from option_line where option_line_id='%{opvalue}' or option_line_value like '%%{opvalue}%')"/>
+	</search><submit next="GBDEDIToption_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="option_headerLst" onload="init" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.option_header</DbTable>
+<Index>option_header_id</Index>
+<Data>module_code,option_type,description,created_by,creation_date,last_update_by,last_update_date,option_header_id</Data>
+<Order>option_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>option_header_id='%{$this.option_headerLst[option_header_id]}'</Where></DbDetails>
+	<submit next="$this.option_header.option_headerLst" namelist="DbDetails"/></op>
+<op text="option_line"><assign name="$this.option_line_v.option_header_id" expr="%{$this.option_headerLst[option_header_id]}" function="SetSel"/><DbDetails><Where>o.option_header_id='%{$this.option_headerLst[option_header_id]}'</Where></DbDetails>
+	<submit next="$this.option_line_v.option_line_vLst" namelist="DbDetails"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,40 @@
+<Language name="ar_revenue_rule_line">
+<Lang name="ar_revenue_rule_line" value="ar_revenue_rule_line"/>
+<Lang name="TabEditar_revenue_rule_line" value="ar_revenue_rule_line Edit"/>
+<Lang name="TabViewar_revenue_rule_line" value="ar_revenue_rule_line View"/>
+<Lang name="ar_revenue_rule_header_id" value=""/>
+<Lang name="ttp_ar_revenue_rule_header_id" value=""/>
+<Lang name="period_number" value=""/>
+<Lang name="ttp_period_number" value=""/>
+<Lang name="percent" value=""/>
+<Lang name="ttp_percent" value=""/>
+<Lang name="schedule_date" value=""/>
+<Lang name="ttp_schedule_date" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="ar_revenue_rule_line_id" value=""/>
+<Lang name="ttp_ar_revenue_rule_line_id" value=""/>
+<Lang name="ttp_operationar_revenue_rule_line" value="操作"/>
+<Lang name="ttp_createar_revenue_rule_line" value="新增"/>
+<Lang name="ttp_modifyar_revenue_rule_line" value="修改"/>
+<Lang name="ttp_resetar_revenue_rule_line" value="清除数据"/>
+<Lang name="ttp_deletear_revenue_rule_line" value="删除"/>
+<Lang name="ttp_refreshar_revenue_rule_line" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

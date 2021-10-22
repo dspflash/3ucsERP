@@ -1,0 +1,35 @@
+<GroupBox Name="GBDEDITgl_ledger_balancing_values"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_gl_ledger_id"><Ctrls>
+<Label Align="Right" Text="gl_ledger_id" OnLoad="init" Name="lb_gl_ledger_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_gl_ledger_id" OnLoad="init" Name="gl_ledger_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.gl_ledger</DbTable>
+<Index>gl_ledger_id</Index>
+<Data>ledger,gl_ledger_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_balancing_values"><Ctrls>
+<Label Align="Right" Text="balancing_values" Name="lb_balancing_values" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_balancing_values" Name="balancing_values" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_gl_ledger_balancing_values_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="gl_ledger_balancing_values_id" overlap="pre" Name="lb_gl_ledger_balancing_values_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_gl_ledger_balancing_values_id" overlap="pre" Name="gl_ledger_balancing_values_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBgl_ledger_balancing_values" expr="TABEDITgl_ledger_balancing_values"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

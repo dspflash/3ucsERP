@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVsd_delivery_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="sd_delivery_lineLst" ToolTip="ttp_sd_delivery_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_delivery_line</DbTable>
+<Index>sd_delivery_line_id</Index>
+<Data>sd_so_header_id,sd_so_line_id,item_id_m,item_description,line_uom_id,quantity,shipped_quantity,staging_subinventory_id,staging_locator_id,pkg_uom_id,pkg_quantity,pkg_description,picking_date,actual_ship_date,volume_uom_id,total_volume,weight_uom_id,total_weight,created_by,creation_date,last_update_by,last_update_date,sd_delivery_line_id,shipping_org_id,delivery_status</Data>
+<Order>sd_delivery_line_id</Order></DbDetails>
+<OnClick><assign name="sd_so_header_id[sd_so_header_id]" expr="%{sd_delivery_lineLst[sd_so_header_id]}" function="SetSel"/><assign name="sd_so_line_id[sd_so_line_id]" expr="%{sd_delivery_lineLst[sd_so_line_id]}" function="SetSel"/><assign name="item_id_m[item_id_m]" expr="%{sd_delivery_lineLst[item_id_m]}" function="SetSel"/><assign name="line_uom_id[uom_id]" expr="%{sd_delivery_lineLst[line_uom_id]}" function="SetSel"/><assign name="staging_subinventory_id[subinventory_id]" expr="%{sd_delivery_lineLst[staging_subinventory_id]}" function="SetSel"/><assign name="staging_locator_id[locator_id]" expr="%{sd_delivery_lineLst[staging_locator_id]}" function="SetSel"/><assign name="pkg_uom_id[uom_id]" expr="%{sd_delivery_lineLst[pkg_uom_id]}" function="SetSel"/><assign name="volume_uom_id[uom_id]" expr="%{sd_delivery_lineLst[volume_uom_id]}" function="SetSel"/><assign name="weight_uom_id[uom_id]" expr="%{sd_delivery_lineLst[weight_uom_id]}" function="SetSel"/>
+<if cond="%{sd_delivery_line_id}"><SetVisible name="insertsd_delivery_line" Visible="0"/><SetVisible name="modifysd_delivery_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

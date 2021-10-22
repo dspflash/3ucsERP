@@ -1,0 +1,83 @@
+<WndTap Name="vPoRequisition_review" Text="PO_Requisition_review">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_requisition_header_Vem.xml" popup="1"/>
+	<WndTap Text="PoReqLine" Name="vPoReqLine" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_requisition_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="PoReqLine" Name="PoReqLine" id="PoReqLine" Size="100,100"><Ctrls>
+			<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpo_requisition_line"><Ctrls>
+			<ListCtrl loadedclick="0" ToolTip="ttp_po_requisition_line" Name="po_requisition_lineLst" Size="700,420">
+			<DbDetails>
+				<DbTable>xbs.po_requisition_line_v</DbTable> 
+				<Data>*</Data>
+			</DbDetails>
+			<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+			</ListCtrl>
+			</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			</WndTap>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_requisition_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="PO_Requisition"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_requisition_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_requisition_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="POrqLst" listed="0" prefixand="1" inputed="1"><po_requisition_number format="(po_requisition_number like '%%{opvalue}%')"/><item_number format="(po_requisition_header_id IN (SELECT po_requisition_header_id FROM po_requisition_line_v WHERE item_number like '%%{opvalue}%'))"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search>
+	<submit next="GBDEDITpo_requisition_header" namelist="search" function="search"/>
+	<search next="POreqLLst" listed="0" prefixand="1" inputed="1"><po_requisition_number format="(po_requisition_number like '%%{opvalue}%')"/><item_number format="(item_number like '%%{opvalue}%')"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search><submit next="GBDEDITpo_requisition_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="export" Size="50,20" Text="导出">
+	<OnClick><!--import button="export" selected="1">sql:update s_order set o_state=3 where o_id=%0;update s_order set o_state=3 where o_id=%0</import><submit next="OrderList" namelist="import" method="post" function="import"/-->
+	<Save selected="1" columns="3,0,7,8,9,11"></Save><submit next="POrqLst" namelist="Save" function="savetofile"/></OnClick></Button>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<GroupBox feature="tab" Text="PO Reqs" Name="PO Reqs"><Ctrls>
+<ListCtrl loadedclick="0" colsDisplay="25" ToolTip="ttp_item" onload="init" Name="POrqLst" Size="700,420">
+	<DbDetails>
+<DbTable>(select prh.* from xbs.po_requisition_header_v prh join po_requisition_line prl on prh.po_requisition_header_id=prl.po_requisition_header_id and (bu_org_id='%{orgid}' or receving_org_id='%{orgid}') group by prh.po_requisition_header_id) tmp</DbTable>
+<Index>po_requisition_header_id</Index>
+<Data>*</Data>
+<Order>po_requisition_header_id</Order>
+<Where>and requisition_status=320</Where>
+<queryFormat>select %{data} from %{dbtable} where (requisition_status in (320,324,326,323)) %{where} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="po_req_approval_rule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/po_req_approval_rule.xml"/></rules>
+<inputs input1="%{userid}" position="%{position}" opinv="%{app.opinv}" status="%{POrqLst[requisition_status]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="view"><DbDetails><Where>po_requisition_header_id=%{POrqLst[po_requisition_header_id]}</Where></DbDetails><submit namelist="DbDetails" next="$this.vPoReqLine.po_requisition_lineLst"/></op>
+<op text="review" needconfirm="1"><DbDetails><queryFormat>UPDATE po_requisition_header ph JOIN po_requisition_line pl ON ph.po_requisition_header_id=pl.po_requisition_header_id SET requisition_status=324,ph.last_update_by='%{user_id}',ph.last_update_date=now() WHERE ph.po_requisition_header_id='%{POrqLst[po_requisition_header_id]}' AND requisition_status=320 AND (bu_org_id='%{orgid}' or receving_org_id='%{orgid}');</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="reEdit" needconfirm="1"><DbDetails><queryFormat>UPDATE po_requisition_header ph JOIN po_requisition_line pl ON ph.po_requisition_header_id=pl.po_requisition_header_id SET requisition_status=321,ph.last_update_by='%{user_id}',ph.last_update_date=now() WHERE ph.po_requisition_header_id='%{POrqLst[po_requisition_header_id]}' AND requisition_status=320 AND (bu_org_id='%{orgid}' or receving_org_id='%{orgid}');</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+	</Ctrls></GroupBox>
+	<BR/>
+	<GroupBox feature="tab" Text="PO Req Lines" Name="PO Req Lines"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="POreqLLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.po_requisition_line_v</DbTable>
+<Index>po_requisition_line_id</Index>
+<Data>*</Data>
+<Order>po_requisition_line_id</Order>
+<Where>and requisition_status not in (322,323)</Where>
+<queryFormat>select %{data} from %{dbtable} where (bu_org_id='%{orgid}' or receving_org_id='%{orgid}' and requisition_status in (320,324,326,323)) %{where} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"/>
+</ListCtrl>
+	</Ctrls></GroupBox></Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

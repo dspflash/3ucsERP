@@ -1,0 +1,56 @@
+<GroupBox Name="GBDEDITmdm_discount_header"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_discount_name"><Ctrls>
+<Label Align="Right" Text="discount_name" Name="lb_discount_name" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_discount_name" Name="discount_name" Size="200,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_discount_code"><Ctrls>
+<Label Align="Right" Text="discount_code" Name="lb_discount_code" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_discount_code" Name="discount_code" Size="200,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_module_code"><Ctrls>
+<Label Align="Right" Text="module_code" Name="lb_module_code" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_module_code" Name="module_code" Size="200,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_description" Name="description" Size="200,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" Name="lb_status" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_status" Name="status" Size="200,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_discount_type"><Ctrls>
+<Label Align="Right" Text="discount_type" Name="lb_discount_type" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_discount_type" Name="discount_type" Size="200,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_discount_percentage"><Ctrls>
+<Label Align="Right" Text="discount_percentage" Name="lb_discount_percentage" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_discount_percentage" Name="discount_percentage" Size="200,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_discount_formula"><Ctrls>
+<Label Align="Right" Text="discount_formula" Name="lb_discount_formula" Size="60,50"/>
+<TextBox Weight="200" ToolTip="ttp_discount_formula" Name="discount_formula" Size="200,50"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_check_condition_cb"><Ctrls>
+<CheckBox Text="check_condition_cb" ToolTip="ttp_check_condition_cb" Name="check_condition_cb" Size="260,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="200" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="200,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="200" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="200,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="200" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="200,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="200" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="200,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_mdm_discount_header_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="mdm_discount_header_id" overlap="pre" Name="lb_mdm_discount_header_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="200" ToolTip="ttp_mdm_discount_header_id" overlap="pre" Name="mdm_discount_header_id" readonly="true" Size="200,20" Visible="false"><OnEnChange><assign name="GBmdm_discount_header" expr="TABEDITmdm_discount_header"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

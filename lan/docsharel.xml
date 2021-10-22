@@ -1,0 +1,32 @@
+﻿<Language name="docsharel">
+<Lang name="docsharel" value="docsharel"/>
+<Lang name="TabEditdocsharel" value="docsharel Edit"/>
+<Lang name="TabViewdocsharel" value="docsharel View"/>
+<Lang name="doc_id" value=""/>
+<Lang name="ttp_doc_id" value=""/>
+<Lang name="shared2" value=""/>
+<Lang name="ttp_shared2" value=""/>
+<Lang name="type" value=""/>
+<Lang name="ttp_type" value="1 for group;0 for user"/>
+<Lang name="dt2share" value=""/>
+<Lang name="ttp_dt2share" value=""/>
+<Lang name="sharedby" value=""/>
+<Lang name="ttp_sharedby" value=""/>
+<Lang name="idx" value=""/>
+<Lang name="ttp_idx" value=""/>
+<Lang name="ttp_operationdocsharel" value=""/>
+<Lang name="ttp_createdocsharel" value=""/>
+<Lang name="ttp_modifydocsharel" value=""/>
+<Lang name="ttp_resetdocsharel" value=""/>
+<Lang name="ttp_deletedocsharel" value=""/>
+<Lang name="ttp_refreshdocsharel" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

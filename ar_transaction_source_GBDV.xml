@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_transaction_source"><Ctrls>
+<ListCtrl Heading="transaction_source,250;source_type,120;bu_org_id,60;legal_org_id,60;invoice_type_id,60;description,640;cm_type_id,60;payment_term_id,60;status,120;create_clearing_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_transaction_source_id,60;" loadedclick="0" ToolTip="ttp_ar_transaction_source" onload="init" Name="ar_transaction_sourceLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_source</DbTable>
+<Index>ar_transaction_source_id</Index>
+<Data>transaction_source,source_type,bu_org_id,legal_org_id,invoice_type_id,description,cm_type_id,payment_term_id,status,create_clearing_cb,created_by,creation_date,last_update_by,last_update_date,ar_transaction_source_id</Data>
+<Order>ar_transaction_source_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

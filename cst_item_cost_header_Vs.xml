@@ -1,0 +1,16 @@
+<GroupBox Name="GBDEDITcst_item_cost_header"><Ctrls>
+<GroupBox Name="GB_item_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_number" Size="60,20" Text="item_number" Align="Right"/>
+<TextBox Name="item_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_number"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bom_cost_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bom_cost_type" Size="60,20" Text="bom_cost_type" Align="Right" onload="init"/>
+<ComboBox Name="bom_cost_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_bom_cost_type" onload="init">
+	<DbDetails>
+<DbTable>xbs.bom_cost_type</DbTable>
+<Index>bom_cost_type_id</Index>
+<Data>cost_type,bom_cost_type_id</Data>
+<Where>org_id='%{orgid}' and STATUS</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

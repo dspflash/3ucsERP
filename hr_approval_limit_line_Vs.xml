@@ -1,0 +1,62 @@
+<GroupBox Name="GBDEDIThr_approval_limit_line"><Ctrls>
+<GroupBox Name="GB_limit_object" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_limit_object" Size="60,20" Text="limit_object" Align="Right" onload="init"/>
+<ComboBox Name="limit_object" Size="170,100" Text="" Weight="170"  ToolTip="ttp_limit_object" onload="init">
+	<DbDetails>
+<DbTable>xbs.hr_approval_object</DbTable>
+<Index>hr_approval_object_id</Index>
+<Data>object_name,hr_approval_object_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_limit_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_limit_type" Size="60,20" Text="limit_type" Align="Right"/>
+<ComboBox Name="limit_type" Size="170,100" Text="" Weight="170" Items="INCLUDE|EXCLUDE" ToolTip="ttp_limit_type"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_limit_range_low" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_limit_range_low" Size="60,20" Text="limit_range_low" Align="Right"/>
+<TextBox Name="limit_range_low" Size="170,20" Text="" Weight="170" ToolTip="ttp_limit_range_low"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_limit_range_high" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_limit_range_high" Size="60,20" Text="limit_range_high" Align="Right"/>
+<TextBox Name="limit_range_high" Size="170,20" Text="" Weight="170" ToolTip="ttp_limit_range_high"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_amount_limit" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_amount_limit" Size="60,20" Text="amount_limit" Align="Right"/>
+<TextBox Name="amount_limit" Size="170,20" Text="" Weight="170" ToolTip="ttp_amount_limit"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_inactive_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_inactive_date" Size="60,20" Text="inactive_date" Align="Right"/>
+<DateTime Name="inactive_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_inactive_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_approval_limit_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hr_approval_limit_line_id" Size="60,20" Text="hr_approval_limit_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hr_approval_limit_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hr_approval_limit_line_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBhr_approval_limit_line" expr="TABEDIThr_approval_limit_line"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_hr_approval_limit_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hr_approval_limit_header_id" Size="60,20" Text="hr_approval_limit_header_id" Align="Right" selectedIndex="0"/>
+<ComboBox Name="hr_approval_limit_header_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_hr_approval_limit_header_id" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.hr_approval_limit_header</DbTable>
+<Index>hr_approval_limit_header_id</Index>
+<Data>limit_name,hr_approval_limit_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

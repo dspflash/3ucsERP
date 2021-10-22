@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_batch_header"><Ctrls>
+<ListCtrl Heading="batch_name,125;org_id,60;pm_recipe_header_id,120;wip_accounting_group_id,120;comment,640;status,120;description,640;terminate_reason,640;planned_start_date,90;planned_completion_date,90;required_completion_date,90;actual_completion_date,90;actual_start_date,55;update_invnetory_cb,60;batch_exploded_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_batch_header_id,60;" loadedclick="0" ToolTip="ttp_pm_batch_header" onload="init" Name="pm_batch_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_batch_header</DbTable>
+<Index>pm_batch_header_id</Index>
+<Data>batch_name,org_id,pm_recipe_header_id,wip_accounting_group_id,comment,status,description,terminate_reason,planned_start_date,planned_completion_date,required_completion_date,actual_completion_date,actual_start_date,update_invnetory_cb,batch_exploded_cb,created_by,creation_date,last_update_by,last_update_date,pm_batch_header_id</Data>
+<Order>pm_batch_header_id</Order></DbDetails>
+<OnClick><assign name="pm_recipe_header_id[pm_recipe_header_id]" function="SetSel" expr="%{pm_batch_headerLst[pm_recipe_header_id]}"/><assign name="wip_accounting_group_id[wip_accounting_group_id]" function="SetSel" expr="%{pm_batch_headerLst[wip_accounting_group_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

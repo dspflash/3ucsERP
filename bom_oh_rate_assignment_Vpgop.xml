@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVbom_oh_rate_assignment" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialbom_oh_rate_assignment" Size="50,20">
+<OnClick><submit next="bom_oh_rate_assignment_vLst" function="initial"/><submit next="records_bom_oh_rate_assignment" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPbom_oh_rate_assignment_vLst" Size="50,20">
+<OnClick><submit next="bom_oh_rate_assignment_vLst" function="GetPage(first)"/><submit next="records_bom_oh_rate_assignment"/></OnClick></Button>
+<Button Text="prepage" Name="PREbom_oh_rate_assignment_vLst" Size="50,20">
+<OnClick><submit next="bom_oh_rate_assignment_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPbom_oh_rate_assignment_vLst" Size="50,20">
+<OnClick><submit next="bom_oh_rate_assignment_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEhr_expense_tpl_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hr_expense_tpl_line_id" Text="create" ToolTip="ttp_createhr_expense_tpl_line" Name="inserthr_expense_tpl_line" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hr_expense_tpl_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>expense_item,expense_category[option_line_id],tax_code_id[mdm_tax_code_id],expense_ac_id,inactive_date,hr_expense_tpl_header_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{inserthr_expense_tpl_line[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_expense_tpl_lineLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_expense_tpl_line_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_expense_tpl_line" Name="modifyhr_expense_tpl_line" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hr_expense_tpl_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>expense_item,expense_category[option_line_id],tax_code_id[mdm_tax_code_id],expense_ac_id,inactive_date</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hr_expense_tpl_line_id='%{hr_expense_tpl_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyhr_expense_tpl_line[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_expense_tpl_lineLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_expense_tpl_line_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_expense_tpl_line" Name="resethr_expense_tpl_line" Size="50,20">
+<OnClick>
+<submit next="GBDEDIThr_expense_tpl_line" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchhr_expense_tpl_line" Name="gsearchhr_expense_tpl_line" Size="50,20" visible="false">
+<OnClick>
+<search next="hr_expense_tpl_lineLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDIThr_expense_tpl_line" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

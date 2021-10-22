@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_rate_schedule_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_rate_schedule_headerLst" ToolTip="ttp_prj_rate_schedule_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_rate_schedule_header</DbTable>
+<Index>prj_rate_schedule_header_id</Index>
+<Data>schedule_name,rate_type,effective_from,effective_to,description,created_by,creation_date,last_update_by,last_update_date,bu_org_id,prj_rate_schedule_header_id</Data>
+<Order>prj_rate_schedule_header_id</Order></DbDetails>
+<OnClick>
+<if cond="%{prj_rate_schedule_header_id}"><SetVisible name="insertprj_rate_schedule_header" Visible="0"/><SetVisible name="modifyprj_rate_schedule_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

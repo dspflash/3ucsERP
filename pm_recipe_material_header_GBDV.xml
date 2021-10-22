@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_recipe_material_header"><Ctrls>
+<ListCtrl Heading="status,250;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_recipe_material_header_id,60;" loadedclick="0" ToolTip="ttp_pm_recipe_material_header" Name="pm_recipe_material_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_recipe_material_header</DbTable>
+<Index>pm_recipe_material_header_id</Index>
+<Data>status,description,created_by,creation_date,last_update_by,last_update_date,pm_recipe_material_header_id</Data>
+<Order>pm_recipe_material_header_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

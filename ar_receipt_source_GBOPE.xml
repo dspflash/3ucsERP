@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEar_receipt_source" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ar_receipt_source_id" Text="create" ToolTip="ttp_createar_receipt_source" Name="insertar_receipt_source" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_receipt_source</DbTable>
+<Data>receipt_source,receipt_type[option_line_code],creation_method,bu_org_id,description,remittance,clearance,mdm_bank_account_id,sync_receipt_number_cb,status</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_receipt_source" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyar_receipt_source" Name="modifyar_receipt_source" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_receipt_source</DbTable>
+<Data>receipt_source,receipt_type[option_line_code],creation_method,bu_org_id,description,remittance,clearance,mdm_bank_account_id,sync_receipt_number_cb,status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ar_receipt_source_id='%{ar_receipt_source_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_receipt_source" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetar_receipt_source" Name="resetar_receipt_source" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITar_receipt_source" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchar_receipt_source" Name="gsearchar_receipt_source" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ar_receipt_sourceLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITar_receipt_source" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

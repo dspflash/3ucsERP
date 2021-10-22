@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVap_payment_terms" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteap_payment_terms" Name="deleteap_payment_terms" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payment_terms</DbTable>
+<Where>term_id='%{ap_payment_termsLst[term_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchap_payment_terms" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshap_payment_terms" Name="searchap_payment_terms" Size="50,20">
+			  <OnClick><submit next="ap_payment_termsLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPap_payment_termsLst" OnClick="(ap_payment_termsLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREap_payment_termsLst" OnClick="(ap_payment_termsLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPap_payment_termsLst" OnClick="(ap_payment_termsLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

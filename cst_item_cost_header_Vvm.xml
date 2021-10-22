@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVcst_item_cost_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="cst_item_cost_header_vLst" ToolTip="ttp_cst_item_cost_header" Size="700,420">
+	<DbDetails >
+<DbTable>cst_item_cost_v</DbTable>
+<Index>cst_item_cost_header_id</Index>
+<Data>*</Data>
+<Order>cst_item_cost_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.cst_item_cost_header.GBDEDITcst_item_cost_header" function="reset"/><DbDetails><Where>item_id_m='%{item_id_m}' and org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="$this.cst_item_cost_header.item_id_m"/></op>
+<op text="modify"><assign name="$this.cst_item_cost_header.cst_item_cost_header_id" expr="%{cst_item_cost_header_vLst[cst_item_cost_header_id]}"/><DbDetails><Where>cst_item_cost_header_id='%{cst_item_cost_header_vLst[cst_item_cost_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.cst_item_cost_header.cst_item_cost_headerLst"/><DbDetails><Where>item_id_m='%{item_id_m}' and org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="$this.cst_item_cost_header.item_id_m"/></op>
+<op text="view"><DbDetails><Where>cst_item_cost_header_id='%{cst_item_cost_header_vLst[cst_item_cost_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.cst_item_cost_line_v.cst_item_cost_line_vLst"/></op>
+<op text="standard_cost_update" needconfirm="1">
+<DbDetails><queryFormat>call cost_update4items('%{item_id_m}',0,%{cst_item_cost_header_vLst[bom_cost_type]},%{user_id},%{orgid});</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="cost_rollup" needconfirm="1">
+<DbDetails><queryFormat>CALL cost_rollup_forItems('%{item_id_m}',0,%{cst_item_cost_header_vLst[bom_cost_type]},%{user_id},%{orgid},1);</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

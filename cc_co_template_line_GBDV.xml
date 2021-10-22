@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVcc_co_template_line"><Ctrls>
+<ListCtrl Heading="field_name,120;label,250;value_type,125;required_cb,60;control_type,120;control_value,250;control_uom,120;list_values,20;lower_limit,250;upper_limit,250;list_value_option_type,250;active_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;cc_co_template_header_id,60;cc_co_template_line_id,60;" loadedclick="0" ToolTip="ttp_cc_co_template_line" Name="cc_co_template_lineLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>cc_co_template_line_id</Index>
+<DbTable>xbs.cc_co_template_line c left join xbs.uom u on c.control_uom=u.uom_id left join xbs.user_v u0 on c.created_by=u0.xerp_user_id left join xbs.user_v u1 on c.last_update_by=u1.xerp_user_id</DbTable>
+<Data>c.field_name,c.label,c.value_type,c.required_cb,c.control_type,c.control_value,u.uom_name control_uom,c.list_values,c.lower_limit,c.upper_limit,c.list_value_option_type,c.active_cb,u0.NAME created_by,c.creation_date,u1.NAME last_update_by,c.last_update_date,c.cc_co_template_header_id,c.cc_co_template_line_id</Data>
+<Order>cc_co_template_line_id</Order></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op mustselected="0" text="addone"><if cond="!%{cc_co_template_header_id}"><alert expr="cc_co_template_header_id is Empty!"/><else/><submit next="$parent.cc_co_template_line.GBDEDITcc_co_template_line" function="reset"/><assign name="$parent.cc_co_template_line.cc_co_template_header_id" expr="%{cc_co_template_header_id}"/><assign name="$parent.cc_co_template_line.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>cc_co_template_line_id='%{cc_co_template_line_vLst[cc_co_template_line_id]}'</Where></DbDetails><submit next="$parent.cc_co_template_line.cc_co_template_lineLst" namelist="DbDetails"/><assign name="$parent.cc_co_template_line.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.cc_co_template_line</DbTable>
+<Where>cc_co_template_line_id='%{cc_co_template_line_vLst[cc_co_template_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

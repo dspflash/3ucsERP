@@ -1,0 +1,37 @@
+<GroupBox Name="GBDEDITprj_project_type_header"><Ctrls>
+<GroupBox Name="GB_project_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_project_type" Size="60,20" Text="project_type" Align="Right"/>
+<TextBox Name="project_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_project_type"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_project_class" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_project_class" Size="60,20" Text="project_class" Align="Right"/>
+<ComboBox Name="project_class" Size="170,100" Text="" Weight="170" Items="Indirect|Capital|Contract" ToolTip="ttp_project_class"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_service_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_service_type" Size="60,20" Text="service_type" Align="Right" onload="init"/>
+<ComboBox Name="service_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_service_type" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_service_type</DbTable>
+<Index>prj_service_type_id</Index>
+<Data>service_type,prj_service_type_id</Data>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><!--GroupBox Name="GB_effective_from" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_from" Size="60,20" Text="effective_from" Align="Right"/>
+<DateTime Name="effective_from" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_from"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_effective_to" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_to" Size="60,20" Text="effective_to" Align="Right"/>
+<DateTime Name="effective_to" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_to"></DateTime>
+</Ctrls></GroupBox-->
+<GroupBox Name="GB_prj_work_type_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_prj_work_type_id" Size="60,20" Text="prj_work_type_id" Align="Right" onload="init"/>
+<ComboBox Name="prj_work_type_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_prj_work_type_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_work_type</DbTable>
+<Index>prj_work_type_id</Index>
+<Data>work_type,prj_work_type_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

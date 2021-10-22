@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_project_control"><Ctrls>
+<ListCtrl Heading="prj_expenditure_type_id,120;prj_expenditure_category_code,120;description,640;hr_job_id,120;start_date,90;end_date,90;chargeable_cb,60;billable_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_project_control_id,60;" loadedclick="0" ToolTip="ttp_prj_project_control" Name="prj_project_controlLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_project_control</DbTable>
+<Index>prj_project_control_id</Index>
+<Data>prj_expenditure_type_id,prj_expenditure_category_code,description,hr_job_id,start_date,end_date,chargeable_cb,billable_cb,created_by,creation_date,last_update_by,last_update_date,prj_project_control_id</Data>
+<Order>prj_project_control_id</Order></DbDetails>
+<OnClick><assign name="prj_expenditure_type_id[prj_expenditure_type_header_id]" function="SetSel" expr="%{prj_project_controlLst[prj_expenditure_type_id]}"/><assign name="prj_expenditure_category_code[option_line_id]" function="SetSel" expr="%{prj_project_controlLst[prj_expenditure_category_code]}"/><assign name="hr_job_id[hr_job_id]" function="SetSel" expr="%{prj_project_controlLst[hr_job_id]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

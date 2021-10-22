@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVhr_grade" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletehr_grade" Name="deletehr_grade" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_grade</DbTable>
+<Where>hr_grade_id='%{hr_gradeLst[hr_grade_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhr_grade" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshhr_grade" Name="searchhr_grade" Size="50,20">
+			  <OnClick><submit next="hr_gradeLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPhr_gradeLst" OnClick="(hr_gradeLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREhr_gradeLst" OnClick="(hr_gradeLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPhr_gradeLst" OnClick="(hr_gradeLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

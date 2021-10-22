@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_expense_tpl_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_expense_tpl_lineLst" ToolTip="ttp_hr_expense_tpl_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_expense_tpl_line_id</Index>
+<DbTable>xbs.hr_expense_tpl_line</DbTable>
+<Data>expense_item,expense_category,tax_code_id,expense_ac_id,inactive_date,created_by,creation_date,last_update_by,last_update_date,hr_expense_tpl_line_id</Data>
+<Order>hr_expense_tpl_line_id</Order></DbDetails>
+<OnClick><assign name="expense_category[option_line_id]" expr="%{hr_expense_tpl_lineLst[expense_category]}" function="SetSel"/><assign name="tax_code_id[mdm_tax_code_id]" expr="%{hr_expense_tpl_lineLst[tax_code_id]}" function="SetSel"/>
+<if cond="%{hr_expense_tpl_line_id}"><SetVisible name="inserthr_expense_tpl_line" Visible="0"/><SetVisible name="modifyhr_expense_tpl_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

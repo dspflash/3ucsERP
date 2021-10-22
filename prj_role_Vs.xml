@@ -1,0 +1,81 @@
+<GroupBox Name="GBDEDITprj_role"><Ctrls>
+<GroupBox Name="GB_role_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_role_name" Size="60,20" Text="role_name" Align="Right"/>
+<TextBox Name="role_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_role_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_user_role" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_user_role" Size="60,20" Text="user_role" Align="Right" onload="init"/>
+<ComboBox Name="user_role" Size="170,100" Text="" Weight="170"  ToolTip="ttp_user_role" onload="init">
+	<DbDetails>
+<DbTable>xbs.xerp_role</DbTable>
+<Index>role_id</Index>
+<Data>role_name_cn,role_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_job_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hr_job_id" Size="60,20" Text="hr_job_id" Align="Right" onload="init"/>
+<ComboBox Name="hr_job_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_hr_job_id" onload="init">
+	<DbDetails>
+<DbTable>hr_job</DbTable>
+<Index>hr_job_id</Index>
+<Data>job_name,hr_job_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_min_job_level" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_min_job_level" Size="60,20" Text="min_job_level" Align="Right"/>
+<TextBox Name="min_job_level" Size="170,20" Text="" Weight="170" ToolTip="ttp_min_job_level"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_max_job_level" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_max_job_level" Size="60,20" Text="max_job_level" Align="Right"/>
+<TextBox Name="max_job_level" Size="170,20" Text="" Weight="170" ToolTip="ttp_max_job_level"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_effective_from" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_from" Size="60,20" Text="effective_from" Align="Right"/>
+<DateTime Name="effective_from" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_from"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_effective_to" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_to" Size="60,20" Text="effective_to" Align="Right"/>
+<DateTime Name="effective_to" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_to"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_labor_cost_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="labor_cost_cb" Size="230,20" Text="labor_cost_cb" ToolTip="ttp_labor_cost_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_contract_member_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="contract_member_cb" Size="230,20" Text="contract_member_cb" ToolTip="ttp_contract_member_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_project_member_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="project_member_cb" Size="230,20" Text="project_member_cb" ToolTip="ttp_project_member_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_task_member_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="task_member_cb" Size="230,20" Text="task_member_cb" ToolTip="ttp_task_member_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_scheduling_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="scheduling_cb" Size="230,20" Text="scheduling_cb" ToolTip="ttp_scheduling_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_prj_role_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_prj_role_id" Size="60,20" Text="prj_role_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="prj_role_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_prj_role_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBprj_role" expr="TABEDITprj_role"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

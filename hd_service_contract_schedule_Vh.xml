@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhd_service_contract_schedule" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hd_service_contract_scheduleLst" ToolTip="ttp_hd_service_contract_schedule" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_service_contract_schedule</DbTable>
+<Index>hd_service_contract_schedule_id</Index>
+<Data>hd_service_contract_line_id,hd_service_contract_detail_id,hd_service_contract_header_id,line_num,amount,gl_amount,invoice_date,from_date,to_date,interface_date,description,created_by,creation_date,last_update_by,last_update_date,hd_service_contract_schedule_id</Data>
+<Order>hd_service_contract_schedule_id</Order></DbDetails>
+<OnClick>
+<if cond="%{hd_service_contract_schedule_id}"><SetVisible name="inserthd_service_contract_schedule" Visible="0"/><SetVisible name="modifyhd_service_contract_schedule" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

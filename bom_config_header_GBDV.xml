@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbom_config_header"><Ctrls>
+<ListCtrl Heading="item_id_m,120;bom_header_id,60;reference_key_name,300;reference_key_value,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;bom_config_header_id,60;" loadedclick="0" ToolTip="ttp_bom_config_header" Name="bom_config_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_config_header</DbTable>
+<Index>bom_config_header_id</Index>
+<Data>item_id_m,bom_header_id,reference_key_name,reference_key_value,created_by,creation_date,last_update_by,last_update_date,org_id,bom_config_header_id</Data>
+<Order>bom_config_header_id</Order></DbDetails>
+<OnClick><assign name="item_id_m[item_id_m]" function="SetSel" expr="%{bom_config_headerLst[item_id_m]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

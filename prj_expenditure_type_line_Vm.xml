@@ -1,0 +1,6 @@
+<WndTap Name="prj_expenditure_type_line_v" Text="prj_expenditure_type_line">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\prj_expenditure_type_line.xml"/>
+<Ctrls><GroupBox  Name="GBprj_expenditure_type_line" id="prj_expenditure_type_line" Text="prj_expenditure_type_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_expenditure_type_line_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

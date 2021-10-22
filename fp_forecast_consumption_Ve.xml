@@ -1,0 +1,13 @@
+﻿<WndTap Name="fp_forecast_consumption" Text="fp_forecast_consumption" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="fp_forecast_line_id[fp_forecast_line_id],fp_forecast_line_date_id[fp_forecast_line_date_id],quantity,sd_so_line_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\fp_forecast_consumption.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBfp_forecast_consumption" id="fp_forecast_consumption" Text="fp_forecast_consumption" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fp_forecast_consumption_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fp_forecast_consumption_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fp_forecast_consumption_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertfp_forecast_consumption" Visible="1"/><SetVisible name="modifyfp_forecast_consumption" Visible="0"/></OnActivate>
+</WndTap>

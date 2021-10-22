@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVgl_balance" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletegl_balance" Name="deletegl_balance" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_balance</DbTable>
+<Where>gl_balance_id='%{gl_balanceLst[gl_balance_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchgl_balance" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshgl_balance" Name="searchgl_balance" Size="50,20">
+			  <OnClick><submit next="gl_balanceLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPgl_balanceLst" OnClick="(gl_balanceLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREgl_balanceLst" OnClick="(gl_balanceLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPgl_balanceLst" OnClick="(gl_balanceLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

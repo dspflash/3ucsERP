@@ -1,0 +1,20 @@
+<GroupBox Name="GBDEDITprj_project_header"><Ctrls>
+<GroupBox Name="GB_project_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_project_number" Size="60,20" Text="project_number" Align="Right"/>
+<TextBox Name="project_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_project_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_name" Size="60,20" Text="name" Align="Right"/>
+<TextBox Name="name" Size="170,20" Text="" Weight="170" ToolTip="ttp_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_prj_project_type_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_prj_project_type_id" Size="60,20" Text="prj_project_type_id" Align="Right" onload="init"/>
+<ComboBox Name="prj_project_type_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_prj_project_type_id" onload="init">
+	<DbDetails>
+<DbTable>prj_project_type_header</DbTable>
+<Index>prj_project_type_header_id</Index>
+<Data>project_type,prj_project_type_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

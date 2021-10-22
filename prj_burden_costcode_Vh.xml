@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_burden_costcode" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_burden_costcodeLst" ToolTip="ttp_prj_burden_costcode" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_burden_costcode</DbTable>
+<Index>prj_burden_costcode_id</Index>
+<Data>costcode,prj_exependiture_type_id,effective_from,effective_to,description,created_by,creation_date,last_update_by,last_update_date,prj_burden_costcode_id</Data>
+<Order>prj_burden_costcode_id</Order></DbDetails>
+<OnClick><assign name="prj_exependiture_type_id[prj_expenditure_type_header_id]" expr="%{prj_burden_costcodeLst[prj_exependiture_type_id]}" function="SetSel"/>
+<if cond="%{prj_burden_costcode_id}"><SetVisible name="insertprj_burden_costcode" Visible="0"/><SetVisible name="modifyprj_burden_costcode" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

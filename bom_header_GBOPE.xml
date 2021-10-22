@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEbom_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="bom_header_id" Text="create" ToolTip="ttp_createbom_header" Name="insertbom_header" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.bom_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],bom_revision,effective_date</Data>
+<DataEx>org_id,created_by,creation_date,last_update_by,last_update_date;'%{orgid}','%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertbom_header[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="bom_headerLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="0"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.bom_header_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifybom_header" Name="modifybom_header" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.bom_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],bom_revision,effective_date</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>bom_header_id='%{bom_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifybom_header[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="bom_headerLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.bom_header_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetbom_header" Name="resetbom_header" Size="50,20">
+<OnClick>
+<submit next="GBDEDITbom_header" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchbom_header" Name="gsearchbom_header" Size="50,20" visible="false">
+<OnClick>
+<search next="bom_headerLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITbom_header" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

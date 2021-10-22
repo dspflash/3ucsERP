@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVxbs_log"><Ctrls>
+<ListCtrl Heading="xbs_log_id,100;log_level,120;task,100;program,250;msg,640;user_id,55;org_id,55;dt,150;" loadedclick="0" ToolTip="ttp_xbs_log" Name="xbs_logLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.xbs_log</DbTable>
+<Index>xbs_log_id</Index>
+<Data>xbs_log_id,log_level,task,program,msg,user_id,org_id,dt</Data>
+<Order>xbs_log_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

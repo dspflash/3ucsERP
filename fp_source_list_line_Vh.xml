@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVfp_source_list_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="fp_source_list_lineLst" ToolTip="ttp_fp_source_list_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_source_list_line</DbTable>
+<Index>fp_source_list_line_id</Index>
+<Data>source_list_id,source_list_line_type,description,created_by,creation_date,last_update_by,last_update_date,fp_source_list_line_id</Data>
+<Order>fp_source_list_line_id</Order></DbDetails>
+<OnClick><assign name="source_list_id[fp_forecast_header_id]" expr="%{fp_source_list_lineLst[source_list_id]}" function="SetSel"/><assign name="source_list_line_type[option_line_id]" expr="%{fp_source_list_lineLst[source_list_line_type]}" function="SetSel"/>
+<if cond="%{fp_source_list_line_id}"><SetVisible name="insertfp_source_list_line" Visible="0"/><SetVisible name="modifyfp_source_list_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

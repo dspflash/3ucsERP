@@ -1,0 +1,19 @@
+<GroupBox Name="GBDVpo_rfq_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="po_rfq_line_vLst" ToolTip="ttp_po_rfq_line" Size="700,220" Heading="line_type,120;mfg_part_number,250;manufacturer,250;item_id_m,120;uom_id,120;minimum_quantity,100;maximum_quantity,100;target_price,100;unit_price,100;line_description,640;notes_from_supplier,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;po_rfq_line_id,60;" loadedclick="1">
+	<DbDetails >
+<DbTable>xbs.po_rfq_line p left join xbs.option_line o on p.line_type=o.option_line_id left join xbs.item i on p.item_id_m=i.item_id_m left join xbs.uom u on p.uom_id=u.uom_id JOIN inventory inv ON (i.org_id=inv.org_id AND inv.item_master_cb)
+</DbTable>
+<Index>po_rfq_line_id</Index>
+<Data>o.option_line_value line_type,p.mfg_part_number,p.manufacturer,i.item_number,u.uom_name uom_id,p.minimum_quantity,p.maximum_quantity,p.target_price,p.unit_price,p.line_description,p.notes_from_supplier,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.po_rfq_line_id,p.item_id_m</Data>
+<Order>po_rfq_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{po_rfq_header_id}"><alert expr="请先添加单据，若修改单据请从单据列表进入！"/><else/><DbDetails><Where>po_rfq_header_id='%{po_rfq_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.po_rfq_line.po_rfq_header_id"/></if></op>
+<op text="modify"><DbDetails><Where>po_rfq_line_id='%{po_rfq_line_vLst[po_rfq_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.po_rfq_line.po_rfq_lineLst"/><DbDetails><Where>po_rfq_header_id='%{po_rfq_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.po_rfq_line.po_rfq_header_id"/><DbDetails><Where> item_id_m='%{po_rfq_line_vLst[item_id_m]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.po_rfq_line.item_id_m"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.po_rfq_line</DbTable>
+<Where>po_rfq_line_id='%{po_rfq_line_vLst[po_rfq_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

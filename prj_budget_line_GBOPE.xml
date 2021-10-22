@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEprj_budget_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="prj_budget_line_id" Text="create" ToolTip="ttp_createprj_budget_line" Name="insertprj_budget_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_budget_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>prj_resource_line_id[prj_resource_list_line_id],uom_id[uom_id],quantity,raw_cost,revenue_quantity,revenue_amount,burden_cost,description,prj_project_header_id,prj_project_line_id[prj_project_line_id],prj_budget_header_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="prj_budget_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyprj_budget_line" Name="modifyprj_budget_line" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_budget_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>prj_resource_line_id[prj_resource_list_line_id],uom_id[uom_id],quantity,raw_cost,revenue_quantity,revenue_amount,burden_cost,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>prj_budget_line_id='%{prj_budget_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="prj_budget_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetprj_budget_line" Name="resetprj_budget_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITprj_budget_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchprj_budget_line" Name="gsearchprj_budget_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="prj_budget_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITprj_budget_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

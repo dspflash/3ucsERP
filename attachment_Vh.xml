@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVattachment" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="attachmentLst" ToolTip="ttp_attachment" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.attachment</DbTable>
+<Index>attachment_id</Index>
+<Data>subject,filename,attachment,reftbl,type,typestr,description,created_by,creation_date,last_update_by,last_update_date,attachment_id</Data>
+<Order>attachment_id</Order></DbDetails>
+<OnClick>
+<if cond="%{attachment_id}"><SetVisible name="insertattachment" Visible="0"/><SetVisible name="modifyattachment" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

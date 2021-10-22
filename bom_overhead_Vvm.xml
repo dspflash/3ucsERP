@@ -1,0 +1,20 @@
+<GroupBox Name="GBDVbom_overhead" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bom_overhead_vLst" ToolTip="ttp_bom_overhead" Size="700,420" OnLoad="init" Heading="overhead,250;overhead_type,120;default_basis,120;rate,50;cost_type,50;description,640;status,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.bom_overhead b left join xbs.option_line o on b.overhead_type=o.option_line_id left join xbs.option_line o0 on b.default_basis=o0.option_line_id LEFT JOIN bom_oh_rate_assignment ohr ON ohr.bom_overhead_id=b.bom_overhead_id LEFT JOIN bom_cost_type bct ON ohr.bom_cost_type=bct.bom_cost_type_id
+</DbTable>
+<Index>bom_overhead_id</Index>
+<Data>b.overhead,o.option_line_value overhead_type,o0.option_line_value default_basis,ohr.rate,bct.cost_type,b.description,b.status, b.absorption_ac_id,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.org_id,b.bom_overhead_id,ohr.bom_oh_rate_assignment_id</Data>
+<Order>bom_overhead_id</Order></DbDetails>
+<DbDetails><Data>b.overhead,o.option_line_value overhead_type,o0.option_line_value default_basis,ohr.rate,bct.cost_type,b.description,b.status, b.absorption_ac_id,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.org_id,b.bom_overhead_id,ohr.bom_oh_rate_assignment_id</Data><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>bom_overhead_id='%{bom_overhead_vLst[bom_overhead_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_overhead.bom_overheadLst"/></op>
+<!--op text="rate"><assign name="$this.bom_oh_rate_assignment_v.bom_overhead_id" expr="%{bom_overhead_vLst[bom_overhead_id]}"/><DbDetails><Where>b.bom_overhead_id='%{bom_overhead_vLst[bom_overhead_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_oh_rate_assignment_v.bom_oh_rate_assignment_vLst"/></op-->
+<op text="addoneRate" mustselected="0"><submit next="$this.bom_oh_rate_assignment.GBDEDITbom_oh_rate_assignment" function="reset"/><DbDetails><Where>bom_overhead_id='%{bom_overhead_vLst[bom_overhead_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_oh_rate_assignment.bom_overhead_id"/></op>
+<op text="modifyRate"><DbDetails><Where>bom_overhead_id='%{bom_overhead_vLst[bom_overhead_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_oh_rate_assignment.bom_overhead_id"/><DbDetails><Where>bom_oh_rate_assignment_id='%{bom_overhead_vLst[bom_oh_rate_assignment_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_oh_rate_assignment.bom_oh_rate_assignmentLst"/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_bom_overhead" expr="js(%{bom_overhead_vLst[currentpage]}+1)"/>
+<assign name="pgscb_bom_overhead" expr="js(%{bom_overhead_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

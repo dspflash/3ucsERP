@@ -1,0 +1,32 @@
+﻿<GroupBox Name="GBDEDIThr_perdiem_rate" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_hr_location_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hr_location_id" Size="60,20" Text="hr_location_id" Align="Right"  onload="init"/>
+<ComboBox Name="hr_location_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_hr_location_id"  onload="init">
+	<DbDetails>
+<Index>hr_location_id</Index>
+<DbTable>xbs.hr_location</DbTable>
+<Data>combination,hr_location_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_grade_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hr_grade_id" Size="60,20" Text="hr_grade_id" Align="Right"  onload="init"/>
+<ComboBox Name="hr_grade_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_hr_grade_id"  onload="init">
+	<DbDetails>
+<Index>hr_grade_id</Index>
+<DbTable>xbs.hr_grade</DbTable>
+<Data>grade,hr_grade_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_currency" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_currency" Size="60,20" Text="currency" Align="Right" onload="init" selectedIndex="3"/>
+<ComboBox Name="currency" Size="170,100" Text="" Weight="170"  ToolTip="ttp_currency" onload="init" selectedIndex="3">
+	<DbDetails>
+<Index>currency_id</Index>
+<DbTable>xbs.currency</DbTable>
+<Data>title,currency_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

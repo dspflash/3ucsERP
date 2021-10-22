@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEap_payment_terms" Size="100,100"><Ctrls>
+<Button sqlpkinsert="term_id" Text="create" ToolTip="ttp_createap_payment_terms" Name="insertap_payment_terms" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payment_terms</DbTable>
+<Data>term_name,term_description,end_date</Data>
+<DataEx/>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchap_payment_terms" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyap_payment_terms" Name="modifyap_payment_terms" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payment_terms</DbTable>
+<Data>term_name,term_description,end_date</Data>
+<DataEx/>
+<Where>term_id='%{term_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchap_payment_terms" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetap_payment_terms" Name="resetap_payment_terms" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITap_payment_terms" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchap_payment_terms" Name="gsearchap_payment_terms" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ap_payment_termsLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITap_payment_terms" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

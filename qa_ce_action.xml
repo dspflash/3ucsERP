@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="qa_ce_action" Name="qa_ce_action" Ver="2">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_ce_action.xml"/>
+<Ctrls>
+<GroupBox Text="qa_ce_action" Name="GBqa_ce_action" id="qa_ce_action" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_action_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_action_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_action_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_ce_action_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

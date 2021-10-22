@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVpo_rfq_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="po_rfq_header_vLst" ToolTip="ttp_po_rfq_header" Size="700,420" OnLoad="init" Heading="rfq_number,125;rfq_name,250;rfq_type,120;rfq_status,120;payment_term_id,120;ship_to_id,120;bill_to_id,120;currency,120;doc_currency,120;effective_start_date,90;effective_end_date,90;due_date,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;po_rfq_header_id,60;bu_org_id,120;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.po_rfq_header p left join xbs.option_line o on p.rfq_type=o.option_line_id left join xbs.option_line o0 on p.rfq_status=o0.option_line_id left join xbs.payment_term p0 on p.payment_term_id=p0.payment_term_id left join xbs.address a on p.ship_to_id=a.address_id left join xbs.address a0 on p.bill_to_id=a0.address_id left join xbs.currency c on p.currency=c.currency_id left join xbs.currency c0 on p.doc_currency=c0.currency_id left join xbs.org o1 on p.bu_org_id=o1.org_id</DbTable>
+<Index>po_rfq_header_id</Index>
+<Data>p.rfq_number,p.rfq_name,o.option_line_value rfq_type,o0.option_line_value rfq_status,p0.description payment_term_id,a.address ship_to_id,a0.address bill_to_id,c.title currency,c0.title doc_currency,p.effective_start_date,p.effective_end_date,p.due_date,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.po_rfq_header_id,o1.org bu_org_id</Data>
+<Order>po_rfq_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>po_rfq_header_id='%{po_rfq_header_vLst[po_rfq_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.po_rfq_header.po_rfq_headerLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.po_rfq_header</DbTable>
+<Where>po_rfq_header_id='%{po_rfq_header_vLst[po_rfq_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,27 @@
+<GroupBox Name="GBDVsd_so_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="sd_so_line_vLst" ToolTip="ttp_sd_so_line" Size="700,180" DataJoin="%{this}%{prop}" DataJoinKey="item_id_m" loadedclick="0">
+			<MDX id="prop" datatype="string">
+			<DbDetails>
+				<DbTable>item_properties i left join item_property i0 on i.property_id=i0.property_id</DbTable> where 
+				<Index>h_id </Index>
+				<MDX>item_id_m,propname,propvalue</MDX>
+				<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+				<Order></Order>
+				<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (SELECT shipping_org_id,item_id_m from sd_so_line where %{where})</queryFormat> 
+			</DbDetails>
+			</MDX>
+	<DbDetails >
+<DbTable>xbs.sd_so_line s left join xbs.option_line o on s.line_type=o.option_line_id left join xbs.org o0 on s.shipping_org_id=o0.org_id left join xbs.option_line o1 on s.destination_type=o1.option_line_id left join xbs.item i on s.item_id_m=i.item_id_m and s.shipping_org_id=i.org_id left join xbs.mdm_tax_code m on s.tax_code_id=m.mdm_tax_code_id left join xbs.option_line o2 on s.line_status=o2.option_line_id</DbTable>
+<Index>sd_so_line_id</Index>
+<Data>o.option_line_value line_type,o0.org shipping_org_id,s.line_number,o1.option_line_value destination_type,i.item_number,`i`.`item_description`,  `i`.`item_name`,`i`.`item_specification`,s.price_date,s.line_quantity,s.line_price,s.gl_line_price,m.tax_code tax_code_id,s.tax_amount,s.gl_tax_amount,s.requested_date,s.line_description,o2.option_line_value line_status,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,s.sd_so_line_id,s.shipping_org_id,s.item_id_m item_id_m</Data>
+<Order>sd_so_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$parent.sd_so_line.GBDEDITsd_so_line" function="reset"/><assign name="$parent.sd_so_line.sd_so_header_id" expr="%{sd_so_header_id}"/><assign name="$parent.sd_so_line.requested_date" expr="%{request_date}"/></op>
+<op text="modify"><submit next="$parent.sd_so_line.GBDEDITsd_so_line" function="reset"/><DbDetails><Where>sd_so_line_id='%{sd_so_line_vLst[sd_so_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.sd_so_line.sd_so_lineLst"/><DbDetails><Where>and shipping_org_id='%{sd_so_line_vLst[shipping_org_id]}' and item_id_m='%{sd_so_line_vLst[item_id_m]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.sd_so_line.item_id_m"/><assign name="$parent.sd_so_line.sd_so_header_id" expr="%{sd_so_header_id}"/><assign name="$parent.sd_so_line.requested_date" expr="%{request_date}"/></op>
+<op text="delete"><DbDetails fcsm="1">
+<DbTable>xbs.sd_so_line</DbTable>
+<Where>sd_so_line_id='%{sd_so_line_vLst[sd_so_line_id]}'</Where><queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

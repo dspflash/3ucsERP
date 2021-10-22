@@ -1,0 +1,23 @@
+﻿<GroupBox Name="GBDEDITbom_standard_operation" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_department_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_department_id" Size="60,20" Text="department_id" Align="Right"/>
+<TextBox Name="department_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_department_id">
+	<DbDetails>
+<Index>bom_department_id</Index>
+<DbTable>xbs.bom_department</DbTable>
+<Data>department,bom_department_id</Data>
+<Where>org_id=%{orgid}</Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_standard_operation" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_standard_operation" Size="60,20" Text="standard_operation" Align="Right"/>
+<TextBox Name="standard_operation" Size="170,20" Text="" Weight="170" ToolTip="ttp_standard_operation"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status" checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

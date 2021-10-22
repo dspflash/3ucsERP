@@ -1,0 +1,22 @@
+﻿<WndTap Name="hr_attendance_v" Text="hr_attendance">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_attendance_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="import_hr_attendance.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="employee_pick.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><hr_employee_id format="h.hr_employee_id='%{opvalue}'"/><date format="(h.date between '%{date[datetime]}' and '%{date[datetime2]}')"/><punch_in format="(h.punch_in between '%{punch_in[datetime]}' and '%{punch_in[datetime2]}')"/><punch_in_note format="(h.punch_in_note like '%%{opvalue}%')"/><punch_out format="(h.punch_out between '%{punch_out[datetime]}' and '%{punch_out[datetime2]}')"/><punch_out_note format="(h.punch_out_note like '%%{opvalue}%')"/><description format="(h.description like '%%{opvalue}%')"/><created_by format="h.created_by='%{opvalue}'"/><creation_date format="(h.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="h.last_update_by='%{opvalue}'"/><last_update_date format="(h.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><hr_attendance_id format="(h.hr_attendance_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hr_attendance.xml"/>
+<Ctrls><GroupBox  Name="GBhr_attendance" id="hr_attendance" Text="hr_attendance" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_attendance_Vsm.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVhr_attendance" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.hr_attendance.GBDEDIThr_attendance" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resethr_attendance" Name="resethr_attendance" Size="50,20">	<OnClick>	<submit next="GBDEDIThr_attendance" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchhr_attendance" Name="gsearchhr_attendance" Size="50,20">	<OnClick>	
+<search next="hr_attendance_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDIThr_attendance" namelist="search" function="search"/>	
+<search next="records_hr_attendance" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDIThr_attendance" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_attendance_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_attendance_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_attendance_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

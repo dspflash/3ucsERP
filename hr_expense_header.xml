@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><WndTap Text="hr_expense_header" Name="hr_expense_header" Ver="2">
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr="claim_number,hr_employee_id[hr_employee_id],expense_template_id[hr_expense_tpl_header_id],bu_org_id[org_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hr_expense_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hr_expense_line.xml"/>
+<Ctrls>
+<GroupBox Text="hr_expense_header" Name="GBhr_expense_header" id="hr_expense_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_header_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_header_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_header_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

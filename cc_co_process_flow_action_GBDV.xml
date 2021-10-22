@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVcc_co_process_flow_action"><Ctrls>
+<ListCtrl Heading="field_value,120;comment,240;action_number,120;role_code,125;userid,55;pf_action_type,125;required_cb,25;action_user_id,60;action_duration,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;cc_co_process_flow_action_id,60;cc_co_header_id,60;sys_process_flow_line_id,60;" loadedclick="0" ToolTip="ttp_cc_co_process_flow_action" Name="cc_co_process_flow_actionLst" Size="300,180">
+	<DbDetails fcsm="1">
+<DbTable>xbs.cc_co_process_flow_action c left join xbs.sys_process_flow_action s on c.action_number=s.action_number left join xbs.user_v u on c.userid=u.xerp_user_id left join xbs.user_v u0 on c.action_user_id=u0.xerp_user_id left join xbs.user_v u1 on c.created_by=u1.xerp_user_id left join xbs.user_v u2 on c.last_update_by=u2.xerp_user_id</DbTable>
+<Index>cc_co_process_flow_action_id</Index>
+<Data>c.field_value,c.comment,s.role_code action_number,c.role_code,u.NAME userid,c.pf_action_type,c.required_cb,u0.NAME action_user_id,c.action_duration,u1.NAME created_by,c.creation_date,u2.NAME last_update_by,c.last_update_date,c.cc_co_process_flow_action_id,c.cc_co_header_id,c.sys_process_flow_line_id</Data>
+<Order>cc_co_process_flow_action_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

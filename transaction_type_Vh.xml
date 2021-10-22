@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVtransaction_type" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="transaction_typeLst" ToolTip="ttp_transaction_type" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.transaction_type</DbTable>
+<Index>transaction_type_id</Index>
+<Data>transaction_type_number,transaction_type,type_class,transaction_action,description,status,created_by,creation_date,last_update_by,last_update_date,transaction_type_id</Data>
+<Order>transaction_type_id</Order></DbDetails>
+<OnClick><assign name="type_class[option_line_code]" expr="%{transaction_typeLst[type_class]}" function="SetSel"/><assign name="transaction_action[option_line_code]" expr="%{transaction_typeLst[transaction_action]}" function="SetSel"/>
+<if cond="%{transaction_type_id}"><SetVisible name="inserttransaction_type" Visible="0"/><SetVisible name="modifytransaction_type" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

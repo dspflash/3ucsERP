@@ -1,0 +1,72 @@
+﻿<GroupBox Name="GBDEDIThr_employee_education"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_degree_name"><Ctrls>
+<Label Align="Right" Text="degree_name" Name="lb_degree_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_degree_name" Name="degree_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_university"><Ctrls>
+<Label Align="Right" Text="university" Name="lb_university" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_university" Name="university" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_university_address"><Ctrls>
+<Label Align="Right" Text="university_address" Name="lb_university_address" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_university_address" Name="university_address" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_specialization"><Ctrls>
+<Label Align="Right" Text="specialization" Name="lb_specialization" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_specialization" Name="specialization" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_edu_start_date"><Ctrls>
+<Label Align="Right" Text="edu_start_date" Name="lb_edu_start_date" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_edu_start_date" Name="edu_start_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_edu_end_date"><Ctrls>
+<Label Align="Right" Text="edu_end_date" Name="lb_edu_end_date" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_edu_end_date" Name="edu_end_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mode_of_education"><Ctrls>
+<Label Align="Right" Text="mode_of_education" Name="lb_mode_of_education" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_mode_of_education" Name="mode_of_education" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=195</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_grade"><Ctrls>
+<Label Align="Right" Text="grade" Name="lb_grade" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_grade" Name="grade" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_marks_percentage"><Ctrls>
+<Label Align="Right" Text="marks_percentage" Name="lb_marks_percentage" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_marks_percentage" Name="marks_percentage" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm12 md6 lg4" Multiline="0" Name="GB_comments"><Ctrls>
+<Label Align="Right" Text="comments" Name="lb_comments" Size="60,50"/>
+<TextBox Weight="630" Text="" ToolTip="ttp_comments" Name="comments" Size="630,50"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_employee_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="employee_id" overlap="pre" Name="lb_employee_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_employee_id" overlap="pre" Name="employee_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_hr_employee_education_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="hr_employee_education_id" overlap="pre" Name="lb_hr_employee_education_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hr_employee_education_id" overlap="pre" Name="hr_employee_education_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{hr_employee_education_id}'"><SetVisible name="inserthr_employee_education" Visible="0"/><SetVisible name="modifyhr_employee_education" Visible="1"/><else/><SetVisible name="inserthr_employee_education" Visible="1"/><SetVisible name="modifyhr_employee_education" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

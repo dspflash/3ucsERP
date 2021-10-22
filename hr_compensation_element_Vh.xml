@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_compensation_element" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_compensation_elementLst" ToolTip="ttp_hr_compensation_element" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_compensation_element_id</Index>
+<DbTable>xbs.hr_compensation_element</DbTable>
+<Data>element_name,start_date,end_date,element_type,classification,category,calculation_rule,deduction_rule,deduction_start_rule,priority,frequency_months,recurring_cb,separate_check_cb,standard_link_cb,description,status,created_by,creation_date,last_update_by,last_update_date,hr_compensation_element_id</Data>
+<Order>hr_compensation_element_id</Order></DbDetails>
+<OnClick><assign name="element_type[option_line_id]" expr="%{hr_compensation_elementLst[element_type]}" function="SetSel"/><assign name="classification[option_line_id]" expr="%{hr_compensation_elementLst[classification]}" function="SetSel"/><assign name="category[option_line_id]" expr="%{hr_compensation_elementLst[category]}" function="SetSel"/><assign name="calculation_rule[option_line_id]" expr="%{hr_compensation_elementLst[calculation_rule]}" function="SetSel"/><assign name="deduction_rule[option_line_id]" expr="%{hr_compensation_elementLst[deduction_rule]}" function="SetSel"/><assign name="deduction_start_rule[option_line_id]" expr="%{hr_compensation_elementLst[deduction_start_rule]}" function="SetSel"/><assign name="created_by[xerp_user_id]" expr="%{hr_compensation_elementLst[created_by]}" function="SetSel"/><assign name="last_update_by[xerp_user_id]" expr="%{hr_compensation_elementLst[last_update_by]}" function="SetSel"/>
+<if cond="%{hr_compensation_element_id}"><SetVisible name="inserthr_compensation_element" Visible="0"/><SetVisible name="modifyhr_compensation_element" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

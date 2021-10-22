@@ -1,0 +1,13 @@
+<WndTap Name="xerp_role_permission" Text="xerp_role_permission" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="role_id[role_id],class[name]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\xerp_role_permission.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBxerp_role_permission" id="xerp_role_permission" Text="xerp_role_permission" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_role_permission_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_role_permission_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_role_permission_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertxerp_role_permission" Visible="1"/><SetVisible name="modifyxerp_role_permission" Visible="0"/></OnActivate>
+</WndTap>

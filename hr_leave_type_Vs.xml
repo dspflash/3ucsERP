@@ -1,0 +1,19 @@
+﻿<GroupBox Name="GBDEDIThr_leave_type" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_leave_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_leave_type" Size="60,20" Text="leave_type" Align="Right"/>
+<TextBox Name="leave_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_leave_type"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_leave_category" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_leave_category" Size="60,20" Text="leave_category" Align="Right"  onload="init"/>
+<ComboBox Name="leave_category" Size="170,100" Text="" Weight="170"  ToolTip="ttp_leave_category"  onload="init">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=201</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status"  checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

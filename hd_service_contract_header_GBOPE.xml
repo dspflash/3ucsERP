@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEhd_service_contract_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hd_service_contract_header_id" Text="create" ToolTip="ttp_createhd_service_contract_header" Name="inserthd_service_contract_header" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hd_service_contract_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>contract_number,category,payment_term_id[payment_term_id],ar_customer_id[ar_customer_id],ar_customer_site_id[ar_customer_site_id],doc_currency[currency_id],ship_to_id[address_id],bill_to_id[address_id],currency[currency_id],exchange_rate,exchange_rate_type[gl_currency_conversion_id],version,start_date,end_date,duration,duration_uom_id[uom_id],document_owner,receipt_amount,document_number,document_date,billing_cb,invoicing_rule,accounting_rule,renewal_process,renew_upto_date,rewnew_pricing_method,rewnew_price_list_id,sales_person_employee_id,description</Data>
+<DataEx>approval_status,bu_org_id,created_by,creation_date,last_update_by,last_update_date;321,'%{orgid}','%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_service_contract_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhd_service_contract_header" Name="modifyhd_service_contract_header" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hd_service_contract_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>contract_number,category,payment_term_id[payment_term_id],ar_customer_id[ar_customer_id],ar_customer_site_id[ar_customer_site_id],doc_currency[currency_id],ship_to_id[address_id],bill_to_id[address_id],currency[currency_id],exchange_rate,exchange_rate_type[gl_currency_conversion_id],version,start_date,end_date,duration,duration_uom_id[uom_id],document_owner,receipt_amount,document_number,document_date,billing_cb,invoicing_rule,accounting_rule,renewal_process,renew_upto_date,rewnew_pricing_method,rewnew_price_list_id,sales_person_employee_id,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hd_service_contract_header_id='%{hd_service_contract_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_service_contract_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethd_service_contract_header" Name="resethd_service_contract_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIThd_service_contract_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchhd_service_contract_header" Name="gsearchhd_service_contract_header" Size="50,20" visible="false">
+	<OnClick>
+	<search next="hd_service_contract_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDIThd_service_contract_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

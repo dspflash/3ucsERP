@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVpo_rfq_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="po_rfq_line_vLst" ToolTip="ttp_po_rfq_line" Size="700,420" OnLoad="init" Heading="line_type,120;mfg_part_number,250;manufacturer,250;item_id_m,120;uom_id,120;minimum_quantity,100;maximum_quantity,100;target_price,100;unit_price,100;line_description,640;notes_from_supplier,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;po_rfq_line_id,60;" loadedclick="1">
+	<DbDetails >
+<DbTable>xbs.po_rfq_line p left join xbs.option_line o on p.line_type=o.option_line_id left join xbs.item i on p.item_id_m=i.item_id_m left join xbs.uom u on p.uom_id=u.uom_id</DbTable>
+<Index>po_rfq_line_id</Index>
+<Data>o.option_line_value line_type,p.mfg_part_number,p.manufacturer,i.item_number item_id_m,u.uom_name uom_id,p.minimum_quantity,p.maximum_quantity,p.target_price,p.unit_price,p.line_description,p.notes_from_supplier,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.po_rfq_line_id</Data>
+<Order>po_rfq_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>po_rfq_line_id='%{po_rfq_line_vLst[po_rfq_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.po_rfq_line.po_rfq_lineLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.po_rfq_line</DbTable>
+<Where>po_rfq_line_id='%{po_rfq_line_vLst[po_rfq_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVsubinventory" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="subinventory_vLst" ToolTip="ttp_subinventory" Size="700,420" OnLoad="init" Heading="subinventory,125;type,120;allow_negative_balance_cb,60;locator_control,120;description,250;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;subinventory_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.subinventory s left join xbs.option_line o on s.type=o.option_line_id left join xbs.option_line o0 on s.locator_control=o0.option_line_id</DbTable>
+<Index>subinventory_id</Index>
+<Data>s.subinventory,o.option_line_value type,s.allow_negative_balance_cb,o0.option_line_value locator_control,s.description,s.status,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,s.subinventory_id</Data>
+<Order>subinventory_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>subinventory_id='%{subinventory_vLst[subinventory_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.subinventory.subinventoryLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.subinventory</DbTable>
+<Where>subinventory_id='%{subinventory_vLst[subinventory_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

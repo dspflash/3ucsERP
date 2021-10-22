@@ -1,0 +1,8 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="share" mustselected="0"><DbDetails><Where>idx='%{docid}'</Where></DbDetails><submit namelist="DbDetails" next="$this.docsharel.doc_id"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.docsharel</DbTable>
+<Where>idx='%{docsharel_vLst[idx]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

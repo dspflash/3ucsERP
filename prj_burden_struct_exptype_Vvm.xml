@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVprj_burden_struct_exptype" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_burden_struct_exptype_vLst" ToolTip="ttp_prj_burden_struct_exptype" Size="700,420" Heading="prj_expenditure_type_id,120;burden_cost_base_id,120;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_burden_struct_exptype_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_burden_struct_exptype p left join xbs.prj_expenditure_type_header p0 on p.prj_expenditure_type_id=p0.prj_expenditure_type_header_id left join xbs.prj_burden_cost_base p1 on p.burden_cost_base_id=p1.prj_burden_cost_base_id</DbTable>
+<Index>prj_burden_struct_exptype_id</Index>
+<Data>p0.expenditure_type prj_expenditure_type_id,p1.cost_base burden_cost_base_id,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_burden_struct_exptype_id</Data>
+<Order>prj_burden_struct_exptype_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.prj_burden_struct_exptype.GBDEDITprj_burden_struct_exptype" function="reset"/><assign name="$this.prj_burden_struct_exptype.prj_burden_structure_header_id" expr="%{prj_burden_structure_header_id}"/></op>
+<op text="modify"><DbDetails><Where>prj_burden_struct_exptype_id='%{prj_burden_struct_exptype_vLst[prj_burden_struct_exptype_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_burden_struct_exptype.prj_burden_struct_exptypeLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.prj_burden_struct_exptype</DbTable>
+<Where>prj_burden_struct_exptype_id='%{prj_burden_struct_exptype_vLst[prj_burden_struct_exptype_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEap_payment_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ap_payment_line_id" Text="create" ToolTip="ttp_createap_payment_line" Name="insertap_payment_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payment_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>ap_transaction_header_id[ap_transaction_header_id],line_description,amount,gl_amount,ap_payment_header_id[ap_payment_header_id]</Data>
+<DataEx>line_status,created_by,creation_date,last_update_by,last_update_date;1538,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="ap_payment_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyap_payment_line" Name="modifyap_payment_line" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payment_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>ap_transaction_header_id[ap_transaction_header_id],line_description,amount,gl_amount</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ap_payment_line_id='%{ap_payment_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="ap_payment_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetap_payment_line" Name="resetap_payment_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITap_payment_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchap_payment_line" Name="gsearchap_payment_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ap_payment_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITap_payment_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

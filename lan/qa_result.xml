@@ -1,0 +1,54 @@
+<Language name="qa_result">
+<Lang name="qa_result" value="质检结果"/>
+<Lang name="Inspection" value="质检"/>
+<Lang name="Inspect" value="质检"/>
+<Lang name="InspectLine" value="质检行"/>
+<Lang name="TabEditqa_result" value="qa_result Edit"/>
+<Lang name="TabViewqa_result" value="qa_result View"/>
+<Lang name="qa_cp_header_id" value="质检计划"/>
+<Lang name="ttp_qa_cp_header_id" value=""/>
+<Lang name="accept_anyway" value="接受"/>
+<Lang name="ttp_accept_anyway" value=""/>
+<Lang name="QA_result_action" value="触发动作"/>
+<Lang name="result_action_id" value="触发动作"/>
+<Lang name="ttp_result_action_id" value=""/>
+<Lang name="description" value="说明"/>
+<Lang name="ttp_description" value=""/>
+<Lang name="qa_result_res" value="质检项目"/>
+<Lang name="ttp_qa_result_res" value="qa_cp_line_id"/>
+<Lang name="qa_result_value" value="项目值"/>
+<Lang name="ttp_qa_result_value" value=""/>
+<Lang name="reference_key_value" value=""/>
+<Lang name="ttp_reference_key_value" value=""/>
+<Lang name="reference_key_name" value=""/>
+<Lang name="ttp_reference_key_name" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="reference_type" value=""/>
+<Lang name="ttp_reference_type" value=""/>
+<Lang name="qa_result_id" value=""/>
+<Lang name="ttp_qa_result_id" value=""/>
+<Lang name="final_mark" value="质检完成"/>
+<Lang name="ttp_final_mark" value=""/>
+<Lang name="ttp_operationqa_result" value="操作"/>
+<Lang name="ttp_createqa_result" value="新增"/>
+<Lang name="ttp_modifyqa_result" value="修改"/>
+<Lang name="ttp_resetqa_result" value="清除数据"/>
+<Lang name="ttp_deleteqa_result" value="删除"/>
+<Lang name="ttp_refreshqa_result" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

@@ -1,0 +1,16 @@
+﻿<WndTap Name="hd_service_contract_line" Text="hd_service_contract_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="item_id_m[item_id_m],hd_service_contract_header_id[hd_service_contract_header_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\hd_service_contract_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hd_service_contract_detail.xml"/>
+<Ctrls>
+<GroupBox  Name="GBhd_service_contract_line" id="hd_service_contract_line" Text="hd_service_contract_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_service_contract_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_service_contract_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_service_contract_line_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_service_contract_detail_Vv.xml"/>
+</Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="inserthd_service_contract_line" Visible="1"/><SetVisible name="modifyhd_service_contract_line" Visible="0"/></OnActivate>
+</WndTap>

@@ -1,0 +1,43 @@
+<WndTap Text="Inv Transfer" Name="Inv Transfer" Ver="2">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_transfer_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vOnhand.xml" popup="1"/>
+	</WndTaps>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_transaction_transfer.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_bom.xml"/>
+		<Ctrls>
+		<GroupBox Text="Inv Transfer" Name="GBInvTransfer" id="vInvTransfer" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_transfer_Vsm.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVinv_transaction" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.inv_transaction.GBDEDITinv_transaction" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetinv_transaction" Name="resetinv_transaction" Size="50,20">	<OnClick>	<submit next="GBDEDITinv_transaction" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchinv_transaction" Name="gsearchinv_transaction" Size="50,20" visible="true">
+	<OnClick>	<search next="wo_bomLst" listed="0" prefixand="1" inputed="1"><product format="product like '%%{opvalue}%'"/><material format="material like '%%{opvalue}%'"/></search><submit next="GBDEDITinv_transaction" namelist="search" function="search"/>	</OnClick>	</Button><TAB/>
+<Button Name="barcode" Size="80,20" Text="barcode" OnClick="(barcode_res)barcode"/>
+<TextBox Weight="170" Name="barcode_res" Size="170,20" visible="0"><OnEnChange>
+<if cond="%{barcode_res}"><DbDetails><where>where issue_number='%{barcode_res}'</where></DbDetails><submit next="vIssueLst" namelist="DbDetails"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" colsDisplay="16" PageSize="500" ToolTip="ttp_item" onload="init" Name="wo_bomLst" Size="700,420">
+			<DbDetails>
+			<DbTable>wip_wo_bom_v b LEFT JOIN inv_transaction it ON it.transaction_type_id=3 AND it.reference_key_name='wip_wo_bom' AND it.reference_key_value=b.wip_wo_bom_id</DbTable>
+			<Index>wip_wo_bom_id</Index>
+			<Data>wo_number,product,product_name,product_specification,product_description,material,item_name,item_specification,item_description,
+required_quantity,SUM(it.quantity) supply_quantity,issued_quantity,uom_name,start_date,wip_supply_type,supply_sub_inventory,supply_locator,material_id,b.uom_id,product_id,supply_sub_inventory_id,supply_locator_id,b.wip_wo_bom_id,wip_wo_header_id</Data>
+			<Order>wip_wo_bom_id</Order>
+			<Where>and supply_sub_inventory_id in (select subinventory_id from subinventory where type=1618 and org_id='%{orgid}')</Where>
+			<queryFormat>select %{data} from %{dbtable} where wo_status in (369,370) and b.org_id='%{orgid}' %{where} group by b.wip_wo_bom_id order by b.wip_wo_bom_id desc limit %{StartRow},%{PgSize}</queryFormat>
+			</DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<op text="Inv Transfer"><DbDetails><Where>item_id_m='%{wo_bomLst[material_id]}' and org_id='%{orgid}'</Where></DbDetails><submit next="$this.inv_transaction.item_id_m" namelist="DbDetails"/><DbDetails><Where>subinventory_id in (select subinventory_id from onhand where item_id_m='%{wo_bomLst[material_id]}' and org_id='%{orgid}' and onhand&gt;0)</Where></DbDetails><submit next="$this.inv_transaction.from_subinventory_id" namelist="DbDetails"/><DbDetails><Where>subinventory_id=if('%{wo_bomLst[supply_sub_inventory_id]}'!='','%{wo_bomLst[supply_sub_inventory_id]}',(select wip_supply_subinventory from item where item_id_m='%{wo_bomLst[material_id]}' and org_id='%{orgid}'))</Where></DbDetails><submit next="$this.inv_transaction.to_subinventory_id" namelist="DbDetails"/><assign name="$this.inv_transaction.quantity" expr="js(%{wo_bomLst[required_quantity]}-%{wo_bomLst[issued_quantity]})"/><assign name="$this.inv_transaction.reference_key_name" expr="wip_wo_bom"/><assign name="$this.inv_transaction.reference_key_value" expr="%{wo_bomLst[wip_wo_bom_id]}"/></op>
+			<op text="Onhand"><assign name="$this.vOnhand.item_id_m" expr="%{wo_bomLst[material_id]}"/><DbDetails><Where>and item_id_m='%{$this.vOnhand.item_id_m}'</Where></DbDetails><submit next="$this.vOnhand.OnhandLst" namelist="DbDetails"/></op>
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

@@ -1,0 +1,65 @@
+<Language name="gl_ledger">
+<Lang name="vledger" value="总账"/>
+<Lang name="combination" value="字段合并"/>
+<Lang name="code_combination_id" value="账目ID"/>
+<Lang name="period_name" value="账务期间"/>
+<Lang name="TabGlJournal" value="日记账"/>
+<Lang name="TabGlBalance" value="资产负债"/>
+<Lang name="createledger" value="设立总账"/>
+<Lang name="createcalendar" value="设立日历"/>
+<Lang name="createperiod" value="设立账务期间"/>
+<Lang name="manualJournal" value="人工记账"/>
+<Lang name="trial_balance" value="试算"/>
+<Lang name="gl_ledger" value="总账"/>
+<Lang name="TabEditgl_ledger" value="gl_ledger Edit"/>
+<Lang name="TabViewgl_ledger" value="gl_ledger View"/>
+<Lang name="ledger" value="分类账"/>
+<Lang name="ttp_ledger" value=""/>
+<Lang name="description" value="描述"/>
+<Lang name="ttp_description" value=""/>
+<Lang name="coa_id" value="COA ID"/>
+<Lang name="ttp_coa_id" value=""/>
+<Lang name="coa_structure_id" value="COA结构"/>
+<Lang name="ttp_coa_structure_id" value=""/>
+<Lang name="calendar_option_line_code" value="财务日历名"/>
+<Lang name="ttp_calendar_option_line_code" value=""/>
+<Lang name="currency_code" value="货币"/>
+<Lang name="ttp_currency_code" value=""/>
+<Lang name="future_enabled_periods" value="提前开放日历期间数"/>
+<Lang name="ttp_future_enabled_periods" value=""/>
+<Lang name="currency_balancing_ac_id" value="货币盈亏账目"/>
+<Lang name="ttp_currency_balancing_ac_id" value=""/>
+<Lang name="retained_earnings_ac_id" value="利息账目"/>
+<Lang name="ttp_retained_earnings_ac_id" value=""/>
+<Lang name="suspense_ac_id" value="悬账,未定账"/>
+<Lang name="ttp_suspense_ac_id" value=""/>
+<Lang name="rev_enabled" value="版本使能"/>
+<Lang name="ttp_rev_enabled" value=""/>
+<Lang name="rev_number" value="版本号"/>
+<Lang name="ttp_rev_number" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="gl_ledger_id" value=""/>
+<Lang name="ttp_gl_ledger_id" value=""/>
+<Lang name="ttp_operationgl_ledger" value="操作"/>
+<Lang name="ttp_creategl_ledger" value="新增"/>
+<Lang name="ttp_modifygl_ledger" value="修改"/>
+<Lang name="ttp_resetgl_ledger" value="清除数据"/>
+<Lang name="ttp_deletegl_ledger" value="删除"/>
+<Lang name="ttp_refreshgl_ledger" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

@@ -1,0 +1,11 @@
+﻿<GroupBox Name="GBDVmdm_price_list_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="mdm_price_list_line_vLst" ToolTip="ttp_mdm_price_list_line" Size="700,420" Heading="line_type,120;item_id_m,120;org_id,120;effective_start_date,90;effective_end_date,90;use_price_break_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;mdm_price_list_line_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.mdm_price_list_line m left join xbs.option_line o on m.line_type=o.option_line_id left join xbs.item i on m.item_id_m=i.item_id_m left join xbs.org o0 on m.org_id=o0.org_id</DbTable>
+<Index>mdm_price_list_line_id</Index>
+<Data>o.option_line_value line_type,i.item_number item_id_m,o0.org org_id,m.effective_start_date,m.effective_end_date,m.use_price_break_cb,m.created_by,m.creation_date,m.last_update_by,m.last_update_date,m.mdm_price_list_line_id</Data>
+<Order>mdm_price_list_line_id</Order></DbDetails>
+<DbDetails><Data>o.option_line_value line_type,i.item_number,o0.org,m.effective_start_date,m.effective_end_date,m.use_price_break_cb,m.created_by,m.creation_date,m.last_update_by,m.last_update_date,m.mdm_price_list_line_id, m.item_id_m, m.org_id</Data></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_price_list_line_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinv_issue_header"><Ctrls>
+<ListCtrl Heading="issue_number,250;transaction_type_id,120;reference_key_value,120;issue_date,90;carrier,640;vechile_number,640;comment,640;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;inv_issue_header_id,55;org_id,55;sets,55;" loadedclick="0" ToolTip="ttp_inv_issue_header" Name="inv_issue_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_issue_header i left join xbs.transaction_type t on i.transaction_type_id=t.transaction_type_id</DbTable>
+<Index>inv_issue_header_id</Index>
+<Data>i.issue_number,t.transaction_type transaction_type_id,i.reference_key_value,i.issue_date,i.carrier,i.vechile_number,i.comment,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.inv_issue_header_id,i.org_id,i.sets</Data>
+<Order>inv_issue_header_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

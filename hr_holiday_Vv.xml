@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVhr_holiday" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_holiday_vLst" ToolTip="ttp_hr_holiday_v" Size="700,450" OnLoad="init" Heading="holiday_date,90;holiday_type_id,55;org_id,55;description,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_holiday_id,95;" loadedclick="0">
+	<DbDetails >
+<Index>hr_holiday_id</Index>
+<DbTable>xbs.hr_holiday h left join xbs.org o on h.org_id=o.org_id</DbTable>
+<Data>h.holiday_date,h.holiday_type_id,o.org org_id,h.description,h.status,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_holiday_id</Data>
+<Order>hr_holiday_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>hr_holiday_id='%{hr_holiday_vLst[hr_holiday_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_holiday.hr_holidayLst"/><assign name="$this.hr_holiday.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_holiday</DbTable>
+<Where>hr_holiday_id='%{hr_holiday_vLst[hr_holiday_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_hr_holiday" expr="js(%{hr_holiday_vLst[currentpage]}+1)"/>
+<assign name="pgscb_hr_holiday" expr="js(%{hr_holiday_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

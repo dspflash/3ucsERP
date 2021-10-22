@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEpm_batch_ingredient" Size="100,100"><Ctrls>
+<Button sqlpkinsert="pm_batch_ingredient_id" Text="create" ToolTip="ttp_createpm_batch_ingredient" Name="insertpm_batch_ingredient" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_batch_ingredient</DbTable>
+<Data>pm_batch_header_id[pm_batch_header_id],line_no,revision_name,item_id_m,uom_id,planned_quantity,description,wip_planned_quantity,scale_type,contribute_yield_cb,byproduct_type,consumption_type,phantom_type,allocated_quantity,actual_quantity,requirement_date,subinventory_id,locator_id,step_no</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpm_batch_ingredient" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypm_batch_ingredient" Name="modifypm_batch_ingredient" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_batch_ingredient</DbTable>
+<Data>pm_batch_header_id[pm_batch_header_id],line_no,revision_name,item_id_m,uom_id,planned_quantity,description,wip_planned_quantity,scale_type,contribute_yield_cb,byproduct_type,consumption_type,phantom_type,allocated_quantity,actual_quantity,requirement_date,subinventory_id,locator_id,step_no</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>pm_batch_ingredient_id='%{pm_batch_ingredient_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpm_batch_ingredient" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpm_batch_ingredient" Name="resetpm_batch_ingredient" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpm_batch_ingredient" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchpm_batch_ingredient" Name="gsearchpm_batch_ingredient" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="pm_batch_ingredientLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITpm_batch_ingredient" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

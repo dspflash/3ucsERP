@@ -1,0 +1,13 @@
+<WndTap Name="inv_issue_line" Text="inv_issue_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="item_id_m[item_id_m],transaction_quantity,inv_issue_header_id[inv_issue_header_id],subinventory_id[subinventory_id],transaction_type_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\inv_issue_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBinv_issue_line" id="inv_issue_line" Text="inv_issue_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertinv_issue_line" Visible="1"/><SetVisible name="modifyinv_issue_line" Visible="0"/></OnActivate>
+</WndTap>

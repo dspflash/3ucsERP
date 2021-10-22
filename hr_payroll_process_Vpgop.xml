@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVhr_payroll_process" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialhr_payroll_process" Size="50,20">
+<OnClick><submit next="hr_payroll_process_vLst" function="initial"/><submit next="records_hr_payroll_process" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPhr_payroll_process_vLst" Size="50,20">
+<OnClick><submit next="hr_payroll_process_vLst" function="GetPage(first)"/><submit next="records_hr_payroll_process"/></OnClick></Button>
+<Button Text="prepage" Name="PREhr_payroll_process_vLst" Size="50,20">
+<OnClick><submit next="hr_payroll_process_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPhr_payroll_process_vLst" Size="50,20">
+<OnClick><submit next="hr_payroll_process_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

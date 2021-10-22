@@ -1,0 +1,19 @@
+<GroupBox Name="GBDVxerp_role_permission" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="xerp_role_permission_vLst" ToolTip="ttp_xerp_role_permission" Size="700,420" OnLoad="init" Heading="role_id,55;class,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.xerp_role x0 left join xbs.xerp_role_permission x on x.role_id=x0.role_id left join xbs.module_class m on x.class=m.name</DbTable>
+<Index>xerp_role_permission_id</Index>
+<Data>x0.role_name_cn role,m.description class,x.created_by,x.creation_date,x.last_update_by,x.last_update_date,x0.role_id,x.xerp_role_permission_id</Data>
+<Order>xerp_role_permission_id</Order>
+<Where>find_in_set(org_id,(getChildOrgs('%{orgid}')))</Where></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone"><submit next="$this.xerp_role_permission.GBDEDITxerp_role_permission" function="reset"/><DbDetails><Where>role_id='%{xerp_role_permission_vLst[role_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.xerp_role_permission.role_id"/></op>
+<op text="modify"><DbDetails><Where>role_id='%{xerp_role_permission_vLst[role_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.xerp_role_permission.role_id"/><DbDetails><Where>xerp_role_permission_id='%{xerp_role_permission_vLst[xerp_role_permission_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.xerp_role_permission.xerp_role_permissionLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.xerp_role_permission</DbTable>
+<Where>xerp_role_permission_id='%{xerp_role_permission_vLst[xerp_role_permission_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

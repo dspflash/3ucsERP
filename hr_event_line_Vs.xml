@@ -1,0 +1,67 @@
+﻿<GroupBox Name="GBDEDIThr_event_line"><Ctrls>
+<GroupBox Name="GB_user_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_user_id" Size="60,20" Text="user_id" Align="Right"  onload="init"/>
+<ComboBox Name="user_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_user_id"  onload="init">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>NAME,username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_resource_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_resource_id" Size="60,20" Text="resource_id" Align="Right"/>
+<TextBox Name="resource_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_resource_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_required_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="required_cb" Size="230,20" Text="required_cb" ToolTip="ttp_required_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_expected_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_expected_status" Size="60,20" Text="expected_status" Align="Right"/>
+<TextBox Name="expected_status" Size="170,20" Text="" Weight="170" ToolTip="ttp_expected_status"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_actual_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_actual_status" Size="60,20" Text="actual_status" Align="Right"/>
+<TextBox Name="actual_status" Size="170,20" Text="" Weight="170" ToolTip="ttp_actual_status"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>NAME,username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>NAME,username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_event_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hr_event_header_id" Size="60,20" Text="hr_event_header_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hr_event_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hr_event_header_id" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_event_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hr_event_line_id" Size="60,20" Text="hr_event_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hr_event_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hr_event_line_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{hr_event_line_id}'"><SetVisible name="inserthr_event_line" Visible="0"/><SetVisible name="modifyhr_event_line" Visible="1"/><else/><SetVisible name="inserthr_event_line" Visible="1"/><SetVisible name="modifyhr_event_line" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

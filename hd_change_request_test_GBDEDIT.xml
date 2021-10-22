@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDEDIThd_change_request"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_hd_support_request_id"><Ctrls>
+<Label Align="Right" Text="hd_support_request_id" Name="lb_hd_support_request_id" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hd_support_request_id" Name="hd_support_request_id" readonly="true" Size="170,20">
+	<DbDetails>
+<DbTable>xbs.hd_support_request</DbTable>
+<Index>hd_support_request_id</Index>
+<Data>support_number,hd_support_request_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_test_results"><Ctrls>
+<Label Align="Right" Text="test_results" Name="lb_test_results" Size="60,50"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_test_results" Name="test_results" Size="170,50"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_hd_change_request_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="hd_change_request_id" overlap="pre" Name="lb_hd_change_request_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hd_change_request_id" overlap="pre" Name="hd_change_request_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{hd_change_request_id}'"><SetVisible name="inserthd_change_request" Visible="0"/><SetVisible name="modifyhd_change_request" Visible="1"/><else/><SetVisible name="inserthd_change_request" Visible="1"/><SetVisible name="modifyhd_change_request" Visible="0"/></if><DbDetails><Where>hd_change_request_id='%{hd_change_request_id}'</Where></DbDetails><submit next="cc_co_line_vLst" namelist="DbDetails"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

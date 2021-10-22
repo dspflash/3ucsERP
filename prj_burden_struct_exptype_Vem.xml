@@ -1,0 +1,13 @@
+<WndTap Name="prj_burden_struct_exptype" Text="prj_burden_struct_exptype" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="prj_expenditure_type_id[prj_expenditure_type_header_id],burden_cost_base_id[prj_burden_cost_base_id],prj_burden_structure_header_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\prj_burden_struct_exptype.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBprj_burden_struct_exptype" id="prj_burden_struct_exptype" Text="prj_burden_struct_exptype" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_struct_exptype_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_struct_exptype_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_struct_exptype_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertprj_burden_struct_exptype" Visible="1"/><SetVisible name="modifyprj_burden_struct_exptype" Visible="0"/></OnActivate>
+</WndTap>

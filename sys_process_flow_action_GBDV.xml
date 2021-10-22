@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsys_process_flow_action"><Ctrls>
+<ListCtrl Heading="role_code,120;userid,120;pf_action_type,120;required_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;sys_process_flow_line_id,60;sys_process_flow_action_id,60;action_number,30;" loadedclick="0" ToolTip="ttp_sys_process_flow_action" Name="sys_process_flow_actionLst" Size="700,450" colsDisplay="6">
+	<DbDetails fcsm="1">
+<Index>sys_process_flow_action_id</Index>
+<DbTable>xbs.sys_process_flow_action s left join xbs.xerp_role x on s.role_code=x.role_id left join xbs.user_v u on s.userid=u.xerp_user_id left join xbs.user_v u0 on s.created_by=u0.xerp_user_id left join xbs.user_v u1 on s.last_update_by=u1.xerp_user_id</DbTable>
+<Data>x.role_name_cn role_code,u.NAME userid,s.pf_action_type,s.required_cb,u0.NAME created_by,s.creation_date,u1.NAME last_update_by,s.last_update_date,s.sys_process_flow_line_id,s.sys_process_flow_action_id,s.action_number</Data>
+<Order>sys_process_flow_action_id</Order></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_action_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

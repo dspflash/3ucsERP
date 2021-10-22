@@ -1,0 +1,20 @@
+﻿<WndTap Name="category_v" Text="category_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="category_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><category format="(c.category like '%%{opvalue}%')"/><category_type format="c.category_type='%{opvalue}'"/><parent_id format="c.parent_id='%{opvalue}'"/><description format="(c.description like '%%{opvalue}%')"/><created_by format="(c.created_by like '%%{opvalue}%')"/><creation_date format="(c.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(c.last_update_by like '%%{opvalue}%')"/><last_update_date format="(c.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><category_id format="(c.category_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\category.xml"/>
+<Ctrls><GroupBox  Name="GBcategory" id="category" Text="category" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="category_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVcategory" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.category.GBDEDITcategory" function="reset"/><assign name="$this.category.frmwndctrl" expr="%{$this.category_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetcategory" Name="resetcategory" Size="50,20">	<OnClick>	<submit next="GBDEDITcategory" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchcategory" Name="gsearchcategory" Size="50,20">	<OnClick>	
+<search next="category_vLst" listed="0" prefixwhere="1" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITcategory" namelist="search" function="search"/>	
+<search next="records_category" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITcategory" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="category_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="category_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="category_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

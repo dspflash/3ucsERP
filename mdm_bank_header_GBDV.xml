@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVmdm_bank_header"><Ctrls>
+<ListCtrl Heading="bank_name,640;bank_name_short,250;country,120;bank_name_alt,640;bank_number,60;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;mdm_bank_header_id,60;" loadedclick="1" ToolTip="ttp_mdm_bank_header" Name="mdm_bank_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_bank_header</DbTable>
+<Index>mdm_bank_header_id</Index>
+<Data>bank_name,bank_name_short,country,bank_name_alt,bank_number,status,created_by,creation_date,last_update_by,last_update_date,mdm_bank_header_id</Data>
+<Order>mdm_bank_header_id</Order></DbDetails>
+<OnClick><assign name="country[country_id]" function="SetSel" expr="%{mdm_bank_headerLst[country]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

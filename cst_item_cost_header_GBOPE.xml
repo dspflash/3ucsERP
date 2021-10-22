@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEcst_item_cost_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="cst_item_cost_header_id" Text="create" ToolTip="ttp_createcst_item_cost_header" Name="insertcst_item_cost_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.cst_item_cost_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],bom_cost_type[bom_cost_type_id],based_on_rollup_cb,purchase_price,sales_price,include_in_rollup_cb</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,org_id;'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="cst_item_cost_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifycst_item_cost_header" Name="modifycst_item_cost_header" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.cst_item_cost_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>bom_cost_type[bom_cost_type_id],based_on_rollup_cb,purchase_price,sales_price,include_in_rollup_cb</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>cst_item_cost_header_id='%{cst_item_cost_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="cst_item_cost_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetcst_item_cost_header" Name="resetcst_item_cost_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITcst_item_cost_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchcst_item_cost_header" Name="gsearchcst_item_cost_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="cst_item_cost_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITcst_item_cost_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

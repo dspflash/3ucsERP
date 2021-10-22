@@ -1,0 +1,50 @@
+<Language name="gl_calendar">
+<Lang name="gl_calendar" value="财务日历"/>
+<Lang name="TabEditgl_calendar" value="gl_calendar Edit"/>
+<Lang name="TabViewgl_calendar" value="gl_calendar View"/>
+<Lang name="name" value="日历"/>
+<Lang name="ttp_name" value=""/>
+<Lang name="option_line_code" value="日历名称"/>
+<Lang name="ttp_option_line_code" value=""/>
+<Lang name="calendar_type" value="类型"/>
+<Lang name="ttp_calendar_type" value=""/>
+<Lang name="c_year" value="年"/>
+<Lang name="ttp_c_year" value=""/>
+<Lang name="c_quarter" value="季"/>
+<Lang name="ttp_c_quarter" value=""/>
+<Lang name="c_number" value="月"/>
+<Lang name="ttp_c_number" value=""/>
+<Lang name="from_date" value="起始日"/>
+<Lang name="ttp_from_date" value=""/>
+<Lang name="to_date" value="终止日"/>
+<Lang name="ttp_to_date" value=""/>
+<Lang name="name_prefix" value="前缀"/>
+<Lang name="ttp_name_prefix" value=""/>
+<Lang name="adjustment_period_cb" value="调整区间"/>
+<Lang name="ttp_adjustment_period_cb" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="gl_calendar_id" value=""/>
+<Lang name="ttp_gl_calendar_id" value=""/>
+<Lang name="ttp_operationgl_calendar" value="操作"/>
+<Lang name="ttp_creategl_calendar" value="新增"/>
+<Lang name="ttp_modifygl_calendar" value="修改"/>
+<Lang name="ttp_resetgl_calendar" value="清除数据"/>
+<Lang name="ttp_deletegl_calendar" value="删除"/>
+<Lang name="ttp_refreshgl_calendar" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

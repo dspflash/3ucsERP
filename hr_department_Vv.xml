@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVhr_department" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_department_vLst" ToolTip="ttp_hr_department_v" Size="700,450" OnLoad="init" Heading="department,100;org_id,120;dept_parent,120;description,640;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;dept_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>dept_id</Index>
+<DbTable>xbs.hr_department h left join xbs.org o on h.org_id=o.org_id left join xbs.hr_department h0 on h.dept_parent=h0.dept_id left join xbs.user_v u on h.created_by=u.xerp_user_id left join xbs.user_v u0 on h.last_update_by=u0.xerp_user_id</DbTable>
+<Data>h.department,o.org org_id,h0.department dept_parent,h.description,u.NAME created_by,h.creation_date,u0.NAME last_update_by,h.last_update_date,h.dept_id</Data>
+<Order>dept_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>dept_id='%{hr_department_vLst[dept_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_department.hr_departmentLst"/><assign name="$this.hr_department.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_department</DbTable>
+<Where>dept_id='%{hr_department_vLst[dept_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_hr_department" expr="js(%{hr_department_vLst[currentpage]}+1)"/>
+<assign name="pgscb_hr_department" expr="js(%{hr_department_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

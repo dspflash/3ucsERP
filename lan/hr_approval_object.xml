@@ -1,0 +1,42 @@
+<Language name="hr_approval_object">
+<Lang name="hr_approval_object" value="hr_approval_object"/>
+<Lang name="TabEdithr_approval_object" value="hr_approval_object Edit"/>
+<Lang name="TabViewhr_approval_object" value="hr_approval_object View"/>
+<Lang name="object_code" value=""/>
+<Lang name="ttp_object_code" value=""/>
+<Lang name="object_name" value=""/>
+<Lang name="ttp_object_name" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="value_type" value=""/>
+<Lang name="ttp_value_type" value=""/>
+<Lang name="object_value" value=""/>
+<Lang name="ttp_object_value" value=""/>
+<Lang name="return_type" value=""/>
+<Lang name="ttp_return_type" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hr_approval_object_id" value=""/>
+<Lang name="ttp_hr_approval_object_id" value=""/>
+<Lang name="ttp_operationhr_approval_object" value="操作"/>
+<Lang name="ttp_createhr_approval_object" value="新增"/>
+<Lang name="ttp_modifyhr_approval_object" value="修改"/>
+<Lang name="ttp_resethr_approval_object" value="清除数据"/>
+<Lang name="ttp_deletehr_approval_object" value="删除"/>
+<Lang name="ttp_refreshhr_approval_object" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

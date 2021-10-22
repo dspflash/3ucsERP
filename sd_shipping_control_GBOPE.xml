@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEsd_shipping_control" Size="100,100"><Ctrls>
+<Button sqlpkinsert="sd_shipping_control_id" Text="create" ToolTip="ttp_createsd_shipping_control" Name="insertsd_shipping_control" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.sd_shipping_control</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>staging_subinventory_id[subinventory_id],staging_locator_id[locator_id],default_picking_rule_id,delivery_onpicking_cb,autosplit_onpicking_cb,deffer_invoicing_cb,default_requested_date_cb,default_schedule_ship_date_cb,default_promise_date_cb,rev_number,rev_enabled</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,org_id;'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="sd_shipping_controlLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifysd_shipping_control" Name="modifysd_shipping_control" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.sd_shipping_control</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>staging_subinventory_id[subinventory_id],staging_locator_id[locator_id],default_picking_rule_id,delivery_onpicking_cb,autosplit_onpicking_cb,deffer_invoicing_cb,default_requested_date_cb,default_schedule_ship_date_cb,default_promise_date_cb,rev_number,rev_enabled</Data>
+<DataEx>last_update_by,last_update_date,org_id;'%{user_id}',now(),'%{orgid}'</DataEx>
+<Where>sd_shipping_control_id='%{sd_shipping_control_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="sd_shipping_controlLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetsd_shipping_control" Name="resetsd_shipping_control" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_shipping_control" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchsd_shipping_control" Name="gsearchsd_shipping_control" Size="50,20" visible="false">
+	<OnClick>
+	<search next="sd_shipping_controlLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITsd_shipping_control" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

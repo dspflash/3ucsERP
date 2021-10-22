@@ -1,0 +1,7 @@
+﻿<WndTap Name="hr_employee_termination" Text="hr_employee_termination" Ver="2">
+<xi:include href="lan\hr_employee_termination.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBhr_employee_termination" id="hr_employee_termination" Text="hr_employee_termination" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_employee_termination_GBDEDIT.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_employee_termination_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+</WndTap>

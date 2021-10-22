@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVgl_balance"><Ctrls>
+<ListCtrl Heading="ledger_id,60;coa_combination_id,120;period_id,120;balance_type,120;begin_balance_dr,100;begin_balance_cr,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;gl_balance_id,60;" loadedclick="0" ToolTip="ttp_gl_balance" Name="gl_balanceLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_balance g left join xbs.gl_ledger g0 on g.ledger_id=g0.gl_ledger_id left join xbs.gl_account g1 on g.coa_combination_id=g1.gl_account_id left join xbs.gl_period g2 on g.period_id=g2.gl_period_id left join xbs.option_line o on g.balance_type=o.option_line_id left join xbs.option_line o0 on g.created_by=o0.option_line_id</DbTable>
+<Index>gl_balance_id</Index>
+<Data>g0.ledger ledger_id,g1.decription coa_combination_id,g2.period_name period_id,o.option_line_value balance_type,g.begin_balance_dr,g.begin_balance_cr,o0.option_line_id created_by,g.creation_date,g.last_update_by,g.last_update_date,g.gl_balance_id</Data>
+<Order>gl_balance_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

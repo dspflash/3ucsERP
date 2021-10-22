@@ -1,0 +1,25 @@
+<GroupBox Name="GBDVap_transaction_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="ap_transaction_line_vLst" ToolTip="ttp_ap_transaction_line" Size="700,180" DataJoin="%{this(reference_key_value,line_type,item_number,line_number,inv_line_quantity,inv_unit_price,inv_line_price,gl_inv_line_price,line_description,status)}%{detail}" DataJoinKey="ap_transaction_line_id" loadedclick="0">
+			<MDX id="detail" datatype="string">
+			<DbDetails>
+				<DbTable>ap_transaction_detail atd JOIN option_line act ON atd.account_type=act.option_line_id</DbTable> 
+				<Index>ap_transaction_line_id </Index>
+				<MDX>ap_transaction_line_id,acctp,amount</MDX>
+				<Data>ap_transaction_line_id,option_line_value acctp,amount</Data>
+			</DbDetails>
+			</MDX>
+	<DbDetails >
+<DbTable>xbs.ap_transaction_line a left join xbs.option_line o on a.line_type=o.option_line_id left join xbs.item i on a.item_id_m=i.item_id_m left join xbs.option_line o0 on a.status=o0.option_line_id</DbTable>
+<Index>ap_transaction_line_id</Index>
+<Data>a.reference_key_value,o.option_line_value line_type,i.item_number,a.line_number,a.inv_line_quantity,a.inv_unit_price,a.inv_line_price,a.gl_inv_line_price,a.line_description,o0.option_line_value status,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.ap_transaction_line_id</Data>
+<Order>ap_transaction_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{ap_transaction_header_id}"><alert expr="请先添加或选择已有项目！"/><else/><assign name="$parent.ap_transaction_line.ap_transaction_line_id" expr=""/><assign name="$parent.ap_transaction_line.reference_key_name" expr="po_line" function="setsel"/><DbDetails><Where>ap_transaction_header_id='%{ap_transaction_header_id}'</Where></DbDetails><submit next="$parent.ap_transaction_line.ap_transaction_header_id" namelist="DbDetails"/><DbDetails fcsm="1"><DbTable>po_line pl join item i on i.item_id_m=pl.item_id_m and i.org_id=pl.receving_org_id left join mdm_tax_code t on pl.tax_code_id=t.mdm_tax_code_id</DbTable><Index>po_line_id</Index><Data>concat(line_number,' ',item_number) title,i.item_id_m,i.uom_id,i.item_description,unit_price inv_unit_price,accepted_quantity-invoiced_quantity inv_line_quantity,percentage,po_line_id refid</Data><Where>po_header_id='%{reference_key_value[refid]}'</Where></DbDetails><submit next="$parent.ap_transaction_line.reference_key_value" namelist="DbDetails"/>
+</if></op>
+<op text="modify"><assign name="vAP_Po.ap_transaction_line.reference_key_name" expr="po_line" function="setsel"/><DbDetails><Where>ap_transaction_header_id='%{ap_transaction_header_id}'</Where></DbDetails><submit next="$parent.ap_transaction_line.ap_transaction_header_id" namelist="DbDetails"/><DbDetails fcsm="1"><DbTable>po_line pl join item i on i.item_id_m=pl.item_id_m and i.org_id=pl.receving_org_id left join mdm_tax_code t on pl.tax_code_id=t.mdm_tax_code_id</DbTable><Index>po_line_id</Index><Data>concat(line_number,' ',item_number) title,i.item_id_m,i.uom_id,i.item_description,unit_price inv_unit_price,percentage,po_line_id refid</Data><Where>po_header_id='%{reference_key_value[refid]}'</Where></DbDetails><submit next="$parent.ap_transaction_line.reference_key_value" namelist="DbDetails"/><DbDetails><Where>ap_transaction_line_id='%{ap_transaction_line_vLst[ap_transaction_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.ap_transaction_line.ap_transaction_lineLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails><DbTable>xbs.ap_transaction_line</DbTable><Where>ap_transaction_line_id='%{ap_transaction_line_vLst[ap_transaction_line_id]}'</Where><queryFormat>delete from %{table} where %{where} and status!=1527</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="adddetail"><submit next="$parent.ap_transaction_detail.GBDEDITap_transaction_detail" function="reset"/><DbDetails><Where>ap_transaction_line_id='%{ap_transaction_line_vLst[ap_transaction_line_id]}'</Where></DbDetails><submit next="$parent.ap_transaction_detail.ap_transaction_line_id" namelist="DbDetails"/><DbDetails><Where></Where></DbDetails><submit namelist="DbDetails" next="$parent.ap_transaction_detail.detail_ac_id"/></op>
+<op text="viewDetail"><assign name="$parent.ap_transaction_detail_v.ap_transaction_line_id" expr="%{ap_transaction_line_vLst[ap_transaction_line_id]}"/><DbDetails><Where>ap_transaction_line_id='%{ap_transaction_line_id}'</Where></DbDetails><submit next="$parent.ap_transaction_detail_v.ap_transaction_detail_vLst" namelist="DbDetails"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

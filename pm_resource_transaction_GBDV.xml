@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_resource_transaction"><Ctrls>
+<ListCtrl Heading="org_id,60;transaction_type,250;transaction_date,90;transaction_quantity,100;reason,640;reference,640;scrap_account_id,60;sales_order_header_id,60;sales_order_line_id,60;gl_journal_header_id,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_resource_transaction_id,60;" loadedclick="0" ToolTip="ttp_pm_resource_transaction" Name="pm_resource_transactionLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_resource_transaction</DbTable>
+<Index>pm_resource_transaction_id</Index>
+<Data>org_id,transaction_type,transaction_date,transaction_quantity,reason,reference,scrap_account_id,sales_order_header_id,sales_order_line_id,gl_journal_header_id,created_by,creation_date,last_update_by,last_update_date,pm_resource_transaction_id</Data>
+<Order>pm_resource_transaction_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

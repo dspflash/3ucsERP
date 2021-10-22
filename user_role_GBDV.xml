@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVuser_role"><Ctrls>
+<ListCtrl Heading="user_id,60;role_code,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;user_role_id,60;" loadedclick="0" ToolTip="ttp_user_role" Name="user_roleLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.user_role u left join xbs.xerp_user x on u.user_id=x.xerp_user_id left join xbs.xerp_role x0 on u.role_code=x0.role_id</DbTable>
+<Index>user_role_id</Index>
+<Data>x.username user_id,x0.role_name_cn role_code,u.created_by,u.creation_date,u.last_update_by,u.last_update_date,u.user_role_id</Data>
+<Order>user_role_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>user_role_id='%{user_role_vLst[user_role_id]}'</Where></DbDetails><submit next="$this.user_role.user_roleLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.user_role</DbTable>
+<Where>user_role_id='%{user_role_vLst[user_role_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

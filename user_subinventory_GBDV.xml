@@ -1,0 +1,9 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVuser_subinventory"><Ctrls>
+<ListCtrl Heading="subinventory_id,120;user_id,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;user_subinventory_id,60;" loadedclick="0" ToolTip="ttp_user_subinventory" onload="init" Name="user_subinventoryLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.user_subinventory u left join xbs.subinventory s on u.subinventory_id=s.subinventory_id left join xbs.xerp_user x on u.user_id=x.xerp_user_id</DbTable>
+<Index>user_subinventory_id</Index>
+<Data>s.subinventory subinventory_id,x.username user_id,u.created_by,u.creation_date,u.last_update_by,u.last_update_date,u.user_subinventory_id</Data>
+<Order>user_subinventory_id</Order></DbDetails>%{extelmt}<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

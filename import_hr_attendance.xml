@@ -1,0 +1,19 @@
+﻿<WndTap Name="hratd_import" Text="考勤导入">
+<var name="importdir" expr="layout\ucin\xbs\"/>
+<Ctrls><GroupBox Name="hratd_import" Text="考勤导入"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="import_base.xml"/>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12" Multiline="0" Name="GB_import"><Ctrls>
+	<TAB/><Button Name="import" Text="import" Clickneedconfirm="true" Size="80,24" ToolTip="（第1列为行号）员工证号为第2列，考勤日期为第3列，上班时间/备注为第4、5列，下班时间与备注为第6、7列，备注为第8列">
+	<OnClick><import button="import">sql:INSERT INTO hr_attendance (hr_employee_id,DATE,punch_in,punch_in_note,punch_out,punch_out_note,description,created_by,creation_date,last_update_by,last_update_date) VALUES((SELECT hr_employee_id FROM hr_employee_v WHERE name='%{雇员}' LIMIT 0,1),'%{日期}','%{上班时间}','%{上班(备注)}','%{下班时间}','%{下班(备注)}','%{备注}',%{user_id},NOW(),%{user_id},NOW());</import><submit next="dataList" namelist="import" function="import"/></OnClick></Button>sql:INSERT INTO hr_attendance (hr_employee_id,DATE,punch_in,punch_in_note,punch_out,punch_out_note,description,created_by,creation_date,last_update_by,last_update_date) VALUES((SELECT hr_employee_id FROM hr_employee_v WHERE employee_number='%1' LIMIT 0,1),'%2','%3','%4','%5','%6','%7',%{user_id},NOW(),%{user_id},NOW());
+</Ctrls></GroupBox>
+<BR/><GroupBox cols="xs12" Multiline="0" Name="GB_tbname"><Ctrls>
+	<ListCtrl Name="dataList" PageSize="1000" Size="700,500" OnLoad="">
+		<DbDetails>
+			<DbHost>local</DbHost>
+			<DbDatabase>%{importdir}%{TB_filename}</DbDatabase>
+			<Data>*</Data>
+		</DbDetails>
+		</ListCtrl>
+</Ctrls></GroupBox>
+	</Ctrls></GroupBox></Ctrls></WndTap>

@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEcc_co_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="cc_co_header_id" Text="create" ToolTip="ttp_createcc_co_header" Name="insertcc_co_header" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.cc_co_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>change_number,change_type,priority,security_level,template_id[cc_co_template_header_id],reason_code,product_line,process_flow_header_id[sys_process_flow_header_id],project_task_id,access_org,related_changes,description</Data>
+<DataEx>status,originator,origination_date,owner_user_id,created_by,creation_date,last_update_by,last_update_date,org_id;1565,'%{user_id}',now(),'%{user_id}','%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="cc_co_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifycc_co_header" Name="modifycc_co_header" Size="50,20">
+			  <OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.cc_co_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>change_number,change_type,priority,security_level,template_id[cc_co_template_header_id],reason_code,product_line,process_flow_header_id[sys_process_flow_header_id],project_task_id,access_org,related_changes,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>cc_co_header_id='%{cc_co_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="cc_co_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetcc_co_header" Name="resetcc_co_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITcc_co_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchcc_co_header" Name="gsearchcc_co_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="cc_co_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITcc_co_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

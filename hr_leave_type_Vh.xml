@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_leave_type" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_leave_typeLst" ToolTip="ttp_hr_leave_type" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_leave_type_id</Index>
+<DbTable>xbs.hr_leave_type</DbTable>
+<Data>leave_type,leave_category,maximum_accumulation,allow_carry_forward_cb,carry_forward_per_year,auto_convert_salary_cb,description,status,created_by,creation_date,last_update_by,last_update_date,hr_leave_type_id</Data>
+<Order>hr_leave_type_id</Order></DbDetails>
+<OnClick><assign name="leave_category[option_line_id]" expr="%{hr_leave_typeLst[leave_category]}" function="SetSel"/><assign name="created_by[xerp_user_id]" expr="%{hr_leave_typeLst[created_by]}" function="SetSel"/><assign name="last_update_by[xerp_user_id]" expr="%{hr_leave_typeLst[last_update_by]}" function="SetSel"/>
+<if cond="%{hr_leave_type_id}"><SetVisible name="inserthr_leave_type" Visible="0"/><SetVisible name="modifyhr_leave_type" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

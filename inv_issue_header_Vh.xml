@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVinv_issue_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="inv_issue_headerLst" ToolTip="ttp_inv_issue_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_issue_header</DbTable>
+<Index>inv_issue_header_id</Index>
+<Data>issue_number,transaction_type_id,reference_key_value,issue_date,carrier,vechile_number,comment,created_by,creation_date,last_update_by,last_update_date,inv_issue_header_id,org_id,sets</Data>
+<Order>inv_issue_header_id</Order></DbDetails>
+<OnClick><assign name="transaction_type_id[transaction_type_id]" expr="%{inv_issue_headerLst[transaction_type_id]}" function="SetSel"/><assign name="reference_key_value[refid]" expr="%{inv_issue_headerLst[reference_key_value]}" function="SetSel"/>
+<if cond="%{inv_issue_header_id}"><SetVisible name="insertinv_issue_header" Visible="0"/><SetVisible name="modifyinv_issue_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

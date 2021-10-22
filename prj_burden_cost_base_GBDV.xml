@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_burden_cost_base"><Ctrls>
+<ListCtrl Heading="cost_base,125;cost_base_type,125;effective_from,90;effective_to,90;priority,20;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_burden_cost_base_id,60;" loadedclick="0" ToolTip="ttp_prj_burden_cost_base" Name="prj_burden_cost_baseLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_burden_cost_base</DbTable>
+<Index>prj_burden_cost_base_id</Index>
+<Data>cost_base,cost_base_type,effective_from,effective_to,priority,description,created_by,creation_date,last_update_by,last_update_date,prj_burden_cost_base_id</Data>
+<Order>prj_burden_cost_base_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

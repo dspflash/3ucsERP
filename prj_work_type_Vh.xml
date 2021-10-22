@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_work_type" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_work_typeLst" ToolTip="ttp_prj_work_type" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_work_type</DbTable>
+<Index>prj_work_type_id</Index>
+<Data>work_type,tp_amount_type,effective_from,effective_to,billable_cb,capitalizable_cb,training_cb,shadow_resource_cb,utilization_type,utilization_percentage,unassigned_cb,non_worked_cb,description,created_by,creation_date,last_update_by,last_update_date,prj_work_type_id</Data>
+<Order>prj_work_type_id</Order></DbDetails>
+<OnClick>
+<if cond="%{prj_work_type_id}"><SetVisible name="insertprj_work_type" Visible="0"/><SetVisible name="modifyprj_work_type" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

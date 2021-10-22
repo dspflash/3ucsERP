@@ -1,0 +1,9 @@
+<WndTap Name="prj_burden_list_line_v" Text="prj_burden_list_line">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_list_line_Vem.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\prj_burden_list_line.xml"/>
+<Ctrls><GroupBox  Name="GBprj_burden_list_line" id="prj_burden_list_line" Text="prj_burden_list_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_list_line_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

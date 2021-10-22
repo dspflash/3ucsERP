@@ -1,0 +1,14 @@
+﻿<WndTap Name="mdm_price_list_detail_v" Text="mdm_price_list_detail">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_price_list_detail_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\mdm_price_list_detail.xml"/>
+<Ctrls><GroupBox  Name="GBmdm_price_list_detail" id="mdm_price_list_detail" Text="mdm_price_list_detail" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_price_list_detail_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVmdm_price_list_detail" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.mdm_price_list_detail.GBDEDITmdm_price_list_detail" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetmdm_price_list_detail" Name="resetmdm_price_list_detail" Size="50,20">	<OnClick>	<submit next="GBDEDITmdm_price_list_detail" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchmdm_price_list_detail" Name="gsearchmdm_price_list_detail" Size="50,20" visible="true">	<OnClick>	<search next="mdm_price_list_detail_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITmdm_price_list_detail" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_price_list_detail_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

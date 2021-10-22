@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVbom_stnd_op_res_assignment" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialbom_stnd_op_res_assignment" Size="50,20">
+<OnClick><submit next="bom_stnd_op_res_assignment_vLst" function="initial"/><submit next="records_bom_stnd_op_res_assignment" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPbom_stnd_op_res_assignment_vLst" Size="50,20">
+<OnClick><submit next="bom_stnd_op_res_assignment_vLst" function="GetPage(first)"/><submit next="records_bom_stnd_op_res_assignment"/></OnClick></Button>
+<Button Text="prepage" Name="PREbom_stnd_op_res_assignment_vLst" Size="50,20">
+<OnClick><submit next="bom_stnd_op_res_assignment_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPbom_stnd_op_res_assignment_vLst" Size="50,20">
+<OnClick><submit next="bom_stnd_op_res_assignment_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

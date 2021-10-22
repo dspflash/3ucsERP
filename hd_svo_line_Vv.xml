@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVhd_svo_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hd_svo_line_vLst" ToolTip="ttp_hd_svo_line" Size="700,420" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hd_svo_line h left join xbs.sd_quote_v s on h.item_id_m=s.item_id_m left join xbs.option_line o on h.destination_type=o.option_line_id left join xbs.option_line o0 on h.line_status=o0.option_line_id left join xbs.hd_service_activity_header h0 on h.service_activity_header_id=h0.hd_service_activity_header_id</DbTable>
+<Index>hd_svo_line_id</Index>
+<Data>s.item_number item_id_m,o.option_line_value destination_type,h.line_number,h.requested_date,h.price_date,h.line_price,h.line_description,o0.option_line_value line_status,h.sd_so_line_id,h.inv_org_id,h.hd_service_type_header_id,h.quantity,h.action_type_id,h.status,h0.activity_name service_activity_header_id,h.return_reason,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hd_svo_line_id,h.hd_svo_header_id</Data>
+<Order>hd_svo_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{hd_svo_header_id}"><alert expr="hd_svo_header_id is Empty!"/><else/><submit next="$parent.hd_svo_line.GBDEDIThd_svo_line" function="reset"/><assign name="$parent.hd_svo_line.hd_svo_header_id" expr="%{hd_svo_header_id}"/></if></op>
+<op text="modify"><DbDetails><Where>hd_svo_line_id='%{hd_svo_line_vLst[hd_svo_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.hd_svo_line.hd_svo_lineLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_svo_line</DbTable>
+<Where>hd_svo_line_id='%{hd_svo_line_vLst[hd_svo_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,9 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVuser_supplier"><Ctrls>
+<ListCtrl Heading="supplier_id,120;supplier_site_id,120;user_id,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;user_supplier_id,60;" loadedclick="0" ToolTip="ttp_user_supplier" onload="init" Name="user_supplierLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.user_supplier u left join xbs.supplier s on u.supplier_id=s.supplier_id left join xbs.supplier_site s0 on u.supplier_site_id=s0.supplier_site_name left join xbs.xerp_user x on u.user_id=x.xerp_user_id</DbTable>
+<Index>user_supplier_id</Index>
+<Data>s.supplier_name supplier_id,s0.supplier_site_name supplier_site_id,x.username user_id,u.created_by,u.creation_date,u.last_update_by,u.last_update_date,u.user_supplier_id</Data>
+<Order>user_supplier_id</Order></DbDetails>%{extelmt}<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

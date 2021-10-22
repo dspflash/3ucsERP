@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVinv_issue_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteinv_issue_line" Name="deleteinv_issue_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_issue_line</DbTable>
+<Where>inv_issue_line_id='%{inv_issue_lineLst[inv_issue_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchinv_issue_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshinv_issue_line" Name="searchinv_issue_line" Size="50,20">
+			  <OnClick><submit next="inv_issue_lineLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPinv_issue_lineLst" OnClick="(inv_issue_lineLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREinv_issue_lineLst" OnClick="(inv_issue_lineLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPinv_issue_lineLst" OnClick="(inv_issue_lineLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

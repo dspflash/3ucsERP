@@ -1,0 +1,9 @@
+<WndTap Name="mdm_bank_account_v" Text="mdm_bank_account">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_account_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\mdm_bank_account.xml"/>
+<Ctrls><GroupBox  Name="GBmdm_bank_account" id="mdm_bank_account" Text="mdm_bank_account" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_account_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

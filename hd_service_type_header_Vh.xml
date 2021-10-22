@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhd_service_type_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hd_service_type_headerLst" ToolTip="ttp_hd_service_type_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_service_type_header</DbTable>
+<Index>hd_service_type_header_id</Index>
+<Data>service_type,primary_service_type,active_cb,repair_mode,pre_repair_activity_rma,pre_repair_activity_so,post_repair_activity_rma,post_repair_activity_so,auto_create_so_rma_cb,prices_list_id,description,created_by,creation_date,last_update_by,last_update_date,hd_service_type_header_id</Data>
+<Order>hd_service_type_header_id</Order></DbDetails>
+<OnClick><assign name="primary_service_type[option_line_id]" expr="%{hd_service_type_headerLst[primary_service_type]}" function="SetSel"/><assign name="pre_repair_activity_rma[hd_service_activity_header_id]" expr="%{hd_service_type_headerLst[pre_repair_activity_rma]}" function="SetSel"/><assign name="pre_repair_activity_so[hd_service_activity_header_id]" expr="%{hd_service_type_headerLst[pre_repair_activity_so]}" function="SetSel"/><assign name="post_repair_activity_rma[hd_service_activity_header_id]" expr="%{hd_service_type_headerLst[post_repair_activity_rma]}" function="SetSel"/><assign name="post_repair_activity_so[hd_service_activity_header_id]" expr="%{hd_service_type_headerLst[post_repair_activity_so]}" function="SetSel"/><assign name="auto_create_so_rma_cb[hd_service_activity_header_id]" expr="%{hd_service_type_headerLst[auto_create_so_rma_cb]}" function="SetSel"/><assign name="prices_list_id[mdm_price_list_header_id]" expr="%{hd_service_type_headerLst[prices_list_id]}" function="SetSel"/>
+<if cond="%{hd_service_type_header_id}"><SetVisible name="inserthd_service_type_header" Visible="0"/><SetVisible name="modifyhd_service_type_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

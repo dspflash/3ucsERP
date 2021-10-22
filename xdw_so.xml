@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" ?>
+<WndTap Name="xdw_so" transactional="0" Text="数据分析">
+<var name="url" expr="$localurl/mybi.htm"/>
+	<Ctrls>
+	<GroupBox Text="数据分析" Name="xdw_so" id="xdw_so" cols="xs12 sm12 md12 lg12" Size="100,100"><Ctrls>
+		<GroupBox Name="btns" cols="xs12 sm12 md12 lg12" Size="100,100"><Ctrls>
+		<Button Name="invonhand" Text="库存分析" Size="100,20" tooltip="chart"><OnClick><DbDetails><queryFormat>SELECT concat(item_number,item_name) 商品名称,sluggish 呆滞期,onhand 库存 FROM xbs.invonhand_v where  sluggish is not null and onhand is not null</queryFormat></DbDetails><submit namelist="DbDetails" next="ExcelList"/></OnClick></Button><TAB/>
+		<Button Name="so" Text="销售分析" Size="100,20" tooltip="chart"><OnClick><DbDetails><queryFormat>SELECT item_name 商品名称,line_quantity 数量,line_price 总价 FROM xbs.sd_so_line_v</queryFormat></DbDetails><submit namelist="DbDetails" next="ExcelList"/></OnClick></Button><TAB/>
+		<Button Name="so_week" Text="销售分析（周）" Size="100,20" tooltip="chart"><OnClick><DbDetails><queryFormat>SELECT WEEK(creation_date) week,SUM(line_price) 总价,SUM(line_quantity) 总量 FROM xbs.sd_so_line_v GROUP BY WEEK(creation_date)</queryFormat></DbDetails><submit namelist="DbDetails" next="ExcelList"/></OnClick></Button><TAB/> WHERE YEAR(creation_date)=YEAR(CURDATE())
+		<Button Name="po" Text="采购分析" Size="100,20" tooltip="chart"><OnClick><DbDetails><queryFormat>SELECT CONCAT(item_number) 商品名称,line_quantity 采购量,received_quantity 交付量 FROM xbs.po_all_v</queryFormat></DbDetails><submit namelist="DbDetails" next="ExcelList"/></OnClick></Button> WHERE line_quantity!=received_quantity AND DATEDIFF(CURDATE(),need_by_date)<TAB/>,DATEDIFF(CURDATE(),need_by_date) 滞缓期
+		<Button Name="wo" Text="工单分析" Size="100,20" tooltip="chart"><OnClick><DbDetails><queryFormat>SELECT CONCAT(wo_number,material) item,required_quantity 需求量,issued_quantity 领用量 FROM xbs.wip_wo_bom_v</queryFormat></DbDetails><submit namelist="DbDetails" next="ExcelList"/></OnClick></Button><TAB/> WHERE wo_status IN (373,374) AND required_quantity!=issued_quantity
+		<Button Name="ar" Text="应收分析" Size="100,20" tooltip="chart"><OnClick><DbDetails><queryFormat>SELECT so_number 单号,amount 总额,ar_amount 发票额,receipt_amount 已收款额 FROM xbs.ar_sdso_v WHERE amount</queryFormat></DbDetails><submit namelist="DbDetails" next="ExcelList"/></OnClick></Button><TAB/>
+		<Button Name="ap" Text="应付分析" Size="100,20" tooltip="chart"><OnClick><DbDetails><queryFormat>SELECT po_number 单号,po_amount 总额,ap_amount 发票额,paid_amount 已付款额 FROM xbs.ap_po_v WHERE po_amount</queryFormat></DbDetails><submit namelist="DbDetails" next="ExcelList"/></OnClick></Button><TAB/>
+</Ctrls></GroupBox>		<BR AutoHeight="1"/>
+		<GroupBox Name="c1" cols="xs12 sm12 md12 lg12" Size="100,100"><Ctrls>
+		<WebBrowser Name="rpa_web" Studio="1" Size="700,400" AutoSizeable="1" Url="%{ctrls.browser.url}" ecoption="{
+            tooltip : {
+                trigger: 'axis'
+            },
+            legend: {
+                data:[%{segnames}]
+            },
+            toolbox: {
+                show : true,
+                feature : {
+                    magicType : {show: true, type: ['line', 'bar']},
+					restore : {show: true}
+                }
+            },
+            calculable : true,
+            xAxis : [
+                {
+                    type : 'category',
+                    data : [%{segdata0}]
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value',
+                    splitArea : {show : true}
+                }
+            ],
+            series : [
+                {
+                    name:'%{segname1}',
+                    type:'bar',
+                    data:[%{segdata1}]
+                },
+                {
+                    name:'%{segname2}',
+                    type:'bar',
+                    data:[%{segdata2}]
+                }
+            ]
+        };"></WebBrowser>
+</Ctrls></GroupBox>		<BR AutoHeight="1"/>
+		<GroupBox Name="c2" cols="xs12 sm12 md12 lg12" Size="100,100"><Ctrls>
+		<WebBrowser Name="xdw_1" Studio="1" Size="700,400" AutoSizeable="1" Url="%{ctrls.browser.url}" ecdata="{value:%{segvalue}, name:'%{segname}'}" ecoption="{
+    title : {
+        text: '客户销售量分析',
+        subtext: '纯属虚构',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item',
+        formatter: '{a} &lt;br/&gt;{b} : {c} ({d}%)'
+    },
+    legend: {
+        orient : 'vertical',
+        x : 'left',
+        data:[%{segnames}]
+    },
+    toolbox: {
+        show : true,
+        feature : {
+            magicType : {
+                show: true, 
+                type: ['pie', 'funnel'],
+                option: {
+                    funnel: {
+                        x: '25%',
+                        width: '50%',
+                        funnelAlign: 'left',
+                        max: 1548
+                    }
+                }
+            },
+            restore : {show: true}
+        }
+    },
+    calculable : true,
+    series : [
+        {
+            name:'访问来源',
+            type:'pie',
+            radius : '55%',
+            center: ['50%', '60%'],
+            data:[%{segdatas}]
+        }
+    ]
+};"></WebBrowser></Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+		<GroupBox Name="c3" cols="xs12 sm12 md12 lg12" Size="100,100"><Ctrls>
+<WebBrowser Name="xdw_2" Studio="1" Size="700,400" AutoSizeable="1" Url="%{ctrls.browser.url}" ecdata="{value:%{segvalue}, name:'%{segname}'}" ecoption="{
+    title : {
+        text: '天翼云销量',
+        subtext: '纯属虚构',
+        x:'center'
+    },
+    tooltip : {
+        trigger: 'item'
+    },
+    legend: {
+        orient: 'vertical',
+        x:'left',
+        data:['天翼云3','天翼云4','天翼云5']
+    },
+    dataRange: {
+        min: 0,
+        max: 2500,
+        x: 'left',
+        y: 'bottom',
+        text:['高','低'],
+        calculable : true
+    },
+    toolbox: {
+        show: true,
+        orient : 'vertical',
+        x: 'right',
+        y: 'center',
+        feature : {
+            restore : {show: true}
+        }
+    },
+    roamController: {
+        show: true,
+        x: 'right',
+        mapTypeControl: {
+            'china': true
+        }
+    },
+    series : [
+        {
+            name: '天翼云3',
+            type: 'map',
+            mapType: 'china',
+            roam: false,
+            itemStyle:{
+                normal:{label:{show:true}},
+                emphasis:{label:{show:true}}
+            },
+            data:[
+                %{segdatas}
+            ]
+        }
+    ]
+};"></WebBrowser></Ctrls></GroupBox><BR AutoHeight="1"/>
+SELECT item_name,SUM(onhand),sluggish FROM xdw.invonhand WHERE sluggish IS NOT NULL GROUP BY item_id_m
+		<ListCtrl Name="ExcelList" Size="200,150" Headings="" visible="0" overlap="pre"><DbDetails><queryFormat>SELECT item_name 商品名称,line_quantity 数量,line_price 总价 FROM xbs.sd_so_line_v</queryFormat></DbDetails><OnChanged><ExchangeData name="rpa_web" function="ExchangeData"/><submit next="ExcelList" namelist="ExchangeData" function="ExchangeData"/></OnChanged></ListCtrl>
+		<ListCtrl Name="ExcelListpie" Size="200,150" Headings="" visible="0" overlap="pre"><DbDetails><queryFormat>SELECT ar_customer_name segNAME,SUM(line_quantity) segVALUE FROM xbs.sd_so_line_v GROUP BY ar_customer_id</queryFormat></DbDetails><OnChanged><ExchangeData name="xdw_1" function="ExchangeData"/><submit next="ExcelListpie" namelist="ExchangeData" function="ExchangeData"/></OnChanged></ListCtrl>
+		<ListCtrl Name="ExcelListmap" Size="200,150" Headings="" visible="0" overlap="pre"><DbDetails><queryFormat>SELECT SUBSTR(NAME,1,2) segNAME,2500-(narc/4)*100 segVALUE FROM mylayout.narc WHERE narcp=0</queryFormat></DbDetails><OnChanged><ExchangeData name="xdw_2" function="ExchangeData"/><submit next="ExcelListmap" namelist="ExchangeData" function="ExchangeData"/></OnChanged></ListCtrl>
+		</Ctrls></GroupBox>
+	</Ctrls>
+	<OnActivate><submit next="ExcelList"/><submit next="ExcelListpie"/><submit next="ExcelListmap"/></OnActivate>
+</WndTap>

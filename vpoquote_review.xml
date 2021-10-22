@@ -1,0 +1,52 @@
+<WndTap Text="vpoquote_review" Name="vpoquote_review" Ver="2">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_quote_line.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_vm.xml" popup="1"/>
+	</WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_quote_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_quote_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="vpo_quote" Name="GBvpo_quote_review" id="vpo_quote_review" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_header_GBDsearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_quote_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="PO_quoteLst" listed="0" prefixand="1" inputed="1"><item_id_m format="po_quote_header_id IN (SELECT po_quote_header_id FROM po_quote_line WHERE item_id_m='%{opvalue}')"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search><submit next="GBDEDITpo_quote_header" namelist="search" function="search"/>
+	<search next="PO_quoteLineLst" listed="0" prefixand="1" inputed="1"><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml" /></search><submit next="GBDEDITpo_quote_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+	<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+	<ListCtrl loadedclick="0" colsDisplay="23" PageSize="500" ToolTip="ttp_item" Name="PO_quoteLst" onload="init" Size="700,420">
+		<DbDetails>
+		<DbTable>xbs.po_quote_header_v</DbTable>
+		<Index>po_quote_header_id</Index>
+		<Data>*</Data>
+		<Order>po_quote_header_id</Order>
+		<Where>and approval_status=320 and quote_status=1487 </Where>
+		<queryFormat>select %{data} from %{dbtable} where bu_org_id='%{orgid}' and approval_status in(320,323,324,326) %{where} limit %{StartRow},%{PgSize}</queryFormat>
+		</DbDetails>
+		<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="quote_approval_rule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/quote_approval_rule.xml"/></rules>
+<inputs approval_status="%{PO_quoteLst[approval_status]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+		<op text="view"><DbDetails><Where>po_quote_header_id='%{$this.po_quotelst[po_quote_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.vpo_quote_line.PO_quoteLst"/></op>
+		<op text="attachment"><DbDetails><Where>reftbl='po_quote_header' and refid='%{$this.po_quotelst[po_quote_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.attachment_v.attachment_vLst"/></op>
+		<op text="reEdit" needconfirm="1"><DbDetails><queryFormat>update po_quote_header set approval_status=321,quote_status=1486,last_update_by='%{user_id}',last_update_date=now() where po_quote_header_id='%{PO_quoteLst[po_quote_header_id]}'  and quote_status=1487 and approval_status=320</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+		<op text="review" needconfirm="1"><DbDetails><queryFormat>update po_quote_header set approval_status=324,last_update_by='%{user_id}',last_update_date=now() where po_quote_header_id='%{PO_quoteLst[po_quote_header_id]}' and quote_status=1487 and approval_status=320</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+		</operator>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls></GroupBox>
+	</Ctrls>
+<OnChanged/>
+<OnActivate/>
+</WndTap>

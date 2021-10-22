@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVoption_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteoption_header" Name="deleteoption_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.option_header</DbTable>
+<Where>option_header_id='%{option_headerLst[option_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchoption_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshoption_header" Name="searchoption_header" Size="50,20">
+			  <OnClick><submit next="option_headerLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPoption_headerLst" OnClick="(option_headerLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREoption_headerLst" OnClick="(option_headerLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPoption_headerLst" OnClick="(option_headerLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

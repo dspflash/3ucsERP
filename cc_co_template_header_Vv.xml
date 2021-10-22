@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVcc_co_template_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="cc_co_template_header_vLst" ToolTip="ttp_cc_co_template_header_v" Size="700,450" OnLoad="init" Heading="template_name,125;reftbltp,120;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,120;cc_co_template_header_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>cc_co_template_header_id</Index>
+<DbTable>xbs.cc_co_template_header c left join xbs.user_v u on c.created_by=u.xerp_user_id left join xbs.user_v u0 on c.last_update_by=u0.xerp_user_id left join xbs.org o on c.org_id=o.org_id</DbTable>
+<Data>c.template_name,c.reftbltp,c.description,u.NAME created_by,c.creation_date,u0.NAME last_update_by,c.last_update_date,o.org org_id,c.cc_co_template_header_id</Data>
+<Order>cc_co_template_header_id</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>cc_co_template_header_id='%{cc_co_template_header_vLst[cc_co_template_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.cc_co_template_header.cc_co_template_headerLst"/><assign name="$this.cc_co_template_header.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.cc_co_template_header</DbTable>
+<Where>cc_co_template_header_id='%{cc_co_template_header_vLst[cc_co_template_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_cc_co_template_header" expr="js(%{cc_co_template_header_vLst[currentpage]}+1)"/>
+<assign name="pgscb_cc_co_template_header" expr="js(%{cc_co_template_header_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

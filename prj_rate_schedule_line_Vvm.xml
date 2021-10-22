@@ -1,0 +1,20 @@
+<GroupBox Name="GBDVprj_rate_schedule_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_rate_schedule_line_vLst" ToolTip="ttp_prj_rate_schedule_line" Size="700,420" Heading="rate,75;uom_id,120;reference_key_name,500;reference_key_value,120;mark_up_percentage,20;effective_from,90;effective_to,90;resource_name,125;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_rate_schedule_line_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_rate_schedule_line p left join xbs.uom u on p.uom_id=u.uom_id</DbTable>
+<Index>prj_rate_schedule_line_id</Index>
+<Data>p.rate,u.uom_name uom_id,p.reference_key_name,p.reference_key_value,p.mark_up_percentage,p.effective_from,p.effective_to,p.resource_name,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_rate_schedule_line_id</Data>
+<Order>prj_rate_schedule_line_id</Order>
+<Where>prj_rate_schedule_header_id='%{prj_rate_schedule_header_id}'</Where>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.prj_rate_schedule_line.GBDEDITprj_rate_schedule_line" function="reset"/><DbDetails><Where>prj_rate_schedule_header_id='%{prj_rate_schedule_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_rate_schedule_line.prj_rate_schedule_header_id"/></op>
+<op text="modify"><DbDetails><Where>prj_rate_schedule_line_id='%{prj_rate_schedule_line_vLst[prj_rate_schedule_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_rate_schedule_line.prj_rate_schedule_lineLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.prj_rate_schedule_line</DbTable>
+<Where>prj_rate_schedule_line_id='%{prj_rate_schedule_line_vLst[prj_rate_schedule_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

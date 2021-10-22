@@ -1,0 +1,9 @@
+<WndTap Name="hr_employee_experience_v" Text="hr_employee_experience">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_employee_experience_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hr_employee_experience.xml"/>
+<Ctrls><GroupBox  Name="GBhr_employee_experience" id="hr_employee_experience" Text="hr_employee_experience" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_employee_experience_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

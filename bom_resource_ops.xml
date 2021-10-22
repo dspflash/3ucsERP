@@ -1,0 +1,8 @@
+﻿<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="addone" mustselected="0"><submit next="$this.bom_resource.GBDEDITbom_resource" function="reset"/></op>
+<op text="modify"><DbDetails><Where>bom_resource_id='%{bom_resource_vlst[bom_resource_id]}'</Where></DbDetails><submit namelist="DbDetails"  next="$this.bom_resource.bom_resourcelst"/></op>
+<!--op text="rate"><assign name="$this.bom_resource_cost_v.bom_resource_id" expr="%{bom_resourcelst[bom_resource_id]}"/><DbDetails><Where>b.bom_resource_id='%{bom_resourcelst[bom_resource_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_resource_cost_v.bom_resource_cost_vLst"/></op-->
+<!--op text="addoneRate"><submit next="$this.bom_resource_cost.GBDEDITbom_resource_cost" function="reset"/><DbDetails><Where>bom_resource_id='%{bom_resourcelst[bom_resource_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_resource_cost.bom_resource_id"/></op>
+<op text="modifyRate"><submit next="$this.bom_resource_cost.GBDEDITbom_resource_cost" function="reset"/><DbDetails><Where>bom_resource_id='%{bom_resourcelst[bom_resource_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_resource_cost.bom_resource_id"/><DbDetails><Where>bom_resource_cost_id='%{bom_resourceLst[bom_resource_cost_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_resource_cost.bom_resource_costLst"/></op-->
+<op text="overhead"><assign name="$this.bom_oh_res_assignment_v.bom_resource_id" expr="%{bom_resource_vlst[bom_resource_id]}"/><DbDetails><Where>b.resource_id='%{bom_resource_vlst[bom_resource_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_oh_res_assignment_v.bom_oh_res_assignment_vLst"/></op>
+</operator>

@@ -1,0 +1,56 @@
+<GroupBox Name="GBDEDITcc_co_line_value"><Ctrls>
+<GroupBox Name="GB_cc_co_template_line_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cc_co_template_line_id" Size="60,20" Text="cc_co_template_line_id" Align="Right"/>
+<ComboBox Name="cc_co_template_line_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_cc_co_template_line_id">
+	<DbDetails>
+<DbTable>xbs.cc_co_template_line</DbTable>
+<Index>cc_co_template_line_id</Index>
+<Data>label,field_name,control_type,control_value,list_values,cc_co_template_line_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><if cond="%{cc_co_template_line_id[control_type]}='Select'"><DbDetails><queryFormat>%{cc_co_template_line_id[list_values]}</queryFormat></DbDetails><submit next="field_value" namelist="DbDetails"/><else/><submit next="field_value" function="resetcontent"/></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_ref_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_ref_id" Size="60,20" Text="ref_id" Align="Right"/>
+<ComboBox Name="ref_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_ref_id"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_field_value" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field_value" Size="60,20" Text="field_value" Align="Right" type="2"/>
+<ComboBox Name="field_value" Size="170,100" Text="" Weight="170"  ToolTip="ttp_field_value" type="2"><OnEditChange><assign name="fval" expr="%{field_value[windowtext]}"/></OnEditChange><OnSelEndOk><assign name="fval" expr="%{field_value[id]}"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>NAME,username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>NAME,username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cc_co_line_value_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_cc_co_line_value_id" Size="60,20" Text="cc_co_line_value_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="cc_co_line_value_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_cc_co_line_value_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{cc_co_line_value_id}'"><SetVisible name="insertcc_co_line_value" Visible="0"/><SetVisible name="modifycc_co_line_value" Visible="1"/><else/><SetVisible name="insertcc_co_line_value" Visible="1"/><SetVisible name="modifycc_co_line_value" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cc_co_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_cc_co_line_id" Size="60,20" Text="cc_co_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="cc_co_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_cc_co_line_id" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

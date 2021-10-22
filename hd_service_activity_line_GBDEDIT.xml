@@ -1,0 +1,66 @@
+﻿<GroupBox Name="GBDEDIThd_service_activity_line"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_hd_service_activity_header_id"><Ctrls>
+<Label Align="Right" Text="hd_service_activity_header_id" Name="lb_hd_service_activity_header_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hd_service_activity_header_id" Name="hd_service_activity_header_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_header_type_id"><Ctrls>
+<Label Align="Right" Text="header_type_id" onload="init" Name="lb_header_type_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_header_type_id" onload="init" Name="header_type_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.sd_document_type</DbTable>
+<Index>sd_document_type_id</Index>
+<Data>document_type_name,sd_document_type_id</Data>
+<Where>level='header' and bu_org_id_r='%{org_id}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_type_id"><Ctrls>
+<Label Align="Right" Text="line_type_id" onload="init" Name="lb_line_type_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_line_type_id" onload="init" Name="line_type_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.sd_document_type</DbTable>
+<Index>sd_document_type_id</Index>
+<Data>document_type_name,sd_document_type_id</Data>
+<Where>level='line' and bu_org_id_r='%{org_id}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>NAME,username,xerp_user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index/>
+<Data>NAME,username,xerp_user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_hd_service_activity_line_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="hd_service_activity_line_id" overlap="pre" Name="lb_hd_service_activity_line_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hd_service_activity_line_id" overlap="pre" Name="hd_service_activity_line_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{hd_service_activity_line_id}'"><SetVisible name="inserthd_service_activity_line" Visible="0"/><SetVisible name="modifyhd_service_activity_line" Visible="1"/><else/><SetVisible name="inserthd_service_activity_line" Visible="1"/><SetVisible name="modifyhd_service_activity_line" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_bu_org_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="bu_org_id" overlap="pre" Name="lb_bu_org_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_bu_org_id" overlap="pre" Name="bu_org_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

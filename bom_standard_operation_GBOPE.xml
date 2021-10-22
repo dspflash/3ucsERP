@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEbom_standard_operation" Size="100,100"><Ctrls>
+<Button sqlpkinsert="bom_standard_operation_id" Text="create" ToolTip="ttp_createbom_standard_operation" Name="insertbom_standard_operation" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.bom_standard_operation</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>department_id[bom_department_id],standard_operation,description,status</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,org_id;'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertbom_standard_operation[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="bom_standard_operationLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.bom_standard_operation_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifybom_standard_operation" Name="modifybom_standard_operation" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.bom_standard_operation</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>standard_operation,description,status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>bom_standard_operation_id='%{bom_standard_operation_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifybom_standard_operation[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="bom_standard_operationLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.bom_standard_operation_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetbom_standard_operation" Name="resetbom_standard_operation" Size="50,20">
+<OnClick>
+<submit next="GBDEDITbom_standard_operation" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchbom_standard_operation" Name="gsearchbom_standard_operation" Size="50,20" visible="false">
+<OnClick>
+<search next="bom_standard_operationLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITbom_standard_operation" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,10 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{hr_payroll_id}"><alert expr="hr_payroll_id is Empty!"/><else/><submit next="$this.hr_payroll_process.GBDEDIThr_payroll_process" function="reset"/><assign name="$this.hr_payroll_process.hr_payroll_id" expr="%{hr_payroll_id}"/></if></op>
+<op text="modify"><DbDetails><Where>hr_payroll_process_id='%{hr_payroll_process_vLst[hr_payroll_process_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_payroll_process.hr_payroll_processLst"/></op>
+<op text="payslip"><DbDetails><Where>h.hr_payroll_process_id='%{hr_payroll_process_vLst[hr_payroll_process_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.hr_payslip_header_v.hr_payslip_header_vLst"/><assign name="$parent.hr_payslip_header_v.hr_payroll_process_id" expr='%{hr_payroll_process_vLst[hr_payroll_process_id]}'/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_payroll_process</DbTable>
+<Where>hr_payroll_process_id='%{hr_payroll_process_vLst[hr_payroll_process_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

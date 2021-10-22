@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVhd_svo_actuals" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hd_svo_actuals_vLst" ToolTip="ttp_hd_svo_actuals" Size="700,420" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hd_svo_actuals h left join xbs.sd_quote_v s on h.item_id_m=s.item_id_m left join xbs.option_line o on h.line_status=o.option_line_id left join xbs.option_line o0 on h.billing_type=o0.option_line_id</DbTable>
+<Index>hd_svo_actuals_id</Index>
+<Data>s.item_number item_id_m,h.line_price,o.option_line_value line_status,h.sd_so_line_id,h.quantity,h.source,o0.option_line_code billing_type,h.hd_svo_estimates_id,h.wip_wo_header_id,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hd_svo_header_id,h.hd_svo_actuals_id</Data>
+<Order>hd_svo_actuals_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{hd_svo_header_id}"><alert expr="hd_svo_header_id is Empty!"/><else/><submit next="$parent.hd_svo_actuals.GBDEDIThd_svo_actuals" function="reset"/><assign name="$parent.hd_svo_actuals.hd_svo_header_id" expr="%{hd_svo_header_id}"/></if></op>
+<op text="modify"><DbDetails><Where>hd_svo_actuals_id='%{hd_svo_actuals_vLst[hd_svo_actuals_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.hd_svo_actuals.hd_svo_actualsLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_svo_actuals</DbTable>
+<Where>hd_svo_actuals_id='%{hd_svo_actuals_vLst[hd_svo_actuals_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

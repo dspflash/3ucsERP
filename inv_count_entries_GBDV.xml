@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinv_count_entries"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_inv_count_entries" Name="inv_count_entriesLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_count_entries i left join xbs.uom u on i.uom_id=u.uom_id left join xbs.subinventory s on i.subinventory_id=s.subinventory_id left join xbs.locator l on i.locator_id=l.locator_id left join xbs.inv_lot_number i0 on i.lot_number=i0.inv_lot_number_id</DbTable>
+<Index>inv_count_entries_id</Index>
+<Data>u.uom_name uom_id,s.subinventory subinventory_id,l.locator locator_id,i0.lot_number lot_number,i.system_qty,i.schedule_date,i.count_date,i.count_qty,i.counted_by,i.adjusted_qty,i.reason,i.description,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.status,i.org_id,i.inv_count_entries_id</Data>
+<Order>inv_count_entries_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>inv_count_entries_id='%{inv_count_entries_vLst[inv_count_entries_id]}'</Where></DbDetails><submit next="$this.inv_count_entries.inv_count_entriesLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.inv_count_entries</DbTable>
+<Where>inv_count_entries_id='%{inv_count_entries_vLst[inv_count_entries_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

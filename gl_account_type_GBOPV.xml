@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVgl_account_type" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletegl_account_type" Name="deletegl_account_type" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_account_type</DbTable>
+<Where>gl_account_type_id='%{gl_account_typeLst[gl_account_type_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchgl_account_type" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshgl_account_type" Name="searchgl_account_type" Size="50,20">
+			  <OnClick><submit next="gl_account_typeLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPgl_account_typeLst" OnClick="(gl_account_typeLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREgl_account_typeLst" OnClick="(gl_account_typeLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPgl_account_typeLst" OnClick="(gl_account_typeLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

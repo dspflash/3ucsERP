@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEhr_approval_limit_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hr_approval_limit_line_id" Text="create" ToolTip="ttp_createhr_approval_limit_line" Name="inserthr_approval_limit_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_approval_limit_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>limit_object[hr_approval_object_id],limit_type,limit_range_low,limit_range_high,amount_limit,inactive_date,hr_approval_limit_header_id[hr_approval_limit_header_id]</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hr_approval_limit_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_approval_limit_line" Name="modifyhr_approval_limit_line" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_approval_limit_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>limit_object[hr_approval_object_id],limit_type,limit_range_low,limit_range_high,amount_limit,inactive_date</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hr_approval_limit_line_id='%{hr_approval_limit_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hr_approval_limit_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_approval_limit_line" Name="resethr_approval_limit_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIThr_approval_limit_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchhr_approval_limit_line" Name="gsearchhr_approval_limit_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="hr_approval_limit_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDIThr_approval_limit_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

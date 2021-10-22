@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEhd_subscription_detail" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hd_subscription_detail_id" Text="create" ToolTip="ttp_createhd_subscription_detail" Name="inserthd_subscription_detail" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hd_subscription_detail</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>line_type[option_line_id],hd_subscription_header_id,hd_subscription_line_id,member_name,member_dob,vehcile_no,vehcile_registration,road_tax_expiry_date,vehcile_details,description</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_subscription_detailLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhd_subscription_detail" Name="modifyhd_subscription_detail" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hd_subscription_detail</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>line_type[option_line_id],hd_subscription_header_id,hd_subscription_line_id,member_name,member_dob,vehcile_no,vehcile_registration,road_tax_expiry_date,vehcile_details,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hd_subscription_detail_id='%{hd_subscription_detail_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_subscription_detailLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethd_subscription_detail" Name="resethd_subscription_detail" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIThd_subscription_detail" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchhd_subscription_detail" Name="gsearchhd_subscription_detail" Size="50,20" visible="false">
+	<OnClick>
+	<search next="hd_subscription_detailLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDIThd_subscription_detail" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

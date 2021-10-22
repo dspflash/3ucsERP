@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVpos_inv_control" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletepos_inv_control" Name="deletepos_inv_control" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pos_inv_control</DbTable>
+<Where>pos_inv_control_id='%{pos_inv_controlLst[pos_inv_control_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpos_inv_control" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshpos_inv_control" Name="searchpos_inv_control" Size="50,20">
+			  <OnClick><submit next="pos_inv_controlLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPpos_inv_controlLst" OnClick="(pos_inv_controlLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREpos_inv_controlLst" OnClick="(pos_inv_controlLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPpos_inv_controlLst" OnClick="(pos_inv_controlLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

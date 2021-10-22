@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEar_customer_relation" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ar_customer_relation_id" Text="create" ToolTip="ttp_createar_customer_relation" Name="insertar_customer_relation" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_customer_relation</DbTable>
+<Data>ar_customer_id[ar_customer_id],org_id[org_id],reciprocal_cb,bill_to_cb,ship_to_cb</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_customer_relation" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyar_customer_relation" Name="modifyar_customer_relation" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_customer_relation</DbTable>
+<Data>ar_customer_id[ar_customer_id],org_id[org_id],reciprocal_cb,bill_to_cb,ship_to_cb</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ar_customer_relation_id='%{ar_customer_relation_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_customer_relation" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetar_customer_relation" Name="resetar_customer_relation" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITar_customer_relation" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchar_customer_relation" Name="gsearchar_customer_relation" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ar_customer_relationLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITar_customer_relation" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

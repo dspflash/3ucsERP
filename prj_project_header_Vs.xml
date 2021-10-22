@@ -1,0 +1,164 @@
+<GroupBox Name="GBDEDITprj_project_header"><Ctrls>
+<GroupBox Name="GB_project_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_project_number" Size="60,20" Text="project_number" Align="Right"/>
+<TextBox Name="project_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_project_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_name" Size="60,20" Text="name" Align="Right"/>
+<TextBox Name="name" Size="170,20" Text="" Weight="170" ToolTip="ttp_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_prj_project_type_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_prj_project_type_id" Size="60,20" Text="prj_project_type_id" Align="Right" onload="init"/>
+<ComboBox Name="prj_project_type_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_prj_project_type_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_project_type_header</DbTable>
+<Index>prj_project_type_header_id</Index>
+<Data>project_type,prj_project_type_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_ar_customer_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_ar_customer_id" Size="60,20" Text="ar_customer_id" Align="Right" onload="init" type="2"/>
+<ComboBox Name="ar_customer_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_ar_customer_id" onload="init" type="2">
+	<DbDetails>
+<DbTable>xbs.ar_customer</DbTable>
+<Index>ar_customer_id</Index>
+<Data>customer_name,currency currency_id,ar_customer_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><if cond="%{ar_customer_id}"><submit next="ar_customer_site_id"/><if cond="%{ar_customer_id[currency_id]}"><DbDetails><Where>currency_id='%{ar_customer_id[currency_id]}'</Where></DbDetails><submit next="doc_currency" namelist="DbDetails"/><else/><DbDetails><Where/></DbDetails><submit next="doc_currency" namelist="DbDetails"/></if></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_ar_customer_site_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_ar_customer_site_id" Size="60,20" Text="ar_customer_site_id" Align="Right"/>
+<ComboBox Name="ar_customer_site_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_ar_customer_site_id">
+	<DbDetails>
+<DbTable>xbs.ar_customer_site</DbTable>
+<Index>ar_customer_site_id</Index>
+<Data>customer_site_name,ar_customer_site_id</Data>
+<Where>ar_customer_id='%{ar_customer_id[ar_customer_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_current_phase" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_current_phase" Size="60,20" Text="current_phase" Align="Right" Visible="false" overlap="pre" readonly="true" onload="init"/>
+<ComboBox Name="current_phase" Size="170,100" Text="" Weight="170"  ToolTip="ttp_current_phase" Visible="false" overlap="pre" readonly="true" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=253</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_accounting_group" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_accounting_group" Size="60,20" Text="accounting_group" Align="Right" onload="init"/>
+<ComboBox Name="accounting_group" Size="170,100" Text="" Weight="170"  ToolTip="ttp_accounting_group" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=262</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_currency" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_currency" Size="60,20" Text="currency" Align="Right" onload="init" selectedIndex="0"/>
+<ComboBox Name="currency" Size="170,100" Text="" Weight="170"  ToolTip="ttp_currency" onload="init" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.currency</DbTable>
+<Index>currency_id</Index>
+<Data>title,currency_id</Data>
+<Where>currency_id=(SELECT currency_code FROM xbs.org_ledger_v WHERE org_id='%{orgid}')</Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><if cond="%{doc_currency[currency_id]}"><if cond="%{currency[currency_id]}"><submit next="exchange_rate_type"/></if></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_doc_currency" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_doc_currency" Size="60,20" Text="doc_currency" Align="Right" selectedIndex="0"/>
+<ComboBox Name="doc_currency" Size="170,100" Text="" Weight="170"  ToolTip="ttp_doc_currency" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.currency</DbTable>
+<Index>currency_id</Index>
+<Data>title,currency_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><if cond="%{doc_currency[currency_id]}"><if cond="%{currency[currency_id]}"><submit next="exchange_rate_type"/></if></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_manager_user_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_manager_user_id" Size="60,20" Text="manager_user_id" Align="Right" type="2" onload="init"/>
+<ComboBox Name="manager_user_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_manager_user_id" type="2" onload="init">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat>select %{data} from %{dbtable} where org_id='%{orgid}' %{where} limit 0,20</queryFormat></DbDetails><OnEditChange><DbDetails><Where>and username like '%%{manager_user_id[windowtext]}%'</Where></DbDetails><submit namelist="DbDetails"/></OnEditChange></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_start_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_start_date" Size="60,20" Text="start_date" Align="Right"/>
+<DateTime Name="start_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_start_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_completion_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_completion_date" Size="60,20" Text="completion_date" Align="Right"/>
+<DateTime Name="completion_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_completion_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_source" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_source" Size="60,20" Text="source" Align="Right"/>
+<TextBox Name="source" Size="170,20" Text="" Weight="170" ToolTip="ttp_source"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_reference_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_reference_type" Size="60,20" Text="reference_type" Align="Right"/>
+<TextBox Name="reference_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_reference_type"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_direct_labor_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="direct_labor_cb" Size="230,20" Text="direct_labor_cb" ToolTip="ttp_direct_labor_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_is_template_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="is_template_cb" Size="230,20" Text="is_template_cb" ToolTip="ttp_is_template_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_project_status" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_project_status" Size="60,20" Text="project_status" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<ComboBox Name="project_status" Size="170,100" Text="" Weight="170"  ToolTip="ttp_project_status" Visible="false" overlap="pre" readonly="true">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=143</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_approval_status" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_approval_status" Size="60,20" Text="approval_status" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<ComboBox Name="approval_status" Size="170,100" Text="" Weight="170"  ToolTip="ttp_approval_status" Visible="false" overlap="pre" readonly="true">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=132</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bu_org_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_bu_org_id" Size="60,20" Text="bu_org_id" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="bu_org_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_bu_org_id" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_header_amount" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_header_amount" Size="60,20" Text="header_amount" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="header_amount" Size="170,20" Text="" Weight="170" ToolTip="ttp_header_amount" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_prj_project_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_prj_project_header_id" Size="60,20" Text="prj_project_header_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="prj_project_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_prj_project_header_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBprj_project_header" expr="TABEDITprj_project_header"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

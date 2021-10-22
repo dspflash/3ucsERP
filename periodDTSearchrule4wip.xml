@@ -1,0 +1,1 @@
+<periodDTS format="start_date between '%{periodDTS[datetime]}' and '%{periodDTS[datetime2]}'"/>

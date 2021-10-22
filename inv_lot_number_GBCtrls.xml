@@ -1,0 +1,66 @@
+<GroupBox Name="GBCtrlsinv_lot_number"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_lot_number"><Ctrls>
+<Label Align="Right" Text="lot_number" Name="lb_lot_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_lot_number" Name="lot_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_quantity"><Ctrls>
+<Label Align="Right" Text="quantity" Name="lb_quantity" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_quantity" Name="quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_item_id_m"><Ctrls>
+<Label Align="Right" Text="item_id_m" OnLoad="init" Name="lb_item_id_m" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_item_id_m" OnLoad="init" Name="item_id_m" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.item</DbTable>
+<Data>item_number,item_id_m</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_generation"><Ctrls>
+<Label Align="Right" Text="generation" Name="lb_generation" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_generation" Name="generation" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_org_id"><Ctrls>
+<Label Align="Right" Text="org_id" Name="lb_org_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_org_id" Name="org_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_first_inv_transaction_id"><Ctrls>
+<Label Align="Right" Text="first_inv_transaction_id" Name="lb_first_inv_transaction_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_first_inv_transaction_id" Name="first_inv_transaction_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_origination_type"><Ctrls>
+<Label Align="Right" Text="origination_type" OnLoad="init" Name="lb_origination_type" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_origination_type" OnLoad="init" Items="Inventory|WIP_COMPLETION|RECEVING|SHIPMENT|MANUAL|SYS_GEN" Name="origination_type" Size="170,100"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_origination_date"><Ctrls>
+<Label Align="Right" Text="origination_date" Name="lb_origination_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_origination_date" Name="origination_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" OnLoad="init" Name="lb_status" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_status" OnLoad="init" Items="Active|Expired" Name="status" Size="170,100"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_inv_transaction_id"><Ctrls>
+<Label Align="Right" Text="last_inv_transaction_id" Name="lb_last_inv_transaction_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_last_inv_transaction_id" Name="last_inv_transaction_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_created_by"><Ctrls>
+<Label Align="Right" Text="created_by" Name="lb_created_by" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" Name="created_by" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_creation_date"><Ctrls>
+<Label Align="Right" Text="creation_date" Name="lb_creation_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" Name="creation_date" Size="170,20" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_update_by"><Ctrls>
+<Label Align="Right" Text="last_update_by" Name="lb_last_update_by" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" Name="last_update_by" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_update_date"><Ctrls>
+<Label Align="Right" Text="last_update_date" Name="lb_last_update_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" Name="last_update_date" Size="170,20" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_inv_lot_number_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="inv_lot_number_id" overlap="pre" Name="lb_inv_lot_number_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_inv_lot_number_id" overlap="pre" Name="inv_lot_number_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

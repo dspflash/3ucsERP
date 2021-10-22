@@ -1,0 +1,56 @@
+﻿<Language name="hr_overtime_transaction">
+<Lang name="hr_overtime_transaction" value="加班处理"/>
+<Lang name="TabEdithr_overtime_transaction" value="hr_overtime_transaction Edit"/>
+<Lang name="TabViewhr_overtime_transaction" value="hr_overtime_transaction View"/>
+<Lang name="employee_id" value="雇员"/>
+<Lang name="ttp_employee_id" value=""/>
+<Lang name="requsted_date" value="申请日期"/>
+<Lang name="ttp_requsted_date" value=""/>
+<Lang name="approved_date" value="审批日期"/>
+<Lang name="ttp_approved_date" value=""/>
+<Lang name="approved_by_employee_id" value="审批人"/>
+<Lang name="ttp_approved_by_employee_id" value=""/>
+<Lang name="overtime_status" value="加班状态"/>
+<Lang name="ttp_overtime_status" value=""/>
+<Lang name="overtime_type" value="加班类型"/>
+<Lang name="ttp_overtime_type" value=""/>
+<Lang name="overtime_quantity" value="加班数量"/>
+<Lang name="ttp_overtime_quantity" value=""/>
+<Lang name="from_datetime" value="开始时间"/>
+<Lang name="ttp_from_datetime" value=""/>
+<Lang name="to_datetime" value="结束时间"/>
+<Lang name="ttp_to_datetime" value=""/>
+<Lang name="reason" value="缘由"/>
+<Lang name="ttp_reason" value=""/>
+<Lang name="contact_details" value="联系信息"/>
+<Lang name="ttp_contact_details" value=""/>
+<Lang name="sys_notification_id" value=""/>
+<Lang name="ttp_sys_notification_id" value=""/>
+<Lang name="sys_notification_group_id" value=""/>
+<Lang name="ttp_sys_notification_group_id" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hr_overtime_transaction_id" value=""/>
+<Lang name="ttp_hr_overtime_transaction_id" value=""/>
+<Lang name="ttp_operationhr_overtime_transaction" value=""/>
+<Lang name="ttp_createhr_overtime_transaction" value=""/>
+<Lang name="ttp_modifyhr_overtime_transaction" value=""/>
+<Lang name="ttp_resethr_overtime_transaction" value=""/>
+<Lang name="ttp_deletehr_overtime_transaction" value=""/>
+<Lang name="ttp_refreshhr_overtime_transaction" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

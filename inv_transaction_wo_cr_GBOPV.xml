@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVinv_transaction" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteinv_transaction" Name="deleteinv_transaction" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_transaction</DbTable>
+<Where>inv_transaction_id='%{inv_transactionLst[inv_transaction_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchinv_transaction" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshinv_transaction" Name="searchinv_transaction" Size="50,20">
+			  <OnClick><submit next="inv_transactionLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPinv_transactionLst" OnClick="(inv_transactionLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREinv_transactionLst" OnClick="(inv_transactionLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPinv_transactionLst" OnClick="(inv_transactionLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

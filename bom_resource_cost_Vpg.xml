@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGbom_resource_cost"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_bom_resource_cost" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>bom_resource_cost_id</Index>
+<DbTable>xbs.bom_resource_cost b left join xbs.bom_resource b0 on b.bom_resource_id=b0.bom_resource_id left join xbs.bom_cost_type b1 on b.bom_cost_type=b1.bom_cost_type_id</DbTable>
+<Data>count(*) records</Data>
+<Order>bom_resource_cost_id</Order><Queryformat>select %{data} from (select b.bom_resource_cost_id from %{dbtable} %{where} GROUP BY b.bom_resource_cost_id  ORDER BY b.bom_resource_cost_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_bom_resource_cost" expr="js(Math.ceil(%{records_bom_resource_cost}/%{bom_resource_cost_vLst[countsperpage]}))"/>
+<assign name="pgscb_bom_resource_cost" expr="js('1~'+Math.ceil(%{records_bom_resource_cost}/%{bom_resource_cost_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_bom_resource_cost" Size="60,20"><OnSelEndOK><submit next="bom_resource_cost_vLst" function="GetPage(%{pgscb_bom_resource_cost}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_bom_resource_cost" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_bom_resource_cost" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagebom_resource_cost_vLst" Size="50,20"><OnClick><submit next="bom_resource_cost_vLst" function="GetPage(%{pgcur_bom_resource_cost}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

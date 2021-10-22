@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpos_transaction_header"><Ctrls>
+<ListCtrl Heading="terminal_name,250;currency_code,125;header_amount,60;tax_amount,60;discount_amount,60;total_amount,60;description,640;ar_customer_id,60;ar_customer_site_id,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pos_transaction_header_id,60;" loadedclick="0" ToolTip="ttp_pos_transaction_header" onload="init" Name="pos_transaction_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pos_transaction_header</DbTable>
+<Index>pos_transaction_header_id</Index>
+<Data>terminal_name,currency_code,header_amount,tax_amount,discount_amount,total_amount,description,ar_customer_id,ar_customer_site_id,created_by,creation_date,last_update_by,last_update_date,pos_transaction_header_id</Data>
+<Order>pos_transaction_header_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

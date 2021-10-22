@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVfp_mrp_planned_order"><Ctrls>
+<ListCtrl Heading="item_id_m,120;order_date,90;need_by_date,90;quantity,100;fp_mrp_planned_order_id,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;" loadedclick="0" ToolTip="ttp_fp_mrp_planned_order" Name="fp_mrp_planned_orderLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_mrp_planned_order</DbTable>
+<Index>fp_mrp_planned_order_id</Index>
+<Data>item_id_m,order_date,need_by_date,quantity,fp_mrp_planned_order_id,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>fp_mrp_planned_order_id</Order></DbDetails>
+<OnClick><assign name="item_id_m[item_id_m]" function="SetSel" expr="%{fp_mrp_planned_orderLst[item_id_m]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

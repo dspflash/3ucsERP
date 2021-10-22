@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGhr_payroll_process"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_hr_payroll_process" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>hr_payroll_process_id</Index>
+<DbTable>xbs.hr_payroll_process h left join xbs.hr_payroll_schedule h0 on h.hr_payroll_schedule_id=h0.hr_payroll_schedule_id left join xbs.gl_journal_header g on h.gl_journal_header_id=g.gl_journal_header_id</DbTable>
+<Data>count(*) records</Data>
+<Order>hr_payroll_process_id</Order><Queryformat>select %{data} from (select h.hr_payroll_process_id from %{dbtable} %{where} GROUP BY h.hr_payroll_process_id  ORDER BY h.hr_payroll_process_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_hr_payroll_process" expr="js(Math.ceil(%{records_hr_payroll_process}/%{hr_payroll_process_vLst[countsperpage]}))"/>
+<assign name="pgscb_hr_payroll_process" expr="js('1~'+Math.ceil(%{records_hr_payroll_process}/%{hr_payroll_process_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_hr_payroll_process" Size="60,20"><OnSelEndOK><submit next="hr_payroll_process_vLst" function="GetPage(%{pgscb_hr_payroll_process}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_hr_payroll_process" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_hr_payroll_process" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagehr_payroll_process_vLst" Size="50,20"><OnClick><submit next="hr_payroll_process_vLst" function="GetPage(%{pgcur_hr_payroll_process}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,113 @@
+<WndTap Name="vPo" Text="vPo">
+	<WndTaps>
+	<WndTap Text="po_line" Name="po_line" Ver="2" popup="1">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_line_promise_Vem.xml" popup="1"/>
+	</WndTaps>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_line.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_detail.xml"/>
+		<Ctrls>
+		<GroupBox Text="po_line" Name="GBpo_line" id="po_line" Size="100,100"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="po_lineLst" Size="700,420">
+			<DbDetails>
+			<DbTable>xbs.PO_line_v</DbTable>
+			<Index>po_line_id</Index>
+			<Data>*</Data>
+			<Order>po_line_id</Order>
+			</DbDetails>
+	<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+	<op text="po_promise"><assign name="$this.po_line.po_line_id" expr="%{po_lineLst[po_line_id]}"/><assign name="$this.po_line.line_description" expr="%{po_lineLst[line_description]}"/><assign name="$this.po_line.need_by_date" expr="%{po_lineLst[need_by_date]}"/></op>
+	</operator>
+		</ListCtrl></Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap>
+	<WndTap Text="po_print" Name="po_print" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_detail.xml"/>
+	<Ctrls>
+	<GroupBox Text="po_print" Name="GBpo_print" id="po_print" Size="100,100">
+	<Ctrls>
+		<MagicCtrl Name="qr_itemname" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="60,60" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_header_GBDEDIT.xml"></xi:include>
+	<BR AutoHeight="1"/><GroupBox Text="po_line" Name="GBpo_line" id="po_line" Size="100,100"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="po_lineLst" Size="700,420">
+			<DbDetails>
+			<DbTable>xbs.PO_line_v</DbTable>
+			<Index>po_line_id</Index>
+			<Data>*</Data>
+			<Order>po_line_id</Order>
+			</DbDetails>
+		</ListCtrl></Ctrls></GroupBox>
+<BR AutoHeight="1"/><Button Text="print" ToolTip="ttp_print" Name="print" Size="50,20" visible="true">
+	<OnClick><submit next="GBpo_print" function="print"/><DbDetails><queryFormat>update po_header set printed_date=now() where po_header_id='%{po_header_id}';</queryFormat></DbDetails><submit namelist="DbDetails"/>
+	</OnClick>
+	</Button><TAB/>
+	<ListCtrl Name="po_headerLst" ToolTip="ttp_po_header" Size="70,20" loadedclick="1" visible="0">
+		<DbDetails fcsm="1">
+		<DbTable>xbs.po_header</DbTable>
+		<Index>po_header_id</Index>
+		<Data>*</Data>
+		<Order>po_header_id</Order></DbDetails>
+		<OnClick>
+		<assign name="po_type[option_line_id]" expr="%{po_headerLst[po_type]}" function="SetSel"/><assign name="supplier_id[supplier_id]" expr="%{po_headerLst[supplier_id]}" function="SetSel"/><assign name="supplier_site_id[supplier_site_id]" expr="%{po_headerLst[supplier_site_id]}" function="SetSel"/><assign name="payment_term_id[payment_term_id]" expr="%{po_headerLst[payment_term_id]}" function="SetSel"/><assign name="ship_to_id[address_id]" expr="%{po_headerLst[ship_to_id]}" function="SetSel"/><assign name="bill_to_id[address_id]" expr="%{po_headerLst[bill_to_id]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{po_headerLst[currency]}" function="SetSel"/><assign name="doc_currency[currency_id]" expr="%{po_headerLst[doc_currency]}" function="SetSel"/>
+			<magicdata filename="data/qr_po_number.png"><data>%{po_headerLst[po_number]}</data></magicdata>
+			<submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+		</OnClick>
+		</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate><SetVisible name="insertpo_header" Visible="1"/><SetVisible name="modifypo_header" Visible="0"/></OnActivate>
+		</WndTap>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vPO"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_header_GBDSearch4SupplierUser.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="poLst" listed="0" prefixand="1" inputed="1">
+	<agreement_start_date op="(" ref=""/>
+	<agreement_end_date op=")" ref=""/></search>
+	<submit next="GBDEDITpo_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="export" Size="50,20" Text="导出"><TAB/>
+	<OnClick><!--import button="export" selected="1">sql:update s_order set o_state=3 where o_id=%0;update s_order set o_state=3 where o_id=%0</import><submit next="OrderList" namelist="import" method="post" function="import"/-->
+	<Save selected="1" columns="3,0,7,8,9,11"></Save><submit next="POLst" namelist="Save" function="savetofile"/></OnClick></Button>
+<Button Name="showbarcode" Size="80,20" Text="生成二维码" OnClick="showqrcode:%{POLst[po_number]}%{POLst[supplier_name]}"/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="POLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.po_header_v</DbTable>
+<Index>po_header_id</Index>
+<Data>*</Data>
+<Order>po_header_id</Order>
+<Where>and po_status not in (322,323)</Where>
+<queryFormat>select %{data} from %{dbtable} where supplier_id='%{supplier_id}' %{where} order by po_header_id desc limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="view"><DbDetails><Where>po_header_id='%{POLst[po_header_id]}'</Where></DbDetails>
+	<submit next="vPo.po_line.po_lineLst" namelist="DbDetails"/></op>
+<op text="print">
+<DbDetails><DbTable>xbs.supplier_all_v</DbTable><Where>supplier_id='%{POLst[supplier_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vPO.po_print.supplier_id"/><DbDetails><Where>po_header_id='%{polst[po_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vpo.po_print.po_headerLst"/><submit next="vpo.po_print.po_lineLst" namelist="DbDetails"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

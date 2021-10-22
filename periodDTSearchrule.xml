@@ -1,0 +1,1 @@
+<periodDTS format="creation_date between '%{periodDTS[datetime]}' and '%{periodDTS[datetime2]}'"/>

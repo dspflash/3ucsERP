@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEhr_payroll_schedule" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hr_payroll_schedule_id" Text="create" ToolTip="ttp_createhr_payroll_schedule" Name="inserthr_payroll_schedule" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hr_payroll_schedule</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>scheduled_date,start_date,end_date,period_name,description,status,hr_payroll_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{inserthr_payroll_schedule[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_payroll_scheduleLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_payroll_schedule_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_payroll_schedule" Name="modifyhr_payroll_schedule" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hr_payroll_schedule</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>scheduled_date,start_date,end_date,period_name,description,status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hr_payroll_schedule_id='%{hr_payroll_schedule_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyhr_payroll_schedule[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_payroll_scheduleLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_payroll_schedule_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_payroll_schedule" Name="resethr_payroll_schedule" Size="50,20">
+<OnClick>
+<submit next="GBDEDIThr_payroll_schedule" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchhr_payroll_schedule" Name="gsearchhr_payroll_schedule" Size="50,20" visible="false">
+<OnClick>
+<search next="hr_payroll_scheduleLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDIThr_payroll_schedule" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVprj_rate_schedule_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteprj_rate_schedule_line" Name="deleteprj_rate_schedule_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_rate_schedule_line</DbTable>
+<Where>prj_rate_schedule_line_id='%{prj_rate_schedule_lineLst[prj_rate_schedule_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchprj_rate_schedule_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshprj_rate_schedule_line" Name="searchprj_rate_schedule_line" Size="50,20">
+			  <OnClick><submit next="prj_rate_schedule_lineLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPprj_rate_schedule_lineLst" OnClick="(prj_rate_schedule_lineLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREprj_rate_schedule_lineLst" OnClick="(prj_rate_schedule_lineLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPprj_rate_schedule_lineLst" OnClick="(prj_rate_schedule_lineLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

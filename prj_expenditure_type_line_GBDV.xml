@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_expenditure_type_line"><Ctrls>
+<ListCtrl Heading="rate,75;uom_id,120;currency,120;effective_from,90;effective_to,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_expenditure_type_line_id,60;bu_org_id,60;" loadedclick="0" ToolTip="ttp_prj_expenditure_type_line" Name="prj_expenditure_type_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_expenditure_type_line p left join xbs.uom u on p.uom_id=u.uom_id left join xbs.currency c on p.currency=c.currency_id</DbTable>
+<Index>prj_expenditure_type_line_id</Index>
+<Data>p.rate,u.uom_name uom_id,c.title currency,p.effective_from,p.effective_to,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_expenditure_type_line_id,p.bu_org_id</Data>
+<Order>prj_expenditure_type_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

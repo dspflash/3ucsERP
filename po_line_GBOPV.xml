@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVpo_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletepo_line" Name="deletepo_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_line</DbTable>
+<Where>po_line_id='%{po_lineLst[po_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpo_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshpo_line" Name="searchpo_line" Size="50,20">
+			  <OnClick><submit next="po_lineLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPpo_lineLst" OnClick="(po_lineLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREpo_lineLst" OnClick="(po_lineLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPpo_lineLst" OnClick="(po_lineLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

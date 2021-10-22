@@ -1,0 +1,20 @@
+<GroupBox Name="GBDVgl_journal_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="gl_journal_header_vLst" ToolTip="ttp_gl_journal_header" Size="700,320" Heading="journal_name,320;ledger_id,120;period_id,120;currency,120;doc_currency,120;exchange_rate,100;document_date,90;journal_source,120;journal_category,120;balance_type,120;description,640;exchange_type,120;reference_type,125;reference_key_name,125;reference_key_value,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;gl_journal_header_id,60;post_date,90;status,120;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.gl_journal_header g left join xbs.gl_ledger g0 on g.ledger_id=g0.gl_ledger_id left join xbs.gl_period g1 on g.period_id=g1.gl_period_id left join xbs.currency c on g.currency=c.currency_id left join xbs.currency c0 on g.doc_currency=c0.currency_id left join xbs.option_line o on g.journal_source=o.option_line_code and o.option_header_id=263 left join xbs.option_line o0 on g.journal_category=o0.option_line_code and o0.option_header_id=157 left join xbs.option_line o1 on g.balance_type=o1.option_line_id and o1.option_header_id=155 left join xbs.gl_currency_conversion g2 on g.exchange_type=g2.gl_currency_conversion_id left join xbs.option_line o2 on g.status=o2.option_line_id</DbTable>
+<Index>gl_journal_header_id</Index>
+<Data>g.journal_name,g0.ledger ledger_id,g1.period_name period_id,c.title currency,c0.title doc_currency,g.exchange_rate,g.document_date,o.option_line_value journal_source,o0.option_line_value journal_category,o1.option_line_value balance_type,g.description,g2.currency_conversion_type exchange_type,g.reference_type,g.reference_key_name,g.reference_key_value,g.created_by,g.creation_date,g.last_update_by,g.last_update_date,g.gl_journal_header_id,g.post_date,o2.option_line_value status</Data>
+<Order>gl_journal_header_id</Order>
+<Where>1</Where>
+<queryFormat>select %{data} from %{table} where %{where} and g.created_by='%{user_id}' limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>gl_ledger_id=%{ledger_id[gl_ledger_id]}</Where></DbDetails><submit next="$this.gl_journal_header.ledger_id" namelist="DbDetails"/><DbDetails><Where>gl_journal_header_id='%{gl_journal_header_vLst[gl_journal_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.gl_journal_header.gl_journal_headerLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.gl_journal_header</DbTable>
+<Where>gl_journal_header_id='%{gl_journal_header_vLst[gl_journal_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

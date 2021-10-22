@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinv_transaction"><Ctrls>
+<ListCtrl Heading="transaction_type_id,120;org_id,120;status,125;item_number,120;revision_name,50;item_id_m,60;uom_id,60;lot_number_id,60;logical_transaction_cb,60;document_number,125;reason,125;reference_type,250;reference_key_name,120;reference_key_value,250;description,640;from_org_id,60;from_subinventory_id,60;from_locator_id,60;quantity,20;from_account_id,60;to_org_id,60;to_subinventory_id,60;to_locator_id,60;to_account_id,60;unit_cost,60;costed_amount,20;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;inv_transaction_id,60;" loadedclick="0" ToolTip="ttp_inv_transaction" Name="inv_transactionLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_transaction</DbTable>
+<Index>inv_transaction_id='%{inv_transactionLst[inv_transaction_id]}'</Index>
+<Data>(select transaction_type from xbs.transaction_type where transaction_type_id=inv_transaction.transaction_type_id) as transtype,org_id,status,item_number,revision_name,item_id_m,uom_id,lot_number_id,logical_transaction_cb,document_number,reason,reference_type,reference_key_name as reftable,reference_key_value,description,from_org_id,from_subinventory_id,from_locator_id,quantity,from_account_id,to_org_id,to_subinventory_id,to_locator_id,to_account_id,unit_cost,costed_amount,created_by,creation_date,last_update_by,last_update_date,inv_transaction_id</Data>
+<Order>inv_transaction_id</Order></DbDetails>
+<OnClick><assign name="org_id[org_id]" function="SetSel" expr="%{inv_transactionLst[org_id]}"/><assign name="item_number[item_number]" function="SetSel" expr="%{inv_transactionLst[item_number]}"/></OnClick>
+<DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

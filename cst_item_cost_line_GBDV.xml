@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVcst_item_cost_line"><Ctrls>
+<ListCtrl Heading="cost_element_type,120;cost_element_id,120;status,60;cost_basis,120;amount,100;this_level_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;cst_item_cost_line_id,60;" loadedclick="0" ToolTip="ttp_cst_item_cost_line" Name="cst_item_cost_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.cst_item_cost_line c left join xbs.option_line o on c.cost_element_type=o.option_line_id left join xbs.option_line o0 on c.cost_basis=o0.option_line_id</DbTable>
+<Index>cst_item_cost_line_id</Index>
+<Data>o.option_line_value cost_element_type,c.cost_element_id,c.status,o0.option_line_value cost_basis,c.amount,c.this_level_cb,c.created_by,c.creation_date,c.last_update_by,c.last_update_date,c.cst_item_cost_line_id</Data>
+<Order>cst_item_cost_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

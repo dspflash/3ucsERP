@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><BXML debug="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>
+<WndTaps id="helpdesk">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmyinfo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_change_request_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_sbp_header_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_service_activity_header_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_service_contract_header_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_service_request_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_service_type_header_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_subscription_header_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_support_request_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_svo_header_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_task_type_v.xml"></xi:include>
+	</WndTaps>
+</BXML>

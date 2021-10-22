@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVhr_grade" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_grade_vLst" ToolTip="ttp_hr_grade" Size="700,420" OnLoad="init" Heading="grade,250;hr_element_entry_tpl_header_id,120;description,640;rank,250;inactive_date,90;alt_name,250;alt_description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_grade_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hr_grade h left join xbs.hr_element_entry_tpl_header h0 on h.hr_element_entry_tpl_header_id=h0.hr_element_entry_tpl_header_id</DbTable>
+<Index>hr_grade_id</Index>
+<Data>h.grade,h0.template_name hr_element_entry_tpl_header_id,h.description,h.rank,h.inactive_date,h.alt_name,h.alt_description,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_grade_id</Data>
+<Order>hr_grade_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hr_grade_id='%{hr_grade_vLst[hr_grade_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_grade.hr_gradeLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_grade</DbTable>
+<Where>hr_grade_id='%{hr_grade_vLst[hr_grade_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

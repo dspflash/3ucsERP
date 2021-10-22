@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinv_item_relation"><Ctrls>
+<ListCtrl Heading="from_item_id_m,120;relation_type,120;description,640;from_date,90;to_date,90;planning_cb,60;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;inv_item_relation_id,60;org_id,60;" loadedclick="0" ToolTip="ttp_inv_item_relation" Name="inv_item_relationLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>inv_item_relation_id</Index>
+<DbTable>xbs.inv_item_relation i left join xbs.item i0 on i.from_item_id_m=i0.item_id_m left join xbs.option_line o on i.relation_type=o.option_line_id</DbTable>
+<Data>i0.item_number from_item_id_m,o.option_line_value relation_type,i.description,i.from_date,i.to_date,i.planning_cb,i.status,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.inv_item_relation_id,i.org_id</Data>
+<Order>inv_item_relation_id</Order></DbDetails>
+<DbDetails><Where>reftbltp='%{reftbltp}' and refid='%{refid}'</Where></DbDetails><DbDetails><Where>reftbltp='%{reftbltp}' and refid='%{refid}'</Where></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>inv_item_relation_id='%{inv_item_relation_vLst[inv_item_relation_id]}'</Where></DbDetails><submit next="$this.inv_item_relation.inv_item_relationLst" namelist="DbDetails"/><assign name="$this.inv_item_relation.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.inv_item_relation</DbTable>
+<Where>inv_item_relation_id='%{inv_item_relation_vLst[inv_item_relation_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

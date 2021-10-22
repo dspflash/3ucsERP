@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="po_sourcing_rule_line" Name="po_sourcing_rule_line" Ver="2">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_sourcing_rule_line.xml"/>
+<Ctrls>
+<GroupBox Text="po_sourcing_rule_line" Name="GBpo_sourcing_rule_line" id="po_sourcing_rule_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_sourcing_rule_line_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_sourcing_rule_line_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_sourcing_rule_line_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_sourcing_rule_line_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

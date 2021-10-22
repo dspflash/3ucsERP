@@ -1,0 +1,11 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_crew"><Ctrls>
+<ListCtrl Heading="crew_number,100;leader_employee_id,100;org_id,60;description,640;bdefault,60;active,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_crew_id,100;" loadedclick="0" ToolTip="ttp_hr_crew" Name="hr_crewLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>hr_crew_id</Index>
+<DbTable>xbs.hr_crew h left join xbs.hr_employee_v h0 on h.leader_employee_id=h0.hr_employee_id left join xbs.org o on h.org_id=o.org_id</DbTable>
+<Data>h.crew_number,h0.name leader_employee_id,o.org org_id,h.description,h.bdefault,h.active,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_crew_id</Data>
+<Order>hr_crew_id</Order></DbDetails>
+<DbDetails><Data>h.crew_number,h0.name,o.org org_id,h.description,bdefault,h.active,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_crew_id,leader_employee_id</Data></DbDetails><DbDetails><Data>h.crew_number,h0.name,o.org org_id,h.description,bdefault,h.active,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_crew_id,leader_employee_id</Data></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_crew_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

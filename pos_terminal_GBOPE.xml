@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEpos_terminal" Size="100,100"><Ctrls>
+<Button sqlpkinsert="pos_terminal_id" Text="create" ToolTip="ttp_createpos_terminal" Name="insertpos_terminal" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pos_terminal</DbTable>
+<Data>sd_store_id,location_id,terminal_name,description,primary_owner_id,terminal_type,status,refresh_time</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpos_terminal" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypos_terminal" Name="modifypos_terminal" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pos_terminal</DbTable>
+<Data>sd_store_id,location_id,terminal_name,description,primary_owner_id,terminal_type,status,refresh_time</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>pos_terminal_id='%{pos_terminal_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpos_terminal" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpos_terminal" Name="resetpos_terminal" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpos_terminal" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchpos_terminal" Name="gsearchpos_terminal" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="pos_terminalLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITpos_terminal" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

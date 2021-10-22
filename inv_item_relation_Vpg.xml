@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGinv_item_relation"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_inv_item_relation" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>inv_item_relation_id</Index>
+<DbTable>xbs.inv_item_relation i left join xbs.item i0 on i.from_item_id_m=i0.item_id_m left join xbs.option_line o on i.relation_type=o.option_line_id</DbTable>
+<Data>count(*) records</Data>
+<Order>inv_item_relation_id</Order><Queryformat>select %{data} from (select i.inv_item_relation_id from %{dbtable} %{where} GROUP BY i.inv_item_relation_id  ORDER BY i.inv_item_relation_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_inv_item_relation" expr="js(Math.ceil(%{records_inv_item_relation}/%{inv_item_relation_vLst[countsperpage]}))"/>
+<assign name="pgscb_inv_item_relation" expr="js('1~'+Math.ceil(%{records_inv_item_relation}/%{inv_item_relation_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_inv_item_relation" Size="60,20"><OnSelEndOK><submit next="inv_item_relation_vLst" function="GetPage(%{pgscb_inv_item_relation}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_inv_item_relation" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_inv_item_relation" Size="30,20"/>
+<Button Text="go2Page" Name="go2pageinv_item_relation_vLst" Size="50,20"><OnClick><submit next="inv_item_relation_vLst" function="GetPage(%{pgcur_inv_item_relation}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_grade" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_gradeLst" ToolTip="ttp_hr_grade" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_grade</DbTable>
+<Index>hr_grade_id</Index>
+<Data>grade,hr_element_entry_tpl_header_id,description,rank,inactive_date,alt_name,alt_description,created_by,creation_date,last_update_by,last_update_date,hr_grade_id</Data>
+<Order>hr_grade_id</Order></DbDetails>
+<OnClick><assign name="hr_element_entry_tpl_header_id[hr_element_entry_tpl_header_id]" expr="%{hr_gradeLst[hr_element_entry_tpl_header_id]}" function="SetSel"/>
+<if cond="%{hr_grade_id}"><SetVisible name="inserthr_grade" Visible="0"/><SetVisible name="modifyhr_grade" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

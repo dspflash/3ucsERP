@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVar_customer_relation" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletear_customer_relation" Name="deletear_customer_relation" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_customer_relation</DbTable>
+<Where>ar_customer_relation_id='%{ar_customer_relationLst[ar_customer_relation_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_customer_relation" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshar_customer_relation" Name="searchar_customer_relation" Size="50,20">
+			  <OnClick><submit next="ar_customer_relationLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPar_customer_relationLst" OnClick="(ar_customer_relationLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREar_customer_relationLst" OnClick="(ar_customer_relationLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPar_customer_relationLst" OnClick="(ar_customer_relationLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

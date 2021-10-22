@@ -1,0 +1,43 @@
+<GroupBox Name="GBDVsys_pd_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="sys_pd_header_vLst" ToolTip="ttp_sys_pd_header" Size="700,420" OnLoad="init" Heading="primary_document_id,120;priority,20;status,120;security_level,125;originator,640;reason_code,500;process_flow_header_id,120;current_process_flow_line_id,60;origination_date,90;owner_user_id,60;release_date,90;completion_date,90;project_task_id,60;access_org,640;related_changes,640;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,120;sys_pd_header_id,60;primary_document,500;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.sys_pd_header s 
+LEFT JOIN xbs.po_header po ON s.primary_document_id=po.po_header_id AND s.primary_document='po_header' 
+LEFT JOIN xbs.po_quote_header pq ON s.primary_document_id=pq.po_quote_header_id AND s.primary_document='po_quote_header' 
+LEFT JOIN xbs.po_requisition_header pr ON s.primary_document_id=pr.po_requisition_header_id AND s.primary_document='po_requisition_header' 
+LEFT JOIN xbs.sd_so_header so ON s.primary_document_id=so.sd_so_header_id AND s.primary_document='sd_so_header' 
+LEFT JOIN xbs.sd_quote_header sq ON s.primary_document_id=sq.sd_quote_header_id AND s.primary_document='sd_quote_header' 
+LEFT JOIN xbs.option_line o ON s.status=o.option_line_id 
+LEFT JOIN xbs.user_v u ON s.originator=u.xerp_user_id 
+LEFT JOIN xbs.sys_process_flow_header s0 ON s.process_flow_header_id=s0.sys_process_flow_header_id 
+LEFT JOIN xbs.sys_process_flow_line s1 ON s.current_process_flow_line_id=s1.sys_process_flow_line_id 
+LEFT JOIN xbs.user_v u0 ON s.owner_user_id=u0.xerp_user_id 
+LEFT JOIN xbs.user_v u1 ON s.created_by=u1.xerp_user_id 
+LEFT JOIN xbs.user_v u2 ON s.last_update_by=u2.xerp_user_id 
+LEFT JOIN xbs.org o0 ON s.org_id=o0.org_id</DbTable>
+<Index>sys_pd_header_id</Index>
+<Data>(CASE s.primary_document 
+WHEN _utf8'po_header' THEN po.po_number 
+WHEN _utf8'po_quote_header' THEN pq.quote_number 
+WHEN _utf8'po_requisition_header' THEN pr.po_requisition_number 
+WHEN _utf8'sd_so_header' THEN so.so_number 
+WHEN _utf8'sd_quote_header' THEN sq.quote_number 
+ELSE '' END) primary_document,s.priority,o.option_line_value STATUS,s.security_level,u.NAME originator,s.reason_code,s0.process_flow process_flow_header_id,s1.line_name current_process_flow_line_id,s.origination_date,u0.NAME owner_user_id,s.release_date,s.completion_date,s.project_task_id,s.access_org,s.related_changes,s.description,u1.NAME created_by,s.creation_date,u2.NAME last_update_by,s.last_update_date,o0.org org_id,s.sys_pd_header_id,s.primary_document,primary_document_id 
+</Data>
+<Where>s.created_by='%{user_id}'</Where>
+<Order>sys_pd_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>sys_pd_header_id='%{sys_pd_header_vLst[sys_pd_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.sys_pd_header.sys_pd_headerLst"/></op>
+<op text="confirm"><DbDetails><DbTable>xbs.sys_pd_header</DbTable>
+<Where>sys_pd_header_id='%{sys_pd_header_vLst[sys_pd_header_id]}' and status=321</Where>
+<queryFormat>update %{table} pd join sys_process_flow_line pfl on pd.process_flow_header_id=pfl.sys_process_flow_header_id and pfl.line_type='Start' set status=320,current_process_flow_line_id=sys_process_flow_line_id where %{where};</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+<op text="diagram"><DbDetails><Where>pd.sys_pd_header_id='%{sys_pd_header_vLst[sys_pd_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="sys_pd_process_flow_diagram.sys_process_flow_diagram_vLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.sys_pd_header</DbTable>
+<Where>sys_pd_header_id='%{sys_pd_header_vLst[sys_pd_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,293 @@
+<Language name="item">
+<Lang name="item" value="物料"/>
+<Lang name="BAT Modify" value="批量设置"/>
+<Lang name="vMaterial" value="物料"/>
+<Lang name="factory mode" value="工厂模式"/>
+<Lang name="revision" value="版本"/>
+<Lang name="relation" value="物品关系"/>
+<Lang name="Master" value="主要信息"/>
+<Lang name="BasicInfo" value="基础信息"/>
+<Lang name="Inventory" value="库存"/>
+<Lang name="Sales" value="销售"/>
+<Lang name="Purchasing" value="采购"/>
+<Lang name="Planning" value="计划"/>
+<Lang name="Control" value="控制"/>
+<Lang name="Manufacturing" value="制造"/>
+<Lang name="vMaterialOnhand" value="物料库存"/>
+<Lang name="Material" value="物料"/>
+<Lang name="vMRP" value="物料需求"/>
+<Lang name="vMRPitem" value="物料需求明细"/>
+<Lang name="component" value="产品/子部件"/>
+<Lang name="component_id" value="产品/子部件ID"/>
+<Lang name="source_type" value="需求类型"/>
+<Lang name="primary_source_type" value="源需求类型"/>
+<Lang name="source_header_id" value="需求源ID"/>
+<Lang name="source_line_id" value="需求源行ID"/>
+<Lang name="po_lineAdd" value="加入采购单"/>
+<Lang name="inventory_item_cb" value="库存物品"/>
+<Lang name="ttp_inventory_item_cb" value="Enable the inventory item check box to indicate that the item is an inventory item. Inventory items are available for inventory activities such as inventory transaction, onhand tracking & cycle count. You must turn this option on if you want to the make the  item Stockable, Transactable. This is an item defining attribute. If you turn this option on, the item is automatically assigned to the default category set for the Inventory functional area. To define an item as non-inventory, deselect the Inventory Item checkbox. Items such as services, warranty or subscriptions are typical non-inventory items. "/>
+<Lang name="item_category" value="目录"/>
+<Lang name="ttp_item_category" value=""/>
+<Lang name="item_status" value="状态"/>
+<Lang name="ttp_item_status" value="Select one of the following options 1.    Active : Item is active and system allows all kind of transaction 2.    Inactive: Item was used in past but not used any more. System restricts all kind of transactions for items in inactive status .    Engineering: Item is still in engineering phase. You can do all transactions but these items are not considered as supply in planning. "/>
+<Lang name="org_id" value="组织"/>
+<Lang name="uom_id" value="单位"/>
+<Lang name="ttp_uom_id" value="Select the primary unit of measure for the item. The OM value entered on item master defaults to all documents (such as purchase order, sales order, etc) and transactions "/>
+<Lang name="list_price" value="单价"/>
+<Lang name="ttp_list_price" value="List price is a reporting field. You can use this field to enter the list price of the item. This price defaults to purchase order if the item is not enabled in any purchasing price list."/>
+<Lang name="make_buy" value="自制/外购"/>
+<Lang name="ttp_make_buy" value="Select make for items that are manufactured and uy for purchased items. Planning engine explodes make item for demand/supply analysis. "/>
+<Lang name="pre_processing_lt" value="预处理提前期"/>
+<Lang name="ttp_pre_processing_lt" value="Preprocessing lead time represents the time required to release a document. In case of buy item, it represents the time required by the buyer to release a purchase order from a requisition. In case of make item, it represents the time required to release a work order from a demand/or, unreleased work order created by planning engine. "/>
+<Lang name="post_processing_lt" value="后处理提前期"/>
+<Lang name="ttp_post_processing_lt" value="Post processing Lead Time is applicable only for buy item and It represents the time to make a purchased item available in inventory from the time you receive it. Post processing lead time can be used to represent the time required for A inspection or moving the material from receiving dock to the warehouse/point of usage. "/>
+<Lang name="processing_lt" value="处理提前期"/>
+<Lang name="ttp_processing_lt" value="Processing lead time represents the time required to complete an actual activity. In case of buy item, it represents the time required by the supplier to deliver the material in your organization. This include the manufacturing time of the supplier and the in transit time In case of make item, it represents the manufacturing lead time of a work order . "/>
+<Lang name="cumulative_mfg_lt" value="累积制造提前期"/>
+<Lang name="ttp_cumulative_mfg_lt" value="Cumulative Manufacturing Lead Time represents the total time required to build an item if all the required purchased items are available at the point of usage. It considers the manufacturing lead time of all the sub-assemblies used for manufacturing the item. Cumulative manufacturing lead time for a sub-assembly that uses only purchased items should be same as the manufacturing lead time of that item. "/>
+<Lang name="cumulative_total_lt" value="累计总提前期"/>
+<Lang name="ttp_cumulative_total_lt" value="Cumulative Total Lead Time represents the total time required to build an item. It considers the below lead times 
+1.    Lead times of all the sub-assemblies required to manufacture the item 
+2.    Lead times of all the purchased items required to manufacture the sub-assemblies .
+    Lead times of all the purchased items required to manufacture the item Time from start of physical production of first submodule/part to production finished (ready for delivery)."/>
+<Lang name="lt_lot_size" value="提前期批量"/>
+<Lang name="ttp_lt_lot_size" value=""/>
+<Lang name="item_id_m" value="主ID"/>
+<Lang name="ttp_item_id_m" value=""/>
+<Lang name="item_id" value="物品ID"/>
+<Lang name="material_id" value="物料ID"/>
+<Lang name="vProduct" value="产品"/>
+<Lang name="vProductOnhand" value="产品库存"/>
+<Lang name="Product" value="产品"/>
+<Lang name="property" value="产品属性"/>
+<Lang name="vPRP" value="产品需求"/>
+<Lang name="SO2MDS" value="更新物料需求"/>
+<Lang name="vPRPitem" value="产品需求明细"/>
+<Lang name="createAnother" value="添加产品"/>
+<Lang name="clone" value="克隆"/>
+<Lang name="item_number" value="料号"/>
+<Lang name="ttp_item_number" value="Name/number of the item. You can use text, number and some special characters (such as _, -, ) in this field. Item number field allows text up to 50 characters. Item numbers are used in all documents and transactions. The value of item number in all forms can be selected through ajax select or search popup form. "/>
+<Lang name="item_description" value="描述"/>
+<Lang name="ttp_item_description" value="You can enter a short description of the item. Item description field allows text up to 50 characters. Item description is a mandatory field. "/>
+<Lang name="product_line" value="产品线"/>
+<Lang name="ttp_product_line" value="Select the major product line the item belongs to. You can create all your business product lines in Production Line Option."/>
+<Lang name="image_file" value="图片"/>
+<Lang name="ttp_image_file" value=""/>
+<Lang name="item_type" value="类别"/>
+<Lang name="ttp_item_type" value="Select an item type from all the available options. System provides few seeded item types but you can create new item types from item type option. Item type is reporting field and shows the type of item. "/>
+<Lang name="product_line_percentage" value="产品线占比"/>
+<Lang name="ttp_product_line_percentage" value="If the same item is used in more than 1 product line, then you can enter a  of usage of the major product line selected in item master "/>
+<Lang name="long_description" value="详述"/>
+<Lang name="ttp_long_description" value="Long description is a free text field and can be used for entering a detailed description for the item. "/>
+<Lang name="stockable_cb" value="可贮存 "/>
+<Lang name="ttp_stockable_cb" value="Enable the stockable check box to indicate that the item is a stockable item. This attribute must be enabled for all the items that you want to stock, track and transact."/>
+<Lang name="transactable_cb" value="可交易"/>
+<Lang name="ttp_transactable_cb" value="Enable the transactable check box to indicate that the item is a transactable item. This attribute must be enabled for all the items that you want to do inventory transaction. If you want to disallow an item from inventory transaction then disable this checkbox. "/>
+<Lang name="reservable_cb" value=""/>
+<Lang name="ttp_reservable_cb" value=""/>
+<Lang name="cycle_count_enabled_cb" value="Enable the cycle count check box to indicate that the item is available for cycle count. "/>
+<Lang name="ttp_cycle_count_enabled_cb" value=""/>
+<Lang name="equipment_cb" value=""/>
+<Lang name="ttp_equipment_cb" value=""/>
+<Lang name="electronic_format_cb" value=""/>
+<Lang name="ttp_electronic_format_cb" value=""/>
+<Lang name="onhand_with_rev_cb" value="Enable the quantity on hand revision if you want to stock, track and transact items in revision label. You can use item revisions in most of the documents without enabling this attribute. Enable this attribute only if you physically track items in revision level. "/>
+<Lang name="ttp_onhand_with_rev_cb" value=""/>
+<Lang name="item_rev_number" value="版本"/>
+<Lang name="ttp_item_rev_number" value=""/>
+<Lang name="locator_control" value="库位控制"/>
+<Lang name="ttp_locator_control" value=""/>
+<Lang name="kit_cb" value=""/>
+<Lang name="ttp_kit_cb" value=""/>
+<Lang name="lot_uniqueness" value="批次唯一"/>
+<Lang name="ttp_lot_uniqueness" value=""/>
+<Lang name="lot_generation" value="批次生成"/>
+<Lang name="ttp_lot_generation" value="At Receipt -You create and assign lot numbers when you receive the item. Thereafter, you need to provide the same lot number for each transaction. At Shipment -You create and assign lot  numbers when you ship the item. Thereafter, you need to provide the same lot number for each transaction (ex : RMA receipt) Predefined -Assign predefined lot numbers when you receive the item. Thereafter, you need to provide the same lot number for each transaction."/>
+<Lang name="lot_prefix" value="批次前缀"/>
+<Lang name="ttp_lot_prefix" value="Enter a starting prefix for all lot numbers you define for this item. When you run the lot generation program to create pre-defined lot numbers, system use this lot prefix to generate the lot number "/>
+<Lang name="lot_starting_number" value="批次基数"/>
+<Lang name="ttp_lot_starting_number" value=""/>
+<Lang name="serial_uniqueness" value=""/>
+<Lang name="ttp_serial_uniqueness" value=""/>
+<Lang name="serial_generation" value=""/>
+<Lang name="ttp_serial_generation" value="At Receipt -You create and assign serial numbers when you receive the item. Thereafter, you need to provide the same serial for each transaction. At Shipment-You create and assign serial numbers when you ship the item. Thereafter, you need to provide the same serial for each transaction (ex : RMA receipt) Predefined -Assign predefined serial numbers when you receive the item. Thereafter, you need to provide the same serial for each transaction."/>
+<Lang name="serial_prefix" value=""/>
+<Lang name="ttp_serial_prefix" value="Enter a starting prefix for all serial numbers you define for this item. When you run the serial generation program to create pre-defined serial numbers, system use this serial prefix to generate the serial number "/>
+<Lang name="serial_starting_number" value=""/>
+<Lang name="ttp_serial_starting_number" value=""/>
+<Lang name="weight_uom_id" value="重量单位"/>
+<Lang name="ttp_weight_uom_id" value=""/>
+<Lang name="weight" value="重量"/>
+<Lang name="ttp_weight" value=""/>
+<Lang name="volume_uom_id" value="体积重量"/>
+<Lang name="ttp_volume_uom_id" value=""/>
+<Lang name="volume" value="体积"/>
+<Lang name="ttp_volume" value=""/>
+<Lang name="dimension_uom_id" value="尺寸单位"/>
+<Lang name="ttp_dimension_uom_id" value=""/>
+<Lang name="length" value="长"/>
+<Lang name="ttp_length" value=""/>
+<Lang name="width" value="宽"/>
+<Lang name="ttp_width" value=""/>
+<Lang name="height" value="高"/>
+<Lang name="ttp_height" value=""/>
+<Lang name="customer_ordered_cb" value="客户可订购"/>
+<Lang name="ttp_customer_ordered_cb" value="Enable the Customer Ordered check box to indicate that the item is available for sale to customers. You can create sales order only for those items which are customer order enabled. "/>
+<Lang name="internal_ordered_cb" value="内部可订购"/>
+<Lang name="ttp_internal_ordered_cb" value="Enable the Internal Ordered check box to indicate that the item is available for sale to internal customers. You can create internal sales order only for those items which are internal order enabled. "/>
+<Lang name="shippable_cb" value="可运输"/>
+<Lang name="ttp_shippable_cb" value="Enable shippable check box to indicate that the item is available for shipments through a sales order. You can ship those items which are shippable. "/>
+<Lang name="returnable_cb" value="可退货"/>
+<Lang name="ttp_returnable_cb" value="Enable the Customer Ordered check box to indicate that the item is available for sale to customers. You can create sales order only for those items which are customer order enabled. "/>
+<Lang name="atp" value="可承诺量"/>
+<Lang name="ttp_atp" value=""/>
+<Lang name="picking_rule" value="分拣规则"/>
+<Lang name="ttp_picking_rule" value=""/>
+<Lang name="purchased_cb" value="可采购"/>
+<Lang name="ttp_purchased_cb" value="Enable the purchased check box to indicate that the item is available for procurement from external suppliers. You can create standard PO & lanket release only for those items which are purchase enabled. "/>
+<Lang name="use_asl_cb" value="使用批准供应商列表"/>
+<Lang name="ttp_use_asl_cb" value="Enable the ASL sage Mandatory check box to indicate that the item is purchased only from approved suppliers. "/>
+<Lang name="sourcing_rule_id" value="采购规则"/>
+<Lang name="ttp_sourcing_rule_id" value=""/>
+<Lang name="default_buyer" value="默认买方"/>
+<Lang name="ttp_default_buyer" value="Enter the default buyer for the item in default buyer field. You can enter different buyers names in different organizations for the same item "/>
+<Lang name="receipt_routing" value="接收路径"/>
+<Lang name="ttp_receipt_routing" value=""/>
+<Lang name="receipt_sub_inventory" value="接收仓库"/>
+<Lang name="ttp_receipt_sub_inventory" value=""/>
+<Lang name="over_receipt_percentage" value="接收超量比"/>
+<Lang name="ttp_over_receipt_percentage" value=""/>
+<Lang name="over_receipt_action" value="接收超量动作"/>
+<Lang name="ttp_over_receipt_action" value=""/>
+<Lang name="receipt_days_early" value="接收可提前日数"/>
+<Lang name="ttp_receipt_days_early" value=""/>
+<Lang name="receipt_days_late" value="接收可滞缓日数"/>
+<Lang name="ttp_receipt_days_late" value=""/>
+<Lang name="receipt_day_action" value="接收日异动动作"/>
+<Lang name="ttp_receipt_day_action" value=""/>
+<Lang name="bom_enabled_cb" value="使能BOM"/>
+<Lang name="ttp_bom_enabled_cb" value="Enable the OM check box to indicate that the item is manufactured with a bills of material. To create OM for an item, this checkbox should be enabled. "/>
+<Lang name="bom_type" value="BOM类型"/>
+<Lang name="ttp_bom_type" value=""/>
+<Lang name="build_in_wip_cb" value="使能工单"/>
+<Lang name="ttp_build_in_wip_cb" value="Enable the uild in WIP check box in all the organizations where the item is manufactured. To create a work order, the checkbox should be enabled. "/>
+<Lang name="wip_supply_type" value="工单供料类型"/>
+<Lang name="ttp_wip_supply_type" value="WIP Supply type specifies how the item gets consumed during manufacturing process through a work order/work order less transaction. elow is a list of the supply types and their uses:
+"/>Assembly Pull items are automatically issued to work orders when you complete assemblies in Work in Process. These items pulled from the supply sub inventory specified in the OM Work order. Supply sub inventory in a work order defaults from the supply sub inventory mentioned in the OM of the assembly. If the supply sub inventory is not entered in the OM, then system defaults it from the item master. 
+Operation Pull items are automatically issued to work orders when you complete a specific operation of a work order. These items pulled from the supply sub inventory specified in the OM Work order. Supply sub inventory in a work order defaults from the supply sub inventory mentioned in the OM of the assembly. If the supply sub inventory is not entered in the OM, then system defaults it from the item master.
+Push components are manually to work orders via WIP material transaction from against a work order. System doesnt do any automatic issue of these items. Its advisable to use Push for all the high value, critical, lot/serial controlled items.
+Bulk is used for low value expense items. Bulk component requirements can be viewed on work orders for reference purpose but dont need any transaction.
+<Lang name="wip_supply_subinventory" value="工单供料仓库"/>
+<Lang name="ttp_wip_supply_subinventory" value="Supply Sub Inventory specifies the default sub inventory location from where assemblies pull & operation pull items are issued. "/>
+<Lang name="wip_supply_locator" value="工单供料库位"/>
+<Lang name="ttp_wip_supply_locator" value="Supply Locator specifies the default locator of the supply sub inventory from where assembly pull & operation pull items are issued. "/>
+<Lang name="costing_enabled_cb" value="成本"/>
+<Lang name="ttp_costing_enabled_cb" value="Enable this check box to indicate that the cost information is entered & tracked for the item. "/>
+<Lang name="inventory_asset_cb" value="存货资产"/>
+<Lang name="ttp_inventory_asset_cb" value="Enable this check box to indicate that the item is tracked as an asset item. Remove this check box from expense items. You can transact expense items without any financial impact. Expense items can be either inventory tracked, or inventory non-tracked. "/>
+<Lang name="cogs_ac_id" value=""/>
+<Lang name="ttp_cogs_ac_id" value="You can enter a default cost of goods sold account in this field. This account gets debited at the point of shipment/or after creation of invoice if deferred COGS is used. "/>
+<Lang name="deffered_cogs_ac_id" value=""/>
+<Lang name="ttp_deffered_cogs_ac_id" value="You can enter a default deferred cost of goods sold account in this field. This account gets debited at the point of shipment, and credited when AR invoice is created."/>
+<Lang name="default_cost_group" value=""/>
+<Lang name="ttp_default_cost_group" value=""/>
+<Lang name="allow_negative_balance_cb" value="允许负库存"/>
+<Lang name="ttp_allow_negative_balance_cb" value=""/>
+<Lang name="planner" value="计划员"/>
+<Lang name="ttp_planner" value=""/>
+<Lang name="planning_method" value="计划方式"/>
+<Lang name="ttp_planning_method" value=""/>
+<Lang name="forecast_method" value=""/>
+<Lang name="ttp_forecast_method" value=""/>
+<Lang name="forecast_control" value=""/>
+<Lang name="ttp_forecast_control" value=""/>
+<Lang name="fix_order_quantity" value="固定定货量"/>
+<Lang name="ttp_fix_order_quantity" value=""/>
+<Lang name="fix_days_supply" value="固定定货天数"/>
+<Lang name="ttp_fix_days_supply" value=""/>
+<Lang name="fix_lot_multiplier" value=""/>
+<Lang name="ttp_fix_lot_multiplier" value=""/>
+<Lang name="minimum_order_quantity" value="最小订货量"/>
+<Lang name="ttp_minimum_order_quantity" value=""/>
+<Lang name="maximum_order_quantity" value="最大订货量"/>
+<Lang name="ttp_maximum_order_quantity" value=""/>
+<Lang name="demand_timefence" value="需求时界"/>
+<Lang name="ttp_demand_timefence" value=""/>
+<Lang name="planning_timefence" value="计划时界"/>
+<Lang name="ttp_planning_timefence" value=""/>
+<Lang name="release_timefence" value="发放时界"/>
+<Lang name="ttp_release_timefence" value=""/>
+<Lang name="rounding_option" value="取整方式"/>
+<Lang name="ttp_rounding_option" value=""/>
+<Lang name="minmax_min_quantity" value=""/>
+<Lang name="ttp_minmax_min_quantity" value=""/>
+<Lang name="minmax_max_quantity" value=""/>
+<Lang name="ttp_minmax_max_quantity" value=""/>
+<Lang name="minmax_multibin_number" value=""/>
+<Lang name="ttp_minmax_multibin_number" value=""/>
+<Lang name="minmax_multibin_size" value=""/>
+<Lang name="ttp_minmax_multibin_size" value=""/>
+<Lang name="am_asset_type" value=""/>
+<Lang name="ttp_am_asset_type" value=""/>
+<Lang name="am_activity_cause" value=""/>
+<Lang name="ttp_am_activity_cause" value=""/>
+<Lang name="am_activity_type" value=""/>
+<Lang name="ttp_am_activity_type" value=""/>
+<Lang name="am_activity_source" value=""/>
+<Lang name="ttp_am_activity_source" value=""/>
+<Lang name="saftey_stock_quantity" value="安全库存量"/>
+<Lang name="ttp_saftey_stock_quantity" value=""/>
+<Lang name="saftey_stock_days" value="安全库存天数"/>
+<Lang name="ttp_saftey_stock_days" value=""/>
+<Lang name="saftey_stock_percentage" value="安全库存比"/>
+<Lang name="ttp_saftey_stock_percentage" value=""/>
+<Lang name="service_request_cb" value=""/>
+<Lang name="ttp_service_request_cb" value=""/>
+<Lang name="billing_type" value=""/>
+<Lang name="ttp_billing_type" value=""/>
+<Lang name="contract_item_type" value=""/>
+<Lang name="ttp_contract_item_type" value=""/>
+<Lang name="duration" value=""/>
+<Lang name="ttp_duration" value=""/>
+<Lang name="duration_uom_id" value=""/>
+<Lang name="ttp_duration_uom_id" value=""/>
+<Lang name="invoiceable_cb" value=""/>
+<Lang name="ttp_invoiceable_cb" value=""/>
+<Lang name="invoice_matching" value=""/>
+<Lang name="ttp_invoice_matching" value=""/>
+<Lang name="ip_tax_class" value=""/>
+<Lang name="ttp_ip_tax_class" value=""/>
+<Lang name="op_tax_class" value=""/>
+<Lang name="ttp_op_tax_class" value=""/>
+<Lang name="ap_payment_term" value=""/>
+<Lang name="ttp_ap_payment_term" value=""/>
+<Lang name="ar_payment_term" value=""/>
+<Lang name="ttp_ar_payment_term" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="item_id" value=""/>
+<Lang name="ttp_item_id" value=""/>
+<Lang name="org_id" value=""/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="ttp_operationitem" value="操作"/>
+<Lang name="ttp_createitem" value="新增"/>
+<Lang name="ttp_modifyitem" value="修改"/>
+<Lang name="ttp_resetitem" value="清除数据"/>
+<Lang name="ttp_deleteitem" value="删除"/>
+<Lang name="ttp_refreshitem" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

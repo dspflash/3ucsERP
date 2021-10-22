@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVmdm_bank_account" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="mdm_bank_account_vLst" ToolTip="ttp_mdm_bank_account" Size="700,420" Heading="mdm_bank_header_id,120;mdm_bank_site_id,120;account_number,125;currency_code,120;account_type,120;minimum_payment,100;maximum_payment,100;description,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;mdm_bank_account_id,60;">
+	<DbDetails >
+<DbTable>xbs.mdm_bank_account m left join xbs.mdm_bank_header m0 on m.mdm_bank_header_id=m0.mdm_bank_header_id left join xbs.mdm_bank_site m1 on m.mdm_bank_site_id=m1.mdm_bank_site_id left join xbs.currency c on m.currency_code=c.currency_id left join xbs.option_line o on m.account_type=o.option_line_code</DbTable>
+<Index>mdm_bank_account_id</Index>
+<Data>m0.bank_name mdm_bank_header_id,m1.branch_name,m.account_number,c.title currency_code,o.option_line_value account_type,m.minimum_payment,m.maximum_payment,m.description,m.status,m.created_by,m.creation_date,m.last_update_by,m.last_update_date,m.mdm_bank_account_id,m1.mdm_bank_site_id</Data>
+<Order>mdm_bank_account_id</Order><Where>reftbltp='%{reftbltp}' and refid='%{refid}' and org_id=%{orgid}</Where></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.mdm_bank_account.GBDEDITmdm_bank_account" function="reset"/><assign name="$this.mdm_bank_account.reftbltp" expr="%{reftbltp}" function="SetSel"/><assign name="$this.mdm_bank_account.refid" expr="%{refid}"/></op>
+<op text="modify"><submit next="$this.mdm_bank_account.GBDEDITmdm_bank_account" function="reset"/><assign name="$this.mdm_bank_account.reftbltp" expr="%{reftbltp}" function="SetSel"/><assign name="$this.mdm_bank_account.refid" expr="%{refid}"/><DbDetails><Where>mdm_bank_site_id='%{mdm_bank_account_vLst[mdm_bank_site_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.mdm_bank_account.mdm_bank_site_id"/><DbDetails><Where>mdm_bank_account_id='%{mdm_bank_account_vLst[mdm_bank_account_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.mdm_bank_account.mdm_bank_accountLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

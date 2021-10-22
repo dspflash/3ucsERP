@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_timesheet_period" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_timesheet_periodLst" ToolTip="ttp_hr_timesheet_period" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_timesheet_period</DbTable>
+<Index>hr_timesheet_period_id</Index>
+<Data>timesheet_period,from_date,to_date,max_work_hour,max_billable_hour,status,description,created_by,creation_date,last_update_by,last_update_date,hr_timesheet_period_id</Data>
+<Order>hr_timesheet_period_id</Order></DbDetails>
+<OnClick>
+<if cond="%{hr_timesheet_period_id}"><SetVisible name="inserthr_timesheet_period" Visible="0"/><SetVisible name="modifyhr_timesheet_period" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEmdm_price_list_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="mdm_price_list_line_id" Text="create" ToolTip="ttp_createmdm_price_list_line" Name="insertmdm_price_list_line" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.mdm_price_list_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>line_type[option_line_id],item_id_m[item_id_m],org_id[org_id],uom_id[uom_id],unit_price,effective_start_date,effective_end_date,use_price_break_cb,mdm_price_list_header_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="mdm_price_list_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifymdm_price_list_line" Name="modifymdm_price_list_line" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.mdm_price_list_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>line_type[option_line_id],item_id_m[item_id_m],org_id[org_id],uom_id[uom_id],unit_price,effective_start_date,effective_end_date,use_price_break_cb</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>mdm_price_list_line_id='%{mdm_price_list_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="mdm_price_list_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetmdm_price_list_line" Name="resetmdm_price_list_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITmdm_price_list_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchmdm_price_list_line" Name="gsearchmdm_price_list_line" Size="50,20" visible="false">
+	<OnClick>
+	<search next="mdm_price_list_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITmdm_price_list_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

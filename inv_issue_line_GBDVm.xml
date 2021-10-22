@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinv_issue_line"><Ctrls>
+<ListCtrl Heading="reference_key_value,120;item_number,120;item_name,120;transaction_quantity,75;uom_name,75;item_specification,120;item_description,120;subinventory_id,120;locator_id,120;lot_number,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;inv_issue_line_id,60;status,125;" loadedclick="0" ToolTip="ttp_inv_issue_line" Name="inv_issue_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_issue_line i left join xbs.item i0 on i.item_id_m=i0.item_id_m left join xbs.subinventory s on i.subinventory_id=s.subinventory_id left join uom on i0.uom_id=uom.uom_id left join xbs.locator l on i.locator_id=l.locator_id left join xbs.inv_lot_number i1 on i.lot_number=i1.inv_lot_number_id</DbTable>
+<Index>inv_issue_line_id</Index>
+<Data>i.reference_key_value,i0.item_number,item_name,i.transaction_quantity,uom_name,item_specification,i0.item_description,s.subinventory subinventory_id,l.locator locator_id,i1.lot_number lot_number,i0.item_id_m,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.inv_issue_line_id,i.status</Data>
+<Order>inv_issue_line_id</Order></DbDetails><OnClick><assign name="reference_key_value" function="setsel" expr="inv_issue_lineLst[reference_key_value]"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

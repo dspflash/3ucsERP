@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVprj_percent_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteprj_percent_line" Name="deleteprj_percent_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_percent_line</DbTable>
+<Where>prj_percent_line_id='%{prj_percent_lineLst[prj_percent_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchprj_percent_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshprj_percent_line" Name="searchprj_percent_line" Size="50,20">
+			  <OnClick><submit next="prj_percent_lineLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPprj_percent_lineLst" OnClick="(prj_percent_lineLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREprj_percent_lineLst" OnClick="(prj_percent_lineLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPprj_percent_lineLst" OnClick="(prj_percent_lineLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

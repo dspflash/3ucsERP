@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVwip_wo_routing_detail" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="wip_wo_routing_detailLst" ToolTip="ttp_wip_wo_routing_detail" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_wo_routing_detail</DbTable>
+<Index>wip_wo_routing_detail_id</Index>
+<Data>resource_sequence,charge_basis,resource_id,resource_usage,resource_schedule,assigned_units,required_quantity,applied_quantity,charge_type,standard_rate_cb,created_by,creation_date,last_update_by,last_update_date,wip_wo_routing_detail_id</Data>
+<Order>wip_wo_routing_detail_id</Order></DbDetails>
+<OnClick><assign name="charge_basis[option_line_id]" expr="%{wip_wo_routing_detailLst[charge_basis]}" function="SetSel"/><assign name="resource_id[bom_resource_id]" expr="%{wip_wo_routing_detailLst[resource_id]}" function="SetSel"/><assign name="resource_schedule[option_line_id]" expr="%{wip_wo_routing_detailLst[resource_schedule]}" function="SetSel"/><assign name="charge_type[option_line_id]" expr="%{wip_wo_routing_detailLst[charge_type]}" function="SetSel"/>
+<if cond="%{wip_wo_routing_detail_id}"><SetVisible name="insertwip_wo_routing_detail" Visible="0"/><SetVisible name="modifywip_wo_routing_detail" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" initial="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

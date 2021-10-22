@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_process_routing_header"><Ctrls>
+<ListCtrl Heading="routing_name,125;org_id,60;status,250;description,640;revision,100;start_date,90;end_date,90;routing_class,125;owner_employee_id,60;quantity,75;uom_id,60;planned_loss,40;theoretical_loss,40;fixed_loss,40;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_process_routing_header_id,60;" loadedclick="0" ToolTip="ttp_pm_process_routing_header" onload="init" Name="pm_process_routing_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_process_routing_header</DbTable>
+<Index>pm_process_routing_header_id</Index>
+<Data>routing_name,org_id,status,description,revision,start_date,end_date,routing_class,owner_employee_id,quantity,uom_id,planned_loss,theoretical_loss,fixed_loss,created_by,creation_date,last_update_by,last_update_date,pm_process_routing_header_id</Data>
+<Order>pm_process_routing_header_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVsys_process_flow_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="sys_process_flow_headerLst" ToolTip="ttp_sys_process_flow_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>sys_process_flow_header_id</Index>
+<DbTable>xbs.sys_process_flow_header</DbTable>
+<Data>process_flow,module_name,access_org_type,type,description,status,created_by,creation_date,last_update_by,last_update_date,sys_process_flow_header_id</Data>
+<Order>sys_process_flow_header_id</Order></DbDetails>
+<OnClick><assign name="module_name[option_line_id]" expr="%{sys_process_flow_headerLst[module_name]}" function="SetSel"/><assign name="access_org_type[option_line_id]" expr="%{sys_process_flow_headerLst[access_org_type]}" function="SetSel"/><assign name="created_by[xerp_user_id]" expr="%{sys_process_flow_headerLst[created_by]}" function="SetSel"/><assign name="last_update_by[xerp_user_id]" expr="%{sys_process_flow_headerLst[last_update_by]}" function="SetSel"/>
+<if cond="%{sys_process_flow_header_id}"><SetVisible name="insertsys_process_flow_header" Visible="0"/><SetVisible name="modifysys_process_flow_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,9 @@
+<WndTap Name="prj_burden_struct_costcode_v" Text="prj_burden_struct_costcode">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_struct_costcode_Vem.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\prj_burden_struct_costcode.xml"/>
+<Ctrls><GroupBox  Name="GBprj_burden_struct_costcode" id="prj_burden_struct_costcode" Text="prj_burden_struct_costcode" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_struct_costcode_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

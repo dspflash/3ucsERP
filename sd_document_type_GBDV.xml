@@ -1,0 +1,9 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_document_type"><Ctrls>
+<ListCtrl Heading="document_type_name,125;category,120;type,120;level,120;supply_source,125;destination_type,125;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;sd_document_type_id,60;bu_org_id_r,60;process_flow_id,60;default_line_document,60;default_shipfrom_org_id,60;ar_transaction_type,125;ar_transaction_source,125;" loadedclick="0" ToolTip="ttp_sd_document_type" onload="init" Name="sd_document_typeLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_document_type</DbTable>
+<Index>sd_document_type_id</Index>
+<Data>document_type_name,category,type,level,supply_source,destination_type,description,created_by,creation_date,last_update_by,last_update_date,sd_document_type_id,bu_org_id_r,process_flow_id,default_line_document,default_shipfrom_org_id,ar_transaction_type,ar_transaction_source</Data>
+<Order>sd_document_type_id</Order></DbDetails><operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

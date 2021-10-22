@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVfp_forecast_line_date" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="fp_forecast_line_dateLst" ToolTip="ttp_fp_forecast_line_date" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_forecast_line_date</DbTable>
+<Index>fp_forecast_line_date_id</Index>
+<Data>forecast_date,original_quantity,current_quantity,source,created_by,creation_date,last_update_by,last_update_date,fp_forecast_line_date_id</Data>
+<Order>fp_forecast_line_date_id</Order></DbDetails>
+<OnClick>
+<if cond="%{fp_forecast_line_date_id}"><SetVisible name="insertfp_forecast_line_date" Visible="0"/><SetVisible name="modifyfp_forecast_line_date" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

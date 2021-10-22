@@ -1,0 +1,20 @@
+﻿<WndTap Name="item_v" Text="item">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_price_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><item_number format="(i.item_number like '%%{opvalue}%')"/><item_name format="(i.item_name like '%%{opvalue}%')"/><item_specification format="(i.item_specification like '%%{opvalue}%')"/><list_price format="(i.list_price like '%%{opvalue}%')"/><item_id format="(i.item_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\item_price.xml"/>
+<Ctrls><GroupBox  Name="GBitem" id="item" Text="item" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_price_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVitem" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.item.GBDEDITitem" function="reset"/><assign name="$this.item.frmwndctrl" expr="%{$this.item_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">	<OnClick>	<submit next="GBDEDITitem" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20">	<OnClick>	
+<search next="item_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITitem" namelist="search" function="search"/>	
+<search next="records_item" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITitem" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_price_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_price_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_price_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

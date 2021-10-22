@@ -1,0 +1,22 @@
+﻿<WndTap Name="bom_standard_operation_v" Text="bom_standard_operation">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_standard_operation_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><standard_operation format="(b.standard_operation like '%%{opvalue}%')"/><description format="(b.description like '%%{opvalue}%')"/><status format="b.status is %{opvalue}"/><created_by format="(b.created_by like '%%{opvalue}%')"/><creation_date format="(b.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(b.last_update_by like '%%{opvalue}%')"/><last_update_date format="(b.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><bom_standard_operation_id format="(b.bom_standard_operation_id like '%%{opvalue}%')"/><org_id format="(b.org_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_standard_operation.xml"/>
+<Ctrls><GroupBox  Name="GBbom_standard_operation" id="bom_standard_operation" Text="bom_standard_operation" Size="100,100"><Ctrls>
+<GroupBox Name="GBDEDITbom_standard_operation"><Ctrls>
+<GroupBox Name="GB_department_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_department_id" Size="60,20" Text="department_id" Align="Right" readonly="true"/>
+<TextBox Name="department_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_department_id" readonly="true">
+	<DbDetails>
+<DbTable>xbs.bom_department</DbTable>
+<Index>bom_department_id</Index>
+<Data>department,bom_department_id</Data>
+<Where>org_id=%{orgid}</Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_standard_operation_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVgl_ledger_balancing_values" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletegl_ledger_balancing_values" Name="deletegl_ledger_balancing_values" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_ledger_balancing_values</DbTable>
+<Where>gl_ledger_balancing_values_id='%{gl_ledger_balancing_valuesLst[gl_ledger_balancing_values_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchgl_ledger_balancing_values" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshgl_ledger_balancing_values" Name="searchgl_ledger_balancing_values" Size="50,20">
+			  <OnClick><submit next="gl_ledger_balancing_valuesLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPgl_ledger_balancing_valuesLst" OnClick="(gl_ledger_balancing_valuesLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREgl_ledger_balancing_valuesLst" OnClick="(gl_ledger_balancing_valuesLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPgl_ledger_balancing_valuesLst" OnClick="(gl_ledger_balancing_valuesLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

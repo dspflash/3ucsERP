@@ -1,0 +1,14 @@
+﻿<WndTap Name="fp_mrp_planned_sources_v" Text="fp_mrp_planned_sources">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fp_mrp_planned_sources_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\fp_mrp_planned_sources.xml"/>
+<Ctrls><GroupBox  Name="GBfp_mrp_planned_sources" id="fp_mrp_planned_sources" Text="fp_mrp_planned_sources" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fp_mrp_planned_sources_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVfp_mrp_planned_sources" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.fp_mrp_planned_sources.GBDEDITfp_mrp_planned_sources" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetfp_mrp_planned_sources" Name="resetfp_mrp_planned_sources" Size="50,20">	<OnClick>	<submit next="GBDEDITfp_mrp_planned_sources" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchfp_mrp_planned_sources" Name="gsearchfp_mrp_planned_sources" Size="50,20" visible="true">	<OnClick>	<search next="fp_mrp_planned_sources_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITfp_mrp_planned_sources" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fp_mrp_planned_sources_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

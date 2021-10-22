@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVsubinventory" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="subinventoryLst" ToolTip="ttp_subinventory" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.subinventory</DbTable>
+<Index>subinventory_id</Index>
+<Data>subinventory,type,allow_negative_balance_cb,locator_control,description,status,created_by,creation_date,last_update_by,last_update_date,subinventory_id</Data>
+<Order>subinventory_id</Order></DbDetails>
+<OnClick><assign name="type[option_line_id]" expr="%{subinventoryLst[type]}" function="SetSel"/><assign name="locator_control[option_line_id]" expr="%{subinventoryLst[locator_control]}" function="SetSel"/>
+<if cond="%{subinventory_id}"><SetVisible name="insertsubinventory" Visible="0"/><SetVisible name="modifysubinventory" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" initial="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+<GroupBox Name="GBDEDITar_customer"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_customer_number"><Ctrls>
+<Label Align="Right" Text="customer_number" Name="lb_customer_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_customer_number" Name="customer_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_customer_name"><Ctrls>
+<Label Align="Right" Text="customer_name" Name="lb_customer_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_customer_name" Name="customer_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" Size="230,20" checked="true"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

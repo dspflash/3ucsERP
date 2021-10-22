@@ -1,0 +1,16 @@
+<GroupBox Name="GBCtrlsinventory"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_code"><Ctrls>
+<Label Align="Right" Text="code" Name="lb_code" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_code" Name="code" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_master_cb"><Ctrls>
+<CheckBox Text="item_master_cb" ToolTip="ttp_item_master_cb" Name="item_master_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_master_org_id"><Ctrls>
+<Label Align="Right" Text="master_org_id" Name="lb_master_org_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_master_org_id" Name="master_org_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_inventory_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="inventory_id" overlap="pre" Name="lb_inventory_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_inventory_id" overlap="pre" Name="inventory_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

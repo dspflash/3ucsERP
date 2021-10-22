@@ -1,0 +1,15 @@
+﻿<WndTap Name="hd_service_activity_header_v" Text="hd_service_activity_header">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_service_activity_header_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_service_activity_line_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hd_service_activity_header.xml"/>
+<Ctrls><GroupBox  Name="GBhd_service_activity_header" id="hd_service_activity_header" Text="hd_service_activity_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_service_activity_header_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVhd_service_activity_header" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.hd_service_activity_header.GBDEDIThd_service_activity_header" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resethd_service_activity_header" Name="resethd_service_activity_header" Size="50,20">	<OnClick>	<submit next="GBDEDIThd_service_activity_header" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchhd_service_activity_header" Name="gsearchhd_service_activity_header" Size="50,20" visible="true">	<OnClick>	<search next="hd_service_activity_header_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDIThd_service_activity_header" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_service_activity_header_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

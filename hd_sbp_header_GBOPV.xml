@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVhd_sbp_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletehd_sbp_header" Name="deletehd_sbp_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_sbp_header</DbTable>
+<Where>hd_sbp_header_id='%{hd_sbp_headerLst[hd_sbp_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhd_sbp_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshhd_sbp_header" Name="searchhd_sbp_header" Size="50,20">
+			  <OnClick><submit next="hd_sbp_headerLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPhd_sbp_headerLst" OnClick="(hd_sbp_headerLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREhd_sbp_headerLst" OnClick="(hd_sbp_headerLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPhd_sbp_headerLst" OnClick="(hd_sbp_headerLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

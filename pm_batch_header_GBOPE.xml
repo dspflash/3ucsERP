@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEpm_batch_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="pm_batch_header_id" Text="create" ToolTip="ttp_createpm_batch_header" Name="insertpm_batch_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_batch_header</DbTable>
+<Data>batch_name,org_id,pm_recipe_header_id[pm_recipe_header_id],wip_accounting_group_id[wip_accounting_group_id],comment,status,description,terminate_reason,planned_start_date,planned_completion_date,required_completion_date,actual_completion_date,actual_start_date,update_invnetory_cb,batch_exploded_cb</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpm_batch_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypm_batch_header" Name="modifypm_batch_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_batch_header</DbTable>
+<Data>batch_name,org_id,pm_recipe_header_id[pm_recipe_header_id],wip_accounting_group_id[wip_accounting_group_id],comment,status,description,terminate_reason,planned_start_date,planned_completion_date,required_completion_date,actual_completion_date,actual_start_date,update_invnetory_cb,batch_exploded_cb</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>pm_batch_header_id='%{pm_batch_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpm_batch_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpm_batch_header" Name="resetpm_batch_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpm_batch_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchpm_batch_header" Name="gsearchpm_batch_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="pm_batch_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITpm_batch_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

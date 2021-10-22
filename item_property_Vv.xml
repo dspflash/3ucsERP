@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVitem_property" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="item_property_vLst" ToolTip="ttp_item_property_v" Size="700,450" OnLoad="init" Heading="prop_display_name,100;description,250;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;property_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>property_id</Index>
+<DbTable>xbs.item_property i</DbTable>
+<Data>i.prop_display_name,i.description,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.property_id</Data>
+<Order>property_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>property_id='%{item_property_vLst[property_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.item_property.item_propertyLst"/><assign name="$this.item_property.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.item_property</DbTable>
+<Where>property_id='%{item_property_vLst[property_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_item_property" expr="js(%{item_property_vLst[currentpage]}+1)"/>
+<assign name="pgscb_item_property" expr="js(%{item_property_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVpo_sourcing_rule_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletepo_sourcing_rule_line" Name="deletepo_sourcing_rule_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_sourcing_rule_line</DbTable>
+<Where>po_sourcing_rule_line_id='%{po_sourcing_rule_lineLst[po_sourcing_rule_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpo_sourcing_rule_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshpo_sourcing_rule_line" Name="searchpo_sourcing_rule_line" Size="50,20">
+			  <OnClick><submit next="po_sourcing_rule_lineLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPpo_sourcing_rule_lineLst" OnClick="(po_sourcing_rule_lineLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREpo_sourcing_rule_lineLst" OnClick="(po_sourcing_rule_lineLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPpo_sourcing_rule_lineLst" OnClick="(po_sourcing_rule_lineLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

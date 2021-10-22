@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVenterprise"><Ctrls>
+<ListCtrl Heading="org_id,120;status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;enterprise_id,60;" loadedclick="0" ToolTip="ttp_enterprise" onload="init" Name="enterpriseLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.enterprise</DbTable>
+<Index>enterprise_id='%{enterpriseLst[enterprise_id]}'</Index>
+<Data>org_id,status,created_by,creation_date,last_update_by,last_update_date,enterprise_id</Data>
+<Order>enterprise_id</Order></DbDetails>
+<OnClick><assign name="org_id[org_id]" function="SetSel" expr="%{enterpriseLst[org_id]}"/></OnClick>
+<DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{Where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

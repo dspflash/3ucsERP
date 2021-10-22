@@ -1,0 +1,8 @@
+﻿<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><assign name="$this.user_bom_department.bom_department_id" expr="%{bom_department_id}"/><DbDetails><Where>user_bom_department_id='%{user_bom_department_vLst[user_bom_department_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.user_bom_department.user_bom_departmentLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.user_bom_department</DbTable>
+<Where>user_bom_department_id='%{user_bom_department_vLst[user_bom_department_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

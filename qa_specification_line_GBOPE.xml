@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEqa_specification_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="qa_specification_line_id" Text="create" ToolTip="ttp_createqa_specification_line" Name="insertqa_specification_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_specification_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>qa_specification_header_id[qa_specification_header_id],qa_ce_header_id[qa_ce_header_id],uom_id[uom_id],user_range_low,user_range_high,user_target_value,specification_range_high,specification_range_low,specification_target_value,reasonable_range_low,reasonable_range_high,reasonable_target_value,description,enabled_cb</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="qa_specification_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyqa_specification_line" Name="modifyqa_specification_line" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_specification_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>qa_specification_header_id[qa_specification_header_id],qa_ce_header_id[qa_ce_header_id],uom_id[uom_id],user_range_low,user_range_high,user_target_value,specification_range_high,specification_range_low,specification_target_value,reasonable_range_low,reasonable_range_high,reasonable_target_value,description,enabled_cb</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>qa_specification_line_id='%{qa_specification_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="qa_specification_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetqa_specification_line" Name="resetqa_specification_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITqa_specification_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchqa_specification_line" Name="gsearchqa_specification_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="qa_specification_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITqa_specification_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

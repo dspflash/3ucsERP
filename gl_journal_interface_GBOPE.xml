@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEgl_journal_interface" Size="100,100"><Ctrls>
+<Button sqlpkinsert="gl_journal_interface_id" Text="create" ToolTip="ttp_creategl_journal_interface" Name="insertgl_journal_interface" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_journal_interface</DbTable>
+<Data>ledger_id[gl_ledger_id],currency[currency_id],document_date,period_id[gl_period_id],journal_source[option_line_code],journal_category[option_line_code],journal_name,description,balance_type[option_line_code],post_date,header_amount,doc_currency[currency_id],exchange_type[option_line_code],exchange_date,exchange_rate,control_total,running_total_dr,running_total_cr,running_toatl_ac_dr,running_toatl_ac_cr,reference_type,reference_key_name,reference_key_value,line_num,line_status,line_type,line_description,code_combination_id,total_dr,total_cr,total_ac_dr,total_ac_cr,line_reference_type,line_reference_key_name,line_reference_key_value,rev_enabled_cb,rev_number,gl_journal_header_id,gl_journal_line_id,gl_journal_interface_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="gl_journal_interfaceLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifygl_journal_interface" Name="modifygl_journal_interface" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_journal_interface</DbTable>
+<Data>ledger_id[gl_ledger_id],currency[currency_id],document_date,period_id[gl_period_id],journal_source[option_line_code],journal_category[option_line_code],journal_name,description,balance_type[option_line_code],post_date,header_amount,doc_currency[currency_id],exchange_type[option_line_code],exchange_date,exchange_rate,control_total,running_total_dr,running_total_cr,running_toatl_ac_dr,running_toatl_ac_cr,reference_type,reference_key_name,reference_key_value,line_num,line_status,line_type,line_description,code_combination_id,total_dr,total_cr,total_ac_dr,total_ac_cr,line_reference_type,line_reference_key_name,line_reference_key_value,rev_enabled_cb,rev_number,gl_journal_header_id,gl_journal_line_id,gl_journal_interface_id</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>gl_journal_interface_id='%{gl_journal_interface_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="gl_journal_interfaceLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetgl_journal_interface" Name="resetgl_journal_interface" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITgl_journal_interface" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchgl_journal_interface" Name="gsearchgl_journal_interface" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="gl_journal_interfaceLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITgl_journal_interface" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

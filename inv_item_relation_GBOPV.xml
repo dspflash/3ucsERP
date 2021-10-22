@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVinv_item_relation" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteinv_item_relation" Name="deleteinv_item_relation" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_item_relation</DbTable>
+<Where>inv_item_relation_id='%{inv_item_relationLst[inv_item_relation_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchinv_item_relation" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshinv_item_relation" Name="searchinv_item_relation" Size="50,20">
+			  <OnClick><submit next="inv_item_relationLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPinv_item_relationLst" OnClick="(inv_item_relationLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREinv_item_relationLst" OnClick="(inv_item_relationLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPinv_item_relationLst" OnClick="(inv_item_relationLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVwip_wo_routing_detail" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="wip_wo_routing_detail_vLst" ToolTip="ttp_wip_wo_routing_detail" Size="700,420" Heading="resource_sequence,60;charge_basis,120;resource_id,120;resource_usage,100;resource_schedule,120;assigned_units,60;required_quantity,100;applied_quantity,100;charge_type,120;standard_rate_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;wip_wo_routing_detail_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.wip_wo_routing_detail w left join xbs.option_line o on w.charge_basis=o.option_line_id left join xbs.bom_resource b on w.resource_id=b.bom_resource_id left join xbs.option_line o0 on w.resource_schedule=o0.option_line_id left join xbs.option_line o1 on w.charge_type=o1.option_line_id</DbTable>
+<Index>wip_wo_routing_detail_id</Index>
+<Data>w.resource_sequence,o.option_line_value charge_basis,b.resource resource_id,w.resource_usage,o0.option_line_value resource_schedule,w.assigned_units,w.required_quantity,w.applied_quantity,o1.option_line_value charge_type,w.standard_rate_cb,w.created_by,w.creation_date,w.last_update_by,w.last_update_date,w.wip_wo_routing_detail_id</Data>
+<Order>wip_wo_routing_detail_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>wip_wo_routing_detail_id='%{wip_wo_routing_detail_vLst[wip_wo_routing_detail_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.wip_wo_routing_detail.wip_wo_routing_detailLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.wip_wo_routing_detail</DbTable>
+<Where>wip_wo_routing_detail_id='%{wip_wo_routing_detail_vLst[wip_wo_routing_detail_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

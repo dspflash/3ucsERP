@@ -1,0 +1,20 @@
+﻿<WndTap Name="bom_department_user_v_v" Text="bom_department_user_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_department_user_v_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><org format="(b.org like '%%{opvalue}%')"/><department format="(b.department like '%%{opvalue}%')"/><standard_operation format="(b.standard_operation like '%%{opvalue}%')"/><username format="(b.username like '%%{opvalue}%')"/><active format="(b.active like '%%{opvalue}%')"/><description format="(b.description like '%%{opvalue}%')"/><org_id format="(b.org_id like '%%{opvalue}%')"/><xerp_user_id format="(b.xerp_user_id like '%%{opvalue}%')"/><bd_status format="b.bd_status is %{opvalue}"/><bo_status format="b.bo_status is %{opvalue}"/><bu_active format="b.bu_active is %{opvalue}"/><bom_department_id format="(b.bom_department_id like '%%{opvalue}%')"/><bom_standard_operation_id format="(b.bom_standard_operation_id like '%%{opvalue}%')"/><user_bom_department_id format="(b.user_bom_department_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_department_user_v.xml"/>
+<Ctrls><GroupBox  Name="GBbom_department_user_v" id="bom_department_user_v" Text="bom_department_user_v" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_department_user_v_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVbom_department_user_v" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.bom_department_user_v.GBDEDITbom_department_user_v" function="reset"/><assign name="$this.bom_department_user_v.frmwndctrl" expr="%{$this.bom_department_user_v_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetbom_department_user_v" Name="resetbom_department_user_v" Size="50,20">	<OnClick>	<submit next="GBDEDITbom_department_user_v" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchbom_department_user_v" Name="gsearchbom_department_user_v" Size="50,20">	<OnClick>	
+<search next="bom_department_user_v_vLst" listed="0" prefixwhere="0" prefixand="1" inputed="1">%{searchtmpl}</search><submit next="GBDEDITbom_department_user_v" namelist="search" function="search"/>	
+<search next="records_bom_department_user_v" listed="0" prefixwhere="0" prefixand="1"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITbom_department_user_v" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_department_user_v_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_department_user_v_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_department_user_v_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

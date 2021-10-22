@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd keywords="x+|xPlus;数据仓库" navtype="tab" debug="1" Title="3UCS数据仓库" logo="http://56.3ucs.com/images/3u56.png" description="数据仓库 商业智能">
+<css>
+/*
+BUTTON {
+  bgcolor: RGB(123,234,225) RGB(123,234,0);
+  background: gradient rectangle,orientation,colors RGB(237,247,251) RGB(215,240,251) RGB(237,247,251);
+  margin: 0;
+}
+LISTCTRL{
+  selected:gradient rectangle,orientation TOP_BOTTOM,colors RGB(215,240,251) RGB(215,240,251) RGB(215,240,251);
+  header:gradient rectangle,orientation BOTTOM_TOP,colors RGB(215,240,251) RGB(255,255,255) RGB(215,240,251);
+}
+body.xfrm{background: gradient,orientation top_bottom,corners 15 10 15 15,colors #D5DFEF #D5DFEF;}
+menu.xfrm{background: gradient,orientation top_bottom,corners 0 0 0 0,colors #D5DFEF #D5DFEF;}
+*/
+
+</css>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>			
+	<EventTriggers>
+		<Trigger oneshot="0" dest="iot_bi.refreshdata" name="click" Interval="30"/>
+	</EventTriggers>
+<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="documents_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="import_bom.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="../rpa/rpa_jd_goodslist.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xdw_so.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="iot_bi.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="iot_dev_v.xml"></xi:include>
+	</WndTaps></XI3uWnd>

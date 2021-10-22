@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVmodule_class" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletemodule_class" Name="deletemodule_class" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.module_class</DbTable>
+<Where>module_class_id='%{module_classLst[module_class_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchmodule_class" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshmodule_class" Name="searchmodule_class" Size="50,20">
+			  <OnClick><submit next="module_classLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPmodule_classLst" OnClick="(module_classLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREmodule_classLst" OnClick="(module_classLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPmodule_classLst" OnClick="(module_classLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

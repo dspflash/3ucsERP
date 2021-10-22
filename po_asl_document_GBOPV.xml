@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVpo_asl_document" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletepo_asl_document" Name="deletepo_asl_document" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_asl_document</DbTable>
+<Where>po_asl_document_id='%{po_asl_documentLst[po_asl_document_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpo_asl_document" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshpo_asl_document" Name="searchpo_asl_document" Size="50,20">
+			  <OnClick><submit next="po_asl_documentLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPpo_asl_documentLst" OnClick="(po_asl_documentLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREpo_asl_documentLst" OnClick="(po_asl_documentLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPpo_asl_documentLst" OnClick="(po_asl_documentLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEinv_count_schedule" Size="100,100"><Ctrls>
+<Button sqlpkinsert="inv_count_schedule_id" Text="create" ToolTip="ttp_createinv_count_schedule" Name="insertinv_count_schedule" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.inv_count_schedule</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],schedule_date,subinventory_id[subinventory_id],locator_id[locator_id],lot_number[inv_lot_number_id],description,inv_count_header_id[inv_count_header_id]</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="inv_count_scheduleLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyinv_count_schedule" Name="modifyinv_count_schedule" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.inv_count_schedule</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],schedule_date,subinventory_id[subinventory_id],locator_id[locator_id],lot_number[inv_lot_number_id],description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>inv_count_schedule_id='%{inv_count_schedule_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="inv_count_scheduleLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetinv_count_schedule" Name="resetinv_count_schedule" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITinv_count_schedule" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchinv_count_schedule" Name="gsearchinv_count_schedule" Size="50,20" visible="false">
+	<OnClick>
+	<search next="inv_count_scheduleLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITinv_count_schedule" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

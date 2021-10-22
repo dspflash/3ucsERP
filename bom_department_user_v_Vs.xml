@@ -1,0 +1,55 @@
+﻿<GroupBox Name="GBDEDITbom_department_user_v" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_org" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_org" Size="60,20" Text="org" Align="Right"/>
+<TextBox Name="org" Size="170,20" Text="" Weight="170" ToolTip="ttp_org"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_department" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_department" Size="60,20" Text="department" Align="Right"/>
+<TextBox Name="department" Size="170,20" Text="" Weight="170" ToolTip="ttp_department"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_standard_operation" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_standard_operation" Size="60,20" Text="standard_operation" Align="Right"/>
+<TextBox Name="standard_operation" Size="170,20" Text="" Weight="170" ToolTip="ttp_standard_operation"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_username" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_username" Size="60,20" Text="username" Align="Right"/>
+<TextBox Name="username" Size="170,20" Text="" Weight="170" ToolTip="ttp_username"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_active" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_active" Size="60,20" Text="active" Align="Right"/>
+<TextBox Name="active" Size="170,20" Text="" Weight="170" ToolTip="ttp_active"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_org_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_org_id" Size="60,20" Text="org_id" Align="Right"/>
+<TextBox Name="org_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_org_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_xerp_user_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_xerp_user_id" Size="60,20" Text="xerp_user_id" Align="Right"/>
+<TextBox Name="xerp_user_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_xerp_user_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bd_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="bd_status" Size="230,20" Text="bd_status" ToolTip="ttp_bd_status"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_bo_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="bo_status" Size="230,20" Text="bo_status" ToolTip="ttp_bo_status"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bu_active" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="bu_active" Size="230,20" Text="bu_active" ToolTip="ttp_bu_active"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bom_department_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bom_department_id" Size="60,20" Text="bom_department_id" Align="Right"/>
+<TextBox Name="bom_department_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_bom_department_id"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_bom_standard_operation_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bom_standard_operation_id" Size="60,20" Text="bom_standard_operation_id" Align="Right"/>
+<TextBox Name="bom_standard_operation_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_bom_standard_operation_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_user_bom_department_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_user_bom_department_id" Size="60,20" Text="user_bom_department_id" Align="Right"/>
+<TextBox Name="user_bom_department_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_user_bom_department_id"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,13 @@
+<WndTap Name="inv_count_entries" Text="inv_count_entries" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="item_id_m[item_id_m],uom_id[uom_id],subinventory_id[subinventory_id],system_qty,schedule_date,count_qty,inv_count_schedule_id[inv_count_schedule_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\inv_count_entries.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBinv_count_entries" id="inv_count_entries" Text="inv_count_entries" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_count_entries_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_count_entries_GBOPEm.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_count_entries_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertinv_count_entries" Visible="1"/><SetVisible name="modifyinv_count_entries" Visible="0"/></OnActivate>
+</WndTap>

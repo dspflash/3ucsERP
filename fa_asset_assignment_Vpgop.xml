@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVfa_asset_assignment" Size="100,100"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialfa_asset_assignment" Size="50,20">
+<OnClick><submit next="fa_asset_assignment_vLst" function="initial"/><submit next="records_fa_asset_assignment" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPfa_asset_assignment_vLst" Size="50,20">
+<OnClick><submit next="fa_asset_assignment_vLst" function="GetPage(first)"/><submit next="records_fa_asset_assignment"/></OnClick></Button>
+<Button Text="prepage" Name="PREfa_asset_assignment_vLst" Size="50,20">
+<OnClick><submit next="fa_asset_assignment_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPfa_asset_assignment_vLst" Size="50,20">
+<OnClick><submit next="fa_asset_assignment_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

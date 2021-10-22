@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVuser_bom_department" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="user_bom_departmentLst" ToolTip="ttp_user_bom_department" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>user_bom_department_id</Index>
+<DbTable>xbs.user_bom_department</DbTable>
+<Data>xerp_user_id,active,created_by,creation_date,last_update_by,last_update_date,user_bom_department_id</Data>
+<Order>user_bom_department_id</Order></DbDetails>
+<OnClick><assign name="xerp_user_id[xerp_user_id]" expr="%{user_bom_departmentLst[xerp_user_id]}" function="SetSel"/>
+<if cond="%{user_bom_department_id}"><SetVisible name="insertuser_bom_department" Visible="0"/><SetVisible name="modifyuser_bom_department" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

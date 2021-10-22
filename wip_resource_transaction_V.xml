@@ -1,0 +1,14 @@
+<WndTap Name="wip_resource_transaction_v" Text="wip_resource_transaction">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_resource_transaction_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_resource_transaction.xml"/>
+<Ctrls><GroupBox  Name="GBwip_resource_transaction" id="wip_resource_transaction" Text="wip_resource_transaction" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_resource_transaction_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVwip_resource_transaction" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.wip_resource_transaction.GBDEDITwip_resource_transaction" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetwip_resource_transaction" Name="resetwip_resource_transaction" Size="50,20">	<OnClick>	<submit next="GBDEDITwip_resource_transaction" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchwip_resource_transaction" Name="gsearchwip_resource_transaction" Size="50,20" visible="true">	<OnClick>	<search next="wip_resource_transaction_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITwip_resource_transaction" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_resource_transaction_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

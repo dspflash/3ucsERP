@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEhr_employee_v" Size="100,100"><Ctrls>
+<Button sqlpkinsert="%{primary}" Text="create" ToolTip="ttp_createhr_employee_v" Name="inserthr_employee_v" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_employee_v</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>name,username,status,org,department,supervisor,email,phone,emp_email,person_type,org_id,job_id,xerp_user_id,department_id,position_id,supervisor_employee_id,hr_employee_id</Data>
+<DataEx/>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hr_employee_vLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_employee_v" Name="modifyhr_employee_v" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_employee_v</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>name,username,status,org,department,supervisor,email,phone,emp_email,person_type,org_id,job_id,xerp_user_id,department_id,position_id,supervisor_employee_id,hr_employee_id</Data>
+<DataEx/>
+<Where>name='%{hr_employee_vLst[name]}' and username='%{hr_employee_vLst[username]}' and status='%{hr_employee_vLst[status]}' and org='%{hr_employee_vLst[org]}' and department='%{hr_employee_vLst[department]}' and supervisor='%{hr_employee_vLst[supervisor]}' and email='%{hr_employee_vLst[email]}' and phone='%{hr_employee_vLst[phone]}' and emp_email='%{hr_employee_vLst[emp_email]}' and person_type='%{hr_employee_vLst[person_type]}' and org_id='%{hr_employee_vLst[org_id]}' and job_id='%{hr_employee_vLst[job_id]}' and xerp_user_id='%{hr_employee_vLst[xerp_user_id]}' and department_id='%{hr_employee_vLst[department_id]}' and position_id='%{hr_employee_vLst[position_id]}' and supervisor_employee_id='%{hr_employee_vLst[supervisor_employee_id]}' and hr_employee_id='%{hr_employee_vLst[hr_employee_id]}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hr_employee_vLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_employee_v" Name="resethr_employee_v" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIThr_employee_v" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchhr_employee_v" Name="gsearchhr_employee_v" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="hr_employee_vLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDIThr_employee_v" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEap_payable_control" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ap_payable_control_id" Text="create" ToolTip="ttp_createap_payable_control" Name="insertap_payable_control" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payable_control</DbTable>
+<Data>org_id,payment_term_id[term_id],ship_to_id,bill_to_id,inv_approval_hierarchy[option_line_id],payment_approval_hierarchy[option_line_id],tax_ac_id,liability_ac_id,pre_payment_ac_id,discount_ac_id,rate_gain_ac_id,rate_loss_ac_id,cash_ac_id,default_exchange_rate_type,expense_payment_term,expense_pay_group[option_line_id],expense_payment_priority,expense_template_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchap_payable_control" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyap_payable_control" Name="modifyap_payable_control" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payable_control</DbTable>
+<Data>org_id,payment_term_id[term_id],ship_to_id,bill_to_id,inv_approval_hierarchy[option_line_id],payment_approval_hierarchy[option_line_id],tax_ac_id,liability_ac_id,pre_payment_ac_id,discount_ac_id,rate_gain_ac_id,rate_loss_ac_id,cash_ac_id,default_exchange_rate_type,expense_payment_term,expense_pay_group[option_line_id],expense_payment_priority,expense_template_id</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ap_payable_control_id='%{ap_payable_control_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchap_payable_control" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetap_payable_control" Name="resetap_payable_control" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITap_payable_control" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchap_payable_control" Name="gsearchap_payable_control" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ap_payable_controlLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITap_payable_control" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

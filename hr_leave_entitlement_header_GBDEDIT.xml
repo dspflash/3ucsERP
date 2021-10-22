@@ -1,0 +1,78 @@
+﻿<GroupBox Name="GBDEDIThr_leave_entitlement_header"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_entitlement_name"><Ctrls>
+<Label Align="Right" Text="entitlement_name" Name="lb_entitlement_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_entitlement_name" Name="entitlement_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_leave_group"><Ctrls>
+<Label Align="Right" Text="leave_group" Name="lb_leave_group" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_leave_group" Name="leave_group" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_job_id"><Ctrls>
+<Label Align="Right" Text="job_id" onload="init" Name="lb_job_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_job_id" onload="init" Name="job_id" Size="170,100">
+	<DbDetails>
+<Index>hr_job_id</Index>
+<DbTable>xbs.hr_job</DbTable>
+<Data>job_name,hr_job_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_position_id"><Ctrls>
+<Label Align="Right" Text="position_id" onload="init" Name="lb_position_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_position_id" onload="init" Name="position_id" Size="170,100">
+	<DbDetails>
+<Index>hr_position_id</Index>
+<DbTable>xbs.hr_position</DbTable>
+<Data>position_name,hr_position_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_employee_id"><Ctrls>
+<Label Align="Right" Text="employee_id" onload="init" Name="lb_employee_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_employee_id" onload="init" Name="employee_id" Size="170,100">
+	<DbDetails>
+<Index>hr_employee_id</Index>
+<DbTable>xbs.hr_employee_v</DbTable>
+<Data>name,hr_employee_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_grade_id"><Ctrls>
+<Label Align="Right" Text="grade_id" onload="init" Name="lb_grade_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_grade_id" onload="init" Name="grade_id" Size="170,100">
+	<DbDetails>
+<Index>hr_grade_id</Index>
+<DbTable>xbs.hr_grade</DbTable>
+<Data>grade,hr_grade_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" Name="lb_status" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_status" Name="status" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_hr_leave_entitlement_header_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="hr_leave_entitlement_header_id" overlap="pre" Name="lb_hr_leave_entitlement_header_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hr_leave_entitlement_header_id" overlap="pre" Name="hr_leave_entitlement_header_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{hr_leave_entitlement_header_id}'"><SetVisible name="inserthr_leave_entitlement_header" Visible="0"/><SetVisible name="modifyhr_leave_entitlement_header" Visible="1"/><else/><SetVisible name="inserthr_leave_entitlement_header" Visible="1"/><SetVisible name="modifyhr_leave_entitlement_header" Visible="0"/></if><if cond="'%{hr_leave_entitlement_header_id}'"><DbDetails><Where>hr_leave_entitlement_header_id='%{hr_leave_entitlement_header_id}'</Where></DbDetails><submit next="hr_leave_entitlement_line_vLst" namelist="DbDetails"/><else/><submit next="hr_leave_entitlement_line_vLst" function="resetcontent"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

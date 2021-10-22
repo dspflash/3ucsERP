@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<XI3uWnd debug="0" Title="三优智造" logo="http://3ucs.com/files/downloads/3uerp_logo.png" description="“x+”是一套跨平台、安全、高效并支持应用专属定制的SOA软件应用运行平台" keywords="x+|xPlus;OA,CRM,ERP,MES，三优智造，智能制造，3uERP">
+	<DbDetails>
+		<SubDriver>MySQL</SubDriver>
+		<Host>localhost</Host>
+		<database>xbs</database>
+		<!--sqlMode>NO_BACKSLASH_ESCAPES</sqlMode-->
+		<characterset>utf8</characterset>
+		<User>i3u</User>
+		<!--password>i3u</password-->
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="config/db.xml" xpointer="pass"/>
+		<config>select PASSWORD,layout,org_id as orgid,xerp_user_id as user_id,role_id from user_v where username='%{UserName}';</config>
+		<!--purview>SELECT `class` FROM xerp_role_permission rp JOIN user_role ur ON ur.role_code=rp.role_id JOIN xerp_user xu ON xu.xerp_user_id=ur.user_id WHERE username='%{UserName}';</purview-->
+		</DbDetails>
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xbs_db_config.xml"/>		
+	<webconfig theme="../biz/theme/beyond/theme.html"/-->
+<WndTaps>
+<WndTap Name="xbs_industry4" Text="三优智造"><Ctrls>
+<GroupBox Name="GB_album" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+	<MagicCtrl feature="carousel" onload="init" ToolTip="ttp_picview" Name="albumview" Size="230,20"><dfmap><map name="images" value="filename"/></dfmap>
+		<DbDetails>
+		<DbDatabase>D:\AppServ\www\i3u\files\images\xbs\ad</DbDatabase> 
+		<datatype>dir</datatype> 
+		<queryFormat>select * from .</queryFormat> 
+		</DbDetails>
+	</MagicCtrl>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Text="三优智造是什么？" line_space="10" line_width="600" line_align="40"  Name="lb_code" Size="600,160"/>
+<MagicCtrl Text="三优智造是以ERP为核心，MES、WMS等为支撑，智能衔接计划、采购、生产、销售、服务等诸多环节，无缝交互智能设备与终端的智能制造平台。" line_space="10" line_width="600" line_align="40"  Name="txt1" Size="600,160"/>
+<MagicCtrl Text="" line_space="10" line_width="600" line_align="40"  Name="txt2" Size="600,160"/>
+<MagicCtrl Text="其ERP系统是目前仅有的主动顺应企业工程业务的ERP系统，它实现了：" line_space="10" line_width="600" line_align="40"  Name="txt3" Size="600,160"/>
+<MagicCtrl Text="" line_space="10" line_width="600" line_align="40"  Name="txt4" Size="600,160"/>
+<MagicCtrl Text="•让ERP系统顺应企业业务需求" line_space="10" line_width="600" line_align="40"  Name="txt5" Size="600,160"/>
+<MagicCtrl Text="•让生产顺应市场、销售的需求" line_space="10" line_width="600" line_align="40"  Name="txt6" Size="600,160"/>
+<MagicCtrl Text="•让产品顺应用户的需求" line_space="10" line_width="600" line_align="40"  Name="txt7" Size="600,160"/>
+<MagicCtrl Text="•……" line_space="10" line_width="600" line_align="40"  Name="txt8" Size="600,160"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Text="目标用户" line_space="10" line_width="600" line_align="40"  Name="txt9" Size="600,160"/>
+<MagicCtrl Text="企业/工厂信息化，ERP部署需求" line_space="10" line_width="600" line_align="40"  Name="txta" Size="600,160"/>
+<MagicCtrl Text="转型升级" line_space="10" line_width="600" line_align="40"  Name="txtb" Size="600,160"/>
+<MagicCtrl Text="智能制造" line_space="10" line_width="600" line_align="40"  Name="txtc" Size="600,160"/>
+<MagicCtrl Text="……" line_space="10" line_width="600" line_align="40"  Name="txtd" Size="600,160"/>
+<MagicCtrl Name="fast" link="tip:fast" images="D:\AppServ\www\i3u\files\images\xbs\,files\images\xbs\fast.png" Size="240,35"></MagicCtrl>
+<MagicCtrl Name="qrxbs" link="tip:fast" images="D:\AppServ\www\i3u\files\images\xbs\,files\images\xbs\qrxbs.png" Size="120,35"></MagicCtrl>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Text="优势——专属定制，快！" line_space="10" line_width="600" line_align="40"  Name="txtx1" Size="600,160"/>
+<MagicCtrl Text="•安装部署飞快•——傻瓜式安装默认配置即可运行，单机支持多应用，增减应用简单方便" line_space="10" line_width="600" line_align="40"  Name="txtx2" Size="600,160"/>
+<MagicCtrl Text="•运行速度飞快•——相同要求的业务处理速度相当于传统方式的5～10倍 " line_space="10" line_width="600" line_align="40"  Name="txtx3" Size="600,160"/>
+<MagicCtrl Text="•个性化定制飞快•——相同要求软件应用的定制所需时间不足传统软件定制10%）
+（相同业务变更/调整、需求个性化修改调整所需时间不足传统模式的10% " line_space="10" line_width="600" line_align="40"  Name="txtx4" Size="600,160"/>
+<MagicCtrl Text="•入门飞快•——软件应用设计/维护人员要求低，无需专业编程功底" line_space="10" line_width="600" line_align="40"  Name="txtx5" Size="600,160"/>
+<MagicCtrl Text="•跨设备实现飞快•——在PC客户端定制的软件应用无需修改直接应用于手机客户端、网页等方式 " line_space="10" line_width="600" line_align="40"  Name="txtx6" Size="600,160"/>
+<MagicCtrl Text="•第三方软硬件接入飞快•——开放接口，传感器、马达、智能软硬件快速接入协同" line_space="10" line_width="600" line_align="40"  Name="txtx7" Size="600,160"/>
+<MagicCtrl Text="……" line_space="10" line_width="600" line_align="40"  Name="txtx8" Size="600,160"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs4 sm3 md2 lg2"><Ctrls>
+<Label Name="lb_doc" Size="100,20" Text="相关资料" Align="Right"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm6 md4 lg2"><Ctrls>
+<MagicCtrl Name="PDF" href="http://3ucs.com/dl40.html" Size="160,20" Text="三优智造3uERP介绍" Align="Right"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm6 md4 lg2"><Ctrls>
+<MagicCtrl Name="video1" href="http://3ucs.com/dl42.html" Size="160,20" Text="基础平台演示视频	" Align="Right"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm6 md4 lg2"><Ctrls>
+<MagicCtrl Name="video2" href="http://3ucs.com/dl47.html" Size="160,20" Text="外协（委外加工）演示视频" Align="Right"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm6 md4 lg2"><Ctrls>
+<MagicCtrl Name="video3" href="http://3ucs.com/dl43.html" Size="160,20" Text="手机演示视频	" Align="Right"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs4 sm3 md2 lg2"><Ctrls>
+<Label Name="lb_sd" Size="100,20" Text="基础模块介绍" Align="Right"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs4 sm3 md2 lg1"><Ctrls>
+<MagicCtrl Name="demo_sd" href="xbs?event=xbs_sd" Size="60,20" Text="销售" Align="Right"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs4 sm3 md2 lg1"><Ctrls>
+<MagicCtrl Name="demo_fp" href="xbs?event=xbs_fp" Size="60,20" Text="计划" Align="Right"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs4 sm3 md2 lg1"><Ctrls>
+<MagicCtrl Name="demo_po" href="xbs?event=xbs_po" Size="60,20" Text="采购" Align="Right"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs4 sm3 md2 lg1"><Ctrls>
+<MagicCtrl Name="demo_inv" href="xbs?event=xbs_inv" Size="60,20" Text="仓库" Align="Right"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs4 sm3 md2 lg1"><Ctrls>
+<MagicCtrl Name="demo_wo" href="xbs?event=xbs_wo" Size="60,20" Text="工单" Align="Right"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs4 sm3 md2 lg1"><Ctrls>
+<MagicCtrl Name="demo_tech" href="xbs?event=xbs_tech" Size="60,20" Text="BOM" Align="Right"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs4 sm3 md2 lg1"><Ctrls>
+<MagicCtrl Name="demo_qa" href="xbs?event=xbs_qa" Size="60,20" Text="质检" Align="Right"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs4 sm3 md2 lg1"><Ctrls>
+<MagicCtrl Name="demo_mobile" href="xbs?event=xbs_mobile" Size="60,20" Text="手机客户端" Align="Right"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs4 sm3 md2 lg1"><Ctrls>
+<MagicCtrl Name="demo_fin" href="xbs?event=xbs_fin" Size="60,20" Text="财务" Align="Right"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm6 md6 lg6"><Ctrls>
+<Label Name="lb_code" Text="德国所谓的工业四代(Industry4.0)是指利用物联信息系统(Cyber—Physical System简称CPS)将生产中的供应，制造，销售信息数据化、智慧化，最后达到快速，有效，个人化的产品供应；以智能制造为主导的第四次工业革命，或革命性的生产方法，该战略旨在通过充分利用信息通讯技术和网络空间虚拟系统—信息物理系统（Cyber-Physical System)相结合的手段，将制造业向智能化转型。" Size="500,120"/>
+<MagicCtrl Name="txty1" Text="工业4.0有一个关键点，就是“原材料(物质)”=“信息”。具体来讲，就是工厂内采购来的原材料，被“贴上”一个标签：这是给A客户生产的XX产品，XX项工艺中的原材料。准确来说，是智能工厂中使用了含有信息的“原材料”，实现了“原材料(物质)”=“信息”，制造业终将成为信息产业的一部分，所以工业4.0将成为最后一次工业革命。" Size="500,120"/>
+<MagicCtrl Name="txty2" Text="商业模式对制造业来说至关重要。那么，在工业4.0时代，未来制造业的商业模式是什么?就是以解决顾客问题为主。所以说，未来制造企业将不仅仅进行硬件的销售，而是通过提供售后服务和其他后续服务，来获取更多的附加价值，这就是软性制造。而带有“信息”功能的系统成为硬件产品新的核心，意味着个性化需求、批量定制制造将成为潮流。制造业的企业家们要在制造过程中尽可能多的增加产品附加价值，拓展更多、更丰富的服务，提出更好、更完善的解决方案，满足消费者的个性化需求，走软性制造+个性化定制道路。" Size="500,120"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm6 md6 lg6"><Ctrls>
+<Label Name="txty3" Text="智能制造并不是简单的生产（制造）过程，更不是几台智能仪表/设备、机器人堆砌在一起就能实现的，而是需要让三大主体：人（供应方、设计人、生产人、购买人、承运人等）、物（原材料、产品等）、资源（设备、车间、仓库等）能顺畅的沟通交流，将工厂、产品和智能服务通联起来；" Size="500,120"/>
+<MagicCtrl Name="txty4" Text="要做到这一点，就必须由ERP、MES、WMS等共同构建闭环信息系统，无缝衔接与协同计划、采购、生产、销售、服务等全维度多层次环节，实现数据透明化、业务协同化、工艺精准化、装备智能化、研发仿真化，统管供产销，并闭环优化计划源头、过程协同、设备底层、资源优化、质量控制、决策支持、持续改进，以达全息智能。" Size="500,120"/>
+<MagicCtrl Name="txty5" Text="三优智造便是以这样的核心思想而打造的智能制造平台，智能衔接计划、采购、生产、销售、服务等诸多环节，无缝交互智能设备与终端，并行工序外协处理处理起来也得心应收，异常简单、方便、快捷的专属定制能力无忧落地各种企业个性化需求。" Size="500,120"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
+<WndTap Name="xbs_sd" Text="销售"><Ctrls>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Label Name="lb_code" Text="三优智造-销售与交付，实现了企业销售管理的全过程控制，通过对销售订单、订单进度跟踪、订单预警、销售发货、销售退货等日常销售业务的管理，可形成订单综合进度查询表，实时了解订单采购进度、生产进度、成品入库进度、发货进度，并可自动生成应收账款、销售成本核算等相关报表!" Size="500,120"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_album" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+	<MagicCtrl feature="carousel" onload="init" ToolTip="ttp_picview" Name="albumview" Size="230,20"><dfmap><map name="images" value="filename"/></dfmap>
+		<DbDetails>
+		<DbDatabase>D:\AppServ\www\i3u\files\images\xbs\sd</DbDatabase> 
+		<datatype>dir</datatype> 
+		<queryFormat>select * from .</queryFormat> 
+		</DbDetails>
+	</MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
+<WndTap Name="xbs_fp" Text="计划"><Ctrls>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Label Name="lb_code" Text="三优智造-计划、MRP等，如采购计划、能力计划、生产计划，系统综合考虑工厂的生产能力、采购能力（计划）等各种影响产品生产交货多方面因素，合理安排采购计划、生产计划，合理控制库存与采购周期,提高了原料采购计划编制的准确性和及时性，综合调度采购、生产、物料需求计划、生产任务管理、车间派工管理、工序工作管理、委外加工管理、成品入库管理以及生产成本核算，最终可生成各种生产进度和统计报表!" Size="500,120"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_album" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+	<MagicCtrl feature="carousel" onload="init" ToolTip="ttp_picview" Name="albumview" Size="230,20"><dfmap><map name="images" value="filename"/></dfmap>
+		<DbDetails>
+		<DbDatabase>D:\AppServ\www\i3u\files\images\xbs\fp</DbDatabase> 
+		<datatype>dir</datatype> 
+		<queryFormat>select * from .</queryFormat> 
+		</DbDetails>
+	</MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
+<WndTap Name="xbs_po" Text="采购"><Ctrls>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Label Name="lb_code" Text="三优智造-采购，通过对采购订单、订单进度跟踪、订单预警、采购入库，采购退货等日常采购业务的管理，实现了企业采购业务的全过程管理!" Size="500,120"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_album" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+	<MagicCtrl feature="carousel" onload="init" ToolTip="ttp_picview" Name="albumview" Size="230,20"><dfmap><map name="images" value="filename"/></dfmap>
+		<DbDetails>
+		<DbDatabase>D:\AppServ\www\i3u\files\images\xbs\po</DbDatabase> 
+		<datatype>dir</datatype> 
+		<queryFormat>select * from .</queryFormat> 
+		</DbDetails>
+	</MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
+<WndTap Name="xbs_inv" Text="仓库"><Ctrls>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Label Name="lb_code" Text="三优智造-仓库，可对企业原材料、半成品、产成品进行分仓管理，可对所有物料的出入库信息进行实时动态跟踪，并可实现二维码、条形码管理技术，发货同时可打印个性化溯源标签。同时，库存管理系统与采购、销售和生产环节紧密相接，可以有效控制原材料和成品的存货量，并预设了库存预警功能!" Size="500,120"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_album" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+	<MagicCtrl feature="carousel" onload="init" ToolTip="ttp_picview" Name="albumview" Size="230,20"><dfmap><map name="images" value="filename"/></dfmap>
+		<DbDetails>
+		<DbDatabase>D:\AppServ\www\i3u\files\images\xbs\inv</DbDatabase> 
+		<datatype>dir</datatype> 
+		<queryFormat>select * from .</queryFormat> 
+		</DbDetails>
+	</MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
+<WndTap Name="xbs_wo" Text="工单"><Ctrls>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Label Name="lb_code" Text="三优智造_工单、在制品管理，领料/退料，工序流转，完工入库等!" Size="500,120"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_album" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+	<MagicCtrl feature="carousel" onload="init" ToolTip="ttp_picview" Name="albumview" Size="230,20"><dfmap><map name="images" value="filename"/></dfmap>
+		<DbDetails>
+		<DbDatabase>D:\AppServ\www\i3u\files\images\xbs\wo</DbDatabase> 
+		<datatype>dir</datatype> 
+		<queryFormat>select * from .</queryFormat> 
+		</DbDetails>
+	</MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
+<WndTap Name="xbs_tech" Text="BOM"><Ctrls>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Label Name="lb_code" Text="三优智造_工艺路线、物料清单、资源、BOM部门、操作等等，可有效控制企业生产过程，系统包括成品BOM设计、工序设计!" Size="500,120"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_album" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+	<MagicCtrl feature="carousel" onload="init" ToolTip="ttp_picview" Name="albumview" Size="230,20"><dfmap><map name="images" value="filename"/></dfmap>
+		<DbDetails>
+		<DbDatabase>D:\AppServ\www\i3u\files\images\xbs\tech</DbDatabase> 
+		<datatype>dir</datatype> 
+		<queryFormat>select * from .</queryFormat> 
+		</DbDetails>
+	</MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
+<WndTap Name="xbs_qa" Text="质检"><Ctrls>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Label Name="lb_code" Text="三优智造_采购、完工入库质量检查等!" Size="500,120"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_album" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+	<MagicCtrl feature="carousel" onload="init" ToolTip="ttp_picview" Name="albumview" Size="230,20"><dfmap><map name="images" value="filename"/></dfmap>
+		<DbDetails>
+		<DbDatabase>D:\AppServ\www\i3u\files\images\xbs\qa</DbDatabase> 
+		<datatype>dir</datatype> 
+		<queryFormat>select * from .</queryFormat> 
+		</DbDetails>
+	</MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
+<WndTap Name="xbs_mobile" Text="手机客户端"><Ctrls>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Label Name="lb_code" Text="三优智造_电脑上怎么操作，手机客户端也怎么操作，几乎所有的功能都可以在智能手机上操作，智能手机还有更丰富的特色功能提供便利，如扫码等!" Size="500,120"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_album" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+	<MagicCtrl feature="carousel" onload="init" ToolTip="ttp_picview" Name="albumview" Size="230,20"><dfmap><map name="images" value="filename"/></dfmap>
+		<DbDetails>
+		<DbDatabase>D:\AppServ\www\i3u\files\images\xbs\mobile</DbDatabase> 
+		<datatype>dir</datatype> 
+		<queryFormat>select * from .</queryFormat> 
+		</DbDetails>
+	</MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
+<WndTap Name="xbs_fin" Text="财务"><Ctrls>
+<GroupBox Name="GB_txt" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Label Name="lb_code" Text="三优智造_财务处理，应收帐款、应付帐款、总帐，可实现财务记账、现金银行、发票、应收应付等财务日常业务的管理。系统与采购、销售、生产等系统紧密衔接，可实时反映原材料采购、外发加工等的应付账款和客户销售的应收账款情况，可对加工生产成本进行分析，并可对企业所有收入、支出进行汇总和分析，从而实现企业管理者对资金流的有效监控!" Size="500,120"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_album" Multiline="0" cols="xs12 sm12 md12 lg12"><Ctrls>
+	<MagicCtrl feature="carousel" onload="init" ToolTip="ttp_picview" Name="albumview" Size="230,20"><dfmap><map name="images" value="filename"/></dfmap>
+		<DbDetails>
+		<DbDatabase>D:\AppServ\www\i3u\files\images\xbs\fin</DbDatabase> 
+		<datatype>dir</datatype> 
+		<queryFormat>select * from .</queryFormat> 
+		</DbDetails>
+	</MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
+  </WndTaps></XI3uWnd>

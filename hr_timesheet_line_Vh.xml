@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_timesheet_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_timesheet_lineLst" ToolTip="ttp_hr_timesheet_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_timesheet_line</DbTable>
+<Index>hr_timesheet_line_id</Index>
+<Data>work_date,day1,day2,day3,day4,day5,day6,day7,prj_project_line_id,prj_work_type_id,prj_project_header_id,status,purpose,description,created_by,creation_date,last_update_by,last_update_date,hr_timesheet_line_id</Data>
+<Order>hr_timesheet_line_id</Order></DbDetails>
+<OnClick><assign name="prj_project_line_id[prj_project_line_id]" expr="%{hr_timesheet_lineLst[prj_project_line_id]}" function="SetSel"/><assign name="prj_work_type_id[prj_work_type_id]" expr="%{hr_timesheet_lineLst[prj_work_type_id]}" function="SetSel"/><assign name="prj_project_header_id[prj_project_header_id]" expr="%{hr_timesheet_lineLst[prj_project_header_id]}" function="SetSel"/>
+<if cond="%{hr_timesheet_line_id}"><SetVisible name="inserthr_timesheet_line" Visible="0"/><SetVisible name="modifyhr_timesheet_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

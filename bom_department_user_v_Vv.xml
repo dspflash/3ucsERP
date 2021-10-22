@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVbom_department_user_v" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bom_department_user_v_vLst" ToolTip="ttp_bom_department_user_v_v" Size="700,450" OnLoad="init" Heading="org,250;department,250;standard_operation,250;username,100;active,20;description,640;org_id,55;xerp_user_id,60;bd_status,60;bo_status,60;bu_active,60;bom_department_id,50;bom_standard_operation_id,60;user_bom_department_id,60;" loadedclick="0">
+	<DbDetails >
+
+<DbTable>xbs.bom_department_user_v b</DbTable>
+<Data>b.org,b.department,b.standard_operation,b.username,b.active,b.description,b.org_id,b.xerp_user_id,b.bd_status,b.bo_status,b.bu_active,b.bom_department_id,b.bom_standard_operation_id,b.user_bom_department_id</Data>
+</DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} where org_id='%{orgid}' %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>%{primary}='%{bom_department_user_v_vLst[%{primary}]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_department_user_v.bom_department_user_vLst"/><assign name="$this.bom_department_user_v.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_department_user_v</DbTable>
+<Where>%{primary}='%{bom_department_user_v_vLst[%{primary}]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_bom_department_user_v" expr="js(%{bom_department_user_v_vLst[currentpage]}+1)"/>
+<assign name="pgscb_bom_department_user_v" expr="js(%{bom_department_user_v_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

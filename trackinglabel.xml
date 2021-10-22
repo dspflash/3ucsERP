@@ -1,0 +1,119 @@
+﻿<?xml version="1.1" ?>
+<WndTap Name="TrackingLabel" Text="溯源标签">
+    <Ctrls>
+		<GroupBox Name="GBTagPrint" Text="溯源标签"><Ctrls>
+		<Label Name="lb_so_number"  Size="120,15" Text="(D) so number D/N:"/><TextBox Name="so_number" Size="60,15" tooltip="so_number" Text=""/>    
+		<BR Size="0,12"/>
+		<MagicCtrl Name="qr_so_number" link="tip:qr_so_number" images="layout/ucin,logo.png" Size="240,35" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_so_number[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_so_number[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+		<!--Label Name="lb_customer"  Size="120,15" Text="(P) Customer P/N:"/><TextBox Name="customer" Size="60,15" tooltip="Customer" Text=""/>    
+		<BR Size="0,12"/>
+		<MagicCtrl Name="qr_customer" link="tip:qr_customer" images="layout/ucin,logo.png" Size="240,35" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_customer[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_customer[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl-->
+		<MagicCtrl Name="qr_itemname" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="120,120" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+		<BR Size="0,35"/>
+		<Label Name="lb_quantity"  Size="120,15" Text="(Q) QTY:"/><TextBox Name="quantity" Size="60,15" tooltip="quantity" Text=""/>    
+		<BR Size="0,12"/>
+		<MagicCtrl Name="qr_quantity" link="tip:qr_quantity" images="layout/ucin,logo.png" Size="120,35" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_quantity[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_quantity[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+		<!--BR Size="0,35"/>
+		<Label Name="lb_vendor"  Size="120,15" Text="(V) Vendor Code:"/><TextBox Name="vendor" Size="60,15" tooltip="vendor" Text=""/>    
+		<BR Size="0,12"/>
+		<MagicCtrl Name="qr_vendor" link="tip:qr_vendor" images="layout/ucin,logo.png" Size="150,35" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_vendor[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_vendor[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl-->
+		<BR Size="0,35"/>
+		<Label Name="lb_date"  Size="120,15" Text="(9D) Date Code:"/><TextBox Name="dt" Size="60,15" tooltip="date" Text=""/>    
+		<BR Size="0,12"/>
+		<MagicCtrl Name="qr_date" link="tip:qr_date" images="layout/ucin,logo.png" Size="140,30" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_date[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_date[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+		<BR Size="0,35"/>
+		<Label Name="lb_lot"  Size="120,15" Text="(LT) Lot No:"/><TextBox Name="lot" Size="160,15" tooltip="lot" Text=""/>    
+		<BR Size="0,12"/>
+		<MagicCtrl Name="qr_lot" link="tip:qr_lot" images="layout/ucin,logo.png" Size="360,35" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_lot[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_lot[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+		<BR Size="0,30"/>
+		<Label Name="lb_itemname"  Size="60,30" Text="品名:"/><TextBox Name="itemname" Size="260,30" tooltip="品名" Text=""/>    
+		<BR Size="0,25"/>
+		<Label Name="lb_itemnumber"  Size="60,15" Text="料號:"/><TextBox Name="itemnumber" Size="200,15" tooltip="" Text=""/>    
+		<BR Size="0,12"/>
+		<Label Name="lb_itemx"  Size="60,15" Text="穴號:"/><TextBox Name="itemx" Size="200,15" tooltip="" Text=""/>    
+		<BR/>
+		<Label Name="lb_itemrev"  Size="60,15" Text="REV:"/><TextBox Name="itemrev" Size="200,15" tooltip="" Text=""/>    
+		</Ctrls></GroupBox>
+		
+		<BR AutoHeight="1"/><GroupBox Name="GBop" Text="操作"><Ctrls>
+		<!--Button Name="btnAll" Text="btnAll" Size="50,20" tooltip="测试接口，barencode示例,XML传入数据">
+			<OnClick>
+			<magicdata type="60" width="80" height="20" filename="data/qr_customer.png"><data>P51992092</data></magicdata>
+			<submit next="qr_customer" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+			<magicdata filename="data/qr_item.png"><data>终端装饰类配件-RHONE-PC壳-透明-HUAWEI-保护壳-多语言版-Inbox-156*74-PC</data></magicdata>
+			<submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+			<magicdata type="60" width="80" height="20"  filename="data/qr_quantity.png"><data>Q400</data></magicdata>
+			<submit next="qr_quantity" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+			<magicdata type="60"  width="80" height="20"  filename="data/qr_vendor.png"><data>V022904</data></magicdata>
+			<submit next="qr_vendor" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+			<magicdata type="60" width="80" height="22" filename="data/qr_lot.png"><data>lt51992092170901A-001</data></magicdata>
+			<submit next="qr_lot" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+			<magicdata type="60" width="80" height="17" filename="data/qr_Date.png"><data>9D1735</data></magicdata>
+			<submit next="qr_date" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/></OnClick></Button>
+		
+		<ComboBox Name="barwidth" Size="50,20" tooltip="" items="1~10*10" selectedindex="8"/> <ComboBox Name="barheight" Size="50,20" tooltip="" items="10~30" selectedindex="10"/> 
+		<Button Name="btncustomer" Text="btncustomer" Size="150,20" tooltip="测试接口，barencode示例,XML传入数据">
+			<OnClick><magicdata type="60" width="%{barwidth}" height="%{barheight}" filename="data/qr_customer.png"><data>P51992092</data></magicdata>
+			<submit next="qr_customer" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/></OnClick></Button>
+		<Button Name="btnitem" Text="btnitem" Size="150,20" tooltip="测试接口，barencode示例,XML传入数据">
+			<OnClick><magicdata filename="data/qr_item.png"><data>终端装饰类配件-RHONE-PC壳-透明-HUAWEI-保护壳-多语言版-Inbox-156*74-PC</data></magicdata>
+			<submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/></OnClick></Button>
+		<Button Name="btnquantity" Text="btnquantity" Size="150,20" tooltip="测试接口，barencode示例,XML传入数据">
+			<OnClick><magicdata type="60" width="%{barwidth}" height="%{barheight}" filename="data/qr_quantity.png"><data>Q400</data></magicdata>
+			<submit next="qr_quantity" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/></OnClick></Button>
+		<BR/><Button Name="btnvendor" Text="btnvendor" Size="150,20" tooltip="测试接口，barencode示例,XML传入数据">
+			<OnClick><magicdata type="60" width="%{barwidth}" height="%{barheight}" filename="data/qr_vendor.png"><data>V022904</data></magicdata>
+			<submit next="qr_vendor" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/></OnClick></Button>
+		<Button Name="btnLot" Text="btnLot" Size="150,20" tooltip="测试接口，barencode示例,XML传入数据">
+			<OnClick><magicdata type="60" width="%{barwidth}" height="%{barheight}" filename="data/qr_lot.png"><data>lt51992092170901A-001</data></magicdata>
+			<submit next="qr_lot" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/></OnClick></Button>
+		<Button Name="btnDate" Text="btnDate" Size="150,20" tooltip="测试接口，barencode示例,XML传入数据"> width="%{barwidth}" height="%{barheight}"
+			<OnClick><magicdata type="60" width="%{barwidth}" height="%{barheight}" filename="data/qr_Date.png"><data>9D1735</data></magicdata>
+			<submit next="qr_date" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/></OnClick></Button-->
+			
+		<Button Text="print" ToolTip="ttp_print" Name="print" Size="50,20" visible="true"><OnClick><submit next="GBTagPrint" function="print"/></OnClick></Button>
+		<ListCtrl Name="trackinfoList" PageSize="50" loadedclick="1" Size="50,20" visible="0">
+		<!--DbDetails fcsm="1">
+			<Data>51992092 as customer,'终端装饰类配件-RHONE-PC壳-透明-HUAWEI-保护壳-多语言版-Inbox-156*74-PC' as itemname,400 as quantity,'022904' as vendor,'51992092170901A-001' as lot,1735 as dt,'1A2286200-V01-DA' as itemnumber,'A' as itemrev</Data>
+			<queryFormat>select %{data}</queryFormat> 
+		</DbDetails-->
+		<OnClick><if cond="'%{trackinfoList[so_number]}'">
+			<magicdata type="60" notext="1" width="80" height="20" filename="data/qr_customer.png"><data>P%{trackinfoList[customer]}</data></magicdata>
+			<submit next="qr_customer" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+			<magicdata type="60" notext="1" width="80" height="20" filename="data/qr_so_number.png"><data>P%{trackinfoList[so_number]}</data></magicdata>
+			<submit next="qr_so_number" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+			<magicdata filename="data/qr_item.png"><data>%{trackinfoList[itemname]}</data></magicdata>
+			<submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+			<magicdata type="60" notext="1" width="80" height="20"  filename="data/qr_quantity.png"><data>Q%{trackinfoList[quantity]}</data></magicdata>
+			<submit next="qr_quantity" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+			<magicdata type="60" notext="1" width="80" height="20"  filename="data/qr_vendor.png"><data>V%{trackinfoList[vendor]}</data></magicdata>
+			<submit next="qr_vendor" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+			<magicdata type="60" notext="1" width="80" height="22" filename="data/qr_lot.png"><data>lt%{trackinfoList[lot]}</data></magicdata>
+			<submit next="qr_lot" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+			<magicdata type="60" notext="1" width="80" height="17" filename="data/qr_Date.png"><data>9D%{trackinfoList[dt]}</data></magicdata>
+			<submit next="qr_date" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/></if></OnClick>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1"/>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+</Ctrls></WndTap>

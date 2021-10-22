@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEwip_move_transaction" Size="100,100"><Ctrls>
+<Button sqlpkinsert="wip_move_transaction_id" Text="create" ToolTip="ttp_createwip_move_transaction" Name="insertwip_move_transaction" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_move_transaction</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>wip_wo_header_id[wip_wo_header_id],item_id_m[item_id_m],from_routing_sequence,from_operation_step,to_routing_sequence,to_operation_step,move_quantity,reason</Data>
+<DataEx>transaction_type,transaction_date,created_by,creation_date,last_update_by,last_update_date,org_id;'WIP_MOVE',now(),'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="wip_move_transactionLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifywip_move_transaction" Name="modifywip_move_transaction" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_move_transaction</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>wip_wo_header_id[wip_wo_header_id],item_id_m[item_id_m],from_routing_sequence,from_operation_step,to_routing_sequence,to_operation_step,move_quantity,reason</Data>
+<DataEx>transaction_date,last_update_by,last_update_date;now(),'%{user_id}',now()</DataEx>
+<Where>wip_move_transaction_id='%{wip_move_transaction_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="wip_move_transactionLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetwip_move_transaction" Name="resetwip_move_transaction" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITwip_move_transaction" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchwip_move_transaction" Name="gsearchwip_move_transaction" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="wip_move_transactionLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITwip_move_transaction" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

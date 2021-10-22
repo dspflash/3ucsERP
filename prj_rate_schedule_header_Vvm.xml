@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVprj_rate_schedule_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_rate_schedule_header_vLst" ToolTip="ttp_prj_rate_schedule_header" Size="700,420" OnLoad="init" Heading="schedule_name,250;rate_type,120;effective_from,90;effective_to,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bu_org_id,60;prj_rate_schedule_header_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_rate_schedule_header p</DbTable>
+<Index>prj_rate_schedule_header_id</Index>
+<Data>p.schedule_name,p.rate_type,p.effective_from,p.effective_to,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.bu_org_id,p.prj_rate_schedule_header_id</Data>
+<Order>prj_rate_schedule_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>prj_rate_schedule_header_id='%{prj_rate_schedule_header_vLst[prj_rate_schedule_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_rate_schedule_header.prj_rate_schedule_headerLst"/></op>
+<op text="line"><assign name="$this.prj_rate_schedule_line_v.prj_rate_schedule_header_id" expr="%{prj_rate_schedule_header_vLst[prj_rate_schedule_header_id]}"/><DbDetails><Where>prj_rate_schedule_header_id='%{prj_rate_schedule_header_vLst[prj_rate_schedule_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_rate_schedule_line_v.prj_rate_schedule_line_vLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.prj_rate_schedule_header</DbTable>
+<Where>prj_rate_schedule_header_id='%{prj_rate_schedule_header_vLst[prj_rate_schedule_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

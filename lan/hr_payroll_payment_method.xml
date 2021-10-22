@@ -1,0 +1,56 @@
+﻿<Language name="hr_payroll_payment_method">
+<Lang name="hr_payroll_payment_method" value="发薪方式"/>
+<Lang name="TabEdithr_payroll_payment_method" value="hr_payroll_payment_method Edit"/>
+<Lang name="TabViewhr_payroll_payment_method" value="hr_payroll_payment_method View"/>
+<Lang name="payment_method" value="发薪方式"/>
+<Lang name="ttp_payment_method" value=""/>
+<Lang name="ledger_id" value="总账"/>
+<Lang name="ttp_ledger_id" value=""/>
+<Lang name="payment_type" value="支付方式"/>
+<Lang name="ttp_payment_type" value=""/>
+<Lang name="start_date" value="开始时间"/>
+<Lang name="ttp_start_date" value=""/>
+<Lang name="end_date" value="结束时间"/>
+<Lang name="ttp_end_date" value=""/>
+<Lang name="currency" value="货币"/>
+<Lang name="ttp_currency" value=""/>
+<Lang name="bank_account_id" value="银行账号"/>
+<Lang name="ttp_bank_account_id" value=""/>
+<Lang name="cash_ac_id" value=""/>
+<Lang name="ttp_cash_ac_id" value=""/>
+<Lang name="clearing_ac_id" value=""/>
+<Lang name="ttp_clearing_ac_id" value=""/>
+<Lang name="bank_charge_ac_id" value=""/>
+<Lang name="ttp_bank_charge_ac_id" value=""/>
+<Lang name="salary_payable_ac_id" value=""/>
+<Lang name="ttp_salary_payable_ac_id" value=""/>
+<Lang name="costed_cb" value=""/>
+<Lang name="ttp_costed_cb" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hr_payroll_payment_method_id" value=""/>
+<Lang name="ttp_hr_payroll_payment_method_id" value=""/>
+<Lang name="ttp_operationhr_payroll_payment_method" value=""/>
+<Lang name="ttp_createhr_payroll_payment_method" value=""/>
+<Lang name="ttp_modifyhr_payroll_payment_method" value=""/>
+<Lang name="ttp_resethr_payroll_payment_method" value=""/>
+<Lang name="ttp_deletehr_payroll_payment_method" value=""/>
+<Lang name="ttp_refreshhr_payroll_payment_method" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

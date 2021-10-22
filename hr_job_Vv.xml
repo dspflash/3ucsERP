@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVhr_job" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_job_vLst" ToolTip="ttp_hr_job_v" Size="700,450" OnLoad="init" Heading="job_code,125;job_name,250;start_date,90;end_date,60;description,640;min_education,640;min_experience,640;technology,640;skillset,640;position_type,120;job_usage,125;group_hr_job_id,125;functional_area,120;location,120;job_level,20;status,100;job_details,630;primary_responsibility,630;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_job_id,50;" loadedclick="0">
+	<DbDetails >
+<Index>hr_job_id</Index>
+<DbTable>xbs.hr_job h left join xbs.option_line o on h.position_type=o.option_line_id left join xbs.option_line o0 on h.functional_area=o0.option_line_id left join xbs.hr_location h0 on h.location=h0.hr_location_id</DbTable>
+<Data>h.job_code,h.job_name,h.start_date,h.end_date,h.description,h.min_education,h.min_experience,h.technology,h.skillset,o.option_line_value position_type,h.job_usage,h.group_hr_job_id,o0.option_line_value functional_area,h0.combination location,h.job_level,h.status,h.job_details,h.primary_responsibility,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_job_id</Data>
+<Order>hr_job_id</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>hr_job_id='%{hr_job_vLst[hr_job_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_job.hr_jobLst"/><assign name="$this.hr_job.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_job</DbTable>
+<Where>hr_job_id='%{hr_job_vLst[hr_job_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_hr_job" expr="js(%{hr_job_vLst[currentpage]}+1)"/>
+<assign name="pgscb_hr_job" expr="js(%{hr_job_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

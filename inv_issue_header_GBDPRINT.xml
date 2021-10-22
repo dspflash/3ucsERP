@@ -1,0 +1,74 @@
+<GroupBox Name="GBDEDITinv_issue_header"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_issue_number"><Ctrls>
+<Label Align="Right" Text="issue_number" Name="lb_issue_number" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_issue_number" Name="issue_number" ReadOnly="1" Size="170,20">
+	<DbDetails>
+<DbTable>xbs.inv_issue_header</DbTable>
+<Index>issue_number</Index>
+<Data>issue_number</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_transaction_type_id"><Ctrls>
+<Label Align="Right" Text="transaction_type_id" Name="lb_transaction_type_id" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_transaction_type_id" Name="transaction_type_id" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.transaction_type</DbTable>
+<Index>transaction_type_id</Index>
+<Data>transaction_type,transaction_type_id</Data>
+<Where>status is true</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_reference_key_value"><Ctrls>
+<Label Align="Right" Text="reference_key_value" Name="lb_reference_key_value" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_reference_key_value" Name="reference_key_value" Size="170,100" selectedIndex="0"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_issue_date"><Ctrls>
+<Label Align="Right" Text="issue_date" Name="lb_issue_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_issue_date" Name="issue_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_carrier"><Ctrls>
+<Label Align="Right" Text="carrier" Name="lb_carrier" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_carrier" Name="carrier" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_vechile_number"><Ctrls>
+<Label Align="Right" Text="vechile_number" Name="lb_vechile_number" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_vechile_number" Name="vechile_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_comment"><Ctrls>
+<Label Align="Right" Text="comment" Name="lb_comment" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_comment" Name="comment" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_inv_issue_header_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="inv_issue_header_id" overlap="pre" Name="lb_inv_issue_header_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_inv_issue_header_id" overlap="pre" Name="inv_issue_header_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{inv_issue_header_id}'"><SetVisible name="insertinv_issue_header" Visible="0"/><SetVisible name="modifyinv_issue_header" Visible="1"/><if cond="!'%{issue_number}'"><DbDetails><Where>inv_issue_header_id=%{inv_issue_header_id}</Where></DbDetails><submit next="issue_number" namelist="DbDetails"/></if><else/><SetVisible name="insertinv_issue_header" Visible="1"/><SetVisible name="modifyinv_issue_header" Visible="0"/></if><DbDetails><Where>inv_issue_header_id='%{inv_issue_header_id}'</Where></DbDetails><submit next="inv_issue_line_vLst" namelist="DbDetails"/></OnEnChange><OnEnChange><assign name="GBinv_issue_header" expr="TABEDITinv_issue_header"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_org_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="org_id" overlap="pre" Name="lb_org_id" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_org_id" overlap="pre" Name="org_id" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_reference_key_name" Visible="false"><Ctrls>
+<Label Align="Right" Text="reference_key_name" overlap="pre" Name="lb_reference_key_name" Size="60,20" Visible="false"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_reference_key_name" overlap="pre" Items="po_header|wip_wo_header|sd_so_header|am_wo_header|sd_delivery_header" Name="reference_key_name" Size="170,100" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_sets"><Ctrls>
+<Label Align="Right" Text="sets" Name="lb_sets" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_sets" Name="sets" Size="170,20"><OnEnChange><if cond="%{reference_key_value[quantity]}"><if cond="%{reference_key_value[quantity]}&lt;%{sets}"><assign name="sets" expr="%{reference_key_value[quantity]}"/><alert expr="%{lb_sets}应不大于%{reference_key_value[quantity]}"/></if></if>x</OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

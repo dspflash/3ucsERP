@@ -1,0 +1,102 @@
+<GroupBox Name="GBDEDITpm_batch_ingredient"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_pm_batch_header_id"><Ctrls>
+<Label Align="Right" Text="pm_batch_header_id" OnLoad="init" Name="lb_pm_batch_header_id" Size="60,20"/>
+<ComboBox Weight="200" ToolTip="ttp_pm_batch_header_id" OnLoad="init" Name="pm_batch_header_id" Size="200,100">
+	<DbDetails>
+<DbTable>xbs.pm_batch_header</DbTable>
+<Index>pm_batch_header_id</Index>
+<Data>batch_name,pm_batch_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><DbDetails><Where>pm_batch_header_id='%{pm_batch_header_id[pm_batch_header_id]}'</Where></DbDetails><submit next="pm_batch_ingredientLst" namelist="DbDetails"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_no"><Ctrls>
+<Label Align="Right" Text="line_no" Name="lb_line_no" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_line_no" Name="line_no" Size="200,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_revision_name"><Ctrls>
+<Label Align="Right" Text="revision_name" Name="lb_revision_name" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_revision_name" Name="revision_name" Size="200,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls>
+<Label Align="Right" Text="item_id_m" Name="lb_item_id_m" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_item_id_m" Name="item_id_m" Size="200,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_uom_id"><Ctrls>
+<Label Align="Right" Text="uom_id" Name="lb_uom_id" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_uom_id" Name="uom_id" Size="200,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_planned_quantity"><Ctrls>
+<Label Align="Right" Text="planned_quantity" Name="lb_planned_quantity" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_planned_quantity" Name="planned_quantity" Size="200,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_description" Name="description" Size="200,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_wip_planned_quantity"><Ctrls>
+<Label Align="Right" Text="wip_planned_quantity" Name="lb_wip_planned_quantity" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_wip_planned_quantity" Name="wip_planned_quantity" Size="200,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_scale_type"><Ctrls>
+<Label Align="Right" Text="scale_type" Name="lb_scale_type" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_scale_type" Name="scale_type" Size="200,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_contribute_yield_cb"><Ctrls>
+<CheckBox Text="contribute_yield_cb" ToolTip="ttp_contribute_yield_cb" Name="contribute_yield_cb" Size="260,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_byproduct_type"><Ctrls>
+<Label Align="Right" Text="byproduct_type" Name="lb_byproduct_type" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_byproduct_type" Name="byproduct_type" Size="200,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_consumption_type"><Ctrls>
+<Label Align="Right" Text="consumption_type" Name="lb_consumption_type" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_consumption_type" Name="consumption_type" Size="200,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_phantom_type"><Ctrls>
+<Label Align="Right" Text="phantom_type" Name="lb_phantom_type" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_phantom_type" Name="phantom_type" Size="200,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_allocated_quantity"><Ctrls>
+<Label Align="Right" Text="allocated_quantity" Name="lb_allocated_quantity" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_allocated_quantity" Name="allocated_quantity" Size="200,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_actual_quantity"><Ctrls>
+<Label Align="Right" Text="actual_quantity" Name="lb_actual_quantity" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_actual_quantity" Name="actual_quantity" Size="200,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_requirement_date"><Ctrls>
+<Label Align="Right" Text="requirement_date" Name="lb_requirement_date" Size="60,20"/>
+<DateTime Weight="200" ToolTip="ttp_requirement_date" Name="requirement_date" Size="200,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_subinventory_id"><Ctrls>
+<Label Align="Right" Text="subinventory_id" Name="lb_subinventory_id" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_subinventory_id" Name="subinventory_id" Size="200,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_locator_id"><Ctrls>
+<Label Align="Right" Text="locator_id" Name="lb_locator_id" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_locator_id" Name="locator_id" Size="200,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_step_no"><Ctrls>
+<Label Align="Right" Text="step_no" Name="lb_step_no" Size="60,20"/>
+<TextBox Weight="200" ToolTip="ttp_step_no" Name="step_no" Size="200,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="200" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="200,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="200" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="200,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="200" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="200,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="200" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="200,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_pm_batch_ingredient_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="pm_batch_ingredient_id" overlap="pre" Name="lb_pm_batch_ingredient_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="200" ToolTip="ttp_pm_batch_ingredient_id" overlap="pre" Name="pm_batch_ingredient_id" readonly="true" Size="200,20" Visible="false"><OnEnChange><assign name="GBpm_batch_ingredient" expr="TABEDITpm_batch_ingredient"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

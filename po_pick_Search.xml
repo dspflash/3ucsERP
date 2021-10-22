@@ -1,0 +1,14 @@
+<GroupBox Name="GBDEDITpo_header"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_po_number"><Ctrls>
+<Label Align="Right" Text="po_number" Name="lb_po_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_po_number" Name="po_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls>
+<Label Align="Right" Text="item_id_m" onload="init" Name="lb_item_id_m" Size="60,20" type="2"/>
+<TextBox Weight="170" Text="" type="2" ToolTip="ttp_item_number" Name="item_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supplier_id"><Ctrls>
+<Label Align="Right" Text="supplier_id" Name="lb_supplier_id" Size="60,20" selectedIndex="0"/>
+<TextBox Weight="170" ToolTip="ttp_supplier_name" Name="supplier_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearch.xml"/>
+</Ctrls></GroupBox>

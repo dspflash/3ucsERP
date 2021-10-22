@@ -1,0 +1,60 @@
+<GroupBox Name="GBDEDITsd_delivery_header"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_delivery_number"><Ctrls>
+<Label Align="Right" Text="delivery_number" Name="lb_delivery_number" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_delivery_number" Name="delivery_number" Size="170,20">
+	<DbDetails>
+<DbTable>xbs.sd_delivery_header</DbTable>
+<Index>delivery_number</Index>
+<Data>delivery_number</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_shipping_org_id"><Ctrls>
+<Label Align="Right" Text="shipping_org_id" onload="init" Name="lb_shipping_org_id" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_shipping_org_id" onload="init" Name="shipping_org_id" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org_id</Data>
+<Where>parent_org_id='%{orgid}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_status" Visible="false"><Ctrls>
+<Label Align="Right" Text="status" overlap="pre" Name="lb_status" Size="60,20" Visible="false"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_status" overlap="pre" Name="status" Size="170,100" Visible="false">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=167</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_expetced_delivery_date"><Ctrls>
+<Label Align="Right" Text="expetced_delivery_date" Name="lb_expetced_delivery_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_expetced_delivery_date" Name="expetced_delivery_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_comment"><Ctrls>
+<Label Align="Right" Text="comment" Name="lb_comment" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_comment" Name="comment" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_sd_delivery_header_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="sd_delivery_header_id" overlap="pre" Name="lb_sd_delivery_header_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_sd_delivery_header_id" overlap="pre" Name="sd_delivery_header_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{sd_delivery_header_id}'"><SetVisible name="insertsd_delivery_header" Visible="0"/><SetVisible name="modifysd_delivery_header" Visible="1"/><if cond="!'%{delivery_number}'"><DbDetails><Where>sd_delivery_header_id=%{sd_delivery_header_id}</Where></DbDetails><submit next="delivery_number" namelist="DbDetails"/></if><else/><SetVisible name="insertsd_delivery_header" Visible="1"/><SetVisible name="modifysd_delivery_header" Visible="0"/></if><DbDetails><Where>sd_delivery_header_id='%{sd_delivery_header_id}'</Where></DbDetails><submit next="sd_delivery_line_vLst" namelist="DbDetails"/></OnEnChange><OnEnChange><assign name="GBsd_delivery_header" expr="TABEDITsd_delivery_header"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

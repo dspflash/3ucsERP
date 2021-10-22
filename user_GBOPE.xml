@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEuser" Size="100,100"><Ctrls>
+<Button sqlpkinsert="user_id" Text="create" ToolTip="ttp_createuser" Name="insertuser" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.user</DbTable>
+<Data>username,hr_employee_id[hr_employee_id],email,status</Data>
+<DataEx>password,created_by,creation_date,last_update_by,last_update_date;md5('%{password}'),'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="userLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyuser" Name="modifyuser" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.user</DbTable>
+<Data>username,hr_employee_id[hr_employee_id],email,status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>user_id='%{user_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="userLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetuser" Name="resetuser" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITuser" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchuser" Name="gsearchuser" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="userLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITuser" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

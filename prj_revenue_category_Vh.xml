@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_revenue_category" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_revenue_categoryLst" ToolTip="ttp_prj_revenue_category" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_revenue_category</DbTable>
+<Index>prj_revenue_category_id</Index>
+<Data>revenue_category,description,created_by,creation_date,last_update_by,last_update_date,prj_revenue_category_id</Data>
+<Order>prj_revenue_category_id</Order></DbDetails>
+<OnClick>
+<if cond="%{prj_revenue_category_id}"><SetVisible name="insertprj_revenue_category" Visible="0"/><SetVisible name="modifyprj_revenue_category" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

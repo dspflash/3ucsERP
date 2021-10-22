@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEhd_service_contract_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hd_service_contract_line_id" Text="create" ToolTip="ttp_createhd_service_contract_line" Name="inserthd_service_contract_line" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hd_service_contract_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>line_type,item_id_m[item_id_m],item_description,unit_price,uom_id[uom_id],line_quantity,line_price,tax_code_id[mdm_tax_code_id],tax_amount,gl_tax_amount,line_description,start_date,end_date,duration,duration_uom_id[uom_id],renewal_type,line_source,counter_instance_id,event_id,termination_date,period_id,hd_service_contract_header_id[hd_service_contract_header_id]</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_service_contract_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhd_service_contract_line" Name="modifyhd_service_contract_line" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hd_service_contract_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>line_type,item_id_m[item_id_m],item_description,unit_price,uom_id[uom_id],line_quantity,line_price,tax_code_id[mdm_tax_code_id],tax_amount,gl_tax_amount,line_description,start_date,end_date,duration,duration_uom_id[uom_id],renewal_type,line_source,counter_instance_id,event_id,termination_date,period_id</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hd_service_contract_line_id='%{hd_service_contract_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_service_contract_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethd_service_contract_line" Name="resethd_service_contract_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIThd_service_contract_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchhd_service_contract_line" Name="gsearchhd_service_contract_line" Size="50,20" visible="false">
+	<OnClick>
+	<search next="hd_service_contract_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDIThd_service_contract_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,20 @@
+<GroupBox Name="GBDEDIToption_header"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_module_code"><Ctrls>
+<Label Align="Right" Text="module_code" onload="init" Name="lb_module_code" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_module_code" onload="init" Name="module_code" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_code</Index>
+<Data>option_line_value,option_line_code</Data>
+<Where>option_header_id=182</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_option_header_id"><Ctrls>
+<Label Align="Right" Text="option_header_id" Name="lb_option_header_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_option_header_id" Name="option_header_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBoption_line_id"><Ctrls>
+<Label Align="Right" Text="option_line_id" Name="lb_option_line_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_option_line_id" Name="option_line_id" Size="170,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

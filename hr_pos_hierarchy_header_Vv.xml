@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVhr_pos_hierarchy_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_pos_hierarchy_header_vLst" ToolTip="ttp_hr_pos_hierarchy_header" Size="700,420" OnLoad="init" Heading="hierarchy_name,250;starting_position_id,120;description,640;revision,60;effective_date,90;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_pos_hierarchy_header_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hr_pos_hierarchy_header h left join xbs.hr_position h0 on h.starting_position_id=h0.hr_position_id</DbTable>
+<Index>hr_pos_hierarchy_header_id</Index>
+<Data>h.hierarchy_name,h0.position_name starting_position_id,h.description,h.revision,h.effective_date,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_pos_hierarchy_header_id</Data>
+<Order>hr_pos_hierarchy_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hr_pos_hierarchy_header_id='%{hr_pos_hierarchy_header_vLst[hr_pos_hierarchy_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_pos_hierarchy_header.hr_pos_hierarchy_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_pos_hierarchy_header</DbTable>
+<Where>hr_pos_hierarchy_header_id='%{hr_pos_hierarchy_header_vLst[hr_pos_hierarchy_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

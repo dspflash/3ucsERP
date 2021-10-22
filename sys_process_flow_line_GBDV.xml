@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsys_process_flow_line"><Ctrls>
+<ListCtrl Heading="line_type,120;line_name,125;line_number,30;description,640;next_line_seq_pass,120;next_line_seq_fail,120;next_line_seq_onhold,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;sys_process_flow_line_id,60;" loadedclick="0" ToolTip="ttp_sys_process_flow_line" Name="sys_process_flow_lineLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>sys_process_flow_line_id</Index>
+<DbTable>xbs.sys_process_flow_line s left join xbs.sys_process_flow_line s0 on s.next_line_seq_pass=s0.sys_process_flow_line_id left join xbs.sys_process_flow_line s1 on s.next_line_seq_fail=s1.sys_process_flow_line_id left join xbs.sys_process_flow_line s2 on s.next_line_seq_onhold=s2.sys_process_flow_line_id left join xbs.user_v u on s.created_by=u.xerp_user_id left join xbs.user_v u0 on s.last_update_by=u0.xerp_user_id</DbTable>
+<Data>s.line_type,s.line_name,s.line_number,s.description,s0.line_name next_line_seq_pass,s1.line_name next_line_seq_fail,s2.line_name next_line_seq_onhold,u.NAME created_by,s.creation_date,u0.NAME last_update_by,s.last_update_date,s.sys_process_flow_line_id</Data>
+<Order>sys_process_flow_line_id</Order></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_line_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVcoa"><Ctrls>
+<ListCtrl Heading="coa_name,250;coa_structure_id,120;description,640;balancing,125;cost_center,125;natural_account,125;inter_company,125;field1,125;field2,125;field3,125;field4,125;field5,125;field6,125;field7,125;field8,125;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;coa_id,60;" loadedclick="0" ToolTip="ttp_coa" onload="init" Name="coaLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.coa c left join xbs.option_line o on c.coa_structure_id=o.option_line_id</DbTable>
+<Index>coa_id</Index>
+<Data>c.coa_name,o.option_line_value coa_structure_id,c.description,c.balancing,c.cost_center,c.natural_account,c.inter_company,c.field1,c.field2,c.field3,c.field4,c.field5,c.field6,c.field7,c.field8,c.status,c.created_by,c.creation_date,c.last_update_by,c.last_update_date,c.coa_id</Data>
+<Order>coa_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

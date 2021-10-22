@@ -1,0 +1,34 @@
+<GroupBox Name="GBDEDITpo_rfq_header"><Ctrls>
+<GroupBox Name="GB_rfq_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_rfq_number" Size="60,20" Text="rfq_number" Align="Right"/>
+<TextBox Name="rfq_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_rfq_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_rfq_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_rfq_name" Size="60,20" Text="rfq_name" Align="Right"/>
+<TextBox Name="rfq_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_rfq_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_rfq_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_rfq_type" Size="60,20" Text="rfq_type" Align="Right" onload="init"/>
+<ComboBox Name="rfq_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_rfq_type" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=289</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox id="option" Name="GB_period" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_periodDTS" Size="60,20" Text="Start Date" Align="Right"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" Name="periodDTS" Size="170,20" Format="yyyy-MM-dd" Text="a week ago" Text2="a week"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_rfq_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_rfq_status" Size="60,20" Text="rfq_status" Align="Right"/>
+<ComboBox Name="rfq_status" Size="170,100" Text="" Weight="170"  ToolTip="ttp_rfq_status" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=290</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

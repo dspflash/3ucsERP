@@ -1,0 +1,13 @@
+<WndTap Name="prj_resource_list_line" Text="prj_resource_list_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="resource_type,hr_employee_id[hr_employee_id],hr_job_id[hr_job_id],prj_expenditure_type_id[prj_expenditure_type_header_id],revenue_category[option_line_id],expenditure_category[option_line_id],prj_resource_list_header_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\prj_resource_list_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBprj_resource_list_line" id="prj_resource_list_line" Text="prj_resource_list_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_resource_list_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_resource_list_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_resource_list_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertprj_resource_list_line" Visible="1"/><SetVisible name="modifyprj_resource_list_line" Visible="0"/></OnActivate>
+</WndTap>

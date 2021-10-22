@@ -1,0 +1,81 @@
+﻿<GroupBox Name="GBDEDITmdm_price_list_line"><Ctrls>
+<GroupBox Name="GB_line_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_line_type" Size="60,20" Text="line_type" Align="Right" onload="init" selectedIndex="2"/>
+<ComboBox Name="line_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_line_type" onload="init" selectedIndex="2">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=133</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_id_m" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_id_m" Size="60,20" Text="item_id_m" Align="Right"/>
+<ComboBox Name="item_id_m" Size="170,100" Text="" Weight="170"  ToolTip="ttp_item_id_m">
+	<DbDetails fcsm="true">
+<DbTable>xbs.item</DbTable>
+<Index>item_id_m</Index>
+<Data>item_number,uom_id,list_price,item_id_m</Data>
+<Where>org_id='%{org_id[org_id]}' and item_status!=278</Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="uom_id"/><if cond="!%{unit_price}"><assign name="unit_price" expr="%{item_id_m[list_price]}"/></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_org_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_org_id" Size="60,20" Text="org_id" Align="Right"/>
+<ComboBox Name="org_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_org_id">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org_id</Data>
+<Where>parent_org_id='%{orgid}' and type=74</Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><if cond="!%{mdm_price_list_line_id}"><submit next="item_id_m"/></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_uom_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_uom_id" Size="60,20" Text="uom_id" Align="Right" selectedIndex="0"/>
+<ComboBox Name="uom_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_uom_id" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.uom</DbTable>
+<Index>uom_id</Index>
+<Data>uom_name,primary_relation,round(primary_relation/IFNULL((SELECT primary_relation FROM uom WHERE uom_id='%{item_id_m[uom_id]}'),1),3) rr,primary_uom_id,uom_id</Data>
+<Where>IFNULL(primary_uom_id,uom_id)=(SELECT IFNULL(primary_uom_id,uom_id) FROM uom WHERE uom_id='%{item_id_m[uom_id]}')</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_unit_price" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_unit_price" Size="60,20" Text="unit_price" Align="Right"/>
+<TextBox Name="unit_price" Size="170,20" Text="" Weight="170" ToolTip="ttp_unit_price"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_effective_start_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_start_date" Size="60,20" Text="effective_start_date" Align="Right"/>
+<DateTime Name="effective_start_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_start_date"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_effective_end_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_end_date" Size="60,20" Text="effective_end_date" Align="Right"/>
+<DateTime Name="effective_end_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_end_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_use_price_break_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="use_price_break_cb" Size="230,20" Text="use_price_break_cb" ToolTip="ttp_use_price_break_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_mdm_price_list_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_mdm_price_list_line_id" Size="60,20" Text="mdm_price_list_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="mdm_price_list_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_mdm_price_list_line_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{mdm_price_list_line_id}'"><SetVisible name="insertmdm_price_list_line" Visible="0"/><SetVisible name="modifymdm_price_list_line" Visible="1"/><else/><SetVisible name="insertmdm_price_list_line" Visible="1"/><SetVisible name="modifymdm_price_list_line" Visible="0"/></if><DbDetails><Where>mdm_price_list_line_id='%{mdm_price_list_line_id}'</Where></DbDetails><submit namelist="DbDetails" next="mdm_price_list_detail_vLst"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_mdm_price_list_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_mdm_price_list_header_id" Size="60,20" Text="mdm_price_list_header_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="mdm_price_list_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_mdm_price_list_header_id" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

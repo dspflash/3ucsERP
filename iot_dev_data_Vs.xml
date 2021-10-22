@@ -1,0 +1,29 @@
+﻿<GroupBox Name="GBDEDITiot_dev_data" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_topic" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_topic" Size="60,20" Text="topic" Align="Right"/>
+<TextBox Name="topic" Size="170,20" Text="" Weight="170" ToolTip="ttp_topic"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_data_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_data_id" Size="60,20" Text="data_id" Align="Right"/>
+<TextBox Name="data_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_data_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_data_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_data_name" Size="60,20" Text="data_name" Align="Right"/>
+<TextBox Name="data_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_data_name"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_data_param" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_data_param" Size="60,20" Text="data_param" Align="Right"/>
+<TextBox Name="data_param" Size="170,20" Text="" Weight="170" ToolTip="ttp_data_param"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_columns" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_columns" Size="60,20" Text="columns" Align="Right"/>
+<TextBox Name="columns" Size="170,20" Text="" Weight="170" ToolTip="ttp_columns"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_orderidx" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_orderidx" Size="60,20" Text="orderidx" Align="Right"/>
+<TextBox Name="orderidx" Size="170,20" Text="" Weight="170" ToolTip="ttp_orderidx"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_actived" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="actived" Size="230,20" Text="actived" ToolTip="ttp_actived"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

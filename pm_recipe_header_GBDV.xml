@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_recipe_header"><Ctrls>
+<ListCtrl Heading="recipe_name,125;org_id,60;pm_formula_header_id,120;pm_process_routing_header_id,120;revision,100;status,100;recipe_type,120;description,640;owner_employee_id,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_recipe_header_id,60;" loadedclick="0" ToolTip="ttp_pm_recipe_header" onload="init" Name="pm_recipe_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_recipe_header</DbTable>
+<Index>pm_recipe_header_id</Index>
+<Data>recipe_name,org_id,pm_formula_header_id,pm_process_routing_header_id,revision,status,recipe_type,description,owner_employee_id,created_by,creation_date,last_update_by,last_update_date,pm_recipe_header_id</Data>
+<Order>pm_recipe_header_id</Order></DbDetails>
+<OnClick><assign name="pm_formula_header_id[pm_formula_header_id]" function="SetSel" expr="%{pm_recipe_headerLst[pm_formula_header_id]}"/><assign name="pm_process_routing_header_id[pm_process_routing_header_id]" function="SetSel" expr="%{pm_recipe_headerLst[pm_process_routing_header_id]}"/><assign name="recipe_type[option_line_id]" function="SetSel" expr="%{pm_recipe_headerLst[recipe_type]}"/><assign name="owner_employee_id[hr_employee_id]" function="SetSel" expr="%{pm_recipe_headerLst[owner_employee_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

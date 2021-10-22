@@ -1,0 +1,107 @@
+<WndTap Name="vSDSO" Text="vSDSO">
+	<WndTaps>
+	<WndTap Text="sd_so_line" Name="sd_so_line" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="sd_so_line" Name="GBsd_so_line" id="sd_so_line" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_line_GBDVv.xml"/></Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap>
+	<WndTap Text="so_wo" Name="so_wo" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_line.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="so_wo" Name="GBso_wo" id="so_wo" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVso_wo"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_so_wo" Name="so_woLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>sd_so_line sl JOIN item p ON p.item_id_m=sl.item_id_m AND sl.shipping_org_id=p.org_id LEFT JOIN wip_wo_allocation wa ON sl.sd_so_line_id=wa.demand_source_line_id LEFT JOIN wip_wo_header wo ON wa.wip_wo_header_id=wo.wip_wo_header_id join item cp on wo.item_id_m=cp.item_id_m and wo.org_id=cp.org_id</DbTable>
+<Index>sd_so_line_id</Index>
+<Data>p.item_number,cp.item_number component,sl.schedule_ship_date,wo.quantity,wo.start_date,wo.completed_quantity,wo.completion_date</Data>
+<Order>sd_so_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox></Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap>
+<WndTap Name="vAR_SDSO" Text="vAR_SDSO" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_line.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_transaction_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_receipt_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vAR_SDSO"><Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="sdsoLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.ar_sdso_v</DbTable>
+<Index>sd_so_header_id</Index>
+<Data>*</Data>
+<Order>sd_so_header_id</Order>
+</DbDetails>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_header_m.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_line_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_header_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_v.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_print_v.xml" popup="1"/>
+			</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vSDSO"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_so_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="sdsoLst" listed="0" prefixand="1" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITsd_so_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="sdsoLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.sd_so_header_v</DbTable>
+<Index>sd_so_header_id</Index>
+<Data>*</Data>
+<Order>sd_so_header_id</Order>
+<Where>and so_status!=538</Where>
+<queryFormat>select %{data} from %{dbtable} where ar_customer_id=%{customer_id} %{where} order by sd_so_header_id desc limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="so_process_menu_rule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/so_process_menu_rule.xml"/></rules>
+<inputs astatus="%{sdsoLst[approval_status]}" status="%{sdsoLst[so_status]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="view"><DbDetails><Where>sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</Where></DbDetails>
+	<submit next="vSDSO.sd_so_line.sd_so_lineLst" namelist="DbDetails"/></op>
+<op text="modify"><DbDetails><DbTable>xbs.ar_customer_v</DbTable><Where>ar_customer_id='%{sdsoLst[ar_customer_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_so_header.ar_customer_id"/><DbDetails><Where>sd_so_header_id='%{sdsoLst[sd_so_header_id]}' and so_status=537</Where></DbDetails><submit namelist="DbDetails" next="vcustomer.sd_so_header.sd_so_headerLst"/></op>
+</operator>
+</ListCtrl>SELECT so.so_number,wo.wo_number,wo_ir.receipt_number,wo_il.subinventory_id,wo_il.locator_id,dlv.delivery_number,iln.lot_number
+FROM sd_so_line sl JOIN sd_so_header so ON sl.sd_so_header_id=so.sd_so_header_id
+JOIN wip_wo_header wo
+JOIN wip_wo_allocation wa ON wa.wip_wo_header_id=wo.wip_wo_header_id AND (wa.demand_source_line_id=sl.sd_so_line_id AND wa.demand_source_type='sd_so_header')
+JOIN inv_receipt_header wo_ir ON wo_ir.reference_key_value=wo.wip_wo_header_id AND wo_ir.reference_key_name='wip_wo_header'
+JOIN inv_receipt_line wo_il ON wo_ir.inv_receipt_header_id=wo_il.inv_receipt_header_id AND sl.item_id_m=wo_il.item_id_m
+JOIN sd_delivery_line dlvl ON dlvl.sd_so_line_id=sl.sd_so_line_id
+JOIN sd_delivery_header dlv ON dlv.sd_delivery_header_id=dlvl.sd_delivery_header_id
+LEFT JOIN inv_lot_number iln ON wo_il.lot_number=iln.inv_lot_number_id
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

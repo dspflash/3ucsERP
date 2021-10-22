@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVenterprise" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteenterprise" Name="deleteenterprise" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.enterprise</DbTable>
+<Where>enterprise_id='%{enterpriseLst[enterprise_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchenterprise" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshenterprise" Name="searchenterprise" Size="50,20">
+			  <OnClick><submit next="enterpriseLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPenterpriseLst" OnClick="(enterpriseLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREenterpriseLst" OnClick="(enterpriseLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPenterpriseLst" OnClick="(enterpriseLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

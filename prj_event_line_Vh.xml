@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_event_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_event_lineLst" ToolTip="ttp_prj_event_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_event_line</DbTable>
+<Index>prj_event_line_id</Index>
+<Data>event_number,event_date,event_type_id,currency,billing_amount,billed_cb,revenue_amount,revenue_distributed_cb,description,created_by,creation_date,last_update_by,last_update_date,prj_event_line_id,org_id</Data>
+<Order>prj_event_line_id</Order></DbDetails>
+<OnClick><assign name="event_type_id[prj_event_type_id]" expr="%{prj_event_lineLst[event_type_id]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{prj_event_lineLst[currency]}" function="SetSel"/>
+<if cond="%{prj_event_line_id}"><SetVisible name="insertprj_event_line" Visible="0"/><SetVisible name="modifyprj_event_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

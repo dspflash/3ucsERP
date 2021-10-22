@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<WndTap Text="xerp_user" Name="xerp_user" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\xerp_user.xml"/>
+		<Ctrls>
+		<GroupBox Text="xerp_user" Name="GBxerp_user" id="xerp_user" Size="100,100"><Ctrls>
+		<GroupBox Name="GBDEDITxerp_user"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_password"><Ctrls>
+<Label Align="Right" Text="old password" PASSWORD="true" Name="lb_passwordold" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_password" PASSWORD="true" Name="passwordold" Size="170,20"/>
+</Ctrls></GroupBox><BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_password"><Ctrls>
+<Label Align="Right" Text="new password" PASSWORD="true" Name="lb_password" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_password" PASSWORD="true" Name="password" Size="170,20"/>
+</Ctrls></GroupBox><BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_password"><Ctrls>
+<Label Align="Right" Text="reinupt password" PASSWORD="true" Name="lb_password" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_password" PASSWORD="true" Name="passwordsec" Size="170,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+		<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm6 md4" Name="GBOPDVitem"><Ctrls>
+		<TAB/><Button Text="modifyPass" ToolTip="ttp_modifyPass" Name="modifyPass" Size="100,20">
+			<OnClick><if cond="%{password}!=%{passwordsec}"><alert expr="new passwords input does not match!"/><else/>
+			<DbDetails fcsm="1">
+		<DbTable>xbs.xerp_user</DbTable>
+		<DataEx>password,last_update_by,last_update_date;md5('%{password}'),'%{user_id}',now()</DataEx>
+		<Where>xerp_user_id='%{user_id}' and password=md5('%{passwordold}')</Where>
+		<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+			<submit namelist="DbDetails"/></if></OnClick>
+			</Button><TAB/>
+			</Ctrls></GroupBox>
+			</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap>

@@ -1,0 +1,26 @@
+<GroupBox Name="GBDEDITgl_balance"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_coa_combination_id"><Ctrls>
+<Label Align="Right" Text="coa_combination_id" Name="lb_coa_combination_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_coa_combination_id" Name="coa_combination_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_period_id"><Ctrls>
+<Label Align="Right" Text="period_id" OnLoad="init" Name="lb_period_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_period_id" OnLoad="init" Name="gl_period_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.gl_period</DbTable>
+<Index>gl_period_id</Index>
+<Data>period_name,gl_period_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_balance_type"><Ctrls>
+<Label Align="Right" Text="balance_type" OnLoad="init" Name="lb_balance_type" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_balance_type" OnLoad="init" Name="balance_type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=155</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,51 @@
+<Language name="address">
+<Lang name="address" value="地址"/>
+<Lang name="address_V" value="地址信息"/>
+<Lang name="TabEditaddress" value="address Edit"/>
+<Lang name="TabViewaddress" value="address View"/>
+<Lang name="usage_type" value="用途"/>
+<Lang name="ttp_usage_type" value=""/>
+<Lang name="phone" value="电话"/>
+<Lang name="ttp_phone" value=""/>
+<Lang name="email" value="邮件"/>
+<Lang name="ttp_email" value=""/>
+<Lang name="country" value="国家"/>
+<Lang name="ttp_country" value=""/>
+<Lang name="postal_code" value="邮编"/>
+<Lang name="ttp_postal_code" value=""/>
+<Lang name="rev_number" value="版本"/>
+<Lang name="ttp_rev_number" value=""/>
+<Lang name="default_cb" value="默认地址"/>
+<Lang name="ttp_default_cb" value=""/>
+<Lang name="status" value="状态"/>
+<Lang name="ttp_status" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="address_id" value="地址ID"/>
+<Lang name="ttp_address_id" value=""/>
+<Lang name="reftbltp" value=""/>
+<Lang name="ttp_reftbltp" value=""/>
+<Lang name="refid" value=""/>
+<Lang name="ttp_refid" value=""/>
+<Lang name="ttp_operationaddress" value="操作"/>
+<Lang name="ttp_createaddress" value="新增"/>
+<Lang name="ttp_modifyaddress" value="修改"/>
+<Lang name="ttp_resetaddress" value="清除数据"/>
+<Lang name="ttp_deleteaddress" value="删除"/>
+<Lang name="ttp_refreshaddress" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

@@ -1,0 +1,42 @@
+﻿<Language name="hr_employee_crew">
+<Lang name="hr_employee_crew" value="雇员班组"/>
+<Lang name="TabEdithr_employee_crew" value="hr_employee_crew Edit"/>
+<Lang name="TabViewhr_employee_crew" value="hr_employee_crew View"/>
+<Lang name="hr_employee_id" value="雇员"/>
+<Lang name="ttp_hr_employee_id" value=""/>
+<Lang name="hr_crew_id" value="班组"/>
+<Lang name="ttp_hr_crew_id" value=""/>
+<Lang name="from_date" value="开始日期"/>
+<Lang name="ttp_from_date" value=""/>
+<Lang name="to_date" value="结束日期"/>
+<Lang name="ttp_to_date" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="active" value=""/>
+<Lang name="ttp_active" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hr_employee_crew_id" value=""/>
+<Lang name="ttp_hr_employee_crew_id" value=""/>
+<Lang name="ttp_operationhr_employee_crew" value=""/>
+<Lang name="ttp_createhr_employee_crew" value=""/>
+<Lang name="ttp_modifyhr_employee_crew" value=""/>
+<Lang name="ttp_resethr_employee_crew" value=""/>
+<Lang name="ttp_deletehr_employee_crew" value=""/>
+<Lang name="ttp_refreshhr_employee_crew" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

@@ -1,0 +1,48 @@
+<Language name="inv_issue_header">
+<Lang name="inv_issue_header" value="领料"/>
+<Lang name="inv_issue_print" value="领料单列印"/>
+<Lang name="TabEditinv_issue_header" value="inv_issue_header Edit"/>
+<Lang name="TabViewinv_issue_header" value="inv_issue_header View"/>
+<Lang name="issue_number" value="单号"/>
+<Lang name="ttp_issue_number" value=""/>
+<Lang name="transaction_type_id" value="交易类型"/>
+<Lang name="ttp_transaction_type_id" value=""/>
+<Lang name="issue_date" value="领料日期"/>
+<Lang name="ttp_issue_date" value=""/>
+<Lang name="carrier" value="承运"/>
+<Lang name="ttp_carrier" value=""/>
+<Lang name="vechile_number" value="车牌号"/>
+<Lang name="ttp_vechile_number" value=""/>
+<Lang name="comment" value="备注"/>
+<Lang name="ttp_comment" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="inv_issue_header_id" value="领料单"/>
+<Lang name="ttp_inv_issue_header_id" value=""/>
+<Lang name="org_id" value="组织"/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="reference_key_value" value="关联表ID"/>
+<Lang name="reference_key_name" value="关联表"/>
+<Lang name="ttp_reference_key_name" value=""/>
+<Lang name="ttp_operationinv_issue_header" value="操作"/>
+<Lang name="ttp_createinv_issue_header" value="新增"/>
+<Lang name="ttp_modifyinv_issue_header" value="修改"/>
+<Lang name="ttp_resetinv_issue_header" value="清除数据"/>
+<Lang name="ttp_deleteinv_issue_header" value="删除"/>
+<Lang name="ttp_refreshinv_issue_header" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

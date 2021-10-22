@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVpo_quote_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="po_quote_lineLst" ToolTip="ttp_po_quote_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_quote_line</DbTable>
+<Index>po_quote_line_id</Index>
+<Data>po_rfq_line_id,line_number,quote_unit_price,item_id_m,item_description,uom_id,supplier_part_number,mfg_part_number,manufacturer,minimum_agreement_quantity,minimum_order_quantity,daily_capacity,processing_lead_time,replenishment_lead_time,created_by,creation_date,last_update_by,last_update_date,po_quote_line_id</Data>
+<Order>po_quote_line_id</Order></DbDetails>
+<OnClick><assign name="po_rfq_line_id[po_rfq_line_id]" expr="%{po_quote_lineLst[po_rfq_line_id]}" function="SetSel"/><assign name="item_id_m[item_id_m]" expr="%{po_quote_lineLst[item_id_m]}" function="SetSel"/><assign name="uom_id[uom_id]" expr="%{po_quote_lineLst[uom_id]}" function="SetSel"/>
+<if cond="%{po_quote_line_id}"><SetVisible name="insertpo_quote_line" Visible="0"/><SetVisible name="modifypo_quote_line" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhd_change_request"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_hd_change_request" Name="hd_change_requestLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_change_request h left join xbs.hd_support_request h0 on h.hd_support_request_id=h0.hd_support_request_id left join xbs.option_line o on h.request_type=o.option_line_id left join xbs.option_line o0 on h.request_category=o0.option_line_id left join xbs.option_line o1 on h.impact=o1.option_line_id left join xbs.option_line o2 on h.status=o2.option_line_id left join xbs.user_v u on h.created_by=u.xerp_user_id left join xbs.user_v u0 on h.last_update_by=u0.xerp_user_id</DbTable>
+<Index>hd_change_request_id</Index>
+<Data>h0.support_number hd_support_request_id,h.subject,o.option_line_value request_type,o0.option_line_value request_category,o1.option_line_value impact,h.priority,o2.option_line_value status,h.requester_user_id,h.requester_email,h.requester_phone,h.urgency,h.reason,h.requested_by_date,h.assignment_group,h.assigned_to_user_id,h.chane_details,h.planned_start_date,h.planned_end_date,h.work_start_date,h.work_end_date,h.technical_approver,h.functional_approver,h.dba_approver,h.work_completed_by,h.change_plan,h.rollback_plan,h.communication_plan,h.test_paln,h.test_results,h.description,h.hd_change_request_id,u.NAME created_by,h.creation_date,u0.NAME last_update_by,h.last_update_date</Data>
+<Order>hd_change_request_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>hd_change_request_id='%{hd_change_request_vLst[hd_change_request_id]}'</Where></DbDetails><submit next="$this.hd_change_request.hd_change_requestLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_change_request</DbTable>
+<Where>hd_change_request_id='%{hd_change_request_vLst[hd_change_request_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

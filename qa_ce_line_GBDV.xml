@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVqa_ce_line"><Ctrls>
+<ListCtrl Heading="element_value,250;description,640;end_date,90;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;qa_ce_line_id,60;" loadedclick="0" ToolTip="ttp_qa_ce_line" Name="qa_ce_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_ce_line</DbTable>
+<Index>qa_ce_line_id</Index>
+<Data>element_value,description,end_date,created_by,creation_date,last_update_by,last_update_date,qa_ce_line_id</Data>
+<Order>qa_ce_line_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,87 @@
+﻿<GroupBox Name="GBDEDITorg"><Ctrls>
+<GroupBox Name="GB_org" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_org" Size="60,20" Text="org" Align="Right"/>
+<TextBox Name="org" Size="170,20" Text="" Weight="170" ToolTip="ttp_org"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_code" Size="60,20" Text="code" Align="Right"/>
+<TextBox Name="code" Size="170,20" Text="" Weight="170" ToolTip="ttp_code"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_type" Size="60,20" Text="type" Align="Right" onload="init"/>
+<ComboBox Name="type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_type" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=77</Where>
+<queryFormat>select %{data} from %{dbtable} where %{where} order by option_line_id</queryFormat></DbDetails><OnSelEndOk><DbDetails><Where>type=%{type[option_line_id]}-1</Where></DbDetails><submit namelist="dbdetails" next="parent_org_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_enterprise_org_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_enterprise_org_id" Size="60,20" Text="enterprise_org_id" Align="Right" onload="init"/>
+<ComboBox Name="enterprise_org_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_enterprise_org_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org_id</Data>
+<Where>type=71</Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="legal_org_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_legal_org_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_legal_org_id" Size="60,20" Text="legal_org_id" Align="Right"/>
+<ComboBox Name="legal_org_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_legal_org_id">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org_id</Data>
+<Where>type=72 and enterprise_org_id='%{enterprise_org_id[org_id]}'</Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="business_org_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_business_org_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_business_org_id" Size="60,20" Text="business_org_id" Align="Right"/>
+<ComboBox Name="business_org_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_business_org_id">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org_id</Data>
+<Where>type=73 and legal_org_id='%{legal_org_id[org_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_parent_org_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_parent_org_id" Size="60,20" Text="parent_org_id" Align="Right"/>
+<ComboBox Name="parent_org_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_parent_org_id">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_org_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_org_id" Size="60,20" Text="org_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="org_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_org_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{org_id}'"><SetVisible name="insertorg" Visible="0"/><SetVisible name="modifyorg" Visible="1"/><else/><SetVisible name="insertorg" Visible="1"/><SetVisible name="modifyorg" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

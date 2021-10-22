@@ -1,0 +1,33 @@
+<WndTap Text="hr_expense_print" Name="hr_expense_print" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hr_expense_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hr_expense_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="hr_expense_print" Name="GBhr_expense_print" id="hr_expense_print" Size="100,100">
+	<Ctrls>
+		<MagicCtrl Name="qr_itemname" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="60,60" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_header_GBDEDIT.xml"></xi:include>
+	<BR AutoHeight="1"/><GroupBox Text="hr_expense_line" Name="GBhr_expense_line" id="hr_expense_line" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_line_GBDV.xml"></xi:include>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><Button Text="print" ToolTip="ttp_print" Name="print" Size="50,20" visible="true">
+	<OnClick><submit next="GBhr_expense_print" function="print"/><!--DbDetails><queryFormat>update hr_expense_header set printed_date=now() where hr_expense_header_id='%{hr_expense_header_id}';</queryFormat></DbDetails><submit namelist="DbDetails"/-->
+	</OnClick>
+	</Button><TAB/>
+<ListCtrl Name="hr_expense_headerLst" ToolTip="ttp_hr_expense_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_expense_header</DbTable>
+<Index>hr_expense_header_id</Index>
+<Data>claim_number,department_id,hr_employee_id,claim_date,approved_date,approved_by_employee_id,status,purpose,expense_template_id,currency,doc_currency,header_amount,reason,contact_details,bu_org_id,created_by,creation_date,last_update_by,last_update_date,hr_expense_header_id,exchange_rate_type,exchange_rate</Data>
+<Order>hr_expense_header_id</Order></DbDetails>
+<OnClick><assign name="department_id[dept_id]" expr="%{hr_expense_headerLst[department_id]}" function="SetSel"/><assign name="hr_employee_id[hr_employee_id]" expr="%{hr_expense_headerLst[hr_employee_id]}" function="SetSel"/><assign name="approved_by_employee_id[hr_employee_id]" expr="%{hr_expense_headerLst[approved_by_employee_id]}" function="SetSel"/><assign name="status[option_line_id]" expr="%{hr_expense_headerLst[status]}" function="SetSel"/><assign name="expense_template_id[hr_expense_tpl_header_id]" expr="%{hr_expense_headerLst[expense_template_id]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{hr_expense_headerLst[currency]}" function="SetSel"/><assign name="doc_currency[currency_id]" expr="%{hr_expense_headerLst[doc_currency]}" function="SetSel"/><assign name="bu_org_id[org_id]" expr="%{hr_expense_headerLst[bu_org_id]}" function="SetSel"/><assign name="exchange_rate_type[currency_conversion_type]" expr="%{hr_expense_headerLst[exchange_rate_type]}" function="SetSel"/>
+<if cond="%{hr_expense_header_id}"><SetVisible name="inserthr_expense_header" Visible="0"/><SetVisible name="modifyhr_expense_header" Visible="1"/></if>
+			<magicdata filename="data/qr_quote_number.png"><data>%{hr_expense_headerLst[quote_number]}</data></magicdata>
+			<submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/></OnClick>
+			</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		</WndTap>

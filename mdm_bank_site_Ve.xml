@@ -1,0 +1,13 @@
+<WndTap Name="mdm_bank_site" Text="mdm_bank_site" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\mdm_bank_site.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBmdm_bank_site" id="mdm_bank_site" Text="mdm_bank_site" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_site_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_site_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_site_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertmdm_bank_site" Visible="1"/><SetVisible name="modifymdm_bank_site" Visible="0"/></OnActivate>
+</WndTap>

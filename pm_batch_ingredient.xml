@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="pm_batch_ingredient" Name="pm_batch_ingredient" Ver="2">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\pm_batch_ingredient.xml"/>
+<Ctrls>
+<GroupBox Text="pm_batch_ingredient" Name="GBpm_batch_ingredient" id="pm_batch_ingredient" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pm_batch_ingredient_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pm_batch_ingredient_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pm_batch_ingredient_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pm_batch_ingredient_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

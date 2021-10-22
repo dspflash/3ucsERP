@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_transaction_type"><Ctrls>
+<ListCtrl Heading="ar_transaction_type,250;transaction_class,120;bu_org_id,60;legal_org_id,60;invoice_type_id,60;description,640;cm_type_id,60;payment_term_id,60;status,120;receivable_ac_id,60;revenue_ac_id,60;freight_ac_id,60;tax_ac_id,60;clearing_ac_id,60;unbilled_receivable_ac_id,60;unearned_revenue_ac_id,60;br_receivable_ac_id,60;br_offset_ac_id,60;receivable_rule,125;ar_revenue_rule_header_id,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_transaction_type_id,60;" loadedclick="0" ToolTip="ttp_ar_transaction_type" onload="init" Name="ar_transaction_typeLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_type</DbTable>
+<Index>ar_transaction_type_id</Index>
+<Data>ar_transaction_type,transaction_class,bu_org_id,legal_org_id,invoice_type_id,description,cm_type_id,payment_term_id,status,receivable_ac_id,revenue_ac_id,freight_ac_id,tax_ac_id,clearing_ac_id,unbilled_receivable_ac_id,unearned_revenue_ac_id,br_receivable_ac_id,br_offset_ac_id,receivable_rule,ar_revenue_rule_header_id,created_by,creation_date,last_update_by,last_update_date,ar_transaction_type_id</Data>
+<Order>ar_transaction_type_id</Order></DbDetails>
+<OnClick><assign name="transaction_class[option_line_code]" function="SetSel" expr="%{ar_transaction_typeLst[transaction_class]}"/><assign name="ar_revenue_rule_header_id[ar_revenue_rule_header_id]" function="SetSel" expr="%{ar_transaction_typeLst[ar_revenue_rule_header_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

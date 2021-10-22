@@ -1,0 +1,54 @@
+<Language name="bom_routing_detail">
+<Lang name="bom_routing_detail" value="工艺资源"/>
+<Lang name="TabEditbom_routing_detail" value="bom_routing_detail Edit"/>
+<Lang name="TabViewbom_routing_detail" value="bom_routing_detail View"/>
+<Lang name="bom_routing_line_id" value="工艺线路"/>
+<Lang name="ttp_bom_routing_line_id" value=""/>
+<Lang name="bom_routing_header_id" value=""/>
+<Lang name="ttp_bom_routing_header_id" value=""/>
+<Lang name="bom_standard_operation_id" value="标准操作"/>
+<Lang name="ttp_bom_standard_operation_id" value=""/>
+<Lang name="resource_sequence" value="资源序号"/>
+<Lang name="ttp_resource_sequence" value=""/>
+<Lang name="charge_basis" value="计费标准"/>
+<Lang name="ttp_charge_basis" value=""/>
+<Lang name="resource_id" value="资源"/>
+<Lang name="ttp_resource_id" value=""/>
+<Lang name="resource_usage" value="用量"/>
+<Lang name="ttp_resource_usage" value=""/>
+<Lang name="resource_schedule" value=""/>
+<Lang name="ttp_resource_schedule" value=""/>
+<Lang name="assigned_units" value="分配量"/>
+<Lang name="ttp_assigned_units" value=""/>
+<Lang name="twenty_four_hr_cb" value="24小时制"/>
+<Lang name="ttp_twenty_four_hr_cb" value=""/>
+<Lang name="charge_type" value=""/>
+<Lang name="ttp_charge_type" value=""/>
+<Lang name="standard_rate_cb" value=""/>
+<Lang name="ttp_standard_rate_cb" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="bom_routing_detail_id" value=""/>
+<Lang name="ttp_bom_routing_detail_id" value=""/>
+<Lang name="ttp_operationbom_routing_detail" value="操作"/>
+<Lang name="ttp_createbom_routing_detail" value="新增"/>
+<Lang name="ttp_modifybom_routing_detail" value="修改"/>
+<Lang name="ttp_resetbom_routing_detail" value="清除数据"/>
+<Lang name="ttp_deletebom_routing_detail" value="删除"/>
+<Lang name="ttp_refreshbom_routing_detail" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVhr_timesheet_period" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_timesheet_period_vLst" ToolTip="ttp_hr_timesheet_period" Size="700,420" OnLoad="init" Heading="timesheet_period,250;from_date,90;to_date,90;max_work_hour,30;max_billable_hour,30;status,75;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_timesheet_period_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hr_timesheet_period h</DbTable>
+<Index>hr_timesheet_period_id</Index>
+<Data>h.timesheet_period,h.from_date,h.to_date,h.max_work_hour,h.max_billable_hour,h.status,h.description,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_timesheet_period_id</Data>
+<Order>hr_timesheet_period_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hr_timesheet_period_id='%{hr_timesheet_period_vLst[hr_timesheet_period_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_timesheet_period.hr_timesheet_periodLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_timesheet_period</DbTable>
+<Where>hr_timesheet_period_id='%{hr_timesheet_period_vLst[hr_timesheet_period_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

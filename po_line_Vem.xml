@@ -1,0 +1,13 @@
+<WndTap Name="po_line" Text="po_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="item_id_m[item_id_m],line_quantity,po_header_id[po_header_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\po_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBpo_line" id="po_line" Text="po_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertpo_line" Visible="1"/><SetVisible name="modifypo_line" Visible="0"/></OnActivate>
+</WndTap>

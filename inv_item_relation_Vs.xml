@@ -1,0 +1,50 @@
+﻿<GroupBox Name="GBDEDITinv_item_relation" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_from_item_id_m" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_from_item_id_m" Size="60,20" Text="from_item_id_m" Align="Right" onload="init" type="2"/>
+<ComboBox Name="from_item_id_m" Size="170,100" Text="" Weight="170"  ToolTip="ttp_from_item_id_m" onload="init" type="2">
+	<DbDetails>
+<Index>item_id_m</Index>
+<DbTable>xbs.item</DbTable>
+<Data>item_number,item_id_m</Data>
+<Where></Where>
+<queryFormat>select %{data} from %{dbtable} where org_id='%{orgid}' and item_status!=278 %{where}  limit 0,20</queryFormat></DbDetails><OnEditChange><DbDetails><Where>and item_number like '%%{from_item_id_m[windowtext]}%'</Where></DbDetails><submit namelist="DbDetails"/></OnEditChange></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_to_item_id_m" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_to_item_id_m" Size="60,20" Text="to_item_id_m" Align="Right"/>
+<TextBox Name="to_item_id_m" Size="170,20" Text="" Weight="170" ToolTip="ttp_to_item_id_m">
+	<DbDetails>
+<Index>item_id_m</Index>
+<DbTable>xbs.item</DbTable>
+<Data>item_number,item_id_m</Data>
+<Where></Where>
+<queryFormat>select %{data} from %{dbtable} where org_id='%{orgid}' and item_status!=278 %{where}  limit 0,20</queryFormat></DbDetails><OnEditChange><DbDetails><Where>and item_number like '%%{to_item_id_m[windowtext]}%'</Where></DbDetails><submit namelist="DbDetails"/></OnEditChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_relation_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_relation_type" Size="60,20" Text="relation_type" Align="Right" onload="init"/>
+<ComboBox Name="relation_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_relation_type" onload="init">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=229</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_from_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_from_date" Size="60,20" Text="from_date" Align="Right"/>
+<DateTime Name="from_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_from_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_to_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_to_date" Size="60,20" Text="to_date" Align="Right"/>
+<DateTime Name="to_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_to_date"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_planning_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="planning_cb" Size="230,20" Text="planning_cb" ToolTip="ttp_planning_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

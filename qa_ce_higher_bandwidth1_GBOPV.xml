@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVqa_ce_higher_bandwidth1" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteqa_ce_higher_bandwidth1" Name="deleteqa_ce_higher_bandwidth1" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_ce_higher_bandwidth1</DbTable>
+<Where>qa_ce_higher_bandwidth1_id='%{qa_ce_higher_bandwidth1Lst[qa_ce_higher_bandwidth1_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchqa_ce_higher_bandwidth1" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshqa_ce_higher_bandwidth1" Name="searchqa_ce_higher_bandwidth1" Size="50,20">
+			  <OnClick><submit next="qa_ce_higher_bandwidth1Lst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPqa_ce_higher_bandwidth1Lst" OnClick="(qa_ce_higher_bandwidth1Lst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREqa_ce_higher_bandwidth1Lst" OnClick="(qa_ce_higher_bandwidth1Lst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPqa_ce_higher_bandwidth1Lst" OnClick="(qa_ce_higher_bandwidth1Lst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

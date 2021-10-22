@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDEDITitem" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_item_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_number" Size="60,20" Text="item_number" Align="Right"/>
+<TextBox Name="item_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_name" Size="60,20" Text="item_name" Align="Right"/>
+<TextBox Name="item_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_specification" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_specification" Size="60,20" Text="item_specification" Align="Right"/>
+<TextBox Name="item_specification" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_specification"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_list_price" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_list_price" Size="60,20" Text="list_price" Align="Right"/>
+<TextBox Name="list_price" Size="170,20" Text="" Weight="170" ToolTip="ttp_list_price"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_expenditure_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_expenditure_lineLst" ToolTip="ttp_prj_expenditure_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_expenditure_line</DbTable>
+<Index>prj_expenditure_line_id</Index>
+<Data>hr_employee_id,job_id,expenditure_date,prj_expenditure_type_header_id,uom_id,rate,quantity,line_amount,status,debit_ac_id,credit_ac_id,gl_journal_header_id,gl_journal_interface_cb,invoiced_cb,revene_calculated_cb,burden_amount,description,created_by,creation_date,last_update_by,last_update_date,prj_expenditure_line_id,org_id</Data>
+<Order>prj_expenditure_line_id</Order></DbDetails>
+<OnClick><assign name="hr_employee_id[hr_employee_id]" expr="%{prj_expenditure_lineLst[hr_employee_id]}" function="SetSel"/><assign name="job_id[hr_job_id]" expr="%{prj_expenditure_lineLst[job_id]}" function="SetSel"/><assign name="prj_expenditure_type_header_id[prj_expenditure_type_header_id]" expr="%{prj_expenditure_lineLst[prj_expenditure_type_header_id]}" function="SetSel"/><assign name="uom_id[uom_id]" expr="%{prj_expenditure_lineLst[uom_id]}" function="SetSel"/>
+<if cond="%{prj_expenditure_line_id}"><SetVisible name="insertprj_expenditure_line" Visible="0"/><SetVisible name="modifyprj_expenditure_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

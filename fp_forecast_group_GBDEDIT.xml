@@ -1,0 +1,64 @@
+﻿<GroupBox Name="GBDEDITfp_forecast_group"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_forecast_group"><Ctrls>
+<Label Align="Right" Text="forecast_group" Name="lb_forecast_group" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_forecast_group" Name="forecast_group" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bucket_type"><Ctrls>
+<Label Align="Right" Text="bucket_type" onload="init" Name="lb_bucket_type" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_bucket_type" onload="init" Name="bucket_type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=173</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_consume_cb"><Ctrls>
+<CheckBox Text="consume_cb" ToolTip="ttp_consume_cb" Name="consume_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_backward_days"><Ctrls>
+<Label Align="Right" Text="backward_days" Name="lb_backward_days" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_backward_days" Name="backward_days" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_forward_days"><Ctrls>
+<Label Align="Right" Text="forward_days" Name="lb_forward_days" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_forward_days" Name="forward_days" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" Size="230,20" checked="true"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_org_id"><Ctrls>
+<Label Align="Right" Text="org_id" onload="init" Name="lb_org_id" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_org_id" onload="init" Name="org_id" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>org,org.org_id</Data>
+<Where>type=74 and org_id in (select org_id FROM xbs.org WHERE IF((SELECT TYPE FROM xbs.org WHERE org_id='%{orgid}')=74,org_id='%{orgid}',org_id IN (SELECT org_id FROM xbs.org WHERE parent_org_id='%{orgid}')))  </Where>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="forecast_group_id"/><submit next="ar_customer_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_fp_forecast_group_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="fp_forecast_group_id" overlap="pre" Name="lb_fp_forecast_group_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_fp_forecast_group_id" overlap="pre" Name="fp_forecast_group_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{fp_forecast_group_id}'"><SetVisible name="insertfp_forecast_group" Visible="0"/><SetVisible name="modifyfp_forecast_group" Visible="1"/><else/><SetVisible name="insertfp_forecast_group" Visible="1"/><SetVisible name="modifyfp_forecast_group" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

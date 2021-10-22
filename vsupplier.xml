@@ -1,0 +1,347 @@
+<WndTap Name="vSupplier" Text="vSupplier">
+	<WndTaps>
+	<WndTap Text="supplier" Name="supplier" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\supplier.xml"/>
+		<Ctrls>
+		<GroupBox Text="supplier" Name="GBsupplier" id="supplier" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="supplier_GBDEDIT.xml"></xi:include>
+		<BR AutoHeight="1"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="supplier_GBOPE.xml"></xi:include>
+		<TAB/>
+		<ListCtrl loadedclick="1" ToolTip="ttp_supplier" Name="supplierLst" Size="70,20" visible="0">
+		<DbDetails fcsm="1">
+			<DbTable>xbs.supplier</DbTable>
+			<Index>supplier_id</Index>
+			<Data>supplier_name,supplier_number,tax_country,supplier_category,tax_reg_no,currency,status,supplier_id,org_id</Data>
+			<Order>supplier_id</Order></DbDetails>
+			<OnClick><assign name="supplier_type[option_line_id]" expr="%{supplierLst[supplier_type]}" function="SetSel"/><assign name="tax_country[country_id]" expr="%{supplierLst[tax_country]}" function="SetSel"/><assign name="supplier_category[option_line_id]" expr="%{supplierLst[supplier_category]}" function="SetSel"/><assign name="currency[currency_id]" function="SetSel" expr="%{supplierLst[currency]}"/>
+			<if cond="%{supplierLst[supplier_id]}"><SetVisible name="insertsupplier" Visible="0"/><SetVisible name="modifysupplier" Visible="1"/><else/><SetVisible name="insertsupplier" Visible="1"/><SetVisible name="modifysupplier" Visible="0"/></if></OnClick></ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertsupplier" Visible="1"/><SetVisible name="modifysupplier" Visible="0"/></OnActivate>
+	</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_user_supplier_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="address_Vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="contact_Vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_account_Vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="supplier_site_Vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_quote_line.xml" popup="1"/>
+	<WndTap Text="vpo_quote" Name="vpo_quote" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_quote_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_quote_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="vpo_quote" Name="GBvpo_quote" id="vpo_quote" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" Name="PO_quoteLst" Size="700,420">
+			<DbDetails>
+			<DbTable>xbs.po_quote_header_v</DbTable>
+			<Index>po_quote_header_id</Index>
+			<Data>*</Data>
+			<Order>po_quote_header_id desc</Order>
+			<queryFormat>select %{data} from %{dbtable} where %{where} order by %{order} limit %{StartRow},%{PgSize}</queryFormat> 
+			</DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<op text="modify"><DbDetails><DbTable>xbs.supplier_all_v</DbTable><Where>supplier_id='%{PO_quoteLst[supplier_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vSupplier.po_quote_header.supplier_id"/><DbDetails><Where>po_quote_header_id='%{vSupplier.vpo_quote.po_quotelst[po_quote_header_id]}' and quote_status=1486</Where></DbDetails>
+				<submit namelist="DbDetails" next="vSupplier.po_quote_header.po_quote_headerLst"/></op>
+			<op text="view"><DbDetails><Where>po_quote_header_id='%{$this.po_quotelst[po_quote_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.vpo_quote_line.PO_quoteLst"/></op>
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="Materialpick" Name="Materialpick" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\material.xml"/>
+	<Ctrls>
+	<GroupBox Text="item" Name="GBitem" id="item" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="material_GBDSEARCH.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="materialLst" listed="0" prefixand="1" inputed="1"><item_number format="item_number like '%%{opvalue}%'"/><item_name format="item_name like '%%{opvalue}%'"/><item_specification format="item_specification like '%%{opvalue}%'"/></search><submit next="GBDEDITitem" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+	<ListCtrl loadedclick="0" PageSize="50" ToolTip="ttp_item" Name="materialLst" DataJoinKey="item_id_m" DataJoin="%{this(item_number,item_name,item_specification,item_description,org)}%{prop}" Size="700,420">
+	<operator refresh="1" firstpage="1" prepage="1" nextpage="1"/>
+		<MDX id="prop" datatype="string">
+		<DbDetails>
+					<DbTable>item_properties i left join item_property i0 on i.property_id=i0.property_id</DbTable> 
+					<MDX>item_id_m,propname,propvalue</MDX>
+					<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+					<Order></Order>
+					<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (select * from (SELECT org_id,item_id_m from item i where purchased_cb and item_status!=278 and find_in_set(i.org_id,getChildOrgs('%{orgid}')) %{where} limit %{StartRow},%{PgSize}) as t)</queryFormat> 
+				</DbDetails>
+		</MDX>
+	<DbDetails>
+	<DbTable>xbs.item i join org on i.org_id=org.org_id</DbTable>
+	<Index>item_id_m</Index>
+	<Data>item_id_m,item_number,item_name,item_specification,item_description,org,i.org_id</Data>
+	<Order>item_id_m</Order>
+	<queryFormat>select %{data} from %{dbtable} where purchased_cb and item_status!=278 and find_in_set(i.org_id,getChildOrgs('%{orgid}')) %{where} limit %{StartRow},%{PgSize}</queryFormat>
+	</DbDetails>
+	<OnClick><if cond="%{materialLst[item_id_m]}"><if cond="'%{fromwintap}'=='vSupplier.po_quote_line'"><DbDetails><Where>and item_id_m='%{materialLst[item_id_m]}' and org_id='%{materialLst[org_id]}'</Where></DbDetails><submit namelist="DbDetails" next="%{fromwintap}.item_id_m"/><else/><DbDetails><Where>and item_id_m='%{materialLst[item_id_m]}' </Where></DbDetails><submit namelist="DbDetails" next="%{fromwintap}.item_id_m"/></if><submit function="onok"/></if></OnClick>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="vpo" Name="vpo" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="vpo" Name="GBvpo" id="vpo" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" Name="POLst" Size="700,420">
+			<DbDetails>
+			<DbTable>xbs.PO_header_v</DbTable>
+			<Index>po_header_id</Index>
+			<Data>*</Data>
+			<Order>po_header_id desc</Order>
+			<queryFormat>select %{data} from %{dbtable} where %{where} order by %{order} limit %{StartRow},%{PgSize}</queryFormat> 
+			</DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<EvalTbl rules="" table="po_admin_menu_rule">
+			<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/po_admin_menu_rule.xml"/></rules>
+			<inputs status="%{POLst[po_status]}"/>
+			<outputs title="text" disabled="disabled"/></EvalTbl>
+			<op text="modify"><DbDetails><Where>supplier_id='%{POLst[supplier_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vSupplier.po_header.supplier_id"/><DbDetails><Where>po_header_id='%{vSupplier.vpo.polst[po_header_id]}'</Where></DbDetails>
+				<submit namelist="DbDetails" next="vSupplier.po_header.po_headerLst"/></op>
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="supplier_bu" Name="supplier_bu" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\supplier_bu.xml"/>
+	<Ctrls>
+	<GroupBox Text="supplier_bu" Name="GBsupplier_bu" id="supplier_bu" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="supplier_bu_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="supplier_bu_GBOPE.xml"></xi:include>
+	<ListCtrl loadedclick="1" ToolTip="ttp_supplier_bu" Name="supplier_buLst" Size="70,20" visible="0">
+		<DbDetails fcsm="1">
+	<DbTable>xbs.supplier_bu</DbTable>
+	<Index>supplier_bu_id</Index>
+	<Data>invoice_currency,payment_term_id,po_amount_limit,invoice_amount_limit,payment_amount_limit,payment_priority,invoice_date_basis,pay_date_basis,status,supplier_bu_id</Data>
+	<Order>supplier_bu_id</Order></DbDetails>
+	<OnClick><assign name="invoice_currency[currency_id]" function="SetSel" expr="%{supplier_buLst[invoice_currency]}"/><assign name="payment_term_id[payment_term_id]" function="SetSel" expr="%{supplier_buLst[payment_term_id]}"/>
+		<if cond="%{supplier_buLst[supplier_bu_id]}"><SetVisible name="insertsupplier_bu" Visible="0"/><SetVisible name="modifysupplier_bu" Visible="1"/></if></OnClick></ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate><SetVisible name="insertsupplier_bu" Visible="1"/><SetVisible name="modifysupplier_bu" Visible="0"/><SetVisible name="resetsupplier_bu" Visible="0"/></OnActivate>
+		</WndTap>
+	<WndTap Text="po_quote_header" Name="po_quote_header" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_quote_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_quote_line.xml"/>
+	<var name="dataRequired" expr="supplier_id[supplier_id]"/>
+	<Ctrls>
+	<GroupBox Text="po_quote_header" Name="GBpo_quote_header" id="po_quote_header" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_header_GBOPE.xml"></xi:include>
+	<ListCtrl loadedclick="1" ToolTip="ttp_po_quote_header" Name="po_quote_headerLst" Size="70,20" visible="0">
+		<DbDetails fcsm="1">
+	<DbTable>xbs.po_quote_header</DbTable>
+	<Index>po_quote_header_id</Index>
+	<Data>quote_number,po_rfq_header_id,supplier_id,supplier_site_id,supplier_quote,quote_type,ship_to_id,bill_to_id,currency,payment_term_id,effective_start_date,effective_end_date,valid_date,rev,description,po_quote_header_id,quote_status</Data>
+	<Order>po_quote_header_id</Order></DbDetails>
+	<OnClick><assign name="po_rfq_header_id[po_rfq_header_id]" function="SetSel" expr="%{po_quote_headerLst[po_rfq_header_id]}"/><assign name="supplier_id[supplier_id]" function="SetSel" expr="%{po_quote_headerLst[supplier_id]}"/><assign name="supplier_site_id[supplier_site_id]" function="SetSel" expr="%{po_quote_headerLst[supplier_site_id]}"/><assign name="quote_type[option_line_id]" function="SetSel" expr="%{po_quote_headerLst[quote_type]}"/><assign name="ship_to_id[address_id]" function="SetSel" expr="%{po_quote_headerLst[ship_to_id]}"/><assign name="bill_to_id[address_id]" function="SetSel" expr="%{po_quote_headerLst[bill_to_id]}"/><assign name="currency[currency_id]" function="SetSel" expr="%{po_quote_headerLst[currency]}"/><assign name="payment_term_id[payment_term_id]" function="SetSel" expr="%{po_quote_headerLst[payment_term_id]}"/><assign name="quote_status[option_line_id]" function="SetSel" expr="%{po_quote_headerLst[quote_status]}"/>
+	<if cond="%{po_quote_header_id}"><SetVisible name="insertpo_quote_header" Visible="0"/><SetVisible name="modifypo_quote_header" Visible="1"/><else/><SetVisible name="insertpo_quote_header" Visible="1"/><SetVisible name="modifypo_quote_header" Visible="0"/></if></OnClick>
+	</ListCtrl>	
+	<!--Button Text="po_quote_line" ToolTip="ttp_createtpo_quote_line" Name="createpo_quote_line" Size="50,20">
+		<OnClick><if cond="!%{po_quote_header_id}"><alert expr="请先添加单据，若修改单据请从单据列表进入！"/><else/><DbDetails><Where>po_quote_header_id='%{vSupplier.po_quote_header.po_quote_header_id}'</Where></DbDetails>
+		<submit namelist="DbDetails" next="vSupplier.po_quote_line.po_quote_header_id"/></if>
+		</OnClick>
+		</Button><TAB/-->
+	<Button Name="attachment" Size="50,20" Text="attachment">
+			<OnClick><if cond="!%{po_quote_header_id}"><alert expr="上传附件前请先生成单据！"/><else/><assign name="topmost" expr="SendFile:,filter=*.*|*.*|,dir=file/%{user_id},localdir=,query=insert into attachment (filename,path,attachment,reftbl, refid, created_by, creation_date, last_update_by, last_update_date) values('%{_upload_file_name}','file/%{user_id}/','file/%{user_id}/%{_upload_file_name}','po_quote_header',%{po_quote_header_id}, '%{user_id}',now(),'%{user_id}',now())"/>
+			<submit next="DocList"/></if></OnClick></Button><TAB/> ON DUPLICATE KEY UPDATE filename='%{_upload_file_name}',path='file/%{user_id}/',attachment='file/%{user_id}/%{_upload_file_name}', last_update_by='%{user_id}',last_update_date=now()
+	<!--Button Name="Download"  Size="50,20" Text="下载文件">
+			<OnClick><assign name="topmost" expr="GetFile:%{DocList[filenameany]},dir=%{DocList[path]},localdir="/></OnClick>
+			<OnFecthFileEnd><alert next="GroupBox" expr="xiazai"/></OnFecthFileEnd></Button-->
+	<TextBox Name="TB_signature" Size="10,20" Text="" tooltip="" visible="0"><onenchange><assign name="topmost" expr="SendFile:%{TB_signature},filter=*.*|*.*|,dir=file/%{user_id},localdir=,query=insert into attachment (filename,path,attachment,reftbl, refid, created_by, creation_date, last_update_by, last_update_date) values('%{_upload_file_name}','file/%{user_id}/','file/%{user_id}/%{_upload_file_name}','po_quote_header',%{po_quote_header_id}, '%{user_id}',now(),'%{user_id}',now())"/></onenchange></TextBox>
+	<Button Name="Signature" Size="50,20" Text="签名" OnClick="(TB_signature)Signature:%{userid}_%{quote_number}"><!--OnClick><if cond="%{quote_number}"><assign name="TB_signature" expr="Signature:%{userid}_%{quote_number}"/></if></OnClick--></Button><TAB/>
+	<Button Text="confirm" ToolTip="ttp_confirm" Name="confirm" clickneedconfirm="1" Size="50,20">
+		<OnClick><if cond="!%{po_quote_header_id}"><alert expr="请先添加单据，若修改单据请从单据列表进入！"/><else/><DbDetails><queryFormat>update po_quote_header set approval_status=320,quote_status=1487 where po_quote_header_id='%{po_quote_header_id}' and quote_status=1486 and (select count(po_quote_line_id) from po_quote_line where po_quote_header_id='%{po_quote_header_id}')!=0</queryFormat></DbDetails>
+		<submit namelist="DbDetails"/></if>
+		</OnClick>
+		</Button><TAB/>
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_line_Vvm.xml"/>
+	</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate><SetVisible name="insertpo_quote_header" Visible="1"/><SetVisible name="modifypo_quote_header" Visible="0"/></OnActivate>
+		</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_line_Vem.xml" popup="1"/>
+	<!--WndTap Text="po_quote_line" Name="po_quote_line" Ver="2" popup="1">
+	<var name="refreshAfterEdit" expr="1"/>
+	<var name="dataRequired" expr="item_id_m[item_id_m],quote_unit_price"/>
+	<var name="dataRequireless" expr=""/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_quote_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="po_quote_line" Name="GBpo_quote_line" id="po_quote_line" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_line_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_line_GBOPE.xml"></xi:include>
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_quote_line_GBDV.xml"></xi:include></Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate/>
+		</WndTap-->
+	<WndTap Text="po_header" Name="po_header" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_line.xml"/>
+	<var name="dataRequired" expr="supplier_id[supplier_id],payment_term_id[payment_term_id]"/>
+	<Ctrls>
+	<GroupBox Text="po_header" Name="GBpo_header" id="po_header" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_header_GBDEDIT.xml"></xi:include>
+	<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_header_GBOPE.xml">
+	</xi:include>
+	<ListCtrl Name="po_headerLst" ToolTip="ttp_po_header" Size="70,20" loadedclick="1" visible="0">
+		<DbDetails fcsm="1">
+		<DbTable>xbs.po_header</DbTable>
+		<Index>po_header_id</Index>
+		<Data>*</Data>
+		<Order>po_header_id</Order></DbDetails>
+		<OnClick>
+		<assign name="po_type[option_line_id]" expr="%{po_headerLst[po_type]}" function="SetSel"/><assign name="supplier_id[supplier_id]" expr="%{po_headerLst[supplier_id]}" function="SetSel"/><assign name="supplier_site_id[supplier_site_id]" expr="%{po_headerLst[supplier_site_id]}" function="SetSel"/><assign name="payment_term_id[payment_term_id]" expr="%{po_headerLst[payment_term_id]}" function="SetSel"/><assign name="ship_to_id[address_id]" expr="%{po_headerLst[ship_to_id]}" function="SetSel"/><assign name="bill_to_id[address_id]" expr="%{po_headerLst[bill_to_id]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{po_headerLst[currency]}" function="SetSel"/><assign name="doc_currency[currency_id]" expr="%{po_headerLst[doc_currency]}" function="SetSel"/>
+		</OnClick>
+		</ListCtrl>
+	<!--Button Text="detailAdmin" ToolTip="ttp_detailAdmin" Name="detailAdmin" Size="50,20">
+		<OnClick><if cond="!%{po_header_id}"><alert expr="请先添加订单，若修改订单请从订单列表进入！"/><else/><DbDetails><Where>po_header_id='%{vSupplier.po_header.po_header_id}'</Where></DbDetails>
+		<submit namelist="DbDetails" next="vSupplier.po_line.po_header_id"/></if>
+		</OnClick>
+		</Button><TAB/-->
+	<Button Text="confirm" ToolTip="ttp_confirm" Name="confirm" clickneedconfirm="1" Size="50,20">
+		<OnClick><if cond="!%{po_header_id}"><alert expr="请先添加订单，若修改订单请从订单列表进入！"/><else/><DbDetails><queryFormat>update po_header set po_status=320 where po_header_id='%{po_header_id}' and po_status=321 and header_amount!=0</queryFormat></DbDetails>
+		<submit namelist="DbDetails"/></if>
+		</OnClick>
+		</Button><TAB/>
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_line_Vvm.xml"/>
+	</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate><SetVisible name="insertpo_header" Visible="1"/><SetVisible name="modifypo_header" Visible="0"/></OnActivate>
+		</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_line_Vem.xml" popup="1"/>
+	<!--WndTap Text="po_linev" Name="po_linev" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_line.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_detail.xml"/>
+		<Ctrls>
+		<GroupBox Text="po_line" Name="GBpo_line" id="po_line" Size="100,100"><Ctrls>
+			<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="po_linevLst" Size="700,420">
+			<DbDetails>
+			<DbTable>xbs.PO_line_v</DbTable>
+			<Index>po_line_id</Index>
+			<Data>*</Data>
+			<Order>po_line_id</Order>
+			</DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<EvalTbl rules="" table="po_line_admin_menu_rule">
+			<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/po_line_admin_menu_rule.xml"/></rules>
+			<inputs status="%{po_linevLst[status]}"/>
+			<outputs title="text" disabled="disabled"/></EvalTbl>
+			<op text="po_line"><DbDetails><Where>po_header_id='%{vSupplier.po_linev.po_linevLst[po_header_id]}'</Where></DbDetails>
+				<submit namelist="DbDetails" next="vSupplier.po_line.po_header_id"/></op>
+			<op text="po_detail"><DbDetails><Where>po_line_id='%{vSupplier.po_linev.po_linevLst[po_line_id]}'</Where></DbDetails>
+				<submit namelist="DbDetails" next="vSupplier.po_detail.po_line_id"/></op>
+			</operator>
+		</ListCtrl></Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap-->
+	<WndTap Text="po_detail" Name="po_detail" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_detail.xml"/>
+		<Ctrls>
+		<GroupBox Text="po_detail" Name="GBpo_detail" id="po_detail" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_detail_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_detail_GBOPE.xml"></xi:include>
+		<ListCtrl loadedclick="1" ToolTip="ttp_po_detail" Name="po_detailLst" Size="70,20" visible="0">
+			<DbDetails fcsm="1">
+			<DbTable>xbs.po_detail</DbTable>
+			<Index>po_detail_id</Index>
+			<Data>uom,quantity,ship_to_location_id,subinventory_id,locator_id,invoice_match_type,shipment_number,requestor,need_by_date,promise_date,received_quantity,accepted_quantity,delivered_quantity,invoiced_quantity,paid_quantity,status,po_detail_id</Data>
+			<Order>po_detail_id</Order></DbDetails>
+			<OnClick><assign name="uom[uom_id]" expr="%{po_detailLst[uom]}" function="SetSel"/><assign name="ship_to_location_id[address_id]" expr="%{po_detailLst[ship_to_location_id]}" function="SetSel"/><assign name="subinventory_id[subinventory_id]" expr="%{po_detailLst[subinventory_id]}" function="SetSel"/><assign name="locator_id[locator_id]" expr="%{po_detailLst[locator_id]}" function="SetSel"/><assign name="invoice_match_type[option_line_id]" expr="%{po_detailLst[invoice_match_type]}" function="SetSel"/><assign name="status[option_line_id]" expr="%{po_detailLst[status]}" function="SetSel"/>
+			<if cond="%{po_detail_id}"><SetVisible name="insertpo_detail" Visible="0"/><SetVisible name="modifypo_detail" Visible="1"/><else/><SetVisible name="insertpo_detail" Visible="1"/><SetVisible name="modifypo_detail" Visible="0"/></if></OnClick>
+			</ListCtrl></Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\supplier.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\supplier_bu.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\supplier_site.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="Supplier"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="supplier_GBDSEARCH.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">
+	<OnClick><submit next="vSupplier.supplier.GBDEDITsupplier" function="reset"/></OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsupplier" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="supplierLst" listed="0" prefixand="1" inputed="1"><supplier_name op="(" ref="" format="supplier_name like '%%{opvalue}%'"/></search><submit next="GBDEDITsupplier" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="supplierLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.supplier_all_v</DbTable>
+<Index>supplier_id</Index>
+<Data>*</Data>
+<Order>supplier_id</Order>
+<queryFormat>select %{data} from %{dbtable} where (org_id=%{orgid} or owner_org_id=%{orgid}) and status %{where} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="menudisabledrule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/menudisabledrule.xml"/></rules>
+<inputs input1="%{userid}" position="%{position}" status="%{supplierLst[status]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="modify"><DbDetails><Where>supplier_id='%{vSupplier.supplierLst[supplier_id]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vSupplier.supplier.supplierLst"/></op>
+<op text="address"><assign name="vSupplier.address_V.reftbltp" expr="supplier"/>
+<assign name="vSupplier.address_V.refid" expr="%{supplierLst[supplier_id]}"/>
+	<submit next="vSupplier.address_V.address_vlst"/></op>
+<op text="contact"><assign name="vSupplier.contact_V.reftbltp" expr="supplier"/>
+<assign name="vSupplier.contact_V.refid" expr="%{supplierLst[supplier_id]}"/>
+	<submit next="vSupplier.contact_V.contact_vlst"/></op>
+<op text="mdm_bank_account"><assign name="vSupplier.mdm_bank_account_V.reftbltp" expr="supplier"/>
+<assign name="vSupplier.mdm_bank_account_V.refid" expr="%{supplierLst[supplier_id]}"/>
+	<submit next="vSupplier.mdm_bank_account_V.mdm_bank_account_vlst"/></op>
+<op text="supplier_site"><assign name="vSupplier.supplier_site_V.supplier_id" expr="%{supplierLst[supplier_id]}"/><DbDetails><Where>supplier_id='%{supplier_id}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vSupplier.supplier_site_V.supplier_sitelst"/></op>
+<op text="supplier_bu"><submit next="vSupplier.supplier_bu.GBDEDITsupplier_bu" function="reset"/><DbDetails><Where>supplier_id='%{vSupplier.supplierLst[supplier_id]}' and org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="vSupplier.supplier_bu.supplier_id"/></op>
+<op text="del" needconfirm="1"><assign name="topmost" expr="sql:update supplier set status=0 where supplier_id='%{supplierLst[supplier_id]}'"/></op>
+<op text="supplier_user"><submit next="$this.xerp_user.GBDEDITxerp_user" function="reset"/><DbDetails><Where>supplier_id='%{supplierLst[supplier_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.xerp_user.supplier_id"/><submit next="$this.xerp_user.xerp_userLst" namelist="DbDetails"/></op>
+<op text="viewpoquote"><DbDetails><Where>supplier_id='%{supplierLst[supplier_id]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vSupplier.vpo_quote.po_quotelst"/></op>
+<op text="viewpoquoteline"><DbDetails><Where>supplier_id='%{supplierLst[supplier_id]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vSupplier.vpo_quote_line.po_quotelst"/></op>
+<op text="po_quote_header"><submit next="vSupplier.po_quote_header.GBDEDITpo_quote_header" function="reset"/><DbDetails><DbTable>xbs.supplier_all_v</DbTable><Where>supplier_id='%{supplierLst[supplier_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vSupplier.po_quote_header.supplier_id"/></op>
+<op text="viewpo"><DbDetails><Where>supplier_id='%{supplierLst[supplier_id]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vSupplier.vpo.polst"/></op>
+<op text="po_header"><submit next="vSupplier.po_header.GBDEDITpo_header" function="reset"/><DbDetails><DbTable>xbs.supplier_all_v</DbTable><Where>supplier_id='%{supplierLst[supplier_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vSupplier.po_header.supplier_id"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

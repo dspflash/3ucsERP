@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEpo_quote_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="po_quote_header_id" Text="create" ToolTip="ttp_createpo_quote_header" Name="insertpo_quote_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_quote_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>po_rfq_header_id[po_rfq_header_id],quote_type[option_line_id],supplier_id[supplier_id],supplier_site_id[supplier_site_id],payment_term_id[payment_term_id],ship_to_id[address_id],bill_to_id[address_id],currency[currency_id],effective_start_date,effective_end_date,valid_date,description</Data>
+<DataEx>quote_number,created_by,creation_date,last_update_by,last_update_date,bu_org_id,quote_status;'%{quote_number}','%{user_id}',now(),'%{user_id}',now(),'%{orgid}',1486</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="po_quote_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypo_quote_header" Name="modifypo_quote_header" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_quote_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>po_rfq_header_id[po_rfq_header_id],quote_type[option_line_id],supplier_id[supplier_id],supplier_site_id[supplier_site_id],payment_term_id[payment_term_id],ship_to_id[address_id],bill_to_id[address_id],currency[currency_id],effective_start_date,effective_end_date,valid_date,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>po_quote_header_id='%{po_quote_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="po_quote_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpo_quote_header" Name="resetpo_quote_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_quote_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchpo_quote_header" Name="gsearchpo_quote_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="po_quote_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITpo_quote_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

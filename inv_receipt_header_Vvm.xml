@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVinv_receipt_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="inv_receipt_header_vLst" ToolTip="ttp_inv_receipt_header" Size="700,420" OnLoad="init" Heading="receipt_number,250;transaction_type_id,120;reference_key_value,120;receipt_date,90;carrier,640;vechile_number,640;comment,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,120;inv_receipt_header_id,60;" loadedclick="1">
+	<DbDetails >
+<DbTable>xbs.inv_receipt_header i left join xbs.transaction_type t on i.transaction_type_id=t.transaction_type_id left join xbs.org o on i.org_id=o.org_id</DbTable>
+<Index>inv_receipt_header_id</Index>
+<Data>i.receipt_number,t.transaction_type transaction_type_id,i.reference_key_value,i.receipt_date,i.carrier,i.vechile_number,i.comment,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,o.org org_id,i.inv_receipt_header_id</Data>
+<Order>inv_receipt_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>inv_receipt_header_id='%{inv_receipt_header_vLst[inv_receipt_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.inv_receipt_header.inv_receipt_headerLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,34 @@
+﻿<GroupBox Name="GBDEDIThr_expense_tpl_line" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_expense_item" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_expense_item" Size="60,20" Text="expense_item" Align="Right"/>
+<TextBox Name="expense_item" Size="170,20" Text="" Weight="170" ToolTip="ttp_expense_item"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_expense_category" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_expense_category" Size="60,20" Text="expense_category" Align="Right"  onload="init"/>
+<ComboBox Name="expense_category" Size="170,100" Text="" Weight="170"  ToolTip="ttp_expense_category"  onload="init">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=258</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_tax_code_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_tax_code_id" Size="60,20" Text="tax_code_id" Align="Right"  onload="init"/>
+<ComboBox Name="tax_code_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_tax_code_id"  onload="init">
+	<DbDetails>
+<Index>mdm_tax_code_id</Index>
+<DbTable>xbs.mdm_tax_code</DbTable>
+<Data>tax_code,mdm_tax_code_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_expense_ac_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_expense_ac_id" Size="60,20" Text="expense_ac_id" Align="Right"/>
+<TextBox Name="expense_ac_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_expense_ac_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_inactive_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_inactive_date" Size="60,20" Text="inactive_date" Align="Right"/>
+<DateTime Name="inactive_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_inactive_date"></DateTime>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

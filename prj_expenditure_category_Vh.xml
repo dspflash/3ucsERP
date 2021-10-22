@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_expenditure_category" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_expenditure_categoryLst" ToolTip="ttp_prj_expenditure_category" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_expenditure_category</DbTable>
+<Index>prj_expenditure_category_id</Index>
+<Data>expenditure_category,description,created_by,creation_date,last_update_by,last_update_date,prj_expenditure_category_id</Data>
+<Order>prj_expenditure_category_id</Order></DbDetails>
+<OnClick>
+<if cond="%{prj_expenditure_category_id}"><SetVisible name="insertprj_expenditure_category" Visible="0"/><SetVisible name="modifyprj_expenditure_category" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

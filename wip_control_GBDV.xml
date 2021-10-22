@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVwip_control"><Ctrls>
+<ListCtrl Heading="org_id,60;default_accounting_group,120;wo_number_type,125;allow_one_operation_cb,60;completion_subinventory_id,60;completion_locator_id,60;issue_subinventory_id,60;issue_locator_id,60;so_change_effect,125;auto_release_days,20;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;wip_control_id,60;" loadedclick="0" ToolTip="ttp_wip_control" onload="init" Name="wip_controlLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_control</DbTable>
+<Index>wip_control_id</Index>
+<Data>org_id,default_accounting_group,wo_number_type,allow_one_operation_cb,completion_subinventory_id,completion_locator_id,issue_subinventory_id,issue_locator_id,so_change_effect,auto_release_days,created_by,creation_date,last_update_by,last_update_date,wip_control_id</Data>
+<Order>wip_control_id</Order></DbDetails>
+<OnClick><assign name="default_accounting_group[wip_accounting_group_id]" function="SetSel" expr="%{wip_controlLst[default_accounting_group]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

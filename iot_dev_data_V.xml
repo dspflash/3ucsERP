@@ -1,0 +1,20 @@
+﻿<WndTap Name="iot_dev_data_v" Text="iot_dev_data_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="iot_dev_data_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><topic format="(i.topic like '%%{opvalue}%')"/><data_id format="(i.data_id like '%%{opvalue}%')"/><data_name format="(i.data_name like '%%{opvalue}%')"/><data_param format="(i.data_param like '%%{opvalue}%')"/><columns format="(i.columns like '%%{opvalue}%')"/><orderidx format="(i.orderidx like '%%{opvalue}%')"/><actived format="i.actived is %{opvalue}"/><dev_idx format="(i.dev_idx like '%%{opvalue}%')"/><dev_data_idx format="(i.dev_data_idx like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\iot_dev_data.xml"/>
+<Ctrls><GroupBox  Name="GBiot_dev_data" id="iot_dev_data" Text="iot_dev_data" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="iot_dev_data_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPViot_dev_data" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.iot_dev_data.GBDEDITiot_dev_data" function="reset"/><assign name="$this.iot_dev_data.frmwndctrl" expr="%{$this.iot_dev_data_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetiot_dev_data" Name="resetiot_dev_data" Size="50,20">	<OnClick>	<submit next="GBDEDITiot_dev_data" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchiot_dev_data" Name="gsearchiot_dev_data" Size="50,20">	<OnClick>	
+<search next="iot_dev_data_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITiot_dev_data" namelist="search" function="search"/>	
+<search next="records_iot_dev_data" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITiot_dev_data" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="iot_dev_data_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="iot_dev_data_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="iot_dev_data_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

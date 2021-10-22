@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVbom_oh_res_assignment" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bom_oh_res_assignmentLst" ToolTip="ttp_bom_oh_res_assignment" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>bom_oh_res_assignment_id</Index>
+<DbTable>xbs.bom_oh_res_assignment</DbTable>
+<Data>bom_overhead_id,bom_cost_type,created_by,creation_date,last_update_by,last_update_date,bom_oh_res_assignment_id</Data>
+<Order>bom_oh_res_assignment_id</Order></DbDetails>
+<OnClick><assign name="bom_overhead_id[bom_overhead_id]" expr="%{bom_oh_res_assignmentLst[bom_overhead_id]}" function="SetSel"/><assign name="bom_cost_type[bom_cost_type_id]" expr="%{bom_oh_res_assignmentLst[bom_cost_type]}" function="SetSel"/>
+<if cond="%{bom_oh_res_assignment_id}"><SetVisible name="insertbom_oh_res_assignment" Visible="0"/><SetVisible name="modifybom_oh_res_assignment" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

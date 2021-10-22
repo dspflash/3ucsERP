@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVmdm_price_list_detail" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletemdm_price_list_detail" Name="deletemdm_price_list_detail" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_price_list_detail</DbTable>
+<Where>mdm_price_list_detail_id='%{mdm_price_list_detailLst[mdm_price_list_detail_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchmdm_price_list_detail" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshmdm_price_list_detail" Name="searchmdm_price_list_detail" Size="50,20">
+			  <OnClick><submit next="mdm_price_list_detailLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPmdm_price_list_detailLst" OnClick="(mdm_price_list_detailLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREmdm_price_list_detailLst" OnClick="(mdm_price_list_detailLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPmdm_price_list_detailLst" OnClick="(mdm_price_list_detailLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

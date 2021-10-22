@@ -1,0 +1,57 @@
+<Language name="supplier_site">
+<Lang name="supplier_site" value="供应站"/>
+<Lang name="supplier_site_V" value="供应站信息"/>
+<Lang name="TabEditsupplier_site" value="supplier_site Edit"/>
+<Lang name="TabViewsupplier_site" value="supplier_site View"/>
+<Lang name="supplier_id" value="供应商"/>
+<Lang name="ttp_supplier_id" value=""/>
+<Lang name="supplier_site_number" value="站点编号"/>
+<Lang name="ttp_supplier_site_number" value=""/>
+<Lang name="supplier_site_name" value="站点名称"/>
+<Lang name="ttp_supplier_site_name" value=""/>
+<Lang name="supplier_site_type" value="站点类型"/>
+<Lang name="ttp_supplier_site_type" value=""/>
+<Lang name="currency" value="货币"/>
+<Lang name="ttp_currency" value=""/>
+<Lang name="payment_term_id" value=""/>
+<Lang name="ttp_payment_term_id" value=""/>
+<Lang name="pay_on" value="支付依据"/>
+<Lang name="ttp_pay_on" value=""/>
+<Lang name="transportation" value="运输"/>
+<Lang name="ttp_transportation" value=""/>
+<Lang name="ap_invoice_match_level" value="应付匹配"/>
+<Lang name="ttp_ap_invoice_match_level" value=""/>
+<Lang name="receipt_routing" value="接收路径"/>
+<Lang name="ttp_receipt_routing" value=""/>
+<Lang name="qty_variance" value="数量差异"/>
+<Lang name="ttp_qty_variance" value=""/>
+<Lang name="receipt_days_variance" value="接收时间差异"/>
+<Lang name="ttp_receipt_days_variance" value=""/>
+<Lang name="primary_cb" value="主"/>
+<Lang name="ttp_primary_cb" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="supplier_site_id" value="站点"/>
+<Lang name="ttp_supplier_site_id" value=""/>
+<Lang name="ttp_operationsupplier_site" value="操作"/>
+<Lang name="ttp_createsupplier_site" value="新增"/>
+<Lang name="ttp_modifysupplier_site" value="修改"/>
+<Lang name="ttp_resetsupplier_site" value="清除数据"/>
+<Lang name="ttp_deletesupplier_site" value="删除"/>
+<Lang name="ttp_refreshsupplier_site" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

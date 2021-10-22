@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_employee_experience"><Ctrls>
+<ListCtrl Heading="organization_name,500;designation,500;employee_number,250;department,250;work_start_date,90;work_end_date,90;last_manager,250;last_drawn_salary,100;communication_details,630;project_details,630;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_employee_experience_id,60;" loadedclick="0" ToolTip="ttp_hr_employee_experience" Name="hr_employee_experienceLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>hr_employee_experience_id</Index>
+<DbTable>xbs.hr_employee_experience</DbTable>
+<Data>organization_name,designation,employee_number,department,work_start_date,work_end_date,last_manager,last_drawn_salary,communication_details,project_details,created_by,creation_date,last_update_by,last_update_date,hr_employee_experience_id</Data>
+<Order>hr_employee_experience_id</Order></DbDetails><DbDetails><Where>employee_id='%{employee_id}'</Where></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>hr_employee_experience_id='%{hr_employee_experience_vLst[hr_employee_experience_id]}'</Where></DbDetails><submit next="$this.hr_employee_experience.hr_employee_experienceLst" namelist="DbDetails"/><assign name="$this.hr_employee_experience.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_employee_experience</DbTable>
+<Where>hr_employee_experience_id='%{hr_employee_experience_vLst[hr_employee_experience_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

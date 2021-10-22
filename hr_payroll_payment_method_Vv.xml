@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVhr_payroll_payment_method" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_payroll_payment_method_vLst" ToolTip="ttp_hr_payroll_payment_method_v" Size="700,450" OnLoad="init" Heading="payment_method,500;ledger_id,120;payment_type,120;start_date,90;end_date,90;currency,120;bank_account_id,120;cash_ac_id,60;clearing_ac_id,60;bank_charge_ac_id,60;salary_payable_ac_id,60;costed_cb,60;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_payroll_payment_method_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>hr_payroll_payment_method_id</Index>
+<DbTable>xbs.hr_payroll_payment_method h left join xbs.gl_ledger g on h.ledger_id=g.gl_ledger_id left join xbs.option_line o on h.payment_type=o.option_line_id left join xbs.currency c on h.currency=c.currency_id left join xbs.mdm_bank_account m on h.bank_account_id=m.mdm_bank_account_id left join xbs.user_v u on h.created_by=u.xerp_user_id left join xbs.user_v u0 on h.last_update_by=u0.xerp_user_id</DbTable>
+<Data>h.payment_method,g.ledger ledger_id,o.option_line_value payment_type,h.start_date,h.end_date,c.title currency,m.account_number bank_account_id,h.cash_ac_id,h.clearing_ac_id,h.bank_charge_ac_id,h.salary_payable_ac_id,h.costed_cb,h.description,u.NAME created_by,h.creation_date,u0.NAME last_update_by,h.last_update_date,h.hr_payroll_payment_method_id</Data>
+<Order>hr_payroll_payment_method_id</Order></DbDetails>
+<DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{Where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>hr_payroll_payment_method_id='%{hr_payroll_payment_method_vLst[hr_payroll_payment_method_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_payroll_payment_method.hr_payroll_payment_methodLst"/><assign name="$this.hr_payroll_payment_method.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_payroll_payment_method</DbTable>
+<Where>hr_payroll_payment_method_id='%{hr_payroll_payment_method_vLst[hr_payroll_payment_method_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_hr_payroll_payment_method" expr="js(%{hr_payroll_payment_method_vLst[currentpage]}+1)"/>
+<assign name="pgscb_hr_payroll_payment_method" expr="js(%{hr_payroll_payment_method_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEqa_cp_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="qa_cp_line_id" Text="create" ToolTip="ttp_createqa_cp_line" Name="insertqa_cp_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_cp_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>qa_cp_header_id[qa_cp_header_id],qa_ce_header_id[qa_ce_header_id],description,sequence,dafault_value</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="qa_cp_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyqa_cp_line" Name="modifyqa_cp_line" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_cp_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>qa_cp_header_id[qa_cp_header_id],qa_ce_header_id[qa_ce_header_id],description,sequence,dafault_value</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>qa_cp_line_id='%{qa_cp_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="qa_cp_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetqa_cp_line" Name="resetqa_cp_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITqa_cp_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchqa_cp_line" Name="gsearchqa_cp_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="qa_cp_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITqa_cp_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,56 @@
+﻿<Language name="sd_shipping_control">
+<Lang name="sd_shipping_control" value="sd_shipping_control"/>
+<Lang name="TabEditsd_shipping_control" value="sd_shipping_control Edit"/>
+<Lang name="TabViewsd_shipping_control" value="sd_shipping_control View"/>
+<Lang name="staging_subinventory_id" value=""/>
+<Lang name="ttp_staging_subinventory_id" value=""/>
+<Lang name="staging_locator_id" value=""/>
+<Lang name="ttp_staging_locator_id" value=""/>
+<Lang name="default_picking_rule_id" value=""/>
+<Lang name="ttp_default_picking_rule_id" value=""/>
+<Lang name="delivery_onpicking_cb" value=""/>
+<Lang name="ttp_delivery_onpicking_cb" value=""/>
+<Lang name="autosplit_onpicking_cb" value=""/>
+<Lang name="ttp_autosplit_onpicking_cb" value=""/>
+<Lang name="deffer_invoicing_cb" value=""/>
+<Lang name="ttp_deffer_invoicing_cb" value=""/>
+<Lang name="default_requested_date_cb" value=""/>
+<Lang name="ttp_default_requested_date_cb" value=""/>
+<Lang name="default_schedule_ship_date_cb" value=""/>
+<Lang name="ttp_default_schedule_ship_date_cb" value=""/>
+<Lang name="default_promise_date_cb" value=""/>
+<Lang name="ttp_default_promise_date_cb" value=""/>
+<Lang name="rev_number" value=""/>
+<Lang name="ttp_rev_number" value=""/>
+<Lang name="rev_enabled" value=""/>
+<Lang name="ttp_rev_enabled" value=""/>
+<Lang name="ef_id" value=""/>
+<Lang name="ttp_ef_id" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="org_id" value=""/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="sd_shipping_control_id" value=""/>
+<Lang name="ttp_sd_shipping_control_id" value=""/>
+<Lang name="ttp_operationsd_shipping_control" value=""/>
+<Lang name="ttp_createsd_shipping_control" value=""/>
+<Lang name="ttp_modifysd_shipping_control" value=""/>
+<Lang name="ttp_resetsd_shipping_control" value=""/>
+<Lang name="ttp_deletesd_shipping_control" value=""/>
+<Lang name="ttp_refreshsd_shipping_control" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

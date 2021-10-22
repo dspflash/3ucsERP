@@ -1,0 +1,19 @@
+<GroupBox Name="GBDVinv_count_entries" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="inv_count_entries_vLst" ToolTip="ttp_inv_count_entries" Size="700,420" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.inv_count_schedule ics left join xbs.inv_count_header ih on ics.inv_count_header_id=ih.inv_count_header_id left join xbs.inv_count_entries i on ics.inv_count_schedule_id=i.inv_count_schedule_id left join xbs.item i0 on ics.item_id_m=i0.item_id_m left join xbs.uom u on i.uom_id=u.uom_id left join xbs.subinventory s on ics.subinventory_id=s.subinventory_id left join xbs.locator l on ics.locator_id=l.locator_id left join xbs.inv_lot_number i1 on ics.lot_number=i1.inv_lot_number_id</DbTable>
+<Index>inv_count_entries_id</Index>
+<Data>count_name,i0.item_number,item_name,item_specification,item_description,ics.schedule_date,u.uom_name uom_id,s.subinventory subinventory_id,l.locator locator_id,i1.lot_number lot_number,i.adjusted_qty,i.system_qty,i.count_qty,i.counted_by,i.count_date,i.reason,i.description,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.status,ics.inv_count_schedule_id, ics.item_id_m,i.org_id,i.reference,i.inv_count_entries_id</Data>
+<queryFormat>select %{data} from %{dbtable} where ih.status in (1631,1632) %{where} order by %{order}</queryFormat>
+<Order>inv_count_entries_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="count"><assign name="$this.inv_count_entries.system_qty" expr="0"/><assign name="$this.inv_count_entries.count_qty" expr="0"/><DbDetails><Where>inv_count_schedule_id='%{inv_count_entries_vLst[inv_count_schedule_id]}' and ih.status=1631</Where></DbDetails><submit namelist="DbDetails" next="$this.inv_count_entries.inv_count_schedule_id"/>
+<!--DbDetails><Where>inv_count_schedule_id='%{inv_count_entries_vLst[inv_count_schedule_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.inv_count_entries.inv_count_entriesLst"/--></op>
+<!--op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.inv_count_entries</DbTable>
+<Where>inv_count_entries_id='%{inv_count_entries_vLst[inv_count_entries_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op-->
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

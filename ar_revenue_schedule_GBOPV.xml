@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVar_revenue_schedule" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletear_revenue_schedule" Name="deletear_revenue_schedule" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_revenue_schedule</DbTable>
+<Where>revenue_schedule_id='%{ar_revenue_scheduleLst[revenue_schedule_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_revenue_schedule" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshar_revenue_schedule" Name="searchar_revenue_schedule" Size="50,20">
+			  <OnClick><submit next="ar_revenue_scheduleLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPar_revenue_scheduleLst" OnClick="(ar_revenue_scheduleLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREar_revenue_scheduleLst" OnClick="(ar_revenue_scheduleLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPar_revenue_scheduleLst" OnClick="(ar_revenue_scheduleLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

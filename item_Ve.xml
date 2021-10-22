@@ -1,0 +1,13 @@
+﻿<WndTap Name="item" Text="item" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="item_number,item_name,uom_id[uom_id],item_status[option_line_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\item.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBitem" id="item" Text="item" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertitem" Visible="1"/><SetVisible name="modifyitem" Visible="0"/></OnActivate>
+</WndTap>

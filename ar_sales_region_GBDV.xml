@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_sales_region"><Ctrls>
+<ListCtrl Heading="sales_region_name,500;description,640;street,250;mdm_tax_region_id,120;status,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_sales_region_id,60;" loadedclick="0" ToolTip="ttp_ar_sales_region" onload="init" Name="ar_sales_regionLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_sales_region</DbTable>
+<Index>ar_sales_region_id</Index>
+<Data>sales_region_name,description,street,mdm_tax_region_id,status,created_by,creation_date,last_update_by,last_update_date,ar_sales_region_id</Data>
+<Order>ar_sales_region_id</Order></DbDetails>
+<OnClick><assign name="mdm_tax_region_id[mdm_tax_region_id]" function="SetSel" expr="%{ar_sales_regionLst[mdm_tax_region_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

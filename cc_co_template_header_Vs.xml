@@ -1,0 +1,10 @@
+﻿<GroupBox Name="GBDEDITcc_co_template_header" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_template_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_template_name" Size="60,20" Text="template_name" Align="Right"/>
+<TextBox Name="template_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_template_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_reftbltp" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_reftbltp" Size="60,20" Text="reftbltp" Align="Right"/>
+<ComboBox Name="reftbltp" Size="170,100" Text="" Weight="170" Items="Item|BOM_line|BOM_routing_line" ToolTip="ttp_reftbltp"></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

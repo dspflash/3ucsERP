@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVfp_source_list_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="fp_source_list_headerLst" ToolTip="ttp_fp_source_list_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_source_list_header</DbTable>
+<Index>fp_source_list_header_id</Index>
+<Data>source_list,description,status,org_id,created_by,creation_date,last_update_by,last_update_date,fp_source_list_header_id</Data>
+<Order>fp_source_list_header_id</Order></DbDetails>
+<OnClick><assign name="org_id[org_id]" expr="%{fp_source_list_headerLst[org_id]}" function="SetSel"/>
+<if cond="%{fp_source_list_header_id}"><SetVisible name="insertfp_source_list_header" Visible="0"/><SetVisible name="modifyfp_source_list_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

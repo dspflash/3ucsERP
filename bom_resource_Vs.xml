@@ -1,0 +1,32 @@
+﻿<GroupBox Name="GBDEDITbom_resource" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_resource" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_resource" Size="60,20" Text="resource" Align="Right"/>
+<TextBox Name="resource" Size="170,20" Text="" Weight="170" ToolTip="ttp_resource"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_resource_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_resource_type" Size="60,20" Text="resource_type" Align="Right" onload="init" selectedIndex="2"/>
+<ComboBox Name="resource_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_resource_type" onload="init" selectedIndex="2">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_code,option_line_id</Data>
+<Where>option_header_id=136</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status" checked="true"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_charge_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_charge_type" Size="60,20" Text="charge_type" Align="Right" onload="init"/>
+<ComboBox Name="charge_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_charge_type" onload="init">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_code,option_line_id</Data>
+<Where>option_header_id=137 and mod(option_line_id,2)!='%{osp_cb}' and status</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_osp_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="osp_cb" Size="230,20" Text="osp_cb" ToolTip="ttp_osp_cb"><OnChecked><submit next="charge_type"/></OnChecked></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,51 @@
+﻿<GroupBox Name="GBDEDIThd_sbp_header"><Ctrls>
+<GroupBox Name="GB_business_process" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_business_process" Size="60,20" Text="business_process" Align="Right"/>
+<TextBox Name="business_process" Size="170,20" Text="" Weight="170" ToolTip="ttp_business_process"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_service_order_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="service_order_cb" Size="230,20" Text="service_order_cb" ToolTip="ttp_service_order_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_service_request_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="service_request_cb" Size="230,20" Text="service_request_cb" ToolTip="ttp_service_request_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_service_contract_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="service_contract_cb" Size="230,20" Text="service_contract_cb" ToolTip="ttp_service_contract_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>NAME,username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index></Index>
+<Data>NAME,username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hd_sbp_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hd_sbp_header_id" Size="60,20" Text="hd_sbp_header_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hd_sbp_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hd_sbp_header_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{hd_sbp_header_id}'"><SetVisible name="inserthd_sbp_header" Visible="0"/><SetVisible name="modifyhd_sbp_header" Visible="1"/><else/><SetVisible name="inserthd_sbp_header" Visible="1"/><SetVisible name="modifyhd_sbp_header" Visible="0"/></if><DbDetails><Where>hd_sbp_header_id='%{hd_sbp_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="hd_sbp_line_vLst"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

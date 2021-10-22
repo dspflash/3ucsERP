@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVbom_stnd_op_res_assignment" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bom_stnd_op_res_assignmentLst" ToolTip="ttp_bom_stnd_op_res_assignment" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>bom_stnd_op_res_assignment_id</Index>
+<DbTable>xbs.bom_stnd_op_res_assignment</DbTable>
+<Data>resource_sequence,resource_schedule,resource_id,resource_usage,assigned_units,twenty_four_hr_cb,standard_rate_cb,created_by,creation_date,last_update_by,last_update_date,bom_stnd_op_res_assignment_id</Data>
+<Order>bom_stnd_op_res_assignment_id</Order></DbDetails>
+<OnClick><assign name="resource_schedule[option_line_id]" expr="%{bom_stnd_op_res_assignmentLst[resource_schedule]}" function="SetSel"/><assign name="resource_id[bom_resource_id]" expr="%{bom_stnd_op_res_assignmentLst[resource_id]}" function="SetSel"/>
+<if cond="%{bom_stnd_op_res_assignment_id}"><SetVisible name="insertbom_stnd_op_res_assignment" Visible="0"/><SetVisible name="modifybom_stnd_op_res_assignment" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

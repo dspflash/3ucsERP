@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_timesheet_header"><Ctrls>
+<ListCtrl Heading="hr_timesheet_period_id,120;hr_employee_id,120;entered_on,90;approver_employee_id,120;approved_on,90;status,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_timesheet_header_id,60;" loadedclick="0" ToolTip="ttp_hr_timesheet_header" Name="hr_timesheet_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_timesheet_header h left join xbs.hr_timesheet_period h0 on h.hr_timesheet_period_id=h0.hr_timesheet_period_id left join xbs.hr_employee_v h1 on h.hr_employee_id=h1.hr_employee_id left join xbs.hr_employee_v h2 on h.approver_employee_id=h2.hr_employee_id left join xbs.option_line o on h.status=o.option_line_id</DbTable>
+<Index>hr_timesheet_header_id</Index>
+<Data>h0.timesheet_period hr_timesheet_period_id,h1.name hr_employee_id,h.entered_on,h2.name approver_employee_id,h.approved_on,o.option_line_value status,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_timesheet_header_id</Data>
+<Order>hr_timesheet_header_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>hr_timesheet_header_id='%{hr_timesheet_header_vLst[hr_timesheet_header_id]}'</Where></DbDetails><submit next="$this.hr_timesheet_header.hr_timesheet_headerLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_timesheet_header</DbTable>
+<Where>hr_timesheet_header_id='%{hr_timesheet_header_vLst[hr_timesheet_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

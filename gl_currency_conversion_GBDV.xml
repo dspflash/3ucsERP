@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVgl_currency_conversion"><Ctrls>
+<ListCtrl Heading="currency_conversion_type,120;from_currency,120;to_currency,120;from_date,90;to_date,90;rate,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;gl_currency_conversion_id,60;" loadedclick="0" ToolTip="ttp_gl_currency_conversion" onload="init" Name="gl_currency_conversionLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_currency_conversion g left join xbs.option_line o on g.currency_conversion_type=o.option_line_id left join xbs.currency c on g.from_currency=c.currency_id left join xbs.currency c0 on g.to_currency=c0.currency_id</DbTable>
+<Index>gl_currency_conversion_id</Index>
+<Data>o.option_line_value currency_conversion_type,c.title from_currency,c0.title to_currency,g.from_date,g.to_date,g.rate,g.created_by,g.creation_date,g.last_update_by,g.last_update_date,g.gl_currency_conversion_id</Data>
+<Order>gl_currency_conversion_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

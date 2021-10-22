@@ -1,0 +1,112 @@
+﻿<GroupBox Name="GBDEDIThr_job"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_job_code"><Ctrls>
+<Label Align="Right" Text="job_code" Name="lb_job_code" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_job_code" Name="job_code" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_job_name"><Ctrls>
+<Label Align="Right" Text="job_name" Name="lb_job_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_job_name" Name="job_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_start_date"><Ctrls>
+<Label Align="Right" Text="start_date" Name="lb_start_date" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_start_date" Name="start_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_end_date"><Ctrls>
+<Label Align="Right" Text="end_date" Name="lb_end_date" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_end_date" Name="end_date" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_min_education"><Ctrls>
+<Label Align="Right" Text="min_education" Name="lb_min_education" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_min_education" Name="min_education" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_min_experience"><Ctrls>
+<Label Align="Right" Text="min_experience" Name="lb_min_experience" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_min_experience" Name="min_experience" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_technology"><Ctrls>
+<Label Align="Right" Text="technology" Name="lb_technology" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_technology" Name="technology" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_skillset"><Ctrls>
+<Label Align="Right" Text="skillset" Name="lb_skillset" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_skillset" Name="skillset" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_position_type"><Ctrls>
+<Label Align="Right" Text="position_type" onload="init" Name="lb_position_type" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_position_type" onload="init" Name="position_type" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=190</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_job_usage"><Ctrls>
+<Label Align="Right" Text="job_usage" Name="lb_job_usage" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_job_usage" Name="job_usage" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_group_hr_job_id"><Ctrls>
+<Label Align="Right" Text="group_hr_job_id" Name="lb_group_hr_job_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_group_hr_job_id" Name="group_hr_job_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_functional_area"><Ctrls>
+<Label Align="Right" Text="functional_area" onload="init" Name="lb_functional_area" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_functional_area" onload="init" Name="functional_area" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=191</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_location"><Ctrls>
+<Label Align="Right" Text="location" onload="init" Name="lb_location" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_location" onload="init" Name="location" Size="170,100">
+	<DbDetails>
+<Index>hr_location_id</Index>
+<DbTable>xbs.hr_location</DbTable>
+<Data>combination,hr_location_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_job_level"><Ctrls>
+<Label Align="Right" Text="job_level" Name="lb_job_level" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_job_level" Name="job_level" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" Name="lb_status" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_status" Name="status" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm12 md6 lg4" Multiline="0" Name="GB_job_details"><Ctrls>
+<Label Align="Right" Text="job_details" Name="lb_job_details" Size="60,50"/>
+<TextBox Weight="630" Text="" ToolTip="ttp_job_details" Name="job_details" Size="630,50"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm12 md6 lg4" Multiline="0" Name="GB_primary_responsibility"><Ctrls>
+<Label Align="Right" Text="primary_responsibility" Name="lb_primary_responsibility" Size="60,50"/>
+<TextBox Weight="630" Text="" ToolTip="ttp_primary_responsibility" Name="primary_responsibility" Size="630,50"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_hr_job_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="hr_job_id" overlap="pre" Name="lb_hr_job_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hr_job_id" overlap="pre" Name="hr_job_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{hr_job_id}'"><SetVisible name="inserthr_job" Visible="0"/><SetVisible name="modifyhr_job" Visible="1"/><else/><SetVisible name="inserthr_job" Visible="1"/><SetVisible name="modifyhr_job" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

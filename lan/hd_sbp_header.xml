@@ -1,0 +1,40 @@
+﻿<Language name="hd_sbp_header">
+<Lang name="hd_sbp_header" value="hd_sbp_header"/>
+<Lang name="TabEdithd_sbp_header" value="hd_sbp_header Edit"/>
+<Lang name="TabViewhd_sbp_header" value="hd_sbp_header View"/>
+<Lang name="business_process" value=""/>
+<Lang name="ttp_business_process" value=""/>
+<Lang name="service_order_cb" value=""/>
+<Lang name="ttp_service_order_cb" value=""/>
+<Lang name="service_request_cb" value=""/>
+<Lang name="ttp_service_request_cb" value=""/>
+<Lang name="service_contract_cb" value=""/>
+<Lang name="ttp_service_contract_cb" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hd_sbp_header_id" value=""/>
+<Lang name="ttp_hd_sbp_header_id" value=""/>
+<Lang name="ttp_operationhd_sbp_header" value=""/>
+<Lang name="ttp_createhd_sbp_header" value=""/>
+<Lang name="ttp_modifyhd_sbp_header" value=""/>
+<Lang name="ttp_resethd_sbp_header" value=""/>
+<Lang name="ttp_deletehd_sbp_header" value=""/>
+<Lang name="ttp_refreshhd_sbp_header" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

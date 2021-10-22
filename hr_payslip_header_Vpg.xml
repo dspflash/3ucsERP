@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGhr_payslip_header"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_hr_payslip_header" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>hr_payslip_header_id</Index>
+<DbTable>xbs.hr_payslip_header h left join xbs.option_line o on h.mode_of_payment=o.option_line_id left join xbs.hr_employee_v h0 on h.employee_id=h0.hr_employee_id left join xbs.hr_job h1 on h.job_id=h1.hr_job_id left join xbs.hr_position h2 on h.position_id=h2.hr_position_id left join xbs.hr_grade h3 on h.grade_id=h3.hr_grade_id left join xbs.mdm_bank_account m on h.bank_account_id=m.mdm_bank_account_id left join xbs.hr_payroll_schedule h4 on h.period_name_id=h4.hr_payroll_schedule_id</DbTable>
+<Data>count(*) records</Data>
+<Order>hr_payslip_header_id</Order><Queryformat>select %{data} from (select h.hr_payslip_header_id from %{dbtable} %{where} GROUP BY h.hr_payslip_header_id  ORDER BY h.hr_payslip_header_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_hr_payslip_header" expr="js(Math.ceil(%{records_hr_payslip_header}/%{hr_payslip_header_vLst[countsperpage]}))"/>
+<assign name="pgscb_hr_payslip_header" expr="js('1~'+Math.ceil(%{records_hr_payslip_header}/%{hr_payslip_header_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_hr_payslip_header" Size="60,20"><OnSelEndOK><submit next="hr_payslip_header_vLst" function="GetPage(%{pgscb_hr_payslip_header}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_hr_payslip_header" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_hr_payslip_header" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagehr_payslip_header_vLst" Size="50,20"><OnClick><submit next="hr_payslip_header_vLst" function="GetPage(%{pgcur_hr_payslip_header}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,99 @@
+<GroupBox Name="GBCtrlspo_quote_line"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_po_quote_header_id"><Ctrls>
+<Label Align="Right" Text="po_quote_header_id" OnLoad="init" Name="lb_po_quote_header_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_po_quote_header_id" OnLoad="init" Name="po_quote_header_id" Size="170,100" SelectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.po_quote_header</DbTable>
+<Data>quote_number,po_quote_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_po_rfq_line_id"><Ctrls>
+<Label Align="Right" Text="po_rfq_line_id" Name="lb_po_rfq_line_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_po_rfq_line_id" Name="po_rfq_line_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_number"><Ctrls>
+<Label Align="Right" Text="line_number" Name="lb_line_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_line_number" Name="line_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls>
+<Label Align="Right" Text="item_id_m" Name="lb_item_id_m" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_item_id_m" Name="item_id_m" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_description"><Ctrls>
+<Label Align="Right" Text="item_description" Name="lb_item_description" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_item_description" Name="item_description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mfg_part_number"><Ctrls>
+<Label Align="Right" Text="mfg_part_number" Name="lb_mfg_part_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_mfg_part_number" Name="mfg_part_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_manufacturer"><Ctrls>
+<Label Align="Right" Text="manufacturer" Name="lb_manufacturer" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_manufacturer" Name="manufacturer" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supplier_part_number"><Ctrls>
+<Label Align="Right" Text="supplier_part_number" Name="lb_supplier_part_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_supplier_part_number" Name="supplier_part_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_minimum_agreement_quantity"><Ctrls>
+<Label Align="Right" Text="minimum_agreement_quantity" Name="lb_minimum_agreement_quantity" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_minimum_agreement_quantity" Name="minimum_agreement_quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_minimum_order_quantity"><Ctrls>
+<Label Align="Right" Text="minimum_order_quantity" Name="lb_minimum_order_quantity" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_minimum_order_quantity" Name="minimum_order_quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_fix_lot_multiplier"><Ctrls>
+<Label Align="Right" Text="fix_lot_multiplier" Name="lb_fix_lot_multiplier" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_fix_lot_multiplier" Name="fix_lot_multiplier" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_daily_capacity"><Ctrls>
+<Label Align="Right" Text="daily_capacity" Name="lb_daily_capacity" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_daily_capacity" Name="daily_capacity" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_processing_lead_time"><Ctrls>
+<Label Align="Right" Text="processing_lead_time" Name="lb_processing_lead_time" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_processing_lead_time" Name="processing_lead_time" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_replenishment_lead_time"><Ctrls>
+<Label Align="Right" Text="replenishment_lead_time" Name="lb_replenishment_lead_time" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_replenishment_lead_time" Name="replenishment_lead_time" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_uom_id"><Ctrls>
+<Label Align="Right" Text="uom_id" OnLoad="init" Name="lb_uom_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_uom_id" OnLoad="init" Name="uom_id" Size="170,100" SelectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.uom</DbTable>
+<Data>uom_name,uom_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_quote_unit_price"><Ctrls>
+<Label Align="Right" Text="quote_unit_price" Name="lb_quote_unit_price" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_quote_unit_price" Name="quote_unit_price" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" Name="lb_status" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_status" Name="status" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_created_by"><Ctrls>
+<Label Align="Right" Text="created_by" Name="lb_created_by" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" Name="created_by" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_creation_date"><Ctrls>
+<Label Align="Right" Text="creation_date" Name="lb_creation_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" Name="creation_date" Size="170,20" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_update_by"><Ctrls>
+<Label Align="Right" Text="last_update_by" Name="lb_last_update_by" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" Name="last_update_by" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_update_date"><Ctrls>
+<Label Align="Right" Text="last_update_date" Name="lb_last_update_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" Name="last_update_date" Size="170,20" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_po_quote_line_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="po_quote_line_id" overlap="pre" Name="lb_po_quote_line_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_po_quote_line_id" overlap="pre" Name="po_quote_line_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

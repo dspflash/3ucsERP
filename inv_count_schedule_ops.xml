@@ -1,0 +1,10 @@
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{inv_count_header_id}"><alert expr="请先添加单据，若修改单据请从单据列表进入！"/><else/><DbDetails><Where>inv_count_header_id='%{inv_count_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.inv_count_schedule.inv_count_header_id"/>
+</if></op>
+<op text="modify"><DbDetails><Where>inv_count_schedule_id='%{inv_count_schedule_vLst[inv_count_schedule_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.inv_count_schedule.inv_count_scheduleLst"/><DbDetails><Where>item_id_m='%{inv_count_schedule_vLst[item_id_m]}' and org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.inv_count_schedule.item_id_m"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.inv_count_schedule</DbTable>
+<Where>inv_count_schedule_id='%{inv_count_schedule_vLst[inv_count_schedule_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

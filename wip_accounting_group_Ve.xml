@@ -1,0 +1,13 @@
+<WndTap Name="wip_accounting_group" Text="wip_accounting_group" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\wip_accounting_group.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBwip_accounting_group" id="wip_accounting_group" Text="wip_accounting_group" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_accounting_group_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_accounting_group_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_accounting_group_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertwip_accounting_group" Visible="1"/><SetVisible name="modifywip_accounting_group" Visible="0"/></OnActivate>
+</WndTap>

@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEap_payment_process" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ap_payment_process_id" Text="create" ToolTip="ttp_createap_payment_process" Name="insertap_payment_process" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payment_process</DbTable>
+<Data>payment_process,payment_type[option_line_code],cash_ac_id,bu_org_id,description,format_class_name,format_method_name,mdm_bank_account_id,clearing_method,sync_payment_number_cb,status</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchap_payment_process" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyap_payment_process" Name="modifyap_payment_process" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payment_process</DbTable>
+<Data>payment_process,payment_type[option_line_code],cash_ac_id,bu_org_id,description,format_class_name,format_method_name,mdm_bank_account_id,clearing_method,sync_payment_number_cb,status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ap_payment_process_id='%{ap_payment_process_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchap_payment_process" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetap_payment_process" Name="resetap_payment_process" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITap_payment_process" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchap_payment_process" Name="gsearchap_payment_process" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ap_payment_processLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITap_payment_process" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

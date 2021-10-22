@@ -1,0 +1,28 @@
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>inv_count_header_id='%{inv_count_header_vLst[inv_count_header_id]}' and status=1630</Where></DbDetails><submit namelist="DbDetails" next="$this.inv_count_header.inv_count_headerLst"/></op>
+<op text="schedule"><DbDetails><queryFormat>update xbs.inv_count_header set status=1631 where inv_count_header_id='%{inv_count_header_vLst[inv_count_header_id]}' and status=1630</queryFormat></DbDetails><submit namelist="DbDetails"/><submit next="inv_count_header_VLst"/></op>
+<op text="Counted"><DbDetails><queryFormat>UPDATE inv_count_header SET  STATUS=1632 WHERE inv_count_header_id NOT IN (SELECT inv_count_header_id FROM inv_count_schedule ics LEFT JOIN inv_count_entries ice ON ics.inv_count_schedule_id=ice.inv_count_schedule_id WHERE ice.inv_count_entries_id IS NULL and inv_count_header_id='%{inv_count_header_vLst[inv_count_header_id]}') and inv_count_header_id='%{inv_count_header_vLst[inv_count_header_id]}' and status=1631</queryFormat></DbDetails><submit namelist="DbDetails"/><submit next="inv_count_header_VLst"/></op>
+<op text="submit" needconfirm="1"><!--DbDetails><queryFormat></queryFormat></DbDetails><submit namelist="DbDetails"/><submit/-->
+<submit next="$this.sys_pd_header.GBDEDITsys_pd_header" function="reset"/>
+<assign name="$this.sys_pd_header.primary_document" expr="inv_count_header"/>
+<DbDetails>
+<DbTable>xbs.inv_count_header ich LEFT JOIN xbs.sys_pd_header pd ON pd.primary_document='inv_count_header' AND ich.inv_count_header_id=pd.primary_document_id AND pd.status!=325</DbTable>
+<Index>inv_count_header_id</Index>
+<Data>count_name document_number,inv_count_header_id id</Data>
+<Where>inv_count_header_id='%{inv_count_header_vLst[inv_count_header_id]}' and ich.status=1632 AND sys_pd_header_id IS null</Where>
+</DbDetails><submit next="$this.sys_pd_header.primary_document_id" namelist="DbDetails"/>
+<DbDetails><Where>module_name=630 and access_org_type=74</Where></DbDetails><submit next="$this.sys_pd_header.process_flow_header_id" namelist="DbDetails"/></op>
+<!--op text="Approve"><DbDetails><queryFormat>update xbs.inv_count_header set status=1633 where inv_count_header_id='%{inv_count_header_vLst[inv_count_header_id]}' and status=1632;</queryFormat></DbDetails><submit namelist="DbDetails"/><submit next="inv_count_header_VLst"/></op-->
+<op text="Post"><DbDetails><queryFormat>INSERT INTO xbs.inv_transaction (item_id_m,uom_id,quantity,reference_type,reference_key_name,reference_key_value,reason,description,to_org_id,to_subinventory_id,to_locator_id,from_subinventory_id,from_locator_id,lot_number_id,transaction_type_id,created_by,creation_date,last_update_by,last_update_date,org_id) 
+SELECT ice.item_id_m,ice.uom_id,abs(adjusted_qty),'table','inv_count_entries',inv_count_entries_id,reason,ice.description,ice.org_id,IF(adjusted_qty&gt;0,ice.subinventory_id,0),IF(adjusted_qty&gt;0,ice.locator_id,0),IF(adjusted_qty&gt;0,0,ice.subinventory_id),IF(adjusted_qty&gt;0,0,ice.locator_id),ice.lot_number,IF(adjusted_qty&gt;0,17,16),ice.created_by,now(),ice.last_update_by,now(),ice.org_id  
+FROM inv_count_entries ice 
+JOIN inv_count_schedule ics ON ice.inv_count_schedule_id=ics.inv_count_schedule_id 
+JOIN inv_count_header ich ON ich.inv_count_header_id=ics.inv_count_header_id 
+WHERE ich.inv_count_header_id='%{inv_count_header_vLst[inv_count_header_id]}' and adjusted_qty!=0 AND ich.status=1633;update xbs.inv_count_header set status=1634 where inv_count_header_id='%{inv_count_header_vLst[inv_count_header_id]}' and status=1633;</queryFormat></DbDetails><submit namelist="DbDetails"/><submit next="inv_count_header_VLst"/></op>
+<op text="detail"><DbDetails><Where>ih.inv_count_header_id='%{inv_count_header_vLst[inv_count_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.inv_count_detail_v.inv_count_entries_vLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.inv_count_header</DbTable>
+<Where>inv_count_header_id='%{inv_count_header_vLst[inv_count_header_id]}' and status in (1630,1635)</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

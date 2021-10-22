@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGinv_receipt_line"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_inv_receipt_line" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>inv_receipt_line_id</Index>
+<DbTable>xbs.inv_receipt_line i left join xbs.item i0 on i.item_id_m=i0.item_id_m left join xbs.uom u on i.uom_id=u.uom_id left join xbs.subinventory s on i.subinventory_id=s.subinventory_id left join xbs.locator l on i.locator_id=l.locator_id left join xbs.inv_lot_number i1 on i.lot_number=i1.inv_lot_number_id</DbTable>
+<Data>count(*) records</Data>
+<Order>inv_receipt_line_id</Order><Queryformat>select %{data} from (select i.inv_receipt_line_id from %{dbtable} %{where} GROUP BY i.inv_receipt_line_id  ORDER BY i.inv_receipt_line_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_inv_receipt_line" expr="js(Math.ceil(%{records_inv_receipt_line}/%{inv_receipt_line_vLst[countsperpage]}))"/>
+<assign name="pgscb_inv_receipt_line" expr="js('1~'+Math.ceil(%{records_inv_receipt_line}/%{inv_receipt_line_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_inv_receipt_line" Size="60,20"><OnSelEndOK><submit next="inv_receipt_line_vLst" function="GetPage(%{pgscb_inv_receipt_line}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_inv_receipt_line" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_inv_receipt_line" Size="30,20"/>
+<Button Text="go2Page" Name="go2pageinv_receipt_line_vLst" Size="50,20"><OnClick><submit next="inv_receipt_line_vLst" function="GetPage(%{pgcur_inv_receipt_line}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

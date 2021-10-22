@@ -1,0 +1,88 @@
+<GroupBox Name="GBDEDITgl_journal_line"><Ctrls>
+<GroupBox Name="GB_gl_journal_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_gl_journal_header_id" Size="60,20" Text="gl_journal_header_id" Align="Right" SelectedIndex="0"/>
+<ComboBox Name="gl_journal_header_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_gl_journal_header_id" SelectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.gl_journal_header</DbTable>
+<Index>gl_journal_header_id</Index>
+<Data>journal_name,exchange_rate,gl_journal_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_total_dr" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_total_dr" Size="60,20" Text="total_dr" Align="Right"/>
+<TextBox Name="total_dr" Size="170,20" Text="" Weight="170" ToolTip="ttp_total_dr"><OnEnChange><if cond="%{gl_journal_header_id[exchange_rate]}"><assign name="total_ac_dr" expr="js(%{total_dr}*%{gl_journal_header_id[exchange_rate]})"/><else/><assign name="total_ac_dr" expr="%{total_dr}"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_total_cr" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_total_cr" Size="60,20" Text="total_cr" Align="Right"/>
+<TextBox Name="total_cr" Size="170,20" Text="" Weight="170" ToolTip="ttp_total_cr"><OnEnChange><if cond="%{gl_journal_header_id[exchange_rate]}"><assign name="total_ac_cr" expr="js(%{total_cr}*%{gl_journal_header_id[exchange_rate]})"/><else/><assign name="total_ac_cr" expr="%{total_cr}"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_line_num" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_line_num" Size="60,20" Text="line_num" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="line_num" Size="170,20" Text="" Weight="170" ToolTip="ttp_line_num" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_code_combination_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_code_combination_id" Size="60,20" Text="code_combination_id" Align="Right" onload="init"/>
+<ComboBox Name="code_combination_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_code_combination_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.coa_combination</DbTable>
+<Index>coa_combination_id</Index>
+<Data>combination,coa_combination_id</Data>
+<Where>org_id='%{orgid}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_total_ac_dr" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_total_ac_dr" Size="60,20" Text="total_ac_dr" Align="Right"/>
+<TextBox Name="total_ac_dr" Size="170,20" Text="" Weight="170" ToolTip="ttp_total_ac_dr"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_total_ac_cr" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_total_ac_cr" Size="60,20" Text="total_ac_cr" Align="Right"/>
+<TextBox Name="total_ac_cr" Size="170,20" Text="" Weight="170" ToolTip="ttp_total_ac_cr"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_reference_type" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_reference_type" Size="60,20" Text="reference_type" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="reference_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_reference_type" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_reference_key_name" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_reference_key_name" Size="60,20" Text="reference_key_name" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="reference_key_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_reference_key_name" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_reference_key_value" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_reference_key_value" Size="60,20" Text="reference_key_value" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="reference_key_value" Size="170,20" Text="" Weight="170" ToolTip="ttp_reference_key_value" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_gl_journal_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_gl_journal_line_id" Size="60,20" Text="gl_journal_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="gl_journal_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_gl_journal_line_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBgl_journal_line" expr="TABEDITgl_journal_line"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right" Visible="false" overlap="pre"/>
+<ComboBox Name="status" Size="170,100" Text="" Weight="170"  ToolTip="ttp_status" Visible="false" overlap="pre">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=156</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_revenue_rule_header"><Ctrls>
+<ListCtrl Heading="bu_org_id,60;rule_type,125;rule_name,125;description,250;period,60;no_of_period,20;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_revenue_rule_header_id,60;" loadedclick="0" ToolTip="ttp_ar_revenue_rule_header" onload="init" Name="ar_revenue_rule_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_revenue_rule_header</DbTable>
+<Index>ar_revenue_rule_header_id</Index>
+<Data>bu_org_id,rule_type,rule_name,description,period,no_of_period,created_by,creation_date,last_update_by,last_update_date,ar_revenue_rule_header_id</Data>
+<Order>ar_revenue_rule_header_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

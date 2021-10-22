@@ -1,0 +1,13 @@
+<WndTap Name="wip_wo_bom" Text="wip_wo_bom" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="bom_sequence,routing_sequence[routing_sequence],component_item_id_m[item_id_m],usage_basis[option_line_id],usage_quantity,wip_supply_type[option_line_id],supply_sub_inventory[subinventory_id],wip_wo_header_id[wip_wo_header_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\wip_wo_bom.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBwip_wo_bom" id="wip_wo_bom" Text="wip_wo_bom" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_bom_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_bom_GBOPEm.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_bom_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertwip_wo_bom" Visible="1"/><SetVisible name="modifywip_wo_bom" Visible="0"/></OnActivate>
+</WndTap>

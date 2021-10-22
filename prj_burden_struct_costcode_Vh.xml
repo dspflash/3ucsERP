@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_burden_struct_costcode" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_burden_struct_costcodeLst" ToolTip="ttp_prj_burden_struct_costcode" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_burden_struct_costcode</DbTable>
+<Index>prj_burden_struct_costcode_id</Index>
+<Data>burden_cost_code_id,burden_cost_base_id,priority,description,created_by,creation_date,last_update_by,last_update_date,prj_burden_struct_costcode_id</Data>
+<Order>prj_burden_struct_costcode_id</Order></DbDetails>
+<OnClick><assign name="burden_cost_code_id[prj_burden_costcode_id]" expr="%{prj_burden_struct_costcodeLst[burden_cost_code_id]}" function="SetSel"/><assign name="burden_cost_base_id[prj_burden_cost_base_id]" expr="%{prj_burden_struct_costcodeLst[burden_cost_base_id]}" function="SetSel"/>
+<if cond="%{prj_burden_struct_costcode_id}"><SetVisible name="insertprj_burden_struct_costcode" Visible="0"/><SetVisible name="modifyprj_burden_struct_costcode" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

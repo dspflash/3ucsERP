@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVitem_properties" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialitem_properties" Size="50,20">
+<OnClick><submit next="item_properties_vLst" function="initial"/><submit next="records_item_properties" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPitem_properties_vLst" Size="50,20">
+<OnClick><submit next="item_properties_vLst" function="GetPage(first)"/><submit next="records_item_properties"/></OnClick></Button>
+<Button Text="prepage" Name="PREitem_properties_vLst" Size="50,20">
+<OnClick><submit next="item_properties_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPitem_properties_vLst" Size="50,20">
+<OnClick><submit next="item_properties_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

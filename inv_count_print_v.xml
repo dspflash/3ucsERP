@@ -1,0 +1,38 @@
+<WndTap Name="inv_count_print" Text="inv_count_print" Ver="2">
+<xi:include href="lan\inv_count_header.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBsd_so_print" id="inv_count_header" Text="inv_count_header" Size="100,100"><Ctrls>
+		<MagicCtrl Name="qr_itemname" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="60,60" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_count_header_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><GroupBox Name="GBDVinv_count_entries" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="inv_count_entries_vLst" ToolTip="ttp_inv_count_entries" Size="700,420" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.inv_count_schedule ics left join xbs.inv_count_header ih on ics.inv_count_header_id=ih.inv_count_header_id left join xbs.inv_count_entries i on ics.inv_count_schedule_id=i.inv_count_schedule_id left join xbs.item i0 on ics.item_id_m=i0.item_id_m left join xbs.uom u on i.uom_id=u.uom_id left join xbs.subinventory s on ics.subinventory_id=s.subinventory_id left join xbs.locator l on ics.locator_id=l.locator_id left join xbs.inv_lot_number i1 on ics.lot_number=i1.inv_lot_number_id</DbTable>
+<Index>inv_count_entries_id</Index>
+<Data>count_name,i0.item_number,item_name,item_specification,item_description,ics.schedule_date,u.uom_name uom_id,s.subinventory subinventory_id,l.locator locator_id,i1.lot_number lot_number,i.adjusted_qty,i.system_qty,i.count_qty,i.counted_by,i.count_date,i.reason,i.description,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.status,ics.inv_count_schedule_id, ics.item_id_m,i.org_id,i.reference,i.inv_count_entries_id</Data>
+<queryFormat>select %{data} from %{dbtable} where ih.status in (1631,1632) %{where} order by %{order}</queryFormat>
+<Order>inv_count_entries_id</Order></DbDetails>
+</ListCtrl>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVinv_count_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="inv_count_headerLst" ToolTip="ttp_inv_count_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_count_header ih</DbTable>
+<Index>inv_count_header_id</Index>
+<Data>count_name,count_type,approval_required,quantity_variance_positive,quantity_variance_negative,description,status,created_by,creation_date,last_update_by,last_update_date,org_id,inv_count_header_id</Data>
+<queryFormat>select %{data} from %{dbtable} where status in (1631,1632) %{where}</queryFormat>
+<Order>inv_count_header_id</Order></DbDetails>
+<OnClick><assign name="approval_required[option_line_id]" expr="%{inv_count_headerLst[approval_required]}" function="SetSel"/><assign name="status[option_line_id]" expr="%{inv_count_headerLst[status]}" function="SetSel"/><assign name="org_id[org_id]" expr="%{inv_count_headerLst[org_id]}" function="SetSel"/>
+<magicdata filename="data/qr_poreq_number.png"><data>%{inv_count_headerLst[count_name]}</data></magicdata>
+			<submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+<Button Text="print" ToolTip="ttp_confirm" Name="print" Size="50,20">
+		<OnClick><submit next="GBsd_so_print" function="print"/></OnClick>
+		</Button><TAB/>
+</Ctrls></GroupBox>
+</Ctrls>
+</WndTap>

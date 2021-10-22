@@ -1,0 +1,20 @@
+﻿<WndTap Name="bom_line_v" Text="bom_line_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_line_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><bom_sequence format="(b.bom_sequence like '%%{opvalue}%')"/><routing_sequence format="b.routing_sequence='%{opvalue}'"/><routing_seq_num format="b.routing_seq_num is %{opvalue}"/><component_item_id_m format="b.component_item_id_m='%{opvalue}'"/><usage_basis format="b.usage_basis='%{opvalue}'"/><usage_quantity format="(b.usage_quantity like '%%{opvalue}%')"/><wip_supply_type format="b.wip_supply_type='%{opvalue}'"/><supply_sub_inventory format="b.supply_sub_inventory='%{opvalue}'"/><supply_locator format="b.supply_locator='%{opvalue}'"/><created_by format="(b.created_by like '%%{opvalue}%')"/><creation_date format="(b.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(b.last_update_by like '%%{opvalue}%')"/><last_update_date format="(b.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><bom_line_id format="(b.bom_line_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_line.xml"/>
+<Ctrls><GroupBox  Name="GBbom_line" id="bom_line" Text="bom_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_line_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVbom_line" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.bom_line.GBDEDITbom_line" function="reset"/><assign name="$this.bom_line.frmwndctrl" expr="%{$this.bom_line_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetbom_line" Name="resetbom_line" Size="50,20">	<OnClick>	<submit next="GBDEDITbom_line" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchbom_line" Name="gsearchbom_line" Size="50,20">	<OnClick>	
+<search next="bom_line_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITbom_line" namelist="search" function="search"/>	
+<search next="records_bom_line" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITbom_line" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_line_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_line_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_line_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,20 @@
+﻿<WndTap Name="bom_stnd_op_res_assignment_v" Text="bom_stnd_op_res_assignment">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_stnd_op_res_assignment_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><resource_sequence format="(b.resource_sequence like '%%{opvalue}%')"/><resource_schedule format="b.resource_schedule='%{opvalue}'"/><resource_id format="b.resource_id='%{opvalue}'"/><resource_usage format="(b.resource_usage like '%%{opvalue}%')"/><assigned_units format="(b.assigned_units like '%%{opvalue}%')"/><twenty_four_hr_cb format="b.twenty_four_hr_cb is %{opvalue}"/><standard_rate_cb format="b.standard_rate_cb is %{opvalue}"/><created_by format="(b.created_by like '%%{opvalue}%')"/><creation_date format="(b.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(b.last_update_by like '%%{opvalue}%')"/><last_update_date format="(b.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><bom_stnd_op_res_assignment_id format="(b.bom_stnd_op_res_assignment_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_stnd_op_res_assignment.xml"/>
+<Ctrls><GroupBox  Name="GBbom_stnd_op_res_assignment" id="bom_stnd_op_res_assignment" Text="bom_stnd_op_res_assignment" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_stnd_op_res_assignment_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVbom_stnd_op_res_assignment" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.bom_stnd_op_res_assignment.GBDEDITbom_stnd_op_res_assignment" function="reset"/><assign name="$this.bom_stnd_op_res_assignment.frmwndctrl" expr="%{$this.bom_stnd_op_res_assignment_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetbom_stnd_op_res_assignment" Name="resetbom_stnd_op_res_assignment" Size="50,20">	<OnClick>	<submit next="GBDEDITbom_stnd_op_res_assignment" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchbom_stnd_op_res_assignment" Name="gsearchbom_stnd_op_res_assignment" Size="50,20">	<OnClick>	
+<search next="bom_stnd_op_res_assignment_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITbom_stnd_op_res_assignment" namelist="search" function="search"/>	
+<search next="records_bom_stnd_op_res_assignment" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITbom_stnd_op_res_assignment" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_stnd_op_res_assignment_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_stnd_op_res_assignment_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_stnd_op_res_assignment_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

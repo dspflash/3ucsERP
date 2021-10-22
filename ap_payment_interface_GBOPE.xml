@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEap_payment_interface" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ap_payment_interface_id" Text="create" ToolTip="ttp_createap_payment_interface" Name="insertap_payment_interface" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payment_interface</DbTable>
+<Data>ap_transaction_header_id[ap_transaction_header_id],bu_org_id,payment_type,supplier_id,supplier_site_id,from_bank_header_id,description,from_bank_line_id,to_bank_header_id,amount,currency,document_currency,to_bank_line_id,exchange_rate_type,exchange_rate,ef_id,document_date,document_number,ledger_id,period_id,pay_group,payment_method,approval_status,payment_status,reference_type,reference_key_name,reference_key_value,gl_journal_header_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchap_payment_interface" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyap_payment_interface" Name="modifyap_payment_interface" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payment_interface</DbTable>
+<Data>ap_transaction_header_id[ap_transaction_header_id],bu_org_id,payment_type,supplier_id,supplier_site_id,from_bank_header_id,description,from_bank_line_id,to_bank_header_id,amount,currency,document_currency,to_bank_line_id,exchange_rate_type,exchange_rate,ef_id,document_date,document_number,ledger_id,period_id,pay_group,payment_method,approval_status,payment_status,reference_type,reference_key_name,reference_key_value,gl_journal_header_id</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ap_payment_interface_id='%{ap_payment_interface_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchap_payment_interface" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetap_payment_interface" Name="resetap_payment_interface" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITap_payment_interface" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchap_payment_interface" Name="gsearchap_payment_interface" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ap_payment_interfaceLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITap_payment_interface" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

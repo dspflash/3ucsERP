@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_payroll_payment_method" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_payroll_payment_methodLst" ToolTip="ttp_hr_payroll_payment_method" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_payroll_payment_method_id</Index>
+<DbTable>xbs.hr_payroll_payment_method</DbTable>
+<Data>payment_method,ledger_id,payment_type,start_date,end_date,currency,bank_account_id,cash_ac_id,clearing_ac_id,bank_charge_ac_id,salary_payable_ac_id,costed_cb,description,created_by,creation_date,last_update_by,last_update_date,hr_payroll_payment_method_id</Data>
+<Order>hr_payroll_payment_method_id</Order></DbDetails>
+<OnClick><assign name="ledger_id[gl_ledger_id]" expr="%{hr_payroll_payment_methodLst[ledger_id]}" function="SetSel"/><assign name="payment_type[option_line_id]" expr="%{hr_payroll_payment_methodLst[payment_type]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{hr_payroll_payment_methodLst[currency]}" function="SetSel"/><assign name="bank_account_id[mdm_bank_account_id]" expr="%{hr_payroll_payment_methodLst[bank_account_id]}" function="SetSel"/><assign name="created_by[xerp_user_id]" expr="%{hr_payroll_payment_methodLst[created_by]}" function="SetSel"/><assign name="last_update_by[xerp_user_id]" expr="%{hr_payroll_payment_methodLst[last_update_by]}" function="SetSel"/>
+<if cond="%{hr_payroll_payment_method_id}"><SetVisible name="inserthr_payroll_payment_method" Visible="0"/><SetVisible name="modifyhr_payroll_payment_method" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

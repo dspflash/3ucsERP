@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_payroll_schedule"><Ctrls>
+<ListCtrl Heading="scheduled_date,90;start_date,90;end_date,90;period_name,250;description,640;status,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_payroll_schedule_id,60;hr_payroll_id,60;" loadedclick="0" ToolTip="ttp_hr_payroll_schedule" Name="hr_payroll_scheduleLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>hr_payroll_schedule_id</Index>
+<DbTable>xbs.hr_payroll_schedule</DbTable>
+<Data>scheduled_date,start_date,end_date,period_name,description,status,created_by,creation_date,last_update_by,last_update_date,hr_payroll_schedule_id,hr_payroll_id</Data>
+<Order>hr_payroll_schedule_id</Order></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>hr_payroll_schedule_id='%{hr_payroll_schedule_vLst[hr_payroll_schedule_id]}'</Where></DbDetails><submit next="$this.hr_payroll_schedule.hr_payroll_scheduleLst" namelist="DbDetails"/><assign name="$this.hr_payroll_schedule.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_payroll_schedule</DbTable>
+<Where>hr_payroll_schedule_id='%{hr_payroll_schedule_vLst[hr_payroll_schedule_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

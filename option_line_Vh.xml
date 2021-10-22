@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVoption_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="option_lineLst" ToolTip="ttp_option_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_header_id,option_line_code,option_line_value,description,option_line_id,status,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>option_line_id</Order></DbDetails>
+<OnClick><assign name="option_header_id[option_header_id]" expr="%{option_lineLst[option_header_id]}" function="SetSel"/>
+<if cond="%{option_line_id}"><SetVisible name="insertoption_line" Visible="0"/><SetVisible name="modifyoption_line" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

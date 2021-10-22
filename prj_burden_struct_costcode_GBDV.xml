@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_burden_struct_costcode"><Ctrls>
+<ListCtrl Heading="burden_cost_code_id,120;burden_cost_base_id,120;priority,60;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_burden_struct_costcode_id,60;" loadedclick="0" ToolTip="ttp_prj_burden_struct_costcode" Name="prj_burden_struct_costcodeLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_burden_struct_costcode p left join xbs.prj_burden_costcode p0 on p.burden_cost_code_id=p0.prj_burden_costcode_id left join xbs.prj_burden_cost_base p1 on p.burden_cost_base_id=p1.prj_burden_cost_base_id</DbTable>
+<Index>prj_burden_struct_costcode_id</Index>
+<Data>p0.costcode burden_cost_code_id,p1.cost_base burden_cost_base_id,p.priority,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_burden_struct_costcode_id</Data>
+<Order>prj_burden_struct_costcode_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

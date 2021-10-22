@@ -1,0 +1,52 @@
+﻿<GroupBox Name="GBDEDIThr_payslip_header"><Ctrls>
+<GroupBox Name="GB_mode_of_payment" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_mode_of_payment" Size="60,20" Text="mode_of_payment" Align="Right"  onload="init"/>
+<ComboBox Name="mode_of_payment" Size="170,100" Text="" Weight="170"  ToolTip="ttp_mode_of_payment"  onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=199</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_employee_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_employee_id" Size="60,20" Text="employee_id" Align="Right"/>
+<TextBox Name="employee_id" Size="150,20" Text="" Weight="150" ToolTip="ttp_employee_id">
+	<DbDetails fcsm="true">
+<DbTable>xbs.hr_employee_v</DbTable>
+<Index>hr_employee_id</Index>
+<Data>name,hr_employee_id</Data>
+<Where></Where>
+<queryFormat>select concat(last_name,first_name) name,job_id,position_id,grade_id, bank_account_id,tax_reg_number,social_ac_no,social_ac_no2,hr_employee_id from hr_employee where %{where}</queryFormat></DbDetails><OnEnChange><submit next="job_id"/><submit next="position_id"/><submit next="grade_id"/><submit next="bank_account_id"/></OnEnChange></TextBox>
+<MagicCtrl Name="pickemployee_id" Link="tip:Pick" images=",data/search.png" button="type:0" Size="20,20"><OnClick><assign name="$this.EmployeePick.frmwndctrl" expr="employee_id"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<!--BR AutoHeight="1"/><GroupBox Name="GB_job_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_job_id" Size="60,20" Text="job_id" Align="Right" readonly="true"/>
+<TextBox Name="job_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_job_id" readonly="true">
+	<DbDetails>
+<DbTable>xbs.hr_job</DbTable>
+<Index>hr_job_id</Index>
+<Data>job_name,hr_job_id</Data>
+<Where>hr_job_id='%{employee_id[job_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_position_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_position_id" Size="60,20" Text="position_id" Align="Right" readonly="true"/>
+<TextBox Name="position_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_position_id" readonly="true">
+	<DbDetails>
+<DbTable>xbs.hr_position</DbTable>
+<Index>hr_position_id</Index>
+<Data>position_name,hr_position_id</Data>
+<Where>hr_position_id='%{employee_id[position_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_grade_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_grade_id" Size="60,20" Text="grade_id" Align="Right" readonly="true"/>
+<TextBox Name="grade_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_grade_id" readonly="true">
+	<DbDetails>
+<DbTable>xbs.hr_grade</DbTable>
+<Index>hr_grade_id</Index>
+<Data>grade,hr_grade_id</Data>
+<Where>hr_grade_id='%{employee_id[grade_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox-->
+</Ctrls></GroupBox>

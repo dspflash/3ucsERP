@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="0">
+	<DbDetails comment="must beforemost">
+		<SubDriver>MySQL</SubDriver>
+		<Host>localhost</Host>
+		<database>xbs</database>
+		<!--sqlMode>NO_BACKSLASH_ESCAPES</sqlMode-->
+		<characterset>utf8</characterset>
+		<User>i3u</User>
+		<password>i3u</password>
+		</DbDetails>	
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>
+	<WndTaps id="Invall">
+	<WndTap Text="bom" Name="bom" Ver="2">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xbs_sd.xml" xpointer="sd"/>
+	</WndTap>
+	<WndTap Text="inv" Name="inv" Ver="2">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xbs_inv.xml" xpointer="inv"/>
+	</WndTap>
+	<WndTap Text="wip" Name="wip" Ver="2">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xbs_wip.xml" xpointer="wip"/>
+	</WndTap>
+	<WndTap Text="qa" Name="qa" Ver="2">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xbs_qa.xml" xpointer="qa"/>
+	</WndTap>
+	<WndTap Text="finance" Name="finance" Ver="2">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xbs_finance.xml" xpointer="finance"/>
+	</WndTap>
+	</WndTaps>
+</XI3uWnd>

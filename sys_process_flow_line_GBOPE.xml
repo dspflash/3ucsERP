@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEsys_process_flow_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="sys_process_flow_line_id" Text="create" ToolTip="ttp_createsys_process_flow_line" Name="insertsys_process_flow_line" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.sys_process_flow_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>line_type,line_name,description,sys_process_flow_header_id[sys_process_flow_header_id]</Data>
+<DataEx>line_number,created_by,creation_date,last_update_by,last_update_date;@linenum,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>SELECT IFNULL(MAX(line_number),0)+1 INTO @linenum FROM sys_process_flow_line WHERE sys_process_flow_header_id='%{sys_process_flow_header_id}'; insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertsys_process_flow_line[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="sys_process_flow_lineLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.sys_process_flow_line_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifysys_process_flow_line" Name="modifysys_process_flow_line" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.sys_process_flow_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>line_type,line_name,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>sys_process_flow_line_id='%{sys_process_flow_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifysys_process_flow_line[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="sys_process_flow_lineLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.sys_process_flow_line_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetsys_process_flow_line" Name="resetsys_process_flow_line" Size="50,20">
+<OnClick>
+<submit next="GBDEDITsys_process_flow_line" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchsys_process_flow_line" Name="gsearchsys_process_flow_line" Size="50,20" visible="false">
+<OnClick>
+<search next="sys_process_flow_lineLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITsys_process_flow_line" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

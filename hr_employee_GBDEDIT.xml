@@ -1,0 +1,198 @@
+﻿<GroupBox Name="GBDEDIThr_employee"><Ctrls>
+<GroupBox feature="tab" Text="basic" Name="basic"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_first_name"><Ctrls>
+<Label Align="Right" Text="first_name" Name="lb_first_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_first_name" Name="first_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_name"><Ctrls>
+<Label Align="Right" Text="last_name" Name="lb_last_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_name" Name="last_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_title"><Ctrls>
+<Label Align="Right" Text="title" Name="lb_title" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_title" Name="title" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_email"><Ctrls>
+<Label Align="Right" Text="email" Name="lb_email" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_email" Name="email" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_other_email"><Ctrls>
+<Label Align="Right" Text="other_email" Name="lb_other_email" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_other_email" Name="other_email" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_gender"><Ctrls>
+<Label Align="Right" Text="gender" Name="lb_gender" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_gender" Items="MALE|FEMALE|UNKNOWN|" Name="gender" Size="170,100"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_identification_type"><Ctrls>
+<Label Align="Right" Text="identification_type" onload="init" Name="lb_identification_type" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_identification_type" onload="init" Name="identification_type" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=198</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_identification_id"><Ctrls>
+<Label Align="Right" Text="identification_id" Name="lb_identification_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_identification_id" Name="identification_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_citizen_number"><Ctrls>
+<Label Align="Right" Text="citizen_number" Name="lb_citizen_number" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_citizen_number" Name="citizen_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_phone"><Ctrls>
+<Label Align="Right" Text="phone" Name="lb_phone" Size="60,20"/>
+<TextBox Weight="150" Text="" ToolTip="ttp_phone" Name="phone" Size="150,20"/>
+<MagicCtrl ToolTip="DialToCall" Name="dialphone" OnClick="nis3ucs:%{phone}" images=" ,data/startcall_green.png" button="type:0" Size="20,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mobile_number"><Ctrls>
+<Label Align="Right" Text="mobile_number" Name="lb_mobile_number" Size="60,20"/>
+<TextBox Weight="150" Text="" ToolTip="ttp_mobile_number" Name="mobile_number" Size="150,20"/>
+<MagicCtrl ToolTip="DialToCall" Name="dialmobile_number" OnClick="nis3ucs:%{mobile_number}" images=" ,data/startcall_green.png" button="type:0" Size="20,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" Size="230,20" checked="true"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR NULLHeight="1"/><GroupBox feature="tab" Text="hire" Name="hire"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_employee_number"><Ctrls>
+<Label Align="Right" Text="employee_number" Name="lb_employee_number" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_employee_number" Name="employee_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_person_type"><Ctrls>
+<Label Align="Right" Text="person_type" onload="init" Name="lb_person_type" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_person_type" onload="init" Name="person_type" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=197</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_start_date"><Ctrls>
+<Label Align="Right" Text="start_date" Name="lb_start_date" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_start_date" Name="start_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_org_id"><Ctrls>
+<Label Align="Right" Text="org_id" onload="init" Name="lb_org_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_org_id" onload="init" Name="org_id" Size="170,100">
+	<DbDetails>
+<Index>org_id</Index>
+<DbTable>xbs.org</DbTable>
+<Data>org,org_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="position_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_position_id"><Ctrls>
+<Label Align="Right" Text="position_id" Name="lb_position_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_position_id" Name="position_id" Size="170,100">
+	<DbDetails>
+<Index>hr_position_id</Index>
+<DbTable>xbs.hr_position</DbTable>
+<Data>position_name,hr_position_id</Data>
+<Where>org_id='%{org_id[org_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_department_id"><Ctrls>
+<Label Align="Right" Text="department_id" onload="init" Name="lb_department_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_department_id" onload="init" Name="department_id" Size="170,100">
+	<DbDetails>
+<Index>dept_id</Index>
+<DbTable>xbs.hr_department</DbTable>
+<Data>department,dept_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supervisor_employee_id"><Ctrls>
+<Label Align="Right" Text="supervisor_employee_id" Name="lb_supervisor_employee_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_supervisor_employee_id" Name="supervisor_employee_id" Size="170,100">
+	<DbDetails>
+<Index>hr_employee_id</Index>
+<DbTable>xbs.hr_employee</DbTable>
+<Data>first_name,last_name,hr_employee_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_vehicle_number"><Ctrls>
+<Label Align="Right" Text="vehicle_number" Name="lb_vehicle_number" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_vehicle_number" Name="vehicle_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_asset_numbers"><Ctrls>
+<Label Align="Right" Text="asset_numbers" Name="lb_asset_numbers" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_asset_numbers" Name="asset_numbers" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_tax_reg_number"><Ctrls>
+<Label Align="Right" Text="tax_reg_number" Name="lb_tax_reg_number" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_tax_reg_number" Name="tax_reg_number" Size="170,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR NULLHeight="1"/><GroupBox feature="tab" Text="personal" Name="personal"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_date_of_birth"><Ctrls>
+<Label Align="Right" Text="date_of_birth" Name="lb_date_of_birth" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_date_of_birth" Name="date_of_birth" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_city_of_birth"><Ctrls>
+<Label Align="Right" Text="city_of_birth" Name="lb_city_of_birth" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_city_of_birth" Name="city_of_birth" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_country_of_birth"><Ctrls>
+<Label Align="Right" Text="country_of_birth" Name="lb_country_of_birth" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_country_of_birth" Name="country_of_birth" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_nationality"><Ctrls>
+<Label Align="Right" Text="nationality" Name="lb_nationality" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_nationality" Name="nationality" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_marital_status"><Ctrls>
+<Label Align="Right" Text="marital_status" onload="init" Name="lb_marital_status" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_marital_status" onload="init" Name="marital_status" Size="170,100">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=189</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_no_of_children"><Ctrls>
+<Label Align="Right" Text="no_of_children" Name="lb_no_of_children" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_no_of_children" Name="no_of_children" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_degree"><Ctrls>
+<Label Align="Right" Text="degree" Name="lb_degree" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_degree" Name="degree" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_social_ac_no"><Ctrls>
+<Label Align="Right" Text="social_ac_no" Name="lb_social_ac_no" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_social_ac_no" Name="social_ac_no" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_social_ac_no2"><Ctrls>
+<Label Align="Right" Text="social_ac_no2" Name="lb_social_ac_no2" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_social_ac_no2" Name="social_ac_no2" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_passport_number"><Ctrls>
+<Label Align="Right" Text="passport_number" Name="lb_passport_number" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_passport_number" Name="passport_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_hr_employee_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="hr_employee_id" overlap="pre" Name="lb_hr_employee_id" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hr_employee_id" overlap="pre" Name="hr_employee_id" Size="170,20" Visible="false"><OnEnChange><if cond="'%{hr_employee_id}'"><SetVisible name="inserthr_employee" Visible="0"/><SetVisible name="modifyhr_employee" Visible="1"/><else/><SetVisible name="inserthr_employee" Visible="1"/><SetVisible name="modifyhr_employee" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox></Ctrls></GroupBox>

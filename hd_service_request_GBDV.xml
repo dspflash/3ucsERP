@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhd_service_request"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_hd_service_request" Name="hd_service_requestLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_service_request h left join xbs.ar_customer a on h.ar_customer_id=a.ar_customer_id left join xbs.ar_customer_site a0 on h.ar_customer_site_id=a0.ar_customer_site_id left join xbs.option_line o on h.escalation=o.option_line_id left join xbs.option_line o0 on h.status=o0.option_line_id left join xbs.option_line o1 on h.request_type=o1.option_line_id left join xbs.option_line o2 on h.request_category=o2.option_line_id</DbTable>
+<Index>hd_service_request_id</Index>
+<Data>h.service_request_number,a.customer_name ar_customer_id,a0.customer_site_name ar_customer_site_id,h.inv_serial_number_id,h.item_id_m,h.urgency,h.priority,h.reason,o.option_line_value escalation,h.problem_summary,o0.option_line_value status,o1.option_line_value request_type,o2.option_line_value request_category,h.assignment_group,h.assigned_to_user_id,h.problem_details,h.resolution_details,h.hd_change_request_id,h.close_code,h.closed_by_user_id,h.closed_date,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hd_service_request_id</Data>
+<Order>hd_service_request_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>hd_service_request_id='%{hd_service_request_vLst[hd_service_request_id]}'</Where></DbDetails><submit next="$this.hd_service_request.hd_service_requestLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_service_request</DbTable>
+<Where>hd_service_request_id='%{hd_service_request_vLst[hd_service_request_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

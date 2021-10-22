@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVbom_routing_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bom_routing_line_vLst" ToolTip="ttp_bom_routing_line_v" Size="700,450" Heading="standard_operation_id,120;routing_sequence,120;routing_seq_num,60;department_id,120;minimum_transfer_quantity,60;lead_time_percentage,120;effective_start_date,90;effective_end_date,90;yield,30;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bom_routing_line_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>bom_routing_line_id</Index>
+<DbTable>xbs.bom_routing_line b left join xbs.bom_standard_operation b0 on b.standard_operation_id=b0.bom_standard_operation_id left join xbs.bom_department b1 on b.department_id=b1.bom_department_id</DbTable>
+<Data>b0.standard_operation standard_operation_id,b.routing_sequence,b.routing_seq_num,b1.department department_id,b.minimum_transfer_quantity,b.lead_time_percentage,b.effective_start_date,b.effective_end_date,b.yield,b.description,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_routing_line_id</Data>
+<Order>bom_routing_line_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="addone" mustselected="0"><if cond="!%{bom_routing_header_id}"><alert expr="bom_routing_header_id is Empty!"/><else/><submit next="$parent.bom_routing_line.GBDEDITbom_routing_line" function="reset"/><assign name="$parent.bom_routing_line.bom_routing_header_id" expr="%{bom_routing_header_id}"/><assign name="$parent.bom_routing_line.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>bom_routing_line_id='%{bom_routing_line_vLst[bom_routing_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.bom_routing_line.bom_routing_lineLst"/><assign name="$parent.bom_routing_line.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_routing_line</DbTable>
+<Where>bom_routing_line_id='%{bom_routing_line_vLst[bom_routing_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVwip_wo_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletewip_wo_header" Name="deletewip_wo_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_wo_header</DbTable>
+<Where>wip_wo_header_id='%{wip_wo_headerLst[wip_wo_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchwip_wo_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshwip_wo_header" Name="searchwip_wo_header" Size="50,20">
+			  <OnClick><submit next="wip_wo_headerLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPwip_wo_headerLst" OnClick="(wip_wo_headerLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREwip_wo_headerLst" OnClick="(wip_wo_headerLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPwip_wo_headerLst" OnClick="(wip_wo_headerLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

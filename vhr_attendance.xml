@@ -1,0 +1,119 @@
+<WndTap Name="vhr_attendance" Text="vhr_attendance">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="employee_pick.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><hr_employee_id format="hr_employee_id='%{opvalue}'"/><date format="(dtr between '%{date[datetime]}' and '%{date[datetime2]}')"/><punch_in format="(h.punch_in between '%{punch_in[datetime]}' and '%{punch_in[datetime2]}')"/><punch_in_note format="(h.punch_in_note like '%%{opvalue}%')"/><punch_out format="(h.punch_out between '%{punch_out[datetime]}' and '%{punch_out[datetime2]}')"/><punch_out_note format="(h.punch_out_note like '%%{opvalue}%')"/><description format="(h.description like '%%{opvalue}%')"/><created_by format="h.created_by='%{opvalue}'"/><creation_date format="(h.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="h.last_update_by='%{opvalue}'"/><last_update_date format="(h.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><hr_attendance_id format="(h.hr_attendance_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.hr_attendance/2001/XInclude" href="lan\hr_attendance.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="hr_attendance"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.hr_attendance/2001/XInclude" href="hr_attendance_Vsm.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm6 md4" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIThr_attendance" function="reset"/><submit next="hr_attendanceList"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="hr_attendance_vLst" listed="0" prefixwhere="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDIThr_attendance" namelist="search" function="search"/>
+	<search next="records_hr_attendance" listed="0" prefixwhere="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDIThr_attendance" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGhr_attendance"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_hr_attendance" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>hr_attendance_id</Index>
+<DbTable>(SELECT dtr,he.hr_employee_id from Dates_v dts
+LEFT JOIN (SELECT he.hr_employee_id,IFNULL(hec.hr_crew_id,(SELECT hr_crew_id FROM hr_crew WHERE bdefault AND active LIMIT 0,1)) hr_crew_id,start_date from_date,CURDATE() to_date FROM hr_employee he LEFT JOIN hr_employee_crew hec ON he.hr_employee_id=hec.hr_employee_crew_id
+) hec ON dtr BETWEEN hec.from_date AND hec.to_date
+LEFT JOIN hr_crew hc ON hc.hr_crew_id=hec.hr_crew_id
+LEFT JOIN hr_crew_shift hcs ON hcs.hr_crew_id=hc.hr_crew_id
+LEFT JOIN hr_shift hs ON hs.hr_shift_id=hcs.hr_shift_id
+LEFT JOIN hr_employee he ON hec.hr_employee_id=he.hr_employee_id
+LEFT JOIN hr_attendance ha ON dts.dtr=ha.date AND he.hr_employee_id=ha.hr_employee_id
+LEFT JOIN hr_department hd ON he.department_id=hd.dept_id 
+LEFT JOIN hr_position hp ON he.position_id=hp.hr_position_id
+LEFT JOIN hr_overtime_transaction  hot ON hot.employee_id=he.hr_employee_id AND hot.overtime_status IN (1493,1494) AND DATE(hot.from_datetime)=ha.date
+LEFT JOIN hr_leave_transaction hl ON he.hr_employee_id=hl.employee_id AND hl.leave_status IN (1493,1494) AND (ha.date BETWEEN hl.from_date AND hl.to_date)
+LEFT JOIN hr_holiday hhd ON hhd.holiday_date=dts.dtr) t
+</DbTable>
+<Data>count(*) records</Data>
+<Where>(dtr BETWEEN DATE_ADD(CURDATE(), INTERVAL - DAY(CURDATE()) + 1 DAY) AND CURDATE())</Where>
+<Order>hr_attendance_id</Order><Queryformat>select %{data} from (select hr_employee_id from %{dbtable} where %{where} ) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_hr_attendance" expr="js(Math.ceil(%{records_hr_attendance}/%{hr_attendance_vLst[countsperpage]}))"/>
+<assign name="pgscb_hr_attendance" expr="js('1~'+Math.ceil(%{records_hr_attendance}/%{hr_attendance_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_hr_attendance" Size="60,20"><OnSelEndOK><submit next="hr_attendance_vLst" function="GetPage(%{pgscb_hr_attendance}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_hr_attendance" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_hr_attendance" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagehr_attendance_vLst" Size="50,20"><OnClick><submit next="hr_attendance_vLst" function="GetPage(%{pgcur_hr_attendance}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_attendance_Vpgop.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="hr_attendance_vLst" Size="700,420" PageSize="100">
+	<DbDetails>
+<DbTable>(SELECT dtr,CONCAT(`he`.`last_name`,_utf8' ',`he`.`first_name`) AS `name`
+,ha.date 
+,crew_number
+,shift_name
+,hs.from_time
+,hs.to_time
+,TIME(punch_in) punch_in
+,TIME(punch_out) punch_out
+,IF(ha.hr_attendance_id IS NULL,0,1) isAttendance
+,IF(hhd.hr_holiday_id IS NULL,0,1) isHoliday
+,IF(hl.hr_leave_transaction_id IS NULL,0,1) isLeave
+,IF(hot.hr_overtime_transaction_id IS NULL,0,1) isOvertime
+,TIME(hot.from_datetime) from_overtime
+,TIME(hot.to_datetime) to_overtime
+,hot.overtime_quantity
+,hot.from_datetime overtime_from
+,hot.to_datetime overtiom_to
+,hp.position_name
+,hd.department
+,he.hr_employee_id from Dates_v dts
+LEFT JOIN (SELECT he.hr_employee_id,IFNULL(hec.hr_crew_id,(SELECT hr_crew_id FROM hr_crew WHERE bdefault AND active LIMIT 0,1)) hr_crew_id,start_date from_date,CURDATE() to_date FROM hr_employee he LEFT JOIN hr_employee_crew hec ON he.hr_employee_id=hec.hr_employee_crew_id
+) hec ON dtr BETWEEN hec.from_date AND hec.to_date
+LEFT JOIN hr_crew hc ON hc.hr_crew_id=hec.hr_crew_id
+LEFT JOIN hr_crew_shift hcs ON hcs.hr_crew_id=hc.hr_crew_id
+LEFT JOIN hr_shift hs ON hs.hr_shift_id=hcs.hr_shift_id
+LEFT JOIN hr_employee he ON hec.hr_employee_id=he.hr_employee_id
+LEFT JOIN hr_attendance ha ON dts.dtr=ha.date AND he.hr_employee_id=ha.hr_employee_id
+LEFT JOIN hr_department hd ON he.department_id=hd.dept_id 
+LEFT JOIN hr_position hp ON he.position_id=hp.hr_position_id
+LEFT JOIN hr_overtime_transaction  hot ON hot.employee_id=he.hr_employee_id AND hot.overtime_status IN (1493,1494) AND DATE(hot.from_datetime)=ha.date
+LEFT JOIN hr_leave_transaction hl ON he.hr_employee_id=hl.employee_id AND hl.leave_status IN (1493,1494) AND (ha.date BETWEEN hl.from_date AND hl.to_date)
+LEFT JOIN hr_holiday hhd ON hhd.holiday_date=dts.dtr) t
+</DbTable>
+<Index>hr_attendance_id</Index>
+<Data>name
+,dtr
+,(CASE WHEN (!isHoliday)&isAttendance&(punch_in&gt;from_time) THEN 'Later' WHEN (!isHoliday)&isAttendance&(to_time&gt;punch_out) THEN 'Early' WHEN (!isHoliday)&isAttendance THEN 'Attendance' WHEN (!isHoliday)&isLeave THEN 'Leave' WHEN (!isHoliday)&(!isLeave) THEN 'Absent' WHEN isOvertime&isAttendance THEN 'overtime' END) atd_status
+,(CASE WHEN (!isHoliday)&isAttendance&(punch_in&gt;from_time) THEN TIMEDIFF(punch_in,from_time) WHEN (!isHoliday)&isAttendance&(to_time&gt;punch_out) THEN TIMEDIFF(to_time,punch_out) WHEN isOvertime&isAttendance THEN TIMEDIFF(IF(punch_out&gt;to_overtime,to_overtime,punch_out),IF(IF(isHoliday,punch_in,to_time)&gt;from_overtime,IF(isHoliday,punch_in,to_time),from_overtime)) END) ex_time
+,isOvertime
+,crew_number
+,shift_name
+,concat(from_time,'-',to_time) shift_time
+,concat(punch_in,'-',punch_out) punch_time
+,position_name
+,department
+,hr_employee_id</Data>
+<Order>hr_attendance_id</Order>
+<Queryformat>select %{data} from %{dbtable} where %{where} order by dtr,hr_employee_id limit %{StartRow},%{PgSize}</Queryformat>
+<Where>(dtr BETWEEN DATE_ADD(CURDATE(), INTERVAL - DAY(CURDATE()) + 1 DAY) AND CURDATE())</Where>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+</operator>
+<OnChanged>
+<assign name="pgcur_hr_attendance" expr="js(%{hr_attendance_vLst[currentpage]}+1)"/>
+<assign name="pgscb_hr_attendance" expr="js(%{hr_attendance_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

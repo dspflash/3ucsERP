@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_employee_termination" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_employee_terminationLst" ToolTip="ttp_hr_employee_termination" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_employee_termination_id</Index>
+<DbTable>xbs.hr_employee_termination</DbTable>
+<Data>employee_id,new_employer,reason,date_of_notification,projected_last_date,status,actual_last_date,accpeted_date,accpeted_by_employee_id,created_by,creation_date,last_update_by,last_update_date,hr_employee_termination_id</Data>
+<Order>hr_employee_termination_id</Order></DbDetails>
+<OnClick><assign name="employee_id[hr_employee_id]" expr="%{hr_employee_terminationLst[employee_id]}" function="SetSel"/><assign name="status[option_line_id]" expr="%{hr_employee_terminationLst[status]}" function="SetSel"/><assign name="accpeted_by_employee_id[hr_employee_id]" expr="%{hr_employee_terminationLst[accpeted_by_employee_id]}" function="SetSel"/>
+<if cond="%{hr_employee_termination_id}"><SetVisible name="inserthr_employee_termination" Visible="0"/><SetVisible name="modifyhr_employee_termination" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEdocuments" Size="100,100"><Ctrls>
+<Button sqlpkinsert="idx" Text="create" ToolTip="ttp_createdocuments" Name="insertdocuments" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.documents</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>filenameany,keywords,expire_dt,path</Data>
+<DataEx>up_dt,owner_id,id_corp;now(),'%{user_id}',1</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="documentsLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifydocuments" Name="modifydocuments" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.documents</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>keywords,expire_dt,path</Data>
+<DataEx>up_dt;now()</DataEx>
+<Where>idx='%{idx}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="documentsLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetdocuments" Name="resetdocuments" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITdocuments" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchdocuments" Name="gsearchdocuments" Size="50,20" visible="false">
+	<OnClick>
+	<search next="documentsLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITdocuments" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

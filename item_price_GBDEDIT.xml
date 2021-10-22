@@ -1,0 +1,22 @@
+﻿<GroupBox Name="GBDEDITitem"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_number"><Ctrls>
+<Label Align="Right" Text="item_number" Name="lb_item_number" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_number" Name="item_number" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_name"><Ctrls>
+<Label Align="Right" Text="item_name" Name="lb_item_name" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_name" Name="item_name" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_specification"><Ctrls>
+<Label Align="Right" Text="item_specification" Name="lb_item_specification" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_specification" Name="item_specification" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_list_price"><Ctrls>
+<Label Align="Right" Text="list_price" Name="lb_list_price" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_list_price" Name="list_price" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_item_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="item_id" overlap="pre" Name="lb_item_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_id" overlap="pre" Name="item_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{item_id}'"><SetVisible name="insertitem" Visible="0"/><SetVisible name="modifyitem" Visible="1"/><else/><SetVisible name="insertitem" Visible="1"/><SetVisible name="modifyitem" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

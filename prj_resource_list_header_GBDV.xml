@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_resource_list_header"><Ctrls>
+<ListCtrl Heading="list_name,250;effective_from,90;effective_to,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_resource_list_header_id,60;" loadedclick="0" ToolTip="ttp_prj_resource_list_header" Name="prj_resource_list_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_resource_list_header</DbTable>
+<Index>prj_resource_list_header_id</Index>
+<Data>list_name,effective_from,effective_to,description,created_by,creation_date,last_update_by,last_update_date,prj_resource_list_header_id</Data>
+<Order>prj_resource_list_header_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

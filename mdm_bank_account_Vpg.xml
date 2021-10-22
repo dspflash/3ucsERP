@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGmdm_bank_account"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_mdm_bank_account" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>mdm_bank_account_id</Index>
+<DbTable>xbs.mdm_bank_account m left join xbs.mdm_bank_site m0 on m.mdm_bank_site_id=m0.mdm_bank_site_id left join xbs.currency c on m.currency_code=c.currency_id left join xbs.option_line o on m.account_type=o.option_line_code left join xbs.mdm_bank_header m1 on m.mdm_bank_header_id=m1.mdm_bank_header_id left join xbs.org o0 on m.org_id=o0.org_id</DbTable>
+<Data>count(*) records</Data>
+<Order>mdm_bank_account_id</Order><Queryformat>select %{data} from (select m.mdm_bank_account_id from %{dbtable} %{where} GROUP BY m.mdm_bank_account_id  ORDER BY m.mdm_bank_account_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_mdm_bank_account" expr="js(Math.ceil(%{records_mdm_bank_account}/%{mdm_bank_account_vLst[countsperpage]}))"/>
+<assign name="pgscb_mdm_bank_account" expr="js('1~'+Math.ceil(%{records_mdm_bank_account}/%{mdm_bank_account_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_mdm_bank_account" Size="60,20"><OnSelEndOK><submit next="mdm_bank_account_vLst" function="GetPage(%{pgscb_mdm_bank_account}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_mdm_bank_account" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_mdm_bank_account" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagemdm_bank_account_vLst" Size="50,20"><OnClick><submit next="mdm_bank_account_vLst" function="GetPage(%{pgcur_mdm_bank_account}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

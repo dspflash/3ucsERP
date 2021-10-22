@@ -1,0 +1,14 @@
+<GroupBox Name="GBDVar_receipt_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="ar_receipt_line_vLst" ToolTip="ttp_ar_receipt_line" Size="700,180" Heading="ar_transaction_header_id,120;line_number,60;amount,100;exchange_rate,75;line_description,640;gl_amount,75;status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_receipt_line_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.ar_receipt_line a left join xbs.ar_transaction_header a0 on a.ar_transaction_header_id=a0.ar_transaction_header_id left join xbs.option_line o on a.status=o.option_line_id</DbTable>
+<Index>ar_receipt_line_id</Index>
+<Data>a0.transaction_number ar_transaction_header_id,a.line_number,a.amount,a.exchange_rate,a.line_description,a.gl_amount,o.option_line_value status,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.ar_receipt_line_id</Data>
+<Order>ar_receipt_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{ar_receipt_header_id}"><alert expr="请先添加或选择已有项目！"/><else/><DbDetails><Where>ar_receipt_header_id='%{ar_receipt_header_id}'</Where></DbDetails><submit next="$parent.ar_receipt_line.ar_receipt_header_id" namelist="DbDetails"/>
+</if></op>
+<op text="modify"><DbDetails><Where>ar_receipt_header_id='%{ar_receipt_header_id}'</Where></DbDetails><submit next="$parent.ar_receipt_line.ar_receipt_header_id" namelist="DbDetails"/><DbDetails><Where>ar_receipt_line_id='%{ar_receipt_line_vLst[ar_receipt_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.ar_receipt_line.ar_receipt_lineLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVattachment" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="attachment_vLst" ToolTip="ttp_attachment" Size="700,420" Heading="subject,64;filename,64;path,100;attachment,640;reftbl,250;type,20;typestr,500;description,640;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;attachment_id,100;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.attachment a</DbTable>
+<Index>attachment_id</Index>
+<Data>a.subject,a.filename,a.path,a.attachment,a.reftbl,a.type,a.typestr,a.description,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.attachment_id</Data>
+<Order>attachment_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="download"><assign name="topmost" expr="GetFile:%{attachment_vLst[filename]},dir=%{attachment_vLst[path]},localdir="/></op>
+<op text="view"><DbDetails><where>attachment_id='%{attachment_vLst[attachment_id]}'</where></DbDetails><submit namelist="DbDetails" next="$this.picView.picture"/></op>
+<!--op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.attachment</DbTable>
+<Where>attachment_id='%{attachment_vLst[attachment_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op-->
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

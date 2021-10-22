@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_bem" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_bemLst" ToolTip="ttp_prj_bem" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_bem</DbTable>
+<Index>prj_bem_id</Index>
+<Data>bem,budget_entry_level,time_phased_by,effective_from,effective_to,description,quantity_cost_cb,raw_cost_cb,burdened_cost_cb,categorized_by_resource_cb,revenue_cb,quantity_revenue_cb,created_by,creation_date,last_update_by,last_update_date,prj_bem_id</Data>
+<Order>prj_bem_id</Order></DbDetails>
+<OnClick><assign name="budget_entry_level[option_line_id]" expr="%{prj_bemLst[budget_entry_level]}" function="SetSel"/><assign name="time_phased_by[option_line_id]" expr="%{prj_bemLst[time_phased_by]}" function="SetSel"/>
+<if cond="%{prj_bem_id}"><SetVisible name="insertprj_bem" Visible="0"/><SetVisible name="modifyprj_bem" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

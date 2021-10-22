@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="系统[勿修改]" Name="vSystem" id="vSystem">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="voption.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="transaction_type_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="module_class_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ac_usage_type_v.xml"/>
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="coa_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="coa_combination_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="adm_task_type_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="adm_task_template_header_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="adm_task_template_line_v.xml"/-->
+	</WndTaps>
+	</WndTap>

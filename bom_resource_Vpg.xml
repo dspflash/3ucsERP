@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGbom_resource"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_bom_resource" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>bom_resource_id</Index>
+<DbTable>xbs.bom_resource b left join xbs.option_line o on b.resource_type=o.option_line_id left join xbs.option_line o0 on b.charge_type=o0.option_line_id left join xbs.item i on (b.osp_cb and b.osp_item_id=i.item_id_m and b.org_id=i.org_id) left join xbs.uom u on b.uom=u.uom_id</DbTable>
+<Data>count(*) records</Data>
+<Order>bom_resource_id</Order><Queryformat>select %{data} from (select b.bom_resource_id from %{dbtable} %{where} GROUP BY b.bom_resource_id  ORDER BY b.bom_resource_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_bom_resource" expr="js(Math.ceil(%{records_bom_resource}/%{bom_resource_vLst[countsperpage]}))"/>
+<assign name="pgscb_bom_resource" expr="js('1~'+Math.ceil(%{records_bom_resource}/%{bom_resource_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_bom_resource" Size="60,20"><OnSelEndOK><submit next="bom_resource_vLst" function="GetPage(%{pgscb_bom_resource}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_bom_resource" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_bom_resource" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagebom_resource_vLst" Size="50,20"><OnClick><submit next="bom_resource_vLst" function="GetPage(%{pgcur_bom_resource}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

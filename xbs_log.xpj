@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><biztoolcfg loadedClick="0" tableNm="xbs_log" referLst="0" onLoadInit="0" tableTxt="xbs_log" LstTP="Lst" jointbls="1"><Ctrls><Ctrl name="xbs_log_id"/><Ctrl name="log_level"/><Ctrl name="task"/><Ctrl name="program"/><Ctrl name="msg"/><Ctrl name="user_id"/><Ctrl name="org_id"/><Ctrl name="dt"/></Ctrls></biztoolcfg>

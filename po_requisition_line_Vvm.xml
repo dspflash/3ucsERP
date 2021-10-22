@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVpo_requisition_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="po_requisition_line_vLst" ToolTip="ttp_po_requisition_line" Size="700,420" Heading="line_type,120;receving_org_id,120;line_number,60;item_number,120;item_name,120;item_specification,120;item_description,120;price_date,90;line_quantity,100;uom_name,100;line_description,640;status,120;need_by_date,90;reference_key_name,120;reference_header_id,100;reference_line_id,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;po_requisition_line_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.po_requisition_line p left join xbs.option_line o on p.line_type=o.option_line_id left join xbs.org o0 on p.receving_org_id=o0.org_id left join xbs.item i on p.item_id_m=i.item_id_m and p.receving_org_id=i.org_id join xbs.uom u on p.uom_id=u.uom_id left join xbs.option_line o1 on p.status=o1.option_line_id</DbTable>
+<Index>po_requisition_line_id</Index>
+<Data>o.option_line_value line_type,o0.org receving_org_id,p.line_number,i.item_number ,`i`.`item_name`,`i`.`item_specification`,`i`.`item_description`, p.price_date,p.line_quantity,u.uom_name,p.line_description,o1.option_line_value status,p.need_by_date,p.reference_key_name,p.reference_header_id,p.reference_line_id,p.item_id_m,i.org_id,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.po_requisition_line_id</Data>
+<Order>po_requisition_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$parent.po_requisition_line.GBDEDITpo_requisition_line" function="reset"/><DbDetails><Where>po_requisition_header_id='%{po_requisition_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.po_requisition_line.po_requisition_header_id"/></op>
+<op text="modify"><DbDetails><Where>po_requisition_header_id='%{po_requisition_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.po_requisition_line.po_requisition_header_id"/><DbDetails><Where>item_id_m='%{po_requisition_line_vLst[item_id_m]}' and org_id='%{po_requisition_line_vLst[org_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.po_requisition_line.item_id_m"/><DbDetails><Where>po_requisition_line_id='%{po_requisition_line_vLst[po_requisition_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.po_requisition_line.po_requisition_lineLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.po_requisition_line</DbTable>
+<Where>po_requisition_line_id='%{po_requisition_line_vLst[po_requisition_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

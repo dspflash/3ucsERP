@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="BOM" Name="bom" id="bom">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_department.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_standard_operation.xml"/>
+	</WndTaps>
+	</WndTap>

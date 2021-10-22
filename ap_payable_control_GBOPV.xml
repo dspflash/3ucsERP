@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVap_payable_control" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteap_payable_control" Name="deleteap_payable_control" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payable_control</DbTable>
+<Where>ap_payable_control_id='%{ap_payable_controlLst[ap_payable_control_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchap_payable_control" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshap_payable_control" Name="searchap_payable_control" Size="50,20">
+			  <OnClick><submit next="ap_payable_controlLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPap_payable_controlLst" OnClick="(ap_payable_controlLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREap_payable_controlLst" OnClick="(ap_payable_controlLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPap_payable_controlLst" OnClick="(ap_payable_controlLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

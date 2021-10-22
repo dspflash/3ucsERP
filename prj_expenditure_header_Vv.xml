@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVprj_expenditure_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_expenditure_header_vLst" ToolTip="ttp_prj_expenditure_header" Size="700,420" OnLoad="init" Heading="batch_name,250;expenditure_class,120;effective_to,90;status,120;submitted_by_user_id,120;submitted_on,90;description,640;misc_transaction_cb,60;over_time_cb,60;invoice_cb,60;usages_cb,60;wip_cb,60;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;prj_expenditure_header_id,50;bu_org_id,55;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_expenditure_header p left join xbs.xerp_user x on p.submitted_by_user_id=x.xerp_user_id</DbTable>
+<Index>prj_expenditure_header_id</Index>
+<Data>p.batch_name,p.expenditure_class,p.effective_to,p.status,x.username submitted_by_user_id,p.submitted_on,p.description,p.misc_transaction_cb,p.over_time_cb,p.invoice_cb,p.usages_cb,p.wip_cb,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_expenditure_header_id,p.bu_org_id</Data>
+<Order>prj_expenditure_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>prj_expenditure_header_id='%{prj_expenditure_header_vLst[prj_expenditure_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_expenditure_header.prj_expenditure_headerLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.prj_expenditure_header</DbTable>
+<Where>prj_expenditure_header_id='%{prj_expenditure_header_vLst[prj_expenditure_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

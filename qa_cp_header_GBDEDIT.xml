@@ -1,0 +1,72 @@
+<GroupBox Name="GBDEDITqa_cp_header"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_plan_name"><Ctrls>
+<Label Align="Right" Text="plan_name" Name="lb_plan_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_plan_name" Name="plan_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_plan_type"><Ctrls>
+<Label Align="Right" Text="plan_type" onload="init" Name="lb_plan_type" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_plan_type" onload="init" Name="plan_type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=265</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_effective_from"><Ctrls>
+<Label Align="Right" Text="effective_from" Name="lb_effective_from" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_effective_from" Name="effective_from" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_qa_specification_header_id"><Ctrls>
+<Label Align="Right" Text="qa_specification_header_id" onload="init" Name="lb_qa_specification_header_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_qa_specification_header_id" onload="init" Name="qa_specification_header_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.qa_specification_header</DbTable>
+<Index>qa_specification_header_id</Index>
+<Data>specification_name,qa_specification_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_specification_type"><Ctrls>
+<Label Align="Right" Text="specification_type" onload="init" Name="lb_specification_type" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_specification_type" onload="init" Name="specification_type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=279</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_effective_to"><Ctrls>
+<Label Align="Right" Text="effective_to" Name="lb_effective_to" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_effective_to" Name="effective_to" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_org_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="org_id" overlap="pre" Name="lb_org_id" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_org_id" overlap="pre" Name="org_id" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_qa_cp_header_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="qa_cp_header_id" overlap="pre" Name="lb_qa_cp_header_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_qa_cp_header_id" overlap="pre" Name="qa_cp_header_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="%{qa_cp_header_id}"><SetVisible name="insertqa_cp_header" Visible="0"/><SetVisible name="modifyqa_cp_header" Visible="1"/><DbDetails><Where>qa_cp_header_id='%{qa_cp_header_id}'</Where></DbDetails><submit next="qa_cp_line_vLst" namelist="DbDetails"/><else/><SetVisible name="insertqa_cp_header" Visible="1"/><SetVisible name="modifyqa_cp_header" Visible="0"/><submit next="qa_cp_line_vLst" function="resetcontent"/></if></OnEnChange><OnEnChange><assign name="GBqa_cp_header" expr="TABEDITqa_cp_header"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

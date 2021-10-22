@@ -1,0 +1,67 @@
+<GroupBox Name="GBDEDITcoa"><Ctrls><GroupBox Name="GB_coa_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_coa_name" Size="60,20" Text="coa_name" Align="Right"/>
+<TextBox Name="coa_name" Size="170,20" Weight="170" ToolTip="ttp_coa_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_coa_structure_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_coa_structure_id" Size="60,20" Text="coa_structure_id" Align="Right"/>
+<ComboBox Name="coa_structure_id" Size="170,100" Weight="170"  ToolTip="ttp_coa_structure_id">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_code,option_line_id</Data>
+<Where>option_header_id=80</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_balancing" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_balancing" Size="60,20" Text="balancing" Align="Right"/>
+<TextBox Name="balancing" Size="170,20" Weight="170" ToolTip="ttp_balancing"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cost_center" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cost_center" Size="60,20" Text="cost_center" Align="Right"/>
+<TextBox Name="cost_center" Size="170,20" Weight="170" ToolTip="ttp_cost_center"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_natural_account" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_natural_account" Size="60,20" Text="natural_account" Align="Right"/>
+<TextBox Name="natural_account" Size="170,20" Weight="170" ToolTip="ttp_natural_account"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_inter_company" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_inter_company" Size="60,20" Text="inter_company" Align="Right"/>
+<TextBox Name="inter_company" Size="170,20" Weight="170" ToolTip="ttp_inter_company"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_field1" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field1" Size="60,20" Text="field1" Align="Right"/>
+<TextBox Name="field1" Size="170,20" Weight="170" ToolTip="ttp_field1"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_field2" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field2" Size="60,20" Text="field2" Align="Right"/>
+<TextBox Name="field2" Size="170,20" Weight="170" ToolTip="ttp_field2"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_field3" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field3" Size="60,20" Text="field3" Align="Right"/>
+<TextBox Name="field3" Size="170,20" Weight="170" ToolTip="ttp_field3"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_field4" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field4" Size="60,20" Text="field4" Align="Right"/>
+<TextBox Name="field4" Size="170,20" Weight="170" ToolTip="ttp_field4"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_field5" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field5" Size="60,20" Text="field5" Align="Right"/>
+<TextBox Name="field5" Size="170,20" Weight="170" ToolTip="ttp_field5"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_field6" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field6" Size="60,20" Text="field6" Align="Right"/>
+<TextBox Name="field6" Size="170,20" Weight="170" ToolTip="ttp_field6"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_field7" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field7" Size="60,20" Text="field7" Align="Right"/>
+<TextBox Name="field7" Size="170,20" Weight="170" ToolTip="ttp_field7"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_field8" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_field8" Size="60,20" Text="field8" Align="Right"/>
+<TextBox Name="field8" Size="170,20" Weight="170" ToolTip="ttp_field8"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

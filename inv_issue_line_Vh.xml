@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVinv_issue_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="inv_issue_lineLst" ToolTip="ttp_inv_issue_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_issue_line</DbTable>
+<Index>inv_issue_line_id</Index>
+<Data>reference_key_value,transaction_quantity,item_id_m,subinventory_id,locator_id,lot_number,created_by,creation_date,last_update_by,last_update_date,inv_issue_line_id,status</Data>
+<Order>inv_issue_line_id</Order></DbDetails>
+<OnClick><assign name="reference_key_value[refid]" expr="%{inv_issue_lineLst[reference_key_value]}" function="SetSel"/><assign name="item_id_m[item_id_m]" expr="%{inv_issue_lineLst[item_id_m]}" function="SetSel"/><assign name="subinventory_id[subinventory_id]" expr="%{inv_issue_lineLst[subinventory_id]}" function="SetSel"/><assign name="locator_id[locator_id]" expr="%{inv_issue_lineLst[locator_id]}" function="SetSel"/><assign name="lot_number[inv_lot_number_id]" expr="%{inv_issue_lineLst[lot_number]}" function="SetSel"/>
+<if cond="%{inv_issue_line_id}"><SetVisible name="insertinv_issue_line" Visible="0"/><SetVisible name="modifyinv_issue_line" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

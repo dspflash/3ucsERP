@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVcountry"><Ctrls>
+<ListCtrl Heading="namecn,250;name,640;iso_code_2,20;iso_code_3,20;postcode_required,60;status,60;country_id,55;" loadedclick="0" ToolTip="ttp_country" onload="init" Name="countryLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.country</DbTable>
+<Index>country_id</Index>
+<Data>namecn,name,iso_code_2,iso_code_3,postcode_required,status,country_id</Data>
+<Order>country_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

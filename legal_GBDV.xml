@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVlegal"><Ctrls>
+<ListCtrl Heading="registration_number,250;place_of_registration,250;country_of_registration,120;identification_number,250;ledger_id,120;balancing_segments,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;legal_id,60;" loadedclick="1" ToolTip="ttp_legal" Name="legalLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.legal</DbTable>
+<Index>legal_id</Index>
+<Data>registration_number,place_of_registration,country_of_registration,identification_number,ledger_id,balancing_segments,created_by,creation_date,last_update_by,last_update_date,legal_id</Data>
+<Order>legal_id</Order></DbDetails>
+<OnClick><assign name="country_of_registration[country_id]" function="SetSel" expr="%{legalLst[country_of_registration]}"/><assign name="ledger_id[gl_ledger_id]" function="SetSel" expr="%{legalLst[ledger_id]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

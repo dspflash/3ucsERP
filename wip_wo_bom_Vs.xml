@@ -1,0 +1,119 @@
+<GroupBox Name="GBDEDITwip_wo_bom"><Ctrls>
+<GroupBox Name="GB_bom_sequence" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bom_sequence" Size="60,20" Text="bom_sequence" Align="Right"/>
+<TextBox Name="bom_sequence" Size="170,20" Text="" Weight="170" ToolTip="ttp_bom_sequence"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_routing_sequence" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_routing_sequence" Size="60,20" Text="routing_sequence" Align="Right"/>
+<ComboBox Name="routing_sequence" Size="170,100" Text="" Weight="170"  ToolTip="ttp_routing_sequence">
+	<DbDetails>
+<DbTable>xbs.wip_wo_routing_line</DbTable>
+<Index>routing_sequence</Index>
+<Data>routing_sequence</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_routing_seq_num" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="routing_seq_num" Size="230,20" Text="routing_seq_num" ToolTip="ttp_routing_seq_num"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_wip_wo_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_wip_wo_header_id" Size="60,20" Text="wip_wo_header_id" Align="Right" Visible="false" overlap="pre" selectedIndex="0"/>
+<ComboBox Name="wip_wo_header_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_wip_wo_header_id" Visible="false" overlap="pre" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.wip_wo_header</DbTable>
+<Index>wip_wo_header_id</Index>
+<Data>wo_number,wip_wo_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><DbDetails><Where>wip_wo_header_id='%{wip_wo_header_id[wip_wo_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="routing_sequence"/><submit namelist="dbdetails" next="wip_wo_bomLst"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_component_item_id_m" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_component_item_id_m" Size="60,20" Text="component_item_id_m" Align="Right" onload="init"/>
+<ComboBox Name="component_item_id_m" Size="170,100" Text="" Weight="170"  ToolTip="ttp_component_item_id_m" onload="init">
+	<DbDetails>
+<DbTable>xbs.item</DbTable>
+<Index>item_id_m</Index>
+<Data>item_number,item_id_m</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_usage_basis" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_usage_basis" Size="60,20" Text="usage_basis" Align="Right" onload="init"/>
+<ComboBox Name="usage_basis" Size="170,100" Text="" Weight="170"  ToolTip="ttp_usage_basis" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=138</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_usage_quantity" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_usage_quantity" Size="60,20" Text="usage_quantity" Align="Right"/>
+<TextBox Name="usage_quantity" Size="170,20" Text="" Weight="170" ToolTip="ttp_usage_quantity"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_effective_start_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_start_date" Size="60,20" Text="effective_start_date" Align="Right"/>
+<DateTime Name="effective_start_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_start_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_effective_end_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_end_date" Size="60,20" Text="effective_end_date" Align="Right"/>
+<DateTime Name="effective_end_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_end_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_wip_supply_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_wip_supply_type" Size="60,20" Text="wip_supply_type" Align="Right" onload="init"/>
+<ComboBox Name="wip_supply_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_wip_supply_type" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=135 and status is true</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_supply_sub_inventory" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_supply_sub_inventory" Size="60,20" Text="supply_sub_inventory" Align="Right" onload="init"/>
+<ComboBox Name="supply_sub_inventory" Size="170,100" Text="" Weight="170"  ToolTip="ttp_supply_sub_inventory" onload="init">
+	<DbDetails>
+<DbTable>xbs.subinventory</DbTable>
+<Index>subinventory_id</Index>
+<Data>subinventory,subinventory_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="supply_locator"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_supply_locator" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_supply_locator" Size="60,20" Text="supply_locator" Align="Right"/>
+<ComboBox Name="supply_locator" Size="170,100" Text="" Weight="170"  ToolTip="ttp_supply_locator">
+	<DbDetails>
+<DbTable>xbs.locator</DbTable>
+<Index>locator_id</Index>
+<Data>locator,locator_id</Data>
+<Where>subinventory_id='%{supply_sub_inventory[subinventory_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_required_quantity" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_required_quantity" Size="60,20" Text="required_quantity" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="required_quantity" Size="170,20" Text="" Weight="170" ToolTip="ttp_required_quantity" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_issued_quantity" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_issued_quantity" Size="60,20" Text="issued_quantity" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="issued_quantity" Size="170,20" Text="" Weight="170" ToolTip="ttp_issued_quantity" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_wip_wo_bom_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_wip_wo_bom_id" Size="60,20" Text="wip_wo_bom_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="wip_wo_bom_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_wip_wo_bom_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBwip_wo_bom" expr="TABEDITwip_wo_bom"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

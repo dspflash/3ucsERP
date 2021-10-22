@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVhd_svo_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletehd_svo_header" Name="deletehd_svo_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_svo_header</DbTable>
+<Where>hd_svo_header_id='%{hd_svo_headerLst[hd_svo_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhd_svo_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshhd_svo_header" Name="searchhd_svo_header" Size="50,20">
+			  <OnClick><submit next="hd_svo_headerLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPhd_svo_headerLst" OnClick="(hd_svo_headerLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREhd_svo_headerLst" OnClick="(hd_svo_headerLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPhd_svo_headerLst" OnClick="(hd_svo_headerLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

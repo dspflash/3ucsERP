@@ -1,0 +1,79 @@
+<GroupBox Name="GBDEDITar_customer_bu"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_ar_customer_id"><Ctrls>
+<Label Align="Right" Text="ar_customer_id" Name="lb_ar_customer_id" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_ar_customer_id" Name="ar_customer_id" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.ar_customer</DbTable>
+<Index>ar_customer_id</Index>
+<Data>customer_name,ar_customer_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><DbDetails><Where>ar_customer_id='%{ar_customer_id[ar_customer_id]}' and org_id='%{orgid}'</Where></DbDetails><submit next="ar_customer_buLst" namelist="DbDetails"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_payment_term_id"><Ctrls>
+<Label Align="Right" Text="payment_term_id" onload="init" Name="lb_payment_term_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_payment_term_id" onload="init" Name="payment_term_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.payment_term</DbTable>
+<Index>payment_term_id</Index>
+<Data>payment_term,payment_term_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_currency"><Ctrls>
+<Label Align="Right" Text="currency" onload="init" Name="lb_currency" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_currency" onload="init" Name="currency" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.currency</DbTable>
+<Index>currency_id</Index>
+<Data>title,currency_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_order_type_id"><Ctrls>
+<Label Align="Right" Text="order_type_id" onload="init" Name="lb_order_type_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_order_type_id" onload="init" Name="order_type_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.sd_document_type</DbTable>
+<Index>sd_document_type_id</Index>
+<Data>document_type_name,sd_document_type_id</Data>
+<Where>level='header'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_price_list_id"><Ctrls>
+<Label Align="Right" Text="price_list_id" onload="init" Name="lb_price_list_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_price_list_id" onload="init" Name="price_list_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.mdm_price_list_header</DbTable>
+<Index>mdm_price_list_header_id</Index>
+<Data>price_list,mdm_price_list_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" Size="230,20" checked="true"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_ar_customer_bu_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="ar_customer_bu_id" overlap="pre" Name="lb_ar_customer_bu_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_ar_customer_bu_id" overlap="pre" Name="ar_customer_bu_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBar_customer_bu" expr="TABEDITar_customer_bu"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_org_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="org_id" overlap="pre" Name="lb_org_id" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_org_id" overlap="pre" Name="org_id" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

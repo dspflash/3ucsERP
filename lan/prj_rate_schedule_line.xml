@@ -1,0 +1,50 @@
+<Language name="prj_rate_schedule_line">
+<Lang name="prj_rate_schedule_line" value="prj_rate_schedule_line"/>
+<Lang name="TabEditprj_rate_schedule_line" value="prj_rate_schedule_line Edit"/>
+<Lang name="TabViewprj_rate_schedule_line" value="prj_rate_schedule_line View"/>
+<Lang name="rate" value=""/>
+<Lang name="ttp_rate" value=""/>
+<Lang name="uom_id" value=""/>
+<Lang name="ttp_uom_id" value=""/>
+<Lang name="reference_key_name" value=""/>
+<Lang name="ttp_reference_key_name" value=""/>
+<Lang name="reference_key_value" value=""/>
+<Lang name="ttp_reference_key_value" value=""/>
+<Lang name="mark_up_percentage" value=""/>
+<Lang name="ttp_mark_up_percentage" value=""/>
+<Lang name="effective_from" value=""/>
+<Lang name="ttp_effective_from" value=""/>
+<Lang name="effective_to" value=""/>
+<Lang name="ttp_effective_to" value=""/>
+<Lang name="resource_name" value=""/>
+<Lang name="ttp_resource_name" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="prj_rate_schedule_line_id" value=""/>
+<Lang name="ttp_prj_rate_schedule_line_id" value=""/>
+<Lang name="prj_rate_schedule_header_id" value=""/>
+<Lang name="ttp_prj_rate_schedule_header_id" value=""/>
+<Lang name="ttp_operationprj_rate_schedule_line" value="操作"/>
+<Lang name="ttp_createprj_rate_schedule_line" value="新增"/>
+<Lang name="ttp_modifyprj_rate_schedule_line" value="修改"/>
+<Lang name="ttp_resetprj_rate_schedule_line" value="清除数据"/>
+<Lang name="ttp_deleteprj_rate_schedule_line" value="删除"/>
+<Lang name="ttp_refreshprj_rate_schedule_line" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPElegal" Size="100,100"><Ctrls>
+<Button sqlpkinsert="legal_id" Text="create" ToolTip="ttp_createlegal" Name="insertlegal" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.legal</DbTable>
+<Data>registration_number,place_of_registration,country_of_registration[country_id],identification_number,ledger_id[gl_ledger_id],balancing_segments,org_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="legalLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifylegal" Name="modifylegal" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.legal</DbTable>
+<Data>registration_number,place_of_registration,country_of_registration[country_id],identification_number,ledger_id[gl_ledger_id],balancing_segments</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>legal_id='%{legal_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="legalLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetlegal" Name="resetlegal" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITlegal" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchlegal" Name="gsearchlegal" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="legalLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITlegal" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

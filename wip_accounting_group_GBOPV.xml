@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVwip_accounting_group" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletewip_accounting_group" Name="deletewip_accounting_group" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_accounting_group</DbTable>
+<Where>wip_accounting_group_id='%{wip_accounting_groupLst[wip_accounting_group_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchwip_accounting_group" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshwip_accounting_group" Name="searchwip_accounting_group" Size="50,20">
+			  <OnClick><submit next="wip_accounting_groupLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPwip_accounting_groupLst" OnClick="(wip_accounting_groupLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREwip_accounting_groupLst" OnClick="(wip_accounting_groupLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPwip_accounting_groupLst" OnClick="(wip_accounting_groupLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhd_sbp_header"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_hd_sbp_header" Name="hd_sbp_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_sbp_header h left join xbs.user_v u on h.created_by=u.xerp_user_id</DbTable>
+<Index>hd_sbp_header_id</Index>
+<Data>h.business_process,h.service_order_cb,h.service_request_cb,h.service_contract_cb,h.description,u.NAME created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hd_sbp_header_id</Data>
+<Order>hd_sbp_header_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>hd_sbp_header_id='%{hd_sbp_header_vLst[hd_sbp_header_id]}'</Where></DbDetails><submit next="$this.hd_sbp_header.hd_sbp_headerLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_sbp_header</DbTable>
+<Where>hd_sbp_header_id='%{hd_sbp_header_vLst[hd_sbp_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

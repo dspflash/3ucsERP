@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEfp_forecast_consumption" Size="100,100"><Ctrls>
+<Button sqlpkinsert="fp_forecast_consumption_id" Text="create" ToolTip="ttp_createfp_forecast_consumption" Name="insertfp_forecast_consumption" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.fp_forecast_consumption</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>fp_forecast_group_id[fp_forecast_group_id],fp_forecast_line_id[fp_forecast_line_id],fp_forecast_line_date_id[fp_forecast_line_date_id],quantity,reason,sd_so_line_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="fp_forecast_consumptionLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyfp_forecast_consumption" Name="modifyfp_forecast_consumption" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.fp_forecast_consumption</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>fp_forecast_group_id[fp_forecast_group_id],fp_forecast_line_date_id[fp_forecast_line_date_id],quantity,reason</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>fp_forecast_consumption_id='%{fp_forecast_consumption_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="fp_forecast_consumptionLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetfp_forecast_consumption" Name="resetfp_forecast_consumption" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITfp_forecast_consumption" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchfp_forecast_consumption" Name="gsearchfp_forecast_consumption" Size="50,20" visible="false">
+	<OnClick>
+	<search next="fp_forecast_consumptionLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITfp_forecast_consumption" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

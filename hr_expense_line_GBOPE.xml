@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEhr_expense_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hr_expense_line_id" Text="create" ToolTip="ttp_createhr_expense_line" Name="inserthr_expense_line" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hr_expense_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>claim_date,receipt_amount,receipt_currency[currency_id],exchange_rate,expense_type[hr_expense_tpl_line_id],purpose,start_date,daily_rate,no_of_days,expense_location[hr_location_id],per_diem_rate,per_diem_days,mileage_uom_id[uom_id],mileage_distace,mileage_rate,vendor_name,vendor_details,original_receipt_missing_cb,hr_expense_header_id</Data>
+<DataEx>line_number,created_by,creation_date,last_update_by,last_update_date;@linenum,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>SELECT IFNULL(MAX(line_number),0)+1 INTO @linenum FROM hr_expense_line WHERE hr_expense_header_id='%{hr_expense_header_id}'; insert into %{table} %{data};update hr_expense_header set header_amount=header_amount+%{receipt_amount} where hr_expense_header_id=%{hr_expense_header_id};</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{inserthr_expense_line[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_expense_lineLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_expense_line_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_expense_line" Name="modifyhr_expense_line" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hr_expense_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>claim_date,receipt_amount,receipt_currency[currency_id],exchange_rate,expense_type[hr_expense_tpl_line_id],purpose,start_date,daily_rate,no_of_days,expense_location[hr_location_id],per_diem_rate,per_diem_days,mileage_uom_id[uom_id],mileage_distace,mileage_rate,vendor_name,vendor_details,original_receipt_missing_cb</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hr_expense_line_id='%{hr_expense_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where};UPDATE hr_expense_header SET header_amount=(SELECT SUM(receipt_amount) FROM hr_expense_line WHERE hr_expense_header_id=%{hr_expense_header_id}) WHERE hr_expense_header_id=%{hr_expense_header_id};</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyhr_expense_line[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_expense_lineLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_expense_line_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_expense_line" Name="resethr_expense_line" Size="50,20">
+<OnClick>
+<submit next="GBDEDIThr_expense_line" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchhr_expense_line" Name="gsearchhr_expense_line" Size="50,20" visible="false">
+<OnClick>
+<search next="hr_expense_lineLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDIThr_expense_line" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

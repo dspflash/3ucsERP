@@ -1,0 +1,40 @@
+﻿<Language name="hr_location">
+<Lang name="hr_location" value="工作地点"/>
+<Lang name="TabEdithr_location" value="hr_location Edit"/>
+<Lang name="TabViewhr_location" value="hr_location View"/>
+<Lang name="country" value="国家"/>
+<Lang name="ttp_country" value=""/>
+<Lang name="state" value="州/省"/>
+<Lang name="ttp_state" value=""/>
+<Lang name="city" value="城市"/>
+<Lang name="ttp_city" value=""/>
+<Lang name="combination" value="组合"/>
+<Lang name="ttp_combination" value=""/>
+<Lang name="description" value="说明"/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hr_location_id" value=""/>
+<Lang name="ttp_hr_location_id" value=""/>
+<Lang name="ttp_operationhr_location" value=""/>
+<Lang name="ttp_createhr_location" value=""/>
+<Lang name="ttp_modifyhr_location" value=""/>
+<Lang name="ttp_resethr_location" value=""/>
+<Lang name="ttp_deletehr_location" value=""/>
+<Lang name="ttp_refreshhr_location" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

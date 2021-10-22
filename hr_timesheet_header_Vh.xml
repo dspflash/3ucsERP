@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_timesheet_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_timesheet_headerLst" ToolTip="ttp_hr_timesheet_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_timesheet_header</DbTable>
+<Index>hr_timesheet_header_id</Index>
+<Data>hr_timesheet_period_id,hr_employee_id,entered_on,approver_employee_id,approved_on,status,created_by,creation_date,last_update_by,last_update_date,hr_timesheet_header_id</Data>
+<Order>hr_timesheet_header_id</Order></DbDetails>
+<OnClick><assign name="hr_timesheet_period_id[hr_timesheet_period_id]" expr="%{hr_timesheet_headerLst[hr_timesheet_period_id]}" function="SetSel"/><assign name="hr_employee_id[hr_employee_id]" expr="%{hr_timesheet_headerLst[hr_employee_id]}" function="SetSel"/><assign name="approver_employee_id[hr_employee_id]" expr="%{hr_timesheet_headerLst[approver_employee_id]}" function="SetSel"/><assign name="status[option_line_id]" expr="%{hr_timesheet_headerLst[status]}" function="SetSel"/>
+<if cond="%{hr_timesheet_header_id}"><SetVisible name="inserthr_timesheet_header" Visible="0"/><SetVisible name="modifyhr_timesheet_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVxerp_user"><Ctrls>
+<ListCtrl Heading="username,640;email,500;ar_customer_id,120;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;last_visit_date,150;xerp_user_id,60;" loadedclick="0" ToolTip="ttp_xerp_user" Name="xerp_userLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.xerp_user x left join xbs.ar_customer a on x.ar_customer_id=a.ar_customer_id</DbTable>
+<Index>xerp_user_id</Index>
+<Data>x.username,x.email,a.customer_name ar_customer_id,x.status,x.created_by,x.creation_date,x.last_update_by,x.last_update_date,x.last_visit_date,x.xerp_user_id</Data>
+<Order>xerp_user_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

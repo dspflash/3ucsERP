@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEsd_sales_control" Size="100,100"><Ctrls>
+<Button sqlpkinsert="sd_sales_control_id" Text="create" ToolTip="ttp_createsd_sales_control" Name="insertsd_sales_control" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_sales_control</DbTable>
+<Data>org_id,ar_transaction_type_id[ar_transaction_type_id],h_default_document_type_id[sd_document_type_id],l_default_document_type_id[sd_document_type_id],iso_h_default_document_type_id[sd_document_type_id],iso_l_default_document_type_id[sd_document_type_id],mdm_price_list_header_id[mdm_price_list_header_id],deffer_invoicing_cb,default_requested_date_cb,default_schedule_ship_date_cb,default_promise_date_cb</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchsd_sales_control" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifysd_sales_control" Name="modifysd_sales_control" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_sales_control</DbTable>
+<Data>org_id,ar_transaction_type_id[ar_transaction_type_id],h_default_document_type_id[sd_document_type_id],l_default_document_type_id[sd_document_type_id],iso_h_default_document_type_id[sd_document_type_id],iso_l_default_document_type_id[sd_document_type_id],mdm_price_list_header_id[mdm_price_list_header_id],deffer_invoicing_cb,default_requested_date_cb,default_schedule_ship_date_cb,default_promise_date_cb</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>sd_sales_control_id='%{sd_sales_control_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchsd_sales_control" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetsd_sales_control" Name="resetsd_sales_control" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_sales_control" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchsd_sales_control" Name="gsearchsd_sales_control" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="sd_sales_controlLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITsd_sales_control" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVbom_standard_operation" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bom_standard_operationLst" ToolTip="ttp_bom_standard_operation" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>bom_standard_operation_id</Index>
+<DbTable>xbs.bom_standard_operation</DbTable>
+<Data>standard_operation,description,status,created_by,creation_date,last_update_by,last_update_date,bom_standard_operation_id,org_id</Data>
+<Order>bom_standard_operation_id</Order></DbDetails>
+<OnClick>
+<if cond="%{bom_standard_operation_id}"><SetVisible name="insertbom_standard_operation" Visible="0"/><SetVisible name="modifybom_standard_operation" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

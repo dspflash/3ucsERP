@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEuser_supplier" Size="100,100"><Ctrls>
+<Button sqlpkinsert="user_supplier_id" Text="create" ToolTip="ttp_createuser_supplier" Name="insertuser_supplier" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.user_supplier</DbTable>
+<Data>supplier_id[supplier_id],supplier_site_id[supplier_site_name],user_id[xerp_user_id]</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="user_supplierLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyuser_supplier" Name="modifyuser_supplier" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.user_supplier</DbTable>
+<Data>supplier_id[supplier_id],supplier_site_id[supplier_site_name],user_id[xerp_user_id]</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>user_supplier_id='%{user_supplier_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="user_supplierLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetuser_supplier" Name="resetuser_supplier" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITuser_supplier" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchuser_supplier" Name="gsearchuser_supplier" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="user_supplierLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITuser_supplier" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

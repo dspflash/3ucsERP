@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVhr_compensation_element" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_compensation_element_vLst" ToolTip="ttp_hr_compensation_element_v" Size="700,450" OnLoad="init" Heading="element_name,250;start_date,90;end_date,90;element_type,120;classification,120;category,120;calculation_rule,120;deduction_rule,120;deduction_start_rule,120;priority,60;frequency_months,640;recurring_cb,60;separate_check_cb,60;standard_link_cb,60;description,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_compensation_element_id,50;" loadedclick="0">
+	<DbDetails >
+<Index>hr_compensation_element_id</Index>
+<DbTable>xbs.hr_compensation_element h left join xbs.option_line o on h.element_type=o.option_line_id left join xbs.option_line o0 on h.classification=o0.option_line_id left join xbs.option_line o1 on h.category=o1.option_line_id left join xbs.option_line o2 on h.calculation_rule=o2.option_line_id left join xbs.option_line o3 on h.deduction_rule=o3.option_line_id left join xbs.option_line o4 on h.deduction_start_rule=o4.option_line_id left join xbs.user_v u on h.created_by=u.xerp_user_id left join xbs.user_v u0 on h.last_update_by=u0.xerp_user_id</DbTable>
+<Data>h.element_name,h.start_date,h.end_date,o.option_line_value element_type,o0.option_line_value classification,o1.option_line_value category,o2.option_line_value calculation_rule,o3.option_line_value deduction_rule,o4.option_line_value deduction_start_rule,h.priority,h.frequency_months,h.recurring_cb,h.separate_check_cb,h.standard_link_cb,h.description,h.status,u.NAME created_by,h.creation_date,u0.NAME last_update_by,h.last_update_date,h.hr_compensation_element_id</Data>
+<Order>hr_compensation_element_id</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{Where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>hr_compensation_element_id='%{hr_compensation_element_vLst[hr_compensation_element_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_compensation_element.hr_compensation_elementLst"/><assign name="$this.hr_compensation_element.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_compensation_element</DbTable>
+<Where>hr_compensation_element_id='%{hr_compensation_element_vLst[hr_compensation_element_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_hr_compensation_element" expr="js(%{hr_compensation_element_vLst[currentpage]}+1)"/>
+<assign name="pgscb_hr_compensation_element" expr="js(%{hr_compensation_element_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

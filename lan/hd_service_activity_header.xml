@@ -1,0 +1,54 @@
+﻿<Language name="hd_service_activity_header">
+<Lang name="hd_service_activity_header" value="hd_service_activity_header"/>
+<Lang name="TabEdithd_service_activity_header" value="hd_service_activity_header Edit"/>
+<Lang name="TabViewhd_service_activity_header" value="hd_service_activity_header View"/>
+<Lang name="activity_name" value=""/>
+<Lang name="ttp_activity_name" value=""/>
+<Lang name="activity_description" value=""/>
+<Lang name="ttp_activity_description" value=""/>
+<Lang name="line_category" value=""/>
+<Lang name="ttp_line_category" value=""/>
+<Lang name="start_date" value=""/>
+<Lang name="ttp_start_date" value=""/>
+<Lang name="end_date" value=""/>
+<Lang name="ttp_end_date" value=""/>
+<Lang name="allow_quantity_update_cb" value=""/>
+<Lang name="ttp_allow_quantity_update_cb" value=""/>
+<Lang name="create_charge_cb" value=""/>
+<Lang name="ttp_create_charge_cb" value=""/>
+<Lang name="create_cost_cb" value=""/>
+<Lang name="ttp_create_cost_cb" value=""/>
+<Lang name="zero_charge_cb" value=""/>
+<Lang name="ttp_zero_charge_cb" value=""/>
+<Lang name="expense_cb" value=""/>
+<Lang name="ttp_expense_cb" value=""/>
+<Lang name="labor_cb" value=""/>
+<Lang name="ttp_labor_cb" value=""/>
+<Lang name="material_cb" value=""/>
+<Lang name="ttp_material_cb" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hd_service_activity_header_id" value=""/>
+<Lang name="ttp_hd_service_activity_header_id" value=""/>
+<Lang name="ttp_operationhd_service_activity_header" value=""/>
+<Lang name="ttp_createhd_service_activity_header" value=""/>
+<Lang name="ttp_modifyhd_service_activity_header" value=""/>
+<Lang name="ttp_resethd_service_activity_header" value=""/>
+<Lang name="ttp_deletehd_service_activity_header" value=""/>
+<Lang name="ttp_refreshhd_service_activity_header" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

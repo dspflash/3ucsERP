@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_revenue_rule_line"><Ctrls>
+<ListCtrl Heading="period_number,20;percent,30;schedule_date,150;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_revenue_rule_line_id,60;" loadedclick="0" ToolTip="ttp_ar_revenue_rule_line" onload="init" Name="ar_revenue_rule_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_revenue_rule_line</DbTable>
+<Index>ar_revenue_rule_line_id</Index>
+<Data>period_number,percent,schedule_date,description,created_by,creation_date,last_update_by,last_update_date,ar_revenue_rule_line_id</Data>
+<Order>ar_revenue_rule_line_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

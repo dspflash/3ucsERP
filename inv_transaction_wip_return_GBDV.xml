@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinv_transaction"><Ctrls>
+<ListCtrl Heading="item_number,640;uom_id,60;quantity,20;unit_cost,60;costed_amount,20;to_org_id,60;to_subinventory_id,120;reason,125;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;inv_transaction_id,60;transaction_type_id,60;" loadedclick="0" ToolTip="ttp_inv_transaction" Name="inv_transactionLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_transaction</DbTable>
+<Index>inv_transaction_id</Index>
+<Data>item_number,uom_id,quantity,unit_cost,costed_amount,to_org_id,to_subinventory_id,reason,description,created_by,creation_date,last_update_by,last_update_date,org_id,inv_transaction_id,transaction_type_id</Data>
+<Order>inv_transaction_id</Order></DbDetails>
+<OnClick><assign name="to_subinventory_id[subinventory_id]" function="SetSel" expr="%{inv_transactionLst[to_subinventory_id]}"/></OnClick>
+<DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

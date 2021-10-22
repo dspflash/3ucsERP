@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVfp_mds_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletefp_mds_header" Name="deletefp_mds_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_mds_header</DbTable>
+<Where>fp_mds_header_id='%{fp_mds_headerLst[fp_mds_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchfp_mds_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshfp_mds_header" Name="searchfp_mds_header" Size="50,20">
+			  <OnClick><submit next="fp_mds_headerLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPfp_mds_headerLst" OnClick="(fp_mds_headerLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREfp_mds_headerLst" OnClick="(fp_mds_headerLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPfp_mds_headerLst" OnClick="(fp_mds_headerLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

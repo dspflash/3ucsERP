@@ -1,0 +1,12 @@
+<ErrorMsg>
+<Error name=".*PO_INV_OVER_RECEIPT.*" value="采购接收超量"/>
+<Error name=".*PO_INV_OVER_ACCEPT.*" value="入库量超过采购量"/>
+<Error name=".*PO_RECEIPT_OVER.*" value="采购接收超量"/>
+<Error name=".*WipIssue_Onhand_Is_NOT_Enough.*" value="工单倒扣料库存不足"/>
+<Error name=".*Issue_Comlelte_Onhand_Is_NOT_Enough.*" value="领料件库存不足"/>
+<Error name=".*Wip_Must_Issue_First.*" value="请先领料"/>
+<Error name=".*Wip_Scrap_More_Than_Running.*" value="报废数量超过在产数量"/>
+<Error name=".*Wip_Run_More_Than_Queueing.*" value="在产数量超过排队数量"/>
+<Error name=".*Wip_Move_More_Than_Running.*" value="工单完工超量"/>
+<Error name=".*WIP_COMPLETE_RECEIPT_OVER.*" value="工单完工超量"/>
+</ErrorMsg>

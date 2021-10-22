@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVbom_oh_res_assignment" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bom_oh_res_assignment_vLst" ToolTip="ttp_bom_oh_res_assignment" Size="700,420" Heading="bom_resource_id,120;bom_overhead_id,120;bom_cost_type,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bom_oh_res_assignment_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.bom_oh_res_assignment b left join xbs.bom_overhead b0 on b.bom_overhead_id=b0.bom_overhead_id left join xbs.bom_cost_type b1 on b.bom_cost_type=b1.bom_cost_type_id left join xbs.bom_resource b2 on b.resource_id=b2.bom_resource_id </DbTable>
+<Index>bom_oh_res_assignment_id</Index>
+<Data>b2.resource bom_resource_id,b0.overhead bom_overhead_id,b1.cost_type bom_cost_type,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_oh_res_assignment_id</Data>
+<Order>bom_oh_res_assignment_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.bom_oh_res_assignment.GBDEDITbom_oh_res_assignment" function="reset"/><DbDetails><Where>bom_resource_id='%{bom_resource_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_oh_res_assignment.resource_id"/></op>
+<op text="modify"><DbDetails><Where>bom_oh_res_assignment_id='%{bom_oh_res_assignment_vLst[bom_oh_res_assignment_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_oh_res_assignment.bom_oh_res_assignmentLst"/><DbDetails><Where>bom_resource_id='%{bom_resource_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_oh_res_assignment.resource_id"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

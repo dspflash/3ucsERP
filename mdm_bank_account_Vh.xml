@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVmdm_bank_account" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="mdm_bank_accountLst" ToolTip="ttp_mdm_bank_account" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>mdm_bank_account_id</Index>
+<DbTable>xbs.mdm_bank_account</DbTable>
+<Data>mdm_bank_site_id,account_number,currency_code,account_type,description,status,created_by,creation_date,last_update_by,last_update_date,mdm_bank_account_id,mdm_bank_header_id,org_id</Data>
+<Order>mdm_bank_account_id</Order></DbDetails>
+<OnClick><assign name="mdm_bank_site_id[mdm_bank_site_id]" expr="%{mdm_bank_accountLst[mdm_bank_site_id]}" function="SetSel"/><assign name="currency_code[currency_id]" expr="%{mdm_bank_accountLst[currency_code]}" function="SetSel"/><assign name="account_type[option_line_code]" expr="%{mdm_bank_accountLst[account_type]}" function="SetSel"/><assign name="mdm_bank_header_id[mdm_bank_header_id]" expr="%{mdm_bank_accountLst[mdm_bank_header_id]}" function="SetSel"/><assign name="org_id[org_id]" expr="%{mdm_bank_accountLst[org_id]}" function="SetSel"/>
+<if cond="%{mdm_bank_account_id}"><SetVisible name="insertmdm_bank_account" Visible="0"/><SetVisible name="modifymdm_bank_account" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

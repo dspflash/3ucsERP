@@ -1,0 +1,48 @@
+<Language name="mdm_bank_header">
+<Lang name="mdm_bank_header" value="银行"/>
+<Lang name="TabEditmdm_bank_header" value="mdm_bank_header Edit"/>
+<Lang name="TabViewmdm_bank_header" value="mdm_bank_header View"/>
+<Lang name="country" value="国家"/>
+<Lang name="ttp_country" value=""/>
+<Lang name="bank_name" value="银行名称"/>
+<Lang name="ttp_bank_name" value=""/>
+<Lang name="bank_number" value="银行代码"/>
+<Lang name="ttp_bank_number" value=""/>
+<Lang name="description" value="描述"/>
+<Lang name="ttp_description" value=""/>
+<Lang name="bank_name_short" value="简称"/>
+<Lang name="ttp_bank_name_short" value=""/>
+<Lang name="bank_name_alt" value="别称"/>
+<Lang name="ttp_bank_name_alt" value=""/>
+<Lang name="tax_reg_no" value="税务登记号"/>
+<Lang name="ttp_tax_reg_no" value=""/>
+<Lang name="tax_payer_id" value="纳税码"/>
+<Lang name="ttp_tax_payer_id" value=""/>
+<Lang name="status" value="状态"/>
+<Lang name="ttp_status" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="mdm_bank_header_id" value="编号(银行)"/>
+<Lang name="ttp_mdm_bank_header_id" value=""/>
+<Lang name="ttp_operationmdm_bank_header" value="操作"/>
+<Lang name="ttp_createmdm_bank_header" value="新增"/>
+<Lang name="ttp_modifymdm_bank_header" value="修改"/>
+<Lang name="ttp_resetmdm_bank_header" value="清除数据"/>
+<Lang name="ttp_deletemdm_bank_header" value="删除"/>
+<Lang name="ttp_refreshmdm_bank_header" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

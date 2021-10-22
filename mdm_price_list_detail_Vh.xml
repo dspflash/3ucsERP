@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVmdm_price_list_detail" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="mdm_price_list_detailLst" ToolTip="ttp_mdm_price_list_detail" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_price_list_detail</DbTable>
+<Index>mdm_price_list_detail_id</Index>
+<Data>qty_from,qty_to,uom_id,unit_price,effective_start_date,effective_end_date,description,created_by,creation_date,last_update_by,last_update_date,mdm_price_list_detail_id,mdm_price_list_line_id,mdm_price_list_header_id</Data>
+<Order>mdm_price_list_detail_id</Order></DbDetails>
+<OnClick><assign name="uom_id[uom_id]" expr="%{mdm_price_list_detailLst[uom_id]}" function="SetSel"/>
+<if cond="%{mdm_price_list_detail_id}"><SetVisible name="insertmdm_price_list_detail" Visible="0"/><SetVisible name="modifymdm_price_list_detail" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

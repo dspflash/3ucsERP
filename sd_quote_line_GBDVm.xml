@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_quote_line"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_sd_quote_line" Name="sd_quote_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_quote_line s left join xbs.option_line o on s.line_type=o.option_line_id left join xbs.org o0 on s.shipping_org_id=o0.org_id left join xbs.item i on s.item_id_m=i.item_id_m and s.shipping_org_id=i.org_id left join xbs.mdm_tax_code m on s.tax_code_id=m.mdm_tax_code_id left join xbs.option_line o1 on s.destination_type=o1.option_line_id left join xbs.option_line o2 on s.line_status=o2.option_line_id left join uom u on s.uom_id=u.uom_id</DbTable>
+<Index>sd_quote_line_id</Index>
+<Data>o.option_line_value line_type,o0.org ,i.item_number,i.`item_description`,`item_name`,i.`item_specification`,s.line_number,s.unit_price,s.line_quantity,u.uom_name,s.price_date,m.tax_code tax_code_id,s.tax_amount,s.requested_date,s.promise_date,o1.option_line_value destination_type,s.line_description, s.item_id_m,shipping_org_id,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,o2.option_line_value line_status,s.sd_quote_line_id</Data>
+<Order>sd_quote_line_id</Order></DbDetails><DbDetails><Where>sd_quote_header_id='%{sd_quote_header_id[sd_quote_header_id]}'</Where></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

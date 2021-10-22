@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVgl_ledger" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletegl_ledger" Name="deletegl_ledger" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_ledger</DbTable>
+<Where>gl_ledger_id='%{gl_ledgerLst[gl_ledger_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchgl_ledger" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshgl_ledger" Name="searchgl_ledger" Size="50,20">
+			  <OnClick><submit next="gl_ledgerLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPgl_ledgerLst" OnClick="(gl_ledgerLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREgl_ledgerLst" OnClick="(gl_ledgerLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPgl_ledgerLst" OnClick="(gl_ledgerLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

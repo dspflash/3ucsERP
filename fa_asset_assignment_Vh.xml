@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVfa_asset_assignment" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="fa_asset_assignmentLst" ToolTip="ttp_fa_asset_assignment" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>fa_asset_assignment_id</Index>
+<DbTable>xbs.fa_asset_assignment</DbTable>
+<Data>hr_employee_id,address_id,expense_ac_id,description,units,created_by,creation_date,last_update_by,last_update_date,fa_asset_id,fa_asset_assignment_id</Data>
+<Order>fa_asset_assignment_id</Order></DbDetails>
+<OnClick><assign name="hr_employee_id[hr_employee_id]" expr="%{fa_asset_assignmentLst[hr_employee_id]}" function="SetSel"/>
+<if cond="'%{fa_asset_assignment_id}'"><SetVisible name="insertfa_asset_assignment" Visible="0"/><SetVisible name="modifyfa_asset_assignment" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

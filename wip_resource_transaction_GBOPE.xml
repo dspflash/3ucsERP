@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEwip_resource_transaction" Size="100,100"><Ctrls>
+<Button sqlpkinsert="wip_resource_transaction_id" Text="create" ToolTip="ttp_createwip_resource_transaction" Name="insertwip_resource_transaction" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_resource_transaction</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>wip_wo_routing_detail_id[wip_wo_routing_detail_id],transaction_date,transaction_quantity,reason</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,org_id,transaction_type,wip_wo_header_id,wip_wo_routing_line_id;'%{user_id}',now(),'%{user_id}',now(),'%{orgid}','WIP_RESOURCE_TRANSACTION','%{wip_wo_routing_detail_id[wip_wo_header_id]}','%{wip_wo_routing_detail_id[wip_wo_routing_line_id]}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="wip_resource_transactionLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifywip_resource_transaction" Name="modifywip_resource_transaction" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_resource_transaction</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>wip_wo_routing_detail_id[wip_wo_routing_detail_id],transaction_date,transaction_quantity,reason</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>wip_resource_transaction_id='%{wip_resource_transaction_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="wip_resource_transactionLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetwip_resource_transaction" Name="resetwip_resource_transaction" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITwip_resource_transaction" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchwip_resource_transaction" Name="gsearchwip_resource_transaction" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="wip_resource_transactionLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITwip_resource_transaction" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

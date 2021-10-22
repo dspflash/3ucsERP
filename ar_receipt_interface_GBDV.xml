@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_receipt_interface"><Ctrls>
+<ListCtrl Heading="ar_transaction_header_id,120;bu_org_id,60;receipt_type,125;ar_customer_id,60;ar_customer_site_id,60;from_bank_header_id,60;description,640;from_bank_line_id,60;to_bank_header_id,60;amount,100;currency,640;doc_currency,125;to_bank_line_id,60;exchange_rate_type,250;exchange_rate,100;ef_id,60;document_date,90;document_number,250;ledger_id,60;period_id,60;sales_person,250;receipt_method,125;approval_status,125;receipt_status,125;reference_type,125;reference_key_name,125;reference_key_value,125;gl_journal_header_id,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_receipt_interface_id,60;" loadedclick="0" ToolTip="ttp_ar_receipt_interface" Name="ar_receipt_interfaceLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_receipt_interface</DbTable>
+<Index>ar_receipt_interface_id</Index>
+<Data>ar_transaction_header_id,bu_org_id,receipt_type,ar_customer_id,ar_customer_site_id,from_bank_header_id,description,from_bank_line_id,to_bank_header_id,amount,currency,doc_currency,to_bank_line_id,exchange_rate_type,exchange_rate,ef_id,document_date,document_number,ledger_id,period_id,sales_person,receipt_method,approval_status,receipt_status,reference_type,reference_key_name,reference_key_value,gl_journal_header_id,created_by,creation_date,last_update_by,last_update_date,ar_receipt_interface_id</Data>
+<Order>ar_receipt_interface_id</Order></DbDetails>
+<OnClick><assign name="ar_transaction_header_id[ar_transaction_header_id]" function="SetSel" expr="%{ar_receipt_interfaceLst[ar_transaction_header_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

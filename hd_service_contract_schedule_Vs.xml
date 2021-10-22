@@ -1,0 +1,66 @@
+﻿<GroupBox Name="GBDEDIThd_service_contract_schedule"><Ctrls>
+<GroupBox Name="GB_hd_service_contract_line_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hd_service_contract_line_id" Size="60,20" Text="hd_service_contract_line_id" Align="Right"/>
+<TextBox Name="hd_service_contract_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hd_service_contract_line_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hd_service_contract_detail_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hd_service_contract_detail_id" Size="60,20" Text="hd_service_contract_detail_id" Align="Right"/>
+<TextBox Name="hd_service_contract_detail_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hd_service_contract_detail_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hd_service_contract_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hd_service_contract_header_id" Size="60,20" Text="hd_service_contract_header_id" Align="Right"/>
+<TextBox Name="hd_service_contract_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hd_service_contract_header_id"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_line_num" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_line_num" Size="60,20" Text="line_num" Align="Right"/>
+<TextBox Name="line_num" Size="170,20" Text="" Weight="170" ToolTip="ttp_line_num"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_amount" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_amount" Size="60,20" Text="amount" Align="Right"/>
+<TextBox Name="amount" Size="170,20" Text="" Weight="170" ToolTip="ttp_amount"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_gl_amount" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_gl_amount" Size="60,20" Text="gl_amount" Align="Right"/>
+<TextBox Name="gl_amount" Size="170,20" Text="" Weight="170" ToolTip="ttp_gl_amount"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_invoice_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_invoice_date" Size="60,20" Text="invoice_date" Align="Right"/>
+<DateTime Name="invoice_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  ToolTip="ttp_invoice_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_from_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_from_date" Size="60,20" Text="from_date" Align="Right"/>
+<DateTime Name="from_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  ToolTip="ttp_from_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_to_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_to_date" Size="60,20" Text="to_date" Align="Right"/>
+<DateTime Name="to_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  ToolTip="ttp_to_date"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_interface_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_interface_date" Size="60,20" Text="interface_date" Align="Right"/>
+<DateTime Name="interface_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  ToolTip="ttp_interface_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hd_service_contract_schedule_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hd_service_contract_schedule_id" Size="60,20" Text="hd_service_contract_schedule_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hd_service_contract_schedule_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hd_service_contract_schedule_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{hd_service_contract_schedule_id}'"><SetVisible name="inserthd_service_contract_schedule" Visible="0"/><SetVisible name="modifyhd_service_contract_schedule" Visible="1"/><else/><SetVisible name="inserthd_service_contract_schedule" Visible="1"/><SetVisible name="modifyhd_service_contract_schedule" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,52 @@
+﻿<Language name="hd_service_type_header">
+<Lang name="hd_service_type_header" value="hd_service_type_header"/>
+<Lang name="TabEdithd_service_type_header" value="hd_service_type_header Edit"/>
+<Lang name="TabViewhd_service_type_header" value="hd_service_type_header View"/>
+<Lang name="service_type" value=""/>
+<Lang name="ttp_service_type" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="active_cb" value=""/>
+<Lang name="ttp_active_cb" value=""/>
+<Lang name="repair_mode" value=""/>
+<Lang name="ttp_repair_mode" value=""/>
+<Lang name="primary_service_type" value=""/>
+<Lang name="ttp_primary_service_type" value=""/>
+<Lang name="pre_repair_activity_rma" value=""/>
+<Lang name="ttp_pre_repair_activity_rma" value=""/>
+<Lang name="pre_repair_activity_so" value=""/>
+<Lang name="ttp_pre_repair_activity_so" value=""/>
+<Lang name="post_repair_activity_rma" value=""/>
+<Lang name="ttp_post_repair_activity_rma" value=""/>
+<Lang name="post_repair_activity_so" value=""/>
+<Lang name="ttp_post_repair_activity_so" value=""/>
+<Lang name="auto_create_so_rma_cb" value=""/>
+<Lang name="ttp_auto_create_so_rma_cb" value=""/>
+<Lang name="prices_list_id" value=""/>
+<Lang name="ttp_prices_list_id" value=""/>
+<Lang name="hd_service_type_header_id" value=""/>
+<Lang name="ttp_hd_service_type_header_id" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="ttp_operationhd_service_type_header" value=""/>
+<Lang name="ttp_createhd_service_type_header" value=""/>
+<Lang name="ttp_modifyhd_service_type_header" value=""/>
+<Lang name="ttp_resethd_service_type_header" value=""/>
+<Lang name="ttp_deletehd_service_type_header" value=""/>
+<Lang name="ttp_refreshhd_service_type_header" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

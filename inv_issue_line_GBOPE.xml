@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEinv_issue_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="inv_issue_line_id" Text="create" ToolTip="ttp_createinv_issue_line" Name="insertinv_issue_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_issue_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>inv_issue_header_id[inv_issue_header_id],transaction_quantity,item_id_m[item_id_m],revision_name,item_description,uom_id[uom_id],unit_price,amount,subinventory_id[subinventory_id],locator_id[locator_id],lot_number[inv_lot_number_id],currency[currency_id],doc_currency,reference_key_name,transaction_type_id</Data>
+<DataEx>reference_key_value,created_by,creation_date,last_update_by,last_update_date,org_id;'%{reference_key_value[refid]}','%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="inv_issue_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyinv_issue_line" Name="modifyinv_issue_line" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_issue_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>inv_issue_header_id[inv_issue_header_id],transaction_quantity,item_id_m[item_id_m],revision_name,item_description,uom_id[uom_id],unit_price,amount,subinventory_id[subinventory_id],locator_id[locator_id],lot_number[inv_lot_number_id]</Data>
+<DataEx>reference_key_value,last_update_by,last_update_date;'%{reference_key_value[refid]}','%{user_id}',now()</DataEx>
+<Where>inv_issue_line_id='%{inv_issue_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="inv_issue_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetinv_issue_line" Name="resetinv_issue_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITinv_issue_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchinv_issue_line" Name="gsearchinv_issue_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="inv_issue_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITinv_issue_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

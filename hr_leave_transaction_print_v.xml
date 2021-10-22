@@ -1,0 +1,7 @@
+﻿<WndTap Name="hr_leave_transaction" Text="hr_leave_transaction" Ver="2">
+<xi:include href="lan\hr_leave_transaction.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBhr_leave_transaction" id="hr_leave_transaction" Text="hr_leave_transaction" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_leave_transaction_GBDEDIT.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_leave_transaction_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+</WndTap>

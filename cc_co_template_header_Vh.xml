@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVcc_co_template_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="cc_co_template_headerLst" ToolTip="ttp_cc_co_template_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>cc_co_template_header_id</Index>
+<DbTable>xbs.cc_co_template_header</DbTable>
+<Data>template_name,reftbltp,description,created_by,creation_date,last_update_by,last_update_date,org_id,cc_co_template_header_id</Data>
+<Order>cc_co_template_header_id</Order></DbDetails>
+<OnClick><assign name="created_by[xerp_user_id]" expr="%{cc_co_template_headerLst[created_by]}" function="SetSel"/><assign name="last_update_by[xerp_user_id]" expr="%{cc_co_template_headerLst[last_update_by]}" function="SetSel"/><assign name="org_id[org_id]" expr="%{cc_co_template_headerLst[org_id]}" function="SetSel"/>
+<if cond="%{cc_co_template_header_id}"><SetVisible name="insertcc_co_template_header" Visible="0"/><SetVisible name="modifycc_co_template_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

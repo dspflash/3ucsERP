@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEhr_overtime_transaction" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hr_overtime_transaction_id" Text="create" ToolTip="ttp_createhr_overtime_transaction" Name="inserthr_overtime_transaction" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hr_overtime_transaction</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>employee_id[hr_employee_id],requsted_date,overtime_type[hr_overtime_type_id],overtime_quantity,from_datetime,to_datetime,reason,contact_details</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{inserthr_overtime_transaction[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_overtime_transactionLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_overtime_transaction_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_overtime_transaction" Name="modifyhr_overtime_transaction" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hr_overtime_transaction</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>employee_id[hr_employee_id],requsted_date,overtime_type[hr_overtime_type_id],overtime_quantity,from_datetime,to_datetime,reason,contact_details</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hr_overtime_transaction_id='%{hr_overtime_transaction_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyhr_overtime_transaction[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_overtime_transactionLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_overtime_transaction_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_overtime_transaction" Name="resethr_overtime_transaction" Size="50,20">
+<OnClick>
+<submit next="GBDEDIThr_overtime_transaction" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchhr_overtime_transaction" Name="gsearchhr_overtime_transaction" Size="50,20" visible="false">
+<OnClick>
+<search next="hr_overtime_transactionLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDIThr_overtime_transaction" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

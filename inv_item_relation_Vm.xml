@@ -1,0 +1,9 @@
+<WndTap Name="inv_item_relation_v" Text="inv_item_relation">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_item_relation_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_item_relation.xml"/>
+<Ctrls><GroupBox  Name="GBinv_item_relation" id="inv_item_relation" Text="inv_item_relation" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_item_relation_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

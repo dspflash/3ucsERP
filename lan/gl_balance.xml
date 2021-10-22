@@ -1,0 +1,46 @@
+<Language name="gl_balance">
+<Lang name="gl_balance" value="资产负债"/>
+<Lang name="TabEditgl_balance" value="gl_balance Edit"/>
+<Lang name="TabViewgl_balance" value="gl_balance View"/>
+<Lang name="ledger_id" value="账目"/>
+<Lang name="ttp_ledger_id" value=""/>
+<Lang name="coa_combination_id" value="账目ID"/>
+<Lang name="ttp_coa_combination_id" value=""/>
+<Lang name="period_id" value="账务期间"/>
+<Lang name="ttp_period_id" value=""/>
+<Lang name="balance_type" value="类型"/>
+<Lang name="ttp_balance_type" value=""/>
+<Lang name="period_net_dr" value="净DR"/>
+<Lang name="ttp_period_net_dr" value=""/>
+<Lang name="period_net_cr" value="净CR"/>
+<Lang name="ttp_period_net_cr" value=""/>
+<Lang name="begin_balance_dr" value="期初余额DR"/>
+<Lang name="ttp_begin_balance_dr" value=""/>
+<Lang name="begin_balance_cr" value="期初余额CR"/>
+<Lang name="ttp_begin_balance_cr" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="gl_balance_id" value=""/>
+<Lang name="ttp_gl_balance_id" value=""/>
+<Lang name="ttp_operationgl_balance" value="操作"/>
+<Lang name="ttp_creategl_balance" value="新增"/>
+<Lang name="ttp_modifygl_balance" value="修改"/>
+<Lang name="ttp_resetgl_balance" value="清除数据"/>
+<Lang name="ttp_deletegl_balance" value="删除"/>
+<Lang name="ttp_refreshgl_balance" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

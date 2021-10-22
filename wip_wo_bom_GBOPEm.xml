@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEwip_wo_bom" Size="100,100"><Ctrls>
+<Button sqlpkinsert="wip_wo_bom_id" Text="create" ToolTip="ttp_createwip_wo_bom" Name="insertwip_wo_bom" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_wo_bom</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>bom_sequence,routing_sequence[routing_sequence],routing_seq_num,component_item_id_m[item_id_m],usage_basis[option_line_id],usage_quantity,effective_start_date,effective_end_date,wip_supply_type[option_line_id],supply_sub_inventory[subinventory_id],supply_locator[locator_id],wip_wo_header_id[wip_wo_header_id]</Data>
+<DataEx>required_quantity,created_by,creation_date,last_update_by,last_update_date;IF('%{usage_basis[option_line_id]}'=351,%{usage_quantity}*%{wip_wo_header_id[quantity]},%{usage_quantity}),'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="wip_wo_bomLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifywip_wo_bom" Name="modifywip_wo_bom" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_wo_bom</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>bom_sequence,routing_sequence[routing_sequence],routing_seq_num,component_item_id_m[item_id_m],usage_basis[option_line_id],usage_quantity,effective_start_date,effective_end_date,wip_supply_type[option_line_id],supply_sub_inventory[subinventory_id],supply_locator[locator_id],wip_wo_header_id[wip_wo_header_id]</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>wip_wo_bom_id='%{wip_wo_bom_id}'</Where>
+<queryFormat>update %{table} set %{data},required_quantity=IF('%{usage_basis[option_line_id]}'=351,%{usage_quantity}*%{wip_wo_header_id[quantity]},%{usage_quantity}) where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="wip_wo_bomLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetwip_wo_bom" Name="resetwip_wo_bom" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITwip_wo_bom" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchwip_wo_bom" Name="gsearchwip_wo_bom" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="wip_wo_bomLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITwip_wo_bom" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

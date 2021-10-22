@@ -1,0 +1,11 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_overtime_transaction"><Ctrls>
+<ListCtrl Heading="employee_id,60;requsted_date,90;approved_date,90;approved_by_employee_id,120;overtime_status,120;overtime_type,120;overtime_quantity,100;from_datetime,150;to_datetime,150;reason,640;contact_details,640;sys_notification_id,60;sys_notification_group_id,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_overtime_transaction_id,60;" loadedclick="0" ToolTip="ttp_hr_overtime_transaction" Name="hr_overtime_transactionLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>hr_overtime_transaction_id</Index>
+<DbTable>xbs.hr_overtime_transaction h left join xbs.hr_employee_v h0 on h.employee_id=h0.hr_employee_id left join xbs.hr_employee h1 on h.approved_by_employee_id=h1.hr_employee_id left join xbs.option_line o on h.overtime_status=o.option_line_id left join xbs.hr_overtime_type h2 on h.overtime_type=h2.hr_overtime_type_id</DbTable>
+<Data>h0.name employee_id,h.requsted_date,h.approved_date,h1.first_name approved_by_employee_id,o.option_line_value overtime_status,h2.overtime_type overtime_type,h.overtime_quantity,h.from_datetime,h.to_datetime,h.reason,h.contact_details,h.sys_notification_id,h.sys_notification_group_id,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_overtime_transaction_id</Data>
+<Order>hr_overtime_transaction_id</Order></DbDetails>
+<DbDetails><Data>h0.name,h.requsted_date,h.approved_date,h1.first_name approved_by_employee_id,o.option_line_value overtime_status,h2.overtime_type overtime_type,h.overtime_quantity,h.from_datetime,h.to_datetime,h.reason,h.contact_details,h.sys_notification_id,h.sys_notification_group_id,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_overtime_transaction_id,employee_id</Data></DbDetails><DbDetails><Data>h0.name,h.requsted_date,h.approved_date,h1.first_name approved_by_employee_id,o.option_line_value overtime_status,h2.overtime_type overtime_type,h.overtime_quantity,h.from_datetime,h.to_datetime,h.reason,h.contact_details,h.sys_notification_id,h.sys_notification_group_id,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_overtime_transaction_id,employee_id</Data></DbDetails>
+<xi:include href="hr_overtime_transaction_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

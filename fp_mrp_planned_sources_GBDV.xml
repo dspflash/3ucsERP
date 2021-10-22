@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVfp_mrp_planned_sources"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_fp_mrp_planned_sources" Name="fp_mrp_planned_sourcesLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_mrp_planned_sources</DbTable>
+<Index>fp_mrp_planned_sources_id</Index>
+<Data>source_type,source_header_id,source_line_id,source_date,deleted,decription,org_id,created_by,creation_date,last_update_by,last_update_date,fp_mrp_planned_sources_id</Data>
+<Order>fp_mrp_planned_sources_id</Order></DbDetails><DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select * from fp_mrp_planned_sources_v where !deleted %{Where} order by fp_mrp_planned_sources_id desc limit %{StartRow},50</queryFormat></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fp_mrp_planned_sources_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

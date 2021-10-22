@@ -1,0 +1,60 @@
+<WndTap Text="vsd_quote_approve" Name="vsd_quote_approve" Ver="2">
+	<WndTaps>
+<WndTap Text="sd_quote_line_v" Name="sd_quote_line_v" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_quote_line.xml"/>
+<Ctrls>
+<GroupBox Text="sd_quote_line" Name="GBsd_quote_line" id="sd_quote_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_quote_line_GBDVm.xml"></xi:include>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	</WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_quote_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_quote_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="vsd_quote_approve" Name="GBvsd_quote_approve" id="vsd_quote_approve" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_quote_header_GBDsearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_quote_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="sd_quoteLst" listed="0" prefixand="1" inputed="1"><start_date op="[" ref=""/><completion_date op="]" ref=""/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search><submit next="GBDEDITsd_quote_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+	<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+	<ListCtrl loadedclick="0" colsDisplay="17" PageSize="500" ToolTip="ttp_item" Name="sd_quoteLst" onload="init" Size="700,420">
+		<DbDetails>
+		<DbTable>xbs.sd_quote_header_v</DbTable>
+		<Index>sd_quote_header_id</Index>
+		<Data>*</Data>
+		<Order>sd_quote_header_id</Order>
+		<Where>and approval_status=320 and status=1487 </Where>
+		<queryFormat>select %{data} from %{dbtable} where  bu_org_id=%{orgid} and approval_status in (320,324,326) %{where} limit %{StartRow},%{PgSize}</queryFormat>
+		</DbDetails>
+		<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<!--EvalTbl rules="" table="quote_approval_rule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/quote_approval_rule.xml"/></rules>
+<inputs approval_status="%{sd_quoteLst[approval_status]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl-->
+		<op text="view"><DbDetails><Where>sd_quote_header_id='%{$this.sd_quoteLst[sd_quote_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.sd_quote_line_v.sd_quote_lineLst"/></op>
+		<op text="approve" needconfirm="1"><DbDetails><queryFormat>update sd_quote_header set approval_status=326,status=1489,last_update_by='%{user_id}',last_update_date=now() where sd_quote_header_id='%{sd_quoteLst[sd_quote_header_id]}' and approval_status=320</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+		<op text="reEdit" needconfirm="1"><DbDetails><queryFormat>update sd_quote_header set approval_status=321,status=1486,last_update_by='%{user_id}',last_update_date=now() where approval_status=320 and sd_quote_header_id='%{sd_quoteLst[sd_quote_header_id]}'</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+		<!--op text="decline" needconfirm="1"><DbDetails><queryFormat>update sd_quote_header set approval_status=325 where approval_status=320 and sd_quote_header_id='%{sd_quoteLst[sd_quote_header_id]}'</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op-->
+		</operator>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls></GroupBox>
+	</Ctrls>
+<OnChanged/>
+<OnActivate/>
+</WndTap>

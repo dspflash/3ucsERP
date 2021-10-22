@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEfp_forecast_line_date" Size="100,100"><Ctrls>
+<Button sqlpkinsert="fp_forecast_line_date_id" Text="create" ToolTip="ttp_createfp_forecast_line_date" Name="insertfp_forecast_line_date" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_forecast_line_date</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>forecast_date,original_quantity,current_quantity,fp_forecast_line_id</Data>
+<DataEx>source,created_by,creation_date,last_update_by,last_update_date;'Forecast','%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="fp_forecast_line_dateLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyfp_forecast_line_date" Name="modifyfp_forecast_line_date" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_forecast_line_date</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>forecast_date,original_quantity,current_quantity</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>fp_forecast_line_date_id='%{fp_forecast_line_date_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="fp_forecast_line_dateLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetfp_forecast_line_date" Name="resetfp_forecast_line_date" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITfp_forecast_line_date" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchfp_forecast_line_date" Name="gsearchfp_forecast_line_date" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="fp_forecast_line_dateLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITfp_forecast_line_date" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

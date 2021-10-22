@@ -1,0 +1,64 @@
+﻿<GroupBox Name="GBDEDITinv_receipt_line" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_item_id_m" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_id_m" Size="60,20" Text="item_id_m" Align="Right" selectedindex="0"/>
+<ComboBox Name="item_id_m" Size="170,100" Text="" Weight="170"  ToolTip="ttp_item_id_m" selectedindex="0">
+	<DbDetails>
+<Index>item_id_m</Index>
+<DbTable>xbs.item</DbTable>
+<Data>item_number,uom_id uom,item_id_m</Data>
+<Where>item_id_m='%{reference_key_value[item_id_m]}'</Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="uom_id"/><submit next="lot_number"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_transaction_quantity" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_transaction_quantity" Size="60,20" Text="transaction_quantity" Align="Right"/>
+<TextBox Name="transaction_quantity" Size="170,20" Text="" Weight="170" ToolTip="ttp_transaction_quantity"><OnEnChange><if cond="%{transaction_quantity}"><if cond="%{unit_price}"><assign name="amount" expr="js(%{transaction_quantity}*%{unit_price})"/></if></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_uom_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_uom_id" Size="60,20" Text="uom_id" Align="Right" selectedindex="0"/>
+<ComboBox Name="uom_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_uom_id" selectedindex="0">
+	<DbDetails>
+<Index>uom_id</Index>
+<DbTable>xbs.uom</DbTable>
+<Data>uom_name,uom_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_subinventory_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_subinventory_id" Size="60,20" Text="subinventory_id" Align="Right" onload="init"/>
+<ComboBox Name="subinventory_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_subinventory_id" onload="init">
+	<DbDetails>
+<Index>subinventory_id</Index>
+<DbTable>xbs.subinventory</DbTable>
+<Data>subinventory,subinventory_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="locator_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_locator_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_locator_id" Size="60,20" Text="locator_id" Align="Right"/>
+<ComboBox Name="locator_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_locator_id">
+	<DbDetails>
+<Index>locator_id</Index>
+<DbTable>xbs.locator</DbTable>
+<Data>locator,locator_id</Data>
+<Where>subinventory_id='%{subinventory_id[subinventory_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_lot_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_lot_number" Size="60,20" Text="lot_number" Align="Right"/>
+<ComboBox Name="lot_number" Size="170,100" Text="" Weight="170"  ToolTip="ttp_lot_number">
+	<DbDetails>
+<Index>inv_lot_number_id</Index>
+<DbTable>xbs.inv_lot_number</DbTable>
+<Data>lot_number,inv_lot_number_id</Data>
+<Where>item_id_m='%{item_id_m[item_id_m]}' and org_id='%{orgid}' and status=1</Where>
+<queryFormat>select %{data} from %{dbtable} where %{where} order by inv_lot_number_id desc </queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_inspection_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_inspection_status" Size="60,20" Text="inspection_status" Align="Right"/>
+<TextBox Name="inspection_status" Size="170,20" Text="" Weight="170" ToolTip="ttp_inspection_status"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_inspection_quality" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_inspection_quality" Size="60,20" Text="inspection_quality" Align="Right"/>
+<TextBox Name="inspection_quality" Size="170,20" Text="" Weight="170" ToolTip="ttp_inspection_quality"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,36 @@
+<Language name="xbs_log">
+<Lang name="xbs_log" value="xbs_log"/>
+<Lang name="TabEditxbs_log" value="xbs_log Edit"/>
+<Lang name="TabViewxbs_log" value="xbs_log View"/>
+<Lang name="xbs_log_id" value=""/>
+<Lang name="ttp_xbs_log_id" value=""/>
+<Lang name="log_level" value=""/>
+<Lang name="ttp_log_level" value=""/>
+<Lang name="task" value=""/>
+<Lang name="ttp_task" value=""/>
+<Lang name="program" value=""/>
+<Lang name="ttp_program" value=""/>
+<Lang name="msg" value=""/>
+<Lang name="ttp_msg" value=""/>
+<Lang name="user_id" value=""/>
+<Lang name="ttp_user_id" value=""/>
+<Lang name="org_id" value=""/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="dt" value=""/>
+<Lang name="ttp_dt" value=""/>
+<Lang name="ttp_operationxbs_log" value="操作"/>
+<Lang name="ttp_createxbs_log" value="新增"/>
+<Lang name="ttp_modifyxbs_log" value="修改"/>
+<Lang name="ttp_resetxbs_log" value="清除数据"/>
+<Lang name="ttp_deletexbs_log" value="删除"/>
+<Lang name="ttp_refreshxbs_log" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

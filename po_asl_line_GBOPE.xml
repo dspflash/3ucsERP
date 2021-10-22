@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEpo_asl_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="po_asl_line_id" Text="create" ToolTip="ttp_createpo_asl_line" Name="insertpo_asl_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_asl_line</DbTable>
+<Data>po_asl_header_id[po_asl_header_id],supplier_id,supplier_site_id,mfg_part_number,manufacturer,business_type,description,release_method,min_order_quantity,fix_lot_multiplier,country_of_origin,status</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpo_asl_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypo_asl_line" Name="modifypo_asl_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_asl_line</DbTable>
+<Data>po_asl_header_id[po_asl_header_id],supplier_id,supplier_site_id,mfg_part_number,manufacturer,business_type,description,release_method,min_order_quantity,fix_lot_multiplier,country_of_origin,status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>po_asl_line_id='%{po_asl_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpo_asl_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpo_asl_line" Name="resetpo_asl_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_asl_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchpo_asl_line" Name="gsearchpo_asl_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="po_asl_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITpo_asl_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDVbom_stnd_op_res_assignment" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bom_stnd_op_res_assignment_vLst" ToolTip="ttp_bom_stnd_op_res_assignment_v" Size="700,450" OnLoad="init" Heading="resource_sequence,120;resource_schedule,120;resource_id,120;resource_usage,100;assigned_units,60;twenty_four_hr_cb,60;standard_rate_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bom_stnd_op_res_assignment_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>bom_stnd_op_res_assignment_id</Index>
+<DbTable>xbs.bom_stnd_op_res_assignment b left join xbs.option_line o on b.resource_schedule=o.option_line_id left join xbs.bom_resource b0 on b.resource_id=b0.bom_resource_id</DbTable>
+<Data>b.resource_sequence,o.option_line_value resource_schedule,b0.resource resource_id,b.resource_usage,b.assigned_units,b.twenty_four_hr_cb,b.standard_rate_cb,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_stnd_op_res_assignment_id</Data>
+<Order>bom_stnd_op_res_assignment_id</Order></DbDetails>
+<DbDetails><Where>bom_standard_operation_id='%{bom_standard_operation_id}'</Where></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_stnd_op_res_assignment_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_bom_stnd_op_res_assignment" expr="js(%{bom_stnd_op_res_assignment_vLst[currentpage]}+1)"/>
+<assign name="pgscb_bom_stnd_op_res_assignment" expr="js(%{bom_stnd_op_res_assignment_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

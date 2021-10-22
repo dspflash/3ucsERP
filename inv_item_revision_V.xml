@@ -1,0 +1,20 @@
+﻿<WndTap Name="inv_item_revision_v" Text="inv_item_revision">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_item_revision_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><revision_name format="(i.revision_name like '%%{opvalue}%')"/><reason format="(i.reason like '%%{opvalue}%')"/><eco_number format="(i.eco_number like '%%{opvalue}%')"/><effective_start_date format="(i.effective_start_date between '%{effective_start_date[datetime]}' and '%{effective_start_date[datetime2]}')"/><effective_end_date format="(i.effective_end_date between '%{effective_end_date[datetime]}' and '%{effective_end_date[datetime2]}')"/><implementation_date format="(i.implementation_date between '%{implementation_date[datetime]}' and '%{implementation_date[datetime2]}')"/><origination_date format="(i.origination_date between '%{origination_date[datetime]}' and '%{origination_date[datetime2]}')"/><description format="(i.description like '%%{opvalue}%')"/><created_by format="(i.created_by like '%%{opvalue}%')"/><creation_date format="(i.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(i.last_update_by like '%%{opvalue}%')"/><last_update_date format="(i.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><org_id format="(i.org_id like '%%{opvalue}%')"/><inv_item_revision_id format="(i.inv_item_revision_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_item_revision.xml"/>
+<Ctrls><GroupBox  Name="GBinv_item_revision" id="inv_item_revision" Text="inv_item_revision" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_item_revision_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVinv_item_revision" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.inv_item_revision.GBDEDITinv_item_revision" function="reset"/><assign name="$this.inv_item_revision.frmwndctrl" expr="%{$this.inv_item_revision_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetinv_item_revision" Name="resetinv_item_revision" Size="50,20">	<OnClick>	<submit next="GBDEDITinv_item_revision" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchinv_item_revision" Name="gsearchinv_item_revision" Size="50,20">	<OnClick>	
+<search next="inv_item_revision_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITinv_item_revision" namelist="search" function="search"/>	
+<search next="records_inv_item_revision" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITinv_item_revision" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_item_revision_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_item_revision_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_item_revision_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

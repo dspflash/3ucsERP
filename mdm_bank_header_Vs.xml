@@ -1,0 +1,63 @@
+<GroupBox Name="GBDEDITmdm_bank_header"><Ctrls>
+<GroupBox Name="GB_bank_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bank_name" Size="60,20" Text="bank_name" Align="Right"/>
+<TextBox Name="bank_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_bank_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bank_name_short" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bank_name_short" Size="60,20" Text="bank_name_short" Align="Right"/>
+<TextBox Name="bank_name_short" Size="170,20" Text="" Weight="170" ToolTip="ttp_bank_name_short"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_country" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_country" Size="60,20" Text="country" Align="Right" onload="init"/>
+<ComboBox Name="country" Size="170,100" Text="" Weight="170"  ToolTip="ttp_country" onload="init">
+	<DbDetails>
+<DbTable>xbs.country</DbTable>
+<Index>country_id</Index>
+<Data>namecn,country_id</Data>
+<Where>namecn is not null</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_bank_name_alt" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bank_name_alt" Size="60,20" Text="bank_name_alt" Align="Right"/>
+<TextBox Name="bank_name_alt" Size="170,20" Text="" Weight="170" ToolTip="ttp_bank_name_alt"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bank_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bank_number" Size="60,20" Text="bank_number" Align="Right"/>
+<TextBox Name="bank_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_bank_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_tax_reg_no" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_tax_reg_no" Size="60,20" Text="tax_reg_no" Align="Right"/>
+<TextBox Name="tax_reg_no" Size="170,20" Text="" Weight="170" ToolTip="ttp_tax_reg_no"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_tax_payer_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_tax_payer_id" Size="60,20" Text="tax_payer_id" Align="Right"/>
+<TextBox Name="tax_payer_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_tax_payer_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_mdm_bank_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_mdm_bank_header_id" Size="60,20" Text="mdm_bank_header_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="mdm_bank_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_mdm_bank_header_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBmdm_bank_header" expr="TABEDITmdm_bank_header"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEbom_resource_cost" Size="100,100"><Ctrls>
+<Button sqlpkinsert="bom_resource_cost_id" Text="create" ToolTip="ttp_createbom_resource_cost" Name="insertbom_resource_cost" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.bom_resource_cost</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>bom_resource_id[bom_resource_id],bom_cost_type[bom_cost_type_id],resource_rate</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertbom_resource_cost[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="bom_resource_costLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.bom_resource_cost_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifybom_resource_cost" Name="modifybom_resource_cost" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.bom_resource_cost</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>bom_cost_type[bom_cost_type_id],resource_rate</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>bom_resource_cost_id='%{bom_resource_cost_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifybom_resource_cost[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="bom_resource_costLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.bom_resource_cost_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetbom_resource_cost" Name="resetbom_resource_cost" Size="50,20">
+<OnClick>
+<submit next="GBDEDITbom_resource_cost" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchbom_resource_cost" Name="gsearchbom_resource_cost" Size="50,20" visible="false">
+<OnClick>
+<search next="bom_resource_costLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITbom_resource_cost" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

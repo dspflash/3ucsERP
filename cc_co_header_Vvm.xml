@@ -1,0 +1,57 @@
+<GroupBox Name="GBDVcc_co_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="cc_co_header_vLst" ToolTip="ttp_cc_co_header" Size="700,420" OnLoad="init" Heading="change_number,100;change_type,120;priority,20;status,120;security_level,125;template_id,120;originator,640;reason_code,500;product_line,250;process_flow_header_id,120;current_process_flow_line_id,60;origination_date,90;owner_user_id,60;release_date,90;completion_date,90;project_task_id,60;access_org,640;related_changes,640;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,120;cc_co_header_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.cc_co_header c left join xbs.option_line o on c.status=o.option_line_id left join xbs.cc_co_template_header c0 on c.template_id=c0.cc_co_template_header_id left join xbs.user_v u on c.originator=u.xerp_user_id left join xbs.sys_process_flow_header s on c.process_flow_header_id=s.sys_process_flow_header_id left join xbs.sys_process_flow_line s0 on c.current_process_flow_line_id=s0.sys_process_flow_line_id left join xbs.user_v u0 on c.owner_user_id=u0.xerp_user_id left join xbs.user_v u1 on c.created_by=u1.xerp_user_id left join xbs.user_v u2 on c.last_update_by=u2.xerp_user_id left join xbs.org o0 on c.org_id=o0.org_id</DbTable>
+<Index>cc_co_header_id</Index>
+<Data>c.change_number,c.change_type,c.priority,o.option_line_value status,c.security_level,c0.template_name template_id,u.NAME originator,c.reason_code,c.product_line,s.process_flow process_flow_header_id,s0.line_name current_process_flow_line_id,c.origination_date,u0.NAME owner_user_id,c.release_date,c.completion_date,c.project_task_id,c.access_org,c.related_changes,c.description,u1.NAME created_by,c.creation_date,u2.NAME last_update_by,c.last_update_date,o0.org org_id,c.cc_co_header_id</Data>
+<Order>cc_co_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>cc_co_header_id='%{cc_co_header_vLst[cc_co_header_id]}' and status=1565</Where></DbDetails><submit namelist="DbDetails" next="$this.cc_co_header.cc_co_headerLst"/></op>
+<op text="confirm"><DbDetails><DbTable>xbs.cc_co_header</DbTable>
+<Where>cc_co_header_id='%{cc_co_header_vLst[cc_co_header_id]}' and status=1565</Where>
+<queryFormat>update %{table} co join sys_process_flow_line pfl on co.process_flow_header_id=pfl.sys_process_flow_header_id and pfl.line_number=1 set status=1566,current_process_flow_line_id=sys_process_flow_line_id where %{where};</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+<op text="diagram"><DbDetails><Where>co.cc_co_header_id='%{cc_co_header_vLst[cc_co_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.cc_co_process_flow_diagram.sys_process_flow_diagram_vLst"/></op>
+<op text="print"><setvisible name="print" visible="1"/><DbDetails><Where>cc_co_header_id='%{cc_co_header_vLst[cc_co_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.cc_co_print.cc_co_headerLst"/><DbDetails><Where>cc_co_line_id in (select cc_co_line_id from cc_co_line where cc_co_header_id='%{cc_co_header_vLst[cc_co_header_id]}')</Where></DbDetails><submit namelist="DbDetails" next="$this.cc_co_print.cc_co_line_valueLst"/></op>
+<op text="Implement" needconfirm="1"><assign name="cc_Implement" expr=""/><DbDetails>INTO @tsql 
+
+<queryFormat>SELECT fieldvs 
+FROM (
+SELECT coh.cc_co_header_id,col.cc_co_line_id,item_id_m,REPLACE(REPLACE(GROUP_CONCAT(fvs),',',';'),'$',',') fieldvs
+FROM (
+SELECT t.cc_co_line_id,CONCAT('update ',reftbltp,IF(reftbltp='item','',
+CONCAT(' bl join ',REPLACE(reftbltp,'line','header'),' bh on bh.',REPLACE(reftbltp,'line','header'),'_id=bl.',REPLACE(reftbltp,'line','header'),'_id'
+)),IF(field_name='bom_routing_line',CONCAT(' join bom_routing_line brl on brl.',REPLACE(fv,'bom_routing_line','bom_routing_line_id')),''),' set ',
+IF(field_name='bom_routing_line',
+CONCAT('bl.routing_sequence=brl.routing_sequence$bl.routing_seq_num=brl.routing_seq_num')
+,fv),' where ',reftbltp,'_id=',ref_id) fvs FROM (
+SELECT reftbltp,cc_co_line_id,field_name,ref_id,REPLACE(GROUP_CONCAT(CONCAT(field_name,'=',field_value)),',','$') fv 
+FROM cc_co_line_value colv
+JOIN cc_co_template_line cotl ON colv.cc_co_template_line_id=cotl.cc_co_template_line_id 
+JOIN cc_co_template_header coth ON cotl.cc_co_template_header_id=coth.cc_co_template_header_id
+GROUP BY colv.ref_id
+) t
+) tt JOIN cc_co_line col ON tt.cc_co_line_id=col.cc_co_line_id 
+JOIN cc_co_header coh ON coh.cc_co_header_id=col.cc_co_header_id 
+AND coh.status=1567 
+GROUP BY col.cc_co_line_id
+) ttt WHERE cc_co_header_id=%{cc_co_header_vLst[cc_co_header_id]};</queryFormat></DbDetails>PREPARE ins FROM @tsql;EXECUTE ins;
+<submit namelist="DbDetails" next="cc_Implement"/><submit/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.cc_co_header</DbTable>
+<Where>cc_co_header_id='%{cc_co_header_vLst[cc_co_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>SELECT process_flow,fl.line_number,fl.line_name,field_value,ur.NAME user_real,flp.line_name pass_next,flf.line_name fail_next,fa.action_number,fa.pf_action_type,role_name_cn,u.NAME USER,userid,sys_process_flow_action_id,fl.sys_process_flow_line_id,fl.next_line_seq_pass,fl.next_line_seq_fail,fh.sys_process_flow_header_id  FROM xbs.sys_process_flow_header fh 
+JOIN xbs.sys_process_flow_line fl ON fh.sys_process_flow_header_id=fl.sys_process_flow_header_id 
+LEFT JOIN xbs.sys_process_flow_line flp ON fl.next_line_seq_pass=flp.sys_process_flow_line_id 
+LEFT JOIN xbs.sys_process_flow_line flf ON fl.next_line_seq_fail=flf.sys_process_flow_line_id
+JOIN xbs.sys_process_flow_action fa ON fl.sys_process_flow_line_id=fa.sys_process_flow_line_id 
+JOIN xbs.xerp_role r ON fa.role_code=r.role_id 
+JOIN xbs.user_v u ON fa.userid=u.xerp_user_id 
+JOIN cc_co_header co ON co.process_flow_header_id=fh.sys_process_flow_header_id
+LEFT JOIN cc_co_process_flow_action cofa ON cofa.sys_process_flow_line_id=fl.sys_process_flow_line_id
+LEFT JOIN xbs.user_v ur ON cofa.action_user_id=ur.xerp_user_id 
+ WHERE fa.userid='1' AND cc_co_process_flow_action_id IS NULL AND fa.sys_process_flow_line_id=1 ORDER BY line_number,action_number 
+</ListCtrl>
+</Ctrls></GroupBox>

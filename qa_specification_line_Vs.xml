@@ -1,0 +1,95 @@
+<GroupBox Name="GBDEDITqa_specification_line"><Ctrls>
+<GroupBox Name="GB_qa_specification_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_qa_specification_header_id" Size="60,20" Text="qa_specification_header_id" Align="Right" selectedIndex="0"/>
+<ComboBox Name="qa_specification_header_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_qa_specification_header_id" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.qa_specification_header</DbTable>
+<Index>qa_specification_header_id</Index>
+<Data>specification_name,qa_specification_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="qa_specification_lineLst"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_qa_ce_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_qa_ce_header_id" Size="60,20" Text="qa_ce_header_id" Align="Right" onload="init"/>
+<ComboBox Name="qa_ce_header_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_qa_ce_header_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.qa_ce_header</DbTable>
+<Index>qa_ce_header_id</Index>
+<Data>element_name,qa_ce_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_uom_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_uom_id" Size="60,20" Text="uom_id" Align="Right" onload="init"/>
+<ComboBox Name="uom_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_uom_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.uom</DbTable>
+<Index>uom_id</Index>
+<Data>uom_name,uom_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_user_range_low" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_user_range_low" Size="60,20" Text="user_range_low" Align="Right"/>
+<TextBox Name="user_range_low" Size="170,20" Text="" Weight="170" ToolTip="ttp_user_range_low"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_user_range_high" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_user_range_high" Size="60,20" Text="user_range_high" Align="Right"/>
+<TextBox Name="user_range_high" Size="170,20" Text="" Weight="170" ToolTip="ttp_user_range_high"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_user_target_value" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_user_target_value" Size="60,20" Text="user_target_value" Align="Right"/>
+<TextBox Name="user_target_value" Size="170,20" Text="" Weight="170" ToolTip="ttp_user_target_value"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_specification_range_high" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_specification_range_high" Size="60,20" Text="specification_range_high" Align="Right"/>
+<TextBox Name="specification_range_high" Size="170,20" Text="" Weight="170" ToolTip="ttp_specification_range_high"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_specification_range_low" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_specification_range_low" Size="60,20" Text="specification_range_low" Align="Right"/>
+<TextBox Name="specification_range_low" Size="170,20" Text="" Weight="170" ToolTip="ttp_specification_range_low"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_specification_target_value" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_specification_target_value" Size="60,20" Text="specification_target_value" Align="Right"/>
+<TextBox Name="specification_target_value" Size="170,20" Text="" Weight="170" ToolTip="ttp_specification_target_value"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_reasonable_range_low" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_reasonable_range_low" Size="60,20" Text="reasonable_range_low" Align="Right"/>
+<TextBox Name="reasonable_range_low" Size="170,20" Text="" Weight="170" ToolTip="ttp_reasonable_range_low"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_reasonable_range_high" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_reasonable_range_high" Size="60,20" Text="reasonable_range_high" Align="Right"/>
+<TextBox Name="reasonable_range_high" Size="170,20" Text="" Weight="170" ToolTip="ttp_reasonable_range_high"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_reasonable_target_value" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_reasonable_target_value" Size="60,20" Text="reasonable_target_value" Align="Right"/>
+<TextBox Name="reasonable_target_value" Size="170,20" Text="" Weight="170" ToolTip="ttp_reasonable_target_value"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_enabled_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="enabled_cb" Size="230,20" Text="enabled_cb" ToolTip="ttp_enabled_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_qa_specification_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_qa_specification_line_id" Size="60,20" Text="qa_specification_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="qa_specification_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_qa_specification_line_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBqa_specification_line" expr="TABEDITqa_specification_line"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

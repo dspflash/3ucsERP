@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinv_issue_line"><Ctrls>
+<ListCtrl Heading="item_id_m,120;transaction_quantity,75;uom_id,120;subinventory_id,120;locator_id,120;lot_number,120;unit_price,90;amount,90;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;inv_issue_line_id,60;status,125;" loadedclick="0" ToolTip="ttp_inv_issue_line" Name="inv_issue_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_issue_line</DbTable>
+<Index>inv_issue_line_id</Index>
+<Data>item_id_m,transaction_quantity,uom_id,subinventory_id,locator_id,lot_number,unit_price,amount,created_by,creation_date,last_update_by,last_update_date,inv_issue_line_id,status</Data>
+<Order>inv_issue_line_id</Order></DbDetails>
+<OnClick><assign name="item_id_m[item_id_m]" function="SetSel" expr="%{inv_issue_lineLst[item_id_m]}"/><assign name="uom_id[uom_id]" function="SetSel" expr="%{inv_issue_lineLst[uom_id]}"/><assign name="subinventory_id[subinventory_id]" function="SetSel" expr="%{inv_issue_lineLst[subinventory_id]}"/><assign name="locator_id[locator_id]" function="SetSel" expr="%{inv_issue_lineLst[locator_id]}"/><assign name="lot_number[inv_lot_number_id]" function="SetSel" expr="%{inv_issue_lineLst[lot_number]}"/><assign name="unit_price[unit_price]" function="SetSel" expr="%{inv_issue_lineLst[unit_price]}"/></OnClick><OnClick><assign name="reference_key_value" function="setsel" expr="inv_issue_lineLst[reference_key_value]"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

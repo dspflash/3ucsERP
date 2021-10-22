@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVitem_properties" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="item_propertiesLst" ToolTip="ttp_item_properties" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>idx</Index>
+<DbTable>xbs.item_properties</DbTable>
+<Data>property_id,property_value,created_by,creation_date,last_update_by,last_update_date,idx</Data>
+<Order>idx</Order></DbDetails>
+<OnClick><assign name="property_id[property_id]" expr="%{item_propertiesLst[property_id]}" function="SetSel"/>
+<if cond="%{idx}"><SetVisible name="insertitem_properties" Visible="0"/><SetVisible name="modifyitem_properties" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

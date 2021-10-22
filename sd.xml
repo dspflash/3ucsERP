@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="SD" Name="sd" id="sd">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_delivery_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_sales_control.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_quote_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_quote_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_document_type.xml"></xi:include>
+	</WndTaps>
+	</WndTap>

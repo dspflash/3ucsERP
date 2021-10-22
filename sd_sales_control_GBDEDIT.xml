@@ -1,0 +1,97 @@
+<GroupBox Name="GBDEDITsd_sales_control"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_org_id"><Ctrls>
+<Label Align="Right" Text="org_id" Name="lb_org_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_org_id" Name="org_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_ar_transaction_type_id"><Ctrls>
+<Label Align="Right" Text="ar_transaction_type_id" OnLoad="init" Name="lb_ar_transaction_type_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_ar_transaction_type_id" OnLoad="init" Name="ar_transaction_type_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.ar_transaction_type</DbTable>
+<Index>ar_transaction_type_id</Index>
+<Data>ar_transaction_type,ar_transaction_type_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_h_default_document_type_id"><Ctrls>
+<Label Align="Right" Text="h_default_document_type_id" OnLoad="init" Name="lb_h_default_document_type_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_h_default_document_type_id" OnLoad="init" Name="h_default_document_type_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.sd_document_type</DbTable>
+<Index>sd_document_type_id</Index>
+<Data>document_type_name,sd_document_type_id</Data>
+<Where>level='header'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_l_default_document_type_id"><Ctrls>
+<Label Align="Right" Text="l_default_document_type_id" OnLoad="init" Name="lb_l_default_document_type_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_l_default_document_type_id" OnLoad="init" Name="l_default_document_type_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.sd_document_type</DbTable>
+<Index>sd_document_type_id</Index>
+<Data>document_type_name,sd_document_type_id</Data>
+<Where>level='line'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_iso_h_default_document_type_id"><Ctrls>
+<Label Align="Right" Text="iso_h_default_document_type_id" OnLoad="init" Name="lb_iso_h_default_document_type_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_iso_h_default_document_type_id" OnLoad="init" Name="iso_h_default_document_type_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.sd_document_type</DbTable>
+<Index>sd_document_type_id</Index>
+<Data>document_type_name,sd_document_type_id</Data>
+<Where>level='header'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_iso_l_default_document_type_id"><Ctrls>
+<Label Align="Right" Text="iso_l_default_document_type_id" OnLoad="init" Name="lb_iso_l_default_document_type_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_iso_l_default_document_type_id" OnLoad="init" Name="iso_l_default_document_type_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.sd_document_type</DbTable>
+<Index>sd_document_type_id</Index>
+<Data>document_type_name,sd_document_type_id</Data>
+<Where>level='line'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_mdm_price_list_header_id"><Ctrls>
+<Label Align="Right" Text="mdm_price_list_header_id" OnLoad="init" Name="lb_mdm_price_list_header_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_mdm_price_list_header_id" OnLoad="init" Name="mdm_price_list_header_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.mdm_price_list_header</DbTable>
+<Index>mdm_price_list_header_id</Index>
+<Data>price_list,mdm_price_list_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_deffer_invoicing_cb"><Ctrls>
+<CheckBox Text="deffer_invoicing_cb" ToolTip="ttp_deffer_invoicing_cb" Name="deffer_invoicing_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_default_requested_date_cb"><Ctrls>
+<CheckBox Text="default_requested_date_cb" ToolTip="ttp_default_requested_date_cb" Name="default_requested_date_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_default_schedule_ship_date_cb"><Ctrls>
+<CheckBox Text="default_schedule_ship_date_cb" ToolTip="ttp_default_schedule_ship_date_cb" Name="default_schedule_ship_date_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_default_promise_date_cb"><Ctrls>
+<CheckBox Text="default_promise_date_cb" ToolTip="ttp_default_promise_date_cb" Name="default_promise_date_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_sd_sales_control_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="sd_sales_control_id" overlap="pre" Name="lb_sd_sales_control_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_sd_sales_control_id" overlap="pre" Name="sd_sales_control_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBsd_sales_control" expr="TABEDITsd_sales_control"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

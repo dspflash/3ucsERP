@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpo_purchasing_control"><Ctrls>
+<ListCtrl Heading="org_id,60;payment_term_id,120;ship_to_id,60;bill_to_id,60;po_approval_hierarchy,120;req_approval_hierarchy,120;tax_ac_id,60;default_inv_org_id,120;default_line_type,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;po_purchasing_control_id,60;" loadedclick="0" ToolTip="ttp_po_purchasing_control" onload="init" Name="po_purchasing_controlLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_purchasing_control</DbTable>
+<Index>po_purchasing_control_id</Index>
+<Data>org_id,payment_term_id,ship_to_id,bill_to_id,po_approval_hierarchy,req_approval_hierarchy,tax_ac_id,default_inv_org_id,default_line_type,created_by,creation_date,last_update_by,last_update_date,po_purchasing_control_id</Data>
+<Order>po_purchasing_control_id</Order></DbDetails>
+<OnClick><assign name="payment_term_id[payment_term_id]" function="SetSel" expr="%{po_purchasing_controlLst[payment_term_id]}"/><assign name="po_approval_hierarchy[option_line_code]" function="SetSel" expr="%{po_purchasing_controlLst[po_approval_hierarchy]}"/><assign name="req_approval_hierarchy[option_line_code]" function="SetSel" expr="%{po_purchasing_controlLst[req_approval_hierarchy]}"/><assign name="default_inv_org_id[org_id]" function="SetSel" expr="%{po_purchasing_controlLst[default_inv_org_id]}"/><assign name="default_line_type[option_line_code]" function="SetSel" expr="%{po_purchasing_controlLst[default_line_type]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

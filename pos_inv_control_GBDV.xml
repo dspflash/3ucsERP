@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpos_inv_control"><Ctrls>
+<ListCtrl Heading="org_id,60;cogs_ac_id,60;ar_transaction_type_id,120;customer_id,60;transaction_subinventory_id,60;transaction_locator_id,60;return_subinventory_id,60;return_locator_id,60;item_id_m,60;allow_negative_onhand_cb,60;customer_site_id,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pos_inv_control_id,60;" loadedclick="0" ToolTip="ttp_pos_inv_control" onload="init" Name="pos_inv_controlLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pos_inv_control</DbTable>
+<Index>pos_inv_control_id</Index>
+<Data>org_id,cogs_ac_id,ar_transaction_type_id,customer_id,transaction_subinventory_id,transaction_locator_id,return_subinventory_id,return_locator_id,item_id_m,allow_negative_onhand_cb,customer_site_id,created_by,creation_date,last_update_by,last_update_date,pos_inv_control_id</Data>
+<Order>pos_inv_control_id</Order></DbDetails>
+<OnClick><assign name="ar_transaction_type_id[ar_transaction_type_id]" function="SetSel" expr="%{pos_inv_controlLst[ar_transaction_type_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

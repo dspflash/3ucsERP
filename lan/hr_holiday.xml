@@ -1,0 +1,41 @@
+﻿<Language name="hr_holiday">
+<Lang name="hr_holiday" value="节假日维护"/>
+<Lang name="GenHolidays" value="批量生成假日"/>
+<Lang name="TabEdithr_holiday" value="hr_holiday Edit"/>
+<Lang name="TabViewhr_holiday" value="hr_holiday View"/>
+<Lang name="holiday_date" value="日期"/>
+<Lang name="ttp_holiday_date" value=""/>
+<Lang name="holiday_type_id" value="节假日类别"/>
+<Lang name="ttp_holiday_type_id" value=""/>
+<Lang name="org_id" value="组织"/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hr_holiday_id" value=""/>
+<Lang name="ttp_hr_holiday_id" value=""/>
+<Lang name="ttp_operationhr_holiday" value=""/>
+<Lang name="ttp_createhr_holiday" value=""/>
+<Lang name="ttp_modifyhr_holiday" value=""/>
+<Lang name="ttp_resethr_holiday" value=""/>
+<Lang name="ttp_deletehr_holiday" value=""/>
+<Lang name="ttp_refreshhr_holiday" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

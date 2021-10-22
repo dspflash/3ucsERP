@@ -1,0 +1,61 @@
+<WndTap Name="vSD_Lead" Text="vSD_Lead">
+	<WndTaps>
+<WndTap Text="sd_lead" Name="sd_lead" Ver="2" popup="1">
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_lead.xml"/>
+<Ctrls>
+<GroupBox Text="sd_lead" Name="GBsd_lead" id="sd_lead" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_lead_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_lead_GBOPE.xml"></xi:include>
+<ListCtrl Heading="lead_number,125;last_name,125;first_name,125;lead_type,120;sales_channel,120;mobile_number,100;subject,640;office_number,100;email_id,200;contact_website,250;fax_no,150;timezone,150;time_to_contact,150;hr_employee_id,120;sales_team,120;priority,120;referral_source,125;close_reason,125;description,640;details,640;status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_customer_id,60;ar_customer_site_id,60;sd_lead_id,60;" loadedclick="1" ToolTip="ttp_sd_lead" Name="sd_leadLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_lead</DbTable>
+<Index>sd_lead_id</Index>
+<Data>lead_number,last_name,first_name,lead_type,sales_channel,mobile_number,subject,office_number,email_id,contact_website,fax_no,timezone,time_to_contact,hr_employee_id,sales_team,priority,referral_source,close_reason,description,details,status,created_by,creation_date,last_update_by,last_update_date,ar_customer_id,ar_customer_site_id,sd_lead_id</Data>
+<Order>sd_lead_id</Order></DbDetails>
+<OnClick><assign name="lead_type[option_line_id]" function="SetSel" expr="%{sd_leadLst[lead_type]}"/><assign name="sales_channel[option_line_id]" function="SetSel" expr="%{sd_leadLst[sales_channel]}"/><assign name="hr_employee_id[hr_employee_id]" function="SetSel" expr="%{sd_leadLst[hr_employee_id]}"/><assign name="sales_team[hr_team_header_id]" function="SetSel" expr="%{sd_leadLst[sales_team]}"/><assign name="status[option_line_id]" function="SetSel" expr="%{sd_leadLst[status]}"/>
+			<if cond="%{sd_lead_id}"><SetVisible name="insertsd_lead" Visible="0"/><SetVisible name="modifysd_lead" Visible="1"/></if></OnClick>
+			</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate><SetVisible name="insertsd_lead" Visible="1"/><SetVisible name="modifysd_lead" Visible="0"/></OnActivate>
+			</WndTap>
+		</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_lead.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="sd_lead"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_lead_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">
+	<OnClick><submit next="$this.sd_lead.GBDEDITsd_lead" function="reset"/></OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_lead" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="vsd_leadLst" listed="0" prefixwhere="0" inputed="1"><expetced_delivery_date0 format="expetced_delivery_date&gt;='%{opvalue}'"/><expetced_delivery_date1 format="expetced_delivery_date&lt;='%{opvalue}'"/></search><submit next="GBDEDITsd_lead" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl Heading="lead_number,125;last_name,125;first_name,125;lead_type,120;sales_channel,120;mobile_number,100;subject,640;office_number,100;email_id,200;contact_website,250;fax_no,150;timezone,150;time_to_contact,150;hr_employee_id,120;sales_team,120;priority,120;referral_source,125;close_reason,125;description,640;details,640;status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_customer_id,60;ar_customer_site_id,60;sd_lead_id,60;" onload="init" ToolTip="ttp_sd_lead" Name="vsd_leadLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.sd_lead s left join xbs.option_line o on s.lead_type=o.option_line_id left join xbs.option_line o0 on s.sales_channel=o0.option_line_id left join xbs.hr_employee_v h on s.hr_employee_id=h.hr_employee_id left join xbs.hr_team_header h0 on s.sales_team=h0.hr_team_header_id left join xbs.option_line o1 on s.status=o1.option_line_id</DbTable>
+<Index>sd_lead_id</Index>
+<Data>s.lead_number,s.last_name,s.first_name,o.option_line_value lead_type,o0.option_line_value sales_channel,s.mobile_number,s.subject,s.office_number,s.email_id,s.contact_website,s.fax_no,s.timezone,s.time_to_contact,h.name hr_employee_id,h0.team_name sales_team,s.priority,s.referral_source,s.close_reason,s.description,s.details,o1.option_line_value status,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,s.ar_customer_id,s.ar_customer_site_id,s.sd_lead_id</Data>
+<Order>sd_lead_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>sd_lead_id='%{vsd_leadLst[sd_lead_id]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="$this.sd_lead.sd_leadLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

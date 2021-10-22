@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEsys_pd_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="sys_pd_header_id" Text="create" ToolTip="ttp_createsys_pd_header" Name="insertsys_pd_header" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.sys_pd_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>primary_document_id[id],process_flow_header_id[sys_process_flow_header_id],priority,current_process_flow_line_id[sys_process_flow_line_id],description,primary_document,document_number</Data>
+<DataEx>security_level,status,originator,origination_date,owner_user_id,created_by,creation_date,last_update_by,last_update_date,org_id;@security_level,327,'%{user_id}',now(),'%{user_id}','%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>SELECT IFNULL(MAX(security_level),0)+1 INTO @security_level FROM sys_pd_header WHERE (primary_document,primary_document_id)=('%{primary_document}','%{primary_document_id[id]}'); insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="sys_pd_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifysys_pd_header" Name="modifysys_pd_header" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.sys_pd_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>primary_document_id[id],process_flow_header_id[sys_process_flow_header_id],priority,description,primary_document</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>sys_pd_header_id='%{sys_pd_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="sys_pd_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetsys_pd_header" Name="resetsys_pd_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsys_pd_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchsys_pd_header" Name="gsearchsys_pd_header" Size="50,20" visible="false">
+	<OnClick>
+	<search next="sys_pd_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITsys_pd_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

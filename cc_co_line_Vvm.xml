@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVcc_co_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="cc_co_line_vLst" ToolTip="ttp_cc_co_line" Size="700,420" Heading="item_id_m,60;item_description,640;new_revision,50;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;cc_co_header_id,60;cc_co_line_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.cc_co_line c left join xbs.item i on c.item_id_m=i.item_id_m left join xbs.user_v u on c.created_by=u.xerp_user_id left join xbs.user_v u0 on c.last_update_by=u0.xerp_user_id</DbTable>
+<Index>cc_co_line_id</Index>
+<Data>i.item_number item_id_m,c.item_description,c.new_revision,u.NAME created_by,c.creation_date,u0.NAME last_update_by,c.last_update_date,c.cc_co_header_id,c.cc_co_line_id</Data>
+<Order>cc_co_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{cc_co_header_id}"><alert expr="请先添加或选择已有项目！"/><else/><assign name="$parent.cc_co_line.field_value[windowtext]" expr=""/><assign name="$parent.cc_co_line.reftbltp" expr="%{template_id[reftbltp]}"/><assign name="$parent.cc_co_line.cc_co_header_id" expr="%{cc_co_header_id}"/><if cond="%{template_id[reftbltp]}=='Item'"><DbDetails><DbTable>item</DbTable></DbDetails><submit namelist="DbDetails" next="$parent.cc_co_line.item_id_m"/><elseif cond="%{template_id[reftbltp]}=='BOM_line'"/><DbDetails><DbTable>item JOIN bom_header bh ON item.item_id_m=bh.item_id_m AND item.org_id=bh.org_id</DbTable></DbDetails><submit namelist="DbDetails" next="$parent.cc_co_line.item_id_m"/><elseif cond="%{template_id[reftbltp]}=='BOM_routing_line'"/><DbDetails><DbTable>item JOIN bom_routing_header brh ON item.item_id_m=brh.item_id_m AND item.org_id=brh.org_id</DbTable></DbDetails><submit namelist="DbDetails" next="$parent.cc_co_line.item_id_m"/></if></if></op>
+<op text="modify"><assign name="$parent.cc_co_line.field_value[windowtext]" expr=""/><assign name="$parent.cc_co_line.reftbltp" expr="%{template_id[reftbltp]}"/><if cond="%{template_id[reftbltp]}=='Item'"><DbDetails><DbTable>item</DbTable></DbDetails><submit namelist="DbDetails" next="$parent.cc_co_line.item_id_m"/><elseif cond="%{template_id[reftbltp]}=='BOM_line'"/><DbDetails><DbTable>item JOIN bom_header bh ON item.item_id_m=bh.item_id_m AND item.org_id=bh.org_id</DbTable></DbDetails><submit namelist="DbDetails" next="$parent.cc_co_line.item_id_m"/><elseif cond="%{template_id[reftbltp]}=='BOM_routing_line'"/><DbDetails><DbTable>item JOIN bom_routing_header brh ON item.item_id_m=brh.item_id_m AND item.org_id=brh.org_id</DbTable></DbDetails><submit namelist="DbDetails" next="$parent.cc_co_line.item_id_m"/></if><DbDetails><Where>cc_co_line_id='%{cc_co_line_vLst[cc_co_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.cc_co_line.cc_co_lineLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.cc_co_line</DbTable>
+<Where>cc_co_line_id='%{cc_co_line_vLst[cc_co_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

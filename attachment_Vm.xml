@@ -1,0 +1,9 @@
+<WndTap Name="attachment_v" Text="attachment">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vpicView.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\attachment.xml"/>
+<Ctrls><GroupBox  Name="GBattachment" id="attachment" Text="attachment" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="attachment_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,36 @@
+<Language name="pm_recipe_material_header">
+<Lang name="pm_recipe_material_header" value="pm_recipe_material_header"/>
+<Lang name="TabEditpm_recipe_material_header" value="pm_recipe_material_header Edit"/>
+<Lang name="TabViewpm_recipe_material_header" value="pm_recipe_material_header View"/>
+<Lang name="pm_recipe_header_id" value=""/>
+<Lang name="ttp_pm_recipe_header_id" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="pm_recipe_material_header_id" value=""/>
+<Lang name="ttp_pm_recipe_material_header_id" value=""/>
+<Lang name="ttp_operationpm_recipe_material_header" value="操作"/>
+<Lang name="ttp_createpm_recipe_material_header" value="新增"/>
+<Lang name="ttp_modifypm_recipe_material_header" value="修改"/>
+<Lang name="ttp_resetpm_recipe_material_header" value="清除数据"/>
+<Lang name="ttp_deletepm_recipe_material_header" value="删除"/>
+<Lang name="ttp_refreshpm_recipe_material_header" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_resource_list_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_resource_list_lineLst" ToolTip="ttp_prj_resource_list_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_resource_list_line</DbTable>
+<Index>prj_resource_list_line_id</Index>
+<Data>resource_type,hr_employee_id,hr_job_id,prj_expenditure_type_id,revenue_category,expenditure_category,effective_from,effective_to,description,created_by,creation_date,last_update_by,last_update_date,prj_resource_list_line_id,org_id</Data>
+<Order>prj_resource_list_line_id</Order></DbDetails>
+<OnClick><assign name="hr_employee_id[hr_employee_id]" expr="%{prj_resource_list_lineLst[hr_employee_id]}" function="SetSel"/><assign name="hr_job_id[hr_job_id]" expr="%{prj_resource_list_lineLst[hr_job_id]}" function="SetSel"/><assign name="prj_expenditure_type_id[prj_expenditure_type_header_id]" expr="%{prj_resource_list_lineLst[prj_expenditure_type_id]}" function="SetSel"/><assign name="revenue_category[option_line_id]" expr="%{prj_resource_list_lineLst[revenue_category]}" function="SetSel"/><assign name="expenditure_category[option_line_id]" expr="%{prj_resource_list_lineLst[expenditure_category]}" function="SetSel"/>
+<if cond="%{prj_resource_list_line_id}"><SetVisible name="insertprj_resource_list_line" Visible="0"/><SetVisible name="modifyprj_resource_list_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

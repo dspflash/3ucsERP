@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEpo_rfq_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="po_rfq_header_id" Text="create" ToolTip="ttp_createpo_rfq_header" Name="insertpo_rfq_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_rfq_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>rfq_number[rfq_number],rfq_name,rfq_type[option_line_id],payment_term_id[payment_term_id],ship_to_id[address_id],bill_to_id[address_id],currency[currency_id],doc_currency[currency_id],effective_start_date,effective_end_date,due_date,description</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,bu_org_id;'%{user_id}',now(),'%{user_id}',now(),%{orgid}</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="po_rfq_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypo_rfq_header" Name="modifypo_rfq_header" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_rfq_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>rfq_name,rfq_type[option_line_id],payment_term_id[payment_term_id],ship_to_id[address_id],bill_to_id[address_id],currency[currency_id],doc_currency[currency_id],effective_start_date,effective_end_date,due_date,description</Data>
+<DataEx>created_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>po_rfq_header_id='%{po_rfq_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="po_rfq_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpo_rfq_header" Name="resetpo_rfq_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_rfq_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchpo_rfq_header" Name="gsearchpo_rfq_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="po_rfq_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITpo_rfq_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

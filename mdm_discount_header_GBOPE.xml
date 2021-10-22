@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEmdm_discount_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="mdm_discount_header_id" Text="create" ToolTip="ttp_createmdm_discount_header" Name="insertmdm_discount_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_discount_header</DbTable>
+<Data>discount_name,discount_code,module_code,description,status,discount_type,discount_percentage,discount_formula,check_condition_cb</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchmdm_discount_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifymdm_discount_header" Name="modifymdm_discount_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_discount_header</DbTable>
+<Data>discount_name,discount_code,module_code,description,status,discount_type,discount_percentage,discount_formula,check_condition_cb</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>mdm_discount_header_id='%{mdm_discount_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchmdm_discount_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetmdm_discount_header" Name="resetmdm_discount_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITmdm_discount_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchmdm_discount_header" Name="gsearchmdm_discount_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="mdm_discount_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITmdm_discount_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

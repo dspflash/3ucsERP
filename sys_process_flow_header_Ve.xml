@@ -1,0 +1,16 @@
+﻿<WndTap Name="sys_process_flow_header" Text="sys_process_flow_header" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="process_flow,module_name[option_line_id],access_org_type[option_line_id],type"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\sys_process_flow_header.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_line.xml"/>
+<Ctrls>
+<GroupBox  Name="GBsys_process_flow_header" id="sys_process_flow_header" Text="sys_process_flow_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_header_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_header_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_header_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_line_Vv.xml"/>
+</Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertsys_process_flow_header" Visible="1"/><SetVisible name="modifysys_process_flow_header" Visible="0"/></OnActivate>
+</WndTap>

@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_leave_entitlement_line"><Ctrls>
+<ListCtrl Heading="leave_per_period,100;leave_type,120;period,120;default_no_of_period,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_leave_entitlement_line_id,60;" loadedclick="0" ToolTip="ttp_hr_leave_entitlement_line" Name="hr_leave_entitlement_lineLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>hr_leave_entitlement_line_id</Index>
+<DbTable>xbs.hr_leave_entitlement_line h left join xbs.hr_leave_type h0 on h.leave_type=h0.hr_leave_type_id</DbTable>
+<Data>h.leave_per_period,h0.leave_type leave_type,h.period,h.default_no_of_period,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_leave_entitlement_line_id</Data>
+<Order>hr_leave_entitlement_line_id</Order></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op mustselected="0" text="addone"><if cond="!%{hr_leave_entitlement_header_id}"><alert expr="hr_leave_entitlement_header_id is Empty!"/><else/><submit next="$parent.hr_leave_entitlement_line.GBDEDIThr_leave_entitlement_line" function="reset"/><assign name="$parent.hr_leave_entitlement_line.hr_leave_entitlement_header_id" expr="%{hr_leave_entitlement_header_id}"/><assign name="$parent.hr_leave_entitlement_line.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>hr_leave_entitlement_line_id='%{hr_leave_entitlement_line_vLst[hr_leave_entitlement_line_id]}'</Where></DbDetails><submit next="$parent.hr_leave_entitlement_line.hr_leave_entitlement_lineLst" namelist="DbDetails"/><assign name="$parent.hr_leave_entitlement_line.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_leave_entitlement_line</DbTable>
+<Where>hr_leave_entitlement_line_id='%{hr_leave_entitlement_line_vLst[hr_leave_entitlement_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVpo_quote_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="po_quote_line_vLst" ToolTip="ttp_po_quote_line" Size="700,180" Heading="po_rfq_line_id,120;line_number,60;quote_unit_price,100;item_number,120;item_name,120;item_specification,120;item_description,120;uom_id,120;supplier_part_number,250;mfg_part_number,250;manufacturer,250;minimum_agreement_quantity,100;minimum_order_quantity,100;daily_capacity,100;processing_lead_time,60;replenishment_lead_time,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;po_quote_line_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.po_quote_line p left join xbs.po_rfq_line p0 on p.po_rfq_line_id=p0.po_rfq_line_id left join xbs.item i on p.item_id_m=i.item_id_m left join xbs.uom u on p.uom_id=u.uom_id</DbTable>
+<Index>po_quote_line_id</Index>
+<Data>p0.line_number po_rfq_line_id,p.line_number,p.quote_unit_price,i.item_number,`i`.`item_name`,`i`.`item_specification`,`i`.`item_description`,u.uom_name uom_id,p.supplier_part_number,p.mfg_part_number,p.manufacturer,p.minimum_agreement_quantity,p.minimum_order_quantity,p.daily_capacity,p.processing_lead_time,p.replenishment_lead_time,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.po_quote_line_id,p.item_id_m</Data>
+<Order>po_quote_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{po_quote_header_id}"><alert expr="请先添加单据，若修改单据请从单据列表进入！"/><else/><DbDetails><Where>po_quote_header_id='%{po_quote_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.po_quote_line.po_quote_header_id"/><submit next="$parent.po_quote_line.GBDEDITpo_quote_line" function="reset"/></if></op>
+<op text="modify"><DbDetails><Where>po_quote_line_id='%{po_quote_line_vLst[po_quote_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.po_quote_line.po_quote_lineLst"/><DbDetails><Where>and item_id_m='%{po_quote_line_vLst[item_id_m]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.po_quote_line.item_id_m"/><DbDetails><Where>po_quote_header_id='%{po_quote_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.po_quote_line.po_quote_header_id"/></op>
+<op text="delete"><DbDetails fcsm="1">
+<DbTable>xbs.po_quote_line</DbTable>
+<Where>po_quote_line_id='%{po_quote_line_vLst[po_quote_line_id]}'</Where><queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

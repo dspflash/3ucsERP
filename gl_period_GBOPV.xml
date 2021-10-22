@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVgl_period" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletegl_period" Name="deletegl_period" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_period</DbTable>
+<Where>gl_period_id='%{gl_periodLst[gl_period_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchgl_period" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshgl_period" Name="searchgl_period" Size="50,20">
+			  <OnClick><submit next="gl_periodLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPgl_periodLst" OnClick="(gl_periodLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREgl_periodLst" OnClick="(gl_periodLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPgl_periodLst" OnClick="(gl_periodLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

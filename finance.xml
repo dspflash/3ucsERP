@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="finance" Name="finance" id="finance">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_ledger.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_calendar.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_period.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_currency_conversion.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_ledger_balancing_values.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_balance.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_interface.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_budget.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_budget_ac_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_budget_ac_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_budget_entry.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_site.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_account.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_tax_code.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_tax_region.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_tax_rule.xml"/>
+	</WndTaps>
+	</WndTap>

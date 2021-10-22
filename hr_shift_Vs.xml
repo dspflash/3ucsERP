@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDEDIThr_shift" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_shift_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_shift_name" Size="60,20" Text="shift_name" Align="Right"/>
+<TextBox Name="shift_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_shift_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cross_day" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="cross_day" Size="230,20" Text="cross_day" ToolTip="ttp_cross_day"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status"  checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

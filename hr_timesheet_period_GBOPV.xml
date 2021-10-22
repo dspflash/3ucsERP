@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVhr_timesheet_period" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletehr_timesheet_period" Name="deletehr_timesheet_period" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_timesheet_period</DbTable>
+<Where>hr_timesheet_period_id='%{hr_timesheet_periodLst[hr_timesheet_period_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhr_timesheet_period" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshhr_timesheet_period" Name="searchhr_timesheet_period" Size="50,20">
+			  <OnClick><submit next="hr_timesheet_periodLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPhr_timesheet_periodLst" OnClick="(hr_timesheet_periodLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREhr_timesheet_periodLst" OnClick="(hr_timesheet_periodLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPhr_timesheet_periodLst" OnClick="(hr_timesheet_periodLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhd_service_contract_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hd_service_contract_headerLst" ToolTip="ttp_hd_service_contract_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_service_contract_header</DbTable>
+<Index>hd_service_contract_header_id</Index>
+<Data>contract_number,category,payment_term_id,ar_customer_id,ar_customer_site_id,doc_currency,ship_to_id,bill_to_id,currency,exchange_rate,approval_status,bu_org_id,header_amount,tax_amount,exchange_rate_type,hd_service_contract_header_id,version,start_date,end_date,duration,duration_uom_id,document_owner,receipt_amount,negotiation_status,status,document_number,document_date,billing_cb,invoicing_rule,accounting_rule,renewal_process,renew_upto_date,rewnew_pricing_method,rewnew_price_list_id,sales_person_employee_id,description,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>hd_service_contract_header_id</Order></DbDetails>
+<OnClick><assign name="payment_term_id[payment_term_id]" expr="%{hd_service_contract_headerLst[payment_term_id]}" function="SetSel"/><assign name="ar_customer_id[ar_customer_id]" expr="%{hd_service_contract_headerLst[ar_customer_id]}" function="SetSel"/><assign name="ar_customer_site_id[ar_customer_site_id]" expr="%{hd_service_contract_headerLst[ar_customer_site_id]}" function="SetSel"/><assign name="doc_currency[currency_id]" expr="%{hd_service_contract_headerLst[doc_currency]}" function="SetSel"/><assign name="ship_to_id[address_id]" expr="%{hd_service_contract_headerLst[ship_to_id]}" function="SetSel"/><assign name="bill_to_id[address_id]" expr="%{hd_service_contract_headerLst[bill_to_id]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{hd_service_contract_headerLst[currency]}" function="SetSel"/><assign name="approval_status[option_line_id]" expr="%{hd_service_contract_headerLst[approval_status]}" function="SetSel"/><assign name="exchange_rate_type[gl_currency_conversion_id]" expr="%{hd_service_contract_headerLst[exchange_rate_type]}" function="SetSel"/><assign name="duration_uom_id[uom_id]" expr="%{hd_service_contract_headerLst[duration_uom_id]}" function="SetSel"/>
+<if cond="%{hd_service_contract_header_id}"><SetVisible name="inserthd_service_contract_header" Visible="0"/><SetVisible name="modifyhd_service_contract_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

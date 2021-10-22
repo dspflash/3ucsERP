@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" ?>
+<WndTap Name="iot_bi" transactional="0" Text="工业互联网">
+<Language name="iot_data">
+<Lang name="iot_data" value="iot_data"/>
+<Lang name="devs" value="设备"/>
+<Lang name="dev_data" value="工况数据"/>
+<Lang name="TabEditiot_data" value="iot_data Edit"/>
+<Lang name="TabViewiot_data" value="iot_data View"/>
+<Lang name="idx" value=""/>
+<Lang name="ttp_idx" value=""/>
+<Lang name="dt" value="日期"/>
+<Lang name="ttp_dt" value=""/>
+<Lang name="prodtp" value="机种名"/>
+<Lang name="ttp_prodtp" value=""/>
+<Lang name="opmode" value="运转模式名"/>
+<Lang name="ttp_opmode" value=""/>
+<Lang name="prodname" value="产品名称"/>
+<Lang name="ttp_prodname" value=""/>
+<Lang name="modno" value="模具No."/>
+<Lang name="ttp_modno" value=""/>
+<Lang name="mods" value="模数"/>
+<Lang name="ttp_mods" value=""/>
+<Lang name="modsplan" value="模数(计划)"/>
+<Lang name="tcycle" value="循环时间"/>
+<Lang name="ttp_tcycle" value=""/>
+<Lang name="trun" value=""/>
+<Lang name="ttp_trun" value=""/>
+<Lang name="days2show" value="显示天数"/>
+<Lang name="tstop" value=""/>
+<Lang name="ttp_tstop" value=""/>
+<Lang name="ttp_operationiot_data" value=""/>
+<Lang name="ttp_createiot_data" value=""/>
+<Lang name="ttp_modifyiot_data" value=""/>
+<Lang name="ttp_resetiot_data" value=""/>
+<Lang name="ttp_deleteiot_data" value=""/>
+<Lang name="ttp_refreshiot_data" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>
+<Ctrls>
+<GroupBox Text="车间设备数据" Name="xdw_so" id="xdw_so" cols="xs12 sm12 md12 lg12" Size="100,100"><Ctrls>
+	<GroupBox Name="btns" cols="xs12 sm12 md12 lg12" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_devs"><Ctrls>
+		<Label Align="Right" Text="devs" onload="init" Name="lb_devs" Size="60,20"/>
+		<ComboBox Weight="100" Text="" ToolTip="ttp_devs" onload="init" Name="devs" selectedIndex="0" Size="100,100">
+			<DbDetails>
+		<Index>idx</Index>
+		<DbTable>iot_dev d JOIN iot_dev_data dd ON d.dev_idx=dd.dev_idx AND d.actived AND dd.actived JOIN iot_data_latest dl ON dl.topic=dd.topic</DbTable>
+		<Data>dev_name,dl.topic,data_name,dev_type,dev_id,data_id,data_param,d.dev_idx</Data>
+		<Where/>
+		<queryFormat/></DbDetails><OnSelEndOk><submit next="refreshdata" function="click"/><mqtt next="plcs_conn" function="subscribe" expr="%{devs[dev_type]}/%{devs[dev_id]}/sys/conn"/></OnSelEndOk></ComboBox>
+		<MagicCtrl Name="refreshdevs" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="devs"/></OnClick></MagicCtrl>
+		<MagicCtrl Weight="50" ToolTip="ttp_plcs_conn" Name="plcs_conn" visible0="false" Size="50,20">
+		<imgmap><map name="0" value="layout/ucin,off.png"/><map name="1" value="layout/ucin,on.png"/></imgmap></MagicCtrl>
+		<Button Name="refreshdata" Size="20,20" Text="刷新" tooltip="刷新数据" visible="false"><OnClick><submit next="iot_dataLst"/><submit next="chart_mods"/><submit next="chart_utilization"/><submit next="IotNoSQLLst"/></OnClick></Button>
+		</Ctrls></GroupBox>
+		<GroupBox Name="GB_dt" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+			<Label Name="lb_dt" Size="60,20" Text="dt" Align="Right"/>
+			<DateTime Name="dt" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170"  ToolTip="ttp_dt" readonly="1"></DateTime>
+		</Ctrls></GroupBox>
+		<GroupBox Name="GB_prodname" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+			<Label Name="lb_prodname" Size="60,20" Text="prodname" Align="Right"/>
+			<TextBox Name="prodname" Size="170,20" Text="" Weight="170" ToolTip="ttp_prodname" readonly="1"></TextBox>
+		</Ctrls></GroupBox>
+		
+		
+		<BR AutoHeight="1"/>
+		<GroupBox Name="GB_opmode" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+			<Label Name="lb_opmode" Size="60,20" Text="opmode" Align="Right"/>
+			<TextBox Name="opmode" Size="170,20" Text="" Weight="170" ToolTip="ttp_opmode" readonly="1"></TextBox>
+		</Ctrls></GroupBox>
+		<GroupBox Name="GB_prodtp" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+			<Label Name="lb_prodtp" Size="60,20" Text="prodtp" Align="Right"/>
+			<TextBox Name="prodtp" Size="170,20" Text="" Weight="170" ToolTip="ttp_prodtp" readonly="1"></TextBox>
+		</Ctrls></GroupBox>
+		<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_modsplan"><Ctrls>
+		<Label Name="lb_modsplan" Size="60,20" Text="modsplan" Align="Right"/>
+		<TextBox Name="modsplan" Size="170,20" Text="" Weight="170" ToolTip="ttp_modsplan" readonly="1"></TextBox>
+		</Ctrls></GroupBox>
+		
+		
+		<BR AutoHeight="1"/>
+		<GroupBox Name="GB_tcycle" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+		<Label Name="lb_tcycle" Size="60,20" Text="tcycle" Align="Right"/>
+		<TextBox Name="tcycle" Size="170,20" Text="" Weight="170" ToolTip="ttp_tcycle" readonly="1"></TextBox>
+		</Ctrls></GroupBox>		
+		<GroupBox Name="GB_modno" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+			<Label Name="lb_modno" Size="60,20" Text="modno" Align="Right"/>
+			<TextBox Name="modno" Size="170,20" Text="" Weight="170" ToolTip="ttp_modno" readonly="1"></TextBox>
+		</Ctrls></GroupBox>
+		<GroupBox Name="GB_mods" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+		<Label Name="lb_mods" Size="60,20" Text="mods" Align="Right"/>
+		<TextBox Name="mods" Size="170,20" Text="" Weight="170" ToolTip="ttp_mods" readonly="1"></TextBox>
+		<ListCtrl Name="iot_dataLst" ToolTip="ttp_iot_data" Size="70,40" visible="false" fcsm="1" loadedclick="1">
+			<DbDetails fcsm="1">
+			<Index>idx</Index>
+			<DbTable>xbs.iot_data_latest</DbTable>
+			<Data>idx,dt,prodtp,opmode,prodname,modno,modsplan,mods,tcycle,(trun)*100/(trun+tstop) as utilization,mods*100/modsplan as wip_progress</Data><Where>topic='%{devs[topic]}'</Where>
+			<Order>idx</Order></DbDetails>
+			</ListCtrl>
+		</Ctrls></GroupBox>
+		
+		<BR AutoHeight="1"/>
+		<GroupBox Name="GB_FPY" Multiline="0" cols="xs12 sm6 md3"><Ctrls>
+		<GraphChart Name="FPY" Size="300,150" Type="gauge" minvalue="0" maxvalue="100" arcstart="135" arcsweep="" rangestart="0,85,90,95,100" rangeend0="90,200,295" rangecolor="#0045ff,#00A5FF,#b84,#228b22," Title="Gauge" SubTitle="直通率" value="99" CapPostion="0,-0.5;0,-0.3;0,0.5" CapColor="#111,#00f,#0f0"/>
+		</Ctrls></GroupBox>
+		<!--GraphChart Name="progress1" Size="200,20" Type="progress"  Title="Progress" value="50"/-->
+		<GroupBox Name="GB_utilization" Multiline="0" cols="xs12 sm6 md3"><Ctrls>
+		<GraphChart Name="utilization" Size="300,150" Type="gauge" minvalue="0" maxvalue="100" arcstart="135" arcsweep="" rangestart="0,85,90,95,100" rangeend0="90,200,295" rangecolor="#0045ff,#00A5FF,#b84,#228b22," Title="Gauge" SubTitle="稼动率" value="92" CapPostion="0,-0.5;0,-0.3;0,0.5" CapColor="#111,#00f,#0f0" onload="init">
+			<!--DbDetails>
+				<DbTable>xbs.iot_data</DbTable><Index></Index>
+				<Data>dt,SUM(mods) as 模数</Data><Order></Order><Where></Where>
+				<queryFormat>SELECT SUM(trun)*100/SUM(trun+tstop) as val FROM xbs.iot_data_latest GROUP BY dt</queryFormat> 
+			</DbDetails--></GraphChart>
+		</Ctrls></GroupBox>
+		<GroupBox Name="GB_progress" Multiline="0" cols="xs12 sm6 md3"><Ctrls>
+			<GraphChart Name="wip_progress" Size="200,150" Type="circle_progress"  Title="CircleProgress" value="50"/>
+		</Ctrls></GroupBox>
+		<GroupBox Name="GB_settings" cols="xs12 sm6 md3"><Ctrls>
+		<GroupBox  Name="GB_days2show"><Ctrls>
+		<Label Align="Right" Text="days2show" onload="init" Name="lb_days2show" Size="60,20"/>
+		<ComboBox Weight="80" ToolTip="ttp_days2show" items="7|15|30|90|180|365" Name="days2show" selectedIndex="0" Size="80,100"><OnSelEndOk><submit next="chart_mods"/><submit next="chart_utilization"/></OnSelEndOk></ComboBox>
+		</Ctrls></GroupBox><BR/>
+		<GroupBox Name="GB_dev_data"><Ctrls>
+		<Label Align="Right" Text="dev_data" onload="init" Name="lb_dev_data" Size="60,20"/><BR/>
+		<ComboBox Weight="150" Text="" ToolTip="ttp_dev_data" onload="init" Name="dev_data" selectedIndex="0" Size="150,100">
+			<DbDetails>
+		<Index>idx</Index>
+		<DbTable>iot_dev d JOIN iot_dev_data dd ON d.dev_idx=dd.dev_idx AND d.actived AND dd.actived order by orderidx desc</DbTable>
+		<Data>data_name,dev_type,dev_id,data_id,data_param,columns,dd.dev_data_idx</Data>
+		<Where/>
+		<queryFormat/></DbDetails><OnSelEndOk><submit next="IotNoSQLLst"/></OnSelEndOk></ComboBox>
+		<MagicCtrl Name="refreshdev_data" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="dev_data"/></OnClick></MagicCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+
+	</Ctrls></GroupBox><BR AutoHeight="1"/>
+	<GroupBox Name="c1" cols="xs12 sm12 md12 lg12" Size="100,100"><Ctrls>
+		<GraphChart Name="chart_mods" Size="1000,200"  Type="0" legendx="xinfo" legendy="yinfo" title="模数">
+			<DbDetails>
+				<DbTable>xbs.iot_data</DbTable><Index></Index>
+				<Data>dt,SUM(mods) as 模数</Data><Order></Order>
+				<Where>topic='%{devs[topic]}'</Where>
+				<queryFormat>SELECT DATE_FORMAT(dt,'%m-%d'),SUM(mods) as 模数 FROM xbs.iot_data where DATE_SUB(CURDATE(), INTERVAL %{days2show[windowtext]} DAY) &lt; dt GROUP BY dt</queryFormat>
+			</DbDetails></GraphChart>
+	</Ctrls></GroupBox><BR AutoHeight="1"/>
+	<GroupBox Name="c2" cols="xs12 sm12 md12 lg12" Size="100,100"><Ctrls>
+		<GraphChart Name="chart_utilization" Size="1000,200"  Type="2" legendx="xinfo" legendy="yinfo" title="稼动率">
+		<DbDetails>
+				<DbTable>xbs.iot_data</DbTable><Index></Index>
+				<Data>dt,SUM(trun)*100/SUM(trun+tstop) as 稼动率</Data><Order></Order><Where>topic='%{devs[topic]}'</Where>
+				<queryFormat>SELECT DATE_FORMAT(dt,'%m-%d'),SUM(trun)*100/SUM(trun+tstop) as 稼动率 FROM xbs.iot_data where DATE_SUB(CURDATE(), INTERVAL %{days2show[windowtext]} DAY) &lt; dt GROUP BY dt</queryFormat> 
+			</DbDetails></GraphChart>
+
+	</Ctrls></GroupBox><BR AutoHeight="1"/>
+	<GroupBox cols="xs12 sm12 md12 lg12"><Ctrls>
+		<ListCtrl Name="IotNoSQLLst" PageSize="10" loadedclick="1" Size="500,300">
+			<DbDetails>
+				<DbDatabase>..\..\3UCS\\xdb\\iot.conf</DbDatabase> 
+				<!--DbDatabase>E:\vcsln\rs\ssdb-ssdb-server-windows\ssdb-server-win\Release\ssdb.conf</DbDatabase--> %{mqtt_topic}
+				<datatype>NoSQL</datatype> id,topic,data6 as mods
+				<queryFormat>select %{dev_data[columns]} from iot where topic='%{dev_data[dev_type]}/%{dev_data[dev_id]}/%{dev_data[data_id]}/%{dev_data[data_param]}' limit 0,100 score ,4 week ago</queryFormat> limit 100 score now()
+				</DbDetails>where topic='%{mqtt_topic}' limit 0,100 score now(),2021-05-05 20:10
+			</ListCtrl>
+	</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls>
+<!--OnActivate><submit next="ExcelList"/><submit next="ExcelListpie"/><submit next="ExcelListmap"/></OnActivate-->
+</WndTap>

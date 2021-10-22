@@ -1,0 +1,38 @@
+﻿<Language name="iot_dev_data">
+<Lang name="iot_dev_data" value="设备数据"/>
+<Lang name="TabEditiot_dev_data" value="iot_dev_data Edit"/>
+<Lang name="TabViewiot_dev_data" value="iot_dev_data View"/>
+<Lang name="topic" value="数据主题"/>
+<Lang name="ttp_topic" value=""/>
+<Lang name="data_id" value="数据标识"/>
+<Lang name="ttp_data_id" value=""/>
+<Lang name="data_name" value="数据名称"/>
+<Lang name="ttp_data_name" value=""/>
+<Lang name="data_param" value="数据参数"/>
+<Lang name="ttp_data_param" value=""/>
+<Lang name="columns" value="数据字段"/>
+<Lang name="ttp_columns" value=""/>
+<Lang name="orderidx" value="排序"/>
+<Lang name="ttp_orderidx" value=""/>
+<Lang name="actived" value="启用"/>
+<Lang name="ttp_actived" value=""/>
+<Lang name="dev_idx" value=""/>
+<Lang name="ttp_dev_idx" value=""/>
+<Lang name="dev_data_idx" value=""/>
+<Lang name="ttp_dev_data_idx" value=""/>
+<Lang name="ttp_operationiot_dev_data" value=""/>
+<Lang name="ttp_createiot_dev_data" value=""/>
+<Lang name="ttp_modifyiot_dev_data" value=""/>
+<Lang name="ttp_resetiot_dev_data" value=""/>
+<Lang name="ttp_deleteiot_dev_data" value=""/>
+<Lang name="ttp_refreshiot_dev_data" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

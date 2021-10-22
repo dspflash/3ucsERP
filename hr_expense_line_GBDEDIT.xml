@@ -1,0 +1,135 @@
+﻿<GroupBox Name="GBDEDIThr_expense_line"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_claim_date"><Ctrls>
+<Label Align="Right" Text="claim_date" Name="lb_claim_date" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_claim_date" Name="claim_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_receipt_amount"><Ctrls>
+<Label Align="Right" Text="receipt_amount" Name="lb_receipt_amount" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_receipt_amount" Name="receipt_amount" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_receipt_currency"><Ctrls>
+<Label Align="Right" Text="receipt_currency" onload="init" Name="lb_receipt_currency" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_receipt_currency" onload="init" Name="receipt_currency" Size="170,100">
+	<DbDetails>
+<Index>currency_id</Index>
+<DbTable>xbs.currency</DbTable>
+<Data>title,(SELECT currency_code FROM xbs.org_ledger_v WHERE org_id='%{orgid}') ledger_currency,currency_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><if cond="%{receipt_currency[currency_id]}"><if cond="%{receipt_currency[ledger_currency]}"><submit next="currency_conversion_type"/></if></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_exchange_rate"><Ctrls>
+<Label Align="Right" Text="exchange_rate" Name="lb_exchange_rate" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_exchange_rate" Name="exchange_rate" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_expense_type"><Ctrls>
+<Label Align="Right" Text="expense_type" Name="lb_expense_type" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_expense_type" Name="expense_type" Size="170,100">
+	<DbDetails>
+<Index>hr_expense_tpl_line_id</Index>
+<DbTable>xbs.hr_expense_tpl_line</DbTable>
+<Data>expense_item,hr_expense_tpl_line_id</Data>
+<Where>hr_expense_tpl_header_id=(SELECT expense_template_id FROM hr_expense_header WHERE hr_expense_header_id='%{hr_expense_header_id}')</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_status" Visible="false"><Ctrls>
+<Label Align="Right" Text="status" overlap="pre" Name="lb_status" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_status" overlap="pre" Name="status" readonly="true" Size="170,20" Visible="false">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=132</Where>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_purpose"><Ctrls>
+<Label Align="Right" Text="purpose" Name="lb_purpose" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_purpose" Name="purpose" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_start_date"><Ctrls>
+<Label Align="Right" Text="start_date" Name="lb_start_date" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_start_date" Name="start_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_daily_rate"><Ctrls>
+<Label Align="Right" Text="daily_rate" Name="lb_daily_rate" Size="60,20"/>
+<TextBox Weight="170" Text="0" ToolTip="ttp_daily_rate" Name="daily_rate" Size="170,20"><OnEnChange><submit next="cal_expense" function="click"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_no_of_days"><Ctrls>
+<Label Align="Right" Text="no_of_days" Name="lb_no_of_days" Size="60,20"/>
+<TextBox Weight="170" Text="0" ToolTip="ttp_no_of_days" Name="no_of_days" Size="170,20"><OnEnChange><submit next="cal_expense" function="click"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_expense_location"><Ctrls>
+<Label Align="Right" Text="expense_location" onload="init" Name="lb_expense_location" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_expense_location" onload="init" Name="expense_location" Size="170,100">
+	<DbDetails>
+<Index>hr_location_id</Index>
+<DbTable>xbs.hr_location</DbTable>
+<Data>combination,hr_location_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_line_number" Visible="false"><Ctrls>
+<Label Align="Right" Text="line_number" overlap="pre" Name="lb_line_number" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_line_number" overlap="pre" Name="line_number" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_per_diem_rate"><Ctrls>
+<Label Align="Right" Text="per_diem_rate" Name="lb_per_diem_rate" Size="60,20"/>
+<TextBox Weight="170" Text="0" ToolTip="ttp_per_diem_rate" Name="per_diem_rate" Size="170,20"><OnEnChange><submit next="cal_expense" function="click"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_per_diem_days"><Ctrls>
+<Label Align="Right" Text="per_diem_days" Name="lb_per_diem_days" Size="60,20"/>
+<TextBox Weight="170" Text="0" ToolTip="ttp_per_diem_days" Name="per_diem_days" Size="170,20"><OnEnChange><submit next="cal_expense" function="click"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mileage_uom_id"><Ctrls>
+<Label Align="Right" Text="mileage_uom_id" onload="init" Name="lb_mileage_uom_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_mileage_uom_id" onload="init" Name="mileage_uom_id" Size="170,100">
+	<DbDetails>
+<Index>uom_id</Index>
+<DbTable>xbs.uom</DbTable>
+<Data>uom_name,uom_id</Data>
+<Where>class=111</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mileage_distace"><Ctrls>
+<Label Align="Right" Text="mileage_distace" Name="lb_mileage_distace" Size="60,20"/>
+<TextBox Weight="170" Text="0" ToolTip="ttp_mileage_distace" Name="mileage_distace" Size="170,20"><OnEnChange><submit next="cal_expense" function="click"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mileage_rate"><Ctrls>
+<Label Align="Right" Text="mileage_rate" Name="lb_mileage_rate" Size="60,20"/>
+<TextBox Weight="170" Text="0" ToolTip="ttp_mileage_rate" Name="mileage_rate" Size="170,20"><OnEnChange><submit next="cal_expense" function="click"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_vendor_name"><Ctrls>
+<Label Align="Right" Text="vendor_name" Name="lb_vendor_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_vendor_name" Name="vendor_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_vendor_details"><Ctrls>
+<Label Align="Right" Text="vendor_details" Name="lb_vendor_details" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_vendor_details" Name="vendor_details" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_original_receipt_missing_cb"><Ctrls>
+<CheckBox Text="original_receipt_missing_cb" ToolTip="ttp_original_receipt_missing_cb" Name="original_receipt_missing_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_hr_expense_line_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="hr_expense_line_id" overlap="pre" Name="lb_hr_expense_line_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hr_expense_line_id" overlap="pre" Name="hr_expense_line_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{hr_expense_line_id}'"><SetVisible name="inserthr_expense_line" Visible="0"/><SetVisible name="modifyhr_expense_line" Visible="1"/><else/><SetVisible name="inserthr_expense_line" Visible="1"/><SetVisible name="modifyhr_expense_line" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_hr_expense_header_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="hr_expense_header_id" overlap="pre" Name="lb_hr_expense_header_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hr_expense_header_id" overlap="pre" Name="hr_expense_header_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><submit next="expense_type"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<Button Name="cal_expense" Size="50,20" visible="0"><OnClick><if cond="1"><assign name="receipt_amount" expr="js((%{daily_rate}*%{no_of_days})+(%{per_diem_rate}*%{per_diem_days})+(%{mileage_distace}*%{mileage_rate}))"/></if></OnClick></Button></Ctrls></GroupBox>

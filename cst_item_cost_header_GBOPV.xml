@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVcst_item_cost_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletecst_item_cost_header" Name="deletecst_item_cost_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.cst_item_cost_header</DbTable>
+<Where>cst_item_cost_header_id='%{cst_item_cost_headerLst[cst_item_cost_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchcst_item_cost_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshcst_item_cost_header" Name="searchcst_item_cost_header" Size="50,20">
+			  <OnClick><submit next="cst_item_cost_headerLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPcst_item_cost_headerLst" OnClick="(cst_item_cost_headerLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREcst_item_cost_headerLst" OnClick="(cst_item_cost_headerLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPcst_item_cost_headerLst" OnClick="(cst_item_cost_headerLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVsd_opportunity" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletesd_opportunity" Name="deletesd_opportunity" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_opportunity</DbTable>
+<Where>sd_opportunity_id='%{sd_opportunityLst[sd_opportunity_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchsd_opportunity" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshsd_opportunity" Name="searchsd_opportunity" Size="50,20">
+			  <OnClick><submit next="sd_opportunityLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPsd_opportunityLst" OnClick="(sd_opportunityLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREsd_opportunityLst" OnClick="(sd_opportunityLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPsd_opportunityLst" OnClick="(sd_opportunityLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEhr_perdiem_rate" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hr_perdiem_rate_id" Text="create" ToolTip="ttp_createhr_perdiem_rate" Name="inserthr_perdiem_rate" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hr_perdiem_rate</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>hr_location_id[hr_location_id],hr_grade_id[hr_grade_id],rate,from_date,to_date,currency[currency_id],description</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{inserthr_perdiem_rate[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_perdiem_rateLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_perdiem_rate_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_perdiem_rate" Name="modifyhr_perdiem_rate" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hr_perdiem_rate</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>hr_location_id[hr_location_id],hr_grade_id[hr_grade_id],rate,from_date,to_date,currency[currency_id],description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hr_perdiem_rate_id='%{hr_perdiem_rate_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyhr_perdiem_rate[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_perdiem_rateLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_perdiem_rate_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_perdiem_rate" Name="resethr_perdiem_rate" Size="50,20">
+<OnClick>
+<submit next="GBDEDIThr_perdiem_rate" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchhr_perdiem_rate" Name="gsearchhr_perdiem_rate" Size="50,20" visible="false">
+<OnClick>
+<search next="hr_perdiem_rateLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDIThr_perdiem_rate" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="gl_ledger_balancing_values" Name="gl_ledger_balancing_values" Ver="2">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\gl_ledger_balancing_values.xml"/>
+<Ctrls>
+<GroupBox Text="gl_ledger_balancing_values" Name="GBgl_ledger_balancing_values" id="gl_ledger_balancing_values" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_ledger_balancing_values_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_ledger_balancing_values_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_ledger_balancing_values_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_ledger_balancing_values_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

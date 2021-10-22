@@ -1,0 +1,80 @@
+﻿<GroupBox Name="GBDEDITcontact"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_firstname"><Ctrls>
+<Label Align="Right" Text="firstname" Name="lb_firstname" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_firstname" Name="firstname" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_lastname"><Ctrls>
+<Label Align="Right" Text="lastname" Name="lb_lastname" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_lastname" Name="lastname" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_phone"><Ctrls>
+<Label Align="Right" Text="phone" Name="lb_phone" Size="60,20"/>
+<TextBox Weight="150" Text="" ToolTip="ttp_phone" Name="phone" Size="150,20"/>
+<MagicCtrl ToolTip="DialToCall" Name="dialphone" OnClick="nis3ucs:%{phone}" images=" ,data/startcall_green.png" button="type:0" Size="20,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_title"><Ctrls>
+<Label Align="Right" Text="title" Name="lb_title" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_title" Name="title" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_email"><Ctrls>
+<Label Align="Right" Text="email" Name="lb_email" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_email" Name="email" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mobile"><Ctrls>
+<Label Align="Right" Text="mobile" Name="lb_mobile" Size="60,20"/>
+<TextBox Weight="150" Text="" ToolTip="ttp_mobile" Name="mobile" Size="150,20"/>
+<MagicCtrl ToolTip="DialToCall" Name="dialmobile" OnClick="nis3ucs:%{mobile}" images=" ,data/startcall_green.png" button="type:0" Size="20,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_department"><Ctrls>
+<Label Align="Right" Text="department" Name="lb_department" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_department" Name="department" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_fax"><Ctrls>
+<Label Align="Right" Text="fax" Name="lb_fax" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_fax" Name="fax" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_training"><Ctrls>
+<Label Align="Right" Text="training" Name="lb_training" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_training" Name="training" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_otheremail"><Ctrls>
+<Label Align="Right" Text="otheremail" Name="lb_otheremail" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_otheremail" Name="otheremail" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_secondaryemail"><Ctrls>
+<Label Align="Right" Text="secondaryemail" Name="lb_secondaryemail" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_secondaryemail" Name="secondaryemail" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_contactid" Visible="false"><Ctrls>
+<Label Align="Right" Text="contactid" overlap="pre" Name="lb_contactid" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_contactid" overlap="pre" Name="contactid" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{contactid}'"><SetVisible name="insertcontact" Visible="0"/><SetVisible name="modifycontact" Visible="1"/><else/><SetVisible name="insertcontact" Visible="1"/><SetVisible name="modifycontact" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_reftbltp" Visible="false"><Ctrls>
+<Label Align="Right" Text="reftbltp" overlap="pre" Name="lb_reftbltp" Size="60,20" Visible="false"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_reftbltp" overlap="pre" Items="customer|customersite|supplier|suppliersite|org|employee|bank|banksite|bankaccount" Name="reftbltp" Size="170,100" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_refid" Visible="false"><Ctrls>
+<Label Align="Right" Text="refid" overlap="pre" Name="lb_refid" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_refid" overlap="pre" Name="refid" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_org_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="org_id" overlap="pre" Name="lb_org_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_org_id" overlap="pre" Name="org_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

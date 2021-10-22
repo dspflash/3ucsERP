@@ -1,0 +1,26 @@
+﻿<GroupBox Name="GBDEDIThr_payroll" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_payroll" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_payroll" Size="60,20" Text="payroll" Align="Right"/>
+<TextBox Name="payroll" Size="170,20" Text="" Weight="170" ToolTip="ttp_payroll"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_period_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_period_type" Size="60,20" Text="period_type" Align="Right"  onload="init"/>
+<ComboBox Name="period_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_period_type"  onload="init">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=200</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_payment_method_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_payment_method_id" Size="60,20" Text="payment_method_id" Align="Right"  onload="init"/>
+<ComboBox Name="payment_method_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_payment_method_id"  onload="init">
+	<DbDetails>
+<Index>hr_payroll_payment_method_id</Index>
+<DbTable>xbs.hr_payroll_payment_method</DbTable>
+<Data>payment_method,hr_payroll_payment_method_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

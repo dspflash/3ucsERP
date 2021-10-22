@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_transaction_adjustment"><Ctrls>
+<ListCtrl Heading="ar_receivable_activity_id,120;adjustment_quantity,75;adjustment_amount,75;description,640;adjustment_date,90;gl_adjustment_amount,75;exchange_rate,75;adjustment_ac_id,60;reason,250;status,150;line_source,125;reference_type,125;reference_key_name,125;reference_key_value,125;period_id,60;gl_journal_header_id,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_transaction_adjustment_id,60;" loadedclick="0" ToolTip="ttp_ar_transaction_adjustment" Name="ar_transaction_adjustmentLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_adjustment</DbTable>
+<Index>ar_transaction_adjustment_id</Index>
+<Data>ar_receivable_activity_id,adjustment_quantity,adjustment_amount,description,adjustment_date,gl_adjustment_amount,exchange_rate,adjustment_ac_id,reason,status,line_source,reference_type,reference_key_name,reference_key_value,period_id,gl_journal_header_id,created_by,creation_date,last_update_by,last_update_date,ar_transaction_adjustment_id</Data>
+<Order>ar_transaction_adjustment_id</Order></DbDetails>
+<OnClick><assign name="ar_receivable_activity_id[ar_receivable_activity_id]" function="SetSel" expr="%{ar_transaction_adjustmentLst[ar_receivable_activity_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

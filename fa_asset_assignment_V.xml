@@ -1,0 +1,20 @@
+﻿<WndTap Name="fa_asset_assignment_v" Text="fa_asset_assignment_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fa_asset_assignment_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><hr_employee_id format="f.hr_employee_id='%{opvalue}'"/><address_id format="(f.address_id like '%%{opvalue}%')"/><expense_ac_id format="(f.expense_ac_id like '%%{opvalue}%')"/><description format="(f.description like '%%{opvalue}%')"/><units format="(f.units like '%%{opvalue}%')"/><created_by format="(f.created_by like '%%{opvalue}%')"/><creation_date format="(f.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(f.last_update_by like '%%{opvalue}%')"/><last_update_date format="(f.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><fa_asset_id format="(f.fa_asset_id like '%%{opvalue}%')"/><fa_asset_assignment_id format="(f.fa_asset_assignment_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\fa_asset_assignment.xml"/>
+<Ctrls><GroupBox  Name="GBfa_asset_assignment" id="fa_asset_assignment" Text="fa_asset_assignment" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fa_asset_assignment_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVfa_asset_assignment" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.fa_asset_assignment.GBDEDITfa_asset_assignment" function="reset"/><assign name="$this.fa_asset_assignment.frmwndctrl" expr="%{$this.fa_asset_assignment_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetfa_asset_assignment" Name="resetfa_asset_assignment" Size="50,20">	<OnClick>	<submit next="GBDEDITfa_asset_assignment" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchfa_asset_assignment" Name="gsearchfa_asset_assignment" Size="50,20">	<OnClick>	
+<search next="fa_asset_assignment_vLst" listed="0" prefixwhere="0" prefixand="1" inputed="1">%{searchtmpl}</search><submit next="GBDEDITfa_asset_assignment" namelist="search" function="search"/>	
+<search next="records_fa_asset_assignment" listed="0" prefixwhere="0" prefixand="1"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITfa_asset_assignment" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fa_asset_assignment_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fa_asset_assignment_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fa_asset_assignment_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

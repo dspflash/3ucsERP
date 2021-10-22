@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEgl_budget_ac_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="gl_budget_ac_line_id" Text="create" ToolTip="ttp_creategl_budget_ac_line" Name="insertgl_budget_ac_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_budget_ac_line</DbTable>
+<Data>gl_budget_ac_header_id[gl_budget_ac_header_id],coa_combination_id[coa_combination_id],type,currency[currency_id],description</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="gl_budget_ac_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifygl_budget_ac_line" Name="modifygl_budget_ac_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_budget_ac_line</DbTable>
+<Data>gl_budget_ac_header_id[gl_budget_ac_header_id],coa_combination_id[coa_combination_id],type,currency[currency_id],description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>gl_budget_ac_line_id='%{gl_budget_ac_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="gl_budget_ac_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetgl_budget_ac_line" Name="resetgl_budget_ac_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITgl_budget_ac_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchgl_budget_ac_line" Name="gsearchgl_budget_ac_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="gl_budget_ac_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITgl_budget_ac_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

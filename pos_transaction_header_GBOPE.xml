@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEpos_transaction_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="pos_transaction_header_id" Text="create" ToolTip="ttp_createpos_transaction_header" Name="insertpos_transaction_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pos_transaction_header</DbTable>
+<Data>terminal_name,currency_code,header_amount,tax_amount,discount_amount,total_amount,description,ar_customer_id,ar_customer_site_id,pos_transaction_header_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpos_transaction_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypos_transaction_header" Name="modifypos_transaction_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pos_transaction_header</DbTable>
+<Data>terminal_name,currency_code,header_amount,tax_amount,discount_amount,total_amount,description,ar_customer_id,ar_customer_site_id,pos_transaction_header_id</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>pos_transaction_header_id='%{pos_transaction_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpos_transaction_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpos_transaction_header" Name="resetpos_transaction_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpos_transaction_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchpos_transaction_header" Name="gsearchpos_transaction_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="pos_transaction_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITpos_transaction_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

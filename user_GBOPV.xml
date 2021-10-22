@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVuser" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteuser" Name="deleteuser" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.user</DbTable>
+<Where>user_id='%{userLst[user_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchuser" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshuser" Name="searchuser" Size="50,20">
+			  <OnClick><submit next="userLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPuserLst" OnClick="(userLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREuserLst" OnClick="(userLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPuserLst" OnClick="(userLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

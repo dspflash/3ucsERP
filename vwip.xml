@@ -1,0 +1,277 @@
+<WndTap Name="vWip" Text="vWip">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xbs_log_vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_routing_line_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_bom_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_pick.xml" popup="1"/>
+	<WndTap Text="wip_wo_routing_line_stat" Name="wip_wo_routing_line_stat" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_routing_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="wip_wo_routing_line" Name="GBwip_wo_routing_line" id="wip_wo_routing_line" Size="100,100"><Ctrls>
+				<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl ToolTip="ttp_item" Name="wip_wo_routing_lineLst" DataJoin="%{this}%{mstat}" Size="700,420">
+		<MDX id="mstat">
+		<DbDetails>
+					<DbTable>wip_wo_routing_v</DbTable> 
+					<Index>h_id </Index>
+					<MDX>wo_number,standard_operation,completed_quantity</MDX>
+					<Data>wo_number,standard_operation,completed_quantity</Data>
+					<queryFormat>select %{data} from %{dbtable} where wo_status in (370,373) group by wo_number,standard_operation order by routing_sequence,routing_seq_num</queryFormat> 
+					<Order></Order>
+				</DbDetails>
+		</MDX>
+			<DbDetails>
+		<DbTable>xbs.wip_wo_routing_v</DbTable>
+		<Index>wip_wo_routing_line_id</Index>
+		<Data>wo_number,item_number</Data>
+		<Order>wip_wo_routing_line_id</Order>
+		<queryFormat>select %{data} from %{dbtable} where wo_status in (370,373) group by wo_number</queryFormat> 
+		</DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+	<op text="导出"><Save></Save><submit next="wip_wo_routing_lineLst" namelist="Save" function="savetofile"/></op>
+</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate></OnActivate>
+			</WndTap>
+	<WndTap Text="wip_wo_routing_line_v" Name="wip_wo_routing_line_v" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_routing_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="wip_wo_routing_line" Name="GBwip_wo_routing_line" id="wip_wo_routing_line" Size="100,100"><Ctrls>
+				<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl ToolTip="ttp_item" Name="wip_wo_routing_lineLst" Size="700,420">
+			<DbDetails>
+		<DbTable>xbs.wip_wo_routing_v</DbTable>
+		<Index>wip_wo_routing_line_id</Index>
+		<Data>*</Data>
+		<Order>wip_wo_routing_line_id</Order>
+		</DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+	<op text="addone" mustselected="0"><if cond="!%{woid}"><alert expr="请先添加或选择已有项目！"/><else/><DbDetails><Where>wip_wo_header_id='%{woid}' and wo_type!=368 and wo_status=369</Where></DbDetails><submit namelist="DbDetails" next="$parent.wip_wo_routing_line.wip_wo_header_id"/></if></op>
+	<op text="modify"><DbDetails><Where>wip_wo_header_id='%{woid}' and wo_type!=368 and wo_status=369</Where></DbDetails><submit namelist="DbDetails" next="$parent.wip_wo_routing_line.wip_wo_header_id"/><DbDetails><Where>wip_wo_routing_line_id='%{wip_wo_routing_lineLst[wip_wo_routing_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.wip_wo_routing_line.wip_wo_routing_lineLst"/></op>
+	<op text="导出"><Save></Save><submit next="wip_wo_routing_lineLst" namelist="Save" function="savetofile"/></op>
+</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate></OnActivate>
+			</WndTap>
+	<WndTap Text="wip_wo_bom_v" Name="wip_wo_bom_v" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_bom.xml"/>
+		<Ctrls>
+		<GroupBox Text="wip_wo_bom" Name="GBwip_wo_bom" id="wip_wo_bom" Size="100,100"><Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVwip_wo_bom"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_wip_wo_bom" Name="wip_wo_bomLst" Size="700,420" sum="0,1" sumcols="13,14">
+	<DbDetails fcsm="1">
+<DbTable>wip_wo_bom_v</DbTable>
+<Index>wip_wo_bom_id</Index>
+<Data>*</Data>
+<Order>wip_wo_bom_id</Order></DbDetails>mustselected
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+	<op text="addone" mustselected="0"><if cond="!%{woid}"><alert expr="请先添加或选择已有项目！"/><else/><DbDetails><Where>wip_wo_header_id='%{woid}' and wo_type!=368 and wo_status=369</Where></DbDetails><submit namelist="DbDetails" next="$parent.wip_wo_bom.wip_wo_header_id"/></if></op>
+	<op text="modify"><DbDetails><Where>wip_wo_header_id='%{woid}' and wo_type!=368 and wo_status=369</Where></DbDetails><submit namelist="DbDetails" next="$parent.wip_wo_bom.wip_wo_header_id"/><DbDetails><Where>wip_wo_bom_id='%{wip_wo_bomLst[wip_wo_bom_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.wip_wo_bom.wip_wo_bomLst"/></op>
+	<op text="导出"><Save></Save><submit next="wip_wo_bomLst" namelist="Save" function="savetofile"/></op>
+	<op text="wip_wo_header"><submit next="$parent.wip_wo_header.GBDEDITwip_wo_header" function="reset"/><submit next="$this.wip_wo_header.GBDEDITwip_wo_header" function="reset"/><DbDetails><Where>item_id_m='%{wip_wo_bomLst[material_id]}' and org_id='%{wip_wo_bomLst[org_id]}' and make_buy='make'</Where></DbDetails>
+			<submit namelist="DbDetails" next="$parent.wip_wo_header.item_id_m"/><assign name="$parent.wip_wo_header.item_id_m[selectedindex]" function="SetSel" expr="0"/><assign name="$parent.wip_wo_header.quantity" expr="%{wip_wo_bomLst[required_quantity]}"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			<OnActivate></OnActivate>
+			</WndTap>
+<WndTap Name="wip_wo_routing_detail_v" Text="wip_wo_routing_detail" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_routing_detail.xml"/>
+<Ctrls><GroupBox  Name="GBwip_wo_routing_detail" id="wip_wo_routing_detail" Text="wip_wo_routing_detail" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_routing_detail_Vvx.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
+	<WndTap Text="wostats" Name="wostats" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_move_transaction.xml"/>
+	<Ctrls>
+	<GroupBox Text="wo_completed" Name="GBwo_completed" id="wo_completed" Size="100,100"><Ctrls>
+	<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="moveLst" DataJoin="%{this}%{mstat}" DataJoinKey="wo_routingSequence" Size="700,420">
+	<operator refresh="1" firstpage="1" prepage="1" nextpage="1"/>
+		<MDX id="mstat" datatype="string">
+		<DbDetails>
+					<DbTable>wip_move_stat_v</DbTable> 
+					<Index>h_id </Index>
+					<MDX>wo_routingSequence,move_date,quantity</MDX>
+					<Data>wo_routingSequence,move_date,quantity</Data>
+					<Order></Order>
+				<queryFormat>select %{data} from %{dbtable} where mvtp=380382 AND %{where}</queryFormat> 
+				</DbDetails>
+		</MDX>
+	<DbDetails>
+	<DbTable>xbs.wip_wo_routing_v</DbTable>
+	<Index>routing_sequence</Index>
+	<Data>wo_number,item_number,standard_operation,concat(wip_wo_header_id,'_',routing_sequence,'-',routing_seq_num) wo_routingSequence</Data>
+	<Order>routing_sequence</Order>
+	</DbDetails>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<!--WndTap Text="itempick" Name="itempick" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\item.xml"/>
+	<Ctrls>
+	<GroupBox Text="item" Name="GBitem" id="item" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="material_GBDSEARCH.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="itemLst" listed="0" prefixand="1" inputed="1"><item_number format="item_number like '%%{opvalue}%'"/><item_name format="item_name like '%%{opvalue}%'"/><item_specification format="item_specification like '%%{opvalue}%'"/></search><submit next="GBDEDITitem" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+	<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" Name="itemLst" DataJoin="%{this(item_number,item_name,item_specification,item_description,org)}%{prop}" Size="700,420">
+	<operator refresh="1" firstpage="1" prepage="1" nextpage="1"/>
+		<MDX id="prop" datatype="string">
+		<DbDetails>
+					<DbTable>item_properties i left join item_property i0 on i.property_id=i0.property_id</DbTable> 
+					<MDX>item_id_m,propname,propvalue</MDX>
+					<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+					<Order></Order>
+					<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (select * from (SELECT org_id,item_id_m from item i where make_buy='make' and item_status!=278 and org_id='%{org_id}' %{where} limit %{StartRow},%{PgSize}) as t)</queryFormat> 
+				</DbDetails>
+		</MDX>
+	<DbDetails>
+	<DbTable>xbs.item i join org on i.org_id=org.org_id</DbTable>
+	<Index>item_id_m</Index>
+	<Data>item_id_m,item_number,item_name,item_specification,item_description,org,i.org_id</Data>
+	<Order>item_id_m</Order>
+	<queryFormat>select %{data} from %{dbtable} where make_buy='make' and item_status!=278 and i.org_id='%{org_id}' %{where} limit %{StartRow},%{PgSize}</queryFormat>
+	</DbDetails>
+	<OnClick><if cond="%{itemLst[item_id_m]}"><submit next="$parent.wip_wo_header.GBDEDITwip_wo_header" function="reset"/><DbDetails><Where>item_id_m='%{itemLst[item_id_m]}' and org_id='%{itemLst[org_id]}' and make_buy='make'</Where></DbDetails><submit namelist="DbDetails" next="$parent.wip_wo_header.item_id_m"/><assign name="$parent.wip_wo_header.item_id_m[selectedindex]" function="SetSel" expr="0"/><assign name="$parent.wip_wo_header.quantity" expr=""/><submit function="onok"/></if></OnClick>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap-->
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_print_v.xml"/>
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_bom_V.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_routing_line_V.xml" popup="1"/-->
+	<WndTap Text="wip_wo_header" Name="wip_wo_header" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_header.xml"/>
+<var name="dataRequired" expr="item_id_m[item_id_m],quantity,reference_bom_item_id_m[bom_header_id],reference_routing_item_id_m[bom_routing_header_id],org_id[org_id],completion_sub_inventory[subinventory_id]"/>
+		<Ctrls>
+		<GroupBox Text="wip_wo_header" Name="GBwip_wo_header" id="wip_wo_header" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_GBOPEm.xml"></xi:include>
+		<!--Button Text="ItemPick" ToolTip="ttp_Itempick" Name="ItemPick" Size="80,20">
+			<OnClick><assign name="$parent.itempick.org_id" expr="%{org_id[org_id]}"/><DbDetails><Where></Where></DbDetails>
+			<submit namelist="DbDetails" next="$parent.itempick.itemLst"/>
+			</OnClick>
+			</Button><TAB/-->
+		<!--Button Text="print" ToolTip="ttp_print" Name="print" Size="50,20" visible="true"><OnClick><submit next="GBwip_wo_header" function="print"/></OnClick></Button-->
+<!--Button ToolTip="ttp_wo_routing" Name="wo_routing" Size="50,20" text="wo_routing"><OnClick><assign name="$parent.wip_wo_routing_line_V.item_id_m" expr="%{item_id_m[item_id_m]}"/><DbDetails><Where>wip_wo_header_id='%{wip_wo_header_id}'</Where></DbDetails>
+	<submit next="$parent.wip_wo_routing_line_V.wip_wo_routing_line_VLst" namelist="DbDetails"/></OnClick></Button>
+<Button ToolTip="ttp_wo_bom" Name="wo_bom" Size="50,20" text="wo_bom"><OnClick><assign name="$parent.wip_wo_bom_V.item_id_m" expr="%{item_id_m[item_id_m]}"/><DbDetails><Where>wip_wo_header_id='%{wip_wo_header_id}'</Where></DbDetails>
+	<submit next="vwip.wip_wo_bom_V.wip_wo_bom_VLst" namelist="DbDetails"/></OnClick></Button-->
+		<ListCtrl loadedclick="1" ToolTip="ttp_wip_wo_header" Name="wip_wo_headerLst" Size="70,20" visible="0">
+			<DbDetails fcsm="1">
+			<DbTable>xbs.wip_wo_header</DbTable>
+			<Index>wip_wo_header_id</Index>
+			<Data>*</Data><Where>item_id_m='%{item_id_m[item_id_m]}'</Where>
+			<Order>wip_wo_header_id</Order></DbDetails>
+			<OnClick><assign name="reference_routing_item_id_m[bom_routing_header_id]" function="SetSel" expr="%{wip_wo_headerLst[reference_routing_item_id_m]}"/><assign name="reference_bom_item_id_m[bom_header_id]" function="SetSel" expr="%{wip_wo_headerLst[reference_bom_item_id_m]}"/><assign name="wo_type[option_line_id]" function="SetSel" expr="%{wip_wo_headerLst[wo_type]}"/><assign name="wip_accounting_group_id[wip_accounting_group_id]" function="SetSel" expr="%{wip_wo_headerLst[wip_accounting_group_id]}"/><assign name="completion_sub_inventory[subinventory_id]" function="SetSel" expr="%{wip_wo_headerLst[completion_sub_inventory]}"/><assign name="completion_locator[locator_id]" function="SetSel" expr="%{wip_wo_headerLst[completion_locator]}"/>
+			<magicdata filename="data/qr_wip_wo_number.png"><data>%{wip_wo_headerLst[wo_number]}</data></magicdata>
+			<submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+			<if cond="%{wip_wo_header_id}"><SetVisible name="insertwip_wo_header" Visible="0"/><SetVisible name="modifywip_wo_header" Visible="1"/><else/><SetVisible name="insertwip_wo_header" Visible="1"/><SetVisible name="modifywip_wo_header" Visible="0"/></if></OnClick></ListCtrl>
+		<MagicCtrl Name="qr_itemname" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="120,120" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate><SetVisible name="insertwip_wo_header" Visible="1"/><SetVisible name="modifywip_wo_header" Visible="0"/></OnActivate>
+			</WndTap>
+			</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_routing_line.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wo_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="Wip"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wo_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">
+	<OnClick><submit next="$this.wip_wo_header.GBDEDITwip_wo_header" function="reset"/></OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITwip_wo_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="WipLst" listed="0" prefixand="1" inputed="1"><wo_number format="(wo_number like '%%{opvalue}%')"/><item_number format="product like '%%{opvalue}%'"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search>
+	<submit next="GBDEDITwip_wo_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<!--Button Name="PrePage" Size="50,20" Text="上一页" OnClick="(WipLst)GetPage(Pre)"/>
+<Button Name="NextPage" Size="50,20" Text="下一页" OnClick="(WipLst)GetPage(Next)"/-->
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" colsDisplay="30" PageSize="500" ToolTip="ttp_item" onload="init" Name="WipLst" DataJoin="%{this}%{prop}" DataJoinKey="item_id_m" Size="700,420">
+			<MDX id="prop" datatype="string">
+			<DbDetails>
+				<DbTable>item_properties i left join item_property i0 on i.property_id=i0.property_id</DbTable> where 
+				<Index>h_id </Index>
+				<MDX>item_id_m,propname,propvalue</MDX>
+				<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+				<Order>wip_wo_header_id,build_sequence,scheduling_priority desc</Order>
+				<Where>and wo_status not in (374,1399)</Where> and (CURDATE() BETWEEN start_date AND completion_date)(CURDATE() BETWEEN SUBDATE(start_date,7) AND ADDDATE(completion_date,7))
+				<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (select * from((SELECT org_id,item_id_m from wip_wo_header_v where parent_wo_id=0 %{where} and IF((SELECT TYPE FROM xbs.org WHERE org_id='%{orgid}')=74,org_id='%{orgid}',org_id IN (SELECT org_id FROM xbs.org WHERE parent_org_id='%{orgid}' and type=74)) order by %{order} limit %{StartRow},%{PgSize}) as t))</queryFormat> 
+			</DbDetails>
+			</MDX>
+	<DbDetails>
+<DbTable>xbs.wip_wo_header_v</DbTable>
+<Index>wip_wo_header_id</Index>
+<Data>*</Data>
+<Order>wip_wo_header_id,build_sequence,scheduling_priority desc</Order>
+<Where>and wo_status not in (374,1399) and created_by='%{user_id}'</Where> and (CURDATE() BETWEEN start_date AND completion_date)(CURDATE() BETWEEN SUBDATE(start_date,7) AND ADDDATE(completion_date,7))
+<queryFormat>select %{data} from %{dbtable} where parent_wo_id=0 %{where} and IF((SELECT TYPE FROM xbs.org WHERE org_id='%{orgid}')=74,org_id='%{orgid}',org_id IN (SELECT org_id FROM xbs.org WHERE parent_org_id='%{orgid}' and type=74)) order by %{order} limit %{StartRow},%{PgSize}</queryFormat> 
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+	<op text="release" needconfirm="1"><assign name="topmost" expr="sql:call wipwoRelease('%{WipLst[wip_wo_header_id]}',%{user_id},%{orgid})"/><submit/></op>
+	<op text="ViewResultWO_Release"><DbDetails><Where>(user_id,org_id,task)=(%{user_id},%{orgid},'WO_Release')</Where></DbDetails><submit next="$this.xbs_log_v.xbs_log_vLst" namelist="DbDetails"/></op>
+	<op text="releaseCancel" needconfirm="1"><assign name="topmost" expr="sql:call wipwoReleaseCancel('%{WipLst[wip_wo_header_id]}',%{user_id},%{orgid})"/><submit/></op>
+	<op text="close" needconfirm="1"><assign name="topmost" expr="sql:update wip_wo_header set wo_status=374,closed_date=now() where wip_wo_header_id='%{WipLst[wip_wo_header_id]}' or primary_wo_id=%{WipLst[wip_wo_header_id]}"/><submit/></op>
+	<op text="cancel" needconfirm="1"><assign name="topmost" expr="sql:update wip_wo_header set wo_status=1399 where (wip_wo_header_id='%{WipLst[wip_wo_header_id]}' or primary_wo_id=%{WipLst[wip_wo_header_id]}) and wo_status=369"/><submit/></op>
+	<op text="modify"><assign name="vWip.wip_wo_header.woid" expr="%{WipLst[wip_wo_header_id]}"/><DbDetails><Where>wip_wo_header_id='%{vWip.wip_wo_header.woid}'</Where></DbDetails><submit namelist="DbDetails" next="vWip.wip_wo_header.wip_wo_headerLst"/><setvisible name="print" visible="0"/><setvisible name="GBOPEwip_wo_header" visible="1"/><DbDetails><Where>item_id_m='%{WipLst[item_id_m]}'</Where></DbDetails><submit namelist="DbDetails" next="vWip.wip_wo_header.item_id_m"/>
+	</op>
+	<op text="print"><setvisible name="print" visible="1"/><DbDetails><Where>item_id_m='%{WipLst[item_id_m]}'</Where></DbDetails><submit namelist="DbDetails" next="vWip.wip_wo_print.item_id_m"/><assign name="vWip.wip_wo_print.woid" expr="%{WipLst[wip_wo_header_id]}"/>
+	<DbDetails><Where>wip_wo_header_id='%{vWip.wip_wo_header.woid}'</Where></DbDetails><submit namelist="DbDetails" next="vWip.wip_wo_print.wip_wo_headerLst"/><submit namelist="DbDetails" next="vWip.wip_wo_print.wip_wo_bomLst"/></op>
+	<op text="wip_wo_routing_v"><assign name="vWip.wip_wo_routing_line_v.woid" expr="%{WipLst[wip_wo_header_id]}"/>
+	<DbDetails><Where>wo_id='%{vWip.wip_wo_routing_line_v.woid}'</Where></DbDetails><submit namelist="DbDetails" next="vWip.wip_wo_routing_line_v.wip_wo_routing_lineLst"/></op>
+	<op text="wip_wo_bom_v"><assign name="vWip.wip_wo_bom_v.woid" expr="%{WipLst[wip_wo_header_id]}"/>
+	<DbDetails><Where>wo_id='%{vWip.wip_wo_bom_v.woid}'</Where></DbDetails><submit namelist="DbDetails" next="vWip.wip_wo_bom_v.wip_wo_bomLst"/></op>
+	<op text="wip_wo_resource">
+	<DbDetails><Where>wip_wo_header_id='%{WipLst[wip_wo_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="vWip.wip_wo_routing_detail_v.wip_wo_routing_detail_vLst"/></op>
+	<op text="wip_wo_stat_v"><assign name="vWip.wostats.woid" expr="%{WipLst[wip_wo_header_id]}"/>
+	<DbDetails><Where>wo_id='%{woid}'</Where></DbDetails><submit namelist="DbDetails" next="vWip.wostats.moveLst"/></op>
+	<op text="wip_wo_routing_stat" mustselected="0"><submit next="vWip.wip_wo_routing_line_stat.wip_wo_routing_lineLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

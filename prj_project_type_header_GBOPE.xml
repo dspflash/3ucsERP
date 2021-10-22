@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEprj_project_type_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="prj_project_type_header_id" Text="create" ToolTip="ttp_createprj_project_type_header" Name="insertprj_project_type_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_project_type_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>project_type,project_class,service_type[prj_service_type_id],project_status[option_line_id],effective_from,effective_to,description,prj_work_type_id[prj_work_type_id],sponsored_cb,organization_planning_cb,intercompany_billing_cb,enableworkflow4projects,prj_burden_list_header_id[prj_burden_list_header_id],allowburdenlistoverride,burdencostonsametransaction,burdencomponentsinseparateprjtask,cost_burdened_cb,account_burdened_cost_cb,cost_budget_method[prj_bem_id],revenue_budget_method[prj_bem_id],cost_resource_list[prj_resource_list_header_id],allowcostbudgetentry,allowrevenuebudgetentry,revenue_resource_list[prj_resource_list_header_id],fundinglevel,enableworkflow4forbudgets,resourcelist4statusreporting[prj_resource_list_header_id],cip_cost_type,asset_cost_allocation_method,event_processing_method,grouping_method,requirecompleteassetdefinition,employee_schedule_id[prj_rate_schedule_header_id],job_schedule_id[prj_rate_schedule_header_id],l_revenue_burden_id[prj_burden_list_header_id],l_invoice_burdern_id[prj_burden_list_header_id],nrl_revenue_burden_id[prj_burden_list_header_id],nlr_invoice_burdern_id[prj_burden_list_header_id],nlr_schedule_id[prj_rate_schedule_header_id],labor_billing_type,nlr_billing_type,billing_cycle_id[prj_billing_cycle_id],billingoffsetdays,cost_cost_cb,cost_event_cb,cost_work_cb,event_event_cb,event_work_cb,work_event_cb,work_work_cb</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,bu_org_id;'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="prj_project_type_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyprj_project_type_header" Name="modifyprj_project_type_header" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_project_type_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>project_type,project_class,service_type[prj_service_type_id],project_status[option_line_id],effective_from,effective_to,description,prj_work_type_id[prj_work_type_id],sponsored_cb,organization_planning_cb,intercompany_billing_cb,enableworkflow4projects,prj_burden_list_header_id[prj_burden_list_header_id],allowburdenlistoverride,burdencostonsametransaction,burdencomponentsinseparateprjtask,cost_burdened_cb,account_burdened_cost_cb,cost_budget_method[prj_bem_id],revenue_budget_method[prj_bem_id],cost_resource_list[prj_resource_list_header_id],allowcostbudgetentry,allowrevenuebudgetentry,revenue_resource_list[prj_resource_list_header_id],fundinglevel,enableworkflow4forbudgets,resourcelist4statusreporting[prj_resource_list_header_id],cip_cost_type,asset_cost_allocation_method,event_processing_method,grouping_method,requirecompleteassetdefinition,employee_schedule_id[prj_rate_schedule_header_id],job_schedule_id[prj_rate_schedule_header_id],l_revenue_burden_id[prj_burden_list_header_id],l_invoice_burdern_id[prj_burden_list_header_id],nrl_revenue_burden_id[prj_burden_list_header_id],nlr_invoice_burdern_id[prj_burden_list_header_id],nlr_schedule_id[prj_rate_schedule_header_id],labor_billing_type,nlr_billing_type,billing_cycle_id[prj_billing_cycle_id],billingoffsetdays,cost_cost_cb,cost_event_cb,cost_work_cb,event_event_cb,event_work_cb,work_event_cb,work_work_cb</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>prj_project_type_header_id='%{prj_project_type_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="prj_project_type_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetprj_project_type_header" Name="resetprj_project_type_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITprj_project_type_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchprj_project_type_header" Name="gsearchprj_project_type_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="prj_project_type_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITprj_project_type_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

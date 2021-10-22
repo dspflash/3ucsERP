@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbom_dept_res_assignment"><Ctrls>
+<ListCtrl Heading="bom_department_id,120;resource_id,120;no_of_units,60;utilization,60;efficiency,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bom_dept_res_assignment_id,60;" loadedclick="0" ToolTip="ttp_bom_dept_res_assignment" Name="bom_dept_res_assignmentLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>bom_dept_res_assignment_id</Index>
+<DbTable>xbs.bom_dept_res_assignment b left join xbs.bom_department b0 on b.bom_department_id=b0.bom_department_id left join bom_resource br inner join xbs.bom_resource_cost brc on br.bom_resource_id=brc.bom_resource_id b1 on b.resource_id=b1.bom_resource_id</DbTable>
+<Data>b0.department bom_department_id,b1.resource resource_id,b.no_of_units,b.utilization,b.efficiency,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_dept_res_assignment_id</Data>
+<Order>bom_dept_res_assignment_id</Order></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>bom_dept_res_assignment_id='%{bom_dept_res_assignment_vLst[bom_dept_res_assignment_id]}'</Where></DbDetails><submit next="$this.bom_dept_res_assignment.bom_dept_res_assignmentLst" namelist="DbDetails"/><assign name="$this.bom_dept_res_assignment.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_dept_res_assignment</DbTable>
+<Where>bom_dept_res_assignment_id='%{bom_dept_res_assignment_vLst[bom_dept_res_assignment_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

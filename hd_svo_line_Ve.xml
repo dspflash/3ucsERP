@@ -1,0 +1,13 @@
+﻿<WndTap Name="hd_svo_line" Text="hd_svo_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="item_id_m[item_id_m],sd_so_header_id,hd_svo_header_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\hd_svo_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBhd_svo_line" id="hd_svo_line" Text="hd_svo_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_svo_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_svo_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_svo_line_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="inserthd_svo_line" Visible="1"/><SetVisible name="modifyhd_svo_line" Visible="0"/></OnActivate>
+</WndTap>

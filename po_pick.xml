@@ -1,0 +1,34 @@
+<WndTap Text="PoPick" Name="popick" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vPO"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_pick_Search.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="poLst" listed="0" prefixand="1" inputed="1"><po_number format="(po_number like '%%{opvalue}%')"/><item_number format="po_header_id IN (SELECT po_header_id FROM po_line_v WHERE item_number like '%%{opvalue}%')"/><supplier_name format="supplier_name like '%%{opvalue}%'"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search><submit next="GBDEDITpo_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="POLst" Size="700,420" colsdisplay="3">
+	<DbDetails>
+	<DbTable>xbs.po_all_v</DbTable>
+	<Index>po_header_id</Index>
+	<Data>distinct(po_number),supplier_name,supplier_site_name,po_header_id</Data>
+	<Order>po_header_id</Order>
+	<queryFormat>select %{data} from %{dbtable} where (receving_org_id='%{orgid}' and po_status=326) %{where} order by po_header_id desc limit %{StartRow},%{PgSize}</queryFormat>
+	</DbDetails>
+		<OnClick><if cond="%{POLst[po_header_id]}"><assign name="$parent.%{frmwndctrl}" expr="%{POLst[po_number]}"/><submit function="onok"/></if></OnClick>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

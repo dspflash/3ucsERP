@@ -1,0 +1,49 @@
+﻿<GroupBox Name="GBDEDIThd_task_type"><Ctrls>
+<GroupBox Name="GB_task_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_task_type" Size="60,20" Text="task_type" Align="Right"/>
+<TextBox Name="task_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_task_type"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_from_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_from_date" Size="60,20" Text="from_date" Align="Right"/>
+<DateTime Name="from_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  ToolTip="ttp_from_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_to_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_to_date" Size="60,20" Text="to_date" Align="Right"/>
+<DateTime Name="to_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  ToolTip="ttp_to_date"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_effort_duration" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effort_duration" Size="60,20" Text="effort_duration" Align="Right"/>
+<TextBox Name="effort_duration" Size="170,20" Text="" Weight="170" ToolTip="ttp_effort_duration"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_effort_uom_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effort_uom_id" Size="60,20" Text="effort_uom_id" Align="Right"/>
+<TextBox Name="effort_uom_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_effort_uom_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_auto_schedule_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="auto_schedule_cb" Size="230,20" Text="auto_schedule_cb" ToolTip="ttp_auto_schedule_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hd_task_type_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hd_task_type_id" Size="60,20" Text="hd_task_type_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hd_task_type_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hd_task_type_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{hd_task_type_id}'"><SetVisible name="inserthd_task_type" Visible="0"/><SetVisible name="modifyhd_task_type" Visible="1"/><else/><SetVisible name="inserthd_task_type" Visible="1"/><SetVisible name="modifyhd_task_type" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

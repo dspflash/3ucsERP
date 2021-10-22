@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVitem" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="itemLst" ToolTip="ttp_item" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>item_id</Index>
+<DbTable>xbs.item</DbTable>
+<Data>item_number,item_name,item_specification,list_price,item_id</Data>
+<Order>item_id</Order></DbDetails>
+<OnClick>
+<if cond="%{item_id}"><SetVisible name="insertitem" Visible="0"/><SetVisible name="modifyitem" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

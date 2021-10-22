@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVhd_service_activity_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hd_service_activity_line_vLst" ToolTip="ttp_hd_service_activity_line" Size="700,420" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hd_service_activity_line h left join xbs.sd_document_type s on h.header_type_id=s.sd_document_type_id left join xbs.sd_document_type s0 on h.line_type_id=s0.sd_document_type_id left join xbs.user_v u on h.created_by=u.xerp_user_id</DbTable>
+<Index>hd_service_activity_line_id</Index>
+<Data>h.hd_service_activity_header_id,s.document_type_name header_type_id,s0.document_type_name line_type_id,h.description,u.NAME created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hd_service_activity_line_id,h.bu_org_id</Data>
+<Order>hd_service_activity_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{hd_service_activity_header_id}"><alert expr="hd_service_activity_header_id is Empty!"/><else/><submit next="$parent.hd_service_activity_line.GBDEDIThd_service_activity_line" function="reset"/><assign name="$parent.hd_service_activity_line.hd_service_activity_header_id" expr="%{hd_service_activity_header_id}"/></if></op>
+<op text="modify"><DbDetails><Where>hd_service_activity_line_id='%{hd_service_activity_line_vLst[hd_service_activity_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.hd_service_activity_line.hd_service_activity_lineLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_service_activity_line</DbTable>
+<Where>hd_service_activity_line_id='%{hd_service_activity_line_vLst[hd_service_activity_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

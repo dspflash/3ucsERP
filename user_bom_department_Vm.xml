@@ -1,0 +1,21 @@
+﻿<WndTap Name="user_bom_department_v" Text="user_bom_department">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_bom_department_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\user_bom_department.xml"/>
+<Ctrls><GroupBox  Name="GBuser_bom_department" id="user_bom_department" Text="user_bom_department" Size="100,100"><Ctrls>
+<GroupBox Name="GBDEDITuser_bom_department"><Ctrls>
+<GroupBox Name="GB_bom_department_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bom_department_id" Size="60,20" Text="bom_department_id" Align="Right" readonly="true"/>
+<TextBox Name="bom_department_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_bom_department_id" readonly="true">
+	<DbDetails>
+<DbTable>xbs.bom_department</DbTable>
+<Index>bom_department_id</Index>
+<Data>department,bom_department_id</Data>
+<Where>org_id='%{orgid}'</Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_bom_department_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

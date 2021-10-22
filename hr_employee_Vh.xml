@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_employee" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_employeeLst" ToolTip="ttp_hr_employee" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_employee_id</Index>
+<DbTable>xbs.hr_employee</DbTable>
+<Data>first_name,last_name,title,email,other_email,gender,identification_type,identification_id,citizen_number,phone,mobile_number,status,employee_number,person_type,start_date,org_id,position_id,department_id,supervisor_employee_id,vehicle_number,asset_numbers,tax_reg_number,date_of_birth,city_of_birth,country_of_birth,nationality,marital_status,no_of_children,degree,social_ac_no,social_ac_no2,passport_number,created_by,creation_date,last_update_by,last_update_date,hr_employee_id</Data>
+<Order>hr_employee_id</Order></DbDetails>
+<OnClick><assign name="identification_type[option_line_id]" expr="%{hr_employeeLst[identification_type]}" function="SetSel"/><assign name="person_type[option_line_id]" expr="%{hr_employeeLst[person_type]}" function="SetSel"/><assign name="org_id[org_id]" expr="%{hr_employeeLst[org_id]}" function="SetSel"/><assign name="position_id[hr_position_id]" expr="%{hr_employeeLst[position_id]}" function="SetSel"/><assign name="department_id[dept_id]" expr="%{hr_employeeLst[department_id]}" function="SetSel"/><assign name="supervisor_employee_id[hr_employee_id]" expr="%{hr_employeeLst[supervisor_employee_id]}" function="SetSel"/><assign name="marital_status[option_line_id]" expr="%{hr_employeeLst[marital_status]}" function="SetSel"/>
+<if cond="%{hr_employee_id}"><SetVisible name="inserthr_employee" Visible="0"/><SetVisible name="modifyhr_employee" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

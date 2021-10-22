@@ -1,0 +1,107 @@
+﻿<GroupBox Name="GBDEDIThd_service_type_header"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_service_type"><Ctrls>
+<Label Align="Right" Text="service_type" Name="lb_service_type" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_service_type" Name="service_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_primary_service_type"><Ctrls>
+<Label Align="Right" Text="primary_service_type" onload="init" Name="lb_primary_service_type" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_primary_service_type" onload="init" Name="primary_service_type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=241</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_active_cb"><Ctrls>
+<CheckBox Text="active_cb" ToolTip="ttp_active_cb" Name="active_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_repair_mode"><Ctrls>
+<Label Align="Right" Text="repair_mode" Name="lb_repair_mode" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_repair_mode" Name="repair_mode" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pre_repair_activity_rma"><Ctrls>
+<Label Align="Right" Text="pre_repair_activity_rma" onload="init" Name="lb_pre_repair_activity_rma" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_pre_repair_activity_rma" onload="init" Name="pre_repair_activity_rma" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.hd_service_activity_header</DbTable>
+<Index>hd_service_activity_header_id</Index>
+<Data>activity_name,hd_service_activity_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pre_repair_activity_so"><Ctrls>
+<Label Align="Right" Text="pre_repair_activity_so" onload="init" Name="lb_pre_repair_activity_so" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_pre_repair_activity_so" onload="init" Name="pre_repair_activity_so" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.hd_service_activity_header</DbTable>
+<Index>hd_service_activity_header_id</Index>
+<Data>activity_name,hd_service_activity_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_post_repair_activity_rma"><Ctrls>
+<Label Align="Right" Text="post_repair_activity_rma" onload="init" Name="lb_post_repair_activity_rma" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_post_repair_activity_rma" onload="init" Name="post_repair_activity_rma" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.hd_service_activity_header</DbTable>
+<Index>hd_service_activity_header_id</Index>
+<Data>activity_name,hd_service_activity_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_post_repair_activity_so"><Ctrls>
+<Label Align="Right" Text="post_repair_activity_so" onload="init" Name="lb_post_repair_activity_so" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_post_repair_activity_so" onload="init" Name="post_repair_activity_so" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.hd_service_activity_header</DbTable>
+<Index>hd_service_activity_header_id</Index>
+<Data>activity_name,hd_service_activity_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_auto_create_so_rma_cb"><Ctrls>
+<Label Align="Right" Text="auto_create_so_rma_cb" onload="init" Name="lb_auto_create_so_rma_cb" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_auto_create_so_rma_cb" onload="init" Name="auto_create_so_rma_cb" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.hd_service_activity_header</DbTable>
+<Index>hd_service_activity_header_id</Index>
+<Data>activity_name,hd_service_activity_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_prices_list_id"><Ctrls>
+<Label Align="Right" Text="prices_list_id" onload="init" Name="lb_prices_list_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_prices_list_id" onload="init" Name="prices_list_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.mdm_price_list_header</DbTable>
+<Index>mdm_price_list_header_id</Index>
+<Data>price_list,mdm_price_list_header_id</Data>
+<Where>module_name='sd'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_hd_service_type_header_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="hd_service_type_header_id" overlap="pre" Name="lb_hd_service_type_header_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hd_service_type_header_id" overlap="pre" Name="hd_service_type_header_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{hd_service_type_header_id}'"><SetVisible name="inserthd_service_type_header" Visible="0"/><SetVisible name="modifyhd_service_type_header" Visible="1"/><else/><SetVisible name="inserthd_service_type_header" Visible="1"/><SetVisible name="modifyhd_service_type_header" Visible="0"/></if><DbDetails><Where>hd_service_type_header_id='%{hd_service_type_header_id}'</Where></DbDetails><submit next="hd_service_type_line_vLst" namelist="DbDetails"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

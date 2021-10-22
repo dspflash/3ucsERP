@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVhr_overtime_transaction" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletehr_overtime_transaction" Name="deletehr_overtime_transaction" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_overtime_transaction</DbTable>
+<Where>hr_overtime_transaction_id='%{hr_overtime_transactionLst[hr_overtime_transaction_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhr_overtime_transaction" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshhr_overtime_transaction" Name="searchhr_overtime_transaction" Size="50,20">
+			  <OnClick><submit next="hr_overtime_transactionLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPhr_overtime_transactionLst" OnClick="(hr_overtime_transactionLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREhr_overtime_transactionLst" OnClick="(hr_overtime_transactionLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPhr_overtime_transactionLst" OnClick="(hr_overtime_transactionLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

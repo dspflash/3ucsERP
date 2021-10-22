@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVprj_project_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_project_line_vLst" ToolTip="ttp_prj_project_line" Size="700,420" OnLoad="init" Heading="task_name,250;task_number,125;parent_prj_task_num,120;work_type,120;manager_user_id,120;service_type,120;start_date,90;end_date,90;description,640;allow_charges_cb,60;milestone_cb,60;task_status,120;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;prj_project_line_id,55;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_project_line p left join xbs.prj_project_line p0 on p.parent_prj_task_num=p0.prj_project_line_id left join xbs.prj_work_type p1 on p.work_type=p1.prj_work_type_id left join xbs.user_v u on p.manager_user_id=u.xerp_user_id left join xbs.prj_service_type p2 on p.service_type=p2.prj_service_type_id left join xbs.option_line o on p.task_status=o.option_line_id</DbTable>
+<Index>prj_project_line_id</Index>
+<Data>p.task_name,p.task_number,p0.task_name parent_prj_task_num,p1.work_type work_type,u.username manager_user_id,p2.service_type service_type,p.start_date,p.end_date,p.description,p.allow_charges_cb,p.milestone_cb,o.option_line_value task_status,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_project_line_id</Data>
+<Order>prj_project_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>prj_project_line_id='%{prj_project_line_vLst[prj_project_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_project_line.prj_project_lineLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.prj_project_line</DbTable>
+<Where>prj_project_line_id='%{prj_project_line_vLst[prj_project_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

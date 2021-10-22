@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_expense_tpl_header"><Ctrls>
+<ListCtrl Heading="template_name,250;inactive_date,90;description,640;bu_org_id,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_expense_tpl_header_id,60;" loadedclick="0" ToolTip="ttp_hr_expense_tpl_header" Name="hr_expense_tpl_headerLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>hr_expense_tpl_header_id</Index>
+<DbTable>xbs.hr_expense_tpl_header h left join xbs.org o on h.bu_org_id=o.org_id</DbTable>
+<Data>h.template_name,h.inactive_date,h.description,o.org bu_org_id,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_expense_tpl_header_id</Data>
+<Order>hr_expense_tpl_header_id</Order></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>hr_expense_tpl_header_id='%{hr_expense_tpl_header_vLst[hr_expense_tpl_header_id]}'</Where></DbDetails><submit next="$this.hr_expense_tpl_header.hr_expense_tpl_headerLst" namelist="DbDetails"/><assign name="$this.hr_expense_tpl_header.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_expense_tpl_header</DbTable>
+<Where>hr_expense_tpl_header_id='%{hr_expense_tpl_header_vLst[hr_expense_tpl_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

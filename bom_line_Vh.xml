@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVbom_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bom_lineLst" ToolTip="ttp_bom_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>bom_line_id</Index>
+<DbTable>xbs.bom_line</DbTable>
+<Data>bom_sequence,routing_sequence,routing_seq_num,component_item_id_m,usage_basis,usage_quantity,wip_supply_type,supply_sub_inventory,supply_locator,created_by,creation_date,last_update_by,last_update_date,bom_line_id</Data>
+<Order>bom_line_id</Order></DbDetails>
+<OnClick><assign name="routing_sequence[routing_sequence]" expr="%{bom_lineLst[routing_sequence]}" function="SetSel"/><assign name="component_item_id_m[item_id_m]" expr="%{bom_lineLst[component_item_id_m]}" function="SetSel"/><assign name="usage_basis[option_line_id]" expr="%{bom_lineLst[usage_basis]}" function="SetSel"/><assign name="wip_supply_type[option_line_id]" expr="%{bom_lineLst[wip_supply_type]}" function="SetSel"/><assign name="supply_sub_inventory[subinventory_id]" expr="%{bom_lineLst[supply_sub_inventory]}" function="SetSel"/><assign name="supply_locator[locator_id]" expr="%{bom_lineLst[supply_locator]}" function="SetSel"/>
+<if cond="%{bom_line_id}"><SetVisible name="insertbom_line" Visible="0"/><SetVisible name="modifybom_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

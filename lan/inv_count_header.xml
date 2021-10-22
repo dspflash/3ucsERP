@@ -1,0 +1,50 @@
+﻿<Language name="inv_count_header">
+<Lang name="inv_count_header" value="仓库盘点管理"/>
+<Lang name="TabEditinv_count_header" value="inv_count_header Edit"/>
+<Lang name="TabViewinv_count_header" value="inv_count_header View"/>
+<Lang name="count_name" value="盘点号"/>
+<Lang name="ttp_count_name" value=""/>
+<Lang name="count_type" value="盘点类型"/>
+<Lang name="ttp_count_type" value=""/>
+<Lang name="approval_required" value="要求审批"/>
+<Lang name="ttp_approval_required" value=""/>
+<Lang name="quantity_variance_positive" value="数量差异上限"/>
+<Lang name="ttp_quantity_variance_positive" value=""/>
+<Lang name="quantity_variance_negative" value="数量差异下限"/>
+<Lang name="ttp_quantity_variance_negative" value=""/>
+<Lang name="value_variance_positive" value="货值差异上限"/>
+<Lang name="ttp_value_variance_positive" value=""/>
+<Lang name="value_variance_negative" value="货值差异下限"/>
+<Lang name="ttp_value_variance_negative" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="org_id" value=""/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="inv_count_header_id" value=""/>
+<Lang name="ttp_inv_count_header_id" value=""/>
+<Lang name="ttp_operationinv_count_header" value=""/>
+<Lang name="ttp_createinv_count_header" value=""/>
+<Lang name="ttp_modifyinv_count_header" value=""/>
+<Lang name="ttp_resetinv_count_header" value=""/>
+<Lang name="ttp_deleteinv_count_header" value=""/>
+<Lang name="ttp_refreshinv_count_header" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

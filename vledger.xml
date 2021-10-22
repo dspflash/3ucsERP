@@ -1,0 +1,131 @@
+<WndTap Name="vLedger" Text="vLedger">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_ledger_v.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_calendar_v.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_period_v.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="import_gl.xml" popup="1"/>
+	<!--WndTap Text="gl_journal_header" Name="gl_journal_header" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\gl_journal_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\gl_journal_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="gl_journal_header" Name="GBgl_journal_header" id="gl_journal_header" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_header_GBOPE.xml"></xi:include>
+	<ListCtrl loadedclick="1" Name="gl_journal_headerLst" Size="70,20" visible="0">
+		<DbDetails fcsm="1">
+	<DbTable>xbs.gl_journal_header</DbTable>
+	<Index>gl_journal_header_id</Index>
+	<Data>journal_name,ledger_id,currency,document_date,period_id,journal_source,journal_category,description,balance_type,control_total,running_total_dr,running_total_cr,running_toatl_ac_dr,running_toatl_ac_cr,reference_type,reference_key_name,reference_key_value,gl_journal_header_id,post_date,status</Data>
+	<Order>gl_journal_header_id</Order></DbDetails>
+	<OnClick><assign name="ledger_id[gl_ledger_id]" function="SetSel" expr="%{gl_journal_headerLst[ledger_id]}"/><assign name="currency[currency_id]" function="SetSel" expr="%{gl_journal_headerLst[currency]}"/><assign name="period_id[gl_period_id]" function="SetSel" expr="%{gl_journal_headerLst[period_id]}"/><assign name="journal_source[option_line_id]" function="SetSel" expr="%{gl_journal_headerLst[journal_source]}"/><assign name="journal_category[option_line_id]" function="SetSel" expr="%{gl_journal_headerLst[journal_category]}"/><assign name="balance_type[option_line_id]" function="SetSel" expr="%{gl_journal_headerLst[balance_type]}"/><assign name="status[option_line_code]" function="SetSel" expr="%{gl_journal_headerLst[status]}"/>
+	<if cond="%{gl_journal_header_id}"><SetVisible name="insertgl_journal_header" Visible="0"/><SetVisible name="modifygl_journal_header" Visible="1"/><else/><SetVisible name="insertgl_journal_header" Visible="1"/><SetVisible name="modifygl_journal_header" Visible="0"/></if></OnClick>
+	</ListCtrl>
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_line_Vvm.xml"/>
+	</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate><SetVisible name="insertgl_journal_header" Visible="1"/><SetVisible name="modifygl_journal_header" Visible="0"/></OnActivate>
+		</WndTap-->
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_header_Vm.xml" popup="1"/>
+	<!--WndTap Text="gl_journal_line" Name="gl_journal_line" Ver="2" popup="1">
+	<var name="refreshAfterEdit" expr="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\gl_journal_line.xml"/>
+	<Ctrls>
+	<GroupBox Text="gl_journal_line" Name="GBgl_journal_line" id="gl_journal_line" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_line_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_line_GBOPE.xml"></xi:include>
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_line_GBDV.xml"></xi:include></Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate><SetVisible name="modifygl_journal_header" Visible="0"/></OnActivate>
+		</WndTap-->
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_journal_line.xml" popup="1"/-->
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vtrial_balance.xml"/>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\gl_balance.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\gl_ledger.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\gl_journal_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\gl_journal_line.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="gl_ledger"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_balance_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="createledger" ToolTip="ttp_createledger" Name="createledger" Size="100,20">
+	<OnClick>
+	<assign name="vLedger.gl_ledger_v.gl_ledger_id" expr=""/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="createcalendar" ToolTip="ttp_createcalendar" Name="createcalendar" Size="100,20">
+	<OnClick>
+	<assign name="vLedger.gl_calendar_v.gl_calendar_id" expr=""/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="createperiod" ToolTip="ttp_createperiod" Name="createperiod" Size="100,20">
+	<OnClick>
+	<assign name="vLedger.gl_period_v.gl_period_id" expr=""/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="manualJournal" ToolTip="ttp_manualJournal" Name="manualJournal" Size="100,20">
+	<OnClick>
+		<DbDetails><Where>gl_ledger_id=%{myledgerid}</Where></DbDetails><submit next="$this.gl_journal_header_v.ledger_id" namelist="DbDetails"/><submit next="$this.gl_journal_header_v.gl_journal_header_vLst" namelist="DbDetails"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITgl_balance" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="journalLst" listed="0" prefixand="1" inputed="1">
+	<agreement_start_date op="(" ref=""/>
+	<agreement_end_date op=")" ref=""/></search>
+	<submit next="GBDEDITgl_balance" namelist="search" function="search"/>
+	<search next="balanceLst" listed="0" prefixand="1" inputed="1">
+	<agreement_start_date op="(" ref=""/>
+	<agreement_end_date op=")" ref=""/></search>
+	<submit next="GBDEDITgl_balance" namelist="search" function="search"/>
+	</OnClick>
+	</Button>
+<TextBox Name="myledgerid" Size="50,20" Text="" visible="0" overlap="pre" onload="init">
+	<DbDetails>
+<DbTable>org_ledger_v</DbTable>
+<Index>gl_ledger_id</Index>
+<Data>gl_ledger_id</Data>
+<Order>gl_ledger_id</Order>
+<Where>org_id=%{orgid}</Where>
+</DbDetails>
+<OnEnchange><if cond="%{myledgerid}"><submit next="journalLst"/><submit next="balanceLst"/></if></OnEnchange>
+</TextBox><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<GroupBox feature="tab" Text="TabGlJournal" Name="TabGlJournal"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" Name="journalLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.gl_journal_line_v</DbTable>
+<Index>gl_period_id</Index>
+<Data>*</Data>
+<Order>gl_period_id</Order>
+<queryFormat>select %{data} from %{dbtable} where ledger_id='%{myledgerid}' %{where} order by %{order} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="trial_balance"><submit next="$this.trial_balance.trial_balanceLst"/></op>
+</operator>
+</ListCtrl></Ctrls></GroupBox>
+<BR/>
+<GroupBox feature="tab" Text="TabGlBalance" Name="TabGlBalance"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" Name="balanceLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.gl_balance_v</DbTable>
+<Index>gl_balance_id</Index>
+<Data>*</Data>
+<Order>gl_balance_id</Order>
+<queryFormat>select %{data} from %{dbtable} where ledger_id='%{myledgerid}' %{where} order by %{order} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="import" mustselected="0"><assign name="$this.gl_import.gl_ledger_id" expr="%{myledgerid}"/><assign name="$this.gl_import.gl_period_id" expr=""/></op>
+</operator>
+</ListCtrl></Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

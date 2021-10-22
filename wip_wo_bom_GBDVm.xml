@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVwip_wo_bom"><Ctrls>
+<ListCtrl Heading="component_item_id_m,120;item_name,120;item_specification,120;item_description,120;usage_basis,120;usage_quantity,75;uom_name,75;wip_supply_type,120;supply_sub_inventory,120;supply_locator,120;required_quantity,75;issued_quantity,75;effective_start_date,90;effective_end_date,90;bom_sequence,50;routing_sequence,120;routing_seq_num,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;wip_wo_bom_id,60;" loadedclick="0" ToolTip="ttp_wip_wo_bom" Name="wip_wo_bomLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_wo_bom w join wip_wo_header wo on w.wip_wo_header_id=wo.wip_wo_header_id left join xbs.item i on w.component_item_id_m=i.item_id_m and wo.org_id=i.org_id left join uom on i.uom_id=uom.uom_id left join xbs.option_line o on w.usage_basis=o.option_line_id left join xbs.option_line o0 on w.wip_supply_type=o0.option_line_id left join xbs.subinventory s on w.supply_sub_inventory=s.subinventory_id left join xbs.locator l on w.supply_locator=l.locator_id</DbTable>
+<Index>wip_wo_bom_id</Index>
+<Data>i.item_number component_item_id_m,i.item_name,i.item_specification,i.item_description,
+o.option_line_value usage_basis,w.usage_quantity,uom_name,o0.option_line_value wip_supply_type,s.subinventory supply_sub_inventory,l.locator supply_locator,w.required_quantity,w.issued_quantity,w.effective_start_date,w.effective_end_date,w.bom_sequence,w.routing_sequence,w.routing_seq_num,w.created_by,w.creation_date,w.last_update_by,w.last_update_date,w.wip_wo_bom_id</Data>
+<Order>wip_wo_bom_id</Order></DbDetails>%{extelmt}<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

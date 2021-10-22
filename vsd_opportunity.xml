@@ -1,0 +1,61 @@
+<WndTap Name="vSD_Opportunity" Text="vSD_Opportunity">
+	<WndTaps>
+<WndTap Text="sd_opportunity" Name="sd_opportunity" Ver="2" popup="1">
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_opportunity.xml"/>
+<Ctrls>
+<GroupBox Text="sd_opportunity" Name="GBsd_opportunity" id="sd_opportunity" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_opportunity_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_opportunity_GBOPE.xml"></xi:include>
+<ListCtrl Heading="opportunity_number,125;last_name,125;first_name,125;sales_channel,120;mobile_number,100;office_number,100;email_id,200;contact_website,250;fax_no,150;timezone,150;time_to_contact,150;hr_employee_id,120;sales_team,120;referral_source,125;close_reason,125;description,640;status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_customer_id,60;ar_customer_site_id,60;sd_lead_id,60;bu_org_id,120;win_probability,20;forecast_amount,75;currency,120;expected_close_date,90;sd_opportunity_id,60;" loadedclick="1" ToolTip="ttp_sd_opportunity" Name="sd_opportunityLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_opportunity</DbTable>
+<Index>sd_opportunity_id</Index>
+<Data>opportunity_number,last_name,first_name,sales_channel,mobile_number,office_number,email_id,contact_website,fax_no,timezone,time_to_contact,hr_employee_id,sales_team,referral_source,close_reason,description,status,created_by,creation_date,last_update_by,last_update_date,ar_customer_id,ar_customer_site_id,sd_lead_id,bu_org_id,win_probability,forecast_amount,currency,expected_close_date,sd_opportunity_id</Data>
+<Order>sd_opportunity_id</Order></DbDetails>
+<OnClick><assign name="sales_channel[option_line_id]" function="SetSel" expr="%{sd_opportunityLst[sales_channel]}"/><assign name="hr_employee_id[hr_employee_id]" function="SetSel" expr="%{sd_opportunityLst[hr_employee_id]}"/><assign name="sales_team[hr_team_header_id]" function="SetSel" expr="%{sd_opportunityLst[sales_team]}"/><assign name="status[option_line_id]" function="SetSel" expr="%{sd_opportunityLst[status]}"/><assign name="bu_org_id[org_id]" function="SetSel" expr="%{sd_opportunityLst[bu_org_id]}"/><assign name="currency[currency_id]" function="SetSel" expr="%{sd_opportunityLst[currency]}"/>
+			<if cond="%{sd_opportunity_id}"><SetVisible name="insertsd_opportunity" Visible="0"/><SetVisible name="modifysd_opportunity" Visible="1"/></if></OnClick>
+			</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate><SetVisible name="insertsd_opportunity" Visible="1"/><SetVisible name="modifysd_opportunity" Visible="0"/></OnActivate>
+			</WndTap>
+		</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_lead.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="sd_lead"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_opportunity_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">
+	<OnClick><submit next="$this.sd_opportunity.GBDEDITsd_opportunity" function="reset"/></OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_opportunity" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="vsd_opportunityLst" listed="0" prefixwhere="0" inputed="1"><expetced_delivery_date0 format="expetced_delivery_date&gt;='%{opvalue}'"/><expetced_delivery_date1 format="expetced_delivery_date&lt;='%{opvalue}'"/></search><submit next="GBDEDITsd_opportunity" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl Heading="opportunity_number,125;last_name,125;first_name,125;sales_channel,120;mobile_number,100;office_number,100;email_id,200;contact_website,250;fax_no,150;timezone,150;time_to_contact,150;hr_employee_id,120;sales_team,120;referral_source,125;close_reason,125;description,640;status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_customer_id,60;ar_customer_site_id,60;sd_lead_id,60;bu_org_id,120;win_probability,20;forecast_amount,75;currency,120;expected_close_date,90;sd_opportunity_id,60;" loadedclick="0" onload="init" ToolTip="ttp_sd_opportunity" Name="vsd_opportunityLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.sd_opportunity s left join xbs.option_line o on s.sales_channel=o.option_line_id left join xbs.hr_employee_v h on s.hr_employee_id=h.hr_employee_id left join xbs.hr_team_header h0 on s.sales_team=h0.hr_team_header_id left join xbs.option_line o0 on s.status=o0.option_line_id left join xbs.org o1 on s.bu_org_id=o1.org_id left join xbs.currency c on s.currency=c.currency_id</DbTable>
+<Index>sd_opportunity_id</Index>
+<Data>s.opportunity_number,s.last_name,s.first_name,o.option_line_value sales_channel,s.mobile_number,s.office_number,s.email_id,s.contact_website,s.fax_no,s.timezone,s.time_to_contact,h.name hr_employee_id,h0.team_name sales_team,s.referral_source,s.close_reason,s.description,o0.option_line_value status,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,s.ar_customer_id,s.ar_customer_site_id,s.sd_lead_id,o1.org bu_org_id,s.win_probability,s.forecast_amount,c.title currency,s.expected_close_date,s.sd_opportunity_id</Data>
+<Order>sd_opportunity_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>sd_opportunity_id='%{vsd_opportunityLst[sd_opportunity_id]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="$this.sd_opportunity.sd_opportunityLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

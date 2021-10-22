@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVprj_percent_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_percent_line_vLst" ToolTip="ttp_prj_percent_line" Size="700,220" Heading="as_of_date,90;percent,120;comment,640;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_percent_line_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_percent_line p</DbTable>
+<Index>prj_percent_line_id</Index>
+<Data>p.as_of_date,p.percent,p.comment,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_percent_line_id</Data>
+<Order>prj_percent_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.prj_percent_line.GBDEDITprj_percent_line" function="reset"/><DbDetails><DbTable>xbs.prj_project_line pl join xbs.prj_percent_header ch on pl.prj_project_header_id=ch.prj_project_header_id</DbTable><Where>prj_project_line_id='%{prj_project_line_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_percent_line.prj_project_line_id"/></op>
+<op text="modify"><DbDetails><Where>prj_percent_line_id='%{prj_percent_line_vLst[prj_percent_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_percent_line.prj_percent_lineLst"/><DbDetails><DbTable>xbs.prj_project_line pl join xbs.prj_percent_header ch on pl.prj_project_header_id=ch.prj_project_header_id</DbTable><Where>prj_project_line_id='%{prj_project_line_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_percent_line.prj_project_line_id"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.prj_percent_line</DbTable>
+<Where>prj_percent_line_id='%{prj_percent_line_vLst[prj_percent_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,59 @@
+<WndTap Name="vCost" Text="Cost">
+	<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xbs_log_vm.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cst_item_cost_header_Vem.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cst_item_cost_line_vm.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item_price_Vem.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cst_item_cost_header_Vm.xml" popup="1"/>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\cst_item_cost_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="Cost"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cst_item_cost_header_Vs.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="costLst" listed="0" prefixand="1" inputed="1"><item_number format="i.item_number like '%%{opvalue}%'"/></search><submit next="GBDEDITcst_item_cost_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITcst_item_cost_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="costLst" Size="700,420" colsDisplay="7">
+<OnChanged><if cond="%{costLst[lastSqlErrMsg]}"><info expr="%{costLst[lastSqlErrMsg]}"/><elseif cond="%{costLst[sqlok]}"/><info expr="Processing..."/></if></OnChanged>
+<DbDetails>
+<DbTable>item i LEFT JOIN cst_item_cost_v c ON i.item_id_m=c.item_id_m AND i.org_id=c.org_id</DbTable>
+<Index>cst_item_cost_header_id</Index>
+<Data>i.item_number,i.list_price,c.cost_type,c.total_cost,c.org,i.item_name,i.item_specification,i.item_id_m,i.org_id,c.bom_cost_type,c.cst_item_cost_header_id</Data>
+<Order>item_id_m</Order>
+<Where>and bom_cost_type=1</Where>
+<queryFormat>select %{data} from %{dbtable} where i.org_id=%{orgid} %{where} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.cst_item_cost_header.GBDEDITcst_item_cost_header" function="reset"/><DbDetails><Where>item_id_m='%{costLst[item_id_m]}' and org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="$this.cst_item_cost_header.item_id_m"/></op>
+<op text="modify"><assign name="$this.cst_item_cost_header.cst_item_cost_header_id" expr="%{costLst[cst_item_cost_header_id]}"/><DbDetails><Where>cst_item_cost_header_id='%{costLst[cst_item_cost_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.cst_item_cost_header.cst_item_cost_headerLst"/><DbDetails><Where>item_id_m='%{costLst[item_id_m]}' and org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="$this.cst_item_cost_header.item_id_m"/></op>
+<op text="view"><DbDetails><Where>cst_item_cost_header_id='%{costLst[cst_item_cost_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.cst_item_cost_line_v.cst_item_cost_line_vLst"/></op>
+<op text="price"><DbDetails><Where>item_id_m='%{costLst[item_id_m]}' and org_id='%{costLst[org_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.item.itemLst"/></op>
+<op text="cost"><assign name="$this.cst_item_cost_header_V.item_id_m" expr="%{costLst[item_id_m]}"/><DbDetails><Where>item_id_m='%{costLst[item_id_m]}' and org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="$this.cst_item_cost_header_V.cst_item_cost_header_VLst"/></op>
+<op text="standard_cost_update" needconfirm="1"><info next="tst" expr="处理中......"/>
+<DbDetails><queryFormat>call cost_update4items('%{costLst[item_id_m]}',0,%{costLst[bom_cost_type]},%{user_id},%{orgid});</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="standard_cost_update4all" needconfirm="1"><info next="tst" expr="处理中,需要的时间可能会很长哦......"/>
+<DbDetails><queryFormat>call cost_update4items(0,0,%{costLst[bom_cost_type]},%{user_id},%{orgid});</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<!--op text="ViewResultCost_Update"><DbDetails><Where>(user_id,org_id,task)=(%{user_id},%{orgid},'costUpdate')</Where></DbDetails><submit next="$this.xbs_log_v.xbs_log_vLst" namelist="DbDetails"/></op-->
+<op text="cost_rollup" needconfirm="1"><info next="tst" expr="处理中......"/>
+<DbDetails fcsm="1"><queryFormat>CALL cost_rollup_forItems('%{costLst[item_id_m]}',0,%{costLst[bom_cost_type]},%{user_id},%{orgid},1);</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>isolated="1" 
+<op text="cost_rollup4all" needconfirm="1" mustselected="0"><if cond="%{costLst[bom_cost_type]}"><assign name="tempcsttp" expr="%{costLst[bom_cost_type]}"/><elseif cond="%{bom_cost_type[bom_cost_type_id]}"/><assign name="tempcsttp" expr="%{bom_cost_type[bom_cost_type_id]}"/><else/><alert next="nnn" expr="Please Select one cost type"/></if>
+<if cond="%{tempcsttp}"><info next="tst" expr="%{tempcsttp} 处理中,需要的时间可能会很长哦......"/>
+<DbDetails><queryFormat>CALL cost_rollup_forItems(0,0,%{tempcsttp},%{user_id},%{orgid},1);</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></if></op>
+<op text="ViewResultCost_rollup" mustselected="0"><DbDetails><Where>(user_id,org_id,task)=(%{user_id},%{orgid},'costRollup')</Where></DbDetails><submit next="$this.xbs_log_v.xbs_log_vLst" namelist="DbDetails"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

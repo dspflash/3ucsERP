@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEpo_detail" Size="100,100"><Ctrls>
+<Button sqlpkinsert="po_detail_id" Text="create" ToolTip="ttp_createpo_detail" Name="insertpo_detail" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_detail</DbTable>
+<Data>po_line_id[po_line_id],uom[uom_id],quantity,ship_to_location_id[address_id],subinventory_id[subinventory_id],locator_id[locator_id],invoice_match_type[option_line_id],shipment_number,requestor,need_by_date,promise_date,received_quantity,accepted_quantity,delivered_quantity,invoiced_quantity,paid_quantity</Data>
+<DataEx>status,created_by,creation_date,last_update_by,last_update_date;1497,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="po_detailLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypo_detail" Name="modifypo_detail" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_detail</DbTable>
+<Data>po_line_id[po_line_id],uom[uom_id],quantity,ship_to_location_id[address_id],subinventory_id[subinventory_id],locator_id[locator_id],invoice_match_type[option_line_id],shipment_number,requestor,need_by_date,promise_date,received_quantity,accepted_quantity,delivered_quantity,invoiced_quantity,paid_quantity</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>po_detail_id='%{po_detail_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="po_detailLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpo_detail" Name="resetpo_detail" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_detail" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchpo_detail" Name="gsearchpo_detail" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="po_detailLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITpo_detail" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

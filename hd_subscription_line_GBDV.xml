@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhd_subscription_line"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_hd_subscription_line" Name="hd_subscription_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_subscription_line h left join xbs.option_line o on h.line_type=o.option_line_id left join xbs.org o0 on h.shipping_org_id=o0.org_id left join xbs.sd_quote_v s on h.item_id_m=s.item_id_m left join xbs.mdm_tax_code m on h.tax_code_id=m.mdm_tax_code_id left join xbs.option_line o1 on h.line_status=o1.option_line_id</DbTable>
+<Index>hd_subscription_line_id</Index>
+<Data>o.option_line_value line_type,o0.org shipping_org_id,h.line_number,s.item_number item_id_m,h.price_date,h.line_quantity,h.line_price,h.gl_line_price,m.tax_code tax_code_id,h.tax_amount,h.gl_tax_amount,o1.option_line_value line_status,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hd_subscription_line_id,h.hd_subscription_header_id</Data>
+<Order>hd_subscription_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op mustselected="0" text="addone"><if cond="!%{hd_subscription_header_id}"><alert expr="hd_subscription_header_id is Empty!"/><else/><submit next="$parent.hd_subscription_line.GBDEDIThd_subscription_line" function="reset"/><assign name="$parent.hd_subscription_line.hd_subscription_header_id" expr="%{hd_subscription_header_id}"/></if></op>
+<op text="modify"><DbDetails><Where>hd_subscription_line_id='%{hd_subscription_line_vLst[hd_subscription_line_id]}'</Where></DbDetails><submit next="$parent.hd_subscription_line.hd_subscription_lineLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_subscription_line</DbTable>
+<Where>hd_subscription_line_id='%{hd_subscription_line_vLst[hd_subscription_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

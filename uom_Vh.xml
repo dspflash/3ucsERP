@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVuom" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="uomLst" ToolTip="ttp_uom" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.uom</DbTable>
+<Index>uom_id</Index>
+<Data>uom_name,class,description,primary_uom_id,primary_relation,primary_cb,status,created_by,creation_date,last_update_by,last_update_date,uom_id</Data>
+<Order>uom_id</Order></DbDetails>
+<OnClick><assign name="class[option_line_id]" expr="%{uomLst[class]}" function="SetSel"/><assign name="primary_uom_id[uom_id]" expr="%{uomLst[primary_uom_id]}" function="SetSel"/>
+<if cond="%{uom_id}"><SetVisible name="insertuom" Visible="0"/><SetVisible name="modifyuom" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

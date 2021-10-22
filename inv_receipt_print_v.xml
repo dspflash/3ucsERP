@@ -1,0 +1,34 @@
+	<WndTap Text="inv_receipt_print" Name="inv_receipt_print" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_receipt_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_receipt_line.xml"/>
+	<Language name="reference_key">
+<Lang name="reference_key_value" value="工单号"/>
+<Lang name="ttp_reference_key_value" value=""/>
+</Language>
+	<Ctrls>
+	<GroupBox Text="inv_receipt_print" Name="GBinv_receipt_print" id="inv_receipt_print" Size="100,100"><Ctrls>
+		<MagicCtrl Name="qr_itemname" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="60,60" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_header_GBDPRINT.xml"></xi:include>
+	<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_GBDVm.xml"></xi:include>
+<BR AutoHeight="1"/><Button Text="print" ToolTip="ttp_print" Name="print" Size="50,20" visible="true">
+	<OnClick><submit next="GBinv_receipt_print" function="print"/>
+	</OnClick>
+	</Button><TAB/>
+	<ListCtrl loadedclick="1" ToolTip="ttp_inv_receipt_header" Name="inv_receipt_headerLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_receipt_header</DbTable>
+<Index>inv_receipt_header_id</Index>
+<Data>receipt_number,transaction_type_id,reference_key_value,receipt_date,carrier,vechile_number,comment,inv_receipt_header_id</Data>
+<Order>inv_receipt_header_id</Order>
+<Where>inv_receipt_header_id='%{inv_receipt_header_id}'</Where></DbDetails>
+<OnClick><assign name="transaction_type_id[transaction_type_id]" function="SetSel" expr="%{inv_receipt_headerLst[transaction_type_id]}"/><assign name="reference_key_value[refid]" function="SetSel" expr="%{inv_receipt_headerLst[reference_key_value]}"/>
+			<magicdata filename="data/qr_inv_receipt_number.png"><data>%{inv_receipt_headerLst[receipt_number]}</data></magicdata>
+			<submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/>
+	</OnClick>
+	</ListCtrl>	
+	</Ctrls></GroupBox>
+	</Ctrls>
+		</WndTap>

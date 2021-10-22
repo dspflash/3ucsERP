@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVprj_budget_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_budget_header_vLst" ToolTip="ttp_prj_budget_header" Size="700,420" OnLoad="init" Heading="version_name,125;budget_type,120;entrymethod,120;resourcelist,120;status,120;raw_cost,75;burdened_cost,75;labor_effort,75;nlr_effort,75;revenue,75;baselined_cb,60;baselined_by,125;baselined_date,90;original,120;changereason,120;description,640;current_cb,60;original_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_project_header_id,60;prj_project_line_id,60;prj_budget_header_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_budget_header p left join xbs.option_line o on p.budget_type=o.option_line_id left join xbs.prj_bem p0 on p.entrymethod=p0.prj_bem_id left join xbs.prj_resource_list_header p1 on p.resourcelist=p1.prj_resource_list_header_id left join xbs.prj_budget_header p2 on p.original=p2.prj_budget_header_id left join xbs.prj_budget_change_reason p3 on p.changereason=p3.prj_budget_change_reason_id</DbTable>
+<Index>prj_budget_header_id</Index>
+<Data>p.version_name,o.option_line_value budget_type,p0.bem entrymethod,p1.list_name resourcelist,p.status,p.raw_cost,p.burdened_cost,p.labor_effort,p.nlr_effort,p.revenue,p.baselined_cb,p.baselined_by,p.baselined_date,p2.version_name original,p3.budget_change_reason changereason,p.description,p.current_cb,p.original_cb,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_project_header_id,p.prj_project_line_id,p.prj_budget_header_id</Data>
+<Order>prj_budget_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>prj_budget_header_id='%{prj_budget_header_vLst[prj_budget_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_budget_header.prj_budget_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.prj_budget_header</DbTable>
+<Where>prj_budget_header_id='%{prj_budget_header_vLst[prj_budget_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

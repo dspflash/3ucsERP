@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVonhand"><Ctrls>
+<ListCtrl Heading="item_id_m,120;revision_name,50;uom_id,120;onhand,20;subinventory_id,120;locator_id,120;lot_id,120;serial_id,120;reservable_onhand,20;transactable_onhand,20;lot_status,125;serial_status,125;secondary_uom_id,60;onhand_status,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;onhand_id,60;org_id,60;" loadedclick="0" ToolTip="ttp_onhand" onload="init" Name="onhandLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.onhand o left join xbs.item i on o.item_id_m=i.item_id_m left join xbs.uom u on o.uom_id=u.uom_id left join xbs.subinventory s on o.subinventory_id=s.subinventory_id left join xbs.locator l on o.locator_id=l.locator_id left join xbs.inv_lot_number i0 on o.lot_id=i0.inv_lot_number_id left join xbs.inv_serial_number i1 on o.serial_id=i1.inv_serial_number_id</DbTable>
+<Index>onhand_id</Index>
+<Data>i.item_number item_id_m,o.revision_name,u.uom_name uom_id,o.onhand,s.subinventory subinventory_id,l.locator locator_id,i0.lot_number lot_id,i1.serial_number serial_id,o.reservable_onhand,o.transactable_onhand,o.lot_status,o.serial_status,o.secondary_uom_id,o.onhand_status,o.created_by,o.creation_date,o.last_update_by,o.last_update_date,o.onhand_id,o.org_id</Data>
+<Order>onhand_id</Order></DbDetails>%{extelmt}</ListCtrl>
+</Ctrls></GroupBox>

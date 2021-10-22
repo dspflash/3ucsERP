@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpo_quote_line"><Ctrls>
+<ListCtrl Heading="item_id_m,55;item_description,640;po_rfq_line_id,120;line_number,55;uom_id,120;tax_code_id,120;quote_unit_price,100;supplier_part_number,250;mfg_part_number,250;manufacturer,250;minimum_agreement_quantity,100;minimum_order_quantity,100;daily_capacity,100;processing_lead_time,55;replenishment_lead_time,55;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;po_quote_line_id,55;" loadedclick="0" ToolTip="ttp_po_quote_line" Name="po_quote_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_quote_line p left join xbs.item i on p.item_id_m=i.item_id_m left join xbs.po_rfq_line p0 on p.po_rfq_line_id=p0.po_rfq_line_id left join xbs.uom u on p.uom_id=u.uom_id left join xbs.mdm_tax_code m on p.tax_code_id=m.mdm_tax_code_id</DbTable>
+<Index>po_quote_line_id</Index>
+<Data>i.concat item_id_m,p.item_description,p0.line_number po_rfq_line_id,p.line_number,u.uom_name uom_id,m.tax_code tax_code_id,p.quote_unit_price,p.supplier_part_number,p.mfg_part_number,p.manufacturer,p.minimum_agreement_quantity,p.minimum_order_quantity,p.daily_capacity,p.processing_lead_time,p.replenishment_lead_time,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.po_quote_line_id</Data>
+<Order>po_quote_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>po_quote_line_id='%{po_quote_line_vLst[po_quote_line_id]}'</Where></DbDetails><submit next="$this.po_quote_line.po_quote_lineLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.po_quote_line</DbTable>
+<Where>po_quote_line_id='%{po_quote_line_vLst[po_quote_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

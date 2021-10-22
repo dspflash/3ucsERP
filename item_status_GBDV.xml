@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem_status"><Ctrls>
+<ListCtrl Heading="code,125;description,640;active,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;item_status_id,60;" loadedclick="0" ToolTip="ttp_item_status" Name="item_statusLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>item_status_id</Index>
+<DbTable>xbs.item_status</DbTable>
+<Data>code,description,active,created_by,creation_date,last_update_by,last_update_date,item_status_id</Data>
+<Order>item_status_id</Order></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>item_status_id='%{item_status_vLst[item_status_id]}'</Where></DbDetails><submit next="$this.item_status.item_statusLst" namelist="DbDetails"/><assign name="$this.item_status.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.item_status</DbTable>
+<Where>item_status_id='%{item_status_vLst[item_status_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

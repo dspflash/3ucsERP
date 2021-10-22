@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVar_transaction_detail" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="ar_transaction_detailLst" ToolTip="ttp_ar_transaction_detail" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_detail</DbTable>
+<Index>ar_transaction_detail_id</Index>
+<Data>account_type,detail_ac_id,description,amount,gl_amount,created_by,creation_date,last_update_by,last_update_date,ar_transaction_detail_id,detail_number,status</Data>
+<Order>ar_transaction_detail_id</Order></DbDetails>
+<OnClick><assign name="account_type[option_line_id]" expr="%{ar_transaction_detailLst[account_type]}" function="SetSel"/><assign name="detail_ac_id[coa_combination_id]" expr="%{ar_transaction_detailLst[detail_ac_id]}" function="SetSel"/>
+<if cond="%{ar_transaction_detail_id}"><SetVisible name="insertar_transaction_detail" Visible="0"/><SetVisible name="modifyar_transaction_detail" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" initial="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

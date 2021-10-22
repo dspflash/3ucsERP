@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_team_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_team_headerLst" ToolTip="ttp_hr_team_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_team_header</DbTable>
+<Index>hr_team_header_id</Index>
+<Data>team_name,team_lead_employee_id,type,region,email,status,start_date,end_date,objective,created_by,creation_date,last_update_by,last_update_date,hr_team_header_id</Data>
+<Order>hr_team_header_id</Order></DbDetails>
+<OnClick><assign name="team_lead_employee_id[hr_employee_id]" expr="%{hr_team_headerLst[team_lead_employee_id]}" function="SetSel"/><assign name="type[option_line_code]" expr="%{hr_team_headerLst[type]}" function="SetSel"/><assign name="region[option_line_code]" expr="%{hr_team_headerLst[region]}" function="SetSel"/>
+<if cond="%{hr_team_header_id}"><SetVisible name="inserthr_team_header" Visible="0"/><SetVisible name="modifyhr_team_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

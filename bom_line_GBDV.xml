@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbom_line"><Ctrls>
+<ListCtrl Heading="bom_sequence,120;routing_sequence,120;routing_seq_num,60;component_item_id_m,55;usage_basis,120;usage_quantity,75;wip_supply_type,120;supply_sub_inventory,120;supply_locator,120;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;bom_line_id,55;" loadedclick="0" ToolTip="ttp_bom_line" Name="bom_lineLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>bom_line_id</Index>
+<DbTable>xbs.bom_line b left join xbs.bom_routing_line b0 on b.routing_sequence=b0.routing_sequence left join xbs.item i on b.component_item_id_m=i.item_id_m left join xbs.option_line o on b.usage_basis=o.option_line_id left join xbs.option_line o0 on b.wip_supply_type=o0.option_line_id left join xbs.subinventory s on b.supply_sub_inventory=s.subinventory_id left join xbs.locator l on b.supply_locator=l.locator_id</DbTable>
+<Data>b.bom_sequence,b0.routing_sequence routing_sequence,b.routing_seq_num,i.item_number component_item_id_m,o.option_line_value usage_basis,b.usage_quantity,o0.option_line_value wip_supply_type,s.subinventory supply_sub_inventory,l.locator supply_locator,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_line_id</Data>
+<Order>bom_line_id</Order></DbDetails>
+<OnClick><if cond="'%{bom_lineLst[component_item_id_m]}'"><DbDetails><Where>and item_number='%{bom_lineLst[component_item_id_m]}'</Where></DbDetails><submit next="component_item_id_m" namelist="DbDetails"/></if></OnClick>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>bom_line_id='%{bom_line_vLst[bom_line_id]}'</Where></DbDetails><submit next="$this.bom_line.bom_lineLst" namelist="DbDetails"/><assign name="$this.bom_line.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_line</DbTable>
+<Where>bom_line_id='%{bom_line_vLst[bom_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

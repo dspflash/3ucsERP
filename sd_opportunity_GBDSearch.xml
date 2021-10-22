@@ -1,0 +1,72 @@
+<GroupBox Name="GBDEDITsd_opportunity"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_opportunity_number"><Ctrls>
+<Label Align="Right" Text="opportunity_number" Name="lb_opportunity_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_opportunity_number" Name="opportunity_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_name"><Ctrls>
+<Label Align="Right" Text="last_name" Name="lb_last_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_last_name" Name="last_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_first_name"><Ctrls>
+<Label Align="Right" Text="first_name" Name="lb_first_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_first_name" Name="first_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_sales_channel"><Ctrls>
+<Label Align="Right" Text="sales_channel" onload="init" Name="lb_sales_channel" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_sales_channel" onload="init" Name="sales_channel" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=213</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mobile_number"><Ctrls>
+<Label Align="Right" Text="mobile_number" Name="lb_mobile_number" Size="60,20"/>
+<TextBox Weight="140" ToolTip="ttp_mobile_number" Name="mobile_number" Size="140,20"/>
+<MagicCtrl ToolTip="DialToCall" Name="dialmobile_number" OnClick="nis3ucs:%{mobile_number}" images=" ,data/startcall_green.png" button="type:0" Size="20,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_office_number"><Ctrls>
+<Label Align="Right" Text="office_number" Name="lb_office_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_office_number" Name="office_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_email_id"><Ctrls>
+<Label Align="Right" Text="email_id" Name="lb_email_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_email_id" Name="email_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_contact_website"><Ctrls>
+<Label Align="Right" Text="contact_website" Name="lb_contact_website" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_contact_website" Name="contact_website" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_fax_no"><Ctrls>
+<Label Align="Right" Text="fax_no" Name="lb_fax_no" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_fax_no" Name="fax_no" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_timezone"><Ctrls>
+<Label Align="Right" Text="timezone" Name="lb_timezone" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_timezone" Name="timezone" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_hr_employee_id"><Ctrls>
+<Label Align="Right" Text="hr_employee_id" onload="init" Name="lb_hr_employee_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_hr_employee_id" onload="init" Name="hr_employee_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.hr_employee_v</DbTable>
+<Index>hr_employee_id</Index>
+<Data>name,hr_employee_id</Data>
+<Where>org_id='%{orgid}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_sales_team"><Ctrls>
+<Label Align="Right" Text="sales_team" onload="init" Name="lb_sales_team" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_sales_team" onload="init" Name="sales_team" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.hr_team_header</DbTable>
+<Index>hr_team_header_id</Index>
+<Data>team_name,hr_team_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_referral_source"><Ctrls>
+<Label Align="Right" Text="referral_source" Name="lb_referral_source" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_referral_source" Name="referral_source" Size="170,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,3 @@
+call dropuser.bat
+call createi3u.bat
+call loadmysql.bat

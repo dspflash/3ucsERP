@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVbom_overhead" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bom_overheadLst" ToolTip="ttp_bom_overhead" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>bom_overhead_id</Index>
+<DbTable>xbs.bom_overhead</DbTable>
+<Data>overhead,description,status,overhead_type,default_basis,absorption_ac_id,created_by,creation_date,last_update_by,last_update_date,org_id,bom_overhead_id</Data>
+<Order>bom_overhead_id</Order></DbDetails>
+<OnClick><assign name="overhead_type[option_line_id]" expr="%{bom_overheadLst[overhead_type]}" function="SetSel"/><assign name="default_basis[option_line_id]" expr="%{bom_overheadLst[default_basis]}" function="SetSel"/>
+<if cond="%{bom_overhead_id}"><SetVisible name="insertbom_overhead" Visible="0"/><SetVisible name="modifybom_overhead" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

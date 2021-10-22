@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsupplier_bu"><Ctrls>
+<ListCtrl Heading="payment_term_id,120;invoice_currency,120;po_amount_limit,60;invoice_amount_limit,60;payment_amount_limit,60;payment_priority,100;pay_date_basis,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;supplier_bu_id,60;" loadedclick="0" ToolTip="ttp_supplier_bu" Name="supplier_buLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.supplier_bu</DbTable>
+<Index>supplier_bu_id</Index>
+<Data>payment_term_id,invoice_currency,po_amount_limit,invoice_amount_limit,payment_amount_limit,payment_priority,pay_date_basis,status,created_by,creation_date,last_update_by,last_update_date,supplier_bu_id</Data>
+<Order>supplier_bu_id</Order></DbDetails>
+<OnClick><assign name="payment_term_id[payment_term_id]" function="SetSel" expr="%{supplier_buLst[payment_term_id]}"/><assign name="invoice_currency[currency_id]" function="SetSel" expr="%{supplier_buLst[invoice_currency]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,42 @@
+<Language name="prj_event_type">
+<Lang name="prj_event_type" value="事件类型"/>
+<Lang name="TabEditprj_event_type" value="prj_event_type Edit"/>
+<Lang name="TabViewprj_event_type" value="prj_event_type View"/>
+<Lang name="event_type" value="事件类型"/>
+<Lang name="ttp_event_type" value=""/>
+<Lang name="event_class" value=""/>
+<Lang name="ttp_event_class" value=""/>
+<Lang name="revenue_category" value=""/>
+<Lang name="ttp_revenue_category" value=""/>
+<Lang name="effective_from" value=""/>
+<Lang name="ttp_effective_from" value=""/>
+<Lang name="effective_to" value=""/>
+<Lang name="ttp_effective_to" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="prj_event_type_id" value=""/>
+<Lang name="ttp_prj_event_type_id" value=""/>
+<Lang name="ttp_operationprj_event_type" value="操作"/>
+<Lang name="ttp_createprj_event_type" value="新增"/>
+<Lang name="ttp_modifyprj_event_type" value="修改"/>
+<Lang name="ttp_resetprj_event_type" value="清除数据"/>
+<Lang name="ttp_deleteprj_event_type" value="删除"/>
+<Lang name="ttp_refreshprj_event_type" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

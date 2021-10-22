@@ -1,0 +1,36 @@
+<GroupBox Name="GBDEDITquest"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_idx"><Ctrls>
+<Label Align="Right" Text="idx" Name="lb_idx" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_idx" Name="idx" Size="170,20"><OnEnChange><assign name="GBquest" expr="TABEDITquest"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_qid"><Ctrls>
+<Label Align="Right" Text="qid" Name="lb_qid" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_qid" Name="qid" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_idparent"><Ctrls>
+<Label Align="Right" Text="idparent" Name="lb_idparent" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_idparent" Name="idparent" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_itvid"><Ctrls>
+<Label Align="Right" Text="itvid" Name="lb_itvid" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_itvid" Name="itvid" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_odridx"><Ctrls>
+<Label Align="Right" Text="odridx" Name="lb_odridx" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_odridx" Name="odridx" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_qtext"><Ctrls>
+<Label Align="Right" Text="qtext" Name="lb_qtext" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_qtext" Name="qtext" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_qtype"><Ctrls>
+<Label Align="Right" Text="qtype" Name="lb_qtype" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_qtype" Name="qtype" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_adetail"><Ctrls>
+<Label Align="Right" Text="adetail" Name="lb_adetail" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_adetail" Name="adetail" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_atype"><Ctrls>
+<CheckBox Text="atype" ToolTip="ttp_atype" Name="atype" Size="230,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_customer_relation"><Ctrls>
+<ListCtrl Heading="ar_customer_id,120;relation,120;status,60;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;prj_customer_relation_id,55;" loadedclick="0" ToolTip="ttp_prj_customer_relation" Name="prj_customer_relationLst" Size="500,300">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_customer_relation p left join xbs.ar_customer a on p.ar_customer_id=a.ar_customer_id left join xbs.option_line o on p.relation=o.option_line_id</DbTable>
+<Index>prj_customer_relation_id</Index>
+<Data>a.customer_name ar_customer_id,o.option_line_value relation,p.status,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_customer_relation_id</Data>
+<Order>prj_customer_relation_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVuser"><Ctrls>
+<ListCtrl Heading="username,640;hr_employee_id,120;email,500;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;user_id,60;last_visit_date,150;" loadedclick="0" ToolTip="ttp_user" Name="userLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.user</DbTable>
+<Index>user_id</Index>
+<Data>username,hr_employee_id,email,status,created_by,creation_date,last_update_by,last_update_date,user_id,last_visit_date</Data>
+<Order>user_id</Order></DbDetails>
+<OnClick><assign name="hr_employee_id[hr_employee_id]" function="SetSel" expr="%{userLst[hr_employee_id]}"/></OnClick>
+
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

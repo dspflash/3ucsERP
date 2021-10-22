@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEar_transaction_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ar_transaction_line_id" Text="create" ToolTip="ttp_createar_transaction_line" Name="insertar_transaction_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>reference_key_value[refid],line_type[option_line_id],item_id_m[item_id_m],uom_id[uom_id],inv_line_quantity,inv_unit_price,inv_line_price,gl_inv_line_price,line_description,tax_amount,gl_tax_amount,reference_key_name,ar_transaction_header_id[ar_transaction_header_id]</Data>
+<DataEx>status,reference_type,created_by,creation_date,last_update_by,last_update_date,item_description;1526,'table','%{user_id}',now(),'%{user_id}',now(),'%{item_id_m[item_description]}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="ar_transaction_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyar_transaction_line" Name="modifyar_transaction_line" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>reference_key_value[refid],line_type[option_line_id],item_id_m[item_id_m],uom_id[uom_id],inv_line_quantity,inv_unit_price,inv_line_price,gl_inv_line_price,line_description,tax_amount,gl_tax_amount</Data>
+<DataEx>last_update_by,last_update_date,item_description;'%{user_id}',now(),'%{item_id_m[item_description]}'</DataEx>
+<Where>ar_transaction_line_id='%{ar_transaction_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="ar_transaction_lineLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetar_transaction_line" Name="resetar_transaction_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITar_transaction_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchar_transaction_line" Name="gsearchar_transaction_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ar_transaction_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITar_transaction_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

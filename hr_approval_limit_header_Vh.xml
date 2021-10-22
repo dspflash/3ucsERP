@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVhr_approval_limit_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_approval_limit_headerLst" ToolTip="ttp_hr_approval_limit_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_approval_limit_header</DbTable>
+<Index>hr_approval_limit_header_id</Index>
+<Data>limit_name,description,status,created_by,creation_date,last_update_by,last_update_date,hr_approval_limit_header_id,bu_org_id</Data>
+<Order>hr_approval_limit_header_id</Order></DbDetails>
+<OnClick>
+<if cond="%{hr_approval_limit_header_id}"><SetVisible name="inserthr_approval_limit_header" Visible="0"/><SetVisible name="modifyhr_approval_limit_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

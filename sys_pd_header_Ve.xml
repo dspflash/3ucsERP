@@ -1,0 +1,13 @@
+﻿<WndTap Name="sys_pd_header" Text="sys_pd_header" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="primary_document_id[id],process_flow_header_id[sys_process_flow_header_id],current_process_flow_line_id[sys_process_flow_line_id],primary_document,document_number"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\sys_pd_header.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBsys_pd_header" id="sys_pd_header" Text="sys_pd_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_header_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_header_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_header_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertsys_pd_header" Visible="1"/><SetVisible name="modifysys_pd_header" Visible="0"/></OnActivate>
+</WndTap>

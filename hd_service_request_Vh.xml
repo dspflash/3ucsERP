@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhd_service_request" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hd_service_requestLst" ToolTip="ttp_hd_service_request" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_service_request</DbTable>
+<Index>hd_service_request_id</Index>
+<Data>service_request_number,ar_customer_id,ar_customer_site_id,inv_serial_number_id,item_id_m,urgency,priority,reason,escalation,problem_summary,status,request_type,request_category,assignment_group,assigned_to_user_id,problem_details,resolution_details,hd_change_request_id,close_code,closed_by_user_id,closed_date,created_by,creation_date,last_update_by,last_update_date,hd_service_request_id</Data>
+<Order>hd_service_request_id</Order></DbDetails>
+<OnClick><assign name="ar_customer_id[ar_customer_id]" expr="%{hd_service_requestLst[ar_customer_id]}" function="SetSel"/><assign name="ar_customer_site_id[ar_customer_site_id]" expr="%{hd_service_requestLst[ar_customer_site_id]}" function="SetSel"/><assign name="escalation[option_line_id]" expr="%{hd_service_requestLst[escalation]}" function="SetSel"/><assign name="status[option_line_id]" expr="%{hd_service_requestLst[status]}" function="SetSel"/><assign name="request_type[option_line_id]" expr="%{hd_service_requestLst[request_type]}" function="SetSel"/><assign name="request_category[option_line_id]" expr="%{hd_service_requestLst[request_category]}" function="SetSel"/>
+<if cond="%{hd_service_request_id}"><SetVisible name="inserthd_service_request" Visible="0"/><SetVisible name="modifyhd_service_request" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

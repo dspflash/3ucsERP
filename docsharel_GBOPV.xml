@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVdocsharel" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletedocsharel" Name="deletedocsharel" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.docsharel</DbTable>
+<Where>idx='%{docsharelLst[idx]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchdocsharel" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshdocsharel" Name="searchdocsharel" Size="50,20">
+			  <OnClick><submit next="docsharelLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPdocsharelLst" OnClick="(docsharelLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREdocsharelLst" OnClick="(docsharelLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPdocsharelLst" OnClick="(docsharelLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

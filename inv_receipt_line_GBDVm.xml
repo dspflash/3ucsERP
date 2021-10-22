@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinv_receipt_line"><Ctrls>
+<ListCtrl Heading="reference_key_value,120;item_number,120;item_name,120;transaction_quantity,75;uom_name,120;item_specification,120;item_description,120;subinventory_id,120;locator_id,120;lot_number,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;inv_receipt_line_id,60;status,30;" loadedclick="0" ToolTip="ttp_inv_receipt_line" Name="inv_receipt_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_receipt_line i left join xbs.item i0 on i.item_id_m=i0.item_id_m left join xbs.uom u on i.uom_id=u.uom_id left join xbs.subinventory s on i.subinventory_id=s.subinventory_id left join xbs.locator l on i.locator_id=l.locator_id left join xbs.inv_lot_number i1 on i.lot_number=i1.inv_lot_number_id left join xbs.currency c on i.currency=c.currency_id</DbTable>
+<Index>inv_receipt_line_id</Index>
+<Data>i.reference_key_value,i0.item_number,item_name,i.transaction_quantity,u.uom_name,item_specification,i0.item_description,s.subinventory subinventory_id,l.locator locator_id,i1.lot_number lot_number,i0.item_id_m,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.inv_receipt_line_id,i.status</Data>
+<Order>inv_receipt_line_id</Order></DbDetails><OnClick><assign name="reference_key_value[refid]" function="setsel" expr="inv_receipt_lineLst[reference_key_value]"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

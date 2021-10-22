@@ -1,0 +1,13 @@
+﻿<WndTap Name="user_bom_department" Text="user_bom_department" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="bom_department_id[bom_department_id],xerp_user_id[xerp_user_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\user_bom_department.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBuser_bom_department" id="user_bom_department" Text="user_bom_department" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_bom_department_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_bom_department_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_bom_department_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertuser_bom_department" Visible="1"/><SetVisible name="modifyuser_bom_department" Visible="0"/></OnActivate>
+</WndTap>

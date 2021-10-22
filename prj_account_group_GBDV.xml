@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_account_group"><Ctrls>
+<ListCtrl Heading="accounting_group,125;status,60;effective_start_date,90;effective_end_date,90;description,440;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;prj_account_group_id,50;bu_org_id,55;" loadedclick="0" ToolTip="ttp_prj_account_group" Name="prj_account_groupLst" Size="500,300">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_account_group</DbTable>
+<Index>prj_account_group_id</Index>
+<Data>accounting_group,status,effective_start_date,effective_end_date,description,created_by,creation_date,last_update_by,last_update_date,prj_account_group_id,bu_org_id</Data>
+<Order>prj_account_group_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

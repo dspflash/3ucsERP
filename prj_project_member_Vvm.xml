@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVprj_project_member" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_project_member_vLst" ToolTip="ttp_prj_project_member" Size="700,220" Heading="prj_role_id,120;user_id,120;description,640;start_date,90;end_date,90;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_project_member_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_project_member p left join xbs.prj_role p0 on p.prj_role_id=p0.prj_role_id left join xbs.xerp_user x on p.user_id=x.xerp_user_id</DbTable>
+<Index>prj_project_member_id</Index>
+<Data>p0.role_name prj_role_id,x.username user_id,p.description,p.start_date,p.end_date,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_project_member_id</Data>
+<Order>prj_project_member_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.prj_project_member.GBDEDITprj_project_member" function="reset"/><assign name="$this.prj_project_member.prj_project_header_id" expr="%{prj_project_header_id}"/></op>
+<op text="modify"><DbDetails><Where>prj_project_member_id='%{prj_project_member_vLst[prj_project_member_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_project_member.prj_project_memberLst"/><assign name="$this.prj_project_member.prj_project_header_id" expr="%{prj_project_header_id}"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.prj_project_member</DbTable>
+<Where>prj_project_member_id='%{prj_project_member_vLst[prj_project_member_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

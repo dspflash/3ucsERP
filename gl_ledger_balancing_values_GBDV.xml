@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVgl_ledger_balancing_values"><Ctrls>
+<ListCtrl Heading="gl_ledger_id,120;balancing_values,250;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;gl_ledger_balancing_values_id,60;" loadedclick="0" ToolTip="ttp_gl_ledger_balancing_values" Name="gl_ledger_balancing_valuesLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_ledger_balancing_values g left join xbs.gl_ledger g0 on g.gl_ledger_id=g0.gl_ledger_id</DbTable>
+<Index>gl_ledger_balancing_values_id</Index>
+<Data>g0.ledger gl_ledger_id,g.balancing_values,g.created_by,g.creation_date,g.last_update_by,g.last_update_date,g.gl_ledger_balancing_values_id</Data>
+<Order>gl_ledger_balancing_values_id</Order></DbDetails>%{extelmt}</ListCtrl>
+</Ctrls></GroupBox>

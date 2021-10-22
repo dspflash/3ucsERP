@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_receipt_header"><Ctrls>
+<ListCtrl Heading="receipt_number,125;receipt_type,120;reference_key_value,120;ar_customer_id,120;ar_customer_site_id,120;header_amount,75;currency,120;doc_currency,120;description,640;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;document_date,90;document_number,250;from_bank_account_id,120;to_bank_account_id,120;ledger_id,120;period_id,120;reference_type,125;reference_key_name,125;approval_status,120;receipt_status,120;ar_receipt_header_id,55;" loadedclick="0" ToolTip="ttp_ar_receipt_header" Name="ar_receipt_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_receipt_header a left join xbs.option_line o on a.receipt_type=o.option_line_id left join xbs.ar_customer a0 on a.ar_customer_id=a0.ar_customer_id left join xbs.ar_customer_site a1 on a.ar_customer_site_id=a1.ar_customer_site_id left join xbs.currency c on a.currency=c.currency_id left join xbs.currency c0 on a.doc_currency=c0.currency_id left join xbs.mdm_bank_account_vx m on a.from_bank_account_id=m.mdm_bank_account_id left join xbs.mdm_bank_account_vx ba JOIN (SELECT org_id FROM org WHERE org_id='%{orgid}' OR parent_org_id='%{orgid}') ref ON ba.reftbltp='org' AND ba.refid=ref.org_id
+ m0 on a.to_bank_account_id=m0.mdm_bank_account_id left join xbs.gl_ledger g on a.ledger_id=g.gl_ledger_id left join xbs.gl_period g0 on a.period_id=g0.gl_period_id left join xbs.option_line o0 on a.approval_status=o0.option_line_id left join xbs.option_line o1 on a.receipt_status=o1.option_line_id</DbTable>
+<Index>ar_receipt_header_id</Index>
+<Data>a.receipt_number,o.option_line_value receipt_type,a.reference_key_value,a0.customer_name ar_customer_id,a1.customer_site_name ar_customer_site_id,a.header_amount,c.title currency,c0.title doc_currency,a.description,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.document_date,a.document_number,m.account_number from_bank_account_id,m0.account_number to_bank_account_id,g.ledger ledger_id,g0.period_name period_id,a.reference_type,a.reference_key_name,o0.option_line_value approval_status,o1.option_line_value receipt_status,a.ar_receipt_header_id</Data>
+<Order>ar_receipt_header_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

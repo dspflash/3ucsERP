@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEpo_quote_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="po_quote_line_id" Text="create" ToolTip="ttp_createpo_quote_line" Name="insertpo_quote_line" Size="50,20">
+	<OnClick><assign name="break" expr="0"/><if cond="%{item_id_m[list_price]}"><if cond="%{item_id_m[list_price]}&lt;%{quote_unit_price}"><!---assign name="break" expr="1"/--><info expr="%{lb_quote_unit_price} should lesser than %{item_id_m[list_price]}"/><else/><assign name="break" expr="0"/></if></if>
+	<if cond="!%{break}"><DbDetails fcsm="1">
+<DbTable>xbs.po_quote_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>po_rfq_line_id[po_rfq_line_id],item_id_m[item_id_m],item_description,uom_id[uom_id],tax_code_id[mdm_tax_code_id],quote_unit_price,supplier_part_number,mfg_part_number,manufacturer,minimum_agreement_quantity,minimum_order_quantity,daily_capacity,processing_lead_time,replenishment_lead_time,po_quote_header_id[po_quote_header_id]</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="po_quote_lineLst"/></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypo_quote_line" Name="modifypo_quote_line" Size="50,20">
+	<OnClick><assign name="break" expr="0"/><if cond="%{item_id_m[list_price]}"><if cond="%{item_id_m[list_price]}&lt;%{quote_unit_price}"><!--assign name="break" expr="1"/--><info expr="%{lb_quote_unit_price} should lesser than %{item_id_m[list_price]}"/><else/><assign name="break" expr="0"/></if></if>
+	<if cond="!%{break}"><DbDetails fcsm="1">
+<DbTable>xbs.po_quote_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>po_rfq_line_id[po_rfq_line_id],item_id_m[item_id_m],item_description,uom_id[uom_id],tax_code_id[mdm_tax_code_id],quote_unit_price,supplier_part_number,mfg_part_number,manufacturer,minimum_agreement_quantity,minimum_order_quantity,daily_capacity,processing_lead_time,replenishment_lead_time,po_quote_header_id[po_quote_header_id]</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>po_quote_line_id='%{po_quote_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="po_quote_lineLst"/></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpo_quote_line" Name="resetpo_quote_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_quote_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchpo_quote_line" Name="gsearchpo_quote_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="po_quote_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITpo_quote_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

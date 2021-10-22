@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEar_transaction_detail" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ar_transaction_detail_id" Text="create" ToolTip="ttp_createar_transaction_detail" Name="insertar_transaction_detail" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_detail</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>account_type[option_line_id],detail_ac_id[coa_combination_id],amount,gl_amount,description,ar_transaction_line_id[ar_transaction_line_id]</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,ar_transaction_header_id;'%{user_id}',now(),'%{user_id}',now(),'%{ar_transaction_line_id[ar_transaction_header_id]}' </DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="ar_transaction_detailLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyar_transaction_detail" Name="modifyar_transaction_detail" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_detail</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>account_type[option_line_id],detail_ac_id[coa_combination_id],amount,gl_amount,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ar_transaction_detail_id='%{ar_transaction_detail_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="ar_transaction_detailLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetar_transaction_detail" Name="resetar_transaction_detail" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITar_transaction_detail" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchar_transaction_detail" Name="gsearchar_transaction_detail" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ar_transaction_detailLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITar_transaction_detail" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

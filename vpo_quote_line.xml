@@ -1,0 +1,22 @@
+	<WndTap Text="vpo_quote_line" Name="vpo_quote_line" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_quote_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_quote_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="vpo_quote" Name="GBvpo_quote" id="vpo_quote" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<Button Name="export" Size="50,20" Text="导出">
+			<OnClick><Save></Save><submit next="PO_quoteLst" namelist="Save" function="savetofile"/></OnClick></Button><BR/>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="PO_quoteLst" Size="700,420">
+			<DbDetails>
+			<DbTable>xbs.po_quote_v</DbTable>
+			<Index>po_quote_line_id</Index>
+			<Data>*</Data>
+			<Order>po_quote_line_id</Order>
+			</DbDetails>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

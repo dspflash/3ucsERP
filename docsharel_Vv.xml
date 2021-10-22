@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVdocsharel" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="docsharel_vLst" ToolTip="ttp_docsharel" Size="300,180" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.docsharel d left join xbs.documents d0 on d.doc_id=d0.idx</DbTable>
+<Index>idx</Index>
+<Data>d0.filenameany doc_id,d.shared2,d.type,d.dt2share,d.sharedby,d.idx</Data>
+<Order>idx</Order></DbDetails>
+<DbDetails><Data>d0.filenameany,u.NAME shared2user,u.username,d.shared2,d.type,d.dt2share,d.sharedby,d.doc_id,d.idx </Data><DbTable>xbs.docsharel d LEFT JOIN user_v u ON (u.xerp_user_id=d.shared2 AND d.type=0) 
+LEFT JOIN xbs.documents d0 ON d.doc_id=d0.idx</DbTable></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="docsharel_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEar_revenue_rule_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ar_revenue_rule_line_id" Text="create" ToolTip="ttp_createar_revenue_rule_line" Name="insertar_revenue_rule_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_revenue_rule_line</DbTable>
+<Data>ar_revenue_rule_header_id[ar_revenue_rule_header_id],period_number,percent,schedule_date,description</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_revenue_rule_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyar_revenue_rule_line" Name="modifyar_revenue_rule_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_revenue_rule_line</DbTable>
+<Data>ar_revenue_rule_header_id[ar_revenue_rule_header_id],period_number,percent,schedule_date,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ar_revenue_rule_line_id='%{ar_revenue_rule_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_revenue_rule_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetar_revenue_rule_line" Name="resetar_revenue_rule_line" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITar_revenue_rule_line" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchar_revenue_rule_line" Name="gsearchar_revenue_rule_line" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ar_revenue_rule_lineLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITar_revenue_rule_line" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

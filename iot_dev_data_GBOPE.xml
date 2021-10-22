@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEiot_dev_data" Size="100,100"><Ctrls>
+<Button sqlpkinsert="dev_data_idx" Text="create" ToolTip="ttp_createiot_dev_data" Name="insertiot_dev_data" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.iot_dev_data</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>topic,data_id,data_name,data_param,columns,orderidx,actived,dev_idx</Data>
+<DataEx/>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertiot_dev_data[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="iot_dev_dataLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.iot_dev_data_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyiot_dev_data" Name="modifyiot_dev_data" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.iot_dev_data</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>topic,data_id,data_name,data_param,columns,orderidx,actived,dev_idx</Data>
+<DataEx/>
+<Where>dev_data_idx='%{dev_data_idx}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyiot_dev_data[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="iot_dev_dataLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.iot_dev_data_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetiot_dev_data" Name="resetiot_dev_data" Size="50,20">
+<OnClick>
+<submit next="GBDEDITiot_dev_data" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchiot_dev_data" Name="gsearchiot_dev_data" Size="50,20" visible="false">
+<OnClick>
+<search next="iot_dev_dataLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITiot_dev_data" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

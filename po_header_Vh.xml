@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVpo_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="po_headerLst" ToolTip="ttp_po_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_header</DbTable>
+<Index>po_header_id</Index>
+<Data>po_number,po_type,description,supplier_id,supplier_site_id,payment_term_id,ship_to_id,bill_to_id,header_amount,tax_amount,currency,doc_currency,exchange_rate,agreement_start_date,agreement_end_date,rev_number,created_by,creation_date,last_update_by,last_update_date,po_header_id,po_status,bu_org_id,printed_date,po_req_header_id,exchange_rate_type</Data>
+<Order>po_header_id</Order></DbDetails>
+<OnClick><assign name="po_number[po_number]" expr="%{po_headerLst[po_number]}" function="SetSel"/><assign name="po_type[option_line_id]" expr="%{po_headerLst[po_type]}" function="SetSel"/><assign name="supplier_id[supplier_id]" expr="%{po_headerLst[supplier_id]}" function="SetSel"/><assign name="supplier_site_id[supplier_site_id]" expr="%{po_headerLst[supplier_site_id]}" function="SetSel"/><assign name="payment_term_id[payment_term_id]" expr="%{po_headerLst[payment_term_id]}" function="SetSel"/><assign name="ship_to_id[address_id]" expr="%{po_headerLst[ship_to_id]}" function="SetSel"/><assign name="bill_to_id[address_id]" expr="%{po_headerLst[bill_to_id]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{po_headerLst[currency]}" function="SetSel"/><assign name="doc_currency[currency_id]" expr="%{po_headerLst[doc_currency]}" function="SetSel"/><assign name="po_status[option_line_id]" expr="%{po_headerLst[po_status]}" function="SetSel"/><assign name="exchange_rate_type[gl_currency_conversion_id]" expr="%{po_headerLst[exchange_rate_type]}" function="SetSel"/>
+<if cond="%{po_header_id}"><SetVisible name="insertpo_header" Visible="0"/><SetVisible name="modifypo_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_payroll" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_payrollLst" ToolTip="ttp_hr_payroll" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_payroll_id</Index>
+<DbTable>xbs.hr_payroll</DbTable>
+<Data>payroll,period_type,payment_method_id,start_date,end_date,description,created_by,creation_date,last_update_by,last_update_date,hr_payroll_id</Data>
+<Order>hr_payroll_id</Order></DbDetails>
+<OnClick><assign name="period_type[option_line_id]" expr="%{hr_payrollLst[period_type]}" function="SetSel"/><assign name="payment_method_id[hr_payroll_payment_method_id]" expr="%{hr_payrollLst[payment_method_id]}" function="SetSel"/>
+<if cond="%{hr_payroll_id}"><SetVisible name="inserthr_payroll" Visible="0"/><SetVisible name="modifyhr_payroll" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVwip_wo_bom" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="wip_wo_bom_vLst" ToolTip="ttp_wip_wo_bom" Size="700,420" OnLoad="init" Heading="bom_sequence,50;routing_sequence,120;routing_seq_num,60;component_item_id_m,120;usage_basis,120;usage_quantity,75;effective_start_date,90;effective_end_date,90;wip_supply_type,120;supply_sub_inventory,120;supply_locator,120;required_quantity,75;issued_quantity,75;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;wip_wo_bom_id,100;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.wip_wo_bom w left join xbs.item i on w.component_item_id_m=i.item_id_m left join xbs.option_line o on w.usage_basis=o.option_line_id left join xbs.option_line o0 on w.wip_supply_type=o0.option_line_id left join xbs.subinventory s on w.supply_sub_inventory=s.subinventory_id left join xbs.locator l on w.supply_locator=l.locator_id</DbTable>
+<Index>wip_wo_bom_id</Index>
+<Data>w.bom_sequence,w.routing_sequence,w.routing_seq_num,i.item_number component_item_id_m,o.option_line_value usage_basis,w.usage_quantity,w.effective_start_date,w.effective_end_date,o0.option_line_value wip_supply_type,s.subinventory supply_sub_inventory,l.locator supply_locator,w.required_quantity,w.issued_quantity,w.created_by,w.creation_date,w.last_update_by,w.last_update_date,w.wip_wo_bom_id</Data>
+<Order>wip_wo_bom_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>wip_wo_bom_id='%{wip_wo_bom_vLst[wip_wo_bom_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.wip_wo_bom.wip_wo_bomLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.wip_wo_bom</DbTable>
+<Where>wip_wo_bom_id='%{wip_wo_bom_vLst[wip_wo_bom_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEap_payment_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="ap_payment_header_id" Text="create" ToolTip="ttp_createap_payment_header" Name="insertap_payment_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payment_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>payment_number,payment_type[option_line_id],reference_key_value[refid],supplier_id[supplier_id],supplier_site_id[supplier_site_id],description,from_bank_account_id[mdm_bank_account_id],to_bank_account_id[mdm_bank_account_id],currency[currency_id],doc_currency[currency_id],exchange_rate_type[gl_currency_conversion_id],exchange_rate,document_date,document_number,ledger_id[gl_ledger_id],period_id[gl_period_id],reference_key_name</Data>
+<DataEx>approval_status,payment_status,reference_type,created_by,creation_date,last_update_by,last_update_date,bu_org_id;321,1538,'table','%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="ap_payment_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyap_payment_header" Name="modifyap_payment_header" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payment_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>payment_number,payment_type[option_line_id],reference_key_value[refid],supplier_id[supplier_id],supplier_site_id[supplier_site_id],description,from_bank_account_id[mdm_bank_account_id],to_bank_account_id[mdm_bank_account_id],currency[currency_id],doc_currency[currency_id],exchange_rate_type[gl_currency_conversion_id],exchange_rate,document_date,document_number,ledger_id[gl_ledger_id],period_id[gl_period_id]</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>ap_payment_header_id='%{ap_payment_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="ap_payment_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetap_payment_header" Name="resetap_payment_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITap_payment_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchap_payment_header" Name="gsearchap_payment_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="ap_payment_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITap_payment_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

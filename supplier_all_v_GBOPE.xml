@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEsupplier_all_v" Size="100,100"><Ctrls>
+<Button sqlpkinsert="" Text="create" ToolTip="ttp_createsupplier_all_v" Name="insertsupplier_all_v" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.supplier_all_v</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>supplier_number,supplier_name,supplier_site_number,supplier_site_name,tax_country,tax_reg_no,ap_currency,payment_term,status</Data>
+<DataEx/>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="supplier_all_vLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifysupplier_all_v" Name="modifysupplier_all_v" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.supplier_all_v</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>supplier_number,supplier_name,supplier_site_number,supplier_site_name,tax_country,tax_reg_no,ap_currency,payment_term,status</Data>
+<DataEx/>
+<Where>supplier_number='%{supplier_all_vLst[supplier_number]}' and supplier_name='%{supplier_all_vLst[supplier_name]}' and supplier_site_number='%{supplier_all_vLst[supplier_site_number]}' and supplier_site_name='%{supplier_all_vLst[supplier_site_name]}' and tax_country='%{supplier_all_vLst[tax_country]}' and tax_reg_no='%{supplier_all_vLst[tax_reg_no]}' and ap_currency='%{supplier_all_vLst[ap_currency]}' and payment_term='%{supplier_all_vLst[payment_term]}' and status='%{supplier_all_vLst[status]}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="supplier_all_vLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetsupplier_all_v" Name="resetsupplier_all_v" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsupplier_all_v" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchsupplier_all_v" Name="gsearchsupplier_all_v" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="supplier_all_vLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITsupplier_all_v" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

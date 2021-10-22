@@ -1,0 +1,259 @@
+<WndTap Name="vAR_SDSO" Text="vAR_SDSO">
+	<WndTaps>
+<WndTap Text="ar_transaction_header" Name="ar_transaction_header" Ver="2" popup="1">
+<var name="dataRequired" expr="transaction_class[option_line_id],reference_key_value[refid],ar_customer_id[ar_customer_id],ledger_id[gl_ledger_id],period_id[gl_period_id]"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_transaction_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_transaction_line.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_transaction_detail.xml"/>
+<Ctrls>
+<GroupBox Text="ar_transaction_header" Name="GBar_transaction_header" id="ar_transaction_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_transaction_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_transaction_header_GBOPE.xml"></xi:include>
+<!--Button Text="detailAdmin" ToolTip="ttp_detailAdmin" Name="detailAdmin" Size="50,20">
+	<OnClick>
+	<assign name="vAR_SDSO.ar_transaction_line.reference_key_name" expr="sd_so_line" function="setsel"/><DbDetails><Where>ar_transaction_header_id='%{vAR_SDSO.ar_transaction_header.ar_transaction_header_id}'</Where></DbDetails><submit next="vAR_SDSO.ar_transaction_line.ar_transaction_header_id" namelist="DbDetails"/><DbDetails fcsm="1"><DbTable>xbs.sd_so_line</DbTable><Index>sd_so_line_id</Index><Data>line_number,item_id_m,uom_id,unit_price inv_unit_price,line_price inv_line_price,item_description,line_quantity inv_line_quantity,sd_so_line_id refid</Data><Where>sd_so_header_id='%{vAR_SDSO.ar_transaction_header.reference_key_value[refid]}'</Where></DbDetails><submit next="vAR_SDSO.ar_transaction_line.reference_key_value" namelist="DbDetails"/>
+	</OnClick>
+	</Button><TAB/-->
+	<Button Text="confirm" ToolTip="ttp_confirm" Name="confirm" clickneedconfirm="1" Size="50,20">
+		<OnClick><if cond="!%{ar_transaction_header_id}"><alert expr="单据不存在，不可操作！"/><else/><DbDetails><queryFormat>update ar_transaction_header set transaction_status=1527 where ar_transaction_header_id='%{ar_transaction_header_id}' and transaction_status=1526 and header_amount!=0 and (select count(ar_transaction_detail_id) from ar_transaction_detail where ar_transaction_header_id='%{ar_transaction_header_id}')!=0;update ar_transaction_line set status=1527 where ar_transaction_header_id='%{ar_transaction_header_id}' and status=1526 and (select count(ar_transaction_detail_id) from ar_transaction_detail where ar_transaction_header_id='%{ar_transaction_header_id}')!=0;</queryFormat></DbDetails><submit namelist="DbDetails"/></if>
+		</OnClick>
+		</Button><TAB/>
+<ListCtrl Name="ar_transaction_headerLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_header</DbTable>
+<Index>ar_transaction_header_id</Index>
+<Data>transaction_number,transaction_class,reference_key_value,ar_customer_id,ar_customer_site_id,payment_term_id,payment_term_date,ship_to_id,bill_to_id,header_amount,tax_amount,currency,doc_currency,description,document_date,ledger_id,period_id,reference_type,reference_key_name,transaction_status,approval_status,document_owner,receipt_amount,receivable_ac_id,sales_person,receipt_method,ar_transaction_header_id</Data>
+<Order>ar_transaction_header_id</Order></DbDetails>
+<OnClick><assign name="transaction_class[option_line_id]" function="SetSel" expr="%{ar_transaction_headerLst[transaction_class]}"/><assign name="reference_key_value[refid]" function="SetSel" expr="%{ar_transaction_headerLst[reference_key_value]}"/><assign name="ar_customer_id[ar_customer_id]" function="SetSel" expr="%{ar_transaction_headerLst[ar_customer_id]}"/><assign name="ar_customer_site_id[ar_customer_site_id]" function="SetSel" expr="%{ar_transaction_headerLst[ar_customer_site_id]}"/><assign name="payment_term_id[payment_term_id]" function="SetSel" expr="%{ar_transaction_headerLst[payment_term_id]}"/><assign name="ship_to_id[address_id]" function="SetSel" expr="%{ar_transaction_headerLst[ship_to_id]}"/><assign name="bill_to_id[address_id]" function="SetSel" expr="%{ar_transaction_headerLst[bill_to_id]}"/><assign name="currency[currency_id]" function="SetSel" expr="%{ar_transaction_headerLst[currency]}"/><assign name="doc_currency[currency_id]" function="SetSel" expr="%{ar_transaction_headerLst[doc_currency]}"/><assign name="ledger_id[gl_ledger_id]" function="SetSel" expr="%{ar_transaction_headerLst[ledger_id]}"/><assign name="period_id[gl_period_id]" function="SetSel" expr="%{ar_transaction_headerLst[period_id]}"/><assign name="transaction_status[option_line_id]" function="SetSel" expr="%{ar_transaction_headerLst[transaction_status]}"/><assign name="approval_status[option_line_id]" function="SetSel" expr="%{ar_transaction_headerLst[approval_status]}"/>
+</OnClick>
+</ListCtrl>
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_transaction_line_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertar_transaction_header" Visible="1"/><SetVisible name="modifyar_transaction_header" Visible="0"/></OnActivate>
+	</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_transaction_line_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_transaction_detail_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_transaction_detail_Vm.xml" popup="1"/>
+<WndTap Text="var_transaction_line" Name="var_transaction_line" Ver="2" popup="1">
+<var name="refreshAfterEdit" expr="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_transaction_line.xml"/>
+<Ctrls>
+<GroupBox Text="ar_transaction_line" Name="GBar_transaction_line" id="ar_transaction_line" Size="100,100"><Ctrls>
+<GroupBox Name="GBDVar_transaction_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="ar_transaction_line_vLst" ToolTip="ttp_ar_transaction_line" Size="700,180" DataJoin="%{this(reference_key_value,line_type,item_number,line_number,inv_line_quantity,inv_unit_price,inv_line_price,gl_inv_line_price,line_description,status)}%{detail}" DataJoinKey="ar_transaction_line_id" loadedclick="0">
+			<MDX id="detail" datatype="string">
+			<DbDetails>
+				<DbTable>ar_transaction_detail atd JOIN option_line act ON atd.account_type=act.option_line_id</DbTable> where 
+				<Index>ar_transaction_line_id </Index>
+				<MDX>ar_transaction_line_id,acctp,amount</MDX>
+				<Data>ar_transaction_line_id,option_line_value acctp,amount</Data>
+			</DbDetails>
+			</MDX>
+	<DbDetails >
+<DbTable>xbs.ar_transaction_line a left join xbs.option_line o on a.line_type=o.option_line_id left join xbs.item i on a.item_id_m=i.item_id_m left join xbs.option_line o0 on a.status=o0.option_line_id</DbTable>
+<Index>ar_transaction_line_id</Index>
+<Data>a.reference_key_value,o.option_line_value line_type,i.item_number,a.line_number,a.inv_line_quantity,a.inv_unit_price,a.inv_line_price,a.gl_inv_line_price,a.line_description,o0.option_line_value status,a.reference_type,a.reference_key_name,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.ar_transaction_line_id</Data>
+<Order>ar_transaction_line_id</Order></DbDetails>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="AR_transaction" Name="vARtransaction" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_transaction_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_transaction_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="AR_transaction" Name="GBvARtransaction" id="vARtransaction" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="vARtransactionLst" Size="700,120">
+			<DbDetails>
+			<DbTable>ar_transaction_header_v</DbTable>
+			<Index>ar_transaction_header_id</Index>
+			<Data>*</Data>
+			<Order>ar_transaction_header_id</Order></DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<EvalTbl rules="" table="inv_receipt_admin_menu_rule">
+			<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/inv_receipt_admin_menu_rule.xml"/></rules>
+			<inputs status="%{vReceiptLst[status]}"/>
+			<outputs title="text" disabled="disabled"/></EvalTbl>
+			<op text="modify"><assign name="vAR_SDSO.ar_transaction_header.reference_key_name" expr="sd_so_header" function="setsel"/><DbDetails><DbTable>xbs.sd_so_header</DbTable><Index>sd_so_header_id</Index><Data>so_number,ar_customer_id,ar_customer_site_id,payment_term_id,currency,doc_currency,bu_org_id,sd_so_header_id refid</Data><Where>sd_so_header_id='%{vAR_SDSO.vARtransaction.vARtransactionLst[reference_key_value]}'</Where></DbDetails><submit next="vAR_SDSO.ar_transaction_header.reference_key_value" namelist="DbDetails"/><DbDetails><Where>ar_transaction_header_id='%{vAR_SDSO.vARtransaction.vARtransactionLst[ar_transaction_header_id]}' and transaction_status=1526</Where></DbDetails><submit next="vAR_SDSO.ar_transaction_header.ar_transaction_headerLst" namelist="DbDetails"/>
+			</op>
+			<op text="view"><DbDetails><Where>ar_transaction_header_id='%{vAR_SDSO.vARtransaction.vARtransactionLst[ar_transaction_header_id]}'</Where></DbDetails><submit next="vAR_SDSO.var_transaction_line.ar_transaction_line_vLst" namelist="DbDetails"/></op>
+			<op text="confirm" needconfirm="1"><DbDetails><queryFormat>update ar_transaction_header set transaction_status=1527 where ar_transaction_header_id='%{vARtransactionLst[ar_transaction_header_id]}' and transaction_status=1526 and header_amount!=0 and (select count(ar_transaction_detail_id) from ar_transaction_detail where ar_transaction_header_id='%{vARtransactionLst[ar_transaction_header_id]}')!=0;update ar_transaction_line set status=1527 where ar_transaction_header_id='%{vARtransactionLst[ar_transaction_header_id]}' and status=1526 and (select count(ar_transaction_detail_id) from ar_transaction_detail where ar_transaction_header_id='%{vARtransactionLst[ar_transaction_header_id]}')!=0;
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			<op text="cancel" needconfirm="1"><DbDetails><queryFormat>update ar_transaction_header set transaction_status=1563 where ar_transaction_header_id='%{vAR_SDSO.vARtransaction.vARtransactionLst[ar_transaction_header_id]}' and transaction_status=1526;update ar_transaction_line set status=1563 where ar_transaction_header_id='%{vAR_SDSO.vARtransaction.vARtransactionLst[ar_transaction_header_id]}' and status=1526;
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+<WndTap Text="ar_receipt_header" Name="ar_receipt_header" Ver="2" popup="1">
+<var name="dataRequired" expr="receipt_type[option_line_id],reference_key_value[refid],ar_customer_id[ar_customer_id],ledger_id[gl_ledger_id],period_id[gl_period_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_receipt_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_receipt_line.xml"/>
+<Ctrls>
+<GroupBox Text="ar_receipt_header" Name="GBar_receipt_header" id="ar_receipt_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_receipt_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_receipt_header_GBOPE.xml"></xi:include>
+<!--Button Text="detailAdmin" ToolTip="ttp_detailAdmin" Name="detailAdmin" Size="50,20">
+	<OnClick>
+	<DbDetails><Where>ar_receipt_header_id='%{vAR_SDSO.ar_receipt_header.ar_receipt_header_id}'</Where></DbDetails><submit next="vAR_SDSO.ar_receipt_line.ar_receipt_header_id" namelist="DbDetails"/>
+	</OnClick>
+	</Button><TAB/-->
+	<Button Text="confirm" ToolTip="ttp_confirm" Name="confirm" clickneedconfirm="1" Size="50,20">
+		<OnClick><if cond="!%{ar_receipt_header_id}"><alert expr="单据不存在，不可操作！"/><else/><DbDetails><queryFormat>update ar_receipt_header set receipt_status=1539 where ar_receipt_header_id='%{ar_receipt_header_id}' and receipt_status!=1539 and (select count(ar_receipt_line_id) from ar_receipt_line where ar_receipt_header_id='%{ar_receipt_header_id}')!=0;update ar_receipt_line set status=1539 where ar_receipt_header_id='%{ar_receipt_header_id}' and status!=1539;</queryFormat></DbDetails><submit namelist="DbDetails"/></if>
+		</OnClick>
+		</Button><TAB/>
+<ListCtrl loadedclick="1" ToolTip="ttp_ar_receipt_header" Name="ar_receipt_headerLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_receipt_header</DbTable>
+<Index>ar_receipt_header_id</Index>
+<Data>receipt_number,receipt_type,reference_key_value,ar_customer_id,ar_customer_site_id,header_amount,currency,doc_currency,description,created_by,creation_date,last_update_by,last_update_date,document_date,from_bank_header_id,from_bank_line_id,to_bank_header_id,to_bank_line_id,ledger_id,period_id,reference_type,reference_key_name,approval_status,receipt_status,ar_receipt_header_id</Data>
+<Order>ar_receipt_header_id</Order></DbDetails>
+<OnClick><assign name="receipt_type[option_line_id]" function="SetSel" expr="%{ar_receipt_headerLst[receipt_type]}"/><assign name="reference_key_value[refid]" function="SetSel" expr="%{ar_receipt_headerLst[reference_key_value]}"/><assign name="ar_customer_id[ar_customer_id]" function="SetSel" expr="%{ar_receipt_headerLst[ar_customer_id]}"/><assign name="ar_customer_site_id[ar_customer_site_id]" function="SetSel" expr="%{ar_receipt_headerLst[ar_customer_site_id]}"/><assign name="currency[currency_id]" function="SetSel" expr="%{ar_receipt_headerLst[currency]}"/><assign name="doc_currency[currency_id]" function="SetSel" expr="%{ar_receipt_headerLst[doc_currency]}"/><assign name="from_bank_header_id[mdm_bank_header_id]" function="SetSel" expr="%{ar_receipt_headerLst[from_bank_header_id]}"/><assign name="from_bank_line_id[mdm_bank_site_id]" function="SetSel" expr="%{ar_receipt_headerLst[from_bank_line_id]}"/><assign name="to_bank_header_id[mdm_bank_header_id]" function="SetSel" expr="%{ar_receipt_headerLst[to_bank_header_id]}"/><assign name="to_bank_line_id[mdm_bank_site_id]" function="SetSel" expr="%{ar_receipt_headerLst[to_bank_line_id]}"/><assign name="ledger_id[gl_ledger_id]" function="SetSel" expr="%{ar_receipt_headerLst[ledger_id]}"/><assign name="period_id[gl_period_id]" function="SetSel" expr="%{ar_receipt_headerLst[period_id]}"/><assign name="approval_status[option_line_id]" function="SetSel" expr="%{ar_receipt_headerLst[approval_status]}"/><assign name="receipt_status[option_line_id]" function="SetSel" expr="%{ar_receipt_headerLst[receipt_status]}"/>
+</OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_receipt_line_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertar_receipt_header" Visible="1"/><SetVisible name="modifyar_receipt_header" Visible="0"/></OnActivate>
+	</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_receipt_line_Vem.xml" popup="1"/>
+<WndTap Text="vAR_Receipt_line" Name="vAR_Receipt_line" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_receipt_line.xml"/>
+<Ctrls>
+<GroupBox Text="ar_receipt_line" Name="GBar_receipt_line" id="ar_receipt_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_receipt_line_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="AR_receipt" Name="vARreceipt" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_receipt_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="AR_receipt" Name="GBvARreceipt" id="vARreceipt" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="vARreceiptLst" Size="700,120">
+			<DbDetails>
+			<DbTable>ar_receipt_header_v</DbTable>
+			<Index>ar_receipt_header_id</Index>
+			<Data>*</Data>
+			<Order>ar_receipt_header_id</Order></DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<EvalTbl rules="" table="inv_receipt_admin_menu_rule">
+			<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/inv_receipt_admin_menu_rule.xml"/></rules>
+			<inputs status="%{vARreceiptLst[status]}"/>
+			<outputs title="text" disabled="disabled"/></EvalTbl>
+			<op text="modify"><DbDetails><DbTable>xbs.ar_transaction_header</DbTable><Index>ar_transaction_header_id</Index><Data>transaction_number,ar_customer_id,ar_customer_site_id,payment_term_id,currency,doc_currency,ar_transaction_header_id refid</Data><Where>ar_transaction_header_id='%{vARreceiptLst[reference_key_value]}'</Where></DbDetails><submit next="vAR_SDSO.ar_receipt_header.reference_key_value" namelist="DbDetails"/><DbDetails><Where>ar_receipt_header_id='%{vAR_SDSO.vARreceipt.vARreceiptLst[ar_receipt_header_id]}' and receipt_status=1538</Where></DbDetails><submit next="vAR_SDSO.ar_receipt_header.ar_receipt_headerLst" namelist="DbDetails"/>
+			</op>
+			<op text="view"><DbDetails><Where>ar_receipt_header_id='%{vAR_SDSO.vARreceipt.vARreceiptLst[ar_receipt_header_id]}'</Where></DbDetails><submit next="vAR_SDSO.vAR_Receipt_line.ar_receipt_lineLst" namelist="DbDetails"/></op>
+			<op text="confirm" needconfirm="1"><DbDetails><queryFormat>update ar_receipt_header set receipt_status=1539 where ar_receipt_header_id='%{vAR_SDSO.vARreceipt.vARreceiptLst[ar_receipt_header_id]}' and receipt_status!=1539 and (select count(ar_receipt_line_id) from ar_receipt_line where ar_receipt_header_id='%{vAR_SDSO.vARreceipt.vARreceiptLst[ar_receipt_header_id]}')!=0;update ar_receipt_line set status=1539 where ar_receipt_header_id='%{vAR_SDSO.vARreceipt.vARreceiptLst[ar_receipt_header_id]}' and status!=1539;
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			<op text="cancel" needconfirm="1"><DbDetails><queryFormat>update ar_receipt_header set receipt_status=1541 where ar_receipt_header_id='%{vAR_SDSO.vARreceipt.vARreceiptLst[ar_receipt_header_id]}' and receipt_status!=1539;update ar_receipt_line set status=1541 where ar_receipt_header_id='%{vAR_SDSO.vARreceipt.vARreceiptLst[ar_receipt_header_id]}' and status!=1539;
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="AR_receipt_schedule" Name="vARreceipt_schedule" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_transaction_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\payment_term_schedule.xml"/>
+		<Ctrls>
+		<GroupBox Text="AR_receipt" Name="GBvARreceipt" id="vARreceipt" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="vARreceiptLst" Size="700,420">
+			<DbDetails>
+			<DbTable>ar_transaction_header ar JOIN sd_so_header so ON ar.reference_key_value=so.sd_so_header_id AND ar.reference_key_name='sd_so_header' LEFT JOIN payment_term_schedule pts ON ar.payment_term_id=pts.payment_term_id</DbTable>
+			<Index>sd_so_header_id</Index>
+			<Data>so.so_number,(ar.header_amount+ar.tax_amount) amount,ar.receipt_amount,pts.amount_percentage,(ar.header_amount+ar.tax_amount)*pts.amount_percentage/100 due_amount,DATE_ADD(ar.payment_term_date,INTERVAL pts.due_days DAY) due_date,ar.transaction_status,ar.receipt_status,so.sd_so_header_id,ar.ar_transaction_header_id,ar.payment_term_id</Data>
+			<Order>sd_so_header_id</Order></DbDetails>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	</WndTap>
+	<WndTap Text="AR_receipt_discount" Name="vARreceipt_discount" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_transaction_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\payment_term_discount.xml"/>
+		<Ctrls>
+		<GroupBox Text="AR_receipt" Name="GBvARreceipt" id="vARreceipt" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="vARreceiptLst" Size="700,420">
+			<DbDetails>
+			<DbTable>ar_transaction_header ar JOIN sd_so_header so ON ar.reference_key_value=so.sd_so_header_id AND ar.reference_key_name='sd_so_header' LEFT JOIN payment_term_discount ptd ON ar.payment_term_id=ptd.payment_term_id</DbTable>
+			<Index>sd_so_header_id</Index>
+			<Data>so.so_number,(ar.header_amount+ar.tax_amount) amount,ar.receipt_amount,ptd.discount_percentage,(ar.header_amount+ar.tax_amount)*(100-ptd.discount_percentage)/100 due_amount,DATE_ADD(ar.payment_term_date,INTERVAL ptd.due_days DAY) due_date,ar.transaction_status,ar.receipt_status,so.sd_so_header_id,ar.ar_transaction_header_id,ar.payment_term_id</Data>
+			<Order>sd_so_header_id</Order></DbDetails>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	</WndTap>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_line.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_transaction_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_receipt_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vAR_SDSO"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="var_sd_so_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_so_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="sdsoLst" listed="0" prefixand="1" inputed="1"><zone_id op="(" ref=""/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_periodDTSearchrule.xml"/></search>
+	<submit next="GBDEDITsd_so_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="sdsoLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.ar_sdso_v</DbTable>
+<Index>sd_so_header_id</Index>
+<Data>*</Data>
+<Order>sd_so_header_id</Order>
+<Where>and receipt_status!=1539</Where>
+<queryFormat>select %{data} from %{dbtable} where so_status not in (537,541) and approval_status!=322 and receipt_status!=1541 %{where} order by sd_so_header_id desc limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="so_process_menu_rule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/so_process_menu_rule.xml"/></rules>
+<inputs astatus="%{sdsoLst[approval_status]}" status="%{sdsoLst[so_status]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="ar_transaction"><submit next="vAR_SDSO.ar_transaction_header.GBDEDITar_transaction_header" function="reset"/><assign name="vAR_SDSO.ar_transaction_header.reference_key_name" expr="sd_so_header" function="setsel"/><DbDetails><DbTable>xbs.sd_so_header</DbTable><Index>sd_so_header_id</Index><Data>so_number,ar_customer_id,ar_customer_site_id,payment_term_id,currency,doc_currency,bu_org_id,sd_so_header_id refid</Data><Where>sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</Where></DbDetails><submit next="vAR_SDSO.ar_transaction_header.reference_key_value" namelist="DbDetails"/></op>
+<op text="ar_transactionLst"><DbDetails><Where>reference_key_name='sd_so_header' and reference_key_value='%{vAR_SDSO.sdsoLst[sd_so_header_id]}'</Where></DbDetails><submit namelist="dbdetails" next="vAR_SDSO.vARtransaction.vARtransactionLst"/></op>
+<op text="ar_receipt"><submit next="vAR_SDSO.ar_receipt_header.GBDEDITar_receipt_header" function="reset"/><DbDetails><DbTable>xbs.ar_transaction_header</DbTable><Index>ar_transaction_header_id</Index><Data>transaction_number,ar_customer_id,ar_customer_site_id,payment_term_id,currency,doc_currency,ar_transaction_header_id refid</Data><Where>reference_key_value='%{sdsoLst[sd_so_header_id]}' and reference_key_name='sd_so_header' and transaction_status=1527</Where></DbDetails><submit next="vAR_SDSO.ar_receipt_header.reference_key_value" namelist="DbDetails"/></op>
+<op text="ar_receiptLst"><DbDetails><Where>src_reference_key_value='%{vAR_SDSO.sdsoLst[sd_so_header_id]}' and src_reference_key_name='sd_so_header'</Where></DbDetails><submit namelist="dbdetails" next="vAR_SDSO.vARreceipt.vARreceiptLst"/></op>
+<op text="AR_receiptScheduleAll" mustselected="0"><DbDetails><Where>so.so_status!=1551 and ar.transaction_status!=1563 and ar.receipt_status!=1539</Where></DbDetails><submit namelist="dbdetails" next="$this.vARreceipt_schedule.vARreceiptLst"/></op>
+<op text="AR_receiptSchedule"><DbDetails><Where>so.sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</Where></DbDetails><submit namelist="dbdetails" next="$this.vARreceipt_schedule.vARreceiptLst"/></op>
+<op text="AR_receiptDiscountAll" mustselected="0"><DbDetails><Where>so.so_status!=1551 and ar.transaction_status!=1563 and ar.receipt_status!=1539</Where></DbDetails><submit namelist="dbdetails" next="$this.vARreceipt_discount.vARreceiptLst"/></op>
+<op text="AR_receiptDiscount"><DbDetails><Where>so.sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</Where></DbDetails><submit namelist="dbdetails" next="$this.vARreceipt_discount.vARreceiptLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,56 @@
+<Language name="wip_wo_routing_detail">
+<Lang name="wip_wo_routing_detail" value="工单资源"/>
+<Lang name="required_cost" value="计划成本"/>
+<Lang name="applied_cost" value="实际成本"/>
+<Lang name="TabEditwip_wo_routing_detail" value="wip_wo_routing_detail Edit"/>
+<Lang name="TabViewwip_wo_routing_detail" value="wip_wo_routing_detail View"/>
+<Lang name="wip_wo_routing_line_id" value=""/>
+<Lang name="ttp_wip_wo_routing_line_id" value=""/>
+<Lang name="wip_wo_header_id" value=""/>
+<Lang name="ttp_wip_wo_header_id" value=""/>
+<Lang name="resource_sequence" value="资源序号"/>
+<Lang name="ttp_resource_sequence" value=""/>
+<Lang name="charge_basis" value="计费基准"/>
+<Lang name="ttp_charge_basis" value=""/>
+<Lang name="resource_id" value="资源代号"/>
+<Lang name="ttp_resource_id" value=""/>
+<Lang name="resource_usage" value="资源用量"/>
+<Lang name="ttp_resource_usage" value=""/>
+<Lang name="resource_schedule" value="计划与否"/>
+<Lang name="ttp_resource_schedule" value=""/>
+<Lang name="assigned_units" value="已分配单位"/>
+<Lang name="ttp_assigned_units" value=""/>
+<Lang name="required_quantity" value="需求量"/>
+<Lang name="ttp_required_quantity" value=""/>
+<Lang name="applied_quantity" value="应用量"/>
+<Lang name="ttp_applied_quantity" value=""/>
+<Lang name="charge_type" value="计费类型"/>
+<Lang name="ttp_charge_type" value=""/>
+<Lang name="standard_rate_cb" value="标准资费"/>
+<Lang name="ttp_standard_rate_cb" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="wip_wo_routing_detail_id" value="工单资源编号"/>
+<Lang name="ttp_wip_wo_routing_detail_id" value=""/>
+<Lang name="ttp_operationwip_wo_routing_detail" value="操作"/>
+<Lang name="ttp_createwip_wo_routing_detail" value="新增"/>
+<Lang name="ttp_modifywip_wo_routing_detail" value="修改"/>
+<Lang name="ttp_resetwip_wo_routing_detail" value="清除数据"/>
+<Lang name="ttp_deletewip_wo_routing_detail" value="删除"/>
+<Lang name="ttp_refreshwip_wo_routing_detail" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

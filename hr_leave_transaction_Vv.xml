@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDVhr_leave_transaction" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_leave_transaction_vLst" ToolTip="ttp_hr_leave_transaction_v" Size="700,450" OnLoad="init" Heading="employee_id,60;requsted_date,90;approved_date,90;approved_by_employee_id,120;leave_status,120;leave_type,120;leave_quantity,100;from_date,90;to_date,90;reason,640;contact_details,640;sys_notification_id,60;sys_notification_group_id,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_leave_transaction_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>hr_leave_transaction_id</Index>
+<DbTable>xbs.hr_leave_transaction h left join xbs.hr_employee_v h0 on h.employee_id=h0.hr_employee_id left join xbs.hr_employee h1 on h.approved_by_employee_id=h1.hr_employee_id left join xbs.option_line o on h.leave_status=o.option_line_id left join xbs.hr_leave_type h2 on h.leave_type=h2.hr_leave_type_id</DbTable>
+<Data>h0.name employee_id,h.requsted_date,h.approved_date,h1.first_name approved_by_employee_id,o.option_line_value leave_status,h2.leave_type leave_type,h.leave_quantity,h.from_date,h.to_date,h.reason,h.contact_details,h.sys_notification_id,h.sys_notification_group_id,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_leave_transaction_id</Data>
+<Order>hr_leave_transaction_id</Order></DbDetails>
+<DbDetails><Data>h0.name,h.requsted_date,h.approved_date,h1.first_name approved_by_employee_id,o.option_line_value leave_status,h2.leave_type leave_type,h.leave_quantity,h.from_date,h.to_date,h.reason,h.contact_details,h.sys_notification_id,h.sys_notification_group_id,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_leave_transaction_id,employee_id</Data></DbDetails><DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<xi:include href="hr_leave_transaction_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_hr_leave_transaction" expr="js(%{hr_leave_transaction_vLst[currentpage]}+1)"/>
+<assign name="pgscb_hr_leave_transaction" expr="js(%{hr_leave_transaction_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

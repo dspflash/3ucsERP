@@ -1,0 +1,7 @@
+<WndTap Name="wip_accounting_group_v" Text="wip_accounting_group">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_accounting_group_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_accounting_group.xml"/>
+<Ctrls><GroupBox  Name="GBwip_accounting_group" id="wip_accounting_group" Text="wip_accounting_group" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_accounting_group_Vvm.xml"/></Ctrls></GroupBox></Ctrls></WndTap>

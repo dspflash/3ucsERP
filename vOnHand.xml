@@ -1,0 +1,22 @@
+<WndTap Name="vOnhand" Text="vOnhand">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\material.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\subinventory.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="Material"><Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="OnhandLst" Size="700,420"
+Heading="item_number,100;item_name,120;item_specification,120;item_description,100;uom_id,100;onhand,100;org,100;subinventory_id,100;locator_id,100;">
+	<DbDetails>
+<DbTable>xbs.invOnhand_v</DbTable>
+<Index>item_id_m</Index>
+<Data>*</Data>
+<Order>item_id_m</Order>
+<Where>and item_status!=278</Where>
+<queryFormat>select %{data} from %{dbtable} where org_id=%{orgid} %{where} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

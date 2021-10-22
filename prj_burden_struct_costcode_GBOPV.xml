@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVprj_burden_struct_costcode" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteprj_burden_struct_costcode" Name="deleteprj_burden_struct_costcode" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_burden_struct_costcode</DbTable>
+<Where>prj_burden_struct_costcode_id='%{prj_burden_struct_costcodeLst[prj_burden_struct_costcode_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchprj_burden_struct_costcode" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshprj_burden_struct_costcode" Name="searchprj_burden_struct_costcode" Size="50,20">
+			  <OnClick><submit next="prj_burden_struct_costcodeLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPprj_burden_struct_costcodeLst" OnClick="(prj_burden_struct_costcodeLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREprj_burden_struct_costcodeLst" OnClick="(prj_burden_struct_costcodeLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPprj_burden_struct_costcodeLst" OnClick="(prj_burden_struct_costcodeLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

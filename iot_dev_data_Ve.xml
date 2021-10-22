@@ -1,0 +1,13 @@
+﻿<WndTap Name="iot_dev_data" Text="iot_dev_data" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="dev_idx"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\iot_dev_data.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBiot_dev_data" id="iot_dev_data" Text="iot_dev_data" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="iot_dev_data_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="iot_dev_data_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="iot_dev_data_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertiot_dev_data" Visible="1"/><SetVisible name="modifyiot_dev_data" Visible="0"/></OnActivate>
+</WndTap>

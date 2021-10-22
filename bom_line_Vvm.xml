@@ -1,0 +1,27 @@
+<GroupBox Name="GBDVbom_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Heading="bom_sequence,50;standard_operation,120;routing_sequence,120;routing_seq_num,60;component_item_id_m,120;item_name,120;item_specification,120;item_description,120;usage_basis,120;usage_quantity,75;uom_name,75;wip_supply_type,120;supply_sub_inventory,120;supply_locator,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bom_line_id,60;" loadedclick="0" ToolTip="ttp_bom_line" Name="bom_line_vLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_line b JOIN bom_header bh ON bh.bom_header_id=b.bom_header_id LEFT JOIN xbs.bom_routing_line b0 ON (b.routing_sequence=b0.routing_sequence AND b0.routing_seq_num=b.routing_seq_num) JOIN bom_routing_header rh ON (rh.bom_routing_header_id=b0.bom_routing_header_id AND (bh.item_id_m=rh.item_id_m AND bh.org_id=rh.org_id)) LEFT JOIN xbs.item i ON b.component_item_id_m=i.item_id_m and i.org_id=bh.org_id left join uom on i.uom_id=uom.uom_id LEFT JOIN xbs.option_line o ON b.usage_basis=o.option_line_id LEFT JOIN xbs.option_line o0 ON b.wip_supply_type=o0.option_line_id LEFT JOIN xbs.subinventory s ON b.supply_sub_inventory=s.subinventory_id LEFT JOIN xbs.locator l ON b.supply_locator=l.locator_id JOIN xbs.bom_standard_operation bso ON b0.standard_operation_id=bso.bom_standard_operation_id</DbTable>
+<Index>bom_line_id</Index>
+<Data>b.bom_sequence,standard_operation,b0.routing_sequence,b.routing_seq_num,i.item_number,i.item_name,i.item_specification,i.item_description,o.option_line_value usage_basis,b.usage_quantity,uom_name,o0.option_line_value wip_supply_type,s.subinventory supply_sub_inventory,l.locator supply_locator,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_line_id,component_item_id_m</Data>
+<Order>bom_sequence</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<!--EvalTbl rules="" table="bom_menu_rule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/bom_menu_rule.xml"/></rules>
+<inputs hasWO="%{hasWO}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl-->
+
+<!--op text="bom_lineChange"><DbDetails><Where>org_id='%{orgid}' and item_status!=278</Where></DbDetails><submit namelist="DbDetails" next="vProduct.bom_pick.bomLst"/><assign name="vProduct.bom_pick.bom_lineid" expr="%{bom_lineLst[bom_line_id]}"/></op>
+<op text="addone" mustselected="0"><if cond="!%{bom_header_id}"><alert expr="请先添加或选择已有项目！"/><else/><DbDetails><Where>bom_header_id='%{bom_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.bom_line.bom_header_id"/><submit next="$parent.bom_line.bom_lineLst" function="resetcontent"/></if></op-->
+
+<op text="addone" mustselected="0"><!--info expr="HasWO:%{hasWO}"/--><if cond="!%{bom_header_id}"><alert expr="请先添加或选择已有项目！"/><else/><assign name="$parent.bom_line.bom_sequence" expr="-1" function="SetSel"/><DbDetails><Where>bom_header_id='%{bom_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.bom_line.bom_header_id"/><assign name="$parent.bom_line.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>bom_line_id='%{bom_line_vLst[bom_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.bom_line.bom_lineLst"/><DbDetails><Where>bom_header_id='%{bom_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.bom_line.bom_header_id"/><DbDetails><Where>org_id='%{orgid}' and item_id_m='%{bom_line_vLst[component_item_id_m]}'</Where></DbDetails><submit next="$parent.bom_line.component_item_id_m" namelist="DbDetails"/><assign name="$parent.bom_line.frmwndctrl" expr="%{this}"/></op>
+<op text="empty" needconfirm="1"><DbDetails><queryFormat>DELETE FROM bom_line WHERE bom_header_id=(SELECT bom_header_id FROM bom_header WHERE (item_id_m,org_id)=('%{item_id_m[item_id_m]}','%{orgid}')) AND (SELECT COUNT(0) FROM wip_wo_header WHERE (item_id_m,org_id)=('%{item_id_m[item_id_m]}','%{orgid}'))=0</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_line</DbTable>
+<Where>bom_line_id='%{bom_line_vLst[bom_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

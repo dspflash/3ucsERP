@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEgl_journal_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="gl_journal_header_id" Text="create" ToolTip="ttp_creategl_journal_header" Name="insertgl_journal_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_journal_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>journal_name,ledger_id[gl_ledger_id],period_id[gl_period_id],currency[currency_id],doc_currency[currency_id],exchange_rate,document_date,journal_source[option_line_code],journal_category[option_line_code],balance_type[option_line_id],description,exchange_type[gl_currency_conversion_id]</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="gl_journal_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifygl_journal_header" Name="modifygl_journal_header" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_journal_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>journal_name,ledger_id[gl_ledger_id],period_id[gl_period_id],currency[currency_id],doc_currency[currency_id],exchange_rate,document_date,journal_source[option_line_code],journal_category[option_line_code],balance_type[option_line_id],description,exchange_type[gl_currency_conversion_id]</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>gl_journal_header_id='%{gl_journal_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="gl_journal_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetgl_journal_header" Name="resetgl_journal_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITgl_journal_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchgl_journal_header" Name="gsearchgl_journal_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="gl_journal_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITgl_journal_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

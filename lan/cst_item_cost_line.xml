@@ -1,0 +1,46 @@
+<Language name="cst_item_cost_line">
+<Lang name="cst_item_cost_line" value="项目成本行"/>
+<Lang name="TabEditcst_item_cost_line" value="cst_item_cost_line Edit"/>
+<Lang name="TabViewcst_item_cost_line" value="cst_item_cost_line View"/>
+<Lang name="cost_element_type" value="成本要素类别"/>
+<Lang name="element_type" value="要素类别"/>
+<Lang name="ttp_cost_element_type" value=""/>
+<Lang name="cost_element_id" value="成本要素"/>
+<Lang name="element" value="要素"/>
+<Lang name="ttp_cost_element_id" value=""/>
+<Lang name="amount" value="金额"/>
+<Lang name="ttp_amount" value=""/>
+<Lang name="cost_basis" value="成本类型"/>
+<Lang name="ttp_cost_basis" value=""/>
+<Lang name="this_level_cb" value="本层"/>
+<Lang name="ttp_this_level_cb" value=""/>
+<Lang name="status" value="有效"/>
+<Lang name="ttp_status" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="cst_item_cost_line_id" value="成本行ID"/>
+<Lang name="ttp_cst_item_cost_line_id" value=""/>
+<Lang name="cst_item_cost_header_id" value=""/>
+<Lang name="ttp_cst_item_cost_header_id" value=""/>
+<Lang name="ttp_operationcst_item_cost_line" value="操作"/>
+<Lang name="ttp_createcst_item_cost_line" value="新增"/>
+<Lang name="ttp_modifycst_item_cost_line" value="修改"/>
+<Lang name="ttp_resetcst_item_cost_line" value="清除数据"/>
+<Lang name="ttp_deletecst_item_cost_line" value="删除"/>
+<Lang name="ttp_refreshcst_item_cost_line" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

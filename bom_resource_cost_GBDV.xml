@@ -1,0 +1,11 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbom_resource_cost"><Ctrls>
+<ListCtrl Heading="bom_resource_id,60;bom_cost_type,120;resource_rate,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bom_resource_cost_id,60;" loadedclick="0" ToolTip="ttp_bom_resource_cost" Name="bom_resource_costLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>bom_resource_cost_id</Index>
+<DbTable>xbs.bom_resource_cost b left join xbs.bom_resource b0 on b.bom_resource_id=b0.bom_resource_id left join xbs.bom_cost_type b1 on b.bom_cost_type=b1.bom_cost_type_id</DbTable>
+<Data>b0.resource bom_resource_id,b1.cost_type bom_cost_type,b.resource_rate,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_resource_cost_id</Data>
+<Order>bom_resource_cost_id</Order></DbDetails>
+<DbDetails><Data>b0.resource,b1.cost_type bom_cost_type,b.resource_rate,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_resource_cost_id,b.bom_resource_id</Data><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_resource_cost_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

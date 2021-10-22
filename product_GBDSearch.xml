@@ -1,0 +1,47 @@
+<GroupBox Name="GBDEDITitem"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_number"><Ctrls>
+<Label Align="Right" Text="item_number" Name="lb_item_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_item_number" Name="item_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_name"><Ctrls>
+<Label Align="Right" Text="item_name" Name="lb_item_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_name" Name="item_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_specification"><Ctrls>
+<Label Align="Right" Text="item_specification" Name="lb_item_specification" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_specification" Name="item_specification" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR/><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_item_category"><Ctrls>
+<Label Align="Right" Text="item_category" OnLoad="init" Name="lb_item_category" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_item_category" OnLoad="init" Name="item_category" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.category</DbTable>
+<Index>category_id</Index>
+<Data>category,category_id</Data>
+<Where>category_type=99</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_item_status"><Ctrls>
+<Label Align="Right" Text="item_status" OnLoad="init" Name="lb_item_status" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_item_status" OnLoad="init" Name="item_status" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=123</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_description"><Ctrls>
+<Label Align="Right" Text="item_description" Name="lb_item_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_description" Name="item_description" Size="170,20"/>
+</Ctrls></GroupBox>
+<!--BR/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_property_id"><Ctrls>
+<ComboBox Weight="100" Text="" ToolTip="ttp_property_id" onload="init" Name="property_id" Size="100,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.item_property</DbTable>
+<Index>property_id</Index>
+<Data>prop_display_name,property_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+<TextBox Weight="130" Text="" ToolTip="ttp_property_value" Name="property_value" Size="130,20"/>
+</Ctrls></GroupBox-->
+</Ctrls></GroupBox>

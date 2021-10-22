@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVqa_cp_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="qa_cp_lineLst" ToolTip="ttp_qa_cp_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_cp_line</DbTable>
+<Index>qa_cp_line_id</Index>
+<Data>qa_ce_header_id,description,sequence,dafault_value,created_by,creation_date,last_update_by,last_update_date,qa_cp_line_id</Data>
+<Order>qa_cp_line_id</Order></DbDetails>
+<OnClick><assign name="qa_ce_header_id[qa_ce_header_id]" expr="%{qa_cp_lineLst[qa_ce_header_id]}" function="SetSel"/>
+<if cond="%{qa_cp_line_id}"><SetVisible name="insertqa_cp_line" Visible="0"/><SetVisible name="modifyqa_cp_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEhr_element_entry_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hr_element_entry_header_id" Text="create" ToolTip="ttp_createhr_element_entry_header" Name="inserthr_element_entry_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_element_entry_header</DbTable>
+<Data>hr_employee_id[hr_employee_id],hr_element_entry_header_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhr_element_entry_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_element_entry_header" Name="modifyhr_element_entry_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_element_entry_header</DbTable>
+<Data>hr_employee_id[hr_employee_id],hr_element_entry_header_id</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hr_element_entry_header_id='%{hr_element_entry_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhr_element_entry_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_element_entry_header" Name="resethr_element_entry_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIThr_element_entry_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchhr_element_entry_header" Name="gsearchhr_element_entry_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="hr_element_entry_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDIThr_element_entry_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

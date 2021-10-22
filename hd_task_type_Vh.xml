@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhd_task_type" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hd_task_typeLst" ToolTip="ttp_hd_task_type" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_task_type</DbTable>
+<Index>hd_task_type_id</Index>
+<Data>task_type,from_date,to_date,effort_duration,effort_uom_id,auto_schedule_cb,description,created_by,creation_date,last_update_by,last_update_date,hd_task_type_id</Data>
+<Order>hd_task_type_id</Order></DbDetails>
+<OnClick>
+<if cond="%{hd_task_type_id}"><SetVisible name="inserthd_task_type" Visible="0"/><SetVisible name="modifyhd_task_type" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

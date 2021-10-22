@@ -1,0 +1,56 @@
+﻿<GroupBox Name="GBDEDIThd_service_type_line"><Ctrls>
+<GroupBox Name="GB_billing_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_billing_type" Size="60,20" Text="billing_type" Align="Right"  onload="init"/>
+<ComboBox Name="billing_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_billing_type"  onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=242</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_service_activity_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_service_activity_id" Size="60,20" Text="service_activity_id" Align="Right"  onload="init"/>
+<ComboBox Name="service_activity_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_service_activity_id"  onload="init">
+	<DbDetails>
+<DbTable>xbs.hd_service_activity_header</DbTable>
+<Index>hd_service_activity_header_id</Index>
+<Data>activity_name,hd_service_activity_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hd_service_type_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hd_service_type_line_id" Size="60,20" Text="hd_service_type_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hd_service_type_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hd_service_type_line_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{hd_service_type_line_id}'"><SetVisible name="inserthd_service_type_line" Visible="0"/><SetVisible name="modifyhd_service_type_line" Visible="1"/><else/><SetVisible name="inserthd_service_type_line" Visible="1"/><SetVisible name="modifyhd_service_type_line" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_hd_service_type_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hd_service_type_header_id" Size="60,20" Text="hd_service_type_header_id" Align="Right"/>
+<TextBox Name="hd_service_type_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hd_service_type_header_id">
+	<DbDetails>
+<DbTable>xbs.hd_service_type_header</DbTable>
+<Index>hd_service_type_header_id</Index>
+<Data>service_type,hd_service_type_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

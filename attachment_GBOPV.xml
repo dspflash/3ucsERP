@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVattachment" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteattachment" Name="deleteattachment" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.attachment</DbTable>
+<Where>attachment_id='%{attachmentLst[attachment_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchattachment" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshattachment" Name="searchattachment" Size="50,20">
+			  <OnClick><submit next="attachmentLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPattachmentLst" OnClick="(attachmentLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREattachmentLst" OnClick="(attachmentLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPattachmentLst" OnClick="(attachmentLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,57 @@
+<Language name="contact">
+<Lang name="contact" value="联系人"/>
+<Lang name="contact_V" value="联系人信息"/>
+<Lang name="TabEditcontact" value="contact Edit"/>
+<Lang name="TabViewcontact" value="contact View"/>
+<Lang name="firstname" value="名"/>
+<Lang name="ttp_firstname" value=""/>
+<Lang name="lastname" value="姓"/>
+<Lang name="ttp_lastname" value=""/>
+<Lang name="title" value="称呼"/>
+<Lang name="ttp_title" value=""/>
+<Lang name="email" value="邮件"/>
+<Lang name="ttp_email" value=""/>
+<Lang name="phone" value="电话"/>
+<Lang name="ttp_phone" value=""/>
+<Lang name="mobile" value="手机"/>
+<Lang name="ttp_mobile" value=""/>
+<Lang name="department" value="部门"/>
+<Lang name="ttp_department" value=""/>
+<Lang name="fax" value="传真"/>
+<Lang name="ttp_fax" value=""/>
+<Lang name="training" value="培训"/>
+<Lang name="ttp_training" value=""/>
+<Lang name="otheremail" value="其他邮件"/>
+<Lang name="ttp_otheremail" value=""/>
+<Lang name="secondaryemail" value="第二邮件"/>
+<Lang name="ttp_secondaryemail" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="contactid" value="联系人ID"/>
+<Lang name="ttp_contactid" value=""/>
+<Lang name="reftbltp" value=""/>
+<Lang name="ttp_reftbltp" value=""/>
+<Lang name="refid" value=""/>
+<Lang name="ttp_refid" value=""/>
+<Lang name="ttp_operationcontact" value="操作"/>
+<Lang name="ttp_createcontact" value="新增"/>
+<Lang name="ttp_modifycontact" value="修改"/>
+<Lang name="ttp_resetcontact" value="清除数据"/>
+<Lang name="ttp_deletecontact" value="删除"/>
+<Lang name="ttp_refreshcontact" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVxbs_log" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="xbs_logLst" ToolTip="ttp_xbs_log" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.xbs_log</DbTable>
+<Index>xbs_log_id</Index>
+<Data>xbs_log_id,log_level,task,program,msg,user_id,org_id,dt</Data>
+<Order>xbs_log_id</Order></DbDetails>
+<OnClick>
+<if cond="%{xbs_log_id}"><SetVisible name="insertxbs_log" Visible="0"/><SetVisible name="modifyxbs_log" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

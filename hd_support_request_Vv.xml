@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVhd_support_request" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hd_support_request_vLst" ToolTip="ttp_hd_support_request" Size="700,420" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hd_support_request h left join xbs.option_line o on h.escalation=o.option_line_id left join xbs.option_line o0 on h.request_type=o0.option_line_id left join xbs.option_line o1 on h.request_category=o1.option_line_id</DbTable>
+<Index>hd_support_request_id</Index>
+<Data>h.support_number,h.subject,h.urgency,h.priority,h.reason,o.option_line_value escalation,h.status,o0.option_line_value request_type,o1.option_line_value request_category,h.assignment_group,h.assigned_to_user_id,h.hd_change_request_id,h.close_code,h.closed_by_user_id,h.closed_date,h.requester_user_id,h.requester_username,h.requester_email,h.requester_phone,h.impact,h.description,h.resolution_details,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hd_support_request_id</Data>
+<Order>hd_support_request_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hd_support_request_id='%{hd_support_request_vLst[hd_support_request_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hd_support_request.hd_support_requestLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_support_request</DbTable>
+<Where>hd_support_request_id='%{hd_support_request_vLst[hd_support_request_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEcoa_combination" Size="100,100"><Ctrls>
+<Button sqlpkinsert="coa_combination_id" Text="create" ToolTip="ttp_createcoa_combination" Name="insertcoa_combination" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.coa_combination</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>coa_id[coa_id],ac_type[option_line_id],ac_usage_type[ac_usage_type_id],field1,field2,field3,field4[account_type_code],field5,field6,field7,field8,description,org_id,reftbltp,refid</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,coa_structure_id;'%{user_id}',now(),'%{user_id}',now(),'%{coa_id[coa_structure_id]}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="coa_combinationLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifycoa_combination" Name="modifycoa_combination" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.coa_combination</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>coa_id[coa_id],ac_type[option_line_id],ac_usage_type[ac_usage_type_id],field1,field2,field3,field4[account_type_code],field5,field6,field7,field8,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>coa_combination_id='%{coa_combination_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="coa_combinationLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetcoa_combination" Name="resetcoa_combination" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITcoa_combination" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchcoa_combination" Name="gsearchcoa_combination" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="coa_combinationLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITcoa_combination" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

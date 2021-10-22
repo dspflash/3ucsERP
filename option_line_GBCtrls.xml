@@ -1,0 +1,78 @@
+<GroupBox Name="GBCtrlsoption_line"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_option_line_id"><Ctrls>
+<Label Align="Right" Text="option_line_id" Name="lb_option_line_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_option_line_id" Name="option_line_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_option_header_id"><Ctrls>
+<Label Align="Right" Text="option_header_id" OnLoad="init" Name="lb_option_header_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_option_header_id" OnLoad="init" Name="option_header_id" Size="170,100" SelectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.option_header</DbTable>
+<Data>concat(option_header_id,option_type) as opt,option_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><DbDetails><Where>where option_header_id=%{option_header_id[option_header_id]}</Where></DbDetails><submit next="option_lineLst" namelist="DbDetails"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_option_line_code"><Ctrls>
+<Label Align="Right" Text="option_line_code" Name="lb_option_line_code" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_option_line_code" Name="option_line_code" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_option_line_value"><Ctrls>
+<Label Align="Right" Text="option_line_value" Name="lb_option_line_value" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_option_line_value" Name="option_line_value" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_value_group_id"><Ctrls>
+<Label Align="Right" Text="value_group_id" Name="lb_value_group_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_value_group_id" Name="value_group_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_priority"><Ctrls>
+<Label Align="Right" Text="priority" Name="lb_priority" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_priority" Name="priority" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" OnLoad="init" Name="lb_status" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_status" OnLoad="init" Items="active|inactive" Name="status" Size="170,100" SelectedIndex="0"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mapper1"><Ctrls>
+<Label Align="Right" Text="mapper1" Name="lb_mapper1" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_mapper1" Name="mapper1" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mapper2"><Ctrls>
+<Label Align="Right" Text="mapper2" Name="lb_mapper2" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_mapper2" Name="mapper2" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_rev_enabled"><Ctrls>
+<Label Align="Right" Text="rev_enabled" OnLoad="init" Name="lb_rev_enabled" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_rev_enabled" OnLoad="init" Items="enabled|disabled" Name="rev_enabled" Size="170,100" SelectedIndex="0"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_rev_number"><Ctrls>
+<Label Align="Right" Text="rev_number" Name="lb_rev_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_rev_number" Name="rev_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_effective_start_date"><Ctrls>
+<Label Align="Right" Text="effective_start_date" Name="lb_effective_start_date" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_effective_start_date" Name="effective_start_date" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_effective_end_date"><Ctrls>
+<Label Align="Right" Text="effective_end_date" Name="lb_effective_end_date" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_effective_end_date" Name="effective_end_date" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_created_by"><Ctrls>
+<Label Align="Right" Text="created_by" Name="lb_created_by" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" Name="created_by" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_creation_date"><Ctrls>
+<Label Align="Right" Text="creation_date" Name="lb_creation_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" Name="creation_date" Size="170,20" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_update_by"><Ctrls>
+<Label Align="Right" Text="last_update_by" Name="lb_last_update_by" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" Name="last_update_by" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_update_date"><Ctrls>
+<Label Align="Right" Text="last_update_date" Name="lb_last_update_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" Name="last_update_date" Size="170,20" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

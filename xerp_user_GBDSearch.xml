@@ -1,0 +1,18 @@
+<GroupBox Name="GBDEDITxerp_user"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_username"><Ctrls>
+<Label Align="Right" Text="username" Name="lb_username" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_username" Name="username" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_phone"><Ctrls>
+<Label Align="Right" Text="phone" Name="lb_phone" Size="60,20"/>
+<TextBox Weight="140" ToolTip="ttp_phone" Name="phone" Size="140,20"/>
+<MagicCtrl ToolTip="DialToCall" Name="dialphone" OnClick="nis3ucs:%{phone}" images=" ,data/startcall_green.png" button="type:0" Size="20,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_email"><Ctrls>
+<Label Align="Right" Text="email" Name="lb_email" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_email" Name="email" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" checked="true" Size="230,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

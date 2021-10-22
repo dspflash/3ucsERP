@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVhr_crew_shift" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_crew_shift_vLst" ToolTip="ttp_hr_crew_shift_v" Size="700,450" OnLoad="init" Heading="hr_crew_id,120;hr_shift_id,120;from_date,90;to_date,90;description,640;active,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_crew_shift_id,100;" loadedclick="0">
+	<DbDetails >
+<Index>hr_crew_shift_id</Index>
+<DbTable>xbs.hr_crew_shift h left join xbs.hr_crew h0 on h.hr_crew_id=h0.hr_crew_id left join xbs.hr_shift h1 on h.hr_shift_id=h1.hr_shift_id</DbTable>
+<Data>h0.crew_number hr_crew_id,h1.shift_name hr_shift_id,h.from_date,h.to_date,h.description,h.active,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_crew_shift_id</Data>
+<Order>hr_crew_shift_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>hr_crew_shift_id='%{hr_crew_shift_vLst[hr_crew_shift_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_crew_shift.hr_crew_shiftLst"/><assign name="$this.hr_crew_shift.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_crew_shift</DbTable>
+<Where>hr_crew_shift_id='%{hr_crew_shift_vLst[hr_crew_shift_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_hr_crew_shift" expr="js(%{hr_crew_shift_vLst[currentpage]}+1)"/>
+<assign name="pgscb_hr_crew_shift" expr="js(%{hr_crew_shift_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

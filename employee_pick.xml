@@ -1,0 +1,35 @@
+<WndTap Text="EmployeePick" Name="EmployeePick" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hr_Employee.xml"/>
+	<Ctrls>
+	<GroupBox Text="hr_employee" Name="GBhr_employee" id="hr_employee" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_Employee_GBDSEARCH.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="hr_employee_vLst" listed="0" prefixand="1" inputed="1"><first_name format="first_name like '%%{opvalue}%'"/><last_name format="last_name like '%%{opvalue}%'"/></search><submit next="GBDEDIThr_employee" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIThr_employee" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<ListCtrl loadedclick="0" PageSize="50" Onload="init" ToolTip="ttp_item" Name="hr_employee_vLst" Size="700,420">
+	<operator refresh="1" firstpage="1" prepage="1" nextpage="1"/>
+	<DbDetails>
+	<DbTable>xbs.hr_employee_v</DbTable>
+	<Index>hr_employee_id</Index>
+	<Data>*</Data>
+	<Order>item_id_m</Order>
+	<queryFormat>select %{data} from %{dbtable} where FIND_IN_SET(org_id,(SELECT getChildOrgs('%{orgid}'))) %{where} limit %{StartRow},%{PgSize}</queryFormat>
+	</DbDetails>
+	<OnClick><if cond="%{hr_employee_vLst[hr_employee_id]}"><DbDetails><Where>hr_employee_id='%{hr_employee_vLst[hr_employee_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><assign name="$parent.%{frmwndctrl}[selectedindex]" function="SetSel" expr="0"/><submit function="onok"/></if></OnClick>
+	</ListCtrl>
+	</Ctrls></GroupBox>
+	</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

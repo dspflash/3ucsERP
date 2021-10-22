@@ -1,0 +1,83 @@
+﻿<GroupBox Name="GBDEDITbom_routing_line"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_standard_operation_id"><Ctrls>
+<Label Align="Right" Text="standard_operation_id" onload="init" Name="lb_standard_operation_id" Size="60,20" SelectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_standard_operation_id" onload="init" Name="standard_operation_id" Size="170,100" SelectedIndex="0">
+	<DbDetails fcsm="true">
+<Index>bom_standard_operation_id</Index>
+<DbTable>xbs.bom_standard_operation</DbTable>
+<Data>standard_operation,department_id,bom_standard_operation_id</Data>
+<Where>org_id=%{orgid}</Where>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="department_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_routing_sequence"><Ctrls>
+<Label Align="Right" Text="routing_sequence" Name="lb_routing_sequence" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_routing_sequence" Items="1~9*10" Name="routing_sequence" Size="170,100"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_routing_seq_num"><Ctrls>
+<CheckBox Text="routing_seq_num" ToolTip="ttp_routing_seq_num" Name="routing_seq_num" Size="230,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_department_id"><Ctrls>
+<Label Align="Right" Text="department_id" Name="lb_department_id" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_department_id" Name="department_id" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<Index>bom_department_id</Index>
+<DbTable>xbs.bom_department</DbTable>
+<Data>department,bom_department_id</Data>
+<Where>bom_department_id='%{standard_operation_id[department_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_minimum_transfer_quantity"><Ctrls>
+<Label Align="Right" Text="minimum_transfer_quantity" Name="lb_minimum_transfer_quantity" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_minimum_transfer_quantity" Name="minimum_transfer_quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_lead_time_percentage"><Ctrls>
+<Label Align="Right" Text="lead_time_percentage" Name="lb_lead_time_percentage" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_lead_time_percentage" Items="0~10*10" Name="lead_time_percentage" Size="170,100"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_effective_start_date"><Ctrls>
+<Label Align="Right" Text="effective_start_date" Name="lb_effective_start_date" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_effective_start_date" Name="effective_start_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_effective_end_date"><Ctrls>
+<Label Align="Right" Text="effective_end_date" Name="lb_effective_end_date" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_effective_end_date" Name="effective_end_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_yield"><Ctrls>
+<Label Align="Right" Text="yield" Name="lb_yield" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_yield" Name="yield" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_bom_routing_line_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="bom_routing_line_id" overlap="pre" Name="lb_bom_routing_line_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_bom_routing_line_id" overlap="pre" Name="bom_routing_line_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{bom_routing_line_id}'"><SetVisible name="insertbom_routing_line" Visible="0"/><SetVisible name="modifybom_routing_line" Visible="1"/><else/><SetVisible name="insertbom_routing_line" Visible="1"/><SetVisible name="modifybom_routing_line" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_bom_routing_header_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="bom_routing_header_id" overlap="pre" Name="lb_bom_routing_header_id" Size="60,20" Visible="false" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_bom_routing_header_id" overlap="pre" Name="bom_routing_header_id" Size="170,100" Visible="false" selectedIndex="0">
+	<DbDetails>
+<Index>bom_routing_header_id</Index>
+<DbTable>xbs.bom_routing_header</DbTable>
+<Data>routing_revision,bom_routing_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

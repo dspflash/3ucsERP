@@ -1,0 +1,20 @@
+<GroupBox Name="GBDVprj_expenditure_type_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_expenditure_type_line_vLst" ToolTip="ttp_prj_expenditure_type_line" Size="700,220" Heading="rate,75;uom_id,120;currency,120;effective_from,90;effective_to,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_expenditure_type_line_id,60;bu_org_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_expenditure_type_line p left join xbs.uom u on p.uom_id=u.uom_id left join xbs.currency c on p.currency=c.currency_id</DbTable>
+<Index>prj_expenditure_type_line_id</Index>
+<Data>p.rate,u.uom_name uom_id,c.title currency,p.effective_from,p.effective_to,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_expenditure_type_line_id,p.bu_org_id</Data>
+<Order>prj_expenditure_type_line_id</Order>
+<Where>prj_expenditure_type_header_id='%{prj_expenditure_type_header_id}'</Where>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.prj_expenditure_type_line.GBDEDITprj_expenditure_type_line" function="reset"/><assign name="$this.prj_expenditure_type_line.prj_expenditure_type_header_id" expr="%{prj_expenditure_type_header_id}"/></op>
+<op text="modify"><DbDetails><Where>prj_expenditure_type_line_id='%{prj_expenditure_type_line_vLst[prj_expenditure_type_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_expenditure_type_line.prj_expenditure_type_lineLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.prj_expenditure_type_line</DbTable>
+<Where>prj_expenditure_type_line_id='%{prj_expenditure_type_line_vLst[prj_expenditure_type_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

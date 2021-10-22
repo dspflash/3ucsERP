@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVorg" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="org_vLst" ToolTip="ttp_org" Size="700,420" OnLoad="init" Heading="org,250;code,25;description,640;type,120;enterprise_org_id,120;legal_org_id,120;business_org_id,120;parent_org_id,120;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.org o left join xbs.option_line o0 on o.type=o0.option_line_id left join xbs.org o1 on o.enterprise_org_id=o1.org_id left join xbs.org o2 on o.legal_org_id=o2.org_id left join xbs.org o3 on o.business_org_id=o3.org_id left join xbs.org o4 on o.parent_org_id=o4.org_id</DbTable>
+<Index>org_id</Index>
+<Data>o.org,o.code,o.description,o0.option_line_value type,o1.org enterprise_org_id,o2.org legal_org_id,o3.org business_org_id,o4.org parent_org_id,o.status,o.created_by,o.creation_date,o.last_update_by,o.last_update_date,o.org_id</Data>
+<Order>org_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>org_id='%{org_vLst[org_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.org.orgLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.org</DbTable>
+<Where>org_id='%{org_vLst[org_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

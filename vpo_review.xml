@@ -1,0 +1,64 @@
+<WndTap Name="vPoreview" Text="Po Review">
+	<WndTaps>
+	<WndTap Text="po_line" Name="po_line" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_line.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_detail.xml"/>
+		<Ctrls>
+		<GroupBox Text="po_line" Name="GBpo_line" id="po_line" Size="100,100"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="po_lineLst" Size="700,420">
+			<DbDetails>
+			<DbTable>xbs.PO_line_v</DbTable>
+			<Index>po_line_id</Index>
+			<Data>*</Data>
+			<Order>po_line_id</Order>
+			</DbDetails>
+		</ListCtrl></Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap>
+		</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vPoApprove"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="poLst" listed="0" prefixand="1" inputed="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search>
+		<submit next="GBDEDITpo_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" colsDisplay="24" ToolTip="ttp_item" onload="init" Name="POLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.po_header_v</DbTable>
+<Index>po_header_id</Index>
+<Data>*</Data>
+<Order>po_header_id</Order>
+<queryFormat>select %{data} from %{dbtable} where bu_org_id='%{orgid}' and po_status in (320) %{where} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="po_approval_rule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/po_approval_rule.xml"/></rules>
+<inputs input1="%{userid}" position="%{position}" status="%{POLst[po_status]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="view"><DbDetails><Where>po_header_id='%{POLst[po_header_id]}'</Where></DbDetails>
+	<submit next="$this.po_line.po_lineLst" namelist="DbDetails"/></op>
+<op text="review" needconfirm="1"><DbDetails><queryFormat>update po_header ph join po_line pl on ph.po_header_id=pl.po_header_id set po_status=324,ph.last_update_by='%{user_id}',ph.last_update_date=now() where ph.po_header_id='%{POLst[po_header_id]}' and po_status=320 and STATUS=1497;</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="reEdit" needconfirm="1"><DbDetails><queryFormat>update po_header ph join po_line pl on ph.po_header_id=pl.po_header_id set po_status=321,STATUS=1497,ph.last_update_by='%{user_id}',ph.last_update_date=now() where ph.po_header_id='%{POLst[po_header_id]}' and po_status=320 and STATUS=1497;</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="decline" needconfirm="1"><DbDetails><queryFormat>update po_header set po_status=325,last_update_by='%{user_id}',last_update_date=now() where po_header_id='%{POLst[po_header_id]}' and po_status=320</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,14 @@
+<WndTap Name="prj_service_type_v" Text="prj_service_type">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_service_type_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\prj_service_type.xml"/>
+<Ctrls><GroupBox  Name="GBprj_service_type" id="prj_service_type" Text="prj_service_type" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_service_type_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVprj_service_type" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.prj_service_type.GBDEDITprj_service_type" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetprj_service_type" Name="resetprj_service_type" Size="50,20">	<OnClick>	<submit next="GBDEDITprj_service_type" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchprj_service_type" Name="gsearchprj_service_type" Size="50,20" visible="true">	<OnClick>	<search next="prj_service_type_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITprj_service_type" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_service_type_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVuser_bom_department" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteuser_bom_department" Name="deleteuser_bom_department" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.user_bom_department</DbTable>
+<Where>user_bom_department_id='%{user_bom_departmentLst[user_bom_department_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchuser_bom_department" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshuser_bom_department" Name="searchuser_bom_department" Size="50,20">
+			  <OnClick><submit next="user_bom_departmentLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPuser_bom_departmentLst" OnClick="(user_bom_departmentLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREuser_bom_departmentLst" OnClick="(user_bom_departmentLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPuser_bom_departmentLst" OnClick="(user_bom_departmentLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

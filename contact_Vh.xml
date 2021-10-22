@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVcontact" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="contactLst" ToolTip="ttp_contact" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>contactid</Index>
+<DbTable>xbs.contact</DbTable>
+<Data>firstname,lastname,phone,title,email,mobile,department,fax,training,otheremail,secondaryemail,created_by,creation_date,last_update_by,last_update_date,contactid,org_id</Data>
+<Order>contactid</Order></DbDetails>
+<OnClick>
+<if cond="%{contactid}"><SetVisible name="insertcontact" Visible="0"/><SetVisible name="modifycontact" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

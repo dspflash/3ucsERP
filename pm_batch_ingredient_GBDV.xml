@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_batch_ingredient"><Ctrls>
+<ListCtrl Heading="line_no,20;revision_name,75;item_id_m,60;uom_id,60;planned_quantity,75;description,740;wip_planned_quantity,75;scale_type,75;contribute_yield_cb,60;byproduct_type,75;consumption_type,75;phantom_type,75;allocated_quantity,75;actual_quantity,75;requirement_date,90;subinventory_id,60;locator_id,60;step_no,25;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_batch_ingredient_id,60;" loadedclick="0" ToolTip="ttp_pm_batch_ingredient" Name="pm_batch_ingredientLst" Size="800,480">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_batch_ingredient</DbTable>
+<Index>pm_batch_ingredient_id</Index>
+<Data>line_no,revision_name,item_id_m,uom_id,planned_quantity,description,wip_planned_quantity,scale_type,contribute_yield_cb,byproduct_type,consumption_type,phantom_type,allocated_quantity,actual_quantity,requirement_date,subinventory_id,locator_id,step_no,created_by,creation_date,last_update_by,last_update_date,pm_batch_ingredient_id</Data>
+<Order>pm_batch_ingredient_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

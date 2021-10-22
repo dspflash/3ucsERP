@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGhr_compensation_element"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_hr_compensation_element" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>hr_compensation_element_id</Index>
+<DbTable>xbs.hr_compensation_element h left join xbs.option_line o on h.element_type=o.option_line_id left join xbs.option_line o0 on h.classification=o0.option_line_id left join xbs.option_line o1 on h.category=o1.option_line_id left join xbs.option_line o2 on h.calculation_rule=o2.option_line_id left join xbs.option_line o3 on h.deduction_rule=o3.option_line_id left join xbs.option_line o4 on h.deduction_start_rule=o4.option_line_id left join xbs.user_v u on h.created_by=u.xerp_user_id left join xbs.user_v u0 on h.last_update_by=u0.xerp_user_id</DbTable>
+<Data>count(*) records</Data>
+<Order>hr_compensation_element_id</Order><Queryformat>select %{data} from (select h.hr_compensation_element_id from %{dbtable} %{where} GROUP BY h.hr_compensation_element_id  ORDER BY h.hr_compensation_element_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_hr_compensation_element" expr="js(Math.ceil(%{records_hr_compensation_element}/%{hr_compensation_element_vLst[countsperpage]}))"/>
+<assign name="pgscb_hr_compensation_element" expr="js('1~'+Math.ceil(%{records_hr_compensation_element}/%{hr_compensation_element_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_hr_compensation_element" Size="60,20"><OnSelEndOK><submit next="hr_compensation_element_vLst" function="GetPage(%{pgscb_hr_compensation_element}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_hr_compensation_element" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_hr_compensation_element" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagehr_compensation_element_vLst" Size="50,20"><OnClick><submit next="hr_compensation_element_vLst" function="GetPage(%{pgcur_hr_compensation_element}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

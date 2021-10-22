@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem_properties"><Ctrls>
+<ListCtrl Heading="property_id,120;property_value,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;idx,100;" loadedclick="0" ToolTip="ttp_item_properties" Name="item_propertiesLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>idx</Index>
+<DbTable>xbs.item_properties i left join xbs.item_property i0 on i.property_id=i0.property_id</DbTable>
+<Data>i0.prop_display_name property_id,i.property_value,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.idx</Data>
+<Order>idx</Order></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>idx='%{item_properties_vLst[idx]}'</Where></DbDetails><submit next="$this.item_properties.item_propertiesLst" namelist="DbDetails"/><assign name="$this.item_properties.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.item_properties</DbTable>
+<Where>idx='%{item_properties_vLst[idx]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

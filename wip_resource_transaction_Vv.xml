@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVwip_resource_transaction" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="wip_resource_transaction_vLst" ToolTip="ttp_wip_resource_transaction" Size="700,420" OnLoad="init" Heading="wip_wo_routing_detail_id,120;transaction_date,90;transaction_quantity,100;reason,640;reference,640;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;wip_resource_transaction_id,100;org_id,50;transaction_type,250;wip_wo_header_id,50;wip_wo_routing_line_id,50;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.wip_resource_transaction w left join xbs.wip_wo_routing_detail w0 on w.wip_wo_routing_detail_id=w0.wip_wo_routing_detail_id</DbTable>
+<Index>wip_resource_transaction_id</Index>
+<Data>w0.resource_sequence wip_wo_routing_detail_id,w.transaction_date,w.transaction_quantity,w.reason,w.reference,w.created_by,w.creation_date,w.last_update_by,w.last_update_date,w.wip_resource_transaction_id,w.org_id,w.transaction_type,w.wip_wo_header_id,w.wip_wo_routing_line_id</Data>
+<Order>wip_resource_transaction_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>wip_resource_transaction_id='%{wip_resource_transaction_vLst[wip_resource_transaction_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.wip_resource_transaction.wip_resource_transactionLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.wip_resource_transaction</DbTable>
+<Where>wip_resource_transaction_id='%{wip_resource_transaction_vLst[wip_resource_transaction_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

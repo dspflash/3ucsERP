@@ -1,0 +1,19 @@
+<GroupBox Name="GBDEDITmodule_class"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_name"><Ctrls>
+<Label Align="Right" Text="name" Name="lb_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_name" Name="name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_module_code"><Ctrls>
+<Label Align="Right" Text="module_code" onload="init" Name="lb_module_code" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_module_code" onload="init" Name="module_code" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.module</DbTable>
+<Index>name</Index>
+<Data>description,name</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" Size="230,20" checked="true"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,14 @@
+<WndTap Name="onhandMaterial" Text="onhandMaterial" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\material.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="Material"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="itemLst" Size="700,420"
+Heading="item_number,100;item_description,100;uom_id,100;onhand,100;org,100;subinventory_id,100;locator_id,100;">
+	<DbDetails fcsm="1">
+<DbTable>xbs.invonhand_v</DbTable>
+<Index>item_id_m</Index>
+<Data>*</Data>
+<Order>item_id_m</Order></DbDetails>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

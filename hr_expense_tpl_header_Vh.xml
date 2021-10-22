@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_expense_tpl_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_expense_tpl_headerLst" ToolTip="ttp_hr_expense_tpl_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_expense_tpl_header_id</Index>
+<DbTable>xbs.hr_expense_tpl_header</DbTable>
+<Data>template_name,inactive_date,description,bu_org_id,created_by,creation_date,last_update_by,last_update_date,hr_expense_tpl_header_id</Data>
+<Order>hr_expense_tpl_header_id</Order></DbDetails>
+<OnClick><assign name="bu_org_id[org_id]" expr="%{hr_expense_tpl_headerLst[bu_org_id]}" function="SetSel"/>
+<if cond="%{hr_expense_tpl_header_id}"><SetVisible name="inserthr_expense_tpl_header" Visible="0"/><SetVisible name="modifyhr_expense_tpl_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

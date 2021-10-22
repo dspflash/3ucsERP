@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVqa_specification_header"><Ctrls>
+<ListCtrl Heading="specification_name,250;effective_from,90;effective_to,90;item_id_m,120;item_revision,50;description,640;ap_supplier_id,120;ar_customer_id,120;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;qa_specification_header_id,60;" loadedclick="0" ToolTip="ttp_qa_specification_header" Name="qa_specification_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_specification_header q left join xbs.item i on q.item_id_m=i.item_id_m left join xbs.supplier s on q.ap_supplier_id=s.supplier_id left join xbs.ar_customer a on q.ar_customer_id=a.ar_customer_id</DbTable>
+<Index>qa_specification_header_id</Index>
+<Data>q.specification_name,q.effective_from,q.effective_to,i.item_number item_id_m,q.item_revision,q.description,s.supplier_name ap_supplier_id,a.customer_name ar_customer_id,q.status,q.created_by,q.creation_date,q.last_update_by,q.last_update_date,q.qa_specification_header_id</Data>
+<Order>qa_specification_header_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

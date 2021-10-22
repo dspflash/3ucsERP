@@ -1,0 +1,77 @@
+<WndTap Text="mdm_bank" Name="mdm_bank_site_V" Ver="2">
+	<WndTaps>
+<WndTap Text="mdm_bank_header" Name="mdm_bank_header" Ver="2" popup="1">
+<var name="dataRequired" expr="bank_name,bank_name_short,country[country_id]"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\mdm_bank_header.xml"/>
+<Ctrls>
+<GroupBox Text="mdm_bank_header" Name="GBmdm_bank_header" id="mdm_bank_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_header_GBOPE.xml"></xi:include>
+<ListCtrl loadedclick="1" ToolTip="ttp_mdm_bank_header" Name="mdm_bank_headerLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_bank_header</DbTable>
+<Index>mdm_bank_header_id</Index>
+<Data>country,bank_name,bank_number,description,bank_name_short,bank_name_alt,tax_reg_no,tax_payer_id,status,created_by,creation_date,last_update_by,last_update_date,mdm_bank_header_id</Data>
+<Order>mdm_bank_header_id</Order>
+<Where>mdm_bank_header_id='%{mdm_bank_header_id}'</Where>
+</DbDetails>
+<OnClick><assign name="country[country_id]" function="SetSel" expr="%{mdm_bank_headerLst[country]}"/>
+<if cond="%{mdm_bank_header_id}"><SetVisible name="insertmdm_bank_header" Visible="0"/><SetVisible name="modifymdm_bank_header" Visible="1"/></if></OnClick></ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertmdm_bank_header" Visible="1"/><SetVisible name="modifymdm_bank_header" Visible="0"/><SetVisible name="resetmdm_bank_header" Visible="0"/></OnActivate>
+	</WndTap>
+<WndTap Text="mdm_bank_site" Name="mdm_bank_site" Ver="2" popup="1">
+<var name="dataRequired" expr="branch_name,branch_name_short,country[country_id]"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\mdm_bank_site.xml"/>
+<Ctrls>
+<GroupBox Text="mdm_bank_site" Name="GBmdm_bank_site" id="mdm_bank_site" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_site_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_site_GBOPE.xml"></xi:include>
+<ListCtrl loadedclick="1" ToolTip="ttp_mdm_bank_site" Name="mdm_bank_siteLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_bank_site</DbTable>
+<Index>mdm_bank_site_id</Index>
+<Data>mdm_bank_header_id,branch_name,country,branch_number,description,branch_name_short,branch_name_alt,swift_code,routing_number,iban_code,tax_reg_no,tax_payer_id,status,created_by,creation_date,last_update_by,last_update_date,mdm_bank_site_id</Data>
+<Order>mdm_bank_site_id</Order>
+<Where>mdm_bank_site_id='%{mdm_bank_site_id}'</Where>
+</DbDetails>
+<OnClick><assign name="mdm_bank_header_id[mdm_bank_header_id]" expr="%{mdm_bank_siteLst[mdm_bank_header_id]}" function="SetSel"/><assign name="country[country_id]" expr="%{mdm_bank_siteLst[country]}" function="SetSel"/>
+<if cond="%{mdm_bank_site_id}"><SetVisible name="insertmdm_bank_site" Visible="0"/><SetVisible name="modifymdm_bank_site" Visible="1"/></if></OnClick></ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertmdm_bank_site" Visible="1"/><SetVisible name="modifymdm_bank_site" Visible="0"/><SetVisible name="resetmdm_bank_site" Visible="0"/></OnActivate>
+	</WndTap>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\mdm_bank_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\mdm_bank_site.xml"/>
+<Ctrls>
+<GroupBox Text="mdm_bank" Name="GBmdm_bank_site_V" id="mdm_bank_site_V" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_site_Vsm.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVmdm_bank_site" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetmdm_bank_site" Name="resetmdm_bank_site" Size="50,20">	<OnClick>	<submit next="GBDEDITmdm_bank_site" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchmdm_bank_site" Name="gsearchmdm_bank_site" Size="50,20" visible="true">
+	<OnClick>
+	<search next="mdm_bank_siteLst" listed="0" prefixwhere="1" inputed="1"></search>
+	<submit next="GBDEDITmdm_bank_site" namelist="search" function="search"/>
+	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVmdm_bank_site_V"><Ctrls>
+<ListCtrl onload="init" ToolTip="ttp_mdm_bank_site" Name="mdm_bank_siteLst" Size="700,420">
+	<DbDetails>
+<DbTable>mdm_bank_header m0 left join mdm_bank_site m on m.mdm_bank_header_id=m0.mdm_bank_header_id left join country hc on m0.country=hc.country_id left join country sc on m.country=sc.country_id</DbTable>
+<Index>mdm_bank_site_id</Index>
+<Data>m.branch_name,branch_name_short,sc.namecn site_country,m0.bank_name,bank_name_short,hc.namecn country, m.branch_number,m.branch_name_alt,m.swift_code,m.status,m.created_by,m.creation_date,m.last_update_by,m.last_update_date,m.mdm_bank_site_id, m0.mdm_bank_header_id </Data>
+<Order>mdm_bank_header_id,mdm_bank_site_id</Order>
+<queryFormat>select %{data} from %{dbtable} %{where} order by %{order} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<OnClick><if cond="%{fromwndtp}"><if cond="%{mdm_bank_siteLst[mdm_bank_site_id]}"><DbDetails><Where>mdm_bank_site_id='%{mdm_bank_siteLst[mdm_bank_site_id]}'</Where></DbDetails><submit namelist="DbDetails" next="%{fromwndtp}.mdm_bank_site_id"/><assign name="fromwndtp" expr=""/><submit function="onok"/></if></if></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="addbanksite" mustselected="0"><submit next="$this.mdm_bank_site.GBDEDITmdm_bank_site" function="reset"/><assign name="$this.mdm_bank_site.refid" expr="%{mdm_bank_sitelst[mdm_bank_header_id]}"/><DbDetails><Where>mdm_bank_header_id='%{refid}'</Where></DbDetails><submit namelist="DbDetails" next="$this.mdm_bank_site.mdm_bank_header_id"/></op>
+<op text="modifybanksite"><assign name="$this.mdm_bank_site.refid" expr="%{mdm_bank_sitelst[mdm_bank_header_id]}"/><DbDetails><Where>mdm_bank_header_id='%{refid}'</Where></DbDetails><submit namelist="DbDetails" next="$this.mdm_bank_site.mdm_bank_header_id"/><assign name="$this.mdm_bank_site.mdm_bank_site_id" expr="%{mdm_bank_sitelst[mdm_bank_site_id]}"/><submit next="$this.mdm_bank_site.mdm_bank_sitelst"/></op>
+<op text="addbank" mustselected="0"><submit next="$this.mdm_bank_header.GBDEDITmdm_bank_header" function="reset"/></op>
+<op text="modifybank"><assign name="$this.mdm_bank_header.mdm_bank_header_id" expr="%{mdm_bank_siteLst[mdm_bank_header_id]}"/><submit next="$this.mdm_bank_header.mdm_bank_headerlst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+	</Ctrls></WndTap>

@@ -1,0 +1,42 @@
+<GroupBox Name="GBDEDITfp_forecast_line_date"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_forecast_date"><Ctrls>
+<Label Align="Right" Text="forecast_date" Name="lb_forecast_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_forecast_date" Name="forecast_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_original_quantity"><Ctrls>
+<Label Align="Right" Text="original_quantity" Name="lb_original_quantity" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_original_quantity" Name="original_quantity" readonly="true" Size="170,20"><OnEnChange><if cond="!%{current_quantity}"><assign name="current_quantity" expr="%{original_quantity}"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_current_quantity"><Ctrls>
+<Label Align="Right" Text="current_quantity" Name="lb_current_quantity" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_current_quantity" Name="current_quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_source" Visible="false"><Ctrls>
+<Label Align="Right" Text="source" overlap="pre" Name="lb_source" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_source" overlap="pre" Name="source" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_fp_forecast_line_id"><Ctrls>
+<Label Align="Right" Text="fp_forecast_line_id" Name="lb_fp_forecast_line_id" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_fp_forecast_line_id" Name="fp_forecast_line_id" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_fp_forecast_line_date_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="fp_forecast_line_date_id" overlap="pre" Name="lb_fp_forecast_line_date_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_fp_forecast_line_date_id" overlap="pre" Name="fp_forecast_line_date_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBfp_forecast_line_date" expr="TABEDITfp_forecast_line_date"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

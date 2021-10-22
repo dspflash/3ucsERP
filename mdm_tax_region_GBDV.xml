@@ -1,0 +1,9 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVmdm_tax_region"><Ctrls>
+<ListCtrl Heading="country_code,120;state,125;city,125;tax_region_name,500;description,640;tax_regime,250;tax_jurisdiction,250;status,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;mdm_tax_region_id,60;" loadedclick="0" ToolTip="ttp_mdm_tax_region" Name="mdm_tax_regionLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_tax_region m left join xbs.country c on m.country_code=c.country_id</DbTable>
+<Index>mdm_tax_region_id</Index>
+<Data>c.namecn country_code,m.state,m.city,m.tax_region_name,m.description,m.tax_regime,m.tax_jurisdiction,m.status,m.created_by,m.creation_date,m.last_update_by,m.last_update_date,m.mdm_tax_region_id</Data>
+<Order>mdm_tax_region_id</Order></DbDetails>%{extelmt}<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

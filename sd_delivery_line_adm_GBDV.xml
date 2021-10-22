@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_delivery_line"><Ctrls>
+<ListCtrl Heading="item_id_m,60;staging_subinventory_id,120;staging_locator_id,120;shipped_quantity,75;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;sd_delivery_line_id,60;" loadedclick="0" ToolTip="ttp_sd_delivery_line" Name="sd_delivery_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_delivery_line</DbTable>
+<Index>sd_delivery_line_id</Index>
+<Data>item_id_m,staging_subinventory_id,staging_locator_id,shipped_quantity,created_by,creation_date,last_update_by,last_update_date,sd_delivery_line_id</Data>
+<Order>sd_delivery_line_id</Order></DbDetails>
+<OnClick><assign name="staging_subinventory_id[subinventory_id]" function="SetSel" expr="%{sd_delivery_lineLst[staging_subinventory_id]}"/><assign name="staging_locator_id[locator_id]" function="SetSel" expr="%{sd_delivery_lineLst[staging_locator_id]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

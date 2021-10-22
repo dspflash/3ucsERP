@@ -1,0 +1,34 @@
+<Language name="user_subinventory">
+<Lang name="user_subinventory" value="user_subinventory"/>
+<Lang name="TabEdituser_subinventory" value="user_subinventory Edit"/>
+<Lang name="TabViewuser_subinventory" value="user_subinventory View"/>
+<Lang name="subinventory_id" value=""/>
+<Lang name="ttp_subinventory_id" value=""/>
+<Lang name="user_id" value=""/>
+<Lang name="ttp_user_id" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="user_subinventory_id" value=""/>
+<Lang name="ttp_user_subinventory_id" value=""/>
+<Lang name="ttp_operationuser_subinventory" value="操作"/>
+<Lang name="ttp_createuser_subinventory" value="新增"/>
+<Lang name="ttp_modifyuser_subinventory" value="修改"/>
+<Lang name="ttp_resetuser_subinventory" value="清除数据"/>
+<Lang name="ttp_deleteuser_subinventory" value="删除"/>
+<Lang name="ttp_refreshuser_subinventory" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

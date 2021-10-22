@@ -1,0 +1,46 @@
+<Language name="prj_category_header">
+<Lang name="prj_category_header" value="分类"/>
+<Lang name="TabEditprj_category_header" value="prj_category_header Edit"/>
+<Lang name="TabViewprj_category_header" value="prj_category_header View"/>
+<Lang name="category" value="分类"/>
+<Lang name="ttp_category" value=""/>
+<Lang name="effective_from" value=""/>
+<Lang name="ttp_effective_from" value=""/>
+<Lang name="effective_to" value=""/>
+<Lang name="ttp_effective_to" value=""/>
+<Lang name="allow_percent_cb" value=""/>
+<Lang name="ttp_allow_percent_cb" value=""/>
+<Lang name="one_code_only_cb" value=""/>
+<Lang name="ttp_one_code_only_cb" value=""/>
+<Lang name="mandatory_cb" value=""/>
+<Lang name="ttp_mandatory_cb" value=""/>
+<Lang name="total_hundred_cb" value=""/>
+<Lang name="ttp_total_hundred_cb" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="prj_category_header_id" value=""/>
+<Lang name="ttp_prj_category_header_id" value=""/>
+<Lang name="ttp_operationprj_category_header" value="操作"/>
+<Lang name="ttp_createprj_category_header" value="新增"/>
+<Lang name="ttp_modifyprj_category_header" value="修改"/>
+<Lang name="ttp_resetprj_category_header" value="清除数据"/>
+<Lang name="ttp_deleteprj_category_header" value="删除"/>
+<Lang name="ttp_refreshprj_category_header" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

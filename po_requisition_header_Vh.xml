@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVpo_requisition_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="po_requisition_headerLst" ToolTip="ttp_po_requisition_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_requisition_header</DbTable>
+<Index>po_requisition_header_id</Index>
+<Data>po_requisition_number,po_requisition_type,supplier_id,supplier_site_id,description,ship_to_id,bill_to_id,requisition_status,created_by,creation_date,last_update_by,last_update_date,po_requisition_header_id,bu_org_id</Data>
+<Order>po_requisition_header_id</Order></DbDetails>
+<OnClick><assign name="po_requisition_number[po_requisition_number]" expr="%{po_requisition_headerLst[po_requisition_number]}" function="SetSel"/><assign name="po_requisition_type[option_line_id]" expr="%{po_requisition_headerLst[po_requisition_type]}" function="SetSel"/><assign name="supplier_id[supplier_id]" expr="%{po_requisition_headerLst[supplier_id]}" function="SetSel"/><assign name="supplier_site_id[supplier_site_id]" expr="%{po_requisition_headerLst[supplier_site_id]}" function="SetSel"/><assign name="ship_to_id[address_id]" expr="%{po_requisition_headerLst[ship_to_id]}" function="SetSel"/><assign name="bill_to_id[address_id]" expr="%{po_requisition_headerLst[bill_to_id]}" function="SetSel"/><assign name="requisition_status[option_line_id]" expr="%{po_requisition_headerLst[requisition_status]}" function="SetSel"/><assign name="bu_org_id[org_id]" expr="%{po_requisition_headerLst[bu_org_id]}" function="SetSel"/>
+<if cond="%{po_requisition_header_id}"><SetVisible name="insertpo_requisition_header" Visible="0"/><SetVisible name="modifypo_requisition_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

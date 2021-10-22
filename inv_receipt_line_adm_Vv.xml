@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVinv_receipt_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="inv_receipt_line_vLst" ToolTip="ttp_inv_receipt_line_v" Size="700,450" OnLoad="init" Heading="item_id_m,120;transaction_quantity,75;uom_id,120;subinventory_id,120;locator_id,120;lot_number,120;unit_price,90;amount,90;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;inv_receipt_line_id,60;status,30;inspection_status,30;inspection_quality,30;" loadedclick="0">
+	<DbDetails >
+<Index>inv_receipt_line_id</Index>
+<DbTable>xbs.inv_receipt_line i left join xbs.item i0 on i.item_id_m=i0.item_id_m left join xbs.uom u on i.uom_id=u.uom_id left join xbs.subinventory s on i.subinventory_id=s.subinventory_id left join xbs.locator l on i.locator_id=l.locator_id left join xbs.inv_lot_number i1 on i.lot_number=i1.inv_lot_number_id</DbTable>
+<Data>i0.item_number item_id_m,i.transaction_quantity,u.uom_name uom_id,s.subinventory subinventory_id,l.locator locator_id,i1.lot_number lot_number,i.unit_price,i.amount,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.inv_receipt_line_id,i.status,i.inspection_status,i.inspection_quality</Data>
+<Order>inv_receipt_line_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>inv_receipt_line_id='%{inv_receipt_line_vLst[inv_receipt_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.inv_receipt_line_adm.inv_receipt_lineLst"/><assign name="$this.inv_receipt_line_adm.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.inv_receipt_line</DbTable>
+<Where>inv_receipt_line_id='%{inv_receipt_line_vLst[inv_receipt_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_inv_receipt_line" expr="js(%{inv_receipt_line_vLst[currentpage]}+1)"/>
+<assign name="pgscb_inv_receipt_line" expr="js(%{inv_receipt_line_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhd_sbp_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hd_sbp_lineLst" ToolTip="ttp_hd_sbp_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_sbp_line</DbTable>
+<Index>hd_sbp_line_id</Index>
+<Data>hd_service_activity_header_id,start_date,end_date,description,created_by,creation_date,last_update_by,last_update_date,hd_sbp_line_id</Data>
+<Order>hd_sbp_line_id</Order></DbDetails>
+<OnClick><assign name="created_by[xerp_user_id]" expr="%{hd_sbp_lineLst[created_by]}" function="SetSel"/>
+<if cond="%{hd_sbp_line_id}"><SetVisible name="inserthd_sbp_line" Visible="0"/><SetVisible name="modifyhd_sbp_line" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,13 @@
+﻿<WndTap Name="po_header" Text="po_header" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="supplier_id[supplier_id],payment_term_id[payment_term_id],currency[currency_id],doc_currency[currency_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\po_header.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBpo_header" id="po_header" Text="po_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_header_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_header_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_header_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertpo_header" Visible="1"/><SetVisible name="modifypo_header" Visible="0"/></OnActivate>
+</WndTap>

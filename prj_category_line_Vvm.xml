@@ -1,0 +1,20 @@
+<GroupBox Name="GBDVprj_category_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_category_line_vLst" ToolTip="ttp_prj_category_line" Size="700,420" Heading="category_code,150;effective_from,90;effective_to,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_category_line_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_category_line p</DbTable>
+<Index>prj_category_line_id</Index>
+<Data>p.category_code,p.effective_from,p.effective_to,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_category_line_id</Data>
+<Order>prj_category_line_id</Order>
+<Where>prj_category_header_id='%{prj_category_header_id}'</Where>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.prj_category_line.GBDEDITprj_category_line" function="reset"/><assign name="$this.prj_category_line.prj_category_header_id" expr="%{prj_category_header_id}"/></op>
+<op text="modify"><DbDetails><Where>prj_category_line_id='%{prj_category_line_vLst[prj_category_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_category_line.prj_category_lineLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.prj_category_line</DbTable>
+<Where>prj_category_line_id='%{prj_category_line_vLst[prj_category_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

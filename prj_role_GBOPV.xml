@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVprj_role" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteprj_role" Name="deleteprj_role" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_role</DbTable>
+<Where>prj_role_id='%{prj_roleLst[prj_role_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchprj_role" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshprj_role" Name="searchprj_role" Size="50,20">
+			  <OnClick><submit next="prj_roleLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPprj_roleLst" OnClick="(prj_roleLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREprj_roleLst" OnClick="(prj_roleLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPprj_roleLst" OnClick="(prj_roleLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

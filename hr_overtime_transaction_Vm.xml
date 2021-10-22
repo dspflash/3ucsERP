@@ -1,0 +1,22 @@
+﻿<WndTap Name="hr_overtime_transaction_v" Text="hr_overtime_transaction">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_overtime_transaction_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="employee_pick.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_header_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><employee_id format="h.employee_id='%{opvalue}'"/><requsted_date format="(h.requsted_date between '%{requsted_date[datetime]}' and '%{requsted_date[datetime2]}')"/><approved_date format="(h.approved_date between '%{approved_date[datetime]}' and '%{approved_date[datetime2]}')"/><approved_by_employee_id format="h.approved_by_employee_id='%{opvalue}'"/><overtime_status format="h.overtime_status='%{opvalue}'"/><overtime_type format="h.overtime_type='%{opvalue}'"/><overtime_quantity format="(h.overtime_quantity like '%%{opvalue}%')"/><from_datetime format="(h.from_datetime between '%{from_datetime[datetime]}' and '%{from_datetime[datetime2]}')"/><to_datetime format="(h.to_datetime between '%{to_datetime[datetime]}' and '%{to_datetime[datetime2]}')"/><reason format="(h.reason like '%%{opvalue}%')"/><contact_details format="(h.contact_details like '%%{opvalue}%')"/><sys_notification_id format="(h.sys_notification_id like '%%{opvalue}%')"/><sys_notification_group_id format="(h.sys_notification_group_id like '%%{opvalue}%')"/><created_by format="(h.created_by like '%%{opvalue}%')"/><creation_date format="(h.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(h.last_update_by like '%%{opvalue}%')"/><last_update_date format="(h.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><hr_overtime_transaction_id format="(h.hr_overtime_transaction_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hr_overtime_transaction.xml"/>
+<Ctrls><GroupBox  Name="GBhr_overtime_transaction" id="hr_overtime_transaction" Text="hr_overtime_transaction" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_overtime_transaction_Vsm.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVhr_overtime_transaction" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.hr_overtime_transaction.GBDEDIThr_overtime_transaction" function="reset"/><assign name="$this.hr_overtime_transaction.frmwndctrl" expr="%{$this.hr_overtime_transaction_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resethr_overtime_transaction" Name="resethr_overtime_transaction" Size="50,20">	<OnClick>	<submit next="GBDEDIThr_overtime_transaction" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchhr_overtime_transaction" Name="gsearchhr_overtime_transaction" Size="50,20">	<OnClick>	
+<search next="hr_overtime_transaction_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDIThr_overtime_transaction" namelist="search" function="search"/>	
+<search next="records_hr_overtime_transaction" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDIThr_overtime_transaction" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_overtime_transaction_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_overtime_transaction_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_overtime_transaction_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

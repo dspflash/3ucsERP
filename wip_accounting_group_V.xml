@@ -1,0 +1,14 @@
+<WndTap Name="wip_accounting_group_v" Text="wip_accounting_group">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_accounting_group_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_accounting_group.xml"/>
+<Ctrls><GroupBox  Name="GBwip_accounting_group" id="wip_accounting_group" Text="wip_accounting_group" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_accounting_group_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVwip_accounting_group" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.wip_accounting_group.GBDEDITwip_accounting_group" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetwip_accounting_group" Name="resetwip_accounting_group" Size="50,20">	<OnClick>	<submit next="GBDEDITwip_accounting_group" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchwip_accounting_group" Name="gsearchwip_accounting_group" Size="50,20" visible="true">	<OnClick>	<search next="wip_accounting_group_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITwip_accounting_group" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_accounting_group_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

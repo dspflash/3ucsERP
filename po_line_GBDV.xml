@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpo_line"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_po_line" Name="po_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_line p left join xbs.option_line o on p.line_type=o.option_line_id left join xbs.org o0 on p.receving_org_id=o0.org_id left join xbs.po_quote_v p0 on p.item_id_m=p0.item_id_m left join xbs.mdm_tax_code m on p.tax_code_id=m.mdm_tax_code_id left join xbs.option_line o1 on p.status=o1.option_line_id</DbTable>
+<Index>po_line_id</Index>
+<Data>p.need_by_date,o.option_line_value line_type,p.line_number,o0.org receving_org_id,p0.item_number item_id_m,p.price_date,p.line_description,p.line_quantity,p.line_price,p.gl_line_price,m.tax_code tax_code_id,p.tax_amount,p.gl_tax_amount,o1.option_line_value status,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.po_line_id,p.reference_header_id,p.reference_line_id,p.po_req_line_id</Data>
+<Order>po_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>po_line_id='%{po_line_vLst[po_line_id]}'</Where></DbDetails><submit next="$this.po_line.po_lineLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.po_line</DbTable>
+<Where>po_line_id='%{po_line_vLst[po_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

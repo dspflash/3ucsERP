@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVoption_line"><Ctrls>
+<ListCtrl Heading="option_header_id,120;option_line_code,250;option_line_value,250;description,640;option_line_id,60;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;" loadedclick="1" ToolTip="ttp_option_line" Name="option_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_header_id,option_line_code,option_line_value,description,option_line_id,status,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>option_line_id</Order></DbDetails>
+<OnClick><assign name="option_header_id[option_header_id]" function="SetSel" expr="%{option_lineLst[option_header_id]}"/></OnClick><DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{Where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

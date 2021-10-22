@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVcurrency"><Ctrls>
+<ListCtrl Heading="title,160;code,20;symbol_left,60;symbol_right,60;decimal_place,20;status,60;currency_id,55;" loadedclick="0" ToolTip="ttp_currency" onload="init" Name="currencyLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.currency</DbTable>
+<Index>currency_id</Index>
+<Data>title,code,symbol_left,symbol_right,decimal_place,status,currency_id</Data>
+<Order>currency_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

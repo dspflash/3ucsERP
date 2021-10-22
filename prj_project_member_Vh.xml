@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_project_member" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_project_memberLst" ToolTip="ttp_prj_project_member" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_project_member</DbTable>
+<Index>prj_project_member_id</Index>
+<Data>prj_role_id,user_id,description,start_date,end_date,created_by,creation_date,last_update_by,last_update_date,prj_project_member_id</Data>
+<Order>prj_project_member_id</Order></DbDetails>
+<OnClick><assign name="prj_role_id[prj_role_id]" expr="%{prj_project_memberLst[prj_role_id]}" function="SetSel"/><assign name="user_id[xerp_user_id]" expr="%{prj_project_memberLst[user_id]}" function="SetSel"/>
+<if cond="%{prj_project_member_id}"><SetVisible name="insertprj_project_member" Visible="0"/><SetVisible name="modifyprj_project_member" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

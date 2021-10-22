@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEbom_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="bom_line_id" Text="create" ToolTip="ttp_createbom_line" Name="insertbom_line" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.bom_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>bom_sequence,routing_sequence[routing_sequence],routing_seq_num,bom_header_id[bom_header_id],component_item_id_m[item_id_m],usage_basis[option_line_id],usage_quantity,wip_supply_type[option_line_id],supply_sub_inventory[subinventory_id],supply_locator[locator_id]</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertbom_line[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="bom_lineLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.bom_line_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifybom_line" Name="modifybom_line" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.bom_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>bom_sequence,routing_sequence[routing_sequence],routing_seq_num,bom_header_id[bom_header_id],component_item_id_m[item_id_m],usage_basis[option_line_id],usage_quantity,wip_supply_type[option_line_id],supply_sub_inventory[subinventory_id],supply_locator[locator_id]</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>bom_line_id='%{bom_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifybom_line[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="bom_lineLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.bom_line_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetbom_line" Name="resetbom_line" Size="50,20">
+<OnClick>
+<submit next="GBDEDITbom_line" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchbom_line" Name="gsearchbom_line" Size="50,20" visible="false">
+<OnClick>
+<search next="bom_lineLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITbom_line" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

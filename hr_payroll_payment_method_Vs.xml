@@ -1,0 +1,16 @@
+﻿<GroupBox Name="GBDEDIThr_payroll_payment_method" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_payment_method" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_payment_method" Size="60,20" Text="payment_method" Align="Right"/>
+<TextBox Name="payment_method" Size="170,20" Text="" Weight="170" ToolTip="ttp_payment_method"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_payment_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_payment_type" Size="60,20" Text="payment_type" Align="Right"  onload="init"/>
+<ComboBox Name="payment_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_payment_type"  onload="init">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=199</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

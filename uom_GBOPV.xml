@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVuom" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteuom" Name="deleteuom" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.uom</DbTable>
+<Where>uom_id='%{uomLst[uom_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchuom" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshuom" Name="searchuom" Size="50,20">
+			  <OnClick><submit next="uomLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPuomLst" OnClick="(uomLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREuomLst" OnClick="(uomLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPuomLst" OnClick="(uomLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

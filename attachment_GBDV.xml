@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVattachment"><Ctrls>
+<ListCtrl Heading="subject,640;filename,640;attachment,640;reftbl,250;type,20;typestr,500;description,640;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;attachment_id,100;" loadedclick="0" ToolTip="ttp_attachment" Name="attachmentLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.attachment</DbTable>
+<Index>attachment_id</Index>
+<Data>subject,filename,attachment,reftbl,type,typestr,description,created_by,creation_date,last_update_by,last_update_date,attachment_id</Data>
+<Order>attachment_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

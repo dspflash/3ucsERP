@@ -1,0 +1,415 @@
+<WndTap Name="vinventory" Text="vinventory">
+	<WndTaps>
+<!--WndTap Text="inv_transaction_adjust" Name="inv_transaction_adjust" Ver="2" popup="1">
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_transaction.xml"/>
+<Ctrls>
+<GroupBox Text="inv_transaction" Name="GBinv_transaction" id="inv_transaction" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_adjust_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEinv_transaction" Size="100,100"><Ctrls>
+<Button sqlpkinsert="inv_transaction_id" Text="create" ToolTip="ttp_createinv_transaction" Name="insertinv_transaction" Size="50,20">
+	<OnClick>
+	<if cond="%{transaction_type_id[transaction_type_id]}==16"><DbDetails fcsm="1">
+<DbTable>xbs.inv_transaction</DbTable>
+<Required>item_id_m[item_id_m],transaction_type_id[transaction_type_id],uom_id[uom_id],quantity,from_org_id[org_id],from_subinventory_id[subinventory_id]</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],transaction_type_id[transaction_type_id],reason,uom_id[uom_id],quantity,description,from_org_id[org_id],from_subinventory_id[subinventory_id],from_locator_id[locator_id],lot_number_id[inv_lot_number_id]</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,org_id;'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/>
+	<else/><DbDetails fcsm="1">
+<DbTable>xbs.inv_transaction</DbTable>
+<Required>item_id_m[item_id_m],transaction_type_id[transaction_type_id],uom_id[uom_id],quantity,to_org_id[org_id],to_subinventory_id[subinventory_id]</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],transaction_type_id[transaction_type_id],reason,uom_id[uom_id],quantity,description,to_org_id[org_id],to_subinventory_id[subinventory_id],to_locator_id[locator_id],lot_number_id[inv_lot_number_id]</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,org_id;'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/></if>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap-->
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_transfer_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vLotOnhand.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_line_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_line_Vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_header_Ve.xml" popup="1"/>
+	<WndTap Text="issue_pick" Name="issue_pick" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_issue_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="vIssue" Name="GBvIssue" id="vIssue" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" Name="vIssueLst" Size="700,420">
+			<DbDetails>
+			<DbTable>inv_issue_header_v</DbTable>
+			<Index>inv_issue_header_id</Index>
+			<Data>*</Data>
+			<Order>inv_issue_header_id</Order>
+			<queryFormat>select %{data} from %{dbtable} %{where} order by inv_issue_header_id desc limit %{StartRow},%{PgSize}</queryFormat>
+			</DbDetails>
+			<OnClick><if cond="%{vIssueLst[inv_issue_header_id]}"><assign name="$parent.inv_issue_line.transaction_type_id" expr="%{vIssueLst[transaction_type_id]}"/><assign name="$parent.inv_issue_line.inv_issue_line_id" expr=""/><DbDetails><Where>inv_issue_header_id='%{vIssueLst[inv_issue_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.inv_issue_line.inv_issue_header_id"/><DbDetails><Where>item_id_m='%{item_id_m}' and org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.inv_issue_line.item_id_m"/><DbDetails><Where>uom_id=IF('%{uom_id}'!='','%{uom_id}',(select uom_id from item where item_id_m='%{item_id_m}' and org_id='%{orgid}'))</Where></DbDetails><submit namelist="DbDetails" next="$parent.inv_issue_line.uom_id"/><DbDetails><Where>subinventory_id in (IF('%{subinvid}'!='','%{subinvid}',(select subinventory_id from invonhand_v where item_id_m='%{item_id_m}' and org_id='%{orgid}' AND subinventory_id IS NOT NULL UNION SELECT receipt_sub_inventory FROM item WHERE item_id_m='%{item_id_m}' and org_id='%{orgid}')))</Where></DbDetails><submit namelist="DbDetails" next="$parent.inv_issue_line.subinventory_id"/><submit function="onok"/></if></OnClick>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<op text="issue_header" mustselected="0"><submit next="$parent.inv_issue_header.GBDEDITinv_issue_header" function="reset"/><DbDetails><Where>transaction_type_id=1</Where></DbDetails><submit namelist="dbdetails" next="$parent.inv_issue_header.transaction_type_id"/><assign name="$parent.inv_issue_header.reference_key_name" expr="" function="setsel"/></op>
+			<op text="view"><assign name="$parent.inv_issue_line_V.inv_issue_header_id" expr="%{vIssueLst[inv_issue_header_id]}"/><DbDetails><Where>inv_issue_header_id='%{vIssueLst[inv_issue_header_id]}'</Where></DbDetails><submit next="$parent.inv_issue_line_V.inv_issue_line_VLst" namelist="DbDetails"/></op>
+			<op text="confirm" needconfirm="1"><DbDetails><queryFormat>update inv_issue_header ih join inv_issue_line il on ih.inv_issue_header_id=il.inv_issue_header_id set ih.status=1520,il.status=1520 where ih.inv_issue_header_id='%{vIssueLst[inv_issue_header_id]}' and ih.status=1519 and il.status=1519;</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			<op text="cancel" needconfirm="1"><DbDetails><queryFormat>update inv_issue_header ih left join inv_issue_line il on ih.inv_issue_header_id=il.inv_issue_header_id set ih.status=1522,il.status=1522 where ih.inv_issue_header_id='%{vIssueLst[inv_issue_header_id]}' and ih.status=1519;</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line_Vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_header_Ve.xml" popup="1"/>
+	<WndTap Text="receipt_pick" Name="receipt_pick" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_receipt_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="vReceipt" Name="GBvReceipt" id="vReceipt" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+				<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" Name="vReceiptLst" Size="700,420">
+			<DbDetails>
+			<DbTable>inv_receipt_header_v</DbTable>
+			<Index>inv_receipt_header_id</Index>
+			<Data>*</Data>
+			<Order>inv_receipt_header_id</Order>
+			<queryFormat>select %{data} from %{dbtable} %{where} order by inv_receipt_header_id desc limit %{StartRow},%{PgSize}</queryFormat>
+			</DbDetails>
+			<OnClick><if cond="%{vReceiptLst[inv_receipt_header_id]}"><assign name="$parent.inv_receipt_line.transaction_type_id" expr="%{vReceiptLst[transaction_type_id]}"/><assign name="$parent.inv_receipt_line.inv_receipt_line_id" expr=""/><DbDetails><Where>inv_receipt_header_id='%{vReceiptLst[inv_receipt_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.inv_receipt_line.inv_receipt_header_id"/><DbDetails><Where>item_id_m='%{item_id_m}' and org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.inv_receipt_line.item_id_m"/><DbDetails><Where>uom_id=IF('%{uom_id}'!='','%{uom_id}',(select uom_id from item where item_id_m='%{item_id_m}' and org_id='%{orgid}'))</Where></DbDetails><submit namelist="DbDetails" next="$parent.inv_receipt_line.uom_id"/><DbDetails><Where>subinventory_id in (IF('%{subinvid}'!='','%{subinvid}',(select subinventory_id from invonhand_v where item_id_m='%{item_id_m}' and org_id='%{orgid}' AND subinventory_id IS NOT NULL UNION SELECT receipt_sub_inventory FROM item WHERE item_id_m='%{item_id_m}' and org_id='%{orgid}')))</Where></DbDetails><submit namelist="DbDetails" next="$parent.inv_receipt_line.subinventory_id"/><submit function="onok"/></if></OnClick>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<op text="receipt_header" mustselected="0"><submit next="$parent.inv_receipt_header.GBDEDITinv_receipt_header" function="reset"/><DbDetails><Where>transaction_type_id=2</Where></DbDetails><submit namelist="dbdetails" next="$parent.inv_receipt_header.transaction_type_id"/><assign name="$parent.inv_receipt_header.reference_key_name" expr="" function="setsel"/></op>
+			<op text="view"><assign name="$parent.inv_receipt_line_V.inv_receipt_header_id" expr="%{vReceiptLst[inv_receipt_header_id]}"/><DbDetails><Where>inv_receipt_header_id='%{vReceiptLst[inv_receipt_header_id]}'</Where></DbDetails><submit next="$parent.inv_receipt_line_V.inv_receipt_line_VLst" namelist="DbDetails"/></op>
+			<op text="confirm" needconfirm="1"><DbDetails><queryFormat>update inv_receipt_header ih join inv_receipt_line il on ih.inv_receipt_header_id=il.inv_receipt_header_id set ih.status=1520,il.status=1520 where ih.inv_receipt_header_id='%{vReceiptLst[inv_receipt_header_id]}' and ih.status=1519 and il.status=1519;</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			<op text="cancel" needconfirm="1"><DbDetails><queryFormat>update inv_receipt_header ih left join inv_receipt_line il on ih.inv_receipt_header_id=il.inv_receipt_header_id set ih.status=1522,il.status=1522 where ih.inv_receipt_header_id='%{vReceiptLst[inv_receipt_header_id]}' and ih.status=1519;</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+<WndTap Text="inv_transaction_adjust_issue" Name="inv_transaction_adjust_issue" Ver="2" popup="1">
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr="item_id_m[item_id_m],uom_id[uom_id],quantity,from_org_id[org_id],from_subinventory_id[subinventory_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_transaction.xml"/>
+<Ctrls>
+<GroupBox Text="inv_transaction_adjust_issue" Name="GBinv_transaction" id="inv_transaction" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_adjust_issue_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEinv_transaction" Size="100,100"><Ctrls>
+<Button sqlpkinsert="inv_transaction_id" Text="Save" ToolTip="ttp_createinv_transaction" Name="insertinv_transaction" Size="50,20" Clickneedconfirm="1">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_transaction</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],uom_id[uom_id],quantity,reason,description,from_org_id[org_id],from_subinventory_id[subinventory_id],from_locator_id[locator_id],lot_number_id[inv_lot_number_id]</Data>
+<DataEx>transaction_type_id,created_by,creation_date,last_update_by,last_update_date,org_id;16,'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="inv_transactionLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+<WndTap Text="inv_transaction_adjust_receipt" Name="inv_transaction_adjust_receipt" Ver="2" popup="1">
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr="item_id_m[item_id_m],uom_id[uom_id],quantity,to_org_id[org_id],to_subinventory_id[subinventory_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_transaction.xml"/>
+<Ctrls>
+<GroupBox Text="inv_transaction_adjust_receipt" Name="GBinv_transaction" id="inv_transaction" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_transaction_adjust_receipt_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEinv_transaction" Size="100,100"><Ctrls>
+<Button sqlpkinsert="inv_transaction_id" Text="Save" ToolTip="ttp_createinv_transaction" Name="insertinv_transaction" Size="50,20" Clickneedconfirm="1">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_transaction</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],uom_id[uom_id],quantity,reason,description,to_org_id[org_id],to_subinventory_id[subinventory_id],to_locator_id[locator_id],lot_number_id[inv_lot_number_id]</Data>
+<DataEx>transaction_type_id,created_by,creation_date,last_update_by,last_update_date,org_id;17,'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="inv_transactionLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<!--WndTap Text="inv_receipt_header" Name="inv_receipt_header" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_receipt_header.xml"/>
+	<Ctrls>
+	<GroupBox Text="inv_receipt_header" Name="GBinv_receipt_header" id="inv_receipt_header" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_header_GBOPE.xml"></xi:include>
+	<ListCtrl Name="inv_receipt_headerLst" ToolTip="ttp_inv_receipt_header" Size="70,20" loadedclick="1">
+	<DbDetails fcsm="1">
+		<DbTable>xbs.inv_receipt_header</DbTable>
+		<Index>inv_receipt_header_id</Index>
+		<Data>receipt_number,transaction_type_id,receipt_date,carrier,vechile_number,comment,org_id,inv_receipt_header_id</Data>
+		<Order>inv_receipt_header_id</Order></DbDetails>
+		<OnClick><assign name="transaction_type_id[transaction_type_id]" expr="%{inv_receipt_headerLst[transaction_type_id]}" function="SetSel"/><assign name="org_id[org_id]" expr="%{inv_receipt_headerLst[org_id]}" function="SetSel"/>
+		<if cond="%{inv_receipt_header_id}"><SetVisible name="insertinv_receipt_header" Visible="0"/><SetVisible name="modifyinv_receipt_header" Visible="1"/><else/><SetVisible name="insertinv_receipt_header" Visible="1"/><SetVisible name="modifyinv_receipt_header" Visible="0"/></if></OnClick>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate/>
+		</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_receipt_line.xml" popup="1"/-->
+	<WndTap Text="vInvTrans" Name="vInvTrans" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_transaction.xml"/>
+		<Ctrls>
+		<GroupBox Text="vInvTrans" Name="GBvInvTrans" id="vInvTrans" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" Name="vInvTransLst" Size="700,420">
+			<DbDetails>
+			<DbTable>inv_transaction_v</DbTable>
+			<Index>inv_transaction_id</Index>
+			<Data>ir_number,transaction_type,uom_name,quantity,creation_date,from_subinventory,from_locator,to_subinventory,to_locator,lot_number,reason,description</Data>
+			<Order>inv_transaction_id</Order>
+			<queryFormat>select %{data} from %{dbtable} where %{where} order by inv_transaction_id desc limit %{StartRow},%{PgSize}</queryFormat>
+			</DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<!--WndTap Text="vInvTransReceipt" Name="vInvTransReceipt" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_transaction.xml"/>
+		<Ctrls>
+		<GroupBox Text="vInvTransReceipt" Name="GBvInvTrans" id="vInvTransReceipt" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" Name="vInvTransLst" DataJoin="%{this(supplier_name,item_number,item_description)}%{prop}[%{prop[Total(item_id_m)]} as total]%{this(uom_name,quantity,unit_cost)}" DataJoinKey="item_id_m" Size="700,420">
+			<MDX id="prop" datatype="string">
+			<DbDetails>
+				<DbTable>item_properties i left join item_property i0 on i.property_id=i0.property_id</DbTable> where 
+				<Index>h_id </Index>
+				<MDX>item_id_m,propname,propvalue</MDX>
+				<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+				<Order></Order>
+				<Where>and transaction_type_id=5</Where>
+				<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (select * from(SELECT it.org_id,it.item_id_m from inv_transaction_v it join po_all_v pl on it.reference_key_name='po_line' and it.reference_key_value=pl.po_line_id where it.org_id=%{orgid} %{where} GROUP BY item_id_m limit %{StartRow},%{PgSize}) as orgitem)</queryFormat> 
+			</DbDetails>
+			</MDX>
+			<DbDetails>
+			<DbTable>inv_transaction_v it join po_all_v pl on it.reference_key_name='po_line' and it.reference_key_value=pl.po_line_id</DbTable>
+			<Index>inv_transaction_id</Index>
+			<Data>supplier_name,it.item_number,it.item_description,uom_name,SUM(it.quantity) quantity,unit_cost,it.item_id_m</Data>
+			<Order>inv_transaction_id</Order>
+			<Where>and transaction_type_id=5</Where>			
+			<queryFormat>select %{data} from %{dbtable} where it.org_id=%{orgid} %{where} GROUP BY item_id_m order by inv_transaction_id desc limit %{StartRow},%{PgSize}</queryFormat>
+			</DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	</WndTap>
+	<WndTap Text="vInvTransReceiptDetail" Name="vInvTransReceiptDetail" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_transaction.xml"/>
+		<var name="datatbl" expr="inv_transaction_v it join po_all_v pl on it.reference_key_name='po_line' and it.reference_key_value=pl.po_line_id left join inv_receipt_line irl on it.ir_line_id=irl.inv_receipt_line_id left join inv_receipt_header ir on irl.inv_receipt_header_id=ir.inv_receipt_header_id"/>
+		<Ctrls>
+		<GroupBox Text="vInvTransReceiptDetail" Name="GBvInvTrans" id="vInvTransReceiptDetail" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" Name="vInvTransLst" DataJoin="%{this(receipt_number,receipt_date,supplier_name,item_number,item_description)}%{prop}%{this(uom_name,quantity,unit_cost,costed_amount,received_by)}" DataJoinKey="item_id_m" Size="700,420">
+			<MDX id="prop" datatype="string">
+			<DbDetails>
+				<DbTable>item_properties i left join item_property i0 on i.property_id=i0.property_id</DbTable> where 
+				<Index>h_id </Index>
+				<MDX>item_id_m,propname,propvalue</MDX>
+				<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+				<Order></Order>
+				<Where>and it.transaction_type_id=5</Where>
+				<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (select * from(SELECT it.org_id,it.item_id_m from %{datatbl} where it.org_id=%{orgid} %{where} limit %{StartRow},%{PgSize}) as orgitem)</queryFormat> 
+			</DbDetails>
+			</MDX>
+			<DbDetails>
+			<DbTable> %{datatbl}</DbTable>
+			<Index>inv_transaction_id</Index>
+			<Data>receipt_number,receipt_date,supplier_name,it.item_number,it.item_description,uom_name,it.quantity,unit_cost,costed_amount,transaction_type,received_by,to_subinventory,it.item_id_m</Data>
+			<Order>inv_transaction_id</Order>
+			<Where>and it.transaction_type_id=5</Where>			
+			<queryFormat>select %{data} from %{dbtable} where it.org_id=%{orgid} %{where} order by inv_transaction_id desc limit %{StartRow},%{PgSize}</queryFormat>
+			</DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	</WndTap>
+	<WndTap Text="vInvTransIssue" Name="vInvTransIssue" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_transaction.xml"/>
+		<Ctrls>
+		<GroupBox Text="vInvTransIssue" Name="GBvInvTrans" id="vInvTransIssue" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" Name="vInvTransLst" DataJoin="%{this(item_number,item_description)}%{prop}%{this(uom_name,quantity)}" DataJoinKey="item_id_m" Size="700,420">
+			<MDX id="prop" datatype="string">
+			<DbDetails>
+				<DbTable>item_properties i left join item_property i0 on i.property_id=i0.property_id</DbTable> where 
+				<Index>h_id </Index>
+				<MDX>item_id_m,propname,propvalue</MDX>
+				<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+				<Order></Order>
+				<Where>and transaction_type_id in (1,6,9,12,13,15,21,22,24,28,29,32)</Where>
+				<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (select * from(SELECT org_id,item_id_m from inv_transaction_v where org_id=%{orgid} %{where} GROUP BY item_id_m limit %{StartRow},%{PgSize}) as orgitem)</queryFormat> 
+			</DbDetails>
+			</MDX>
+			<DbDetails>
+			<DbTable>inv_transaction_v</DbTable>
+			<Index>inv_transaction_id</Index>
+			<Data>item_number,item_description,uom_name,SUM(quantity) quantity,item_id_m</Data>
+			<Order>inv_transaction_id</Order>
+			<Where>and transaction_type_id=5</Where>			
+			<queryFormat>select %{data} from %{dbtable} where org_id=%{orgid} %{where} GROUP BY item_id_m order by inv_transaction_id desc limit %{StartRow},%{PgSize}</queryFormat>
+			</DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	</WndTap-->
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\material.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\subinventory.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="Material"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inventory_item_GBDSEARCH.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="invOnhandLst" listed="0" prefixand="1" inputed="1"><item_number format="item_number like '%%{opvalue}%'"/><item_name format="item_name like '%%{opvalue}%'"/></search><submit next="GBDEDITitem" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<!--Button Text="vInvTransReceipt" ToolTip="ttp_vIssue" Name="vInvTransReceipt" Size="50,20">
+	<OnClick>
+	<DbDetails></DbDetails><submit namelist="DbDetails" next="vinventory.vInvTransReceipt.vInvTransLst"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="vInvTransReceiptDetail" ToolTip="ttp_vReceipt" Name="vInvTransReceiptDetail" Size="50,20">
+	<OnClick>
+	<DbDetails></DbDetails><submit namelist="DbDetails" next="vinventory.vInvTransReceiptDetail.vInvTransLst"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="sddlv" ToolTip="ttp_sddlv" Name="sddlv" Size="50,20">
+	<OnClick>
+	<submit next="vinventory.vSDDLV.sddlvLst"/>
+	</OnClick>
+	</Button><TAB/-->
+<Button Name="export" Size="50,20" Text="导出明细"><TAB/>
+	<OnClick><!--Save selected="1" columns="3,0,7,8,9,11"></Save--><submit next="invOnhandLst" namelist="Save" function="savetofile"/></OnClick></Button>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<GroupBox Text="OnHand" Name="onhand" id="GB_onhand" Size="100,100" feature="tab"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="invOnhandLst" Size="700,420" DataJoin="%{this(item_number,item_name,onhand,uom_name,subinventory,sluggish,locator)}%{prop}%{this(last_update_date,item_specification,item_description,org)}">
+		<MDX id="prop" datatype="string">
+		<DbDetails>
+			<DbTable>item_properties i left join item_property i0 on i.property_id=i0.property_id</DbTable> where 
+			<Index>h_id </Index>
+			<MDX>item_id_m,propname,propvalue</MDX>
+			<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+			<Order></Order>
+			<Where>and item_status!=278 and onhand</Where>
+			<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (select * from(SELECT org_id,item_id_m from xbs.invOnhand_v where org_id=%{orgid} %{where} %{order} order by item_id_m limit %{StartRow},%{PgSize}) as orgitem)</queryFormat> 
+		</DbDetails>
+		</MDX>
+	<DbDetails>
+<DbTable>xbs.invOnhand_v</DbTable>
+<Index>item_id_m</Index>
+<Data>*</Data>
+<Order></Order>
+<Where>and item_status!=278 and onhand</Where>
+<queryFormat>select %{data} from %{dbtable} where org_id=%{orgid} %{where} %{order} order by item_id_m limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="invonhandmenu" remark="case-senstive">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/invOnhandMenu.xml"/></rules>
+<inputs roleid="%{role_id}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="Copy"><Copy columns="item_number"/><submit namelist="Copy" function="Copy"/></op>
+<op text="NotNull" mustselected="0"><DbDetails><Where>and onhand is not null</Where></DbDetails><submit namelist="DbDetails"/></op>
+<!--op text="NotZero" mustselected="0"><DbDetails><Where>and onhand</Where></DbDetails><submit namelist="DbDetails"/></op-->
+<op text="GroupSubInv" mustselected="0"><DbDetails><Order>GROUP BY item_id_m</Order></DbDetails><submit namelist="DbDetails"/></op>
+<op text="DiffSubInv" mustselected="0"><DbDetails><Order></Order></DbDetails><submit namelist="DbDetails"/></op>
+<op text="vInvTrans"><assign name="vinventory.vInvTrans.item_id_m" expr="%{invOnhandLst[item_id_m]}"/><DbDetails><Where>item_id_m='%{item_id_m}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vinventory.vInvTrans.vInvTransLst"/></op>
+<op text="inv_adjust_receipt"><DbDetails><Where>item_id_m='%{invOnhandLst[item_id_m]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vinventory.inv_transaction_adjust_receipt.item_id_m"/></op>
+<op text="inv_adjust_issue"><DbDetails><Where>item_id_m='%{invOnhandLst[item_id_m]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vinventory.inv_transaction_adjust_issue.item_id_m"/></op>
+<op text="LotOnhand"><assign name="$this.vLotOnhand.item_id_m" expr="%{invOnhandLst[item_id_m]}"/><DbDetails><Where>and item_id_m='%{$this.vLotOnhand.item_id_m}'</Where></DbDetails><submit next="$this.vLotOnhand.onhandLst" namelist="DbDetails"/></op>
+<op text="Inv Transfer"><DbDetails><Where>item_id_m='%{invOnhandLst[item_id_m]}' and org_id='%{orgid}'</Where></DbDetails><submit next="$this.inv_transaction.item_id_m" namelist="DbDetails"/><DbDetails><Where>subinventory_id in (select subinventory_id from onhand where item_id_m='%{invOnhandLst[item_id_m]}' and org_id='%{orgid}' and onhand&gt;0)</Where></DbDetails><submit next="$this.inv_transaction.from_subinventory_id" namelist="DbDetails"/><DbDetails><Where>org_id='%{orgid}'</Where></DbDetails><submit next="$this.inv_transaction.to_subinventory_id" namelist="DbDetails"/><assign name="$this.inv_transaction.quantity" expr=""/></op>
+<op text="misc_issue" needconfirm="0"><DbDetails><Where>where created_by=%{user_id} and status=1519 and transaction_type_id=1</Where></DbDetails><submit next="$this.issue_pick.vIssueLst" namelist="DbDetails"/><assign name="$this.issue_pick.trantpcond" expr="transaction_type_id=1"/><assign name="$this.issue_pick.item_id_m" expr="%{invOnhandLst[item_id_m]}"/><assign name="$this.issue_pick.uom_id" expr="%{invOnhandLst[uom_id]}"/><assign name="$this.issue_pick.subinvid" expr="%{invOnhandLst[subinventory_id]}"/></op>
+<op text="misc_receipt" needconfirm="0"><DbDetails><Where>where created_by=%{user_id} and status=1519 and transaction_type_id=2</Where></DbDetails><submit next="$this.receipt_pick.vreceiptLst" namelist="DbDetails"/><assign name="$this.receipt_pick.trantpcond" expr="transaction_type_id=2"/><assign name="$this.receipt_pick.item_id_m" expr="%{invOnhandLst[item_id_m]}"/><assign name="$this.receipt_pick.uom_id" expr="%{invOnhandLst[uom_id]}"/><assign name="$this.receipt_pick.subinvid" expr="%{invOnhandLst[subinventory_id]}"/></op>
+<!--op text="po_dlv"><DbDetails><Where>item_id_m='%{invOnhandLst[item_id_m]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vinventory.inv_transaction_po_dlv.item_id_m"/></op>
+<op text="po_rtn"><DbDetails><Where>item_id_m='%{invOnhandLst[item_id_m]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vinventory.inv_transaction_po_rtn.item_id_m"/></op>
+<op text="wip_return"><DbDetails><Where>item_id_m='%{invOnhandLst[item_id_m]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vinventory.inv_transaction_wip_return.item_id_m"/></op>
+<op text="wip_issue"><DbDetails><Where>item_id_m='%{invOnhandLst[item_id_m]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vinventory.inv_transaction_wip_issue.item_id_m"/></op>
+<op text="misc_issue"><DbDetails><Where>item_id_m='%{invOnhandLst[item_id_m]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vinventory.inv_transaction_misc_issue.item_id_m"/></op>
+<op text="misc_receipt"><DbDetails><Where>item_id_m='%{invOnhandLst[item_id_m]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="vinventory.inv_transaction_misc_receipt.item_id_m"/></op-->
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox><BR NULLheight="1"/>
+<GroupBox Name="GBInvTranse" Text="Transaction" feature="tab"><Ctrls>unit_cost,costed_amount,supplier_name,received_by,receipt_number
+	<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="vInvTransLst" DataJoin="%{this(item_number,quantity,uom_name,ir_number,transaction_type,citem_description)}%{prop}%{this(reation_date,from_subinventory,to_subinventory)}" DataJoinKey="item_id_m" Size="700,420">
+		<MDX id="prop" datatype="string">
+		<DbDetails>
+			<DbTable>item_properties i left join item_property i0 on i.property_id=i0.property_id</DbTable> where 
+			<Index>h_id </Index>
+			<MDX>item_id_m,propname,propvalue</MDX>
+			<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+			<Order></Order>
+			<Where>and it.transaction_type_id=5</Where>
+			<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (select * from(SELECT it.org_id,it.item_id_m from inv_transaction_v it where it.org_id=%{orgid} %{where} limit %{StartRow},%{PgSize}) as orgitem)</queryFormat> 
+		</DbDetails>
+		</MDX>
+		<DbDetails>
+		<DbTable>inv_transaction_v it</DbTable>
+		<Index>inv_transaction_id</Index>
+		<Data>*</Data>
+		<Order>inv_transaction_id</Order>
+		<Where>and it.transaction_type_id</Where>			
+		<queryFormat>select %{data} from %{dbtable} where it.org_id=%{orgid} %{where} order by inv_transaction_id desc limit %{StartRow},%{PgSize}</queryFormat>
+		</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="Issues" mustselected="0"><DbDetails><Where>and transaction_action=1</Where></DbDetails><submit/></op>
+<op text="Receipts" mustselected="0"><DbDetails><Where>and it.transaction_type_id=27</Where></DbDetails><submit/></op>
+</operator>
+		</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEquest" Size="100,100"><Ctrls>
+<Button Text="create" ToolTip="ttp_createquest" Name="insertquest" Size="50,20">
+  <OnClick>
+  <DbDetails fcsm="1">
+<DbTable>cati.quest</DbTable>
+<Data>idx,qid,idparent,itvid,odridx,qtext,qtype,adetail,atype</Data>
+<DataEx/>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+  <submit namelist="DbDetails"/><submit next="searchquest" function="click"/>
+  </OnClick>
+  </Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyquest" Name="modifyquest" Size="50,20">
+  <OnClick>
+  <DbDetails fcsm="1">
+<DbTable>cati.quest</DbTable>
+<Data>idx,qid,idparent,itvid,odridx,qtext,qtype,adetail,atype</Data>
+<DataEx/>
+<Where>idx='%{idx}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+  <submit namelist="DbDetails"/><submit next="searchquest" function="click"/>
+  </OnClick>
+  </Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetquest" Name="resetquest" Size="50,20">
+  <OnClick>
+  <submit next="GBDEDITquest" function="reset"/>
+  </OnClick>
+  </Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchquest" Name="gsearchquest" Size="50,20">
+        <OnClick>
+  <search next="questLst" listed="0" prefixwhere="0" inputed="1"><qtype op="(" enabled="true"/></search><submit next="GBDEDITquest" namelist="search" function="search"/>
+  </OnClick>
+  </Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,70 @@
+﻿<GroupBox Name="GBDEDIThr_timesheet_header"><Ctrls>
+<GroupBox Name="GB_hr_timesheet_period_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hr_timesheet_period_id" Size="60,20" Text="hr_timesheet_period_id" Align="Right"  onload="init"/>
+<ComboBox Name="hr_timesheet_period_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_hr_timesheet_period_id"  onload="init">
+	<DbDetails>
+<DbTable>xbs.hr_timesheet_period</DbTable>
+<Index>hr_timesheet_period_id</Index>
+<Data>timesheet_period,hr_timesheet_period_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_employee_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hr_employee_id" Size="60,20" Text="hr_employee_id" Align="Right"  onload="init"/>
+<ComboBox Name="hr_employee_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_hr_employee_id"  onload="init">
+	<DbDetails>
+<DbTable>xbs.hr_employee_v</DbTable>
+<Index>hr_employee_id</Index>
+<Data>name,hr_employee_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_entered_on" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_entered_on" Size="60,20" Text="entered_on" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<DateTime Name="entered_on" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_entered_on" Visible="false" overlap="pre" readonly="true"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_approver_employee_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_approver_employee_id" Size="60,20" Text="approver_employee_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<ComboBox Name="approver_employee_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_approver_employee_id" Visible="false" overlap="pre" readonly="true">
+	<DbDetails>
+<DbTable>xbs.hr_employee_v</DbTable>
+<Index>hr_employee_id</Index>
+<Data>name,hr_employee_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_approved_on" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_approved_on" Size="60,20" Text="approved_on" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<DateTime Name="approved_on" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_approved_on" Visible="false" overlap="pre" readonly="true"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="status" Size="170,20" Text="" Weight="170" ToolTip="ttp_status" Visible="false" overlap="pre" readonly="true">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=132</Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hr_timesheet_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hr_timesheet_header_id" Size="60,20" Text="hr_timesheet_header_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hr_timesheet_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hr_timesheet_header_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{hr_timesheet_header_id}'"><SetVisible name="inserthr_timesheet_header" Visible="0"/><SetVisible name="modifyhr_timesheet_header" Visible="1"/><else/><SetVisible name="inserthr_timesheet_header" Visible="1"/><SetVisible name="modifyhr_timesheet_header" Visible="0"/></if><DbDetails><Where>hr_timesheet_header_id='%{hr_timesheet_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="hr_timesheet_line_vLst"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

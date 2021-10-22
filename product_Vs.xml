@@ -1,0 +1,64 @@
+﻿<GroupBox Name="GBDEDITitem" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_item_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_number" Size="60,20" Text="item_number" Align="Right"/>
+<TextBox Name="item_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_name" Size="60,20" Text="item_name" Align="Right"/>
+<TextBox Name="item_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_specification" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_specification" Size="60,20" Text="item_specification" Align="Right"/>
+<TextBox Name="item_specification" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_specification"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_item_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_description" Size="60,20" Text="item_description" Align="Right"/>
+<TextBox Name="item_description" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_category" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_category" Size="60,20" Text="item_category" Align="Right" onload="init"/>
+<ComboBox Name="item_category" Size="170,100" Text="" Weight="170"  ToolTip="ttp_item_category" onload="init">
+	<DbDetails>
+<Index>category_id</Index>
+<DbTable>xbs.category</DbTable>
+<Data>category,category_id</Data>
+<Where>(category_type=99 or category_type=105)</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_status" Size="60,20" Text="item_status" Align="Right" onload="init"/>
+<ComboBox Name="item_status" Size="170,100" Text="" Weight="170"  ToolTip="ttp_item_status" onload="init">
+	<DbDetails>
+<Index>option_line_id</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=123</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_uom_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_uom_id" Size="60,20" Text="uom_id" Align="Right" onload="init"/>
+<ComboBox Name="uom_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_uom_id" onload="init">
+	<DbDetails>
+<Index>uom_id</Index>
+<DbTable>xbs.uom</DbTable>
+<Data>uom_name,uom_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_list_price" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_list_price" Size="60,20" Text="list_price" Align="Right"/>
+<TextBox Name="list_price" Size="170,20" Text="" Weight="170" ToolTip="ttp_list_price"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_make_buy" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_make_buy" Size="60,20" Text="make_buy" Align="Right" selectedIndex="0"/>
+<ComboBox Name="make_buy" Size="170,100" Text="" Weight="170" Items="Make|Buy" ToolTip="ttp_make_buy" selectedIndex="0"></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_processing_lt" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_processing_lt" Size="60,20" Text="processing_lt" Align="Right"/>
+<TextBox Name="processing_lt" Size="170,20" Text="" Weight="170" ToolTip="ttp_processing_lt"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_post_processing_lt" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_post_processing_lt" Size="60,20" Text="post_processing_lt" Align="Right"/>
+<TextBox Name="post_processing_lt" Size="170,20" Text="" Weight="170" ToolTip="ttp_post_processing_lt"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

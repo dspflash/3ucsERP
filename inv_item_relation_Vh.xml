@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVinv_item_relation" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="inv_item_relationLst" ToolTip="ttp_inv_item_relation" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>inv_item_relation_id</Index>
+<DbTable>xbs.inv_item_relation</DbTable>
+<Data>from_item_id_m,relation_type,description,from_date,to_date,planning_cb,status,created_by,creation_date,last_update_by,last_update_date,inv_item_relation_id,org_id</Data>
+<Order>inv_item_relation_id</Order></DbDetails>
+<OnClick><assign name="from_item_id_m[item_id_m]" expr="%{inv_item_relationLst[from_item_id_m]}" function="SetSel"/><assign name="relation_type[option_line_id]" expr="%{inv_item_relationLst[relation_type]}" function="SetSel"/>
+<if cond="%{inv_item_relation_id}"><SetVisible name="insertinv_item_relation" Visible="0"/><SetVisible name="modifyinv_item_relation" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

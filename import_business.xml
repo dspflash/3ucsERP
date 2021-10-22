@@ -1,0 +1,26 @@
+﻿<WndTap Name="BizImport" Text="数据导入">
+<var name="importdir" expr="layout\ucin\xbs\"/>
+<Ctrls><GroupBox Name="BizImport" Text="客户/供应商导入"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="import_base.xml"/>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12" Multiline="0" Name="GB_import"><Ctrls>
+	<TAB/><Button Name="BizImport" Text="客户/供应商导入" Clickneedconfirm="true" Size="80,24" ToolTip="依次为：'customer|supplier',客户|供应商编号1000000001, 客户|供应商名'3ucs',分类'终端客户', 地址'shanghai xuhui',电话'02166039606',税号'9131034242342424',银行'工行上海分行',银行账号'4203432422432420',支付条款'net30'">
+		<OnClick><import button="import">sql:call bizImport('%0','%1','%2','%3','%4','%5','%6','%7','%8','%9', %{orgid},%{user_id});</import>
+		<submit next="dataList" namelist="import" function="import"/></OnClick></Button>
+	<TAB/><Button Name="QuoteImportPO" Text="采购报价导入" Clickneedconfirm="true" Size="80,24" ToolTip="依次为：供应商名bizname,物料料号itemnumber,税制taxcode, 价格price">
+		<OnClick><import button="import">sql:call QuoteImportPO('%0','%1','%2','%3', %{orgid},%{user_id});</import>
+		<submit next="dataList" namelist="import" function="import"/></OnClick></Button>
+	<TAB/><Button Name="QuoteImportSD" Text="销售报价导入" Clickneedconfirm="true" Size="80,24" ToolTip="依次为：客户名bizname,物料料号itemnumber,税制taxcode, 价格price,价格日期pricedate">
+		<OnClick><import button="import">sql:call QuoteImportSD('%0','%1','%2','%3','%4', %{orgid},%{user_id});</import>
+		<submit next="dataList" namelist="import" function="import"/></OnClick></Button>
+</Ctrls></GroupBox>
+<BR/><GroupBox cols="xs12" Multiline="0" Name="GB_tbname"><Ctrls>
+	<ListCtrl Name="dataList" PageSize="1000" Size="700,500" OnLoad="">
+		<DbDetails>
+			<DbHost>local</DbHost>
+			<DbDatabase>%{importdir}%{TB_filename}</DbDatabase>
+			<Data>*</Data>
+		</DbDetails>
+		</ListCtrl>
+</Ctrls></GroupBox>
+	</Ctrls></GroupBox></Ctrls></WndTap>

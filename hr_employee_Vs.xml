@@ -1,0 +1,38 @@
+﻿<GroupBox Name="GBDEDIThr_employee" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="basic" Text="basic" feature="tab"><Ctrls>
+<GroupBox Name="GB_first_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_first_name" Size="60,20" Text="first_name" Align="Right"/>
+<TextBox Name="first_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_first_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_last_name" Size="60,20" Text="last_name" Align="Right"/>
+<TextBox Name="last_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_identification_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_identification_id" Size="60,20" Text="identification_id" Align="Right"/>
+<TextBox Name="identification_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_identification_id"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status" checked="true"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_position_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_position_id" Size="60,20" Text="position_id" Align="Right"/>
+<ComboBox Name="position_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_position_id">
+	<DbDetails>
+<Index>hr_position_id</Index>
+<DbTable>xbs.hr_position</DbTable>
+<Data>position_name,hr_position_id</Data>
+<Where>org_id='%{org_id[org_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_department_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_department_id" Size="60,20" Text="department_id" Align="Right" onload="init"/>
+<ComboBox Name="department_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_department_id" onload="init">
+	<DbDetails>
+<Index>dept_id</Index>
+<DbTable>xbs.hr_department</DbTable>
+<Data>department,dept_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox></Ctrls></GroupBox>

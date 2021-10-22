@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVprj_expenditure_type_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteprj_expenditure_type_header" Name="deleteprj_expenditure_type_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_expenditure_type_header</DbTable>
+<Where>prj_expenditure_type_header_id='%{prj_expenditure_type_headerLst[prj_expenditure_type_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchprj_expenditure_type_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshprj_expenditure_type_header" Name="searchprj_expenditure_type_header" Size="50,20">
+			  <OnClick><submit next="prj_expenditure_type_headerLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPprj_expenditure_type_headerLst" OnClick="(prj_expenditure_type_headerLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREprj_expenditure_type_headerLst" OnClick="(prj_expenditure_type_headerLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPprj_expenditure_type_headerLst" OnClick="(prj_expenditure_type_headerLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

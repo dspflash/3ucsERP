@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPViot_dev"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialiot_dev" Size="50,20">
+<OnClick><submit next="iot_dev_vLst" function="initial"/><submit next="records_iot_dev" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPiot_dev_vLst" Size="50,20">
+<OnClick><submit next="iot_dev_vLst" function="GetPage(first)"/><submit next="records_iot_dev"/></OnClick></Button>
+<Button Text="prepage" Name="PREiot_dev_vLst" Size="50,20">
+<OnClick><submit next="iot_dev_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPiot_dev_vLst" Size="50,20">
+<OnClick><submit next="iot_dev_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

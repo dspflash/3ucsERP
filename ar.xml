@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="AR" Name="ar" id="ar">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_bu.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_site.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_payment_process.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_receipt_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_receipt_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_receipt_source.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_receivable_activity.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_revenue_rule_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_revenue_rule_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_revenue_schedule.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_sales_region.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_transaction_type.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_transaction_source.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_transaction_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_transaction_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_transaction_detail.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_transaction_adjustment.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_customer_relation.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_transaction_interface.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ar_receipt_interface.xml"></xi:include>
+	</WndTaps>
+	</WndTap>

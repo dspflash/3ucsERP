@@ -1,0 +1,51 @@
+<GroupBox Name="GBDEDITprj_project_type_billing"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_prj_billing_extn_id"><Ctrls>
+<Label Align="Right" Text="prj_billing_extn_id" Name="lb_prj_billing_extn_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_prj_billing_extn_id" Name="prj_billing_extn_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_currency"><Ctrls>
+<Label Align="Right" Text="currency" Name="lb_currency" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_currency" Name="currency" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_amount"><Ctrls>
+<Label Align="Right" Text="amount" Name="lb_amount" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_amount" Name="amount" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_percentage"><Ctrls>
+<Label Align="Right" Text="percentage" Name="lb_percentage" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_percentage" Name="percentage" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_active_cb"><Ctrls>
+<CheckBox Text="active_cb" ToolTip="ttp_active_cb" Name="active_cb" Size="230,20" checked="true"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_prj_project_type_billing_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="prj_project_type_billing_id" overlap="pre" Name="lb_prj_project_type_billing_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_prj_project_type_billing_id" overlap="pre" Name="prj_project_type_billing_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBprj_project_type_billing" expr="TABEDITprj_project_type_billing"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_prj_project_type_header_id"><Ctrls>
+<Label Align="Right" Text="prj_project_type_header_id" Name="lb_prj_project_type_header_id" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_prj_project_type_header_id" Name="prj_project_type_header_id" readonly="true" Size="170,20">
+	<DbDetails>
+<DbTable>prj_project_type_header</DbTable>
+<Index>prj_project_type_header_id</Index>
+<Data>project_type,prj_project_type_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

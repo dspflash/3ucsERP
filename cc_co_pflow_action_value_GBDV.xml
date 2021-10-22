@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVcc_co_pflow_action_value"><Ctrls>
+<ListCtrl Heading="sys_process_flow_action_id,120;value,640;comment,640;action_user_id,60;action_duration,50;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;cc_co_pflow_action_value_id,60;" loadedclick="0" ToolTip="ttp_cc_co_pflow_action_value" Name="cc_co_pflow_action_valueLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.cc_co_pflow_action_value c left join xbs.sys_process_flow_action s on c.sys_process_flow_action_id=s.sys_process_flow_action_id left join xbs.user_v u on c.action_user_id=u.xerp_user_id left join xbs.user_v u0 on c.created_by=u0.xerp_user_id left join xbs.user_v u1 on c.last_update_by=u1.xerp_user_id</DbTable>
+<Index>cc_co_pflow_action_value_id</Index>
+<Data>s.action_number sys_process_flow_action_id,c.value,c.comment,u.NAME action_user_id,c.action_duration,u0.NAME created_by,c.creation_date,u1.NAME last_update_by,c.last_update_date,c.cc_co_pflow_action_value_id</Data>
+<Order>cc_co_pflow_action_value_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

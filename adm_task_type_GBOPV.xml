@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVadm_task_type" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteadm_task_type" Name="deleteadm_task_type" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.adm_task_type</DbTable>
+<Where>adm_task_type_id='%{adm_task_typeLst[adm_task_type_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchadm_task_type" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshadm_task_type" Name="searchadm_task_type" Size="50,20">
+			  <OnClick><submit next="adm_task_typeLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPadm_task_typeLst" OnClick="(adm_task_typeLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREadm_task_typeLst" OnClick="(adm_task_typeLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPadm_task_typeLst" OnClick="(adm_task_typeLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

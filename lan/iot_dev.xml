@@ -1,0 +1,31 @@
+﻿<Language name="iot_dev">
+<Lang name="iot_dev" value="设备管理"/>
+<Lang name="iot_dev_v" value="设备管理"/>
+<Lang name="TabEditiot_dev" value="iot_dev Edit"/>
+<Lang name="TabViewiot_dev" value="iot_dev View"/>
+<Lang name="dev_id" value="设备标识"/>
+<Lang name="ttp_dev_id" value=""/>
+<Lang name="dev_name" value="设备名称"/>
+<Lang name="ttp_dev_name" value=""/>
+<Lang name="dev_type" value="设备类型"/>
+<Lang name="ttp_dev_type" value=""/>
+<Lang name="actived" value="启用"/>
+<Lang name="ttp_actived" value=""/>
+<Lang name="dev_idx" value=""/>
+<Lang name="ttp_dev_idx" value=""/>
+<Lang name="ttp_operationiot_dev" value=""/>
+<Lang name="ttp_createiot_dev" value=""/>
+<Lang name="ttp_modifyiot_dev" value=""/>
+<Lang name="ttp_resetiot_dev" value=""/>
+<Lang name="ttp_deleteiot_dev" value=""/>
+<Lang name="ttp_refreshiot_dev" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

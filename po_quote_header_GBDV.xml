@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpo_quote_header"><Ctrls>
+<ListCtrl Heading="quote_number,125;po_rfq_header_id,120;quote_type,120;supplier_id,120;supplier_site_id,120;payment_term_id,120;ship_to_id,120;bill_to_id,120;currency,120;effective_start_date,90;effective_end_date,90;valid_date,90;description,640;rev,20;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;po_quote_header_id,55;bu_org_id,55;quote_status,120;approval_status,55;" loadedclick="0" ToolTip="ttp_po_quote_header" Name="po_quote_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_quote_header p left join xbs.po_rfq_header p0 on p.po_rfq_header_id=p0.po_rfq_header_id left join xbs.option_line o on p.quote_type=o.option_line_id left join xbs.supplier s on p.supplier_id=s.supplier_id left join xbs.supplier_site s0 on p.supplier_site_id=s0.supplier_site_id left join xbs.payment_term p1 on p.payment_term_id=p1.payment_term_id left join xbs.address a on p.ship_to_id=a.address_id left join xbs.address a0 on p.bill_to_id=a0.address_id left join xbs.currency c on p.currency=c.currency_id left join xbs.option_line o0 on p.quote_status=o0.option_line_id</DbTable>
+<Index>po_quote_header_id</Index>
+<Data>p.quote_number,p0.rfq_name po_rfq_header_id,o.option_line_value quote_type,s.supplier_name supplier_id,s0.supplier_site_name supplier_site_id,p1.payment_term payment_term_id,a.address ship_to_id,a0.address bill_to_id,c.title currency,p.effective_start_date,p.effective_end_date,p.valid_date,p.description,p.rev,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.po_quote_header_id,p.bu_org_id,o0.option_line_value quote_status,p.approval_status</Data>
+<Order>po_quote_header_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

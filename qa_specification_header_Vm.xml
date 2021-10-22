@@ -1,0 +1,15 @@
+<WndTap Name="qa_specification_header_v" Text="qa_specification_header">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_specification_header_Vem.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_specification_line_Vem.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\qa_specification_header.xml"/>
+<Ctrls><GroupBox  Name="GBqa_specification_header" id="qa_specification_header" Text="qa_specification_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_specification_header_Vsm.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVqa_specification_header" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.qa_specification_header.GBDEDITqa_specification_header" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetqa_specification_header" Name="resetqa_specification_header" Size="50,20">	<OnClick>	<submit next="GBDEDITqa_specification_header" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchqa_specification_header" Name="gsearchqa_specification_header" Size="50,20" visible="true">	<OnClick>	<search next="qa_specification_header_vLst" listed="0" prefixwhere="0" inputed="1"><specification_name format="specification_name like '%%{opvalue}%'"/><item_number format="item_number like '%%{opvalue}%'"/><item_name format="item_name like '%%{opvalue}%'"/><status format="q.status is %{opvalue}"/></search><submit next="GBDEDITqa_specification_header" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="qa_specification_header_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

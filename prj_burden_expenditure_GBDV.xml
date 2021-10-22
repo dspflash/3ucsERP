@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_burden_expenditure"><Ctrls>
+<ListCtrl Heading="prj_burden_cost_base_id,120;prj_burden_costcode_id,60;prj_expenditure_line_id,120;prj_expenditure_type_header_id,120;prj_burden_list_header_id,120;expenditure_date,90;prj_burden_structure_header_id,120;multiplier,75;burden_value,75;burden_amount,75;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_burden_expenditure_id,120;" loadedclick="0" ToolTip="ttp_prj_burden_expenditure" Name="prj_burden_expenditureLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_burden_expenditure p left join xbs.prj_burden_cost_base p0 on p.prj_burden_cost_base_id=p0.prj_burden_cost_base_id left join xbs.prj_burden_costcode p1 on p.prj_burden_costcode_id=p1.prj_burden_costcode_id left join xbs.prj_expenditure_line p2 on p.prj_expenditure_line_id=p2.prj_expenditure_line_id left join xbs.prj_expenditure_type_header p3 on p.prj_expenditure_type_header_id=p3.prj_expenditure_type_header_id left join xbs.prj_burden_list_header p4 on p.prj_burden_list_header_id=p4.prj_burden_list_header_id left join xbs.prj_burden_structure_header p5 on p.prj_burden_structure_header_id=p5.prj_burden_structure_header_id</DbTable>
+<Index>prj_burden_expenditure_id</Index>
+<Data>p0.cost_base prj_burden_cost_base_id,p1.costcode prj_burden_costcode_id,p2.quantity prj_expenditure_line_id,p3.expenditure_type prj_expenditure_type_header_id,p4.burden_list prj_burden_list_header_id,p.expenditure_date,p5.structure prj_burden_structure_header_id,p.multiplier,p.burden_value,p.burden_amount,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_burden_expenditure_id</Data>
+<Order>prj_burden_expenditure_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

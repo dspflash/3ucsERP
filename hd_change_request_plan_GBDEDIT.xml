@@ -1,0 +1,114 @@
+﻿<GroupBox Name="GBDEDIThd_change_request"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_hd_support_request_id"><Ctrls>
+<Label Align="Right" Text="hd_support_request_id" Name="lb_hd_support_request_id" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hd_support_request_id" Name="hd_support_request_id" readonly="true" Size="170,20">
+	<DbDetails>
+<DbTable>xbs.hd_support_request</DbTable>
+<Index>hd_support_request_id</Index>
+<Data>support_number,hd_support_request_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_status" Visible="false"><Ctrls>
+<Label Align="Right" Text="status" overlap="pre" Name="lb_status" Size="60,20" Visible="false"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_status" overlap="pre" Name="status" Size="170,100" Visible="false">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=232</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_chane_details" Visible="false"><Ctrls>
+<Label Align="Right" Text="chane_details" overlap="pre" Name="lb_chane_details" readonly="true" Size="60,50" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_chane_details" overlap="pre" Name="chane_details" readonly="true" Size="170,50" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_planned_start_date"><Ctrls>
+<Label Align="Right" Text="planned_start_date" Name="lb_planned_start_date" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_planned_start_date" Name="planned_start_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_planned_end_date"><Ctrls>
+<Label Align="Right" Text="planned_end_date" Name="lb_planned_end_date" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_planned_end_date" Name="planned_end_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_work_start_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="work_start_date" overlap="pre" Name="lb_work_start_date" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_work_start_date" overlap="pre" Name="work_start_date" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_work_end_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="work_end_date" overlap="pre" Name="lb_work_end_date" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_work_end_date" overlap="pre" Name="work_end_date" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_technical_approver" Visible="false"><Ctrls>
+<Label Align="Right" Text="technical_approver" overlap="pre" Name="lb_technical_approver" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_technical_approver" overlap="pre" Name="technical_approver" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_functional_approver" Visible="false"><Ctrls>
+<Label Align="Right" Text="functional_approver" overlap="pre" Name="lb_functional_approver" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_functional_approver" overlap="pre" Name="functional_approver" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_dba_approver" Visible="false"><Ctrls>
+<Label Align="Right" Text="dba_approver" overlap="pre" Name="lb_dba_approver" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_dba_approver" overlap="pre" Name="dba_approver" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_work_completed_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="work_completed_by" overlap="pre" Name="lb_work_completed_by" readonly="true" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_work_completed_by" overlap="pre" Name="work_completed_by" readonly="true" Size="170,20" Visible="false" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_change_plan"><Ctrls>
+<Label Align="Right" Text="change_plan" Name="lb_change_plan" Size="60,50"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_change_plan" Name="change_plan" Size="170,50"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_rollback_plan"><Ctrls>
+<Label Align="Right" Text="rollback_plan" Name="lb_rollback_plan" Size="60,50"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_rollback_plan" Name="rollback_plan" Size="170,50"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_communication_plan"><Ctrls>
+<Label Align="Right" Text="communication_plan" Name="lb_communication_plan" Size="60,50"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_communication_plan" Name="communication_plan" Size="170,50"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_test_paln"><Ctrls>
+<Label Align="Right" Text="test_paln" Name="lb_test_paln" Size="60,50"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_test_paln" Name="test_paln" Size="170,50"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_test_results" Visible="false"><Ctrls>
+<Label Align="Right" Text="test_results" overlap="pre" Name="lb_test_results" readonly="true" Size="60,50" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_test_results" overlap="pre" Name="test_results" readonly="true" Size="170,50" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_description" Visible="false"><Ctrls>
+<Label Align="Right" Text="description" overlap="pre" Name="lb_description" readonly="true" Size="60,50" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" overlap="pre" Name="description" readonly="true" Size="170,50" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_hd_change_request_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="hd_change_request_id" overlap="pre" Name="lb_hd_change_request_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hd_change_request_id" overlap="pre" Name="hd_change_request_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{hd_change_request_id}'"><SetVisible name="inserthd_change_request" Visible="0"/><SetVisible name="modifyhd_change_request" Visible="1"/><else/><SetVisible name="inserthd_change_request" Visible="1"/><SetVisible name="modifyhd_change_request" Visible="0"/></if><DbDetails><Where>hd_change_request_id='%{hd_change_request_id}'</Where></DbDetails><submit next="cc_co_line_vLst" namelist="DbDetails"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>NAME,username,xerp_user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>NAME,username,xerp_user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

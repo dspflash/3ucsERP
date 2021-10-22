@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVbom_routing_detail" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bom_routing_detail_vLst" ToolTip="ttp_bom_routing_detail_v" Size="700,450" Heading="resource_sequence,120;resource_id,120;charge_type,120;charge_basis,120;resource_usage,100;resource_schedule,120;assigned_units,60;twenty_four_hr_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bom_routing_detail_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>bom_routing_detail_id</Index>
+<DbTable>xbs.bom_routing_detail b left join xbs.bom_resource b0 on b.resource_id=b0.resource_id left join xbs.option_line o on b.charge_type=o.option_line_id left join xbs.option_line o0 on b.charge_basis=o0.option_line_id left join xbs.option_line o1 on b.resource_schedule=o1.option_line_id</DbTable>
+<Data>b.resource_sequence,b0.resource resource_id,o.option_line_value charge_type,o0.option_line_value charge_basis,b.resource_usage,o1.option_line_value resource_schedule,b.assigned_units,b.twenty_four_hr_cb,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_routing_detail_id</Data>
+<Order>bom_routing_detail_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="addone" mustselected="0"><if cond="!%{bom_routing_line_id}"><alert expr="bom_routing_line_id is Empty!"/><else/><submit next="$parent.bom_routing_detail.GBDEDITbom_routing_detail" function="reset"/><assign name="$parent.bom_routing_detail.bom_routing_line_id" expr="%{bom_routing_line_id}"/><assign name="$parent.bom_routing_detail.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>bom_routing_detail_id='%{bom_routing_detail_vLst[bom_routing_detail_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.bom_routing_detail.bom_routing_detailLst"/><assign name="$parent.bom_routing_detail.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_routing_detail</DbTable>
+<Where>bom_routing_detail_id='%{bom_routing_detail_vLst[bom_routing_detail_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

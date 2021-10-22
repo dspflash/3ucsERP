@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVgl_ledger" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="gl_ledger_vLst" ToolTip="ttp_gl_ledger" Size="700,420" OnLoad="init" Heading="ledger,250;description,640;coa_id,120;coa_structure_id,120;calendar_option_line_code,120;currency_code,120;future_enabled_periods,20;currency_balancing_ac_id,60;retained_earnings_ac_id,60;suspense_ac_id,60;rev_enabled,60;rev_number,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;gl_ledger_id,60;" onload="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.gl_ledger g left join xbs.coa c on g.coa_id=c.coa_id left join xbs.option_line o on g.coa_structure_id=o.option_line_id left join xbs.option_line o0 on g.calendar_option_line_code=o0.option_line_id left join xbs.currency c0 on g.currency_code=c0.currency_id</DbTable>
+<Index>gl_ledger_id</Index>
+<Data>g.ledger,g.description,c.coa_name coa_id,o.option_line_value coa_structure_id,o0.option_line_value calendar_option_line_code,c0.title currency_code,g.future_enabled_periods,g.currency_balancing_ac_id,g.retained_earnings_ac_id,g.suspense_ac_id,g.rev_enabled,g.rev_number,g.created_by,g.creation_date,g.last_update_by,g.last_update_date,g.gl_ledger_id</Data>
+<Order>gl_ledger_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>gl_ledger_id='%{gl_ledger_vLst[gl_ledger_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.gl_ledger.gl_ledgerLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

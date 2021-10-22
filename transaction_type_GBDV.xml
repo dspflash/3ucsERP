@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVtransaction_type"><Ctrls>
+<ListCtrl Heading="transaction_type_number,60;transaction_type,200;type_class,120;transaction_action,120;description,250;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;transaction_type_id,60;" loadedclick="0" ToolTip="ttp_transaction_type" onload="init" Name="transaction_typeLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.transaction_type</DbTable>
+<Index>transaction_type_id</Index>
+<Data>transaction_type_number,transaction_type,type_class,transaction_action,description,status,created_by,creation_date,last_update_by,last_update_date,transaction_type_id</Data>
+<Order>transaction_type_id</Order></DbDetails>
+<OnClick><assign name="type_class[option_line_code]" function="SetSel" expr="%{transaction_typeLst[type_class]}"/><assign name="transaction_action[option_line_code]" function="SetSel" expr="%{transaction_typeLst[transaction_action]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

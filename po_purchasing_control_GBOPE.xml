@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEpo_purchasing_control" Size="100,100"><Ctrls>
+<Button sqlpkinsert="po_purchasing_control_id" Text="create" ToolTip="ttp_createpo_purchasing_control" Name="insertpo_purchasing_control" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_purchasing_control</DbTable>
+<Data>org_id,payment_term_id[payment_term_id],ship_to_id,bill_to_id,po_approval_hierarchy[option_line_code],req_approval_hierarchy[option_line_code],tax_ac_id,default_inv_org_id[org_id],default_line_type[option_line_code]</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpo_purchasing_control" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifypo_purchasing_control" Name="modifypo_purchasing_control" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_purchasing_control</DbTable>
+<Data>org_id,payment_term_id[payment_term_id],ship_to_id,bill_to_id,po_approval_hierarchy[option_line_code],req_approval_hierarchy[option_line_code],tax_ac_id,default_inv_org_id[org_id],default_line_type[option_line_code]</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>po_purchasing_control_id='%{po_purchasing_control_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpo_purchasing_control" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetpo_purchasing_control" Name="resetpo_purchasing_control" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_purchasing_control" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchpo_purchasing_control" Name="gsearchpo_purchasing_control" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="po_purchasing_controlLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITpo_purchasing_control" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

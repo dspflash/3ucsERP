@@ -1,0 +1,61 @@
+<WndTap Name="gl_account_v" Text="gl_account_v">
+	<WndTaps>
+<WndTap Text="gl_account" Name="gl_account" Ver="2" popup="1">
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\gl_account.xml"/>
+<Ctrls>
+<GroupBox Text="gl_account" Name="GBgl_account" id="gl_account" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_account_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_account_GBOPE.xml"></xi:include>
+<ListCtrl Heading="account_number,250;org_id,120;account_group,120;account_type,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;gl_account_id,55;" loadedclick="1" ToolTip="ttp_gl_account" Name="gl_accountLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_account</DbTable>
+<Index>gl_account_id</Index>
+<Data>account_number,org_id,account_group,account_type,created_by,creation_date,last_update_by,last_update_date,gl_account_id</Data>
+<Order>gl_account_id</Order></DbDetails>
+<OnClick><assign name="org_id[org_id]" function="SetSel" expr="%{gl_accountLst[org_id]}"/><assign name="account_group[option_line_id]" function="SetSel" expr="%{gl_accountLst[account_group]}"/><assign name="account_type[gl_account_type_id]" function="SetSel" expr="%{gl_accountLst[account_type]}"/><assign name="created_by[option_line_id]" function="SetSel" expr="%{gl_accountLst[created_by]}"/>
+			<if cond="%{gl_account_id}"><SetVisible name="insertgl_account" Visible="0"/><SetVisible name="modifygl_account" Visible="1"/></if></OnClick>
+			</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate><SetVisible name="insertgl_account" Visible="1"/><SetVisible name="modifygl_account" Visible="0"/></OnActivate>
+			</WndTap>
+		</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\gl_account.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="gl_account"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_account_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">
+	<OnClick><submit next="$this.gl_account.GBDEDITgl_account" function="reset"/></OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITgl_account" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="gl_account_vLst" listed="0" prefixwhere="0" inputed="1"><expetced_delivery_date0 format="expetced_delivery_date&gt;='%{opvalue}'"/><expetced_delivery_date1 format="expetced_delivery_date&lt;='%{opvalue}'"/></search><submit next="GBDEDITgl_account" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl Name="gl_account_vLst" ToolTip="ttp_gl_account" Size="700,420" Heading="account_number,250;org_id,120;account_group,120;account_type,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;gl_account_id,55;" loadedclick="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_account g left join xbs.org o on g.org_id=o.org_id left join xbs.option_line o0 on g.account_group=o0.option_line_id left join xbs.gl_account_type g0 on g.account_type=g0.gl_account_type_id left join xbs.option_line o1 on g.created_by=o1.option_line_id</DbTable>
+<Index>gl_account_id</Index>
+<Data>g.account_number,o.org org_id,o0.option_line_value account_group,g0.account_type account_type,o1.option_line_id created_by,g.creation_date,g.last_update_by,g.last_update_date,g.gl_account_id</Data>
+<Order>gl_account_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>gl_account_id='%{gl_account_vLst[gl_account_id]}'</Where></DbDetails>
+	<submit namelist="DbDetails" next="$this.gl_account.gl_accountLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

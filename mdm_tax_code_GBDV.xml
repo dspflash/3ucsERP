@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVmdm_tax_code"><Ctrls>
+<ListCtrl Heading="tax_code,125;tax_type,120;dr_cr,120;in_out,120;calculation_method,120;percentage,50;tax_amount,100;effective_start_date,90;effective_end_date,90;description,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;mdm_tax_code_id,60;" loadedclick="1" ToolTip="ttp_mdm_tax_code" Name="mdm_tax_codeLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_tax_code</DbTable>
+<Index>mdm_tax_code_id</Index>
+<Data>tax_code,tax_type,dr_cr,in_out,calculation_method,percentage,tax_amount,effective_start_date,effective_end_date,description,status,created_by,creation_date,last_update_by,last_update_date,org_id,mdm_tax_code_id</Data>
+<Order>mdm_tax_code_id</Order></DbDetails>
+<OnClick><assign name="tax_type[option_line_id]" function="SetSel" expr="%{mdm_tax_codeLst[tax_type]}"/><assign name="calculation_method[option_line_id]" function="SetSel" expr="%{mdm_tax_codeLst[calculation_method]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

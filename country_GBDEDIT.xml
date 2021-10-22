@@ -1,0 +1,27 @@
+<GroupBox Name="GBDEDITcountry"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_namecn"><Ctrls>
+<Label Align="Right" Text="namecn" Name="lb_namecn" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_namecn" Name="namecn" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_name"><Ctrls>
+<Label Align="Right" Text="name" Name="lb_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_name" Name="name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_iso_code_2"><Ctrls>
+<Label Align="Right" Text="iso_code_2" Name="lb_iso_code_2" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_iso_code_2" Name="iso_code_2" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_iso_code_3"><Ctrls>
+<Label Align="Right" Text="iso_code_3" Name="lb_iso_code_3" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_iso_code_3" Name="iso_code_3" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_postcode_required"><Ctrls>
+<CheckBox Text="postcode_required" ToolTip="ttp_postcode_required" Name="postcode_required" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_country_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="country_id" overlap="pre" Name="lb_country_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_country_id" overlap="pre" Name="country_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBcountry" expr="TABEDITcountry"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

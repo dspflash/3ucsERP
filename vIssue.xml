@@ -1,0 +1,135 @@
+<WndTap Text="vIssue" Name="vIssue" Ver="2">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vOnhand.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vLotOnhand.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_print_v.xml" popup="1"/>
+	<WndTap Text="vIssueLine" Name="vIssueLine" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_issue_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="vIssueLine" Name="GBvIssueLine" id="vIssueLine" Size="100,100"><Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinv_issue_line"><Ctrls>
+<ListCtrl Heading="reference_key_value,120;item_number,120;item_name,120;transaction_quantity,60;uom_name,60;item_specification,120;item_description,120;subinventory_id,120;locator_id,120;lot_number,120;creator,60;updator,60;item_id_m,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;inv_issue_line_id,60;status,125;" loadedclick="0" ToolTip="ttp_inv_issue_line" Name="inv_issue_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_issue_line i left join uom u on i.uom_id=u.uom_id left join xbs.item i0 on i.item_id_m=i0.item_id_m left join xbs.subinventory s on i.subinventory_id=s.subinventory_id left join xbs.locator l on i.locator_id=l.locator_id left join xbs.inv_lot_number i1 on i.lot_number=i1.inv_lot_number_id left join xbs.currency c on i.currency=c.currency_id left join xbs.xerp_user x on i.created_by=x.xerp_user_id left join xbs.xerp_user x0 on i.last_update_by=x0.xerp_user_id</DbTable>
+<Index>inv_issue_line_id</Index>
+<Data>i.reference_key_value,i0.item_number,item_name,i.transaction_quantity,u.uom_name,item_specification,i0.item_description,s.subinventory subinventory_id,l.locator locator_id,i1.lot_number lot_number,x.username AS creator,x0.username AS updator, i.item_id_m,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.uom_id,i.inv_issue_line_id,i.status</Data>
+<Order>inv_issue_line_id</Order></DbDetails><OnClick><assign name="reference_key_value" function="setsel" expr="inv_issue_lineLst[reference_key_value]"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><assign name="$parent.inv_issue_line_adm.inv_issue_line_id" expr="%{inv_issue_lineLst[inv_issue_line_id]}"/>
+<DbDetails><Where>(item_id_m,org_id)=(%{inv_issue_lineLst[item_id_m]},'%{orgid}') OR (item_id_m,org_id) IN (SELECT from_item_id_m,org_id FROM inv_item_relation WHERE (to_item_id_m,org_id)=(%{inv_issue_lineLst[item_id_m]},'%{orgid}') AND relation_type=1124 and status and (now() between from_date and to_date))</Where></DbDetails><submit next="$parent.inv_issue_line_adm.item_id_m" namelist="DbDetails"/><assign name="$parent.inv_issue_line_adm.item_id_m[item_id_m]" expr="%{inv_issue_lineLst[item_id_m]}" function="setsel"/>
+<!--assign name="vIssue.inv_issue_line_adm.item_id_m" expr="%{inv_issue_lineLst[item_number]}"/>
+<assign name="vIssue.inv_issue_line_adm.item_id_m[item_id_m]" expr="%{inv_issue_lineLst[item_id_m]}"/-->
+<submit next="$parent.inv_issue_line_adm.lot_number"/>
+<DbDetails><Where>inv_issue_line_id=%{inv_issue_lineLst[inv_issue_line_id]}</Where></DbDetails><submit next="$parent.inv_issue_line_adm.unit_price" namelist="DbDetails"/>
+<DbDetails><Where>uom_id=%{inv_issue_lineLst[uom_id]}</Where></DbDetails><submit next="$parent.inv_issue_line_adm.uom_id" namelist="DbDetails"/>
+<assign name="$parent.inv_issue_line_adm.transaction_quantity" expr="%{inv_issue_lineLst[transaction_quantity]}"/>
+<assign name="$parent.inv_issue_line_adm.subinventory_id" expr="%{inv_issue_lineLst[subinventory_id]}" function="setsel"/>
+<assign name="$parent.inv_issue_line_adm.locator_id" expr="%{inv_issue_lineLst[locator_id]}" function="setsel"/>
+</op>
+<op text="Onhand"><assign name="$parent.vOnhand.item_id_m" expr="%{inv_issue_lineLst[item_id_m]}"/><DbDetails><Where>and item_id_m='%{$parent.vOnhand.item_id_m}'</Where></DbDetails><submit next="$parent.vOnhand.onhandLst" namelist="DbDetails"/>
+</op>
+<op text="LotOnhand"><assign name="$parent.vLotOnhand.item_id_m" expr="%{inv_issue_lineLst[item_id_m]}"/><DbDetails><Where>and item_id_m='%{$parent.vLotOnhand.item_id_m}'</Where></DbDetails><submit next="$parent.vLotOnhand.onhandLst" namelist="DbDetails"/>
+</op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+<WndTap Text="inv_issue_line_adm" Name="inv_issue_line_adm" Ver="2" popup="1">
+<var name="refreshAfterEdit" expr="1"/>
+<var name="dataRequired" expr="item_id_m[item_id_m],transaction_quantity,subinventory_id[subinventory_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_issue_line.xml"/>
+<Ctrls>
+<GroupBox Text="inv_issue_line" Name="GBinv_issue_line" id="inv_issue_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_line_adm_GBDEDIT.xml"></xi:include>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="modify" ToolTip="ttp_modifyinv_issue_line" Name="modifyinv_issue_line" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_issue_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>subinventory_id[subinventory_id],locator_id[locator_id],lot_number[inv_lot_number_id],transaction_quantity,amount</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>inv_issue_line_id='%{inv_issue_line_id}' and status!=1521</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	</WndTaps>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_issue_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="vIssue" Name="GBvIssue" id="vIssue" Size="100,100"><Ctrls>
+<GroupBox Name="GBDEDITinv_receipt_header"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_issue_number"><Ctrls>
+<Label Align="Right" Text="issue_number" Name="lb_issue_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_issue_number" Name="issue_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right" onload="init"/>
+<ComboBox Name="status" Size="170,100" Weight="170"  ToolTip="ttp_status" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=297</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearch.xml"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPEinv_receipt_header" Size="100,10" cols="xs12 sm12 md12 lg12"><Ctrls>
+<TAB/><Button Name="resetinv_receipt_header" Size="50,20" Text="reset" ToolTip="ttp_resetinv_receipt_header">
+	<OnClick>
+	<submit next="GBDEDITinv_receipt_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="gsearchinv_receipt_header" Size="50,20" Text="gsearch" ToolTip="ttp_gsearchinv_receipt_header">
+			  <OnClick>
+	<search next="vIssueLst" listed="0" prefixand="1" inputed="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search><submit next="GBDEDITinv_receipt_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="barcode" Size="80,20" Text="barcode" OnClick="(barcode_res)barcode"/>
+<TextBox Weight="170" Name="barcode_res" Size="170,20" visible="0"><OnEnChange>
+<if cond="%{barcode_res}"><DbDetails><where>where issue_number='%{barcode_res}'</where></DbDetails><submit next="vIssueLst" namelist="DbDetails"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" colsDisplay="13" PageSize="500" ToolTip="ttp_item" onload="init" Name="vIssueLst" Size="700,420">
+			<DbDetails>
+			<DbTable>inv_issue_header_v</DbTable>
+			<Index>inv_issue_header_id</Index>
+			<Data>*</Data>
+			<Order>inv_issue_header_id</Order>
+			<Where>and status=1520</Where>
+			<queryFormat>select %{data} from %{dbtable} where org_id='%{orgid}' %{where} order by inv_issue_header_id desc limit %{StartRow},%{PgSize}</queryFormat>
+			</DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<op text="view"><DbDetails><Where>inv_issue_header_id='%{vIssue.vIssueLst[inv_issue_header_id]}'</Where></DbDetails><submit next="vIssue.vIssueLine.inv_issue_lineLst" namelist="DbDetails"/></op>
+			<op text="print"><assign name="$this.inv_issue_print.reference_key_name" expr="%{vIssueLst[reference_key_name]}" function="setsel"/><if cond="%{vIssueLst[reference_key_name]}=='wip_wo_header'"><assign name="trantp" expr="wip_wo"/><assign name="trantpc" expr="wip"/><assign name="trantpn" expr="wo"/><elseif cond="%{vIssueLst[reference_key_name]}=='sd_delivery_header'"/><assign name="trantp" expr="sd_delivery"/><assign name="trantpc" expr="om"/><assign name="trantpn" expr="delivery"/></if>
+			<DbDetails><Where>type_class='%{trantpc}' and transaction_action=1 and status is true</Where></DbDetails><submit namelist="dbdetails" next="$this.inv_issue_print.transaction_type_id"/><DbDetails><DbTable>xbs.%{trantp}_header</DbTable><Index>%{trantp}_header_id</Index><Data>%{trantpn}_number,%{trantp}_header_id refid</Data><Where>%{trantp}_header_id='%{vIssueLst[reference_key_value]}'</Where></DbDetails><submit next="$this.inv_issue_print.reference_key_value" namelist="DbDetails"/><DbDetails><Where>inv_issue_header_id='%{vIssueLst[inv_issue_header_id]}'</Where></DbDetails><submit next="$this.inv_issue_print.inv_issue_headerLst" namelist="DbDetails"/><submit next="$this.inv_issue_print.inv_issue_lineLst" namelist="DbDetails"/></op>
+			<op text="complete" needconfirm="1"><DbDetails><queryFormat>update inv_issue_header set issued_by='%{user_id}',status=1521,org_id='%{orgid}',last_update_by='%{user_id}',last_update_date=now() where status=1520 and inv_issue_header_id='%{vIssue.vIssueLst[inv_issue_header_id]}';
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>UPDATE inv_issue_line il JOIN item i ON (il.item_id_m=i.item_id_m AND il.org_id=i.org_id) JOIN inventory inv ON il.org_id=inv.org_id JOIN subinventory sub ON sub.subinventory_id=il.subinventory_id JOIN onhand ON (il.subinventory_id=onhand.subinventory_id AND il.locator_id=onhand.locator_id AND IF(i.allow_negative_balance_cb OR sub.allow_negative_balance_cb OR inv.allow_negative_balance_cb,1,IFNULL(onhand,0)>=il.transaction_quantity)) SET il.STATUS=1521,il.last_update_by='%{user_id}' WHERE inv_issue_header_id='%{vIssue.vIssueLst[inv_issue_header_id]}' and il.status=1520;UPDATE inv_issue_header ih LEFT JOIN inv_issue_line il ON (ih.inv_issue_header_id=il.inv_issue_header_id AND il.status!=1521) SET issued_by='%{user_id}',ih.status=1521,ih.last_update_by='%{user_id}',ih.last_update_date=now() WHERE ih.inv_issue_header_id='%{vIssue.vIssueLst[inv_issue_header_id]}' AND inv_issue_line_id IS NULL AND ih.status=1520;
+			<op text="reEdit" needconfirm="1"><DbDetails><queryFormat>update inv_issue_header set status=1519,last_update_by='%{user_id}',last_update_date=now() where status=1520 and inv_issue_header_id='%{vIssue.vIssueLst[inv_issue_header_id]}';
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			<op text="cancel" needconfirm="1"><if cond="%{vIssueLst[reference_key_name]}=='sd_delivery_header'"><assign name="excond" expr=" and reftbl.status!=534"/><else/><assign name="excond" expr=""/></if><DbDetails><queryFormat>update inv_issue_header ih LEFT JOIN %{vIssueLst[reference_key_name]} reftbl ON ih.reference_key_value=reftbl.%{vIssueLst[reference_key_name]}_id set ih.status=1522,ih.last_update_by='%{user_id}',ih.last_update_date=now() where (ih.status=1521 or ih.created_by='%{user_id}') and inv_issue_header_id='%{vIssue.vIssueLst[inv_issue_header_id]}' %{excond};
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

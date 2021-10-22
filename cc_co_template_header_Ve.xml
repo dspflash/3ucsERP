@@ -1,0 +1,16 @@
+﻿<WndTap Name="cc_co_template_header" Text="cc_co_template_header" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="template_name,reftbltp"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\cc_co_template_header.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\cc_co_template_line.xml"/>
+<Ctrls>
+<GroupBox  Name="GBcc_co_template_header" id="cc_co_template_header" Text="cc_co_template_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_template_header_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_template_header_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_template_header_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_template_line_Vv.xml"/>
+</Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertcc_co_template_header" Visible="1"/><SetVisible name="modifycc_co_template_header" Visible="0"/></OnActivate>
+</WndTap>

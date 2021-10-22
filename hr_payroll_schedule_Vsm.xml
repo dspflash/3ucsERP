@@ -1,0 +1,6 @@
+﻿<GroupBox Name="GBDEDIThr_payroll_schedule"><Ctrls>
+<GroupBox Name="GB_scheduled_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_scheduled_date" Size="60,20" Text="scheduled_date" Align="Right"/>
+<TextBox Name="scheduled_date" Size="170,20" Text="" Weight="170" ToolTip="ttp_scheduled_date"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

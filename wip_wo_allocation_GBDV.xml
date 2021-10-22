@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVwip_wo_allocation"><Ctrls>
+<ListCtrl Heading="wip_wo_header_id,100;item_id_m,60;demand_source_type,120;demand_source_header_id,100;demand_source_line_id,100;user_line_num,100;demand_source_delivery,100;quantity_allocated,75;quantity_completed,75;demand_class,55;org_id,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;wip_allocation_id,100;" loadedclick="0" ToolTip="ttp_wip_wo_allocation" Name="wip_wo_allocationLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_wo_allocation w left join xbs.org o on w.org_id=o.org_id</DbTable>
+<Index>wip_allocation_id</Index>
+<Data>w.wip_wo_header_id,w.item_id_m,w.demand_source_type,w.demand_source_header_id,w.demand_source_line_id,w.user_line_num,w.demand_source_delivery,w.quantity_allocated,w.quantity_completed,w.demand_class,o.org org_id,w.created_by,w.creation_date,w.last_update_by,w.last_update_date,w.wip_allocation_id</Data>
+<Order>wip_allocation_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

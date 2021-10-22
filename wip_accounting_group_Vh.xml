@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVwip_accounting_group" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="wip_accounting_groupLst" ToolTip="ttp_wip_accounting_group" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_accounting_group</DbTable>
+<Index>wip_accounting_group_id</Index>
+<Data>wip_accounting_group,wo_type,status,description,created_by,creation_date,last_update_by,last_update_date,wip_accounting_group_id</Data>
+<Order>wip_accounting_group_id</Order></DbDetails>
+<OnClick><assign name="wo_type[option_line_id]" expr="%{wip_accounting_groupLst[wo_type]}" function="SetSel"/>
+<if cond="%{wip_accounting_group_id}"><SetVisible name="insertwip_accounting_group" Visible="0"/><SetVisible name="modifywip_accounting_group" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" initial="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

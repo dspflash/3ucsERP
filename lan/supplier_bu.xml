@@ -1,0 +1,50 @@
+<Language name="supplier_bu">
+<Lang name="supplier_bu" value="供应商组织关系"/>
+<Lang name="TabEditsupplier_bu" value="supplier_bu Edit"/>
+<Lang name="TabViewsupplier_bu" value="supplier_bu View"/>
+<Lang name="supplier_id" value="供应商"/>
+<Lang name="ttp_supplier_id" value=""/>
+<Lang name="po_amount_limit" value="订单限额"/>
+<Lang name="ttp_po_amount_limit" value=""/>
+<Lang name="invoice_amount_limit" value="票据限额"/>
+<Lang name="ttp_invoice_amount_limit" value=""/>
+<Lang name="payment_amount_limit" value="支付限额"/>
+<Lang name="ttp_payment_amount_limit" value=""/>
+<Lang name="invoice_currency" value="票据货币"/>
+<Lang name="ttp_invoice_currency" value=""/>
+<Lang name="payment_priority" value="支付优先权"/>
+<Lang name="ttp_payment_priority" value=""/>
+<Lang name="payment_term_id" value=""/>
+<Lang name="ttp_payment_term_id" value=""/>
+<Lang name="invoice_date_basis" value="票据日期基准"/>
+<Lang name="ttp_invoice_date_basis" value=""/>
+<Lang name="pay_date_basis" value="支付日期基准"/>
+<Lang name="ttp_pay_date_basis" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="supplier_bu_id" value=""/>
+<Lang name="ttp_supplier_bu_id" value="ID"/>
+<Lang name="org_id" value=""/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="ttp_operationsupplier_bu" value="操作"/>
+<Lang name="ttp_createsupplier_bu" value="新增"/>
+<Lang name="ttp_modifysupplier_bu" value="修改"/>
+<Lang name="ttp_resetsupplier_bu" value="清除数据"/>
+<Lang name="ttp_deletesupplier_bu" value="删除"/>
+<Lang name="ttp_refreshsupplier_bu" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

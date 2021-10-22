@@ -1,0 +1,9 @@
+﻿<WndTap Name="fp_mrp_planned_sources_v" Text="fp_mrp_planned_sources">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fp_mrp_planned_sources_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\fp_mrp_planned_sources.xml"/>
+<Ctrls><GroupBox  Name="GBfp_mrp_planned_sources" id="fp_mrp_planned_sources" Text="fp_mrp_planned_sources" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fp_mrp_planned_sources_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

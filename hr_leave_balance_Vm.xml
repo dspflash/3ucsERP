@@ -1,0 +1,9 @@
+﻿<WndTap Name="hr_leave_balance_v" Text="hr_leave_balance">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_leave_balance_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hr_leave_balance.xml"/>
+<Ctrls><GroupBox  Name="GBhr_leave_balance" id="hr_leave_balance" Text="hr_leave_balance" Size="100,100"><Ctrls>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_leave_balance_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

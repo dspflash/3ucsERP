@@ -1,0 +1,68 @@
+﻿<GroupBox Name="GBDEDIThd_subscription_detail"><Ctrls>
+<GroupBox Name="GB_line_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_line_type" Size="60,20" Text="line_type" Align="Right" onload="init" SelectedIndex="2"/>
+<ComboBox Name="line_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_line_type" onload="init" SelectedIndex="2">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=133</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hd_subscription_detail_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_hd_subscription_detail_id" Size="60,20" Text="hd_subscription_detail_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="hd_subscription_detail_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hd_subscription_detail_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{hd_subscription_detail_id}'"><SetVisible name="inserthd_subscription_detail" Visible="0"/><SetVisible name="modifyhd_subscription_detail" Visible="1"/><else/><SetVisible name="inserthd_subscription_detail" Visible="1"/><SetVisible name="modifyhd_subscription_detail" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hd_subscription_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hd_subscription_header_id" Size="60,20" Text="hd_subscription_header_id" Align="Right"/>
+<TextBox Name="hd_subscription_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hd_subscription_header_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_hd_subscription_line_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hd_subscription_line_id" Size="60,20" Text="hd_subscription_line_id" Align="Right"/>
+<TextBox Name="hd_subscription_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_hd_subscription_line_id"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_member_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_member_name" Size="60,20" Text="member_name" Align="Right"/>
+<TextBox Name="member_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_member_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_member_dob" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_member_dob" Size="60,20" Text="member_dob" Align="Right"/>
+<DateTime Name="member_dob" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  ToolTip="ttp_member_dob"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_vehcile_no" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_vehcile_no" Size="60,20" Text="vehcile_no" Align="Right"/>
+<TextBox Name="vehcile_no" Size="170,20" Text="" Weight="170" ToolTip="ttp_vehcile_no"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_vehcile_registration" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_vehcile_registration" Size="60,20" Text="vehcile_registration" Align="Right"/>
+<TextBox Name="vehcile_registration" Size="170,20" Text="" Weight="170" ToolTip="ttp_vehcile_registration"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_road_tax_expiry_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_road_tax_expiry_date" Size="60,20" Text="road_tax_expiry_date" Align="Right"/>
+<DateTime Name="road_tax_expiry_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  ToolTip="ttp_road_tax_expiry_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_vehcile_details" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_vehcile_details" Size="60,20" Text="vehcile_details" Align="Right"/>
+<TextBox Name="vehcile_details" Size="170,20" Text="" Weight="170" ToolTip="ttp_vehcile_details"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

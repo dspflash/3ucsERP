@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVbom_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bom_headerLst" ToolTip="ttp_bom_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>bom_header_id</Index>
+<DbTable>xbs.bom_header</DbTable>
+<Data>bom_revision,effective_date,created_by,creation_date,last_update_by,last_update_date,bom_header_id</Data>
+<Order>bom_header_id</Order></DbDetails>
+<OnClick>
+<if cond="%{bom_header_id}"><SetVisible name="insertbom_header" Visible="0"/><SetVisible name="modifybom_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,51 @@
+<WndTap Name="vPoReq_line" Text="PO_Req_line">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_pick_create.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_header_Ve.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_line_Vem.xml" popup="1"/>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_requisition_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="PO_Requisition"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_requisition_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_requisition_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="POrqLst" listed="0" prefixand="1" inputed="1"><po_requisition_number format="(po_requisition_number like '%%{opvalue}%')"/><item_number format="item_number like '%%{opvalue}%'"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search>
+	<submit next="GBDEDITpo_requisition_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="export" Size="50,20" Text="导出">
+	<OnClick><!--Save selected="1" columns="3,0,7,8,9,11"></Save--><submit next="POrqLst" namelist="Save" function="savetofile"/></OnClick></Button>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" colsDisplay="18" ToolTip="ttp_item" onload="init" Name="POrqLst"  Size="700,420">
+	<DbDetails>
+<DbTable>xbs.po_requisition_line_v</DbTable>
+<Index>po_requisition_line_id</Index>
+<Data>*</Data>
+<Order>po_requisition_line_id</Order>
+<Where>and requisition_status not in (322,323)</Where>
+<queryFormat>select %{data} from %{dbtable} where ((bu_org_id='%{orgid}' and requisition_status=326) or created_by='%{user_id}') %{where} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="po_req_approval_rule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/po_req_approval_rule.xml"/></rules>
+<inputs input1="%{userid}" position="%{position}" opinv="%{app.opinv}" status="%{POrqLst[requisition_status]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="po_lineAdd"><assign name="$this.po_pick.PRQPOed" expr=""/><DbDetails><Where>po_requisition_line_id='%{POrqLst[po_requisition_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.po_pick.PRQPOed"/>
+<DbDetails><Where>item_id_m='%{POrqLst[item_id_m]}' and bu_org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="$this.po_pick.poLst"/><assign name="$this.po_pick.item_id_m" expr="%{POrqLst[item_id_m]}"/><assign name="$this.po_pick.reqlineid" expr="%{POrqLst[po_requisition_line_id]}"/><assign name="$this.po_pick.ref_keyname" expr="%{POrqLst[reference_key_name]}"/><assign name="$this.po_pick.ref_header_id" expr="%{POrqLst[reference_header_id]}"/><assign name="$this.po_pick.ref_line_id" expr="%{POrqLst[reference_line_id]}"/><assign name="$this.po_pick.quantity" expr="%{POrqLst[line_quantity]}"/><assign name="$this.po_pick.requesteddt" expr="%{POrqLst[need_by_date]}"/></op>
+<op text="Copyitem"><Copy columns="item_number"/><submit namelist="Copy" function="Copy"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

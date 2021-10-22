@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_nlr_header"><Ctrls>
+<ListCtrl Heading="resource_name,250;prj_expenditure_type_id,120;equipment_cb,60;effective_from,90;effective_to,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_nlr_header_id,60;" loadedclick="0" ToolTip="ttp_prj_nlr_header" Name="prj_nlr_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>prj_nlr_header</DbTable>
+<Index>prj_nlr_header_id</Index>
+<Data>resource_name,prj_expenditure_type_id,equipment_cb,effective_from,effective_to,description,created_by,creation_date,last_update_by,last_update_date,prj_nlr_header_id</Data>
+<Order>prj_nlr_header_id</Order></DbDetails>
+<OnClick><assign name="prj_expenditure_type_id[prj_expenditure_type_header_id]" function="SetSel" expr="%{prj_nlr_headerLst[prj_expenditure_type_id]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

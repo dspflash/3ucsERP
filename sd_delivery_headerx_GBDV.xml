@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_delivery_header"><Ctrls>
+<ListCtrl Heading="delivery_number,125;shipping_org_id,60;status,120;received_by,640;carrier,640;vehicle_number,640;delivery_received_by,640;carrier_receipt_number,640;expetced_delivery_date,90;actual_delivery_date,90;handling_instruction,640;subinventory_id,120;locator_id,120;delivery_date,90;comment,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;sd_delivery_header_id,60;" loadedclick="1" ToolTip="ttp_sd_delivery_header" Name="sd_delivery_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_delivery_header</DbTable>
+<Index>sd_delivery_header_id</Index>
+<Data>delivery_number,shipping_org_id,status,received_by,carrier,vehicle_number,delivery_received_by,carrier_receipt_number,expetced_delivery_date,actual_delivery_date,handling_instruction,subinventory_id,locator_id,delivery_date,comment,created_by,creation_date,last_update_by,last_update_date,sd_delivery_header_id</Data>
+<Order>sd_delivery_header_id</Order></DbDetails>
+<OnClick><assign name="status[option_line_id]" function="SetSel" expr="%{sd_delivery_headerLst[status]}"/><assign name="subinventory_id[subinventory_id]" function="SetSel" expr="%{sd_delivery_headerLst[subinventory_id]}"/><assign name="locator_id[locator_id]" function="SetSel" expr="%{sd_delivery_headerLst[locator_id]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

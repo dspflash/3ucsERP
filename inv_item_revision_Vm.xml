@@ -1,0 +1,9 @@
+<WndTap Name="inv_item_revision_v" Text="inv_item_revision">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_item_revision_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_item_revision.xml"/>
+<Ctrls><GroupBox  Name="GBinv_item_revision" id="inv_item_revision" Text="inv_item_revision" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_item_revision_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

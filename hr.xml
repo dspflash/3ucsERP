@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="人力资源" Name="hr" id="hr">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_element_entry_tpl_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_element_entry_tpl_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_grade.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_location.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_job.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payroll.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_position.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_compensation_element.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_approval_object.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_approval_limit_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_approval_limit_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_approval_limit_assign.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_control.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_element_entry_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_employee_education.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_employee_experience.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_employee_termination.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_employee.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_attendance.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_leave_balance.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_leave_entitlement_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_leave_entitlement_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_leave_transaction.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_perdiem_rate.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_tpl_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_tpl_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_expense_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payroll_schedule.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payroll_process.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payslip_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payslip_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_pos_hierarchy_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_pos_hierarchy_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_team_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_team_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_timesheet_period.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_timesheet_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_timesheet_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_department.xml"></xi:include>
+	</WndTaps>
+	</WndTap>

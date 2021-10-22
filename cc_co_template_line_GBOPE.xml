@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEcc_co_template_line" Size="100,100"><Ctrls>
+<Button sqlpkinsert="cc_co_template_line_id" Text="create" ToolTip="ttp_createcc_co_template_line" Name="insertcc_co_template_line" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.cc_co_template_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>field_name,label,value_type,required_cb,control_type,control_value,control_uom[uom_id],list_values,lower_limit,upper_limit,list_value_option_type,active_cb,cc_co_template_header_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertcc_co_template_line[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="cc_co_template_lineLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.cc_co_template_line_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifycc_co_template_line" Name="modifycc_co_template_line" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.cc_co_template_line</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>field_name,label,value_type,required_cb,control_type,control_value,control_uom[uom_id],list_values,lower_limit,upper_limit,list_value_option_type,active_cb,cc_co_template_header_id</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>cc_co_template_line_id='%{cc_co_template_line_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifycc_co_template_line[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="cc_co_template_lineLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.cc_co_template_line_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetcc_co_template_line" Name="resetcc_co_template_line" Size="50,20">
+<OnClick>
+<submit next="GBDEDITcc_co_template_line" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchcc_co_template_line" Name="gsearchcc_co_template_line" Size="50,20" visible="false">
+<OnClick>
+<search next="cc_co_template_lineLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITcc_co_template_line" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

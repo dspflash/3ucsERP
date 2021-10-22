@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVcc_co_line"><Ctrls>
+<ListCtrl Heading="item_id_m,120;item_description,640;new_revision,50;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;cc_co_header_id,60;cc_co_line_id,60;" loadedclick="0" ToolTip="ttp_cc_co_line" Name="cc_co_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.cc_co_line c left join xbs.item i on c.item_id_m=i.item_id_m left join xbs.user_v u on c.created_by=u.xerp_user_id left join xbs.user_v u0 on c.last_update_by=u0.xerp_user_id</DbTable>
+<Index>cc_co_line_id</Index>
+<Data>i.item_number item_id_m,c.item_description,c.new_revision,u.NAME created_by,c.creation_date,u0.NAME last_update_by,c.last_update_date,c.cc_co_header_id,c.cc_co_line_id</Data>
+<Order>cc_co_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

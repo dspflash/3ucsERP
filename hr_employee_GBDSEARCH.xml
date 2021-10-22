@@ -1,0 +1,42 @@
+<GroupBox Name="GBDEDIThr_employee" text="Search" toggle="1"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_first_name"><Ctrls>
+<Label Align="Right" Text="first_name" Name="lb_first_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_first_name" Name="first_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_name"><Ctrls>
+<Label Align="Right" Text="last_name" Name="lb_last_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_last_name" Name="last_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<!--GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_start_date"><Ctrls>
+<Label Align="Right" Text="start_date" Name="lb_start_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_start_date" Name="start_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox-->
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_department_id"><Ctrls>
+<Label Align="Right" Text="department_id" OnLoad="init" Name="lb_department_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_department_id" OnLoad="init" Name="department_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.hr_department</DbTable>
+<Index>dept_id</Index>
+<Data>department,dept_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_identification_id"><Ctrls>
+<Label Align="Right" Text="identification_id" Name="lb_identification_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_identification_id" Name="identification_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_position_id"><Ctrls>
+<Label Align="Right" Text="position_id" OnLoad="init" Name="lb_position_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_position_id" OnLoad="init" Name="position_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.hr_position</DbTable>
+<Index>hr_position_id</Index>
+<Data>position_name,hr_position_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" Size="230,20" checked="true"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

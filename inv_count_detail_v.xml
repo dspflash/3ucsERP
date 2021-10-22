@@ -1,0 +1,14 @@
+<WndTap Name="inv_count_detail_v" Text="inv_count_detail_v">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_count_entries.xml"/>
+<Ctrls><GroupBox  Name="GBinv_count_entries" id="inv_count_detail_v" Text="inv_count_detail_v" Size="100,100"><Ctrls>
+<GroupBox Name="GBDVinv_count_entries" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="inv_count_entries_vLst" ToolTip="ttp_inv_count_entries" Size="700,420" Heading="count_name,120;item_number,120;item_name,120;item_specification,120;item_description,120;schedule_date,90;uom_id,120;subinventory_id,120;locator_id,120;lot_number,120;adjusted_qty,100;system_qty,100;count_qty,100;counted_by,640;count_date,90;reason,640;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;status,125;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.inv_count_schedule ics left join xbs.inv_count_header ih on ics.inv_count_header_id=ih.inv_count_header_id left join xbs.inv_count_entries i on ics.inv_count_schedule_id=i.inv_count_schedule_id left join xbs.item i0 on ics.item_id_m=i0.item_id_m left join xbs.uom u on i.uom_id=u.uom_id left join xbs.subinventory s on ics.subinventory_id=s.subinventory_id left join xbs.locator l on ics.locator_id=l.locator_id left join xbs.inv_lot_number i1 on ics.lot_number=i1.inv_lot_number_id</DbTable>
+<Index>inv_count_entries_id</Index>
+<Data>count_name,i0.item_number,item_name,item_specification,item_description,ics.schedule_date,u.uom_name uom_id,s.subinventory subinventory_id,l.locator locator_id,i1.lot_number lot_number,i.adjusted_qty,i.system_qty,i.count_qty,i.counted_by,i.count_date,i.reason,i.description,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.status,ics.inv_count_schedule_id, ics.item_id_m,i.org_id,i.reference,i.inv_count_entries_id</Data>
+<Order>inv_count_entries_id</Order></DbDetails>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

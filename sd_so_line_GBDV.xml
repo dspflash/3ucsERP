@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_so_line"><Ctrls>
+<ListCtrl Heading="line_type,120;shipping_org_id,120;line_number,60;destination_type,120;item_id_m,60;requested_date,90;price_date,90;line_quantity,100;line_price,100;gl_line_price,75;tax_code_id,60;tax_amount,100;gl_tax_amount,75;line_description,640;line_status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;sd_so_line_id,60;" loadedclick="0" ToolTip="ttp_sd_so_line" Name="sd_so_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_so_line s left join xbs.option_line o on s.line_type=o.option_line_id left join xbs.org o0 on s.shipping_org_id=o0.org_id left join xbs.option_line o1 on s.destination_type=o1.option_line_id left join xbs.sd_quote_v s0 on s.item_id_m=s0.item_id_m left join xbs.mdm_tax_code m on s.tax_code_id=m.mdm_tax_code_id left join xbs.option_line o2 on s.line_status=o2.option_line_id</DbTable>
+<Index>sd_so_line_id</Index>
+<Data>o.option_line_value line_type,o0.org shipping_org_id,s.line_number,o1.option_line_value destination_type,s0.item_number item_id_m,s.requested_date,s.price_date,s.line_quantity,s.line_price,s.gl_line_price,m.tax_code tax_code_id,s.tax_amount,s.gl_tax_amount,s.line_description,o2.option_line_value line_status,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,s.sd_so_line_id</Data>
+<Order>sd_so_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>sd_so_line_id='%{sd_so_line_vLst[sd_so_line_id]}'</Where></DbDetails><submit next="$this.sd_so_line.sd_so_lineLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.sd_so_line</DbTable>
+<Where>sd_so_line_id='%{sd_so_line_vLst[sd_so_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

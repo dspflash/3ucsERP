@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="BOM" Name="bom" id="bom">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="item.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_config_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_config_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_commonbom_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_header.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_line.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_routing_detail.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_cost_type.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_material_element.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_overhead.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_oh_rate_assignment.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_oh_res_assignment.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_resource.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_resource_cost.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_department.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_dept_res_assignment.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_standard_operation.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_stnd_op_res_assignment.xml"></xi:include>
+	</WndTaps>
+	</WndTap>

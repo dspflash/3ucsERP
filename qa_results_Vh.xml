@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVqa_results" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="qa_resultsLst" ToolTip="ttp_qa_results" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_results</DbTable>
+<Index>qa_results_id</Index>
+<Data>qa_cp_header_id,item_id_m,reference_key_name,reference_key_value,reference_type,quantity,created_by,creation_date,last_update_by,last_update_date,qa_results_id,description,org_id</Data>
+<Order>qa_results_id</Order></DbDetails>
+<OnClick><assign name="qa_cp_header_id[qa_cp_header_id]" expr="%{qa_resultsLst[qa_cp_header_id]}" function="SetSel"/><assign name="item_id_m[item_id_m]" expr="%{qa_resultsLst[item_id_m]}" function="SetSel"/>
+<if cond="%{qa_results_id}"><SetVisible name="insertqa_results" Visible="0"/><SetVisible name="modifyqa_results" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

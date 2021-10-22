@@ -1,0 +1,19 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_event_line"><Ctrls>
+<ListCtrl Heading="user_id,120;resource_id,60;required_cb,60;expected_status,100;actual_status,100;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_event_header_id,60;hr_event_line_id,60;" loadedclick="0" ToolTip="ttp_hr_event_line" Name="hr_event_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_event_line h left join xbs.user_v u on h.user_id=u.xerp_user_id left join xbs.user_v u0 on h.created_by=u0.xerp_user_id left join xbs.user_v u1 on h.last_update_by=u1.xerp_user_id</DbTable>
+<Index>hr_event_line_id</Index>
+<Data>u.NAME user_id,h.resource_id,h.required_cb,h.expected_status,h.actual_status,h.description,u0.NAME created_by,h.creation_date,u1.NAME last_update_by,h.last_update_date,h.hr_event_header_id,h.hr_event_line_id</Data>
+<Order>hr_event_line_id</Order></DbDetails>
+<DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} where %{Where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails><DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} where %{Where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op mustselected="0" text="addone"><if cond="!%{hr_event_header_id}"><alert expr="hr_event_header_id is Empty!"/><else/><submit next="$parent.hr_event_line.GBDEDIThr_event_line" function="reset"/><assign name="$parent.hr_event_line.hr_event_header_id" expr="%{hr_event_header_id}"/></if></op>
+<op text="modify"><DbDetails><Where>hr_event_line_id='%{hr_event_line_vLst[hr_event_line_id]}'</Where></DbDetails><submit next="$parent.hr_event_line.hr_event_lineLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_event_line</DbTable>
+<Where>hr_event_line_id='%{hr_event_line_vLst[hr_event_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

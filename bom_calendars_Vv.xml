@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVbom_calendars" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bom_calendars_vLst" ToolTip="ttp_bom_calendars" Size="700,420" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.bom_calendars b</DbTable>
+<Index>calendar_code</Index>
+<Data>b.calendar_code,b.calendar_start_date,b.calendar_end_date,b.created_by,b.creation_date,b.last_update_by,b.last_update_date</Data>
+<Order>calendar_code</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>calendar_code='%{bom_calendars_vLst[calendar_code]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_calendars.bom_calendarsLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_calendars</DbTable>
+<Where>calendar_code='%{bom_calendars_vLst[calendar_code]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

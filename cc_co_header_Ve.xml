@@ -1,0 +1,15 @@
+<WndTap Name="cc_co_header" Text="cc_co_header" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="change_number,change_type,template_id[cc_co_template_header_id],process_flow_header_id[sys_process_flow_header_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\cc_co_header.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBcc_co_header" id="cc_co_header" Text="cc_co_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_header_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_header_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_header_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cc_co_line_Vv.xml"/>
+</Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertcc_co_header" Visible="1"/><SetVisible name="modifycc_co_header" Visible="0"/></OnActivate>
+</WndTap>

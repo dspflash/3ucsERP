@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVprj_customer_relation" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="prj_customer_relation_vLst" ToolTip="ttp_prj_customer_relation" Size="500,300" Heading="ar_customer_id,55;relation,120;status,60;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;prj_customer_relation_id,55;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.prj_customer_relation p left join xbs.ar_customer a on p.ar_customer_id=a.ar_customer_id left join xbs.option_line o on p.relation=o.option_line_id</DbTable>
+<Index>prj_customer_relation_id</Index>
+<Data>a.customer_name ar_customer_id,o.option_line_value relation,p.status,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_customer_relation_id</Data>
+<Order>prj_customer_relation_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.prj_customer_relation.GBDEDITprj_customer_relation" function="reset"/><DbDetails><Where>prj_project_header_id='%{prj_project_header_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_customer_relation.prj_project_header_id"/></op>
+<op text="modify"><DbDetails><Where>prj_customer_relation_id='%{prj_customer_relation_vLst[prj_customer_relation_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.prj_customer_relation.prj_customer_relationLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.prj_customer_relation</DbTable>
+<Where>prj_customer_relation_id='%{prj_customer_relation_vLst[prj_customer_relation_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

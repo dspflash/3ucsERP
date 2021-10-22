@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVxerp_role"><Ctrls>
+<ListCtrl Heading="role_name_cn,100;role_name_eng,250;org_id,120;role_layout,500;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;role_id,20;" loadedclick="0" ToolTip="ttp_xerp_role" onload="init" Name="xerp_roleLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.xerp_role</DbTable>
+<Index>role_id</Index>
+<Data>role_name_cn,role_name_eng,org_id,role_layout,created_by,creation_date,last_update_by,last_update_date,role_id</Data>
+<Order>role_id</Order></DbDetails>
+<OnClick><assign name="org_id[org_id]" function="SetSel" expr="%{xerp_roleLst[org_id]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

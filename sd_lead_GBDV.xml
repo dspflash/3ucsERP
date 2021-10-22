@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_lead"><Ctrls>
+<ListCtrl Heading="lead_number,125;ar_customer_id,120;ar_customer_site_id,120;last_name,125;first_name,125;lead_type,120;sales_channel,120;mobile_number,100;subject,640;office_number,100;email_id,200;contact_website,250;fax_no,150;timezone,150;time_to_contact,150;hr_employee_id,120;sales_team,120;priority,120;referral_source,125;close_reason,125;description,640;details,640;status,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;sd_lead_id,60;" loadedclick="1" ToolTip="ttp_sd_lead" Name="sd_leadLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_lead</DbTable>
+<Index>sd_lead_id</Index>
+<Data>lead_number,ar_customer_id,ar_customer_site_id,last_name,first_name,lead_type,sales_channel,mobile_number,subject,office_number,email_id,contact_website,fax_no,timezone,time_to_contact,hr_employee_id,sales_team,priority,referral_source,close_reason,description,details,status,created_by,creation_date,last_update_by,last_update_date,sd_lead_id</Data>
+<Order>sd_lead_id</Order></DbDetails>
+<OnClick><assign name="ar_customer_id[ar_customer_id]" function="SetSel" expr="%{sd_leadLst[ar_customer_id]}"/><assign name="ar_customer_site_id[ar_customer_site_id]" function="SetSel" expr="%{sd_leadLst[ar_customer_site_id]}"/><assign name="lead_type[option_line_id]" function="SetSel" expr="%{sd_leadLst[lead_type]}"/><assign name="sales_channel[option_line_id]" function="SetSel" expr="%{sd_leadLst[sales_channel]}"/><assign name="hr_employee_id[hr_employee_id]" function="SetSel" expr="%{sd_leadLst[hr_employee_id]}"/><assign name="sales_team[hr_team_header_id]" function="SetSel" expr="%{sd_leadLst[sales_team]}"/><assign name="status[option_line_id]" function="SetSel" expr="%{sd_leadLst[status]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

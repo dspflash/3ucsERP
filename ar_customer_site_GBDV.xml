@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_customer_site"><Ctrls>
+<ListCtrl Heading="customer_site_number,60;customer_site_name,300;country_of_origin,120;payment_term_id,120;currency,120;site_tax_country,120;site_tax_reg_no,500;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_customer_site_id,60;" loadedclick="0" ToolTip="ttp_ar_customer_site" Name="ar_customer_siteLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_customer_site a left join xbs.country c on a.country_of_origin=c.country_id left join xbs.payment_term p on a.payment_term_id=p.payment_term_id left join xbs.currency c0 on a.currency=c0.currency_id left join xbs.country c1 on a.site_tax_country=c1.country_id</DbTable>
+<Index>ar_customer_site_id</Index>
+<Data>a.customer_site_number,a.customer_site_name,c.namecn country_of_origin,p.payment_term payment_term_id,c0.title currency,c1.namecn site_tax_country,a.site_tax_reg_no,a.status,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.ar_customer_site_id</Data>
+<Order>ar_customer_site_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

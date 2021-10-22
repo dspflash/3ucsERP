@@ -1,0 +1,44 @@
+<GroupBox Name="GBDEDITpo_header"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_po_number"><Ctrls>
+<Label Align="Right" Text="po_number" Name="lb_po_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_po_number" Name="po_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_po_type"><Ctrls>
+<Label Align="Right" Text="po_type" OnLoad="init" Name="lb_po_type" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_po_type" OnLoad="init" Name="po_type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=131</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" Name="lb_status" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_status" OnLoad="init" Name="status" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=292</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls>
+<Label Align="Right" Text="item_id_m" onload="init" Name="lb_item_id_m" Size="60,20" type="2"/>
+<TextBox Weight="170" Text="" type="2" ToolTip="ttp_item_number" Name="item_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supplier_id"><Ctrls>
+<Label Align="Right" Text="supplier_id" Name="lb_supplier_id" Size="60,20" selectedIndex="0"/>
+<TextBox Weight="170" ToolTip="ttp_supplier_name" Name="supplier_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<!--GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_supplier_site_id"><Ctrls>
+<Label Align="Right" Text="supplier_site_id" OnLoad="init" Name="lb_supplier_site_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_supplier_site_id" OnLoad="init" Name="supplier_site_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.supplier_site</DbTable>
+<Index>supplier_site_id</Index>
+<Data>supplier_site_name,supplier_site_id</Data>
+<Where>supplier_id='%{supplier_id[supplier_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox-->
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodSearch.xml"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGhr_expense_header"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_hr_expense_header" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>hr_expense_header_id</Index>
+<DbTable>xbs.hr_expense_header h left join xbs.hr_department h0 on h.department_id=h0.dept_id left join xbs.hr_employee_v h1 on h.hr_employee_id=h1.hr_employee_id left join xbs.hr_employee h2 on h.approved_by_employee_id=h2.hr_employee_id left join xbs.option_line o on h.status=o.option_line_id left join xbs.hr_expense_tpl_header h3 on h.expense_template_id=h3.hr_expense_tpl_header_id left join xbs.currency c on h.currency=c.currency_id left join xbs.currency c0 on h.doc_currency=c0.currency_id left join xbs.org o0 on h.bu_org_id=o0.org_id left join xbs.gl_currency_conversion g on h.exchange_rate_type=g.currency_conversion_type</DbTable>
+<Data>count(*) records</Data>
+<Order>hr_expense_header_id</Order><Queryformat>select %{data} from (select h.hr_expense_header_id from %{dbtable} %{where} GROUP BY h.hr_expense_header_id  ORDER BY h.hr_expense_header_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_hr_expense_header" expr="js(Math.ceil(%{records_hr_expense_header}/%{hr_expense_header_vLst[countsperpage]}))"/>
+<assign name="pgscb_hr_expense_header" expr="js('1~'+Math.ceil(%{records_hr_expense_header}/%{hr_expense_header_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_hr_expense_header" Size="60,20"><OnSelEndOK><submit next="hr_expense_header_vLst" function="GetPage(%{pgscb_hr_expense_header}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_hr_expense_header" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_hr_expense_header" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagehr_expense_header_vLst" Size="50,20"><OnClick><submit next="hr_expense_header_vLst" function="GetPage(%{pgcur_hr_expense_header}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

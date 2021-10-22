@@ -1,0 +1,13 @@
+﻿<WndTap Name="hd_service_contract_schedule" Text="hd_service_contract_schedule" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\hd_service_contract_schedule.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBhd_service_contract_schedule" id="hd_service_contract_schedule" Text="hd_service_contract_schedule" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_service_contract_schedule_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_service_contract_schedule_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hd_service_contract_schedule_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="inserthd_service_contract_schedule" Visible="1"/><SetVisible name="modifyhd_service_contract_schedule" Visible="0"/></OnActivate>
+</WndTap>

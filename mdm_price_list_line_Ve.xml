@@ -1,0 +1,16 @@
+﻿<WndTap Name="mdm_price_list_line" Text="mdm_price_list_line" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr="line_type[option_line_id],item_id_m[item_id_m],org_id[org_id],uom_id[uom_id],unit_price,mdm_price_list_header_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\mdm_price_list_line.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\mdm_price_list_detail.xml"/>
+<Ctrls>
+<GroupBox  Name="GBmdm_price_list_line" id="mdm_price_list_line" Text="mdm_price_list_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_price_list_line_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_price_list_line_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_price_list_line_Vh.xml"/>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_price_list_detail_Vv.xml"/>
+</Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertmdm_price_list_line" Visible="1"/><SetVisible name="modifymdm_price_list_line" Visible="0"/></OnActivate>
+</WndTap>

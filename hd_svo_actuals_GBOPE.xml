@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEhd_svo_actuals" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hd_svo_actuals_id" Text="create" ToolTip="ttp_createhd_svo_actuals" Name="inserthd_svo_actuals" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hd_svo_actuals</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],unit_price,uom_id[uom_id],line_price,sd_so_line_id,sd_so_header_id,quantity,source,billing_type[option_line_id],wip_wo_header_id,hd_svo_header_id</Data>
+<DataEx>line_status,created_by,creation_date,last_update_by,last_update_date;1529,'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_svo_actualsLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhd_svo_actuals" Name="modifyhd_svo_actuals" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hd_svo_actuals</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],unit_price,uom_id[uom_id],line_price,quantity,source,billing_type[option_line_id],wip_wo_header_id</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hd_svo_actuals_id='%{hd_svo_actuals_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_svo_actualsLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethd_svo_actuals" Name="resethd_svo_actuals" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIThd_svo_actuals" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchhd_svo_actuals" Name="gsearchhd_svo_actuals" Size="50,20" visible="false">
+	<OnClick>
+	<search next="hd_svo_actualsLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDIThd_svo_actuals" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

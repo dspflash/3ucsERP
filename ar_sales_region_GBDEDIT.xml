@@ -1,0 +1,59 @@
+<GroupBox Name="GBDEDITar_sales_region"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_country_code"><Ctrls>
+<Label Align="Right" Text="country_code" Name="lb_country_code" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_country_code" Name="country_code" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_state"><Ctrls>
+<Label Align="Right" Text="state" Name="lb_state" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_state" Name="state" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_city"><Ctrls>
+<Label Align="Right" Text="city" Name="lb_city" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_city" Name="city" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_sales_region_name"><Ctrls>
+<Label Align="Right" Text="sales_region_name" Name="lb_sales_region_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_sales_region_name" Name="sales_region_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_street"><Ctrls>
+<Label Align="Right" Text="street" Name="lb_street" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_street" Name="street" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_mdm_tax_region_id"><Ctrls>
+<Label Align="Right" Text="mdm_tax_region_id" OnLoad="init" Name="lb_mdm_tax_region_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_mdm_tax_region_id" OnLoad="init" Name="mdm_tax_region_id" Size="170,100">
+	<DbDetails fcsm="true">
+<DbTable>xbs.mdm_tax_region</DbTable>
+<Index>mdm_tax_region_id</Index>
+<Data>tax_region_name,country_code,state,city,mdm_tax_region_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" Name="lb_status" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_status" Name="status" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_ar_sales_region_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="ar_sales_region_id" overlap="pre" Name="lb_ar_sales_region_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_ar_sales_region_id" overlap="pre" Name="ar_sales_region_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBar_sales_region" expr="TABEDITar_sales_region"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

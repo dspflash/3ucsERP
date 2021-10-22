@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVpo_rfq_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="po_rfq_headerLst" ToolTip="ttp_po_rfq_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_rfq_header</DbTable>
+<Index>po_rfq_header_id</Index>
+<Data>rfq_number,rfq_name,rfq_type,rfq_status,payment_term_id,ship_to_id,bill_to_id,currency,doc_currency,effective_start_date,effective_end_date,due_date,description,created_by,creation_date,last_update_by,last_update_date,po_rfq_header_id,bu_org_id</Data>
+<Order>po_rfq_header_id</Order></DbDetails>
+<OnClick><assign name="rfq_type[option_line_id]" expr="%{po_rfq_headerLst[rfq_type]}" function="SetSel"/><assign name="rfq_status[option_line_id]" expr="%{po_rfq_headerLst[rfq_status]}" function="SetSel"/><assign name="payment_term_id[payment_term_id]" expr="%{po_rfq_headerLst[payment_term_id]}" function="SetSel"/><assign name="ship_to_id[address_id]" expr="%{po_rfq_headerLst[ship_to_id]}" function="SetSel"/><assign name="bill_to_id[address_id]" expr="%{po_rfq_headerLst[bill_to_id]}" function="SetSel"/><assign name="currency[currency_id]" expr="%{po_rfq_headerLst[currency]}" function="SetSel"/><assign name="doc_currency[currency_id]" expr="%{po_rfq_headerLst[doc_currency]}" function="SetSel"/><assign name="bu_org_id[org_id]" expr="%{po_rfq_headerLst[bu_org_id]}" function="SetSel"/>
+<if cond="%{po_rfq_header_id}"><SetVisible name="insertpo_rfq_header" Visible="0"/><SetVisible name="modifypo_rfq_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

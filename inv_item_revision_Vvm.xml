@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVinv_item_revision" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="inv_item_revision_vLst" ToolTip="ttp_inv_item_revision" Size="570,220" Heading="revision_name,50;item_id_m,120;reason,640;eco_number,250;effective_start_date,90;effective_end_date,90;implementation_date,90;origination_date,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;inv_item_revision_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.inv_item_revision i left join xbs.item i0 on i.item_id_m=i0.item_id_m</DbTable>
+<Index>inv_item_revision_id</Index>
+<Data>i.revision_name,i0.item_number item_id_m,i.reason,i.eco_number,i.effective_start_date,i.effective_end_date,i.implementation_date,i.origination_date,i.description,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.org_id,i.inv_item_revision_id</Data>
+<Order>inv_item_revision_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<!--op text="addone" mustselected="0"><submit next="$this.inv_item_revision.GBDEDITinv_item_revision" function="reset"/><DbDetails><Where>item_id_m='%{item_id_m}' and org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="$this.inv_item_revision.item_id_m"/></op-->
+<op text="modify"><submit next="$this.inv_item_revision.GBDEDITinv_item_revision" function="reset"/><DbDetails><Where>item_id_m='%{item_id_m}' and org_id='%{orgid}'</Where></DbDetails><submit namelist="DbDetails" next="$this.inv_item_revision.item_id_m"/><DbDetails><Where>inv_item_revision_id='%{inv_item_revision_vLst[inv_item_revision_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.inv_item_revision.inv_item_revisionLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

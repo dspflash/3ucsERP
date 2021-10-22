@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinv_lot_number"><Ctrls>
+<ListCtrl Heading="lot_number,250;quantity,100;item_id_m,120;item_revision,50;generation,120;reference_key_name,250;reference_key_value,125;origination_type,120;origination_date,90;country_of_origin,120;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;inv_lot_number_id,60;" loadedclick="0" ToolTip="ttp_inv_lot_number" Name="inv_lot_numberLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_lot_number</DbTable>
+<Index>inv_lot_number_id</Index>
+<Data>lot_number,quantity,item_id_m,item_revision,generation,reference_key_name,reference_key_value,origination_type,origination_date,country_of_origin,description,created_by,creation_date,last_update_by,last_update_date,org_id,inv_lot_number_id</Data>
+<Order>inv_lot_number_id</Order></DbDetails>
+<OnClick><assign name="item_id_m[item_id_m]" function="SetSel" expr="%{inv_lot_numberLst[item_id_m]}"/><assign name="country_of_origin[country_id]" function="SetSel" expr="%{inv_lot_numberLst[country_of_origin]}"/></OnClick><DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

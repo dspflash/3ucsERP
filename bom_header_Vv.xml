@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVbom_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bom_header_vLst" ToolTip="ttp_bom_header_v" Size="700,450" OnLoad="init" Heading="bom_revision,60;effective_date,90;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;bom_header_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>bom_header_id</Index>
+<DbTable>xbs.bom_header b</DbTable>
+<Data>b.bom_revision,b.effective_date,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.bom_header_id</Data>
+<Order>bom_header_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>bom_header_id='%{bom_header_vLst[bom_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.bom_header.bom_headerLst"/><assign name="$this.bom_header.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_header</DbTable>
+<Where>bom_header_id='%{bom_header_vLst[bom_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_bom_header" expr="js(%{bom_header_vLst[currentpage]}+1)"/>
+<assign name="pgscb_bom_header" expr="js(%{bom_header_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,47 @@
+﻿<Language name="fp_forecast_group">
+<Lang name="fp_forecast_group" value="预测组"/>
+<Lang name="TabEditfp_forecast_group" value="fp_forecast_group Edit"/>
+<Lang name="TabViewfp_forecast_group" value="fp_forecast_group View"/>
+<Lang name="forecast_group" value="预测组"/>
+<Lang name="consume" value="冲销"/>
+<Lang name="ttp_forecast_group" value=""/>
+<Lang name="bucket_type" value=""/>
+<Lang name="ttp_bucket_type" value=""/>
+<Lang name="consume_cb" value=""/>
+<Lang name="ttp_consume_cb" value=""/>
+<Lang name="backward_days" value=""/>
+<Lang name="ttp_backward_days" value=""/>
+<Lang name="forward_days" value=""/>
+<Lang name="ttp_forward_days" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="org_id" value=""/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="fp_forecast_group_id" value=""/>
+<Lang name="ttp_fp_forecast_group_id" value=""/>
+<Lang name="ttp_operationfp_forecast_group" value=""/>
+<Lang name="ttp_createfp_forecast_group" value=""/>
+<Lang name="ttp_modifyfp_forecast_group" value=""/>
+<Lang name="ttp_resetfp_forecast_group" value=""/>
+<Lang name="ttp_deletefp_forecast_group" value=""/>
+<Lang name="ttp_refreshfp_forecast_group" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

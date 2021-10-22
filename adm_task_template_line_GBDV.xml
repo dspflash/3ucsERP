@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVadm_task_template_line"><Ctrls>
+<ListCtrl Heading="status,120;task_type_id,120;priority_code,125;subject,640;description,640;duration_uom_id,60;duration,75;planned_uom_id,60;planned_uom,125;holiday_cb,60;milestone_cb,60;confirm_required_cb,60;publish_cb,60;billable_cb,60;private_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;adm_task_template_line_id,60;" loadedclick="0" ToolTip="ttp_adm_task_template_line" Name="adm_task_template_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.adm_task_template_line</DbTable>
+<Index>adm_task_template_line_id</Index>
+<Data>status,task_type_id,priority_code,subject,description,duration_uom_id,duration,planned_uom_id,planned_uom,holiday_cb,milestone_cb,confirm_required_cb,publish_cb,billable_cb,private_cb,created_by,creation_date,last_update_by,last_update_date,adm_task_template_line_id</Data>
+<Order>adm_task_template_line_id</Order></DbDetails>
+<OnClick><assign name="status[option_line_id]" function="SetSel" expr="%{adm_task_template_lineLst[status]}"/><assign name="task_type_id[adm_task_type_id]" function="SetSel" expr="%{adm_task_template_lineLst[task_type_id]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

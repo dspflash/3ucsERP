@@ -1,0 +1,134 @@
+﻿<GroupBox Name="GBDEDIThd_service_contract_detail"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls>
+<Label Align="Right" Text="item_id_m" Name="lb_item_id_m" readonly="true" Size="60,20"/>
+<TextBox Weight="150" Text="" ToolTip="ttp_item_id_m" Name="item_id_m" readonly="true" Size="150,20">
+	<DbDetails fcsm="true">
+<DbTable>xbs.sd_quote_v</DbTable>
+<Index>item_id_m</Index>
+<Data>item_number,item_description,uom_id uom,unit_price,price_date,tax_code_id,item_id_m</Data>
+<Where/>
+<queryFormat>select %{data} from %{dbtable} where status=1489 %{where} limit 0,20</queryFormat></DbDetails><OnEnChange>x<submit next="uom_id"/><submit next="tax_code_id"/></OnEnChange></TextBox>
+<MagicCtrl Name="pickitem_id_m" Link="tip:Pick" images=",data/search.png" button="type:0" Size="20,20"><OnClick><assign name="vcustomer.productpick.fromwintap" expr="vcustomer.sd_so_line"/><assign name="vcustomer.productpick.org_id" expr="%{shipping_org_id[org_id]}"/><assign name="vcustomer.productpick.extcond" expr="and (item_id_m in (select item_id_m from xbs.sd_quote_v sq JOIN sd_so_header so ON so.ar_customer_id=sq.ar_customer_id WHERE sd_so_header_id='%{sd_so_header_id}' and shipping_org_id='%{shipping_org_id[org_id]}' and status=1489))"/><DbDetails><Where/></DbDetails><submit next="vcustomer.productpick.productLst" namelist="DbDetails"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_unit_price"><Ctrls>
+<Label Align="Right" Text="unit_price" Name="lb_unit_price" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_unit_price" Name="unit_price" readonly="true" Size="170,20"><OnEnChange> <assign name="line_price" expr="js(%{line_quantity}*%{unit_price})"/> </OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_uom_id"><Ctrls>
+<Label Align="Right" Text="uom_id" Name="lb_uom_id" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_uom_id" Name="uom_id" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.uom</DbTable>
+<Index>uom_id</Index>
+<Data>uom_name,uom_id</Data>
+<Where>uom_id='%{item_id_m[uom]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_tax_amount"><Ctrls>
+<Label Align="Right" Text="tax_amount" Name="lb_tax_amount" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_tax_amount" Name="tax_amount" readonly="true" Size="170,20"><OnEnChange><if cond="%{sd_so_header_id[exchange_rate]}"><assign name="gl_tax_amount" expr="js(%{tax_amount}*%{sd_so_header_id[exchange_rate]})"/><else/><assign name="gl_tax_amount" expr="%{tax_amount}"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_inv_serial_number_id"><Ctrls>
+<Label Align="Right" Text="inv_serial_number_id" Name="lb_inv_serial_number_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_inv_serial_number_id" Name="inv_serial_number_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_detail_number"><Ctrls>
+<Label Align="Right" Text="detail_number" Name="lb_detail_number" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_detail_number" Name="detail_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_ar_customer_id"><Ctrls>
+<Label Align="Right" Text="ar_customer_id" Name="lb_ar_customer_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_ar_customer_id" Name="ar_customer_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_level"><Ctrls>
+<Label Align="Right" Text="level" Name="lb_level" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_level" Name="level" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_ref"><Ctrls>
+<Label Align="Right" Text="line_ref" Name="lb_line_ref" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_line_ref" Name="line_ref" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_renewal_type"><Ctrls>
+<Label Align="Right" Text="renewal_type" Name="lb_renewal_type" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_renewal_type" Name="renewal_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" Name="lb_status" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_status" Name="status" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_reference_type"><Ctrls>
+<Label Align="Right" Text="reference_type" Name="lb_reference_type" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_reference_type" Name="reference_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_reference_key_name"><Ctrls>
+<Label Align="Right" Text="reference_key_name" Name="lb_reference_key_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_reference_key_name" Name="reference_key_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_reference_key_value"><Ctrls>
+<Label Align="Right" Text="reference_key_value" Name="lb_reference_key_value" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_reference_key_value" Name="reference_key_value" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_quantity"><Ctrls>
+<Label Align="Right" Text="quantity" Name="lb_quantity" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_quantity" Name="quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_amount"><Ctrls>
+<Label Align="Right" Text="line_amount" Name="lb_line_amount" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_line_amount" Name="line_amount" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_start_date"><Ctrls>
+<Label Align="Right" Text="start_date" Name="lb_start_date" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_start_date" Name="start_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_end_date"><Ctrls>
+<Label Align="Right" Text="end_date" Name="lb_end_date" Size="60,20"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_end_date" Name="end_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_duration_uom_id"><Ctrls>
+<Label Align="Right" Text="duration_uom_id" onload="init" Name="lb_duration_uom_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_duration_uom_id" onload="init" Name="duration_uom_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.uom</DbTable>
+<Index>uom_id</Index>
+<Data>uom_name,uom_id</Data>
+<Where>class=117</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_duration"><Ctrls>
+<Label Align="Right" Text="duration" Name="lb_duration" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_duration" Name="duration" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_hd_service_contract_detail_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="hd_service_contract_detail_id" overlap="pre" Name="lb_hd_service_contract_detail_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hd_service_contract_detail_id" overlap="pre" Name="hd_service_contract_detail_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{hd_service_contract_detail_id}'"><SetVisible name="inserthd_service_contract_detail" Visible="0"/><SetVisible name="modifyhd_service_contract_detail" Visible="1"/><else/><SetVisible name="inserthd_service_contract_detail" Visible="1"/><SetVisible name="modifyhd_service_contract_detail" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_hd_service_contract_line_id"><Ctrls>
+<Label Align="Right" Text="hd_service_contract_line_id" Name="lb_hd_service_contract_line_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hd_service_contract_line_id" Name="hd_service_contract_line_id" Size="170,20">
+	<DbDetails>
+<DbTable>xbs.hd_service_contract_line</DbTable>
+<Index>hd_service_contract_line_id</Index>
+<Data>hd_service_contract_line_id</Data>
+<Where/>
+<queryFormat/></DbDetails></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,29 @@
+<WndTap Name="po_requisition_print" Text="po_requisition_print" Ver="2">
+<xi:include href="lan\po_requisition_header.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBsd_so_print" id="po_requisition_header" Text="po_requisition_header" Size="100,100"><Ctrls>
+		<MagicCtrl Name="qr_itemname" link="tip:qr_itemname" images="layout/ucin,logo.png" Size="60,60" OnLoad="init">
+			<interface id="barencode" type="IBizInterface" codebase="barencode.dll" dir="layout/ucin/" classid="B65ABE3E-702E-4762-99FD-FB40546733B0" version="1.1"/>
+			<OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1><if cond="%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}"><DbDetails><queryFormat>select '%{qr_itemname[B65ABE3E-702E-4762-99FD-FB40546733B0.data]}' as images</queryFormat></DbDetails><submit namelist="DbDetails"/></if></OnEvent_B65ABE3E-702E-4762-99FD-FB40546733B0_1>
+		</MagicCtrl>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_requisition_header_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_requisition_line_Vvm.xml"/>
+<BR AutoHeight="1"/><GroupBox Name="GBDVpo_requisition_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="po_requisition_headerLst" ToolTip="ttp_po_requisition_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_requisition_header</DbTable>
+<Index>po_requisition_header_id</Index>
+<Data>po_requisition_number,po_requisition_type,supplier_id,supplier_site_id,description,ship_to_id,bill_to_id,requisition_status,created_by,creation_date,last_update_by,last_update_date,po_requisition_header_id,bu_org_id</Data>
+<Order>po_requisition_header_id</Order></DbDetails>
+<OnClick><assign name="po_requisition_number[po_requisition_number]" expr="%{po_requisition_headerLst[po_requisition_number]}" function="SetSel"/><assign name="po_requisition_type[option_line_id]" expr="%{po_requisition_headerLst[po_requisition_type]}" function="SetSel"/><assign name="supplier_id[supplier_id]" expr="%{po_requisition_headerLst[supplier_id]}" function="SetSel"/><assign name="supplier_site_id[supplier_site_id]" expr="%{po_requisition_headerLst[supplier_site_id]}" function="SetSel"/><assign name="ship_to_id[address_id]" expr="%{po_requisition_headerLst[ship_to_id]}" function="SetSel"/><assign name="bill_to_id[address_id]" expr="%{po_requisition_headerLst[bill_to_id]}" function="SetSel"/><assign name="requisition_status[option_line_id]" expr="%{po_requisition_headerLst[requisition_status]}" function="SetSel"/><assign name="bu_org_id[org_id]" expr="%{po_requisition_headerLst[bu_org_id]}" function="SetSel"/>
+<if cond="%{po_requisition_header_id}"><SetVisible name="insertpo_requisition_header" Visible="0"/><SetVisible name="modifypo_requisition_header" Visible="1"/></if>
+<magicdata filename="data/qr_poreq_number.png"><data>%{po_requisition_headerLst[po_requisition_number]}</data></magicdata>
+			<submit next="qr_itemname" namelist="magicdata" function="B65ABE3E-702E-4762-99FD-FB40546733B0"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+<Button Text="print" ToolTip="ttp_confirm" Name="print" Size="50,20">
+		<OnClick><submit next="GBsd_so_print" function="print"/></OnClick>
+		</Button><TAB/>
+</Ctrls></GroupBox>
+</Ctrls>
+</WndTap>

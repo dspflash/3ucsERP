@@ -1,0 +1,73 @@
+<GroupBox Name="GBDEDITgl_calendar"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_name"><Ctrls>
+<Label Align="Right" Text="name" Name="lb_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_name" Name="name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_option_line_code"><Ctrls>
+<Label Align="Right" Text="option_line_code" onload="init" Name="lb_option_line_code" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_option_line_code" onload="init" Name="option_line_code" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=154</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_calendar_type"><Ctrls>
+<Label Align="Right" Text="calendar_type" onload="init" Name="lb_calendar_type" Size="60,20" selectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_calendar_type" onload="init" Name="calendar_type" Size="170,100" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=153</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_c_year"><Ctrls>
+<Label Align="Right" Text="c_year" Name="lb_c_year" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_c_year" Items="2013~2032" Name="c_year" Size="170,100"><OnSelEndOk><assign name="name" expr="%{name_prefix}_%{c_year}"/><if cond="!%{adjustment_period_cb}"><assign name="from_date" expr="%{c_year}-%{c_number}-01"/><assign name="to_date" expr="%{from_date[lastDayOfMonth]}"/></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_c_quarter"><Ctrls>
+<Label Align="Right" Text="c_quarter" Name="lb_c_quarter" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_c_quarter" Items="1~4" Name="c_quarter" Size="170,100"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_c_number"><Ctrls>
+<Label Align="Right" Text="c_number" Name="lb_c_number" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_c_number" Items="1~12" Name="c_number" Size="170,100"><OnSelEndOk><assign name="name_prefix" function="SetSel" expr="%{c_number[SelectedIndex]}"/><assign name="name" expr="%{name_prefix}_%{c_year}"/><if cond="!%{adjustment_period_cb}"><assign name="from_date" expr="%{c_year}-%{c_number}-01"/><assign name="to_date" expr="%{from_date[lastDayOfMonth]}"/></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_from_date"><Ctrls>
+<Label Align="Right" Text="from_date" Name="lb_from_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_from_date" Name="from_date" Size="170,20" Format="yyyy-MM-dd"><OnChanged/></DateTime>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_to_date"><Ctrls>
+<Label Align="Right" Text="to_date" Name="lb_to_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_to_date" Name="to_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_name_prefix"><Ctrls>
+<Label Align="Right" Text="name_prefix" Name="lb_name_prefix" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_name_prefix" Items="JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC" Name="name_prefix" Size="170,100"><OnSelEndOk><assign name="name" expr="%{name_prefix}_%{c_year}"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_adjustment_period_cb"><Ctrls>
+<CheckBox Text="adjustment_period_cb" ToolTip="ttp_adjustment_period_cb" Name="adjustment_period_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_gl_calendar_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="gl_calendar_id" overlap="pre" Name="lb_gl_calendar_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_gl_calendar_id" overlap="pre" Name="gl_calendar_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBgl_calendar" expr="TABEDITgl_calendar"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

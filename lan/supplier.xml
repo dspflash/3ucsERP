@@ -1,0 +1,53 @@
+<Language name="supplier">
+<Lang name="vsupplier" value="供应商"/>
+<Lang name="supplier" value="供应商"/>
+<Lang name="supplier_user" value="供应商登录账号"/>
+<Lang name="TabEditsupplier" value="supplier Edit"/>
+<Lang name="TabViewsupplier" value="supplier View"/>
+<Lang name="supplier_name" value="名称"/>
+<Lang name="supplier_site_name" value="供应站"/>
+<Lang name="ttp_supplier_name" value=""/>
+<Lang name="supplier_number" value="代码"/>
+<Lang name="ttp_supplier_number" value=""/>
+<Lang name="tax_country" value="纳税国家"/>
+<Lang name="ttp_tax_country" value=""/>
+<Lang name="supplier_typev" value="供应商类型"/>
+<Lang name="supplier_type" value="类型ID"/>
+<Lang name="ttp_supplier_type" value=""/>
+<Lang name="supplier_categoryv" value="供应商分类"/>
+<Lang name="supplier_category" value="供应商分类"/>
+<Lang name="ttp_supplier_category" value=""/>
+<Lang name="currency" value="货币"/>
+<Lang name="ttp_currency" value=""/>
+<Lang name="tax_reg_no" value="税务登记号"/>
+<Lang name="ttp_tax_reg_no" value=""/>
+<Lang name="tax_payer_id" value="纳税码"/>
+<Lang name="ttp_tax_payer_id" value=""/>
+<Lang name="status" value="活动"/>
+<Lang name="ttp_status" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="supplier_id" value="供应商ID"/>
+<Lang name="ttp_supplier_id" value=""/>
+<Lang name="ttp_operationsupplier" value="操作"/>
+<Lang name="ttp_createsupplier" value="新增"/>
+<Lang name="ttp_modifysupplier" value="修改"/>
+<Lang name="ttp_resetsupplier" value="清除数据"/>
+<Lang name="ttp_deletesupplier" value="删除"/>
+<Lang name="ttp_refreshsupplier" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

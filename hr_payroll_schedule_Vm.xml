@@ -1,0 +1,19 @@
+﻿<WndTap Name="hr_payroll_schedule_v" Text="hr_payroll_schedule">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payroll_schedule_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hr_payroll_schedule.xml"/>
+<Ctrls><GroupBox  Name="GBhr_payroll_schedule" id="hr_payroll_schedule" Text="hr_payroll_schedule" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payroll_schedule_Vsm.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVhr_payroll_schedule" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.hr_payroll_schedule.GBDEDIThr_payroll_schedule" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resethr_payroll_schedule" Name="resethr_payroll_schedule" Size="50,20">	<OnClick>	<submit next="GBDEDIThr_payroll_schedule" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchhr_payroll_schedule" Name="gsearchhr_payroll_schedule" Size="50,20" visible="true">	<OnClick>	<search next="hr_payroll_schedule_vLst" listed="0" prefixwhere="0" inputed="1"><scheduled_date format="scheduled_date like '%%{opvalue}%'"/></search><submit next="GBDEDIThr_payroll_schedule" namelist="search" function="search"/>	</OnClick>	</Button><TAB/><Button Text="gsearch" ToolTip="ttp_gsearchhr_payroll_schedule" Name="gsearchhr_payroll_schedule" Size="50,20" visible="true">	<OnClick>	<search next="hr_payroll_schedule_vLst" listed="0" prefixwhere="0" inputed="1"><scheduled_date format="scheduled_date like '%%{opvalue}%'"/></search><submit next="GBDEDIThr_payroll_schedule" namelist="search" function="search"/>	</OnClick>	</Button><TAB/>
+<Button Text="GenSchedule" ToolTip="ttp_genschedule" Name="genschedule" Size="80,20">
+	<OnClick><DbDetails><queryFormat>CALL GenPayrollSch(%{hr_payroll_id},NOW(),DATE_ADD(NOW(),INTERVAL 2 YEAR),'%{user_id}');</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="hr_payroll_schedule_vLst"/></OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_payroll_schedule_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

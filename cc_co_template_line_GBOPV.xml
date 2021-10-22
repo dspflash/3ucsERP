@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVcc_co_template_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletecc_co_template_line" Name="deletecc_co_template_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.cc_co_template_line</DbTable>
+<Where>cc_co_template_line_id='%{cc_co_template_lineLst[cc_co_template_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchcc_co_template_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshcc_co_template_line" Name="searchcc_co_template_line" Size="50,20">
+			  <OnClick><submit next="cc_co_template_lineLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPcc_co_template_lineLst" OnClick="(cc_co_template_lineLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREcc_co_template_lineLst" OnClick="(cc_co_template_lineLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPcc_co_template_lineLst" OnClick="(cc_co_template_lineLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

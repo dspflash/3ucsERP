@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVitem_properties" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="item_properties_vLst" ToolTip="ttp_item_properties" Size="700,420" Heading="property_id,120;property_value,100;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;idx,55;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.item_properties i left join xbs.item_property i0 on i.property_id=i0.property_id</DbTable>
+<Index>idx</Index>
+<Data>i0.prop_display_name property_id,i.property_value,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.idx</Data>
+<Order>idx</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><submit next="$this.item_properties.GBDEDITitem_properties" function="reset"/><DbDetails><Where>item_id_m='%{item_id_m}' and org_id='%{org_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.item_properties.item_id_m"/></op>
+<op text="modify"><DbDetails><Where>item_id_m='%{item_id_m}' and org_id='%{org_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.item_properties.item_id_m"/><DbDetails><Where>idx='%{item_properties_vLst[idx]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.item_properties.item_propertiesLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

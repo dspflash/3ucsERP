@@ -1,0 +1,23 @@
+<GroupBox Name="GBDEDITorg"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_org"><Ctrls>
+<Label Align="Right" Text="org" Name="lb_org" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_org" Name="org" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_code"><Ctrls>
+<Label Align="Right" Text="code" Name="lb_code" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_code" Name="code" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_type"><Ctrls>
+<Label Align="Right" Text="type" onload="init" Name="lb_type" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_type" onload="init" Name="type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=77</Where>
+<queryFormat/></DbDetails><OnSelEndOk><DbDetails><Where>type=%{type[option_line_id]}-1</Where></DbDetails><submit next="parent_org_id" namelist="dbdetails"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

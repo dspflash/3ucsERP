@@ -1,0 +1,9 @@
+﻿<operator refresh="1" initial="0">
+<op text="addone" mustselected="0"><submit next="$this.contact.GBDEDITcontact" function="reset"/><assign name="$this.contact.reftbltp" expr="%{reftbltp}" function="setsel"/><assign name="$this.contact.refid" expr="%{refid}"/><assign name="$this.contact.frmwndctrl" expr="%{this}"/></op>
+<op text="modify"><DbDetails><Where>contactid='%{contact_vLst[contactid]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.contact.contactLst"/><assign name="$this.contact.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.contact</DbTable>
+<Where>contactid='%{contact_vLst[contactid]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

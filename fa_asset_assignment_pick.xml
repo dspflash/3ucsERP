@@ -1,0 +1,22 @@
+﻿<WndTap Name="fa_asset_assignment_pick" Text="fa_asset_assignment_Pick">
+<var name="searchtmpl"><hr_employee_id format="f.hr_employee_id='%{opvalue}'"/><address_id format="(f.address_id like '%%{opvalue}%')"/><expense_ac_id format="(f.expense_ac_id like '%%{opvalue}%')"/><description format="(f.description like '%%{opvalue}%')"/><units format="(f.units like '%%{opvalue}%')"/><created_by format="(f.created_by like '%%{opvalue}%')"/><creation_date format="(f.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(f.last_update_by like '%%{opvalue}%')"/><last_update_date format="(f.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><fa_asset_id format="(f.fa_asset_id like '%%{opvalue}%')"/><fa_asset_assignment_id format="(f.fa_asset_assignment_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\fa_asset_assignment.xml"/>
+<Ctrls><GroupBox  Name="GBfa_asset_assignment" id="fa_asset_assignment" Text="fa_asset_assignment" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fa_asset_assignment_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVfa_asset_assignment" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetfa_asset_assignment" Name="resetfa_asset_assignment" Size="50,20">	<OnClick>	<submit next="GBDEDITfa_asset_assignment" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchfa_asset_assignment" Name="gsearchfa_asset_assignment" Size="50,20">	<OnClick>	
+<search next="fa_asset_assignment_vLst" listed="0" prefixwhere="0" prefixand="1" inputed="1">%{searchtmpl}</search><submit next="GBDEDITfa_asset_assignment" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVfa_asset_assignment" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="fa_asset_assignment_vLst" ToolTip="ttp_fa_asset_assignment_v" Size="700,450" Heading="hr_employee_id,60;address_id,60;expense_ac_id,60;description,640;units,50;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;fa_asset_id,60;fa_asset_assignment_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>fa_asset_assignment_id</Index>
+<DbTable>xbs.fa_asset_assignment f left join xbs.hr_employee_v h on f.hr_employee_id=h.hr_employee_id</DbTable>
+<Data>h.name hr_employee_id,f.address_id,f.expense_ac_id,f.description,f.units,f.created_by,f.creation_date,f.last_update_by,f.last_update_date,f.fa_asset_id,f.fa_asset_assignment_id</Data>
+<Order>fa_asset_assignment_id</Order></DbDetails>
+<OnClick><if cond="%{fa_asset_assignment_vLst[fa_asset_assignment_id]}"><DbDetails><Where>fa_asset_assignment_id='%{fa_asset_assignment_vLst[fa_asset_assignment_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

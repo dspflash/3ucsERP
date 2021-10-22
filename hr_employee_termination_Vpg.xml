@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGhr_employee_termination"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_hr_employee_termination" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>hr_employee_termination_id</Index>
+<DbTable>xbs.hr_employee_termination h left join xbs.hr_employee_v h0 on h.employee_id=h0.hr_employee_id left join xbs.option_line o on h.status=o.option_line_id left join xbs.hr_employee_v h1 on h.accpeted_by_employee_id=h1.hr_employee_id</DbTable>
+<Data>count(*) records</Data>
+<Order>hr_employee_termination_id</Order><Queryformat>select %{data} from (select h.hr_employee_termination_id from %{dbtable} %{where} GROUP BY h.hr_employee_termination_id  ORDER BY h.hr_employee_termination_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_hr_employee_termination" expr="js(Math.ceil(%{records_hr_employee_termination}/%{hr_employee_termination_vLst[countsperpage]}))"/>
+<assign name="pgscb_hr_employee_termination" expr="js('1~'+Math.ceil(%{records_hr_employee_termination}/%{hr_employee_termination_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_hr_employee_termination" Size="60,20"><OnSelEndOK><submit next="hr_employee_termination_vLst" function="GetPage(%{pgscb_hr_employee_termination}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_hr_employee_termination" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_hr_employee_termination" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagehr_employee_termination_vLst" Size="50,20"><OnClick><submit next="hr_employee_termination_vLst" function="GetPage(%{pgcur_hr_employee_termination}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

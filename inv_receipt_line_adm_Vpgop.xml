@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVinv_receipt_line" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialinv_receipt_line" Size="50,20">
+<OnClick><submit next="inv_receipt_line_vLst" function="initial"/><submit next="records_inv_receipt_line" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPinv_receipt_line_vLst" Size="50,20">
+<OnClick><submit next="inv_receipt_line_vLst" function="GetPage(first)"/><submit next="records_inv_receipt_line"/></OnClick></Button>
+<Button Text="prepage" Name="PREinv_receipt_line_vLst" Size="50,20">
+<OnClick><submit next="inv_receipt_line_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPinv_receipt_line_vLst" Size="50,20">
+<OnClick><submit next="inv_receipt_line_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

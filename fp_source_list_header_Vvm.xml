@@ -1,0 +1,18 @@
+<GroupBox Name="GBDVfp_source_list_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="fp_source_list_header_vLst" ToolTip="ttp_fp_source_list_header" Size="700,420" OnLoad="init" Heading="source_list,125;org_id,120;description,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;fp_source_list_header_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.fp_source_list_header f left join xbs.org o on f.org_id=o.org_id</DbTable>
+<Index>fp_source_list_header_id</Index>
+<Data>f.source_list,o.org org_id,f.description,f.status,f.created_by,f.creation_date,f.last_update_by,f.last_update_date,f.fp_source_list_header_id</Data>
+<Order>fp_source_list_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>fp_source_list_header_id='%{fp_source_list_header_vLst[fp_source_list_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.fp_source_list_header.fp_source_list_headerLst"/></op>
+<!--op text="forecast"><assign name="$this.fp_forecast_header_v.srclstid" expr="%{fp_source_list_header_vLst[fp_source_list_header_id]}"/><assign name="$this.fp_forecast_header_v.org_id" expr="%{fp_source_list_header_vLst[org_id]}"/><DbDetails><Where>fp_source_list_header_id='%{fp_source_list_header_vLst[fp_source_list_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.fp_forecast_header_v.fp_forecast_header_vLst"/></op-->
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.fp_source_list_header</DbTable>
+<Where>fp_source_list_header_id='%{fp_source_list_header_vLst[fp_source_list_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

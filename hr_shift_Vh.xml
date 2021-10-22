@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_shift" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_shiftLst" ToolTip="ttp_hr_shift" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_shift_id</Index>
+<DbTable>xbs.hr_shift</DbTable>
+<Data>shift_name,shift_color,from_time,to_time,cross_day,status,org_id,created_by,creation_date,last_update_by,last_update_date,hr_shift_id</Data>
+<Order>hr_shift_id</Order></DbDetails>
+<OnClick><assign name="org_id[org_id]" expr="%{hr_shiftLst[org_id]}" function="SetSel"/>
+<if cond="%{hr_shift_id}"><SetVisible name="inserthr_shift" Visible="0"/><SetVisible name="modifyhr_shift" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVar_transaction_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="ar_transaction_lineLst" ToolTip="ttp_ar_transaction_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_line</DbTable>
+<Index>ar_transaction_line_id</Index>
+<Data>reference_key_value,line_type,item_id_m,line_number,inv_line_quantity,inv_unit_price,inv_line_price,gl_inv_line_price,line_description,status,reference_type,reference_key_name,created_by,creation_date,last_update_by,last_update_date,ar_transaction_line_id</Data>
+<Order>ar_transaction_line_id</Order></DbDetails>
+<OnClick><assign name="reference_key_value[refid]" expr="%{ar_transaction_lineLst[reference_key_value]}" function="SetSel"/><assign name="line_type[option_line_id]" expr="%{ar_transaction_lineLst[line_type]}" function="SetSel"/><assign name="item_id_m[item_id_m]" expr="%{ar_transaction_lineLst[item_id_m]}" function="SetSel"/><assign name="status[option_line_id]" expr="%{ar_transaction_lineLst[status]}" function="SetSel"/>
+<if cond="%{ar_transaction_line_id}"><SetVisible name="insertar_transaction_line" Visible="0"/><SetVisible name="modifyar_transaction_line" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" initial="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

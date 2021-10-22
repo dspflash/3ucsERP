@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEinv_item_revision" Size="100,100"><Ctrls>
+<Button sqlpkinsert="inv_item_revision_id" Text="create" ToolTip="ttp_createinv_item_revision" Name="insertinv_item_revision" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.inv_item_revision</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],revision_name,reason,eco_number,effective_start_date,effective_end_date,implementation_date,origination_date,description</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,org_id;'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertinv_item_revision[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="inv_item_revisionLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.inv_item_revision_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyinv_item_revision" Name="modifyinv_item_revision" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.inv_item_revision</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>item_id_m[item_id_m],revision_name,reason,eco_number,effective_start_date,effective_end_date,implementation_date,origination_date,description</Data>
+<DataEx>last_update_by,last_update_date,org_id;'%{user_id}',now(),'%{orgid}'</DataEx>
+<Where>inv_item_revision_id='%{inv_item_revision_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyinv_item_revision[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="inv_item_revisionLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.inv_item_revision_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetinv_item_revision" Name="resetinv_item_revision" Size="50,20">
+<OnClick>
+<submit next="GBDEDITinv_item_revision" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchinv_item_revision" Name="gsearchinv_item_revision" Size="50,20" visible="false">
+<OnClick>
+<search next="inv_item_revisionLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITinv_item_revision" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,6 @@
+<WndTap Name="inv_issue_line_v" Text="inv_issue_line">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inv_issue_line.xml"/>
+<Ctrls><GroupBox  Name="GBinv_issue_line" id="inv_issue_line" Text="inv_issue_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_issue_line_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

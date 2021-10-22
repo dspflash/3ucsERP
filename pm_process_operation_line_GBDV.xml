@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_process_operation_line"><Ctrls>
+<ListCtrl Heading="activity_code,120;description,640;activity_factror,50;sequence_dependency_cb,60;offset_interval,50;breakable_cb,60;material_scheduled_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_process_operation_line_id,60;" loadedclick="0" ToolTip="ttp_pm_process_operation_line" Name="pm_process_operation_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_process_operation_line</DbTable>
+<Index>pm_process_operation_line_id</Index>
+<Data>activity_code,description,activity_factror,sequence_dependency_cb,offset_interval,breakable_cb,material_scheduled_cb,created_by,creation_date,last_update_by,last_update_date,pm_process_operation_line_id</Data>
+<Order>pm_process_operation_line_id</Order></DbDetails>
+<OnClick><assign name="activity_code[option_line_code]" function="SetSel" expr="%{pm_process_operation_lineLst[activity_code]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

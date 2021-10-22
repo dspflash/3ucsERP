@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinventory"><Ctrls>
+<ListCtrl Heading="calendar,120;locator_control,250;item_rev_enabled_cb,60;item_master_cb,60;allow_negative_balance_cb,60;transfer_to_gl_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;inventory_id,60;" loadedclick="0" ToolTip="ttp_inventory" Name="inventoryLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inventory i left join xbs.option_line o on i.calendar=o.option_line_id</DbTable>
+<Index>inventory_id</Index>
+<Data>o.option_line_value calendar,i.locator_control,i.item_rev_enabled_cb,i.item_master_cb,i.allow_negative_balance_cb,i.transfer_to_gl_cb,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.inventory_id</Data>
+<Order>inventory_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

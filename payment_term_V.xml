@@ -1,0 +1,128 @@
+<WndTap Text="payment_term" Name="payment_term_V" Ver="2">
+	<WndTaps>
+<WndTap Text="payment_term" Name="payment_term" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\payment_term.xml"/>
+<Ctrls>
+<GroupBox Text="payment_term" Name="GBpayment_term" id="payment_term" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="payment_term_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="payment_term_GBOPE.xml"></xi:include>
+<ListCtrl loadedclick="1" ToolTip="ttp_payment_term" Name="payment_termLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.payment_term</DbTable>
+<Index>payment_term_id</Index>
+<Data>payment_term,description,prepayment_cb,status,created_by,creation_date,last_update_by,last_update_date,payment_term_id</Data>
+<Order>payment_term_id</Order>
+<Where>payment_term_id='%{payment_term_id}'</Where>
+</DbDetails>
+<OnClick>
+<if cond="%{payment_term_id}"><SetVisible name="insertpayment_term" Visible="0"/><SetVisible name="modifypayment_term" Visible="1"/></if></OnClick></ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertpayment_term" Visible="1"/><SetVisible name="modifypayment_term" Visible="0"/><SetVisible name="resetpayment_term" Visible="0"/></OnActivate>
+	</WndTap>
+<WndTap Text="payment_term_discount" Name="payment_term_discount" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\payment_term_discount.xml"/>
+<Ctrls>
+<GroupBox Text="payment_term_discount" Name="GBpayment_term_discount" id="payment_term_discount" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="payment_term_discount_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="payment_term_discount_GBOPE.xml"></xi:include>
+<ListCtrl loadedclick="1" ToolTip="ttp_payment_term_discount" Name="payment_term_discountLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.payment_term_discount</DbTable>
+<Index>payment_term_discount_id</Index>
+<Data>seq_number,discount_percentage,due_days,due_date_of_month,created_by,creation_date,last_update_by,last_update_date,payment_term_discount_id,payment_term_id</Data>
+<Order>payment_term_discount_id</Order>
+<Where>payment_term_discount_id='%{payment_term_discount_id}'</Where>
+</DbDetails>
+<OnClick>
+<if cond="%{payment_term_discount_id}"><SetVisible name="insertpayment_term_discount" Visible="0"/><SetVisible name="modifypayment_term_discount" Visible="1"/></if></OnClick></ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertpayment_term_discount" Visible="1"/><SetVisible name="modifypayment_term_discount" Visible="0"/><SetVisible name="resetpayment_term_discount" Visible="0"/></OnActivate>
+	</WndTap>
+<WndTap Text="payment_term_discounts" Name="payment_term_discounts" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\payment_term_discount.xml"/>
+<Ctrls>
+<GroupBox Text="payment_term_discounts" Name="GBpayment_term_discounts" id="payment_term_discounts" Size="100,100"><Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpayment_term_discount"><Ctrls>
+<ListCtrl Heading="seq_number,120;discount_percentage,120;due_days,55;due_date_of_month,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;payment_term_discount_id,60;payment_term_id,60;" loadedclick="1" ToolTip="ttp_payment_term_discount" Name="payment_term_discountLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.payment_term_discount</DbTable>
+<Index>payment_term_discount_id</Index>
+<Data>seq_number,discount_percentage,due_days,due_date_of_month,payment_term_discount_id</Data>
+<Where>payment_term_id='%{payment_term_id}'</Where>
+<Order>payment_term_discount_id</Order></DbDetails>
+<operator refresh="1">
+<op text="addone" mustselected="0"><submit next="$parent.payment_term_discount.GBDEDITpayment_term_discount" function="reset"/><assign name="$parent.payment_term_discount.payment_term_id" expr="%{payment_term_id}"/><submit next="$this.payment_term_discount.GBDEDITpayment_term_discount" function="reset"/></op>
+<op text="modify"><assign name="$parent.payment_term_discount.payment_term_id" expr="%{payment_term_id}"/><assign name="$parent.payment_term_discount.payment_term_discount_id" expr="%{payment_term_discountLst[payment_term_discount_id]}"/><submit next="$parent.payment_term_discount.payment_term_discountlst"/></op>
+<op text="delete"><DbDetails><queryFormat>delete from payment_term_discount where payment_term_discount_id='%{payment_term_discountLst[payment_term_discount_id]}'</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	</WndTap>
+<WndTap Text="payment_term_schedule" Name="payment_term_schedule" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\payment_term_schedule.xml"/>
+<Ctrls>
+<GroupBox Text="payment_term_schedule" Name="GBpayment_term_schedule" id="payment_term_schedule" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="payment_term_schedule_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="payment_term_schedule_GBOPE.xml"></xi:include>
+<ListCtrl loadedclick="1" ToolTip="ttp_payment_term_schedule" Name="payment_term_scheduleLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.payment_term_schedule</DbTable>
+<Index>payment_term_schedule_id</Index>
+<Data>seq_number,amount_percentage,due_days,due_date_of_month,payment_term_schedule_id</Data>
+<Order>payment_term_schedule_id</Order>
+<Where>payment_term_schedule_id='%{payment_term_schedule_id}'</Where>
+</DbDetails>
+<OnClick>
+<if cond="%{payment_term_schedule_id}"><SetVisible name="insertpayment_term_schedule" Visible="0"/><SetVisible name="modifypayment_term_schedule" Visible="1"/></if></OnClick></ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertpayment_term_schedule" Visible="1"/><SetVisible name="modifypayment_term_schedule" Visible="0"/><SetVisible name="resetpayment_term_schedule" Visible="0"/></OnActivate>
+	</WndTap>
+<WndTap Text="payment_term_schedules" Name="payment_term_schedules" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\payment_term_schedule.xml"/>
+<Ctrls>
+<GroupBox Text="payment_term_schedules" Name="GBpayment_term_schedules" id="payment_term_schedules" Size="100,100"><Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpayment_term_schedule"><Ctrls>
+<ListCtrl Heading="seq_number,120;amount_percentage,120;due_days,55;due_date_of_month,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;payment_term_schedule_id,60;payment_term_id,60;" loadedclick="1" ToolTip="ttp_payment_term_schedule" Name="payment_term_scheduleLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.payment_term_schedule</DbTable>
+<Index>payment_term_schedule_id</Index>
+<Data>seq_number,amount_percentage,due_days,due_date_of_month,created_by,creation_date,last_update_by,last_update_date,payment_term_schedule_id,payment_term_id</Data>
+<Where>payment_term_id='%{payment_term_id}'</Where>
+<Order>payment_term_schedule_id</Order></DbDetails>
+<operator refresh="1">
+<op text="addone" mustselected="0"><submit next="$parent.payment_term_schedule.GBDEDITpayment_term_schedule" function="reset"/><assign name="$parent.payment_term_schedule.payment_term_id" expr="%{payment_term_id}"/><submit next="$this.payment_term_schedule.GBDEDITpayment_term_schedule" function="reset"/></op>
+<op text="modify"><assign name="$parent.payment_term_schedule.payment_term_id" expr="%{payment_term_id}"/><assign name="$parent.payment_term_schedule.payment_term_schedule_id" expr="%{payment_term_scheduleLst[payment_term_schedule_id]}"/><submit next="$parent.payment_term_schedule.payment_term_schedulelst"/></op>
+<op text="delete"><DbDetails><queryFormat>delete from payment_term_schedule where payment_term_schedule_id='%{payment_term_scheduleLst[payment_term_schedule_id]}'</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	</WndTap>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\payment_term.xml"/>
+<Ctrls>
+<GroupBox Text="payment_term" Name="GBpayment_term_V" id="payment_term_V" Size="100,100"><Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpayment_term_V"><Ctrls>
+<ListCtrl Heading="payment_term,250;description,640;prepayment_cb,60;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;payment_term_id,60;" loadedclick="0" ToolTip="ttp_payment_term" onload="init" Name="payment_termLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.payment_term</DbTable>
+<Index>payment_term_id</Index>
+<Data>payment_term,description,prepayment_cb,status,created_by,creation_date,last_update_by,last_update_date,payment_term_id</Data>
+<Order>payment_term_id</Order>
+</DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="addone" mustselected="0"><submit next="$this.payment_term.GBDEDITpayment_term" function="reset"/></op>
+<op text="modify"><assign name="$parent.payment_term_V.payment_term.payment_term_id" expr="%{payment_termlst[payment_term_id]}"/><submit next="$parent.payment_term_V.payment_term.payment_termlst"/></op>
+<op text="payment_term_discounts"><assign name="$parent.payment_term_V.payment_term_discounts.payment_term_id" expr="%{payment_termlst[payment_term_id]}"/><submit next="$parent.payment_term_V.payment_term_discounts.payment_term_discountlst"/></op>
+<op text="payment_term_schedules"><assign name="$parent.payment_term_V.payment_term_schedules.payment_term_id" expr="%{payment_termlst[payment_term_id]}"/><submit next="$parent.payment_term_V.payment_term_schedules.payment_term_schedulelst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+	</Ctrls></WndTap>

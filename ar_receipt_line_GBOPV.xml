@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVar_receipt_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletear_receipt_line" Name="deletear_receipt_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_receipt_line</DbTable>
+<Where>ar_receipt_line_id='%{ar_receipt_lineLst[ar_receipt_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_receipt_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshar_receipt_line" Name="searchar_receipt_line" Size="50,20">
+			  <OnClick><submit next="ar_receipt_lineLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPar_receipt_lineLst" OnClick="(ar_receipt_lineLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREar_receipt_lineLst" OnClick="(ar_receipt_lineLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPar_receipt_lineLst" OnClick="(ar_receipt_lineLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

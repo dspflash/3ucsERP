@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_position"><Ctrls>
+<ListCtrl Heading="position_name,500;job_id,120;org_id,120;description,640;start_date,90;end_date,90;salary_basis,125;working_hours,100;wh_frequency,125;position_details,630;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_position_id,50;" loadedclick="0" ToolTip="ttp_hr_position" Name="hr_positionLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>hr_position_id</Index>
+<DbTable>xbs.hr_position h left join xbs.hr_job h0 on h.job_id=h0.hr_job_id left join xbs.org o on h.org_id=o.org_id</DbTable>
+<Data>h.position_name,h0.job_name job_id,o.org org_id,h.description,h.start_date,h.end_date,h.salary_basis,h.working_hours,h.wh_frequency,h.position_details,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_position_id</Data>
+<Order>hr_position_id</Order></DbDetails>
+<DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails><DbDetails><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>hr_position_id='%{hr_position_vLst[hr_position_id]}'</Where></DbDetails><submit next="$this.hr_position.hr_positionLst" namelist="DbDetails"/><assign name="$this.hr_position.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_position</DbTable>
+<Where>hr_position_id='%{hr_position_vLst[hr_position_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

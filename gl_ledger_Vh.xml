@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVgl_ledger" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="gl_ledgerLst" ToolTip="ttp_gl_ledger" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_ledger</DbTable>
+<Index>gl_ledger_id</Index>
+<Data>ledger,description,coa_id,coa_structure_id,calendar_option_line_code,currency_code,future_enabled_periods,currency_balancing_ac_id,retained_earnings_ac_id,suspense_ac_id,rev_enabled,rev_number,created_by,creation_date,last_update_by,last_update_date,gl_ledger_id</Data>
+<Order>gl_ledger_id</Order></DbDetails>
+<OnClick><assign name="coa_id[coa_id]" expr="%{gl_ledgerLst[coa_id]}" function="SetSel"/><assign name="coa_structure_id[option_line_id]" expr="%{gl_ledgerLst[coa_structure_id]}" function="SetSel"/><assign name="calendar_option_line_code[option_line_id]" expr="%{gl_ledgerLst[calendar_option_line_code]}" function="SetSel"/><assign name="currency_code[currency_id]" expr="%{gl_ledgerLst[currency_code]}" function="SetSel"/>
+<if cond="%{gl_ledger_id}"><SetVisible name="insertgl_ledger" Visible="0"/><SetVisible name="modifygl_ledger" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

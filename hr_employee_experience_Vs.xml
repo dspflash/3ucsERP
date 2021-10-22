@@ -1,0 +1,42 @@
+﻿<GroupBox Name="GBDEDIThr_employee_experience" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_organization_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_organization_name" Size="60,20" Text="organization_name" Align="Right"/>
+<TextBox Name="organization_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_organization_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_designation" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_designation" Size="60,20" Text="designation" Align="Right"/>
+<TextBox Name="designation" Size="170,20" Text="" Weight="170" ToolTip="ttp_designation"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_employee_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_employee_number" Size="60,20" Text="employee_number" Align="Right"/>
+<TextBox Name="employee_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_employee_number"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_department" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_department" Size="60,20" Text="department" Align="Right"/>
+<TextBox Name="department" Size="170,20" Text="" Weight="170" ToolTip="ttp_department"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_work_start_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_work_start_date" Size="60,20" Text="work_start_date" Align="Right"/>
+<DateTime Name="work_start_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_work_start_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_work_end_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_work_end_date" Size="60,20" Text="work_end_date" Align="Right"/>
+<DateTime Name="work_end_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  Text2="1 day" ToolTip="ttp_work_end_date"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_last_manager" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_last_manager" Size="60,20" Text="last_manager" Align="Right"/>
+<TextBox Name="last_manager" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_manager"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_drawn_salary" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_last_drawn_salary" Size="60,20" Text="last_drawn_salary" Align="Right"/>
+<TextBox Name="last_drawn_salary" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_drawn_salary"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_communication_details" Multiline="0" cols="xs12 sm12 md6 lg4"><Ctrls>
+<Label Name="lb_communication_details" Size="60,50" Text="communication_details" Align="Right"/>
+<TextBox Name="communication_details" Size="630,50" Text="" Weight="630" ToolTip="ttp_communication_details"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_project_details" Multiline="0" cols="xs12 sm12 md6 lg4"><Ctrls>
+<Label Name="lb_project_details" Size="60,50" Text="project_details" Align="Right"/>
+<TextBox Name="project_details" Size="630,50" Text="" Weight="630" ToolTip="ttp_project_details"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

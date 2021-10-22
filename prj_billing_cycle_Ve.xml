@@ -1,0 +1,13 @@
+<WndTap Name="prj_billing_cycle" Text="prj_billing_cycle" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\prj_billing_cycle.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBprj_billing_cycle" id="prj_billing_cycle" Text="prj_billing_cycle" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_billing_cycle_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_billing_cycle_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_billing_cycle_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertprj_billing_cycle" Visible="1"/><SetVisible name="modifyprj_billing_cycle" Visible="0"/></OnActivate>
+</WndTap>

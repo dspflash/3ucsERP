@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDEDIThr_job" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_job_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_job_code" Size="60,20" Text="job_code" Align="Right"/>
+<TextBox Name="job_code" Size="170,20" Text="" Weight="170" ToolTip="ttp_job_code"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_job_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_job_name" Size="60,20" Text="job_name" Align="Right"/>
+<TextBox Name="job_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_job_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right"/>
+<TextBox Name="status" Size="170,20" Text="" Weight="170" ToolTip="ttp_status"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

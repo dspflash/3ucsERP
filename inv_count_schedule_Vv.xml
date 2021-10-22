@@ -1,0 +1,11 @@
+﻿<GroupBox Name="GBDVinv_count_schedule" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="inv_count_schedule_vLst" ToolTip="ttp_inv_count_schedule" Size="700,420" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.inv_count_schedule i left join xbs.item i0 on i.item_id_m=i0.item_id_m left join xbs.subinventory s on i.subinventory_id=s.subinventory_id left join xbs.locator l on i.locator_id=l.locator_id left join xbs.inv_lot_number i1 on i.lot_number=i1.inv_lot_number_id</DbTable>
+<Index>inv_count_schedule_id</Index>
+<Data>i0.item_number item_id_m,i.schedule_date,s.subinventory subinventory_id,l.locator locator_id,i1.lot_number lot_number,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.status,i.inv_count_schedule_id,i.description</Data>
+<Order>inv_count_schedule_id</Order></DbDetails>
+<DbDetails><Data>i0.item_number,i.schedule_date,s.subinventory subinventory_id,l.locator locator_id,i1.lot_number lot_number,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.status,i.item_id_m,i.inv_count_schedule_id,i.description,i.abc_code</Data></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inv_count_schedule_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

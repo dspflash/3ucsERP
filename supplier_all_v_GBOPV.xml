@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVsupplier_all_v" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletesupplier_all_v" Name="deletesupplier_all_v" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.supplier_all_v</DbTable>
+<Where>supplier_number='%{supplier_all_vLst[supplier_number]}' and supplier_name='%{supplier_all_vLst[supplier_name]}' and supplier_site_number='%{supplier_all_vLst[supplier_site_number]}' and supplier_site_name='%{supplier_all_vLst[supplier_site_name]}' and tax_country='%{supplier_all_vLst[tax_country]}' and tax_reg_no='%{supplier_all_vLst[tax_reg_no]}' and ap_currency='%{supplier_all_vLst[ap_currency]}' and payment_term='%{supplier_all_vLst[payment_term]}' and status='%{supplier_all_vLst[status]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchsupplier_all_v" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshsupplier_all_v" Name="searchsupplier_all_v" Size="50,20">
+			  <OnClick><submit next="supplier_all_vLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPsupplier_all_vLst" OnClick="(supplier_all_vLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREsupplier_all_vLst" OnClick="(supplier_all_vLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPsupplier_all_vLst" OnClick="(supplier_all_vLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

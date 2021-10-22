@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVhd_svo_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hd_svo_header_vLst" ToolTip="ttp_hd_svo_header" Size="700,420" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hd_svo_header h left join xbs.payment_term p on h.payment_term_id=p.payment_term_id left join xbs.ar_customer a on h.ar_customer_id=a.ar_customer_id left join xbs.ar_customer_site a0 on h.ar_customer_site_id=a0.ar_customer_site_id left join xbs.currency c on h.doc_currency=c.currency_id left join xbs.address a1 on h.ship_to_id=a1.address_id left join xbs.address a2 on h.bill_to_id=a2.address_id left join xbs.currency c0 on h.currency=c0.currency_id left join xbs.gl_currency_conversion g on h.exchange_rate_type=g.gl_currency_conversion_id left join xbs.hd_service_type_header h0 on h.hd_service_type_header_id=h0.hd_service_type_header_id left join xbs.hd_service_request h1 on h.hd_service_request_id=h1.hd_service_request_id left join xbs.option_line o on h.escalation=o.option_line_id</DbTable>
+<Index>hd_svo_header_id</Index>
+<Data>h.order_number,p.payment_term payment_term_id,a.customer_name ar_customer_id,a0.customer_site_name ar_customer_site_id,c.title doc_currency,a1.address ship_to_id,a2.address bill_to_id,c0.title currency,h.exchange_rate,h.description,h.prepaid_status,g.currency_conversion_type exchange_rate_type,h.hd_svo_header_id,h0.service_type hd_service_type_header_id,h1.service_request_number hd_service_request_id,h.promise_date,h.service_team_id,h.service_person_employee_id,h.item_id_m,h.inv_serial_number_id,h.lot_number_id,h.quantity,h.estimate_amount,h.warrenty_status,o.option_line_value escalation,h.inventory_org_id,h.close_date,h.repair_status,h.estimate_status,h.primary_sd_so_header_id,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.bu_org_id</Data>
+<Order>hd_svo_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hd_svo_header_id='%{hd_svo_header_vLst[hd_svo_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hd_svo_header.hd_svo_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_svo_header</DbTable>
+<Where>hd_svo_header_id='%{hd_svo_header_vLst[hd_svo_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

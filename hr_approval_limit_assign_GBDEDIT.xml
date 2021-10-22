@@ -1,0 +1,74 @@
+<GroupBox Name="GBDEDIThr_approval_limit_assign"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_hr_approval_limit_header_id"><Ctrls>
+<Label Align="Right" Text="hr_approval_limit_header_id" onload="init" Name="lb_hr_approval_limit_header_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_hr_approval_limit_header_id" onload="init" Name="hr_approval_limit_header_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.hr_approval_limit_header</DbTable>
+<Index>hr_approval_limit_header_id</Index>
+<Data>limit_name,hr_approval_limit_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_job_id"><Ctrls>
+<Label Align="Right" Text="job_id" onload="init" Name="lb_job_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_job_id" onload="init" Name="job_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.hr_job</DbTable>
+<Index>hr_job_id</Index>
+<Data>job_name,hr_job_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSELENDOK><submit next="position_id"/></OnSELENDOK></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_position_id"><Ctrls>
+<Label Align="Right" Text="position_id" Name="lb_position_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_position_id" Name="position_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.hr_position</DbTable>
+<Index>hr_position_id</Index>
+<Data>position_name,hr_position_id</Data>
+<Where>job_id='%{job_id[hr_job_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_document_type"><Ctrls>
+<Label Align="Right" Text="document_type" onload="init" Name="lb_document_type" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_document_type" onload="init" Name="document_type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_code</Index>
+<Data>option_line_value,option_line_code</Data>
+<Where>option_header_id=202</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_start_date"><Ctrls>
+<Label Align="Right" Text="start_date" Name="lb_start_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_start_date" Name="start_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_end_date"><Ctrls>
+<Label Align="Right" Text="end_date" Name="lb_end_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_end_date" Name="end_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_hr_approval_limit_assign_id"><Ctrls>
+<Label Align="Right" Text="hr_approval_limit_assign_id" Name="lb_hr_approval_limit_assign_id" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_hr_approval_limit_assign_id" Name="hr_approval_limit_assign_id" Size="170,20"><OnEnChange><assign name="GBhr_approval_limit_assign" expr="TABEDIThr_approval_limit_assign"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_bu_org_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="bu_org_id" overlap="pre" Name="lb_bu_org_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_bu_org_id" overlap="pre" Name="bu_org_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_leave_balance" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_leave_balanceLst" ToolTip="ttp_hr_leave_balance" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_leave_balance_id</Index>
+<DbTable>xbs.hr_leave_balance</DbTable>
+<Data>leave_type,leave_per_year,total_available,total_used,created_by,creation_date,last_update_by,last_update_date,hr_leave_balance_id,employee_id</Data>
+<Order>hr_leave_balance_id</Order></DbDetails>
+<OnClick><assign name="leave_type[hr_leave_type_id]" expr="%{hr_leave_balanceLst[leave_type]}" function="SetSel"/>
+<if cond="%{hr_leave_balance_id}"><SetVisible name="inserthr_leave_balance" Visible="0"/><SetVisible name="modifyhr_leave_balance" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

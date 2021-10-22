@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVsd_delivery_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletesd_delivery_header" Name="deletesd_delivery_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_delivery_header</DbTable>
+<Where>sd_delivery_header_id='%{sd_delivery_headerLst[sd_delivery_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchsd_delivery_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshsd_delivery_header" Name="searchsd_delivery_header" Size="50,20">
+			  <OnClick><submit next="sd_delivery_headerLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPsd_delivery_headerLst" OnClick="(sd_delivery_headerLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREsd_delivery_headerLst" OnClick="(sd_delivery_headerLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPsd_delivery_headerLst" OnClick="(sd_delivery_headerLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

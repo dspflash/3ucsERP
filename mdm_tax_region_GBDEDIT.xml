@@ -1,0 +1,59 @@
+<GroupBox Name="GBDEDITmdm_tax_region"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_country_code"><Ctrls>
+<Label Align="Right" Text="country_code" onload="init" Name="lb_country_code" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_country_code" onload="init" Name="country_code" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.country</DbTable>
+<Index>country_id</Index>
+<Data>namecn,country_id</Data>
+<Where>namecn is not null</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_state"><Ctrls>
+<Label Align="Right" Text="state" Name="lb_state" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_state" Name="state" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_city"><Ctrls>
+<Label Align="Right" Text="city" Name="lb_city" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_city" Name="city" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_tax_region_name"><Ctrls>
+<Label Align="Right" Text="tax_region_name" Name="lb_tax_region_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_tax_region_name" Name="tax_region_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_tax_regime"><Ctrls>
+<Label Align="Right" Text="tax_regime" Name="lb_tax_regime" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_tax_regime" Name="tax_regime" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_tax_jurisdiction"><Ctrls>
+<Label Align="Right" Text="tax_jurisdiction" Name="lb_tax_jurisdiction" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_tax_jurisdiction" Name="tax_jurisdiction" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" Name="lb_status" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_status" Name="status" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_last_update_by"><Ctrls>
+<Label Align="Right" Text="last_update_by" Name="lb_last_update_by" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" Name="last_update_by" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_mdm_tax_region_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="mdm_tax_region_id" overlap="pre" Name="lb_mdm_tax_region_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_mdm_tax_region_id" overlap="pre" Name="mdm_tax_region_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBmdm_tax_region" expr="TABEDITmdm_tax_region"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

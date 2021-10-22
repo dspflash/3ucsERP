@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVinv_count_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteinv_count_header" Name="deleteinv_count_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_count_header</DbTable>
+<Where>inv_count_header_id='%{inv_count_headerLst[inv_count_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchinv_count_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshinv_count_header" Name="searchinv_count_header" Size="50,20">
+			  <OnClick><submit next="inv_count_headerLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPinv_count_headerLst" OnClick="(inv_count_headerLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREinv_count_headerLst" OnClick="(inv_count_headerLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPinv_count_headerLst" OnClick="(inv_count_headerLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVoption_header"><Ctrls>
+<ListCtrl Heading="module_code,120;option_type,250;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;option_header_id,60;" loadedclick="0" ToolTip="ttp_option_header" Name="option_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.option_header</DbTable>
+<Index>option_header_id</Index>
+<Data>module_code,option_type,description,created_by,creation_date,last_update_by,last_update_date,option_header_id</Data>
+<Order>option_header_id</Order></DbDetails>
+<OnClick><assign name="module_code[option_line_code]" function="SetSel" expr="%{option_headerLst[module_code]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,16 @@
+﻿<GroupBox Name="GBDEDIThr_department" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_department" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_department" Size="60,20" Text="department" Align="Right"/>
+<TextBox Name="department" Size="170,20" Text="" Weight="170" ToolTip="ttp_department"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_dept_parent" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_dept_parent" Size="60,20" Text="dept_parent" Align="Right"/>
+<ComboBox Name="dept_parent" Size="170,100" Text="" Weight="170"  ToolTip="ttp_dept_parent">
+	<DbDetails>
+<Index>dept_id</Index>
+<DbTable>xbs.hr_department</DbTable>
+<Data>department,dept_id</Data>
+<Where>org_id='%{org_id[org_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDEDITsys_process_flow_line" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_line_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_line_type" Size="60,20" Text="line_type" Align="Right"/>
+<ComboBox Name="line_type" Size="170,100" Text="" Weight="170" Items="Start|End|Activity|Decision" ToolTip="ttp_line_type"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_line_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_line_name" Size="60,20" Text="line_name" Align="Right"/>
+<TextBox Name="line_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_line_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

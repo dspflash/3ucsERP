@@ -1,0 +1,20 @@
+<GroupBox Name="GBDEDITcc_co_header"><Ctrls>
+<GroupBox Name="GB_change_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_change_number" Size="60,20" Text="change_number" Align="Right"/>
+<TextBox Name="change_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_change_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_change_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_change_type" Size="60,20" Text="change_type" Align="Right"/>
+<ComboBox Name="change_type" Size="170,100" Text="" Weight="170" Items="Engineering|Manufacturing" ToolTip="ttp_change_type"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right"/>
+<ComboBox Name="status" Size="170,100" Text="" Weight="170"  ToolTip="ttp_status" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=309</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,69 @@
+<GroupBox Name="GBDEDIThr_employee_v"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_name"><Ctrls>
+<Label Align="Right" Text="name" Name="lb_name" readonly="true" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_name" Name="name" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_username"><Ctrls>
+<Label Align="Right" Text="username" Name="lb_username" readonly="true" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_username" Name="username" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<CheckBox Text="status" ToolTip="ttp_status" Name="status" readonly="true" Size="230,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_org"><Ctrls>
+<Label Align="Right" Text="org" Name="lb_org" readonly="true" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_org" Name="org" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_department"><Ctrls>
+<Label Align="Right" Text="department" Name="lb_department" readonly="true" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_department" Name="department" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supervisor"><Ctrls>
+<Label Align="Right" Text="supervisor" Name="lb_supervisor" readonly="true" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_supervisor" Name="supervisor" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_email"><Ctrls>
+<Label Align="Right" Text="email" Name="lb_email" readonly="true" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_email" Name="email" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_phone"><Ctrls>
+<Label Align="Right" Text="phone" Name="lb_phone" readonly="true" Size="60,20"/>
+<TextBox Weight="150" ToolTip="ttp_phone" Name="phone" readonly="true" Size="150,20"/>
+<MagicCtrl ToolTip="DialToCall" Name="dialphone" OnClick="nis3ucs:%{phone}" images=" ,data/startcall_green.png" button="type:0" Size="20,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_emp_email"><Ctrls>
+<Label Align="Right" Text="emp_email" Name="lb_emp_email" readonly="true" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_emp_email" Name="emp_email" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_person_type" Visible="false"><Ctrls>
+<Label Align="Right" Text="person_type" overlap="pre" Name="lb_person_type" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_person_type" overlap="pre" Name="person_type" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_org_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="org_id" overlap="pre" Name="lb_org_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_org_id" overlap="pre" Name="org_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_job_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="job_id" overlap="pre" Name="lb_job_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_job_id" overlap="pre" Name="job_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_xerp_user_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="xerp_user_id" overlap="pre" Name="lb_xerp_user_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_xerp_user_id" overlap="pre" Name="xerp_user_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_department_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="department_id" overlap="pre" Name="lb_department_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_department_id" overlap="pre" Name="department_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_position_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="position_id" overlap="pre" Name="lb_position_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_position_id" overlap="pre" Name="position_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_supervisor_employee_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="supervisor_employee_id" overlap="pre" Name="lb_supervisor_employee_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_supervisor_employee_id" overlap="pre" Name="supervisor_employee_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_hr_employee_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="hr_employee_id" overlap="pre" Name="lb_hr_employee_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_hr_employee_id" overlap="pre" Name="hr_employee_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

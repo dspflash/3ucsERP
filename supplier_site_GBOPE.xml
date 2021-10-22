@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEsupplier_site" Size="100,100"><Ctrls>
+<Button sqlpkinsert="supplier_site_id" Text="create" ToolTip="ttp_createsupplier_site" Name="insertsupplier_site" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.supplier_site</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>supplier_id[supplier_id],supplier_site_number,supplier_site_name,supplier_site_type[option_line_id],payment_term_id[payment_term_id],pay_on[option_line_id],currency[currency_id],site_tax_country[country_id],site_tax_reg_no,ap_invoice_match_level[option_line_id],receipt_routing[option_line_id],qty_variance,receipt_days_variance,primary_cb,status</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="supplier_siteLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifysupplier_site" Name="modifysupplier_site" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.supplier_site</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>supplier_id[supplier_id],supplier_site_number,supplier_site_name,supplier_site_type[option_line_id],payment_term_id[payment_term_id],pay_on[option_line_id],currency[currency_id],site_tax_country[country_id],site_tax_reg_no,ap_invoice_match_level[option_line_id],receipt_routing[option_line_id],qty_variance,receipt_days_variance,primary_cb,status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>supplier_site_id='%{supplier_site_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="supplier_siteLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetsupplier_site" Name="resetsupplier_site" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsupplier_site" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchsupplier_site" Name="gsearchsupplier_site" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="supplier_siteLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITsupplier_site" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

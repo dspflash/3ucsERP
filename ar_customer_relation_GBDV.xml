@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVar_customer_relation"><Ctrls>
+<ListCtrl Heading="ar_customer_id,120;org_id,120;reciprocal_cb,60;bill_to_cb,60;ship_to_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ar_customer_relation_id,60;" loadedclick="0" ToolTip="ttp_ar_customer_relation" Name="ar_customer_relationLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_customer_relation</DbTable>
+<Index>ar_customer_relation_id</Index>
+<Data>ar_customer_id,org_id,reciprocal_cb,bill_to_cb,ship_to_cb,created_by,creation_date,last_update_by,last_update_date,ar_customer_relation_id</Data>
+<Order>ar_customer_relation_id</Order></DbDetails>
+<OnClick><assign name="ar_customer_id[ar_customer_id]" function="SetSel" expr="%{ar_customer_relationLst[ar_customer_id]}"/><assign name="org_id[org_id]" function="SetSel" expr="%{ar_customer_relationLst[org_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

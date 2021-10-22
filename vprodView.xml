@@ -1,0 +1,57 @@
+<WndTap Name="vProdView" Text="Product">
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vViewBom.xml" popup="1"/>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\Product.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="Product"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="Product_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="itemLst" listed="0" prefixand="1" inputed="1"><item_number format="item_number like '%%{opvalue}%'"/><item_description format="item_description like '%%{opvalue}%'"/>
+	<item_specification format="item_specification like '%%{opvalue}%'"/><item_name format="item_name like '%%{opvalue}%'"/>
+	<property_value format="item_id_m in (select item_id_m from item_properties where property_id=%{property_id[property_id]} and property_value like '%%{property_value}%')"/><property_id enabled="false"/></search><submit next="GBDEDITitem" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITitem" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" PageSize="500" ToolTip="ttp_item" onload="init" Name="itemLst" DataJoin="%{this(item_id_m,item_number,item_description,item_specification,item_name,category,status,uom_name)}%{prop}%{this(org)}" Size="700,420">
+			<MDX id="prop" datatype="string">
+			<DbDetails>
+				<DbTable>item_properties i left join item_property i0 on i.property_id=i0.property_id</DbTable> where 
+				<Index>h_id </Index>
+				<MDX>item_id_m,propname,propvalue</MDX>
+				<Data>item_id_m,i0.prop_display_name propname,i.property_value propvalue</Data>
+				<Order></Order>
+				<Where>and item_status!=278</Where>
+				<queryFormat>select %{data} from %{dbtable} where (i.org_id,item_id_m) IN (select * from(SELECT org_id,item_id_m from Product_v where find_in_set(org_id,getChildOrgs(%{orgid})) %{where} limit %{StartRow},%{PgSize}) as orgitem)</queryFormat> 
+			</DbDetails>
+			</MDX>
+	<DbDetails>
+<DbTable>xbs.Product_v p join org on p.org_id=org.org_id</DbTable>
+<Index>item_id_m</Index>
+<Data>`item_id_m`,`item_number`,`item_description`,`item_specification`,`item_name`,`category`,p.`status`,`uom_name`,`item_category`,`item_status`,org,p.`org_id`,`item_id`</Data>
+<Order>item_id_m</Order>
+<Where>and item_status!=278</Where>
+<queryFormat>select %{data} from %{dbtable} where find_in_set(p.org_id,getChildOrgs(%{orgid})) %{where} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="mrp_planordermenu">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/mrp_planordermenu.xml"/></rules>
+<inputs order_type="%{vPlannedOrderLst[order_type]}" orgtype="%{app.opinv}"/>
+<outputs menus="text" disabled="disabled"/></EvalTbl>
+<op text="viewbom"><submit next="$this.bom_line_view.bom_line_vLst" function="resetcontent"/><!--DbDetails><Where>FIND_IN_SET(bh.bom_header_id,(SELECT getChildBoms(%{itemLst[item_id_m]},'%{orgid}')))</Where></DbDetails--><assign name="$this.bom_line_view.item_id_m" expr="%{itemLst[item_id_m]}"/><assign name="$this.bom_line_view.org_id" expr="%{orgid}"/><submit next="$this.bom_line_view.bom_line_vLst"/><submit next="$this.bom_line_view.BomTree"/></op>
+<op text="Copyitem"><Copy columns="item_number"/><submit namelist="Copy" function="Copy"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

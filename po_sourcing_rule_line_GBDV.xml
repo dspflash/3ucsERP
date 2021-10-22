@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpo_sourcing_rule_line"><Ctrls>
+<ListCtrl Heading="sourcing_type,120;source_from_org_id,60;supplier_id,120;supplier_site_id,120;allocation,50;rank,25;transit_time,25;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;po_sourcing_rule_line_id,60;" loadedclick="0" ToolTip="ttp_po_sourcing_rule_line" Name="po_sourcing_rule_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_sourcing_rule_line</DbTable>
+<Index>po_sourcing_rule_line_id</Index>
+<Data>sourcing_type,source_from_org_id,supplier_id,supplier_site_id,allocation,rank,transit_time,created_by,creation_date,last_update_by,last_update_date,po_sourcing_rule_line_id</Data>
+<Order>po_sourcing_rule_line_id</Order></DbDetails>
+<OnClick><assign name="sourcing_type[option_line_code]" function="SetSel" expr="%{po_sourcing_rule_lineLst[sourcing_type]}"/><assign name="supplier_id[supplier_id]" function="SetSel" expr="%{po_sourcing_rule_lineLst[supplier_id]}"/><assign name="supplier_site_id[supplier_site_id]" function="SetSel" expr="%{po_sourcing_rule_lineLst[supplier_site_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

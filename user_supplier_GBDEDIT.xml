@@ -1,0 +1,51 @@
+<GroupBox Name="GBDEDITuser_supplier"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supplier_id"><Ctrls>
+<Label Align="Right" Text="supplier_id" onload="init" Name="lb_supplier_id" Size="60,20" SelectedIndex="0"/>
+<ComboBox Weight="170" ToolTip="ttp_supplier_id" onload="init" Name="supplier_id" Size="170,100" SelectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.supplier</DbTable>
+<Index>supplier_id</Index>
+<Data>supplier_name,supplier_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><submit next="supplier_site_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supplier_site_id"><Ctrls>
+<Label Align="Right" Text="supplier_site_id" Name="lb_supplier_site_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_supplier_site_id" Name="supplier_site_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.supplier_site</DbTable>
+<Index>supplier_site_name</Index>
+<Data>supplier_site_name,supplier_site_name</Data>
+<Where>supplier_id='%{supplier_id[supplier_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_user_id"><Ctrls>
+<Label Align="Right" Text="user_id" onload="init" Name="lb_user_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_user_id" onload="init" Name="user_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.xerp_user</DbTable>
+<Index>xerp_user_id</Index>
+<Data>username,xerp_user_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_user_supplier_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="user_supplier_id" overlap="pre" Name="lb_user_supplier_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_user_supplier_id" overlap="pre" Name="user_supplier_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBuser_supplier" expr="TABEDITuser_supplier"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

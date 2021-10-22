@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVadm_task_template_header"><Ctrls>
+<ListCtrl Heading="template_name,125;description,640;application,125;document_type,125;from_date,90;end_date,90;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;adm_task_template_header_id,60;" loadedclick="0" ToolTip="ttp_adm_task_template_header" Name="adm_task_template_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.adm_task_template_header</DbTable>
+<Index>adm_task_template_header_id</Index>
+<Data>template_name,description,application,document_type,from_date,end_date,created_by,creation_date,last_update_by,last_update_date,adm_task_template_header_id</Data>
+<Order>adm_task_template_header_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

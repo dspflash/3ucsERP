@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><WndTap Text="wip_wol_transaction" Name="wip_wol_transaction" Ver="2">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\wip_wol_transaction.xml"/>
+<Ctrls>
+<GroupBox Text="wip_wol_transaction" Name="GBwip_wol_transaction" id="wip_wol_transaction" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wol_transaction_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wol_transaction_GBOPE.xml"></xi:include>
+<TAB/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wol_transaction_GBOPV.xml"></xi:include>
+<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_wol_transaction_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>

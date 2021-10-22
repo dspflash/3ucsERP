@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVsd_so_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="sd_so_lineLst" ToolTip="ttp_sd_so_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_so_line</DbTable>
+<Index>sd_so_line_id</Index>
+<Data>line_type,shipping_org_id,line_number,destination_type,item_id_m,price_date,line_quantity,line_price,gl_line_price,tax_code_id,tax_amount,gl_tax_amount,requested_date,line_description,line_status,created_by,creation_date,last_update_by,last_update_date,sd_so_line_id</Data>
+<Order>sd_so_line_id</Order></DbDetails>
+<OnClick><assign name="line_type[option_line_id]" expr="%{sd_so_lineLst[line_type]}" function="SetSel"/><assign name="shipping_org_id[org_id]" expr="%{sd_so_lineLst[shipping_org_id]}" function="SetSel"/><assign name="destination_type[option_line_id]" expr="%{sd_so_lineLst[destination_type]}" function="SetSel"/><assign name="item_id_m[item_id_m]" expr="%{sd_so_lineLst[item_id_m]}" function="SetSel"/><assign name="tax_code_id[mdm_tax_code_id]" expr="%{sd_so_lineLst[tax_code_id]}" function="SetSel"/><assign name="line_status[option_line_id]" expr="%{sd_so_lineLst[line_status]}" function="SetSel"/>
+<if cond="%{sd_so_line_id}"><SetVisible name="insertsd_so_line" Visible="0"/><SetVisible name="modifysd_so_line" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

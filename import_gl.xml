@@ -1,0 +1,19 @@
+﻿<WndTap Name="gl_import" Text="总账导入">
+<var name="importdir" expr="layout\ucin\xbs\"/>
+<Ctrls><GroupBox Name="gl_import" Text="总账导入"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="import_base.xml"/>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12" Multiline="0" Name="GB_import"><Ctrls>
+	<TAB/><Button Name="import" Text="gl_import" Clickneedconfirm="true" Size="80,24" ToolTip="总账初始余额导入，有记账后应禁用，（第1列为行号）科目为第2列，期初余额DR/CR分别为第3列、第4列">
+	<OnClick><import button="import">sql:INSERT INTO gl_balance (ledger_id,period_id,coa_combination_id,balance_type,begin_balance_dr,begin_balance_cr,created_by,creation_date,last_update_by,last_update_date) VALUES(%{gl_ledger_id},(SELECT gl_period_id FROM gl_period WHERE ledger_id=%{gl_ledger_id} and status='OPEN' LIMIT 0,1),(SELECT gl_account_id FROM gl_account WHERE account_type_code='%1'),428,%2,%3,%{user_id},NOW(),%{user_id},NOW());</import><submit next="dataList" namelist="import" function="import"/></OnClick></Button>
+</Ctrls></GroupBox>
+<BR/><GroupBox cols="xs12" Multiline="0" Name="GB_tbname"><Ctrls>
+	<ListCtrl Name="dataList" PageSize="1000" Size="700,500" OnLoad="">
+		<DbDetails>
+			<DbHost>local</DbHost>
+			<DbDatabase>%{importdir}%{TB_filename}</DbDatabase>
+			<Data>*</Data>
+		</DbDetails>
+		</ListCtrl>
+</Ctrls></GroupBox>
+	</Ctrls></GroupBox></Ctrls></WndTap>

@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVgl_period" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="gl_periodLst" ToolTip="ttp_gl_period" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_period</DbTable>
+<Index>gl_period_id</Index>
+<Data>period_name,ledger_id,status,gl_calendar_id,created_by,creation_date,last_update_by,last_update_date,gl_period_id</Data>
+<Order>gl_period_id</Order></DbDetails>
+<OnClick><assign name="ledger_id[gl_ledger_id]" expr="%{gl_periodLst[ledger_id]}" function="SetSel"/><assign name="gl_calendar_id[gl_calendar_id]" expr="%{gl_periodLst[gl_calendar_id]}" function="SetSel"/>
+<if cond="%{gl_period_id}"><SetVisible name="insertgl_period" Visible="0"/><SetVisible name="modifygl_period" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

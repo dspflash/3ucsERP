@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVsd_quote_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletesd_quote_line" Name="deletesd_quote_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_quote_line</DbTable>
+<Where>sd_quote_line_id='%{sd_quote_lineLst[sd_quote_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchsd_quote_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshsd_quote_line" Name="searchsd_quote_line" Size="50,20">
+			  <OnClick><submit next="sd_quote_lineLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPsd_quote_lineLst" OnClick="(sd_quote_lineLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREsd_quote_lineLst" OnClick="(sd_quote_lineLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPsd_quote_lineLst" OnClick="(sd_quote_lineLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

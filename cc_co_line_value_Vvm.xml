@@ -1,0 +1,21 @@
+<GroupBox Name="GBDVcc_co_line_value" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="cc_co_line_value_vLst" ToolTip="ttp_cc_co_line_value" Size="700,420" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.cc_co_line_value_v</DbTable>
+<Index>cc_co_line_value_id</Index>
+<Data>*</Data>
+<Order>cc_co_line_value_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{cc_co_line_id}"><alert expr="请先添加或选择已有项目！"/><else/><assign name="$parent.cc_co_line_value.cc_co_line_id" expr="%{cc_co_line_id}"/><DbDetails><Where>cc_co_template_header_id=(SELECT template_id FROM cc_co_header coh JOIN cc_co_line col ON coh.cc_co_header_id=col.cc_co_header_id WHERE cc_co_line_id=%{cc_co_line_id})</Where></DbDetails><submit namelist="DbDetails" next="$parent.cc_co_line_value.cc_co_template_line_id"/><if cond="%{reftbltp}=='BOM_line'"><DbDetails><queryFormat>SELECT item_number,bom_line_id id FROM bom_line bl JOIN bom_header bh ON bl.bom_header_id=bh.bom_header_id JOIN item i ON bl.component_item_id_m=i.item_id_m AND bh.org_id=i.org_id WHERE bh.item_id_m=%{item_id_m[item_id_m]} AND bh.org_id='%{orgid}'</queryFormat></DbDetails><submit namelist="DbDetails" next="$parent.cc_co_line_value.ref_id"/><elseif cond="%{reftbltp}=='BOM_routing_line'"/><DbDetails><queryFormat>SELECT standard_operation,bom_routing_line_id id FROM bom_routing_line brl JOIN bom_routing_header brh ON brl.bom_routing_header_id=brh.bom_routing_header_id JOIN bom_standard_operation bso ON bso.bom_standard_operation_id=brl.standard_operation_id  WHERE brh.item_id_m=%{item_id_m[item_id_m]} AND brh.org_id='%{orgid}'</queryFormat></DbDetails><submit namelist="DbDetails" next="$parent.cc_co_line_value.ref_id"/><else/><submit function="resetcontent" next="$parent.cc_co_line_value.ref_id"/></if>
+</if></op>
+<op text="modify"><assign name="$parent.cc_co_line_value.cc_co_line_id" expr="%{cc_co_line_id}"/><DbDetails><Where>cc_co_template_header_id=(SELECT template_id FROM cc_co_header coh JOIN cc_co_line col ON coh.cc_co_header_id=col.cc_co_header_id WHERE cc_co_line_id=%{cc_co_line_id})</Where></DbDetails><submit namelist="DbDetails" next="$parent.cc_co_line_value.cc_co_template_line_id"/>
+<if cond="%{reftbltp}=='BOM_line'"><DbDetails><queryFormat>SELECT item_number,bom_line_id id FROM bom_line bl JOIN bom_header bh ON bl.bom_header_id=bh.bom_header_id JOIN item i ON bl.component_item_id_m=i.item_id_m AND bh.org_id=i.org_id WHERE bh.item_id_m=%{item_id_m[item_id_m]} AND bh.org_id='%{orgid}'</queryFormat></DbDetails><submit namelist="DbDetails" next="$parent.cc_co_line_value.ref_id"/><elseif cond="%{reftbltp}=='BOM_routing_line'"/><DbDetails><queryFormat>SELECT standard_operation,bom_routing_line_id id FROM bom_routing_line brl JOIN bom_routing_header brh ON brl.bom_routing_header_id=brh.bom_routing_header_id JOIN bom_standard_operation bso ON bso.bom_standard_operation_id=brl.standard_operation_id  WHERE brh.item_id_m=%{item_id_m[item_id_m]} AND brh.org_id='%{orgid}'</queryFormat></DbDetails><submit namelist="DbDetails" next="$parent.cc_co_line_value.ref_id"/><else/><submit function="resetcontent" next="$parent.cc_co_line_value.ref_id"/></if>
+<DbDetails><Where>cc_co_line_value_id='%{cc_co_line_value_vLst[cc_co_line_value_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.cc_co_line_value.cc_co_line_valueLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.cc_co_line_value</DbTable>
+<Where>cc_co_line_value_id='%{cc_co_line_value_vLst[cc_co_line_value_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

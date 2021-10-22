@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVhd_service_type_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletehd_service_type_line" Name="deletehd_service_type_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_service_type_line</DbTable>
+<Where>hd_service_type_line_id='%{hd_service_type_lineLst[hd_service_type_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchhd_service_type_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshhd_service_type_line" Name="searchhd_service_type_line" Size="50,20">
+			  <OnClick><submit next="hd_service_type_lineLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPhd_service_type_lineLst" OnClick="(hd_service_type_lineLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREhd_service_type_lineLst" OnClick="(hd_service_type_lineLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPhd_service_type_lineLst" OnClick="(hd_service_type_lineLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

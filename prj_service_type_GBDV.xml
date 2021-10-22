@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_service_type"><Ctrls>
+<ListCtrl Heading="service_type,125;description,240;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_service_type_id,60;" loadedclick="0" ToolTip="ttp_prj_service_type" Name="prj_service_typeLst" Size="300,180">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_service_type</DbTable>
+<Index>prj_service_type_id</Index>
+<Data>service_type,description,created_by,creation_date,last_update_by,last_update_date,prj_service_type_id</Data>
+<Order>prj_service_type_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVmdm_bank_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletemdm_bank_header" Name="deletemdm_bank_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_bank_header</DbTable>
+<Where>mdm_bank_header_id='%{mdm_bank_headerLst[mdm_bank_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchmdm_bank_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshmdm_bank_header" Name="searchmdm_bank_header" Size="50,20">
+			  <OnClick><submit next="mdm_bank_headerLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPmdm_bank_headerLst" OnClick="(mdm_bank_headerLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREmdm_bank_headerLst" OnClick="(mdm_bank_headerLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPmdm_bank_headerLst" OnClick="(mdm_bank_headerLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

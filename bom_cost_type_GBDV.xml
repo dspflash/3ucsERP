@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbom_cost_type"><Ctrls>
+<ListCtrl Heading="cost_type_code,125;cost_type,250;cost_method,120;description,640;status,60;multi_org_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;bom_cost_type_id,60;" loadedclick="0" ToolTip="ttp_bom_cost_type" Name="bom_cost_typeLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>bom_cost_type_id</Index>
+<DbTable>xbs.bom_cost_type b left join xbs.option_line o on b.cost_method=o.option_line_id</DbTable>
+<Data>b.cost_type_code,b.cost_type,o.option_line_value cost_method,b.description,b.status,b.multi_org_cb,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.org_id,b.bom_cost_type_id</Data>
+<Order>bom_cost_type_id</Order></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>bom_cost_type_id='%{bom_cost_type_vLst[bom_cost_type_id]}'</Where></DbDetails><submit next="$this.bom_cost_type.bom_cost_typeLst" namelist="DbDetails"/><assign name="$this.bom_cost_type.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_cost_type</DbTable>
+<Where>bom_cost_type_id='%{bom_cost_type_vLst[bom_cost_type_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

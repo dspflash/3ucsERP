@@ -1,0 +1,13 @@
+<WndTap Name="mdm_tax_code" Text="mdm_tax_code" Ver="2">
+<var name="refreshAfterEdit" expr="0"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\mdm_tax_code.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBmdm_tax_code" id="mdm_tax_code" Text="mdm_tax_code" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_tax_code_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_tax_code_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_tax_code_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertmdm_tax_code" Visible="1"/><SetVisible name="modifymdm_tax_code" Visible="0"/></OnActivate>
+</WndTap>

@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDEDITiot_dev" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_dev_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_dev_id" Size="60,20" Text="dev_id" Align="Right"/>
+<TextBox Name="dev_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_dev_id"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_dev_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_dev_name" Size="60,20" Text="dev_name" Align="Right"/>
+<TextBox Name="dev_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_dev_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_dev_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_dev_type" Size="60,20" Text="dev_type" Align="Right"/>
+<TextBox Name="dev_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_dev_type"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_actived" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="actived" Size="230,20" Text="actived" ToolTip="ttp_actived"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

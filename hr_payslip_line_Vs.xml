@@ -1,0 +1,16 @@
+﻿<GroupBox Name="GBDEDIThr_payslip_line" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_hr_compensation_element_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_hr_compensation_element_id" Size="60,20" Text="hr_compensation_element_id" Align="Right"  onload="init"/>
+<ComboBox Name="hr_compensation_element_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_hr_compensation_element_id"  onload="init">
+	<DbDetails>
+<Index>hr_compensation_element_id</Index>
+<DbTable>xbs.hr_compensation_element</DbTable>
+<Data>element_name,hr_compensation_element_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_element_value" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_element_value" Size="60,20" Text="element_value" Align="Right"/>
+<TextBox Name="element_value" Size="170,20" Text="" Weight="170" ToolTip="ttp_element_value"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,54 @@
+<GroupBox Name="GBDEDITattachment"><Ctrls>
+<GroupBox Name="GB_subject" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_subject" Size="60,20" Text="subject" Align="Right"/>
+<TextBox Name="subject" Size="170,20" Text="" Weight="170" ToolTip="ttp_subject"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_filename" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_filename" Size="60,20" Text="filename" Align="Right"/>
+<TextBox Name="filename" Size="170,20" Text="" Weight="170" ToolTip="ttp_filename"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_attachment" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_attachment" Size="60,20" Text="attachment" Align="Right"/>
+<TextBox Name="attachment" Size="170,20" Text="" Weight="170" ToolTip="ttp_attachment"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_reftbl" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_reftbl" Size="60,20" Text="reftbl" Align="Right"/>
+<TextBox Name="reftbl" Size="170,20" Text="" Weight="170" ToolTip="ttp_reftbl"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_refid" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_refid" Size="60,20" Text="refid" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="refid" Size="170,20" Text="" Weight="170" ToolTip="ttp_refid" Visible="false" overlap="pre"><OnEnChange><submit next="addressLst"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_type" Size="60,20" Text="type" Align="Right"/>
+<TextBox Name="type" Size="170,20" Text="" Weight="170" ToolTip="ttp_type"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_typestr" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_typestr" Size="60,20" Text="typestr" Align="Right"/>
+<TextBox Name="typestr" Size="170,20" Text="" Weight="170" ToolTip="ttp_typestr"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,50" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,50" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_attachment_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_attachment_id" Size="60,20" Text="attachment_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="attachment_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_attachment_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBattachment" expr="TABEDITattachment"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

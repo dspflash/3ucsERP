@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVprj_service_type" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="prj_service_typeLst" ToolTip="ttp_prj_service_type" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_service_type</DbTable>
+<Index>prj_service_type_id</Index>
+<Data>service_type,description,created_by,creation_date,last_update_by,last_update_date,prj_service_type_id</Data>
+<Order>prj_service_type_id</Order></DbDetails>
+<OnClick>
+<if cond="%{prj_service_type_id}"><SetVisible name="insertprj_service_type" Visible="0"/><SetVisible name="modifyprj_service_type" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

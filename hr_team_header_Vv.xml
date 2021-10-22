@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVhr_team_header" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_team_header_vLst" ToolTip="ttp_hr_team_header" Size="700,420" OnLoad="init" Heading="team_name,640;team_lead_employee_id,120;type,120;region,120;email,500;status,60;start_date,90;end_date,90;objective,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_team_header_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hr_team_header h left join xbs.hr_employee_v h0 on h.team_lead_employee_id=h0.hr_employee_id left join xbs.option_line o on h.type=o.option_line_code left join xbs.option_line o0 on h.region=o0.option_line_code</DbTable>
+<Index>hr_team_header_id</Index>
+<Data>h.team_name,h0.name team_lead_employee_id,o.option_line_value type,o0.option_line_value region,h.email,h.status,h.start_date,h.end_date,h.objective,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_team_header_id</Data>
+<Order>hr_team_header_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hr_team_header_id='%{hr_team_header_vLst[hr_team_header_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_team_header.hr_team_headerLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_team_header</DbTable>
+<Where>hr_team_header_id='%{hr_team_header_vLst[hr_team_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

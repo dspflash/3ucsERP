@@ -1,0 +1,30 @@
+﻿<GroupBox Name="GBDEDIThr_leave_entitlement_line" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_leave_per_period" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_leave_per_period" Size="60,20" Text="leave_per_period" Align="Right"/>
+<TextBox Name="leave_per_period" Size="170,20" Text="" Weight="170" ToolTip="ttp_leave_per_period"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_leave_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_leave_type" Size="60,20" Text="leave_type" Align="Right"  onload="init"/>
+<ComboBox Name="leave_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_leave_type"  onload="init">
+	<DbDetails>
+<Index>hr_leave_type_id</Index>
+<DbTable>xbs.hr_leave_type</DbTable>
+<Data>leave_type,hr_leave_type_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_period" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_period" Size="60,20" Text="period" Align="Right"  onload="init"/>
+<ComboBox Name="period" Size="170,100" Text="" Weight="170"  ToolTip="ttp_period"  onload="init">
+	<DbDetails>
+<Index>option_line_value</Index>
+<DbTable>xbs.option_line</DbTable>
+<Data>option_line_value</Data>
+<Where>option_header_id=200</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_default_no_of_period" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_default_no_of_period" Size="60,20" Text="default_no_of_period" Align="Right"/>
+<TextBox Name="default_no_of_period" Size="170,20" Text="" Weight="170" ToolTip="ttp_default_no_of_period"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

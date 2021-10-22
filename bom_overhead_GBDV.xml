@@ -1,0 +1,11 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbom_overhead"><Ctrls>
+<ListCtrl Heading="overhead,250;description,640;status,60;overhead_type,120;default_basis,120;absorption_ac_id,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;bom_overhead_id,60;" loadedclick="0" ToolTip="ttp_bom_overhead" Name="bom_overheadLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>bom_overhead_id</Index>
+<DbTable>xbs.bom_overhead b left join xbs.option_line o on b.overhead_type=o.option_line_id left join xbs.option_line o0 on b.default_basis=o0.option_line_id LEFT JOIN bom_oh_rate_assignment ohr ON ohr.bom_overhead_id=b.bom_overhead_id LEFT JOIN bom_cost_type bct ON ohr.bom_cost_type=bct.bom_cost_type_id</DbTable>
+<Data>b.overhead,b.description,b.status,o.option_line_value overhead_type,o0.option_line_value default_basis,b.absorption_ac_id,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.org_id,b.bom_overhead_id</Data>
+<Order>bom_overhead_id</Order></DbDetails>
+<DbDetails><Data>b.overhead,o.option_line_value overhead_type,o0.option_line_value default_basis,ohr.rate,bct.cost_type,b.description,b.status, b.absorption_ac_id,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.org_id,b.bom_overhead_id,ohr.bom_oh_rate_assignment_id</Data><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_overhead_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVinv_issue_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="inv_issue_line_vLst" ToolTip="ttp_inv_issue_line" Size="700,420" OnLoad="init" Heading="reference_key_value,120;transaction_quantity,75;item_id_m,120;subinventory_id,120;locator_id,120;lot_number,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;inv_issue_line_id,60;status,125;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.inv_issue_line i left join xbs.item i0 on i.item_id_m=i0.item_id_m left join xbs.subinventory s on i.subinventory_id=s.subinventory_id left join xbs.locator l on i.locator_id=l.locator_id left join xbs.inv_lot_number i1 on i.lot_number=i1.inv_lot_number_id</DbTable>
+<Index>inv_issue_line_id</Index>
+<Data>i.reference_key_value,i.transaction_quantity,i0.item_number item_id_m,s.subinventory subinventory_id,l.locator locator_id,i1.lot_number lot_number,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.inv_issue_line_id,i.status</Data>
+<Order>inv_issue_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>inv_issue_line_id='%{inv_issue_line_vLst[inv_issue_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.inv_issue_line.inv_issue_lineLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVhr_approval_limit_assign" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_approval_limit_assign_vLst" ToolTip="ttp_hr_approval_limit_assign" Size="700,420" OnLoad="init" Heading="hr_approval_limit_header_id,120;job_id,120;position_id,120;document_type,120;start_date,90;end_date,90;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_approval_limit_assign_id,60;bu_org_id,60;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hr_approval_limit_assign h left join xbs.hr_approval_limit_header h0 on h.hr_approval_limit_header_id=h0.hr_approval_limit_header_id left join xbs.hr_job h1 on h.job_id=h1.hr_job_id left join xbs.hr_position h2 on h.position_id=h2.hr_position_id left join xbs.option_line o on h.document_type=o.option_line_code</DbTable>
+<Index>hr_approval_limit_assign_id</Index>
+<Data>h0.limit_name hr_approval_limit_header_id,h1.job_name job_id,h2.position_name position_id,o.option_line_value document_type,h.start_date,h.end_date,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_approval_limit_assign_id,h.bu_org_id</Data>
+<Order>hr_approval_limit_assign_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>hr_approval_limit_assign_id='%{hr_approval_limit_assign_vLst[hr_approval_limit_assign_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_approval_limit_assign.hr_approval_limit_assignLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_approval_limit_assign</DbTable>
+<Where>hr_approval_limit_assign_id='%{hr_approval_limit_assign_vLst[hr_approval_limit_assign_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

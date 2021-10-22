@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_project_type_billing"><Ctrls>
+<ListCtrl Heading="prj_billing_extn_id,60;currency,75;amount,75;percentage,30;active_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_project_type_billing_id,60;" loadedclick="0" ToolTip="ttp_prj_project_type_billing" Name="prj_project_type_billingLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>prj_project_type_billing</DbTable>
+<Index>prj_project_type_billing_id</Index>
+<Data>prj_billing_extn_id,currency,amount,percentage,active_cb,created_by,creation_date,last_update_by,last_update_date,prj_project_type_billing_id</Data>
+<Order>prj_project_type_billing_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

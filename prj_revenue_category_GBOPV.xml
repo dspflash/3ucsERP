@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVprj_revenue_category" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteprj_revenue_category" Name="deleteprj_revenue_category" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_revenue_category</DbTable>
+<Where>prj_revenue_category_id='%{prj_revenue_categoryLst[prj_revenue_category_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchprj_revenue_category" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshprj_revenue_category" Name="searchprj_revenue_category" Size="50,20">
+			  <OnClick><submit next="prj_revenue_categoryLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPprj_revenue_categoryLst" OnClick="(prj_revenue_categoryLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREprj_revenue_categoryLst" OnClick="(prj_revenue_categoryLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPprj_revenue_categoryLst" OnClick="(prj_revenue_categoryLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

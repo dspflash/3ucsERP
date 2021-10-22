@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEhd_svo_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hd_svo_header_id" Text="create" ToolTip="ttp_createhd_svo_header" Name="inserthd_svo_header" Size="50,20">
+	<OnClick>
+	<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hd_svo_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>order_number,payment_term_id[payment_term_id],ar_customer_id[ar_customer_id],ar_customer_site_id[ar_customer_site_id],doc_currency[currency_id],ship_to_id[address_id],bill_to_id[address_id],currency[currency_id],exchange_rate,description,exchange_rate_type[gl_currency_conversion_id],hd_service_type_header_id[hd_service_type_header_id],hd_service_request_id[hd_service_request_id],promise_date,service_team_id,service_person_employee_id,item_id_m,inv_serial_number_id,lot_number_id,quantity,estimate_amount,warrenty_status,escalation[option_line_id],inventory_org_id,primary_sd_so_header_id</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,bu_org_id;'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_svo_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhd_svo_header" Name="modifyhd_svo_header" Size="50,20">
+	<OnClick>
+	<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hd_svo_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>order_number,payment_term_id[payment_term_id],ar_customer_id[ar_customer_id],ar_customer_site_id[ar_customer_site_id],doc_currency[currency_id],ship_to_id[address_id],bill_to_id[address_id],currency[currency_id],exchange_rate,description,exchange_rate_type[gl_currency_conversion_id],hd_service_type_header_id[hd_service_type_header_id],hd_service_request_id[hd_service_request_id],promise_date,service_team_id,service_person_employee_id,item_id_m,inv_serial_number_id,lot_number_id,quantity,estimate_amount,warrenty_status,escalation[option_line_id],inventory_org_id,primary_sd_so_header_id</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hd_svo_header_id='%{hd_svo_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="hd_svo_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethd_svo_header" Name="resethd_svo_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDIThd_svo_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchhd_svo_header" Name="gsearchhd_svo_header" Size="50,20" visible="false">
+	<OnClick>
+	<search next="hd_svo_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDIThd_svo_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

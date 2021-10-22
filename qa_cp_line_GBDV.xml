@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVqa_cp_line"><Ctrls>
+<ListCtrl Heading="qa_ce_header_id,120;description,640;sequence,20;dafault_value,250;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;qa_cp_line_id,60;" loadedclick="0" ToolTip="ttp_qa_cp_line" Name="qa_cp_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_cp_line q left join xbs.qa_ce_header q0 on q.qa_ce_header_id=q0.qa_ce_header_id</DbTable>
+<Index>qa_cp_line_id</Index>
+<Data>q0.element_name qa_ce_header_id,q.description,q.sequence,q.dafault_value,q.created_by,q.creation_date,q.last_update_by,q.last_update_date,q.qa_cp_line_id</Data>
+<Order>qa_cp_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

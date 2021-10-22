@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGsys_pd_process_flow_action"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_sys_pd_process_flow_action" Size="30,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>sys_pd_process_flow_action_id</Index>
+<DbTable>xbs.sys_pd_process_flow_action s left join xbs.sys_process_flow_action s0 on s.action_number=s0.action_number left join xbs.user_v u on s.userid=u.xerp_user_id left join xbs.user_v u0 on s.action_user_id=u0.xerp_user_id left join xbs.user_v u1 on s.created_by=u1.xerp_user_id left join xbs.user_v u2 on s.last_update_by=u2.xerp_user_id</DbTable>
+<Data>count(*) records</Data>
+<Order>sys_pd_process_flow_action_id</Order><Queryformat>select %{data} from (select s.sys_pd_process_flow_action_id from %{dbtable} %{where} GROUP BY s.sys_pd_process_flow_action_id  ORDER BY s.sys_pd_process_flow_action_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_sys_pd_process_flow_action" expr="js(Math.ceil(%{records_sys_pd_process_flow_action}/%{sys_pd_process_flow_action_vLst[countsperpage]}))"/>
+<assign name="pgscb_sys_pd_process_flow_action" expr="js('1~'+Math.ceil(%{records_sys_pd_process_flow_action}/%{sys_pd_process_flow_action_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_sys_pd_process_flow_action" Size="60,20"><OnSelEndOK><submit next="sys_pd_process_flow_action_vLst" function="GetPage(%{pgscb_sys_pd_process_flow_action}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_sys_pd_process_flow_action" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_sys_pd_process_flow_action" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagesys_pd_process_flow_action_vLst" Size="50,20"><OnClick><submit next="sys_pd_process_flow_action_vLst" function="GetPage(%{pgcur_sys_pd_process_flow_action}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGiot_dev"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_iot_dev" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>dev_idx</Index>
+<DbTable>xbs.iot_dev i</DbTable>
+<Data>count(*) records</Data>
+<Order>dev_idx</Order><Queryformat>select %{data} from (select i.dev_idx from %{dbtable} %{where} GROUP BY i.dev_idx  ORDER BY i.dev_idx) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_iot_dev" expr="js(Math.ceil(%{records_iot_dev}/%{iot_dev_vLst[countsperpage]}))"/>
+<assign name="pgscb_iot_dev" expr="js('1~'+Math.ceil(%{records_iot_dev}/%{iot_dev_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_iot_dev" Size="60,20"><OnSelEndOK><submit next="iot_dev_vLst" function="GetPage(%{pgscb_iot_dev}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_iot_dev" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_iot_dev" Size="30,20"/>
+<Button Text="go2Page" Name="go2pageiot_dev_vLst" Size="50,20"><OnClick><submit next="iot_dev_vLst" function="GetPage(%{pgcur_iot_dev}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVbom_commonbom_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletebom_commonbom_line" Name="deletebom_commonbom_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_commonbom_line</DbTable>
+<Where>bom_commonbom_line_id='%{bom_commonbom_lineLst[bom_commonbom_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchbom_commonbom_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshbom_commonbom_line" Name="searchbom_commonbom_line" Size="50,20">
+			  <OnClick><submit next="bom_commonbom_lineLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPbom_commonbom_lineLst" OnClick="(bom_commonbom_lineLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREbom_commonbom_lineLst" OnClick="(bom_commonbom_lineLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPbom_commonbom_lineLst" OnClick="(bom_commonbom_lineLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

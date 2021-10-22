@@ -1,0 +1,17 @@
+<GroupBox Name="GBDVap_transaction_detail" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="ap_transaction_detail_vLst" ToolTip="ttp_ap_transaction_detail" Size="700,420" OnLoad="init" Heading="account_type,120;detail_ac_id,120;description,640;amount,100;gl_amount,75;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ap_transaction_detail_id,60;status,250;detail_number,60;period_id,120;" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.ap_transaction_detail a left join xbs.option_line o on a.account_type=o.option_line_id left join xbs.coa_combination c on a.detail_ac_id=c.coa_combination_id left join xbs.gl_period g on a.period_id=g.gl_period_id</DbTable>
+<Index>ap_transaction_detail_id</Index>
+<Data>o.option_line_value account_type,c.combination detail_ac_id,a.description,a.amount,a.gl_amount,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.ap_transaction_detail_id,a.status,a.detail_number,g.period_name period_id</Data>
+<Order>ap_transaction_detail_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>ap_transaction_detail_id='%{ap_transaction_detail_vLst[ap_transaction_detail_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.ap_transaction_detail.ap_transaction_detailLst"/></op>
+<op text="delete"><DbDetails>
+<DbTable>xbs.ap_transaction_detail</DbTable>
+<Where>ap_transaction_detail_id='%{ap_transaction_detail_vLst[ap_transaction_detail_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

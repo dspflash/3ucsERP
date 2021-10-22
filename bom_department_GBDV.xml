@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVbom_department"><Ctrls>
+<ListCtrl Heading="department,240;status,60;description,240;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;bom_department_id,50;" loadedclick="0" ToolTip="ttp_bom_department" Name="bom_departmentLst" Size="300,450">
+	<DbDetails fcsm="1">
+<Index>bom_department_id</Index>
+<DbTable>xbs.bom_department</DbTable>
+<Data>department,status,description,created_by,creation_date,last_update_by,last_update_date,bom_department_id</Data>
+<Order>bom_department_id</Order></DbDetails>
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>bom_department_id='%{bom_department_vLst[bom_department_id]}'</Where></DbDetails><submit next="$this.bom_department.bom_departmentLst" namelist="DbDetails"/><assign name="$this.bom_department.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.bom_department</DbTable>
+<Where>bom_department_id='%{bom_department_vLst[bom_department_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

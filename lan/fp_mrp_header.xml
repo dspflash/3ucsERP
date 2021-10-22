@@ -1,0 +1,45 @@
+<Language name="fp_mrp_header">
+<Lang name="fp_mrp_header" value="计划校验表"/>
+<Lang name="planning" value="计划校验"/>
+<Lang name="newplan" value="新建计划"/>
+<Lang name="plannedorders" value="计划表"/>
+<Lang name="TabEditfp_mrp_header" value="fp_mrp_header Edit"/>
+<Lang name="TabViewfp_mrp_header" value="fp_mrp_header View"/>
+<Lang name="mrp_name" value="MRP名称"/>
+<Lang name="ttp_mrp_name" value=""/>
+<Lang name="org_id" value="组织"/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="description" value="描述"/>
+<Lang name="ttp_description" value=""/>
+<Lang name="planning_horizon_days" value="计划期（天数）"/>
+<Lang name="ttp_planning_horizon_days" value=""/>
+<Lang name="include_so_cb" value="包含销售单"/>
+<Lang name="ttp_include_so_cb" value=""/>
+<Lang name="status" value="有效"/>
+<Lang name="ttp_status" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="fp_mrp_header_id" value=""/>
+<Lang name="ttp_fp_mrp_header_id" value=""/>
+<Lang name="ttp_operationfp_mrp_header" value="操作"/>
+<Lang name="ttp_createfp_mrp_header" value="新增"/>
+<Lang name="ttp_modifyfp_mrp_header" value="修改"/>
+<Lang name="ttp_resetfp_mrp_header" value="清除数据"/>
+<Lang name="ttp_deletefp_mrp_header" value="删除"/>
+<Lang name="ttp_refreshfp_mrp_header" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpos_barcode_list_line"><Ctrls>
+<ListCtrl Heading="item_number,250;unit_price,60;quantity,60;line_amount,60;discount_percentage,25;discount_amount,60;discount_code,125;amount_after_discount,75;no_of_labels,60;status,20;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pos_barcode_list_line_id,60;" loadedclick="0" ToolTip="ttp_pos_barcode_list_line" Name="pos_barcode_list_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pos_barcode_list_line</DbTable>
+<Index>pos_barcode_list_line_id</Index>
+<Data>item_number,unit_price,quantity,line_amount,discount_percentage,discount_amount,discount_code,amount_after_discount,no_of_labels,status,created_by,creation_date,last_update_by,last_update_date,pos_barcode_list_line_id</Data>
+<Order>pos_barcode_list_line_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

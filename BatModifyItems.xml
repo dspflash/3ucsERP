@@ -1,0 +1,41 @@
+<WndTap Name="BatModify" Text="BAT Modify">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\item.xml"/>
+<Ctrls>
+<GroupBox Name="BatModify" Text="BAT Modify"><Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBEdititem" Size="100,100"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_customer_ordered_cb"><Ctrls>
+<CheckBox Text="NotComponentAsProduct" ToolTip="Items(not in bom lines) modify as Product(99)" Name="NotComponentAsProduct" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_internal_ordered_cb"><Ctrls>
+<CheckBox Text="MaterialAsPurchasable" ToolTip="Materials items could be Purchasable,internal orderable,but cutomer couldnot orderable" Name="MaterialAsPurchasable" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_atp"><Ctrls>
+<CheckBox Text="AssembliesAsNotPurchasable" ToolTip="Assemblies couldnot be purchasalbe or customer orderable" Name="AssembliesAsNotPurchasable" Size="230,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_shippable_cb"><Ctrls>
+<CheckBox Text="ProductOrderable" ToolTip="Product could be ordered by custormer but could not be purchasable" Name="ProductOrderable" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_returnable_cb"><Ctrls>
+<CheckBox Text="OSPItemsPurchasable" ToolTip="OSP Items could be Purchasable" Name="OSPItemsPurchasable" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_picking_rule"><Ctrls>
+<CheckBox Text="PurchashedInspect" ToolTip="Purchased Items should be Inspect before receipt to inventory" Name="PurchashedInspect" Size="230,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEitem" Size="100,100"><Ctrls>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEitem" Size="100,100"><Ctrls>
+<Button Name="BATEXEC" Size="80,20" color="RGB(255,0,0)" Text="BAT Modify"><OnClick>
+<assign name="sqlstr" expr=""/>
+<if cond="%{NotComponentAsProduct}"><assign name="sqlstr" expr="%{sqlstr}UPDATE item SET item_type=99 WHERE item_id_m NOT IN (SELECT component_item_id_m FROM bom_line WHERE org_id='%{orgid}') AND org_id='%{orgid}';"/></if>
+<if cond="%{MaterialAsPurchasable}"><assign name="sqlstr" expr="%{sqlstr}UPDATE item SET purchased_cb=1,customer_ordered_cb=0,internal_ordered_cb=1 WHERE item_type=106 AND org_id='%{orgid}';"/></if>
+<if cond="%{AssembliesAsNotPurchasable}"><assign name="sqlstr" expr="%{sqlstr}UPDATE item SET purchased_cb=0,customer_ordered_cb=0,internal_ordered_cb=1 WHERE item_type=105 AND org_id='%{orgid}';"/></if>
+<if cond="%{ProductOrderable}"><assign name="sqlstr" expr="%{sqlstr}UPDATE item SET purchased_cb=0,customer_ordered_cb=1,internal_ordered_cb=1 WHERE item_type=99 AND org_id='%{orgid}';
+"/></if>
+<if cond="%{OSPItemsPurchasable}"><assign name="sqlstr" expr="%{sqlstr}UPDATE bom_routing_header brh JOIN bom_routing_line brl ON brh.bom_routing_header_id=brl.bom_routing_header_id JOIN bom_routing_detail brd ON brl.bom_routing_line_id=brd.bom_routing_line_id JOIN bom_resource res ON brd.resource_id=res.bom_resource_id AND res.osp_cb JOIN item ON  item.item_id_m=brh.item_id_m AND item.org_id=brh.org_id SET purchased_cb=1;"/></if>
+<if cond="%{PurchashedInspect}"><assign name="sqlstr" expr="%{sqlstr}UPDATE item SET receipt_routing=300 WHERE purchased_cb=1 and org_id='%{orgid}';"/></if>
+<if cond="%{sqlstr}"><DbDetails><queryFormat>%{sqlstr}</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></if><info expr="%{sqlstr}"/></OnClick></Button>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

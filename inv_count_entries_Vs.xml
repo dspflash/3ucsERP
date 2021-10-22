@@ -1,0 +1,122 @@
+﻿<GroupBox Name="GBDEDITinv_count_entries"><Ctrls>
+<GroupBox Name="GB_item_id_m" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_id_m" Size="60,20" Text="item_id_m" Align="Right"/>
+<TextBox Name="item_id_m" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_id_m">
+	<DbDetails>
+<DbTable>xbs.item</DbTable>
+<Index>item_id_m</Index>
+<Data>item_number,uom_id,item_id_m</Data>
+<Where>i.item_id_m='%{inv_count_schedule_id[item_id_m]}' and i.org_id='%{orgid}' and subinventory_id='%{inv_count_schedule_id[subinventory_id]}' and if('%{inv_count_schedule_id[subinventory_id]}'!='',locator_id='%{inv_count_schedule_id[locator_id]}',1) and if('%{inv_count_schedule_id[lot_number]}'!='',lot_id='%{inv_count_schedule_id[lot_number]}',1)</Where>
+<queryFormat></queryFormat></DbDetails><OnEnChange><submit next="uom_id"/><submit next="lot_number"/><submit next="subinventory_id"/><if cond="!%{system_qty}"><assign name="system_qty" expr="%{item_id_m[onhand]}"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_uom_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_uom_id" Size="60,20" Text="uom_id" Align="Right" selectedIndex="0"/>
+<ComboBox Name="uom_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_uom_id" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.uom</DbTable>
+<Index>uom_id</Index>
+<Data>uom_name,uom_id</Data>
+<Where>uom_id='%{item_id_m[uom_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_subinventory_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_subinventory_id" Size="60,20" Text="subinventory_id" Align="Right" selectedIndex="0"/>
+<ComboBox Name="subinventory_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_subinventory_id" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.subinventory</DbTable>
+<Index>subinventory_id</Index>
+<Data>subinventory,subinventory_id</Data>
+<Where>subinventory_id='%{inv_count_schedule_id[subinventory_id]}'</Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="locator_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_locator_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_locator_id" Size="60,20" Text="locator_id" Align="Right"/>
+<ComboBox Name="locator_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_locator_id">
+	<DbDetails>
+<DbTable>xbs.locator</DbTable>
+<Index>locator_id</Index>
+<Data>locator,locator_id</Data>
+<Where>subinventory_id='%{subinventory_id[subinventory_id]}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_lot_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_lot_number" Size="60,20" Text="lot_number" Align="Right" onload="init"/>
+<ComboBox Name="lot_number" Size="170,100" Text="" Weight="170"  ToolTip="ttp_lot_number" onload="init">
+	<DbDetails>
+<DbTable>xbs.inv_lot_number</DbTable>
+<Index>inv_lot_number_id</Index>
+<Data>lot_number,inv_lot_number_id</Data>
+<Where>item_id_m='%{reference_key_value[item_id_m]}' and org_id='%{orgid}' and status=1</Where>
+<queryFormat>select %{data} from %{dbtable} where %{where} order by inv_lot_number_id desc</queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_system_qty" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_system_qty" Size="60,20" Text="system_qty" Align="Right"/>
+<TextBox Name="system_qty" Size="170,20" Text="" Weight="170" ToolTip="ttp_system_qty"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_schedule_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_schedule_date" Size="60,20" Text="schedule_date" Align="Right"/>
+<DateTime Name="schedule_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  ToolTip="ttp_schedule_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_count_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_count_date" Size="60,20" Text="count_date" Align="Right"/>
+<DateTime Name="count_date" Format="yyyy-MM-dd" Size="170,20" Text="" Weight="170"  ToolTip="ttp_count_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_count_qty" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_count_qty" Size="60,20" Text="count_qty" Align="Right"/>
+<TextBox Name="count_qty" Size="170,20" Text="" Weight="170" ToolTip="ttp_count_qty"><OnEnChange><assign name="adjusted_qty" expr="js(%{count_qty}-%{system_qty})"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_counted_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_counted_by" Size="60,20" Text="counted_by" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="counted_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_counted_by" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_adjusted_qty" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_adjusted_qty" Size="60,20" Text="adjusted_qty" Align="Right"/>
+<TextBox Name="adjusted_qty" Size="170,20" Text="" Weight="170" ToolTip="ttp_adjusted_qty"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_reason" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_reason" Size="60,20" Text="reason" Align="Right"/>
+<TextBox Name="reason" Size="170,20" Text="" Weight="170" ToolTip="ttp_reason"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_status" Size="60,20" Text="status" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="status" Size="170,20" Text="" Weight="170" ToolTip="ttp_status" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_inv_count_schedule_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_inv_count_schedule_id" Size="60,20" Text="inv_count_schedule_id" Align="Right" Visible="false" overlap="pre" readonly="true" selectedIndex="0"/>
+<ComboBox Name="inv_count_schedule_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_inv_count_schedule_id" Visible="false" overlap="pre" readonly="true" selectedIndex="0">
+	<DbDetails fcsm="true">
+<DbTable>xbs.inv_count_schedule</DbTable>
+<Index>inv_count_schedule_id</Index>
+<Data>item_id_m,subinventory_id,locator_id,lot_number,serial_number,schedule_date,inv_count_schedule_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><DbDetails><DbTable>xbs.item i join xbs.onhand o on i.item_id_m=o.item_id_m and i.org_id=o.org_id</DbTable><Data>item_number,i.uom_id,onhand,i.item_id_m</Data></DbDetails><submit next="item_id_m" namelist="DbDetails"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_org_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_org_id" Size="60,20" Text="org_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="org_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_org_id" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_inv_count_entries_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_inv_count_entries_id" Size="60,20" Text="inv_count_entries_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="inv_count_entries_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_inv_count_entries_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{inv_count_entries_id}'"><SetVisible name="insertinv_count_entries" Visible="0"/><SetVisible name="modifyinv_count_entries" Visible="1"/><else/><SetVisible name="insertinv_count_entries" Visible="1"/><SetVisible name="modifyinv_count_entries" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

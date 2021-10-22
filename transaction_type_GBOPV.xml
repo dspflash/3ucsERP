@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVtransaction_type" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletetransaction_type" Name="deletetransaction_type" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.transaction_type</DbTable>
+<Where>transaction_type_id='%{transaction_typeLst[transaction_type_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchtransaction_type" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshtransaction_type" Name="searchtransaction_type" Size="50,20">
+			  <OnClick><submit next="transaction_typeLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPtransaction_typeLst" OnClick="(transaction_typeLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREtransaction_typeLst" OnClick="(transaction_typeLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPtransaction_typeLst" OnClick="(transaction_typeLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

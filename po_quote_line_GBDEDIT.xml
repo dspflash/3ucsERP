@@ -1,0 +1,116 @@
+﻿<GroupBox Name="GBDEDITpo_quote_line"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls>
+<Label Align="Right" Text="item_id_m" Name="lb_item_id_m" readonly="true" Size="60,20"/>
+<TextBox Weight="150" Text="" ToolTip="ttp_item_id_m" Name="item_id_m" readonly="true" Size="150,20">
+	<DbDetails>
+<DbTable>xbs.item</DbTable>
+<Index>item_id_m</Index>
+<Data>concat(IFNULL(item_name,''),'/',IFNULL(item_specification,''),'/',item_number) name,uom_id uom,list_price,item_id_m</Data>
+<Where/>
+<queryFormat>select %{data} from %{dbtable} where purchased_cb and org_id in (SELECT org_id FROM xbs.org WHERE parent_org_id='%{orgid}') %{where}  limit 0,20</queryFormat></DbDetails><OnEnChange><submit next="uom_id"/><assign name="line_quantity" expr="1"/><assign name="uom_id[uom_id]" function="SetSel" expr="%{item_id_m[uom]}"/></OnEnChange></TextBox>
+<MagicCtrl Name="pickitem_id_m" Link="tip:Pick" images=",data/search.png" button="type:0" Size="20,20"><OnClick><assign name="vSupplier.Materialpick.fromwintap" expr="vSupplier.po_quote_line"/><DbDetails><Where/></DbDetails><submit next="vSupplier.Materialpick.MaterialLst" namelist="DbDetails"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_description"><Ctrls>
+<Label Align="Right" Text="item_description" Name="lb_item_description" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_item_description" Name="item_description" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_po_rfq_line_id"><Ctrls>
+<Label Align="Right" Text="po_rfq_line_id" Name="lb_po_rfq_line_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_po_rfq_line_id" Name="po_rfq_line_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.po_rfq_line</DbTable>
+<Index>po_rfq_line_id</Index>
+<Data>line_number,item_id_m,po_rfq_line_id</Data>
+<Where>po_rfq_header_id='%{po_quote_header_id[po_rfq_header_id]}'</Where>
+<queryFormat/></DbDetails><OnSelEndOk><if cond="%{po_rfq_line_id[item_id_m]}"><DbDetails><Where>item_id_m='%{po_rfq_line_id[item_id_m]}'</Where></DbDetails><submit next="item_id_m"/></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_line_number" Visible="false"><Ctrls>
+<Label Align="Right" Text="line_number" overlap="pre" Name="lb_line_number" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_line_number" overlap="pre" Name="line_number" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_uom_id"><Ctrls>
+<Label Align="Right" Text="uom_id" Name="lb_uom_id" Size="60,20" SelectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_uom_id" Name="uom_id" Size="170,100" SelectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.uom</DbTable>
+<Index>uom_id</Index>
+<Data>uom_name,primary_relation,round(primary_relation/IFNULL((SELECT primary_relation FROM uom WHERE uom_id='%{item_id_m[uom]}'),1),3) rr,primary_uom_id,uom_id</Data>
+<Where>IFNULL(primary_uom_id,uom_id)=(SELECT IFNULL(primary_uom_id,uom_id) FROM uom WHERE uom_id='%{item_id_m[uom]}')</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_tax_code_id"><Ctrls>
+<Label Align="Right" Text="tax_code_id" onload="init" Name="lb_tax_code_id" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_tax_code_id" onload="init" Name="tax_code_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.mdm_tax_code</DbTable>
+<Index>mdm_tax_code_id</Index>
+<Data>tax_code,mdm_tax_code_id</Data>
+<Where>in_out='IN'</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_quote_unit_price"><Ctrls>
+<Label Align="Right" Text="quote_unit_price" Name="lb_quote_unit_price" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_quote_unit_price" Name="quote_unit_price" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_supplier_part_number"><Ctrls>
+<Label Align="Right" Text="supplier_part_number" Name="lb_supplier_part_number" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_supplier_part_number" Name="supplier_part_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mfg_part_number"><Ctrls>
+<Label Align="Right" Text="mfg_part_number" Name="lb_mfg_part_number" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_mfg_part_number" Name="mfg_part_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_manufacturer"><Ctrls>
+<Label Align="Right" Text="manufacturer" Name="lb_manufacturer" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_manufacturer" Name="manufacturer" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_minimum_agreement_quantity"><Ctrls>
+<Label Align="Right" Text="minimum_agreement_quantity" Name="lb_minimum_agreement_quantity" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_minimum_agreement_quantity" Name="minimum_agreement_quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_minimum_order_quantity"><Ctrls>
+<Label Align="Right" Text="minimum_order_quantity" Name="lb_minimum_order_quantity" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_minimum_order_quantity" Name="minimum_order_quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_daily_capacity"><Ctrls>
+<Label Align="Right" Text="daily_capacity" Name="lb_daily_capacity" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_daily_capacity" Name="daily_capacity" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_processing_lead_time"><Ctrls>
+<Label Align="Right" Text="processing_lead_time" Name="lb_processing_lead_time" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_processing_lead_time" Name="processing_lead_time" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_replenishment_lead_time"><Ctrls>
+<Label Align="Right" Text="replenishment_lead_time" Name="lb_replenishment_lead_time" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_replenishment_lead_time" Name="replenishment_lead_time" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_po_quote_line_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="po_quote_line_id" overlap="pre" Name="lb_po_quote_line_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_po_quote_line_id" overlap="pre" Name="po_quote_line_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{po_quote_line_id}'"><SetVisible name="insertpo_quote_line" Visible="0"/><SetVisible name="modifypo_quote_line" Visible="1"/><else/><SetVisible name="insertpo_quote_line" Visible="1"/><SetVisible name="modifypo_quote_line" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_po_quote_header_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="po_quote_header_id" overlap="pre" Name="lb_po_quote_header_id" readonly="true" Size="60,20" Visible="false" SelectedIndex="0"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_po_quote_header_id" overlap="pre" Name="po_quote_header_id" readonly="true" Size="170,100" Visible="false" SelectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.po_quote_header</DbTable>
+<Index>po_quote_header_id</Index>
+<Data>quote_number,po_rfq_header_id,po_quote_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><if cond="%{po_quote_header_id[po_rfq_header_id]}"><submit next="po_rfq_header_id"/><else/><submit next="po_rfq_header_id" function="resetcontent"/></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

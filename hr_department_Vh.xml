@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_department" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_departmentLst" ToolTip="ttp_hr_department" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>dept_id</Index>
+<DbTable>xbs.hr_department</DbTable>
+<Data>department,org_id,dept_parent,description,created_by,creation_date,last_update_by,last_update_date,dept_id</Data>
+<Order>dept_id</Order></DbDetails>
+<OnClick><assign name="org_id[org_id]" expr="%{hr_departmentLst[org_id]}" function="SetSel"/><assign name="dept_parent[dept_id]" expr="%{hr_departmentLst[dept_parent]}" function="SetSel"/><assign name="created_by[xerp_user_id]" expr="%{hr_departmentLst[created_by]}" function="SetSel"/><assign name="last_update_by[xerp_user_id]" expr="%{hr_departmentLst[last_update_by]}" function="SetSel"/>
+<if cond="%{dept_id}"><SetVisible name="inserthr_department" Visible="0"/><SetVisible name="modifyhr_department" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

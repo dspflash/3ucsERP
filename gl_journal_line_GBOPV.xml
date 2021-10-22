@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVgl_journal_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletegl_journal_line" Name="deletegl_journal_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_journal_line</DbTable>
+<Where>gl_journal_line_id='%{gl_journal_lineLst[gl_journal_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchgl_journal_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshgl_journal_line" Name="searchgl_journal_line" Size="50,20">
+			  <OnClick><submit next="gl_journal_lineLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPgl_journal_lineLst" OnClick="(gl_journal_lineLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREgl_journal_lineLst" OnClick="(gl_journal_lineLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPgl_journal_lineLst" OnClick="(gl_journal_lineLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

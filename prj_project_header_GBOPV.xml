@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVprj_project_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteprj_project_header" Name="deleteprj_project_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_project_header</DbTable>
+<Where>prj_project_header_id='%{prj_project_headerLst[prj_project_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchprj_project_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshprj_project_header" Name="searchprj_project_header" Size="50,20">
+			  <OnClick><submit next="prj_project_headerLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPprj_project_headerLst" OnClick="(prj_project_headerLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREprj_project_headerLst" OnClick="(prj_project_headerLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPprj_project_headerLst" OnClick="(prj_project_headerLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

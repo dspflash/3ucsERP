@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpayment_term"><Ctrls>
+<ListCtrl Heading="payment_term,250;description,640;prepayment_cb,60;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;payment_term_id,60;" loadedclick="0" ToolTip="ttp_payment_term" onload="init" Name="payment_termLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.payment_term</DbTable>
+<Index>payment_term_id</Index>
+<Data>payment_term,description,prepayment_cb,status,created_by,creation_date,last_update_by,last_update_date,payment_term_id</Data>
+<Order>payment_term_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

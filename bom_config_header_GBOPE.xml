@@ -1,0 +1,33 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEbom_config_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="bom_config_header_id" Text="create" ToolTip="ttp_createbom_config_header" Name="insertbom_config_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_config_header</DbTable>
+<Data>item_id_m[item_id_m],bom_header_id,reference_key_name,reference_key_value</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,org_id;'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchbom_config_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifybom_config_header" Name="modifybom_config_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_config_header</DbTable>
+<Data>item_id_m[item_id_m],bom_header_id,reference_key_name,reference_key_value</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>bom_config_header_id='%{bom_config_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchbom_config_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetbom_config_header" Name="resetbom_config_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITbom_config_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchbom_config_header" Name="gsearchbom_config_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="bom_config_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITbom_config_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

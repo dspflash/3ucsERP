@@ -1,0 +1,4 @@
+<GroupBox id="option" Name="GB_period" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_periodDTS" Size="60,20" Text="Start Date" Align="Right"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" Name="periodDTS" Size="170,20" Format="yyyy-MM-dd" Text="a week ago" Text2="a week"/>
+</Ctrls></GroupBox>

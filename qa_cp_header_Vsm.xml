@@ -1,0 +1,36 @@
+<GroupBox Name="GBDEDITqa_cp_header"><Ctrls>
+<GroupBox Name="GB_plan_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_plan_name" Size="60,20" Text="plan_name" Align="Right"/>
+<TextBox Name="plan_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_plan_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_plan_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_plan_type" Size="60,20" Text="plan_type" Align="Right" onload="init"/>
+<ComboBox Name="plan_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_plan_type" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=265</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_qa_specification_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_qa_specification_header_id" Size="60,20" Text="qa_specification_header_id" Align="Right" onload="init"/>
+<ComboBox Name="qa_specification_header_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_qa_specification_header_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.qa_specification_header</DbTable>
+<Index>qa_specification_header_id</Index>
+<Data>specification_name,qa_specification_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_specification_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_specification_type" Size="60,20" Text="specification_type" Align="Right" onload="init"/>
+<ComboBox Name="specification_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_specification_type" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=279</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVinv_transaction"><Ctrls>
+<ListCtrl Heading="item_number,640;uom_id,120;quantity,20;unit_cost,60;costed_amount,20;lot_number_id,120;from_org_id,60;from_subinventory_id,120;from_locator_id,120;reason,125;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;inv_transaction_id,60;transaction_type_id,60;" loadedclick="0" ToolTip="ttp_inv_transaction" Name="inv_transactionLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_transaction i left join xbs.uom u on i.uom_id=u.uom_id left join xbs.inv_lot_number i0 on i.lot_number_id=i0.inv_lot_number_id left join xbs.subinventory s on i.from_subinventory_id=s.subinventory_id left join xbs.locator l on i.from_locator_id=l.locator_id</DbTable>
+<Index>inv_transaction_id</Index>
+<Data>i.item_number,u.uom_name uom_id,i.quantity,i.unit_cost,i.costed_amount,i0.lot_number lot_number_id,i.from_org_id,s.subinventory from_subinventory_id,l.locator from_locator_id,i.reason,i.description,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.org_id,i.inv_transaction_id,i.transaction_type_id</Data>
+<Order>inv_transaction_id</Order></DbDetails><DbDetails fcsm="1"> <queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat> </DbDetails></ListCtrl>
+</Ctrls></GroupBox>

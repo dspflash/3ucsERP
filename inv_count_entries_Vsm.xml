@@ -1,0 +1,29 @@
+<GroupBox Name="GBDEDITinv_count_entries"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_count_name"><Ctrls>
+<Label Align="Right" Text="count_name" Name="lb_count_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_count_name" Name="count_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_item_id_m" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_item_id_m" Size="60,20" Text="item_id_m" Align="Right"/>
+<TextBox Name="item_id_m" Size="170,20" Text="" Weight="170" ToolTip="ttp_item_id_m">
+</TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_subinventory_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_subinventory_id" Size="60,20" Text="subinventory_id" Align="Right" selectedIndex="0"/>
+<ComboBox Name="subinventory_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_subinventory_id" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.subinventory</DbTable>
+<Index>subinventory_id</Index>
+<Data>subinventory,subinventory_id</Data>
+<Where>subinventory_id='%{item_id_m[receipt_sub_inventory]}'</Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><submit next="locator_id"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<BR/><GroupBox Name="GB_schedule_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_schedule_date" Size="60,20" Text="schedule_date" Align="Right"/>
+<DateTime Name="schedule_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_schedule_date"></DateTime>
+</Ctrls></GroupBox>
+<!--GroupBox Name="GB_count_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_count_date" Size="60,20" Text="count_date" Align="Right"/>
+<DateTime Name="count_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_count_date"></DateTime>
+</Ctrls></GroupBox-->
+</Ctrls></GroupBox>

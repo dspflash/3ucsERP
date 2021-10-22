@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVqa_ce_action"><Ctrls>
+<ListCtrl Heading="action_condition,120;comparison,120;value_from,250;value_to,250;spec_value,120;quality_action,120;description,640;end_date,90;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;qa_ce_action_id,60;" loadedclick="0" ToolTip="ttp_qa_ce_action" Name="qa_ce_actionLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_ce_action</DbTable>
+<Index>qa_ce_action_id</Index>
+<Data>action_condition,comparison,value_from,value_to,spec_value,quality_action,description,end_date,created_by,creation_date,last_update_by,last_update_date,qa_ce_action_id</Data>
+<Order>qa_ce_action_id</Order></DbDetails>
+<OnClick><assign name="action_condition[option_line_id]" function="SetSel" expr="%{qa_ce_actionLst[action_condition]}"/><assign name="comparison[option_line_id]" function="SetSel" expr="%{qa_ce_actionLst[comparison]}"/><assign name="spec_value[option_line_id]" function="SetSel" expr="%{qa_ce_actionLst[spec_value]}"/><assign name="quality_action[option_line_code]" function="SetSel" expr="%{qa_ce_actionLst[quality_action]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEinv_issue_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="inv_issue_header_id" Text="create" ToolTip="ttp_createinv_issue_header" Name="insertinv_issue_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_issue_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>issue_number[issue_number],transaction_type_id[transaction_type_id],issue_date,carrier,vechile_number,comment,reference_key_name,sets</Data>
+<DataEx>reference_key_value,created_by,creation_date,last_update_by,last_update_date,org_id;'%{reference_key_value[refid]}','%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="inv_issue_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyinv_issue_header" Name="modifyinv_issue_header" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_issue_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>transaction_type_id[transaction_type_id],issue_date,carrier,vechile_number,comment,sets</Data>
+<DataEx>reference_key_value,last_update_by,last_update_date;'%{reference_key_value[refid]}','%{user_id}',now()</DataEx>
+<Where>inv_issue_header_id='%{inv_issue_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="inv_issue_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetinv_issue_header" Name="resetinv_issue_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITinv_issue_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchinv_issue_header" Name="gsearchinv_issue_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="inv_issue_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITinv_issue_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

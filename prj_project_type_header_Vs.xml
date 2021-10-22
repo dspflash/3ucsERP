@@ -1,0 +1,319 @@
+<GroupBox Name="GBDEDITprj_project_type_header"><Ctrls>
+<GroupBox Name="general" Text="general" feature="tab"><Ctrls>
+<GroupBox Name="GB_project_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_project_type" Size="60,20" Text="project_type" Align="Right"/>
+<TextBox Name="project_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_project_type"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_project_class" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_project_class" Size="60,20" Text="project_class" Align="Right"/>
+<ComboBox Name="project_class" Size="170,100" Text="" Weight="170" Items="Indirect|Capital|Contract" ToolTip="ttp_project_class"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_service_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_service_type" Size="60,20" Text="service_type" Align="Right" onload="init"/>
+<ComboBox Name="service_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_service_type" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_service_type</DbTable>
+<Index>prj_service_type_id</Index>
+<Data>service_type,prj_service_type_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_project_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_project_status" Size="60,20" Text="project_status" Align="Right" onload="init"/>
+<ComboBox Name="project_status" Size="170,100" Text="" Weight="170"  ToolTip="ttp_project_status" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=143</Where>
+<queryFormat>select %{data} from %{dbtable} where %{where} order by option_line_id</queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_effective_from" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_from" Size="60,20" Text="effective_from" Align="Right"/>
+<DateTime Name="effective_from" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_from"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_effective_to" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_effective_to" Size="60,20" Text="effective_to" Align="Right"/>
+<DateTime Name="effective_to" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_effective_to"></DateTime>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_prj_work_type_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_prj_work_type_id" Size="60,20" Text="prj_work_type_id" Align="Right" onload="init"/>
+<ComboBox Name="prj_work_type_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_prj_work_type_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_work_type</DbTable>
+<Index>prj_work_type_id</Index>
+<Data>work_type,prj_work_type_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_sponsored_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="sponsored_cb" Size="230,20" Text="sponsored_cb" ToolTip="ttp_sponsored_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_organization_planning_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="organization_planning_cb" Size="230,20" Text="organization_planning_cb" ToolTip="ttp_organization_planning_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_intercompany_billing_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="intercompany_billing_cb" Size="230,20" Text="intercompany_billing_cb" ToolTip="ttp_intercompany_billing_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_enableworkflow4projects" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="enableworkflow4projects" Size="230,20" Text="enableworkflow4projects" ToolTip="ttp_enableworkflow4projects"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR NULLHeight="1"/><GroupBox Name="burden" Text="burden" feature="tab"><Ctrls>
+<GroupBox Name="GB_prj_burden_list_header_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_prj_burden_list_header_id" Size="60,20" Text="prj_burden_list_header_id" Align="Right" onload="init"/>
+<ComboBox Name="prj_burden_list_header_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_prj_burden_list_header_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_burden_list_header</DbTable>
+<Index>prj_burden_list_header_id</Index>
+<Data>burden_list,prj_burden_list_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_allowburdenlistoverride" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="allowburdenlistoverride" Size="230,20" Text="allowburdenlistoverride" ToolTip="ttp_allowburdenlistoverride"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_burdencostonsametransaction" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="burdencostonsametransaction" Size="230,20" Text="burdencostonsametransaction" ToolTip="ttp_burdencostonsametransaction"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_burdencomponentsinseparateprjtask" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="burdencomponentsinseparateprjtask" Size="230,20" Text="burdencomponentsinseparateprjtask" ToolTip="ttp_burdencomponentsinseparateprjtask"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cost_burdened_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="cost_burdened_cb" Size="230,20" Text="cost_burdened_cb" ToolTip="ttp_cost_burdened_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_account_burdened_cost_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="account_burdened_cost_cb" Size="230,20" Text="account_burdened_cost_cb" ToolTip="ttp_account_burdened_cost_cb"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR NULLHeight="1"/><GroupBox Name="budget" Text="budget" feature="tab"><Ctrls>
+<GroupBox Name="GB_cost_budget_method" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cost_budget_method" Size="60,20" Text="cost_budget_method" Align="Right" onload="init"/>
+<ComboBox Name="cost_budget_method" Size="170,100" Text="" Weight="170"  ToolTip="ttp_cost_budget_method" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_bem</DbTable>
+<Index>prj_bem_id</Index>
+<Data>bem,prj_bem_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_revenue_budget_method" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_revenue_budget_method" Size="60,20" Text="revenue_budget_method" Align="Right" onload="init"/>
+<ComboBox Name="revenue_budget_method" Size="170,100" Text="" Weight="170"  ToolTip="ttp_revenue_budget_method" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_bem</DbTable>
+<Index>prj_bem_id</Index>
+<Data>bem,prj_bem_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cost_resource_list" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cost_resource_list" Size="60,20" Text="cost_resource_list" Align="Right" onload="init"/>
+<ComboBox Name="cost_resource_list" Size="170,100" Text="" Weight="170"  ToolTip="ttp_cost_resource_list" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_resource_list_header</DbTable>
+<Index>prj_resource_list_header_id</Index>
+<Data>list_name,prj_resource_list_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_allowcostbudgetentry" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="allowcostbudgetentry" Size="230,20" Text="allowcostbudgetentry" ToolTip="ttp_allowcostbudgetentry"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_allowrevenuebudgetentry" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="allowrevenuebudgetentry" Size="230,20" Text="allowrevenuebudgetentry" ToolTip="ttp_allowrevenuebudgetentry"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_revenue_resource_list" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_revenue_resource_list" Size="60,20" Text="revenue_resource_list" Align="Right" onload="init"/>
+<ComboBox Name="revenue_resource_list" Size="170,100" Text="" Weight="170"  ToolTip="ttp_revenue_resource_list" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_resource_list_header</DbTable>
+<Index>prj_resource_list_header_id</Index>
+<Data>list_name,prj_resource_list_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_fundinglevel" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_fundinglevel" Size="60,20" Text="fundinglevel" Align="Right"/>
+<ComboBox Name="fundinglevel" Size="170,100" Text="" Weight="170" Items="Project|Top Task|Both." ToolTip="ttp_fundinglevel"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_enableworkflow4forbudgets" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="enableworkflow4forbudgets" Size="230,20" Text="enableworkflow4forbudgets" ToolTip="ttp_enableworkflow4forbudgets"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_resourcelist4statusreporting" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_resourcelist4statusreporting" Size="60,20" Text="resourcelist4statusreporting" Align="Right" onload="init"/>
+<ComboBox Name="resourcelist4statusreporting" Size="170,100" Text="" Weight="170"  ToolTip="ttp_resourcelist4statusreporting" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_resource_list_header</DbTable>
+<Index>prj_resource_list_header_id</Index>
+<Data>list_name,prj_resource_list_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR NULLHeight="1"/><GroupBox Name="Capitalization" Text="Capitalization" feature="tab"><Ctrls>
+<GroupBox Name="GB_cip_cost_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cip_cost_type" Size="60,20" Text="cip_cost_type" Align="Right"/>
+<TextBox Name="cip_cost_type" Size="170,20" Text="" Weight="170" ToolTip="ttp_cip_cost_type"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_asset_cost_allocation_method" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_asset_cost_allocation_method" Size="60,20" Text="asset_cost_allocation_method" Align="Right"/>
+<TextBox Name="asset_cost_allocation_method" Size="170,20" Text="" Weight="170" ToolTip="ttp_asset_cost_allocation_method"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_event_processing_method" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_event_processing_method" Size="60,20" Text="event_processing_method" Align="Right"/>
+<TextBox Name="event_processing_method" Size="170,20" Text="" Weight="170" ToolTip="ttp_event_processing_method"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_grouping_method" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_grouping_method" Size="60,20" Text="grouping_method" Align="Right"/>
+<TextBox Name="grouping_method" Size="170,20" Text="" Weight="170" ToolTip="ttp_grouping_method"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_requirecompleteassetdefinition" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="requirecompleteassetdefinition" Size="230,20" Text="requirecompleteassetdefinition" ToolTip="ttp_requirecompleteassetdefinition"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR NULLHeight="1"/><GroupBox Name="Billing" Text="Billing" feature="tab"><Ctrls>
+<GroupBox Name="GB_employee_schedule_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_employee_schedule_id" Size="60,20" Text="employee_schedule_id" Align="Right" onload="init"/>
+<ComboBox Name="employee_schedule_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_employee_schedule_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_rate_schedule_header</DbTable>
+<Index>prj_rate_schedule_header_id</Index>
+<Data>schedule_name,prj_rate_schedule_header_id</Data>
+<Where>rate_type='employee'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_job_schedule_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_job_schedule_id" Size="60,20" Text="job_schedule_id" Align="Right"/>
+<ComboBox Name="job_schedule_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_job_schedule_id">
+	<DbDetails>
+<DbTable>xbs.prj_rate_schedule_header</DbTable>
+<Index>prj_rate_schedule_header_id</Index>
+<Data>schedule_name,prj_rate_schedule_header_id</Data>
+<Where>rate_type='job'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_l_revenue_burden_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_l_revenue_burden_id" Size="60,20" Text="l_revenue_burden_id" Align="Right" onload="init"/>
+<ComboBox Name="l_revenue_burden_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_l_revenue_burden_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_burden_list_header</DbTable>
+<Index>prj_burden_list_header_id</Index>
+<Data>burden_list,prj_burden_list_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_l_invoice_burdern_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_l_invoice_burdern_id" Size="60,20" Text="l_invoice_burdern_id" Align="Right"/>
+<ComboBox Name="l_invoice_burdern_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_l_invoice_burdern_id">
+	<DbDetails>
+<DbTable>xbs.prj_burden_list_header</DbTable>
+<Index>prj_burden_list_header_id</Index>
+<Data>burden_list,prj_burden_list_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_nrl_revenue_burden_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_nrl_revenue_burden_id" Size="60,20" Text="nrl_revenue_burden_id" Align="Right" onload="init"/>
+<ComboBox Name="nrl_revenue_burden_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_nrl_revenue_burden_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_burden_list_header</DbTable>
+<Index>prj_burden_list_header_id</Index>
+<Data>burden_list,prj_burden_list_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_nlr_invoice_burdern_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_nlr_invoice_burdern_id" Size="60,20" Text="nlr_invoice_burdern_id" Align="Right" onload="init"/>
+<ComboBox Name="nlr_invoice_burdern_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_nlr_invoice_burdern_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_burden_list_header</DbTable>
+<Index>prj_burden_list_header_id</Index>
+<Data>burden_list,prj_burden_list_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_nlr_schedule_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_nlr_schedule_id" Size="60,20" Text="nlr_schedule_id" Align="Right" onload="init"/>
+<ComboBox Name="nlr_schedule_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_nlr_schedule_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_rate_schedule_header</DbTable>
+<Index>prj_rate_schedule_header_id</Index>
+<Data>schedule_name,prj_rate_schedule_header_id</Data>
+<Where>rate_type='non labor'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_labor_billing_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_labor_billing_type" Size="60,20" Text="labor_billing_type" Align="Right"/>
+<ComboBox Name="labor_billing_type" Size="170,100" Text="" Weight="170" Items="Schedule Rate|Burden Rate" ToolTip="ttp_labor_billing_type"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_nlr_billing_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_nlr_billing_type" Size="60,20" Text="nlr_billing_type" Align="Right"/>
+<ComboBox Name="nlr_billing_type" Size="170,100" Text="" Weight="170" Items="Schedule Rate|Burden Rate" ToolTip="ttp_nlr_billing_type"></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_billing_cycle_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_billing_cycle_id" Size="60,20" Text="billing_cycle_id" Align="Right" onload="init"/>
+<ComboBox Name="billing_cycle_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_billing_cycle_id" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_billing_cycle</DbTable>
+<Index>prj_billing_cycle_id</Index>
+<Data>billing_cycle,prj_billing_cycle_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_billingoffsetdays" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_billingoffsetdays" Size="60,20" Text="billingoffsetdays" Align="Right"/>
+<TextBox Name="billingoffsetdays" Size="170,20" Text="" Weight="170" ToolTip="ttp_billingoffsetdays"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR NULLHeight="1"/><GroupBox Name="Distribution Rules" Text="Distribution Rules" feature="tab"><Ctrls>
+<GroupBox Name="GB_cost_cost_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="cost_cost_cb" Size="230,20" Text="cost_cost_cb" ToolTip="ttp_cost_cost_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cost_event_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="cost_event_cb" Size="230,20" Text="cost_event_cb" ToolTip="ttp_cost_event_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cost_work_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="cost_work_cb" Size="230,20" Text="cost_work_cb" ToolTip="ttp_cost_work_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_event_event_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="event_event_cb" Size="230,20" Text="event_event_cb" ToolTip="ttp_event_event_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_event_work_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="event_work_cb" Size="230,20" Text="event_work_cb" ToolTip="ttp_event_work_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_work_event_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="work_event_cb" Size="230,20" Text="work_event_cb" ToolTip="ttp_work_event_cb"></CheckBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_work_work_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="work_work_cb" Size="230,20" Text="work_work_cb" ToolTip="ttp_work_work_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_prj_project_type_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_prj_project_type_header_id" Size="60,20" Text="prj_project_type_header_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="prj_project_type_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_prj_project_type_header_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBprj_project_type_header" expr="TABEDITprj_project_type_header"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bu_org_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_bu_org_id" Size="60,20" Text="bu_org_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="bu_org_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_bu_org_id" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox></Ctrls></GroupBox>

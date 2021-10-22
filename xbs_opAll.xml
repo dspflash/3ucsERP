@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><XI3uWnd debug="0">
+	<webconfig theme="../biz/theme/materialadmin/theme.html"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>
+	<var name="opinv" expr="op"/>
+	<!--EventTriggers>
+		<Trigger name="click" oneshot="0" Interval="10" dest="sys_pd_process_flow.timedrefresh"></Trigger>
+	</EventTriggers-->
+	<WndTaps id="opAll">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmyinfo.xml"/>
+	<xi:include module="vcustomer" xmlns:xi="http://www.w3.org/2001/XInclude" href="vcustomer.xml"/>
+	<xi:include module="vsd_quote" xmlns:xi="http://www.w3.org/2001/XInclude" href="vsd_quote.xml"/>
+	<!--xi:include module="vsd_quote_approve" xmlns:xi="http://www.w3.org/2001/XInclude" href="vsd_quote_approve.xml"/-->
+	<xi:include module="vsdso" xmlns:xi="http://www.w3.org/2001/XInclude" href="vsdso.xml"/>
+	<xi:include module="vsdso_line" xmlns:xi="http://www.w3.org/2001/XInclude" href="vsdso_line.xml"/>
+	<!--xi:include module="vsdso_approve" xmlns:xi="http://www.w3.org/2001/XInclude" href="vsdso_approve.xml"/-->
+	<xi:include module="vsddlv" xmlns:xi="http://www.w3.org/2001/XInclude" href="vsddlv.xml"/>
+	<xi:include module="DLVLine" xmlns:xi="http://www.w3.org/2001/XInclude" href="vsddlv_line.xml"/>
+
+	<xi:include module="vsupplier" xmlns:xi="http://www.w3.org/2001/XInclude" href="vsupplier.xml"/>
+	<xi:include module="vpoquote" xmlns:xi="http://www.w3.org/2001/XInclude" href="vpoquote.xml"/>
+	<!--xi:include module="vpoquote_review" xmlns:xi="http://www.w3.org/2001/XInclude" href="vpoquote_review.xml"/>
+	<xi:include module="vpoquote_approve" xmlns:xi="http://www.w3.org/2001/XInclude" href="vpoquote_approve.xml"/-->
+	<xi:include module="vBomDptView" xmlns:xi="http://www.w3.org/2001/XInclude" href="vBomDptView.xml"/>
+	<xi:include module="vmat" xmlns:xi="http://www.w3.org/2001/XInclude" href="vmat.xml"/>
+	<xi:include module="vProdView" xmlns:xi="http://www.w3.org/2001/XInclude" href="vProdView.xml"/>
+	<xi:include module="vmaterialonhand" xmlns:xi="http://www.w3.org/2001/XInclude" href="vmaterialonhand.xml"/>
+	<xi:include module="vproductonhand" xmlns:xi="http://www.w3.org/2001/XInclude" href="vproductonhand.xml"/>
+	<xi:include module="vExOnhand" xmlns:xi="http://www.w3.org/2001/XInclude" href="vExOnhand.xml"/>
+	<xi:include module="vpo_req" xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_req.xml"/>
+	<xi:include module="vpo_req_line" xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_req_line.xml"/>
+	<!--xi:include module="vpo_req_review" xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_req_review.xml"/>
+	<xi:include module="vpo_req_approve" xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_req_approve.xml"/-->
+	<xi:include module="vpo" xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo.xml"/>
+	<xi:include module="vpo_line" xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_line.xml"/>
+	<!--xi:include module="vpo_review" xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_review.xml"/>
+	<xi:include module="vpo_approve" xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_approve.xml"/-->
+	<xi:include module="vpo_so" xmlns:xi="http://www.w3.org/2001/XInclude" href="vpo_so.xml"/>
+	<xi:include module="vsdso_plan" xmlns:xi="http://www.w3.org/2001/XInclude" href="vsdso_plan.xml"/>
+	<xi:include module="vwip" xmlns:xi="http://www.w3.org/2001/XInclude" href="vwip.xml"/>
+	<xi:include module="mdm_price_list" xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_price_list_header_Vm.xml"/>
+
+	<xi:include module="vorg" xmlns:xi="http://www.w3.org/2001/XInclude" href="vorg.xml"/>
+	<xi:include module="import_business" xmlns:xi="http://www.w3.org/2001/XInclude" href="import_business.xml"/>
+	<xi:include module="vhr_employee" xmlns:xi="http://www.w3.org/2001/XInclude" href="vhr_employee.xml"/>
+	<xi:include module="vuser" xmlns:xi="http://www.w3.org/2001/XInclude" href="vuser.xml"/>
+	<xi:include module="xerp_role_permission_v" xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_role_permission_vm.xml"/>
+	<xi:include module="vgeneral" xmlns:xi="http://www.w3.org/2001/XInclude" href="vgeneral.xml"/>
+	<xi:include module="vsystem" xmlns:xi="http://www.w3.org/2001/XInclude" href="vsystem.xml"/>
+	<xi:include module="pd_process" xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_process_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_pd_process_flow_diagram_v.xml" popup="1"/>
+	<xi:include module="sys_process_flow" xmlns:xi="http://www.w3.org/2001/XInclude" href="sys_process_flow_header_Vm.xml"/>
+	</WndTaps>
+</XI3uWnd>

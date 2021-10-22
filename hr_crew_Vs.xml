@@ -1,0 +1,19 @@
+﻿<GroupBox Name="GBDEDIThr_crew" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_crew_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_crew_number" Size="60,20" Text="crew_number" Align="Right"/>
+<TextBox Name="crew_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_crew_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_leader_employee_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_leader_employee_id" Size="60,20" Text="leader_employee_id" Align="Right"/>
+<TextBox Name="leader_employee_id" Size="150,20" Text="" Weight="150" ToolTip="ttp_leader_employee_id">
+	<DbDetails>
+<Index>hr_employee_id</Index>
+<DbTable>xbs.hr_employee_v</DbTable>
+<Data>name,hr_employee_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+<MagicCtrl Name="pickleader_employee_id" Link="tip:Pick" images=",data/search.png" button="type:0" Size="20,20"><OnClick><assign name="$this.EmployeePick.frmwndctrl" expr="leader_employee_id"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_active" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="active" Size="230,20" Text="active" ToolTip="ttp_active"  checked="true"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

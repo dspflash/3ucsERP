@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_element_entry_tpl_line"><Ctrls>
+<ListCtrl Heading="hr_element_entry_tpl_header_id,120;element_id,60;element_value,125;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_element_entry_tpl_line_id,60;" loadedclick="0" ToolTip="ttp_hr_element_entry_tpl_line" onload="init" Name="hr_element_entry_tpl_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_element_entry_tpl_line</DbTable>
+<Index>hr_element_entry_tpl_line_id</Index>
+<Data>hr_element_entry_tpl_header_id,element_id,element_value,description,created_by,creation_date,last_update_by,last_update_date,hr_element_entry_tpl_line_id</Data>
+<Order>hr_element_entry_tpl_line_id</Order></DbDetails>
+<OnClick><assign name="hr_element_entry_tpl_header_id[hr_element_entry_tpl_header_id]" function="SetSel" expr="%{hr_element_entry_tpl_lineLst[hr_element_entry_tpl_header_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

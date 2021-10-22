@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVpo_header" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletepo_header" Name="deletepo_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_header</DbTable>
+<Where>po_header_id='%{po_headerLst[po_header_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpo_header" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshpo_header" Name="searchpo_header" Size="50,20">
+			  <OnClick><submit next="po_headerLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPpo_headerLst" OnClick="(po_headerLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREpo_headerLst" OnClick="(po_headerLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPpo_headerLst" OnClick="(po_headerLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

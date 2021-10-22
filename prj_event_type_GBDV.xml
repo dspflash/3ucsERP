@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_event_type"><Ctrls>
+<ListCtrl Heading="event_type,125;event_class,120;revenue_category,120;effective_from,90;effective_to,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_event_type_id,60;" loadedclick="0" ToolTip="ttp_prj_event_type" Name="prj_event_typeLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.prj_event_type p left join xbs.option_line o on p.event_class=o.option_line_id left join xbs.prj_revenue_category p0 on p.revenue_category=p0.prj_revenue_category_id</DbTable>
+<Index>prj_event_type_id</Index>
+<Data>p.event_type,o.option_line_value event_class,p0.Revenue_category revenue_category,p.effective_from,p.effective_to,p.description,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.prj_event_type_id</Data>
+<Order>prj_event_type_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

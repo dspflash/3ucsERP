@@ -1,0 +1,52 @@
+<Language name="inventory">
+<Lang name="inventory" value="库存组织"/>
+<Lang name="TabEditinventory" value="inventory Edit"/>
+<Lang name="TabViewinventory" value="inventory View"/>
+<Lang name="calendar" value="日历"/>
+<Lang name="ttp_calendar" value=""/>
+<Lang name="locator_control" value="库位控制"/>
+<Lang name="ttp_locator_control" value=""/>
+<Lang name="material_ac_id" value="物料账目"/>
+<Lang name="ttp_material_ac_id" value=""/>
+<Lang name="inv_ap_accrual_ac_id" value=""/>
+<Lang name="ttp_inv_ap_accrual_ac_id" value=""/>
+<Lang name="inv_ap_exp_accrual_ac_id" value=""/>
+<Lang name="ttp_inv_ap_exp_accrual_ac_id" value=""/>
+<Lang name="sales_ac_id" value="销售账目"/>
+<Lang name="ttp_sales_ac_id" value=""/>
+<Lang name="item_rev_enabled_cb" value=""/>
+<Lang name="ttp_item_rev_enabled_cb" value=""/>
+<Lang name="item_master_cb" value="物料主组织"/>
+<Lang name="ttp_item_master_cb" value=""/>
+<Lang name="allow_negative_balance_cb" value=""/>
+<Lang name="ttp_allow_negative_balance_cb" value=""/>
+<Lang name="transfer_to_gl_cb" value=""/>
+<Lang name="ttp_transfer_to_gl_cb" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="inventory_id" value=""/>
+<Lang name="ttp_inventory_id" value=""/>
+<Lang name="org_id" value=""/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="ttp_operationinventory" value="操作"/>
+<Lang name="ttp_createinventory" value="新增"/>
+<Lang name="ttp_modifyinventory" value="修改"/>
+<Lang name="ttp_resetinventory" value="清除数据"/>
+<Lang name="ttp_deleteinventory" value="删除"/>
+<Lang name="ttp_refreshinventory" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

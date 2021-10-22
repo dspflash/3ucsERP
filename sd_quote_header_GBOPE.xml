@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEsd_quote_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="sd_quote_header_id" Text="create" ToolTip="ttp_createsd_quote_header" Name="insertsd_quote_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_quote_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>quote_number[quote_number],ar_customer_id[ar_customer_id],ar_customer_site_id[ar_customer_site_id],ship_to_id[address_id],bill_to_id[address_id],doc_currency[currency_id],payment_term_id[payment_term_id],agreement_start_date,aggrement_end_date,description</Data>
+<DataEx>approval_status,created_by,creation_date,last_update_by,last_update_date,bu_org_id,status;321,'%{user_id}',now(),'%{user_id}',now(),'%{orgid}',1486</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="sd_quote_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifysd_quote_header" Name="modifysd_quote_header" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_quote_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>ar_customer_id[ar_customer_id],ar_customer_site_id[ar_customer_site_id],ship_to_id[address_id],bill_to_id[address_id],doc_currency[currency_id],payment_term_id[payment_term_id],agreement_start_date,aggrement_end_date,description</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>sd_quote_header_id='%{sd_quote_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="sd_quote_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetsd_quote_header" Name="resetsd_quote_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_quote_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchsd_quote_header" Name="gsearchsd_quote_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="sd_quote_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITsd_quote_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

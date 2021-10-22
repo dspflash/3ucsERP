@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsupplier_all_v"><Ctrls>
+<ListCtrl Heading="supplier_number,125;supplier_name,300;supplier_site_number,55;supplier_site_name,300;tax_country,250;tax_reg_no,500;ap_currency,160;payment_term,250;status,60;" loadedclick="0" ToolTip="ttp_supplier_all_v" Name="supplier_all_vLst" Size="700,420" selectedIndex="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.supplier_all_v</DbTable>
+
+<Data>supplier_number,supplier_name,supplier_site_number,supplier_site_name,tax_country,tax_reg_no,ap_currency,payment_term,status</Data>
+</DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

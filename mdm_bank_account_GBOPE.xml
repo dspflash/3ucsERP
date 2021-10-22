@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEmdm_bank_account" Size="100,100"><Ctrls>
+<Button sqlpkinsert="mdm_bank_account_id" Text="create" ToolTip="ttp_createmdm_bank_account" Name="insertmdm_bank_account" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.mdm_bank_account</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>mdm_bank_site_id[mdm_bank_site_id],account_number,currency_code[currency_id],account_type[option_line_code],description,status,reftbltp,refid</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,mdm_bank_header_id,org_id;'%{user_id}',now(),'%{user_id}',now(),%{mdm_bank_site_id[mdm_bank_header_id]},'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertmdm_bank_account[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="mdm_bank_accountLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.mdm_bank_account_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifymdm_bank_account" Name="modifymdm_bank_account" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.mdm_bank_account</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>mdm_bank_site_id[mdm_bank_site_id],account_number,currency_code[currency_id],account_type[option_line_code],description,status</Data>
+<DataEx>last_update_by,last_update_date,mdm_bank_header_id;'%{user_id}',now(),%{mdm_bank_site_id[mdm_bank_header_id]}</DataEx>
+<Where>mdm_bank_account_id='%{mdm_bank_account_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifymdm_bank_account[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="mdm_bank_accountLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.mdm_bank_account_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetmdm_bank_account" Name="resetmdm_bank_account" Size="50,20">
+<OnClick>
+<submit next="GBDEDITmdm_bank_account" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchmdm_bank_account" Name="gsearchmdm_bank_account" Size="50,20" visible="false">
+<OnClick>
+<search next="mdm_bank_accountLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITmdm_bank_account" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVmdm_bank_account"><Ctrls>
+<ListCtrl Heading="mdm_bank_site_id,120;account_number,125;currency_code,120;account_type,120;description,640;status,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;mdm_bank_account_id,60;mdm_bank_header_id,120;org_id,120;" loadedclick="0" ToolTip="ttp_mdm_bank_account" Name="mdm_bank_accountLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>mdm_bank_account_id</Index>
+<DbTable>xbs.mdm_bank_account m left join xbs.mdm_bank_site m0 on m.mdm_bank_site_id=m0.mdm_bank_site_id left join xbs.currency c on m.currency_code=c.currency_id left join xbs.option_line o on m.account_type=o.option_line_code left join xbs.mdm_bank_header m1 on m.mdm_bank_header_id=m1.mdm_bank_header_id left join xbs.org o0 on m.org_id=o0.org_id</DbTable>
+<Data>m0.branch_name mdm_bank_site_id,m.account_number,c.title currency_code,o.option_line_value account_type,m.description,m.status,m.created_by,m.creation_date,m.last_update_by,m.last_update_date,m.mdm_bank_account_id,m1.bank_name mdm_bank_header_id,o0.org org_id</Data>
+<Order>mdm_bank_account_id</Order></DbDetails>
+<DbDetails fcsm="1"><Where>reftbltp='%{reftbltp}' and refid='%{refid}'org_id=%{orgid}</Where></DbDetails><DbDetails fcsm="1"><Where>reftbltp='%{reftbltp}' and refid='%{refid}'org_id=%{orgid}</Where></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>mdm_bank_account_id='%{mdm_bank_account_vLst[mdm_bank_account_id]}'</Where></DbDetails><submit next="$this.mdm_bank_account.mdm_bank_accountLst" namelist="DbDetails"/><assign name="$this.mdm_bank_account.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.mdm_bank_account</DbTable>
+<Where>mdm_bank_account_id='%{mdm_bank_account_vLst[mdm_bank_account_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

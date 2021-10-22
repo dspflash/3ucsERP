@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_payroll_process" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_payroll_processLst" ToolTip="ttp_hr_payroll_process" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_payroll_process_id</Index>
+<DbTable>xbs.hr_payroll_process</DbTable>
+<Data>proces_name,hr_payroll_schedule_id,status,gl_journal_header_id,description,created_by,creation_date,last_update_by,last_update_date,hr_payroll_process_id,hr_payroll_id</Data>
+<Order>hr_payroll_process_id</Order></DbDetails>
+<OnClick><assign name="hr_payroll_schedule_id[hr_payroll_schedule_id]" expr="%{hr_payroll_processLst[hr_payroll_schedule_id]}" function="SetSel"/><assign name="gl_journal_header_id[gl_journal_header_id]" expr="%{hr_payroll_processLst[gl_journal_header_id]}" function="SetSel"/>
+<if cond="%{hr_payroll_process_id}"><SetVisible name="inserthr_payroll_process" Visible="0"/><SetVisible name="modifyhr_payroll_process" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

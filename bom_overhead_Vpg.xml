@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGbom_overhead"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_bom_overhead" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>bom_overhead_id</Index>
+<DbTable>xbs.bom_overhead b left join xbs.option_line o on b.overhead_type=o.option_line_id left join xbs.option_line o0 on b.default_basis=o0.option_line_id LEFT JOIN bom_oh_rate_assignment ohr ON ohr.bom_overhead_id=b.bom_overhead_id LEFT JOIN bom_cost_type bct ON ohr.bom_cost_type=bct.bom_cost_type_id</DbTable>
+<Data>count(*) records</Data>
+<Order>bom_overhead_id</Order><Queryformat>select %{data} from (select b.bom_overhead_id from %{dbtable} %{where} GROUP BY b.bom_overhead_id  ORDER BY b.bom_overhead_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_bom_overhead" expr="js(Math.ceil(%{records_bom_overhead}/%{bom_overhead_vLst[countsperpage]}))"/>
+<assign name="pgscb_bom_overhead" expr="js('1~'+Math.ceil(%{records_bom_overhead}/%{bom_overhead_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_bom_overhead" Size="60,20"><OnSelEndOK><submit next="bom_overhead_vLst" function="GetPage(%{pgscb_bom_overhead}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_bom_overhead" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_bom_overhead" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagebom_overhead_vLst" Size="50,20"><OnClick><submit next="bom_overhead_vLst" function="GetPage(%{pgcur_bom_overhead}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

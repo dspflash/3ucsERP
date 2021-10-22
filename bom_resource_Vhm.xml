@@ -1,0 +1,13 @@
+﻿<GroupBox Name="GBDVbom_resource" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bom_resourceLst" ToolTip="ttp_bom_resource" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>bom_resource_id</Index>
+<DbTable>xbs.bom_resource</DbTable>
+<Data>resource,resource_type,description,charge_type,uom,status,osp_cb,osp_item_id,created_by,creation_date,last_update_by,last_update_date,org_id,bom_resource_id</Data>
+<Order>bom_resource_id</Order></DbDetails>
+<OnClick><assign name="resource_type[option_line_id]" expr="%{bom_resourceLst[resource_type]}" function="SetSel"/><assign name="charge_type[option_line_id]" expr="%{bom_resourceLst[charge_type]}" function="SetSel"/><assign name="uom[uom_id]" expr="%{bom_resourceLst[uom]}" function="SetSel"/>
+<if cond="%{bom_resourceLst[osp_cb]}"><DbDetails><Where>and item_id_m='%{bom_resourceLst[osp_item_id]}'</Where></DbDetails><submit next="osp_item_id" namelist="DbDetails"/><assign name="osp_item_id" expr="0" function="SetSel"/><else/><submit next="osp_item_id" function="resetcontent"/></if>
+<if cond="%{bom_resource_id}"><SetVisible name="insertbom_resource" Visible="0"/><SetVisible name="modifybom_resource" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

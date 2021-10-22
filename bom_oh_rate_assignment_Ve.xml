@@ -1,0 +1,13 @@
+﻿<WndTap Name="bom_oh_rate_assignment" Text="bom_oh_rate_assignment" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="bom_overhead_id[bom_overhead_id],bom_cost_type[bom_cost_type_id],default_basis[option_line_id],rate"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\bom_oh_rate_assignment.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBbom_oh_rate_assignment" id="bom_oh_rate_assignment" Text="bom_oh_rate_assignment" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_oh_rate_assignment_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_oh_rate_assignment_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_oh_rate_assignment_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertbom_oh_rate_assignment" Visible="1"/><SetVisible name="modifybom_oh_rate_assignment" Visible="0"/></OnActivate>
+</WndTap>

@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVap_payment_line"><Ctrls>
+<ListCtrl Heading="line_description,440;amount,100;gl_amount,75;line_status,55;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;ap_payment_line_id,60;line_number,60;" loadedclick="0" ToolTip="ttp_ap_payment_line" Name="ap_payment_lineLst" Size="500,300">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payment_line</DbTable>
+<Index>ap_payment_line_id</Index>
+<Data>line_description,amount,gl_amount,line_status,created_by,creation_date,last_update_by,last_update_date,ap_payment_line_id,line_number</Data>
+<Order>ap_payment_line_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,71 @@
+<GroupBox Name="GBDEDITpos_barcode_list_line"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_pos_barcode_list_header_id"><Ctrls>
+<Label Align="Right" Text="pos_barcode_list_header_id" OnLoad="init" Name="lb_pos_barcode_list_header_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_pos_barcode_list_header_id" OnLoad="init" Name="pos_barcode_list_header_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.pos_barcode_list_header</DbTable>
+<Index>pos_barcode_list_header_id</Index>
+<Data>list_name,pos_barcode_list_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><DbDetails><Where>pos_barcode_list_header_id='%{pos_barcode_list_header_id[pos_barcode_list_header_id]}'</Where></DbDetails><submit next="pos_barcode_list_lineLst" namelist="DbDetails"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_number"><Ctrls>
+<Label Align="Right" Text="item_number" Name="lb_item_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_item_number" Name="item_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_unit_price"><Ctrls>
+<Label Align="Right" Text="unit_price" Name="lb_unit_price" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_unit_price" Name="unit_price" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_quantity"><Ctrls>
+<Label Align="Right" Text="quantity" Name="lb_quantity" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_quantity" Name="quantity" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_amount"><Ctrls>
+<Label Align="Right" Text="line_amount" Name="lb_line_amount" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_line_amount" Name="line_amount" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_discount_percentage"><Ctrls>
+<Label Align="Right" Text="discount_percentage" Name="lb_discount_percentage" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_discount_percentage" Name="discount_percentage" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_discount_amount"><Ctrls>
+<Label Align="Right" Text="discount_amount" Name="lb_discount_amount" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_discount_amount" Name="discount_amount" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_discount_code"><Ctrls>
+<Label Align="Right" Text="discount_code" Name="lb_discount_code" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_discount_code" Name="discount_code" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_amount_after_discount"><Ctrls>
+<Label Align="Right" Text="amount_after_discount" Name="lb_amount_after_discount" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_amount_after_discount" Name="amount_after_discount" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_no_of_labels"><Ctrls>
+<Label Align="Right" Text="no_of_labels" Name="lb_no_of_labels" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_no_of_labels" Name="no_of_labels" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" Name="lb_status" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_status" Name="status" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_pos_barcode_list_line_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="pos_barcode_list_line_id" overlap="pre" Name="lb_pos_barcode_list_line_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_pos_barcode_list_line_id" overlap="pre" Name="pos_barcode_list_line_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBpos_barcode_list_line" expr="TABEDITpos_barcode_list_line"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

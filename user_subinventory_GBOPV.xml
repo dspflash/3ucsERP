@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVuser_subinventory" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteuser_subinventory" Name="deleteuser_subinventory" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.user_subinventory</DbTable>
+<Where>user_subinventory_id='%{user_subinventoryLst[user_subinventory_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchuser_subinventory" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshuser_subinventory" Name="searchuser_subinventory" Size="50,20">
+			  <OnClick><submit next="user_subinventoryLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPuser_subinventoryLst" OnClick="(user_subinventoryLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREuser_subinventoryLst" OnClick="(user_subinventoryLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPuser_subinventoryLst" OnClick="(user_subinventoryLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

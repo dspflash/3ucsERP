@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVinv_item_revision" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="inv_item_revision_vLst" ToolTip="ttp_inv_item_revision_v" Size="700,450" OnLoad="init" Heading="revision_name,50;reason,640;eco_number,250;effective_start_date,90;effective_end_date,90;implementation_date,90;origination_date,90;description,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;inv_item_revision_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>inv_item_revision_id</Index>
+<DbTable>xbs.inv_item_revision i</DbTable>
+<Data>i.revision_name,i.reason,i.eco_number,i.effective_start_date,i.effective_end_date,i.implementation_date,i.origination_date,i.description,i.created_by,i.creation_date,i.last_update_by,i.last_update_date,i.org_id,i.inv_item_revision_id</Data>
+<Order>inv_item_revision_id</Order></DbDetails>
+<DbDetails><Where>reftbltp='%{reftbltp}' and refid='%{refid}'</Where></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>inv_item_revision_id='%{inv_item_revision_vLst[inv_item_revision_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.inv_item_revision.inv_item_revisionLst"/><assign name="$this.inv_item_revision.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.inv_item_revision</DbTable>
+<Where>inv_item_revision_id='%{inv_item_revision_vLst[inv_item_revision_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_inv_item_revision" expr="js(%{inv_item_revision_vLst[currentpage]}+1)"/>
+<assign name="pgscb_inv_item_revision" expr="js(%{inv_item_revision_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

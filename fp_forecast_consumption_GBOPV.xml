@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVfp_forecast_consumption" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletefp_forecast_consumption" Name="deletefp_forecast_consumption" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_forecast_consumption</DbTable>
+<Where>fp_forecast_consumption_id='%{fp_forecast_consumptionLst[fp_forecast_consumption_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchfp_forecast_consumption" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshfp_forecast_consumption" Name="searchfp_forecast_consumption" Size="50,20">
+			  <OnClick><submit next="fp_forecast_consumptionLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPfp_forecast_consumptionLst" OnClick="(fp_forecast_consumptionLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREfp_forecast_consumptionLst" OnClick="(fp_forecast_consumptionLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPfp_forecast_consumptionLst" OnClick="(fp_forecast_consumptionLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

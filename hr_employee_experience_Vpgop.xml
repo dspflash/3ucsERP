@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVhr_employee_experience" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialhr_employee_experience" Size="50,20">
+<OnClick><submit next="hr_employee_experience_vLst" function="initial"/><submit next="records_hr_employee_experience" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPhr_employee_experience_vLst" Size="50,20">
+<OnClick><submit next="hr_employee_experience_vLst" function="GetPage(first)"/><submit next="records_hr_employee_experience"/></OnClick></Button>
+<Button Text="prepage" Name="PREhr_employee_experience_vLst" Size="50,20">
+<OnClick><submit next="hr_employee_experience_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPhr_employee_experience_vLst" Size="50,20">
+<OnClick><submit next="hr_employee_experience_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

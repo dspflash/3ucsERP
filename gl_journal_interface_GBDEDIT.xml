@@ -1,0 +1,224 @@
+<GroupBox Name="GBDEDITgl_journal_interface"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_ledger_id"><Ctrls>
+<Label Align="Right" Text="ledger_id" onload="init" Name="lb_ledger_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_ledger_id" onload="init" Name="ledger_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.gl_ledger</DbTable>
+<Index>gl_ledger_id</Index>
+<Data>ledger,gl_ledger_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_currency"><Ctrls>
+<Label Align="Right" Text="currency" onload="init" Name="lb_currency" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_currency" onload="init" Name="currency" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.currency</DbTable>
+<Index>currency_id</Index>
+<Data>title,currency_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_document_date"><Ctrls>
+<Label Align="Right" Text="document_date" Name="lb_document_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_document_date" Name="document_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_period_id"><Ctrls>
+<Label Align="Right" Text="period_id" onload="init" Name="lb_period_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_period_id" onload="init" Name="period_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.gl_period</DbTable>
+<Index>gl_period_id</Index>
+<Data>period_name,gl_period_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_journal_source"><Ctrls>
+<Label Align="Right" Text="journal_source" onload="init" Name="lb_journal_source" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_journal_source" onload="init" Name="journal_source" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_code</Index>
+<Data>option_line_value,option_line_code</Data>
+<Where>option_header_id=263</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_journal_category"><Ctrls>
+<Label Align="Right" Text="journal_category" onload="init" Name="lb_journal_category" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_journal_category" onload="init" Name="journal_category" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_code</Index>
+<Data>option_line_value,option_line_code</Data>
+<Where>option_header_id=157</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_journal_name"><Ctrls>
+<Label Align="Right" Text="journal_name" Name="lb_journal_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_journal_name" Name="journal_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_balance_type"><Ctrls>
+<Label Align="Right" Text="balance_type" onload="init" Name="lb_balance_type" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_balance_type" onload="init" Name="balance_type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_code</Index>
+<Data>option_line_value,option_line_code</Data>
+<Where>option_header_id=155</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_post_date"><Ctrls>
+<Label Align="Right" Text="post_date" Name="lb_post_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_post_date" Name="post_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_header_amount"><Ctrls>
+<Label Align="Right" Text="header_amount" Name="lb_header_amount" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_header_amount" Name="header_amount" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_doc_currency"><Ctrls>
+<Label Align="Right" Text="doc_currency" onload="init" Name="lb_doc_currency" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_doc_currency" onload="init" Name="doc_currency" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.currency</DbTable>
+<Index>currency_id</Index>
+<Data>title,currency_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_exchange_type"><Ctrls>
+<Label Align="Right" Text="exchange_type" onload="init" Name="lb_exchange_type" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_exchange_type" onload="init" Name="exchange_type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_code</Index>
+<Data>option_line_value,option_line_code</Data>
+<Where>option_header_id=188</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_exchange_date"><Ctrls>
+<Label Align="Right" Text="exchange_date" Name="lb_exchange_date" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_exchange_date" Name="exchange_date" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_exchange_rate"><Ctrls>
+<Label Align="Right" Text="exchange_rate" Name="lb_exchange_rate" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_exchange_rate" Name="exchange_rate" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_control_total"><Ctrls>
+<Label Align="Right" Text="control_total" Name="lb_control_total" Size="60,20"/>
+<DateTime Weight="170" ToolTip="ttp_control_total" Name="control_total" Size="170,20" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_running_total_dr"><Ctrls>
+<Label Align="Right" Text="running_total_dr" Name="lb_running_total_dr" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_running_total_dr" Name="running_total_dr" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_running_total_cr"><Ctrls>
+<Label Align="Right" Text="running_total_cr" Name="lb_running_total_cr" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_running_total_cr" Name="running_total_cr" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_running_toatl_ac_dr"><Ctrls>
+<Label Align="Right" Text="running_toatl_ac_dr" Name="lb_running_toatl_ac_dr" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_running_toatl_ac_dr" Name="running_toatl_ac_dr" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_running_toatl_ac_cr"><Ctrls>
+<Label Align="Right" Text="running_toatl_ac_cr" Name="lb_running_toatl_ac_cr" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_running_toatl_ac_cr" Name="running_toatl_ac_cr" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_reference_type"><Ctrls>
+<Label Align="Right" Text="reference_type" Name="lb_reference_type" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_reference_type" Name="reference_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_reference_key_name"><Ctrls>
+<Label Align="Right" Text="reference_key_name" Name="lb_reference_key_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_reference_key_name" Name="reference_key_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_reference_key_value"><Ctrls>
+<Label Align="Right" Text="reference_key_value" Name="lb_reference_key_value" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_reference_key_value" Name="reference_key_value" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_num"><Ctrls>
+<Label Align="Right" Text="line_num" Name="lb_line_num" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_line_num" Name="line_num" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_status"><Ctrls>
+<Label Align="Right" Text="line_status" Name="lb_line_status" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_line_status" Name="line_status" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_type"><Ctrls>
+<Label Align="Right" Text="line_type" Name="lb_line_type" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_line_type" Name="line_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_description"><Ctrls>
+<Label Align="Right" Text="line_description" Name="lb_line_description" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_line_description" Name="line_description" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_code_combination_id"><Ctrls>
+<Label Align="Right" Text="code_combination_id" Name="lb_code_combination_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_code_combination_id" Name="code_combination_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_total_dr"><Ctrls>
+<Label Align="Right" Text="total_dr" Name="lb_total_dr" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_total_dr" Name="total_dr" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_total_cr"><Ctrls>
+<Label Align="Right" Text="total_cr" Name="lb_total_cr" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_total_cr" Name="total_cr" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_total_ac_dr"><Ctrls>
+<Label Align="Right" Text="total_ac_dr" Name="lb_total_ac_dr" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_total_ac_dr" Name="total_ac_dr" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_total_ac_cr"><Ctrls>
+<Label Align="Right" Text="total_ac_cr" Name="lb_total_ac_cr" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_total_ac_cr" Name="total_ac_cr" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_reference_type"><Ctrls>
+<Label Align="Right" Text="line_reference_type" Name="lb_line_reference_type" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_line_reference_type" Name="line_reference_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_reference_key_name"><Ctrls>
+<Label Align="Right" Text="line_reference_key_name" Name="lb_line_reference_key_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_line_reference_key_name" Name="line_reference_key_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_reference_key_value"><Ctrls>
+<Label Align="Right" Text="line_reference_key_value" Name="lb_line_reference_key_value" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_line_reference_key_value" Name="line_reference_key_value" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_rev_enabled_cb"><Ctrls>
+<CheckBox Text="rev_enabled_cb" ToolTip="ttp_rev_enabled_cb" Name="rev_enabled_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_rev_number"><Ctrls>
+<Label Align="Right" Text="rev_number" Name="lb_rev_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_rev_number" Name="rev_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_gl_journal_header_id"><Ctrls>
+<Label Align="Right" Text="gl_journal_header_id" Name="lb_gl_journal_header_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_gl_journal_header_id" Name="gl_journal_header_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_gl_journal_line_id"><Ctrls>
+<Label Align="Right" Text="gl_journal_line_id" Name="lb_gl_journal_line_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_gl_journal_line_id" Name="gl_journal_line_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_gl_journal_interface_id"><Ctrls>
+<Label Align="Right" Text="gl_journal_interface_id" Name="lb_gl_journal_interface_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_gl_journal_interface_id" Name="gl_journal_interface_id" Size="170,20"><OnEnChange><assign name="GBgl_journal_interface" expr="TABEDITgl_journal_interface"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhr_approval_limit_header"><Ctrls>
+<ListCtrl Heading="limit_name,250;description,640;status,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_approval_limit_header_id,60;bu_org_id,60;" loadedclick="0" ToolTip="ttp_hr_approval_limit_header" Name="hr_approval_limit_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_approval_limit_header</DbTable>
+<Index>hr_approval_limit_header_id</Index>
+<Data>limit_name,description,status,created_by,creation_date,last_update_by,last_update_date,hr_approval_limit_header_id,bu_org_id</Data>
+<Order>hr_approval_limit_header_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><XI3uWnd font-size="180" debug="0">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>
+	<var name="opinv" expr="op"/>
+	<WndTaps id="opAll">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vmyinfo.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_project_header_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vPrjProgress.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="vPrjTasks.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_agreement_header_Vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_project_type_header_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_work_type_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_service_type_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_expenditure_category_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_revenue_category_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_budget_change_reason_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_bem_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_billing_cycle_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_role_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_resource_list_header_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_rate_schedule_header_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_expenditure_type_header_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_event_type_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_category_header_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_list_header_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_structure_header_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_cost_base_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_burden_costcode_v.xml"/>
+	</WndTaps>
+</XI3uWnd>

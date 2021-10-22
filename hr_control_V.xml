@@ -1,0 +1,14 @@
+﻿<WndTap Name="hr_control_v" Text="hr_control">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_control_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\hr_control.xml"/>
+<Ctrls><GroupBox  Name="GBhr_control" id="hr_control" Text="hr_control" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_control_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVhr_control" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.hr_control.GBDEDIThr_control" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resethr_control" Name="resethr_control" Size="50,20">	<OnClick>	<submit next="GBDEDIThr_control" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchhr_control" Name="gsearchhr_control" Size="50,20" visible="true">	<OnClick>	<search next="hr_control_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDIThr_control" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_control_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

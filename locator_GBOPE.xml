@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPElocator" Size="100,100"><Ctrls>
+<Button sqlpkinsert="locator_id" Text="create" ToolTip="ttp_createlocator" Name="insertlocator" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.locator</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>subinventory_id[subinventory_id],locator,locator_structure,dimension_uom_id[uom_id],length,height,width,x_coordinate,y_coordinate,z_coordinate,max_units,max_volume_uom_id[uom_id],max_volume,max_weight_uom_id[uom_id],max_weight</Data>
+<DataEx>org_id,created_by,creation_date,last_update_by,last_update_date;'%{orgid}','%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="locatorLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifylocator" Name="modifylocator" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.locator</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>locator,locator_structure,dimension_uom_id[uom_id],length,height,width,x_coordinate,y_coordinate,z_coordinate,max_units,max_volume_uom_id[uom_id],max_volume,max_weight_uom_id[uom_id],max_weight</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>locator_id='%{locator_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="locatorLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetlocator" Name="resetlocator" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITlocator" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchlocator" Name="gsearchlocator" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="locatorLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITlocator" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

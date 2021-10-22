@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEsupplier_bu" Size="100,100"><Ctrls>
+<Button sqlpkinsert="supplier_bu_id" Text="create" ToolTip="ttp_createsupplier_bu" Name="insertsupplier_bu" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.supplier_bu</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>supplier_id[supplier_id],payment_term_id[payment_term_id],invoice_currency[currency_id],po_amount_limit,invoice_amount_limit,payment_amount_limit,payment_priority,pay_date_basis,status</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date,org_id;'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="supplier_buLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifysupplier_bu" Name="modifysupplier_bu" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.supplier_bu</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>supplier_id[supplier_id],payment_term_id[payment_term_id],invoice_currency[currency_id],po_amount_limit,invoice_amount_limit,payment_amount_limit,payment_priority,pay_date_basis,status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>supplier_bu_id='%{supplier_bu_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="supplier_buLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetsupplier_bu" Name="resetsupplier_bu" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsupplier_bu" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchsupplier_bu" Name="gsearchsupplier_bu" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="supplier_buLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITsupplier_bu" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

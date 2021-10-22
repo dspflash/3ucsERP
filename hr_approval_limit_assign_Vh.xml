@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVhr_approval_limit_assign" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_approval_limit_assignLst" ToolTip="ttp_hr_approval_limit_assign" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_approval_limit_assign</DbTable>
+<Index>hr_approval_limit_assign_id</Index>
+<Data>hr_approval_limit_header_id,job_id,position_id,document_type,start_date,end_date,created_by,creation_date,last_update_by,last_update_date,hr_approval_limit_assign_id,bu_org_id</Data>
+<Order>hr_approval_limit_assign_id</Order></DbDetails>
+<OnClick><assign name="hr_approval_limit_header_id[hr_approval_limit_header_id]" expr="%{hr_approval_limit_assignLst[hr_approval_limit_header_id]}" function="SetSel"/><assign name="job_id[hr_job_id]" expr="%{hr_approval_limit_assignLst[job_id]}" function="SetSel"/><assign name="position_id[hr_position_id]" expr="%{hr_approval_limit_assignLst[position_id]}" function="SetSel"/><assign name="document_type[option_line_code]" expr="%{hr_approval_limit_assignLst[document_type]}" function="SetSel"/>
+<if cond="%{hr_approval_limit_assign_id}"><SetVisible name="inserthr_approval_limit_assign" Visible="0"/><SetVisible name="modifyhr_approval_limit_assign" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,57 @@
+<WndTap Name="vSDSOApprove" Text="vSDSOApprove">
+	<WndTaps>
+	<WndTap Text="sd_so_line" Name="sd_so_line" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="sd_so_line" Name="GBsd_so_line" id="sd_so_line" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_line_GBDVv.xml"/></Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap>
+			</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ar_customer.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sd_so_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vSDSOApprove"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="sd_so_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_so_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="sdsoLst" listed="0" prefixand="1" inputed="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearchrule.xml"/></search><submit next="GBDEDITsd_so_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="sdsoLst" Size="700,420">
+	<DbDetails>
+<DbTable>xbs.sd_so_header_v</DbTable>
+<Index>sd_so_header_id</Index>
+<Data>*</Data>
+<Order>sd_so_header_id</Order>
+<queryFormat>select %{data} from %{dbtable} where bu_org_id=%{orgid} and approval_status in (320,324) %{where} limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="so_process_menu_rule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/so_process_menu_rule.xml"/></rules>
+<inputs astatus="%{sdsoLst[approval_status]}" status="%{sdsoLst[so_status]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="view"><DbDetails><Where>sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</Where></DbDetails>
+	<submit next="vSDSO.sd_so_line.sd_so_lineLst" namelist="DbDetails"/></op>
+<op text="approve" needconfirm="1"><DbDetails><queryFormat>update sd_so_header set approval_status=326,so_status=535,last_update_by='%{user_id}',last_update_date=now() where sd_so_header_id='%{sdsoLst[sd_so_header_id]}' and approval_status=320;UPDATE sd_so_line SET line_status=1530 WHERE sd_so_header_id='%{sdsoLst[sd_so_header_id]}';
+</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>change 533 to 535 and 1529 to 1530 for dlv while approved by sardine@20180528
+<op text="reEdit" needconfirm="1"><DbDetails><queryFormat>update sd_so_header set approval_status=321,so_status=537,last_update_by='%{user_id}',last_update_date=now() where approval_status=320 and sd_so_header_id='%{sdsoLst[sd_so_header_id]}'</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+<op text="decline" needconfirm="1"><DbDetails><queryFormat>update sd_so_header set approval_status=325 where sd_so_header_id='%{sdsoLst[sd_so_header_id]}' and approval_status=320</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

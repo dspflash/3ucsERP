@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_sales_control"><Ctrls>
+<ListCtrl Heading="org_id,60;ar_transaction_type_id,120;h_default_document_type_id,120;l_default_document_type_id,120;iso_h_default_document_type_id,120;iso_l_default_document_type_id,120;mdm_price_list_header_id,120;deffer_invoicing_cb,60;default_requested_date_cb,60;default_schedule_ship_date_cb,60;default_promise_date_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;sd_sales_control_id,60;" loadedclick="0" ToolTip="ttp_sd_sales_control" onload="init" Name="sd_sales_controlLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_sales_control</DbTable>
+<Index>sd_sales_control_id</Index>
+<Data>org_id,ar_transaction_type_id,h_default_document_type_id,l_default_document_type_id,iso_h_default_document_type_id,iso_l_default_document_type_id,mdm_price_list_header_id,deffer_invoicing_cb,default_requested_date_cb,default_schedule_ship_date_cb,default_promise_date_cb,created_by,creation_date,last_update_by,last_update_date,sd_sales_control_id</Data>
+<Order>sd_sales_control_id</Order></DbDetails>
+<OnClick><assign name="ar_transaction_type_id[ar_transaction_type_id]" function="SetSel" expr="%{sd_sales_controlLst[ar_transaction_type_id]}"/><assign name="h_default_document_type_id[sd_document_type_id]" function="SetSel" expr="%{sd_sales_controlLst[h_default_document_type_id]}"/><assign name="l_default_document_type_id[sd_document_type_id]" function="SetSel" expr="%{sd_sales_controlLst[l_default_document_type_id]}"/><assign name="iso_h_default_document_type_id[sd_document_type_id]" function="SetSel" expr="%{sd_sales_controlLst[iso_h_default_document_type_id]}"/><assign name="iso_l_default_document_type_id[sd_document_type_id]" function="SetSel" expr="%{sd_sales_controlLst[iso_l_default_document_type_id]}"/><assign name="mdm_price_list_header_id[mdm_price_list_header_id]" function="SetSel" expr="%{sd_sales_controlLst[mdm_price_list_header_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

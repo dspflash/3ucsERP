@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVcoa_combination" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="coa_combinationLst" ToolTip="ttp_coa_combination" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.coa_combination</DbTable>
+<Index>coa_combination_id</Index>
+<Data>coa_id,ac_type,ac_usage_type,field1,field2,field3,field4,field5,field6,field7,field8,combination,description,created_by,creation_date,last_update_by,last_update_date,coa_combination_id,org_id,reftbltp,refid,coa_structure_id</Data>
+<Order>coa_combination_id</Order></DbDetails>
+<OnClick><assign name="coa_id[coa_id]" expr="%{coa_combinationLst[coa_id]}" function="SetSel"/><assign name="ac_type[option_line_id]" expr="%{coa_combinationLst[ac_type]}" function="SetSel"/><assign name="ac_usage_type[ac_usage_type_id]" expr="%{coa_combinationLst[ac_usage_type]}" function="SetSel"/><assign name="field4[account_type_code]" expr="%{coa_combinationLst[field4]}" function="SetSel"/>
+<if cond="%{coa_combination_id}"><SetVisible name="insertcoa_combination" Visible="0"/><SetVisible name="modifycoa_combination" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

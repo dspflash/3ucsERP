@@ -1,0 +1,38 @@
+﻿<Language name="documents">
+<Lang name="documents" value="文档管理"/>
+<Lang name="upload" value="上传"/>
+<Lang name="download" value="下载"/>
+<Lang name="TabEditdocuments" value="documents Edit"/>
+<Lang name="TabViewdocuments" value="documents View"/>
+<Lang name="filenameany" value="文件名"/>
+<Lang name="ttp_filenameany" value=""/>
+<Lang name="path" value="路径"/>
+<Lang name="ttp_path" value=""/>
+<Lang name="keywords" value="标签"/>
+<Lang name="ttp_keywords" value=""/>
+<Lang name="up_dt" value="更新时间"/>
+<Lang name="ttp_up_dt" value=""/>
+<Lang name="expire_dt" value="过期时间"/>
+<Lang name="ttp_expire_dt" value=""/>
+<Lang name="id_corp" value=""/>
+<Lang name="ttp_id_corp" value=""/>
+<Lang name="owner_id" value=""/>
+<Lang name="ttp_owner_id" value=""/>
+<Lang name="idx" value=""/>
+<Lang name="ttp_idx" value=""/>
+<Lang name="ttp_operationdocuments" value=""/>
+<Lang name="ttp_createdocuments" value=""/>
+<Lang name="ttp_modifydocuments" value=""/>
+<Lang name="ttp_resetdocuments" value=""/>
+<Lang name="ttp_deletedocuments" value=""/>
+<Lang name="ttp_refreshdocuments" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

@@ -1,0 +1,10 @@
+﻿<WndTap Name="docsharel_v" Text="docsharel">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="docsharel_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_pick.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\docsharel.xml"/>
+<Ctrls><GroupBox  Name="GBdocsharel" id="docsharel" Text="docsharel" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="docsharel_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

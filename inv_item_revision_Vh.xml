@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVinv_item_revision" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="inv_item_revisionLst" ToolTip="ttp_inv_item_revision" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>inv_item_revision_id</Index>
+<DbTable>xbs.inv_item_revision</DbTable>
+<Data>revision_name,reason,eco_number,effective_start_date,effective_end_date,implementation_date,origination_date,description,created_by,creation_date,last_update_by,last_update_date,org_id,inv_item_revision_id</Data>
+<Order>inv_item_revision_id</Order></DbDetails>
+<OnClick>
+<if cond="%{inv_item_revision_id}"><SetVisible name="insertinv_item_revision" Visible="0"/><SetVisible name="modifyinv_item_revision" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

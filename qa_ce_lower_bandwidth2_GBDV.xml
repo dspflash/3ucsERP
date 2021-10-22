@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVqa_ce_lower_bandwidth2"><Ctrls>
+<ListCtrl Heading="qa_ce_lower_bandwidth2_value,50;reference_type,150;reference_entity,250;reference_key_name,250;reference_key_value,60;created_by,640;creation_date,90;last_update_by,640;last_update_date,90;qa_ce_lower_bandwidth2_id,60;" loadedclick="0" ToolTip="ttp_qa_ce_lower_bandwidth2" Name="qa_ce_lower_bandwidth2Lst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.qa_ce_lower_bandwidth2</DbTable>
+<Index>qa_ce_lower_bandwidth2_id</Index>
+<Data>qa_ce_lower_bandwidth2_value,reference_type,reference_entity,reference_key_name,reference_key_value,created_by,creation_date,last_update_by,last_update_date,qa_ce_lower_bandwidth2_id</Data>
+<Order>qa_ce_lower_bandwidth2_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

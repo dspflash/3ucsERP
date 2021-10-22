@@ -1,0 +1,106 @@
+<GroupBox Name="GBDEDITpo_requisition_header"><Ctrls>
+<GroupBox Name="GB_po_requisition_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_po_requisition_number" Size="60,20" Text="po_requisition_number" Align="Right"/>
+<TextBox Name="po_requisition_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_po_requisition_number">
+	<DbDetails>
+<DbTable>xbs.po_requisition_header</DbTable>
+<Index>po_requisition_number</Index>
+<Data>po_requisition_number</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_po_requisition_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_po_requisition_type" Size="60,20" Text="po_requisition_type" Align="Right" onload="init" selectedIndex="0"/>
+<ComboBox Name="po_requisition_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_po_requisition_type" onload="init" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=171</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_supplier_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_supplier_id" Size="60,20" Text="supplier_id" Align="Right"/>
+<ComboBox Name="supplier_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_supplier_id">
+	<DbDetails>
+<DbTable>xbs.supplier</DbTable>
+<Index>supplier_id</Index>
+<Data>supplier_name,supplier_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_supplier_site_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_supplier_site_id" Size="60,20" Text="supplier_site_id" Align="Right"/>
+<ComboBox Name="supplier_site_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_supplier_site_id">
+	<DbDetails>
+<DbTable>xbs.supplier_site</DbTable>
+<Index>supplier_site_id</Index>
+<Data>supplier_site_name,supplier_site_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_ship_to_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_ship_to_id" Size="60,20" Text="ship_to_id" Align="Right" onload="init" selectedIndex="0"/>
+<ComboBox Name="ship_to_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_ship_to_id" onload="init" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.address</DbTable>
+<Index>address_id</Index>
+<Data>address,address_id</Data>
+<Where>reftbltp='org' and usage_type=1135 and refid='%{orgid}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_bill_to_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_bill_to_id" Size="60,20" Text="bill_to_id" Align="Right" onload="init" selectedIndex="0"/>
+<ComboBox Name="bill_to_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_bill_to_id" onload="init" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.address</DbTable>
+<Index>address_id</Index>
+<Data>address,address_id</Data>
+<Where>reftbltp='org' and usage_type=1136 and refid='%{orgid}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_requisition_status" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_requisition_status" Size="60,20" Text="requisition_status" Align="Right" Visible="false" overlap="pre"/>
+<ComboBox Name="requisition_status" Size="170,100" Text="" Weight="170"  ToolTip="ttp_requisition_status" Visible="false" overlap="pre">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=132</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_po_requisition_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_po_requisition_header_id" Size="60,20" Text="po_requisition_header_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="po_requisition_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_po_requisition_header_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><if cond="'%{po_requisition_header_id}'"><SetVisible name="insertpo_requisition_header" Visible="0"/><SetVisible name="modifypo_requisition_header" Visible="1"/><if cond="!'%{po_requisition_number}'"><DbDetails><Where>po_requisition_header_id=%{po_requisition_header_id}</Where></DbDetails><submit namelist="DbDetails"/><if cond="%{back}"><assign name="back" expr="0"/><submit function="onok"/></if></if><else/><SetVisible name="insertpo_requisition_header" Visible="1"/><SetVisible name="modifypo_requisition_header" Visible="0"/></if></OnEnChange><OnEnChange><assign name="GBpo_requisition_header" expr="TABEDITpo_requisition_header"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_bu_org_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_bu_org_id" Size="60,20" Text="bu_org_id" Align="Right" Visible="false" overlap="pre" readonly="true" onload="init" selectedIndex="0"/>
+<ComboBox Name="bu_org_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_bu_org_id" Visible="false" overlap="pre" readonly="true" onload="init" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.org</DbTable>
+<Index>org_id</Index>
+<Data>IF((SELECT TYPE FROM xbs.org WHERE org_id='%{orgid}')=74,parent_org_id,org_id) org_id</Data>
+<Where>org_id='%{orgid}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

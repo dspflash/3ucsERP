@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVmdm_bank_account" Size="100,10"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialmdm_bank_account" Size="50,20">
+<OnClick><submit next="mdm_bank_account_vLst" function="initial"/><submit next="records_mdm_bank_account" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPmdm_bank_account_vLst" Size="50,20">
+<OnClick><submit next="mdm_bank_account_vLst" function="GetPage(first)"/><submit next="records_mdm_bank_account"/></OnClick></Button>
+<Button Text="prepage" Name="PREmdm_bank_account_vLst" Size="50,20">
+<OnClick><submit next="mdm_bank_account_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPmdm_bank_account_vLst" Size="50,20">
+<OnClick><submit next="mdm_bank_account_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

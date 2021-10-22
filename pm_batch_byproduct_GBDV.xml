@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_batch_byproduct"><Ctrls>
+<ListCtrl Heading="pm_batch_header_id,120;line_no,20;line_type,75;item_id_m,60;uom_id,60;allocated_quantity,75;planned_quantity,75;actual_quantity,75;description,640;scale_type,75;yield_type,75;byproduct_type,75;locator_id,60;subinventory_id,60;step_no,20;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_batch_byproduct_id,60;" loadedclick="0" ToolTip="ttp_pm_batch_byproduct" onload="init" Name="pm_batch_byproductLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_batch_byproduct p left join xbs.pm_batch_header p0 on p.pm_batch_header_id=p0.pm_batch_header_id</DbTable>
+<Index>pm_batch_byproduct_id</Index>
+<Data>p0.batch_name pm_batch_header_id,p.line_no,p.line_type,p.item_id_m,p.uom_id,p.allocated_quantity,p.planned_quantity,p.actual_quantity,p.description,p.scale_type,p.yield_type,p.byproduct_type,p.locator_id,p.subinventory_id,p.step_no,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.pm_batch_byproduct_id</Data>
+<Order>pm_batch_byproduct_id</Order></DbDetails>%{extelmt}</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,278 @@
+<WndTap Name="vAP_Po" Text="vAP_Po">
+	<WndTaps>
+<WndTap Text="ap_transaction_header" Name="ap_transaction_header" Ver="2" popup="1">
+<var name="dataRequired" expr="transaction_type[option_line_id],reference_key_value[refid],supplier_id[supplier_id],payment_term_id[payment_term_id],ledger_id[gl_ledger_id],period_id[gl_period_id]"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_transaction_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_transaction_line.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_transaction_detail.xml"/>
+<Ctrls>
+<GroupBox Text="ap_transaction_header" Name="GBap_transaction_header" id="ap_transaction_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_transaction_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_transaction_header_GBOPE.xml"></xi:include>
+<!--Button Text="detailAdmin" ToolTip="ttp_detailAdmin" Name="detailAdmin" Size="50,20">
+	<OnClick>
+	<assign name="vAP_Po.ap_transaction_line.reference_key_name" expr="po_line" function="setsel"/><DbDetails><Where>ap_transaction_header_id='%{vAP_Po.ap_transaction_header.ap_transaction_header_id}'</Where></DbDetails><submit next="vAP_Po.ap_transaction_line.ap_transaction_header_id" namelist="DbDetails"/><DbDetails fcsm="1"><DbTable>xbs.po_line</DbTable><Index>po_line_id</Index><Data>line_number,item_id_m,uom_id,unit_price inv_unit_price,line_price inv_line_price,item_description,line_quantity inv_line_quantity,po_line_id refid</Data><Where>po_header_id='%{vAP_Po.ap_transaction_header.reference_key_value[refid]}'</Where></DbDetails><submit next="vAP_Po.ap_transaction_line.reference_key_value" namelist="DbDetails"/>
+	</OnClick>
+	</Button><TAB/-->
+	<Button Text="confirm" ToolTip="ttp_confirm" Name="confirm" clickneedconfirm="1" Size="50,20">
+		<OnClick><if cond="!%{ap_transaction_header_id}"><alert expr="单据不存在，不可操作！"/><else/><DbDetails><queryFormat>update ap_transaction_header set transaction_status=1527 where ap_transaction_header_id='%{ap_transaction_header_id}' and transaction_status=1526 and header_amount!=0 and (select count(ap_transaction_detail_id) from ap_transaction_detail where ap_transaction_header_id='%{ap_transaction_header_id}')!=0;update ap_transaction_line set status=1527 where ap_transaction_header_id='%{ap_transaction_header_id}' and status=1526 and (select count(ap_transaction_detail_id) from ap_transaction_detail where ap_transaction_header_id='%{ap_transaction_header_id}')!=0;</queryFormat></DbDetails><submit namelist="DbDetails"/></if>
+		</OnClick>
+		</Button><TAB/>
+<ListCtrl Name="ap_transaction_headerLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_transaction_header</DbTable>
+<Index>ap_transaction_header_id</Index>
+<Data>transaction_number,transaction_type,reference_key_value,supplier_id,supplier_site_id,payment_term_id,payment_term_date,ship_to_id,bill_to_id,header_amount,tax_amount,currency,doc_currency,description,paid_amount,pay_group,due_date,document_date,ledger_id,period_id,reference_type,reference_key_name,ap_transaction_header_id,bu_org_id</Data>
+<Order>ap_transaction_header_id</Order></DbDetails>
+<OnClick><assign name="transaction_type[option_line_id]" function="SetSel" expr="%{ap_transaction_headerLst[transaction_type]}"/><assign name="reference_key_value[refid]" function="SetSel" expr="%{ap_transaction_headerLst[reference_key_value]}"/><assign name="supplier_id[supplier_id]" function="SetSel" expr="%{ap_transaction_headerLst[supplier_id]}"/><assign name="supplier_site_id[supplier_site_id]" function="SetSel" expr="%{ap_transaction_headerLst[supplier_site_id]}"/><assign name="payment_term_id[payment_term_id]" function="SetSel" expr="%{ap_transaction_headerLst[payment_term_id]}"/><assign name="ship_to_id[address_id]" function="SetSel" expr="%{ap_transaction_headerLst[ship_to_id]}"/><assign name="bill_to_id[address_id]" function="SetSel" expr="%{ap_transaction_headerLst[bill_to_id]}"/><assign name="currency[currency_id]" function="SetSel" expr="%{ap_transaction_headerLst[currency]}"/><assign name="doc_currency[currency_id]" function="SetSel" expr="%{ap_transaction_headerLst[doc_currency]}"/><assign name="pay_group[option_line_id]" function="SetSel" expr="%{ap_transaction_headerLst[pay_group]}"/><assign name="ledger_id[gl_ledger_id]" function="SetSel" expr="%{ap_transaction_headerLst[ledger_id]}"/><assign name="period_id[gl_period_id]" function="SetSel" expr="%{ap_transaction_headerLst[period_id]}"/>
+</OnClick>
+</ListCtrl>
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_transaction_line_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertap_transaction_header" Visible="1"/><SetVisible name="modifyap_transaction_header" Visible="0"/></OnActivate>
+	</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_transaction_line_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_transaction_detail_Vem.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_transaction_detail_Vm.xml" popup="1"/>
+<WndTap Text="vAP_transaction_line" Name="vAP_transaction_line" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_transaction_line.xml"/>
+<Ctrls>
+<GroupBox Text="ap_transaction_line" Name="GBap_transaction_line" id="ap_transaction_line" Size="100,100"><Ctrls>
+<GroupBox Name="GBDVap_transaction_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="ap_transaction_line_vLst" ToolTip="ttp_ap_transaction_line" Size="700,180" DataJoin="%{this(reference_key_value,line_type,item_number,line_number,inv_line_quantity,inv_unit_price,inv_line_price,gl_inv_line_price,line_description,status)}%{detail}" DataJoinKey="ap_transaction_line_id" loadedclick="0">
+			<MDX id="detail" datatype="string">
+			<DbDetails>
+				<DbTable>ap_transaction_detail atd JOIN option_line act ON atd.account_type=act.option_line_id</DbTable> 
+				<Index>ap_transaction_line_id </Index>
+				<MDX>ap_transaction_line_id,acctp,amount</MDX>
+				<Data>ap_transaction_line_id,option_line_value acctp,amount</Data>
+			</DbDetails>
+			</MDX>
+	<DbDetails >
+<DbTable>xbs.ap_transaction_line a left join xbs.option_line o on a.line_type=o.option_line_id left join xbs.item i on a.item_id_m=i.item_id_m left join xbs.option_line o0 on a.status=o0.option_line_id</DbTable>
+<Index>ap_transaction_line_id</Index>
+<Data>a.reference_key_value,o.option_line_value line_type,i.item_number,a.line_number,a.inv_line_quantity,a.inv_unit_price,a.inv_line_price,a.gl_inv_line_price,a.line_description,o0.option_line_value status,a.created_by,a.creation_date,a.last_update_by,a.last_update_date,a.ap_transaction_line_id</Data>
+<Order>ap_transaction_line_id</Order></DbDetails>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="AP_transaction" Name="vAPtransaction" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_transaction_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_transaction_line.xml"/>
+		<Ctrls>
+		<GroupBox Text="AP_transaction" Name="GBvAPtransaction" id="vAPtransaction" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="vAPtransactionLst" Size="700,120">
+			<DbDetails>
+			<DbTable>ap_transaction_header_v</DbTable>
+			<Index>ap_transaction_header_id</Index>
+			<Data>*</Data>
+			<Order>ap_transaction_header_id</Order></DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<EvalTbl rules="" table="inv_receipt_admin_menu_rule">
+			<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/inv_receipt_admin_menu_rule.xml"/></rules>
+			<inputs status="%{vReceiptLst[status]}"/>
+			<outputs title="text" disabled="disabled"/></EvalTbl>
+			<op text="modify"><assign name="vAP_Po.ap_transaction_header.reference_key_name" expr="po_header" function="setsel"/><DbDetails><DbTable>xbs.po_header</DbTable><Index>po_header_id</Index><Data>po_number,supplier_id,supplier_site_id,payment_term_id,currency,doc_currency,bu_org_id,po_header_id refid</Data><Where>po_header_id='%{vAP_Po.vAPtransaction.vAPtransactionLst[reference_key_value]}'</Where></DbDetails><submit next="vAP_Po.ap_transaction_header.reference_key_value" namelist="DbDetails"/><DbDetails><Where>ap_transaction_header_id='%{vAP_Po.vAPtransaction.vAPtransactionLst[ap_transaction_header_id]}' and transaction_status=1526</Where></DbDetails><submit next="vAP_Po.ap_transaction_header.ap_transaction_headerLst" namelist="DbDetails"/>
+			</op>
+			<op text="view"><DbDetails><Where>ap_transaction_header_id='%{vAP_Po.vAPtransaction.vAPtransactionLst[ap_transaction_header_id]}'</Where></DbDetails><submit next="vAP_Po.vAP_transaction_line.ap_transaction_line_vLst" namelist="DbDetails"/></op>
+			<op text="confirm" needconfirm="1"><DbDetails><queryFormat>update ap_transaction_header set transaction_status=1527 where ap_transaction_header_id='%{vAP_Po.vAPtransaction.vAPtransactionLst[ap_transaction_header_id]}' and transaction_status=1526 and header_amount!=0 and (select count(ap_transaction_detail_id) from ap_transaction_detail where ap_transaction_header_id='%{vAPtransactionLst[ap_transaction_header_id]}')!=0;update ap_transaction_line set status=1527 where ap_transaction_header_id='%{vAP_Po.vAPtransaction.vAPtransactionLst[ap_transaction_header_id]}' and status=1526 and (select count(ap_transaction_detail_id) from ap_transaction_detail where ap_transaction_header_id='%{vAPtransactionLst[ap_transaction_header_id]}')!=0;
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			<op text="cancel" needconfirm="1"><DbDetails><queryFormat>update ap_transaction_header set transaction_status=1563 where ap_transaction_header_id='%{vAP_Po.vAPtransaction.vAPtransactionLst[ap_transaction_header_id]}' and transaction_status=1526;update ap_transaction_line set status=1563 where ap_transaction_header_id='%{vAP_Po.vAPtransaction.vAPtransactionLst[ap_transaction_header_id]}' and status=1526;
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+<WndTap Text="ap_payment_header" Name="ap_payment_header" Ver="2" popup="1">
+<var name="dataRequired" expr="payment_type[option_line_id],reference_key_value[refid],supplier_id[supplier_id],ledger_id[gl_ledger_id],period_id[gl_period_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_payment_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_payment_line.xml"/>
+<Ctrls>
+<GroupBox Text="ap_payment_header" Name="GBap_payment_header" id="ap_payment_header" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_payment_header_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_payment_header_GBOPE.xml"></xi:include>
+<!--Button Text="detailAdmin" ToolTip="ttp_detailAdmin" Name="detailAdmin" Size="50,20">
+	<OnClick>
+	<DbDetails><Where>ap_payment_header_id='%{vAP_Po.ap_payment_header.ap_payment_header_id}'</Where></DbDetails><submit next="vAP_Po.ap_payment_line.ap_payment_header_id" namelist="DbDetails"/>
+	</OnClick>
+	</Button><TAB/-->
+	<Button Text="confirm" ToolTip="ttp_confirm" Name="confirm" clickneedconfirm="1" Size="50,20">
+		<OnClick><if cond="!%{ap_payment_header_id}"><alert expr="单据不存在，不可操作！"/><else/><DbDetails><queryFormat>update ap_payment_header set payment_status=1539 where ap_payment_header_id='%{ap_payment_header_id}' and payment_status!=1539 and (select count(ap_payment_line_id) from ap_payment_line where ap_payment_header_id='%{ap_payment_header_id}')!=0;update ap_payment_line set line_status=1539 where ap_payment_header_id='%{ap_payment_header_id}' and line_status!=1539;</queryFormat></DbDetails><submit namelist="DbDetails"/></if>
+		</OnClick>
+		</Button><TAB/>
+<ListCtrl loadedclick="1" ToolTip="ttp_ap_payment_header" Name="ap_payment_headerLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ap_payment_header</DbTable>
+<Index>ap_payment_header_id</Index>
+<Data>payment_number,payment_type,reference_key_value,supplier_id,supplier_site_id,description,from_bank_header_id,from_bank_line_id,header_amount,to_bank_header_id,to_bank_line_id,currency,doc_currency,exchange_rate_type,exchange_rate,document_date,document_number,ledger_id,period_id,approval_status,payment_status,reference_key_name,created_by,creation_date,last_update_by,last_update_date,ap_payment_header_id,bu_org_id</Data>
+<Order>ap_payment_header_id</Order></DbDetails>
+<OnClick><assign name="payment_type[option_line_id]" function="SetSel" expr="%{ap_payment_headerLst[payment_type]}"/><assign name="supplier_id[supplier_id]" function="SetSel" expr="%{ap_payment_headerLst[supplier_id]}"/><assign name="supplier_site_id[supplier_site_id]" function="SetSel" expr="%{ap_payment_headerLst[supplier_site_id]}"/><assign name="from_bank_header_id[mdm_bank_header_id]" function="SetSel" expr="%{ap_payment_headerLst[from_bank_header_id]}"/><assign name="from_bank_line_id[mdm_bank_account_id]" function="SetSel" expr="%{ap_payment_headerLst[from_bank_line_id]}"/><assign name="to_bank_header_id[mdm_bank_header_id]" function="SetSel" expr="%{ap_payment_headerLst[to_bank_header_id]}"/><assign name="to_bank_line_id[mdm_bank_account_id]" function="SetSel" expr="%{ap_payment_headerLst[to_bank_line_id]}"/><assign name="currency[currency_id]" function="SetSel" expr="%{ap_payment_headerLst[currency]}"/><assign name="doc_currency[currency_id]" function="SetSel" expr="%{ap_payment_headerLst[doc_currency]}"/><assign name="exchange_rate_type[gl_currency_conversion_id]" function="SetSel" expr="%{ap_payment_headerLst[exchange_rate_type]}"/><assign name="ledger_id[gl_ledger_id]" function="SetSel" expr="%{ap_payment_headerLst[ledger_id]}"/><assign name="period_id[gl_period_id]" function="SetSel" expr="%{ap_payment_headerLst[period_id]}"/><assign name="approval_status[option_line_id]" function="SetSel" expr="%{ap_payment_headerLst[approval_status]}"/><assign name="payment_status[option_line_id]" function="SetSel" expr="%{ap_payment_headerLst[payment_status]}"/></OnClick>
+</ListCtrl>
+	<BR/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_payment_line_Vvm.xml"/>
+</Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate><SetVisible name="insertap_payment_header" Visible="1"/><SetVisible name="modifyap_payment_header" Visible="0"/></OnActivate>
+	</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_payment_line_Vem.xml" popup="1"/>
+<WndTap Text="vAP_Payment_line" Name="vAP_Payment_line" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_payment_line.xml"/>
+<Ctrls>
+<GroupBox Text="ap_payment_line" Name="GBap_payment_line" id="ap_payment_line" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="ap_payment_line_GBDV.xml"></xi:include></Ctrls></GroupBox>
+</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="AP_payment" Name="vAPpayment" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_payment_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="AP_payment" Name="GBvAPpayment" id="vAPpayment" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="vAPpaymentLst" Size="700,120">
+			<DbDetails>
+			<DbTable>ap_payment_header_v</DbTable>
+			<Index>ap_payment_header_id</Index>
+			<Data>*</Data>
+			<Order>ap_payment_header_id</Order></DbDetails>
+			<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+			<EvalTbl rules="" table="inv_receipt_admin_menu_rule">
+			<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/inv_receipt_admin_menu_rule.xml"/></rules>
+			<inputs status="%{vAPpaymentLst[status]}"/>
+			<outputs title="text" disabled="disabled"/></EvalTbl>
+			<op text="modify"><DbDetails><Where>supplier_id='%{vAP_Po.vAPpayment.vAPpaymentLst[supplier_id]}'</Where></DbDetails><submit next="vAP_Po.ap_payment_header.supplier_id" namelist="DbDetails"/><DbDetails><DbTable>xbs.ap_transaction_header</DbTable><Index>ap_transaction_header_id</Index><Data>transaction_number,supplier_id,supplier_site_id,payment_term_id,currency,doc_currency,ap_transaction_header_id refid</Data><Where>ap_transaction_header_id='%{vAPpaymentLst[reference_key_value]}'</Where></DbDetails><submit next="vAP_Po.ap_payment_header.reference_key_value" namelist="DbDetails"/><DbDetails><Where>ap_payment_header_id='%{vAP_Po.vAPpayment.vAPpaymentLst[ap_payment_header_id]}' and payment_status=1538</Where></DbDetails><submit next="vAP_Po.ap_payment_header.ap_payment_headerLst" namelist="DbDetails"/>
+			</op>
+			<op text="view"><DbDetails><Where>ap_payment_header_id='%{vAP_Po.vAPpayment.vAPpaymentLst[ap_payment_header_id]}'</Where></DbDetails><submit next="vAP_Po.vAP_Payment_line.ap_payment_lineLst" namelist="DbDetails"/></op>
+			<op text="confirm" needconfirm="1"><DbDetails><queryFormat>update ap_payment_header set payment_status=1539 where ap_payment_header_id='%{vAP_Po.vAPpayment.vAPpaymentLst[ap_payment_header_id]}' and payment_status!=1539 and (select count(ap_payment_line_id) from ap_payment_line where ap_payment_header_id='%{vAP_Po.vAPpayment.vAPpaymentLst[ap_payment_header_id]}')!=0;update ap_payment_line set line_status=1539 where ap_payment_header_id='%{vAP_Po.vAPpayment.vAPpaymentLst[ap_payment_header_id]}' and line_status!=1539;
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			<op text="cancel" needconfirm="1"><DbDetails><queryFormat>update ap_payment_header set payment_status=1541 where ap_payment_header_id='%{vAP_Po.vAPpayment.vAPpaymentLst[ap_payment_header_id]}' and payment_status!=1539;update ap_payment_line set line_status=1541 where ap_payment_header_id='%{vAP_Po.vAPpayment.vAPpaymentLst[ap_payment_header_id]}' and line_status!=1539;
+			</queryFormat></DbDetails><submit namelist="DbDetails"/><submit/></op>
+			</operator>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	<OnChanged/>
+	<OnActivate/>
+	</WndTap>
+	<WndTap Text="AP_payment_schedule" Name="vAPpayment_schedule" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_transaction_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\payment_term_schedule.xml"/>
+		<Ctrls>
+		<GroupBox Text="AP_payment" Name="GBvAPpayment" id="vAPpayment" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="vAPpaymentLst" Size="700,420">
+			<DbDetails>
+			<DbTable>ap_transaction_header ap JOIN po_header po ON ap.reference_key_value=po.po_header_id AND ap.reference_key_name='po_header' LEFT JOIN payment_term_schedule pts ON ap.payment_term_id=pts.payment_term_id</DbTable>
+			<Index>po_header_id</Index>
+			<Data>po.po_number,(ap.header_amount+ap.tax_amount) amount,ap.paid_amount,pts.amount_percentage,(ap.header_amount+ap.tax_amount)*pts.amount_percentage/100 due_amount,DATE_ADD(ap.payment_term_date,INTERVAL pts.due_days DAY) due_date,ap.transaction_status,ap.payment_status,po.po_header_id,ap.ap_transaction_header_id,ap.payment_term_id</Data>
+			<Order>po_header_id</Order></DbDetails>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	</WndTap>
+	<WndTap Text="AP_payment_discount" Name="vAPpayment_discount" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_transaction_header.xml"/>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\payment_term_discount.xml"/>
+		<Ctrls>
+		<GroupBox Text="AP_payment" Name="GBvAPpayment" id="vAPpayment" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="vAPpaymentLst" Size="700,420">
+			<DbDetails>
+			<DbTable>ap_transaction_header ap JOIN po_header po ON ap.reference_key_value=po.po_header_id AND ap.reference_key_name='po_header' LEFT JOIN payment_term_discount ptd ON ap.payment_term_id=ptd.payment_term_id</DbTable>
+			<Index>po_header_id</Index>
+			<Data>po.po_number,(ap.header_amount+ap.tax_amount) amount,ap.paid_amount,ptd.discount_percentage,(ap.header_amount+ap.tax_amount)*(100-ptd.discount_percentage)/100 discount_amount,DATE_ADD(ap.payment_term_date,INTERVAL ptd.due_days DAY) due_date,ap.transaction_status,ap.payment_status,po.po_header_id,ap.ap_transaction_header_id,ap.payment_term_id</Data>
+			<Order>po_header_id</Order></DbDetails>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	</WndTap>
+	<WndTap Text="ap_po_matching" Name="vap_po_matching" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_payment_header.xml"/>
+		<Ctrls>
+		<GroupBox Text="AP_payment" Name="GBvAPpayment" id="vAPpayment" Size="100,100"><Ctrls>
+		<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+		<ListCtrl loadedclick="0" ToolTip="ttp_item" Name="vAPpaymentLst" Size="700,420">
+			<DbDetails>
+			<DbTable>ap_po_matching_v</DbTable>
+			<Index>po_header_id</Index>
+			<Data>*</Data>
+			<Order>po_header_id</Order></DbDetails>
+			<OnClick><if cond="%{vAPpaymentLst[po_header_id]}"><DbDetails><Where>and po_header_id='%{vAPpaymentLst[po_header_id]}'</Where></DbDetails><submit namelist="dbdetails" next="$parent.POLst"/><submit function="onok"/></if></OnClick>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls></GroupBox>
+		</Ctrls>
+	</WndTap>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\po_line.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_transaction_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\ap_payment_header.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="vAP_Po"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="po_header_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITpo_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="poLst" listed="0" prefixand="1" inputed="1">
+	<agreement_start_date op="(" ref=""/>
+	<agreement_end_date op=")" ref=""/>
+<periodDTS format="printed_date is null or printed_date between '%{periodDTS[datetime]}' and '%{periodDTS[datetime2]}'"/></search>
+	<submit next="GBDEDITpo_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Name="export" Size="50,24" Text="导出">
+	<OnClick><!--import button="export" selected="1">sql:update s_order set o_state=3 where o_id=%0;update s_order set o_state=3 where o_id=%0</import><submit next="OrderList" namelist="import" method="post" function="import"/-->
+	<Save selected="1" columns="3,0,7,8,9,11"></Save><submit next="POLst" namelist="Save" function="savetofile"/></OnClick></Button>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="POLst" Size="700,420" PageSize="20">
+	<DbDetails>
+<DbTable>xbs.ap_po_v</DbTable>
+<Index>po_header_id</Index>
+<Data>*</Data>
+<Order>po_header_id</Order>
+<Where>and payment_status!=1539</Where>
+<queryFormat>select %{data} from %{dbtable} where po_status not in (321,336) and approval_status!=322 and payment_status!=1541 %{where} order by po_header_id desc limit %{StartRow},%{PgSize}</queryFormat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<!--EvalTbl rules="" table="po_approval_rule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/po_approval_rule.xml"/></rules>
+<inputs input1="%{userid}" position="%{position}" status="%{POLst[po_status]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl-->
+<op text="ap_transaction"><submit next="vAP_Po.ap_transaction_header.GBDEDITap_transaction_header" function="reset"/><assign name="vAP_Po.ap_transaction_header.reference_key_name" expr="po_header" function="setsel"/><DbDetails><DbTable>xbs.po_header</DbTable><Index>po_header_id</Index><Data>po_number,supplier_id,supplier_site_id,payment_term_id,currency,doc_currency,bu_org_id,po_header_id refid</Data><Where>po_header_id='%{POLst[po_header_id]}'</Where></DbDetails><submit next="vAP_Po.ap_transaction_header.reference_key_value" namelist="DbDetails"/></op>
+<op text="ap_transactionLst"><DbDetails><Where>reference_key_name='po_header' and reference_key_value='%{vAP_Po.POLst[po_header_id]}'</Where></DbDetails><submit namelist="dbdetails" next="vAP_Po.vAPtransaction.vAPtransactionLst"/></op>
+<op text="ap_payment"><submit next="vAP_Po.ap_payment_header.GBDEDITap_payment_header" function="reset"/><DbDetails><Where>supplier_id='%{POLst[supplier_id]}'</Where></DbDetails><submit next="vAP_Po.ap_payment_header.supplier_id" namelist="DbDetails"/><DbDetails><DbTable>xbs.ap_transaction_header</DbTable><Index>ap_transaction_header_id</Index><Data>transaction_number,supplier_id,supplier_site_id,payment_term_id,currency,doc_currency,ap_transaction_header_id refid</Data><Where>reference_key_value='%{POLst[po_header_id]}'and reference_key_name='po_header' and transaction_status=1527</Where></DbDetails><submit next="vAP_Po.ap_payment_header.reference_key_value" namelist="DbDetails"/></op>
+<op text="ap_paymentLst"><DbDetails><Where>src_reference_key_value='%{vAP_Po.POLst[po_header_id]}' and src_reference_key_name='po_header'</Where></DbDetails><submit namelist="dbdetails" next="vAP_Po.vAPpayment.vAPpaymentLst"/></op>
+<op text="ap_paymentScheduleAll" mustselected="0"><DbDetails><Where>po.po_status!=322 and ap.transaction_status!=1563 and ap.payment_status!=1539</Where></DbDetails><submit namelist="dbdetails" next="$this.vAPpayment_schedule.vAPpaymentLst"/></op>
+<op text="ap_paymentSchedule"><DbDetails><Where>po.po_header_id='%{vAP_Po.POLst[po_header_id]}'</Where></DbDetails><submit namelist="dbdetails" next="$this.vAPpayment_schedule.vAPpaymentLst"/></op>
+<op text="ap_paymentDiscountAll" mustselected="0"><DbDetails><Where>po.po_status!=322 and ap.transaction_status!=1563 and ap.payment_status!=1539</Where></DbDetails><submit namelist="dbdetails" next="$this.vAPpayment_discount.vAPpaymentLst"/></op>
+<op text="ap_paymentDiscount"><DbDetails><Where>po.po_header_id='%{vAP_Po.POLst[po_header_id]}'</Where></DbDetails><submit namelist="dbdetails" next="$this.vAPpayment_discount.vAPpaymentLst"/></op>
+<op text="ap_po_matching" mustselected="0"><submit namelist="dbdetails" next="$this.vap_po_matching.vAPpaymentLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

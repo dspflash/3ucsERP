@@ -1,0 +1,13 @@
+﻿<WndTap Name="category" Text="category" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="category,category_type[option_line_id]"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\category.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBcategory" id="category" Text="category" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="category_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="category_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="category_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertcategory" Visible="1"/><SetVisible name="modifycategory" Visible="0"/></OnActivate>
+</WndTap>

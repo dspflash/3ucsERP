@@ -1,0 +1,14 @@
+﻿<WndTap Name="bom_calendars_v" Text="bom_calendars">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_calendars_Ve.xml" popup="1"/>
+</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\bom_calendars.xml"/>
+<Ctrls><GroupBox  Name="GBbom_calendars" id="bom_calendars" Text="bom_calendars" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_calendars_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVbom_calendars" Size="100,20" cols="xs12 sm12 md12 lg12"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.bom_calendars.GBDEDITbom_calendars" function="reset"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetbom_calendars" Name="resetbom_calendars" Size="50,20">	<OnClick>	<submit next="GBDEDITbom_calendars" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="gsearch" ToolTip="ttp_gsearchbom_calendars" Name="gsearchbom_calendars" Size="50,20" visible="true">	<OnClick>	<search next="bom_calendars_vLst" listed="0" prefixwhere="0" inputed="1"></search><submit next="GBDEDITbom_calendars" namelist="search" function="search"/>	</OnClick>	</Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_calendars_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

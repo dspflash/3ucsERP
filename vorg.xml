@@ -1,0 +1,184 @@
+<WndTap Name="vOrg" Text="vOrg">
+	<WndTaps>
+	<!--WndTap Text="org" Name="org" Ver="2" popup="1">
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\org.xml"/>
+		<Ctrls>
+		<GroupBox Text="org" Name="GBorg" id="org" Size="100,100"><Ctrls>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="org_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="org_GBOPE.xml"></xi:include>
+		<ListCtrl loadedclick="1" ToolTip="ttp_org" Name="orgLst" Size="70,20" visible="0">
+			<DbDetails fcsm="1">
+			<DbTable>xbs.org</DbTable>
+			<Index>org_id</Index>
+			<Data>*</Data>
+			<Order>org_id</Order></DbDetails>
+			<OnClick><assign name="type[option_line_id]" expr="%{orgLst[type]}" function="SetSel"/><assign name="enterprise_org_id[org_id]" expr="%{orgLst[enterprise_org_id]}" function="SetSel"/><assign name="legal_org_id[org_id]" expr="%{orgLst[legal_org_id]}" function="SetSel"/><assign name="business_org_id[org_id]" expr="%{orgLst[business_org_id]}" function="SetSel"/><assign name="parent_org_id[org_id]" expr="%{orgLst[parent_org_id]}" function="SetSel"/>
+			<if cond="%{org_id}"><SetVisible name="insertorg" Visible="0"/><SetVisible name="modifyorg" Visible="1"/><else/><SetVisible name="insertorg" Visible="1"/><SetVisible name="modifyorg" Visible="0"/></if></OnClick>
+			</ListCtrl>
+			</Ctrls></GroupBox>
+		</Ctrls>
+			<OnChanged/>
+			<OnActivate/>
+			</WndTap-->
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="org_Ve.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="address_Vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mdm_bank_account_Vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_department_V.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xerp_role_Vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="hr_position_V.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="wip_accounting_group_Vm.xml" popup="1"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="prj_account_group_Vm.xml" popup="1"/>
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="gl_account_Vm.xml" popup="1"/-->
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="coa_combination_Vm.xml" popup="1"/>
+	<!--WndTap Text="enterprise" Name="enterprise" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\enterprise.xml"/>
+	<Ctrls>
+	<GroupBox Text="enterprise" Name="GBenterprise" id="enterprise" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="enterprise_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="enterprise_GBOPE.xml"></xi:include>
+	<ListCtrl loadedclick="1" ToolTip="ttp_enterprise" Name="enterpriseLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+		<DbTable>xbs.enterprise</DbTable>
+		<Index>enterprise_id</Index>
+		<Data>*</Data>
+		<Order>enterprise_id</Order></DbDetails>
+		<OnClick><assign name="org_id[org_id]" function="SetSel" expr="%{enterpriseLst[org_id]}"/>
+		<if cond="%{enterprise_id}"><SetVisible name="insertenterprise" Visible="0"/><SetVisible name="modifyenterprise" Visible="1"/><else/><SetVisible name="insertenterprise" Visible="1"/><SetVisible name="modifyenterprise" Visible="0"/></if></OnClick>
+		</ListCtrl></Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate/>insert into %{table} %{data} ON DUPLICATE KEY UPDATE industry=%{industry[industryid]},layout=%{lay_file[lay_id]}
+		</WndTap-->
+	<WndTap Text="legal" Name="legal" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\legal.xml"/>
+	<Ctrls>
+	<GroupBox Text="legal" Name="GBlegal" id="legal" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="legal_GBDEDIT.xml"></xi:include>
+	<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="legal_GBOPE.xml"></xi:include>
+	<ListCtrl loadedclick="1" Name="legalLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+		<DbTable>xbs.legal</DbTable>
+		<Index>legal_id</Index>
+		<Data>registration_number,place_of_registration,country_of_registration,identification_number,ledger_id,balancing_segments,legal_id</Data>
+		<Order>legal_id</Order></DbDetails>
+		<OnClick><assign name="country_of_registration[country_id]" function="SetSel" expr="%{legalLst[country_of_registration]}"/><assign name="ledger_id[gl_ledger_id]" function="SetSel" expr="%{legalLst[ledger_id]}"/>
+		<if cond="%{legal_id}"><SetVisible name="insertlegal" Visible="0"/><SetVisible name="modifylegal" Visible="1"/><else/><SetVisible name="insertlegal" Visible="1"/><SetVisible name="modifylegal" Visible="0"/></if></OnClick>
+		</ListCtrl></Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate/>
+		</WndTap>
+	<WndTap Text="business" Name="business" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\business.xml"/>
+	<Ctrls>
+	<GroupBox Text="business" Name="GBbusiness" id="business" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="business_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="business_GBOPE.xml"></xi:include>
+	<ListCtrl loadedclick="1" ToolTip="ttp_business" Name="businessLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+		<DbTable>xbs.business</DbTable>
+		<Index>business_id</Index>
+		<Data>manager,cash_ac_id,business_id</Data>
+		<Order>business_id</Order></DbDetails>
+		<OnClick>
+		<if cond="%{business_id}"><SetVisible name="insertbusiness" Visible="0"/><SetVisible name="modifybusiness" Visible="1"/><else/><SetVisible name="insertbusiness" Visible="1"/><SetVisible name="modifybusiness" Visible="0"/></if></OnClick></ListCtrl></Ctrls></GroupBox>
+	</Ctrls>
+		<OnChanged/>
+		<OnActivate/>
+		</WndTap>
+	<WndTap Text="inventory" Name="inventory" Ver="2" popup="1">
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\inventory.xml"/>
+	<Ctrls>
+	<GroupBox Text="inventory" Name="GBinventory" id="inventory" Size="100,100"><Ctrls>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inventory_GBDEDIT.xml"></xi:include><BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="inventory_GBOPE.xml"></xi:include>
+	<ListCtrl loadedclick="1" ToolTip="ttp_inventory" Name="inventoryLst" Size="70,20" visible="0">
+	<DbDetails fcsm="1">
+		<DbTable>xbs.inventory</DbTable>
+		<Index>inventory_id</Index>
+		<Data>*</Data>
+		<Order>inventory_id</Order></DbDetails>
+		<OnClick><assign name="calendar[option_line_id]" function="SetSel" expr="%{inventoryLst[calendar]}"/>
+		<if cond="%{inventory_id}"><SetVisible name="insertinventory" Visible="0"/><SetVisible name="modifyinventory" Visible="1"/><else/><SetVisible name="insertinventory" Visible="1"/><SetVisible name="modifyinventory" Visible="0"/></if></OnClick>
+		</ListCtrl>
+		</Ctrls></GroupBox>
+		</Ctrls>
+		<OnChanged/>
+		<OnActivate/>
+		</WndTap>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="subinventory_vm.xml" popup="1"/>
+	</WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\org.xml"/>
+	<Ctrls>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVitem" text="ORG"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="org_GBDSearch.xml"/>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetitem" Name="resetitem" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITorg" function="reset"/><submit next="orgList"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchitem" Name="gsearchitem" Size="50,20" visible="true">
+	<OnClick>
+	<search next="orgLst" listed="0" prefixwhere="1" inputed="1">
+	<agreement_start_date op="(" ref=""/>
+	<agreement_end_date op=")" ref=""/></search>
+	<submit next="GBDEDITorg" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_item" onload="init" Name="orgLst" Size="700,220">
+	<DbDetails>
+<DbTable>xbs.org_v</DbTable>
+<Index>org_id</Index>
+<Data>*</Data>
+<Order>org_id</Order>
+<Queryformat>select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</Queryformat>
+</DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<EvalTbl rules="" table="orgmenurule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/orgmenurule.xml"/></rules>
+<inputs orgtypeid="%{orgLst[type]}"/>
+<outputs title="text" disabled="disabled"/></EvalTbl>
+<op text="addone" mustselected="0"><submit next="$this.org.GBDEDITorg" function="reset"/></op>
+<op text="modify"><assign name="$this.org.orgid" expr="%{$this.orgLst[org_id]}"/><DbDetails><Where>org_id='%{$this.org.orgid}'</Where></DbDetails>
+	<submit next="$this.org.orgLst" namelist="DbDetails"/></op>
+<op text="address"><assign name="$this.address_V.reftbltp" expr="org"/>
+<assign name="$this.address_V.refid" expr="%{orgLst[org_id]}"/>
+	<submit next="$this.address_V.address_vlst"/></op>
+<op text="mdm_bank_account"><assign name="$this.mdm_bank_account_V.reftbltp" expr="org"/>
+<assign name="$this.mdm_bank_account_V.refid" expr="%{$this.orgLst[org_id]}"/>
+	<submit next="$this.mdm_bank_account_V.mdm_bank_account_vlst"/></op>
+<op text="orgdetail"><EvalTbl rules="" table="orgeditrule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/orgeditrule.xml"/></rules>
+			<inputs orgtypeid="%{orgLst[type]}"/>
+			<outputs orgtp="orgtp"/></EvalTbl>
+	<assign name="$this.%{orgtp}.org_id" expr="%{$this.orgLst[org_id]}"/>
+	<DbDetails><Where>org_id='%{org_id}'</Where></DbDetails>
+	<submit next="$this.%{orgtp}.%{orgtp}Lst" namelist="DbDetails"/></op>
+			<!--op text="xxxx"><EvalTbl rules="%{menuruleops}" table="menuruleop">
+			<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/menuruleop.xml"/></rules>
+			<inputs userid="%{userid}"/>
+			<outputs title="text" handler="handler"/></EvalTbl>
+			</op-->
+<!--op text="gl_account"><assign name="$this.gl_account.org_id" expr="%{$this.orgLst[org_id]}"/><DbDetails><Where>g.org_id='%{org_id}'</Where></DbDetails><submit namelist="DbDetails" next="$this.gl_account_V.gl_account_vLst"/></op-->
+<op text="coa"><assign name="$this.coa_combination_V.org_id" expr="%{$this.orgLst[org_id]}"/><assign name="$this.coa_combination_V.reftbltp" expr=""/><assign name="$this.coa_combination_V.refid" expr=""/><submit next="$this.coa_combination_V.coa_combination_VLst"/><if cond="%{orgLst[type]}==74"><assign name="$this.coa_combination_V.ac_usage_class" expr="inv"/><elseif cond="%{orgLst[type]}==73"/><assign name="$this.coa_combination_V.ac_usage_class" expr="buo"/></if></op>
+<op text="department"><assign name="$this.hr_department_V.org_id" expr="%{$this.orgLst[org_id]}"/><submit next="$this.hr_department_V.hr_departmentLst"/></op>
+<op text="xerp_role"><assign name="$this.xerp_role.org_id" expr="%{$this.orgLst[org_id]}"/><submit next="$this.xerp_role.xerp_roleLst"/></op>
+<op text="hr_position"><assign name="$this.hr_position_V.org_id" expr="%{$this.orgLst[org_id]}"/><submit next="$this.hr_position_V.hr_positionLst"/></op>
+<op text="subinventory"><assign name="$this.subinventory_v.org_id" expr="%{$this.orgLst[org_id]}"/><DbDetails><Where>org_id='%{org_id}'</Where></DbDetails><submit next="$this.subinventory_v.subinventory_vLst" namelist="DbDetails"/></op>
+<op text="wip_accounting_group"><assign name="$this.wip_accounting_group_V.org_id" expr="%{$this.orgLst[org_id]}"/><submit next="$this.wip_accounting_group_V.wip_accounting_group_VLst"/></op>
+<op text="prj_account_group"><assign name="$this.prj_account_group_V.org_id" expr="%{$this.orgLst[org_id]}"/><submit next="$this.prj_account_group_V.prj_account_group_VLst"/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>
+<BR autoHeight="1"/>
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPDVitem"><Ctrls>
+<MagicCtrl Name="orgList" loadedclick="0" ToolTip="ttp_userpicture" Size="520,312" feature="tree" link="LinkLine:2;HoverColor:0x234511;UseHand:2;Tip:tooltipinfo" Onload="init" line_width="200"><dfmap><map name="text" value="org"/><map name="itemIdParent" value="parent_org_id"/><map name="itemId" value="org_id"/></dfmap>
+			<DbDetails fcsm="1"><DbTable>org</DbTable>
+			<Data>*</Data>
+			<Where></Where>
+			<Queryformat>select %{data} from %{dbtable} limit %{StartRow},%{PgSize}</Queryformat></DbDetails>
+			</MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

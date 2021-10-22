@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVwip_wo_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="wip_wo_headerLst" ToolTip="ttp_wip_wo_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.wip_wo_header</DbTable>
+<Index>wip_wo_header_id</Index>
+<Data>wo_number,reference_routing_item_id_m,reference_bom_item_id_m,wo_type,wip_accounting_group_id,start_date,completion_date,quantity,nettable_quantity,completion_sub_inventory,completion_locator,completed_quantity,scrapped_quantity,released_date,first_unit_completed_date,last_unit_completed_date,schedule_group,build_sequence,scheduling_priority,closed_date,created_by,creation_date,last_update_by,last_update_date,wip_wo_header_id,wo_status,parent_wo_id,primary_wo_id</Data>
+<Order>wip_wo_header_id</Order></DbDetails>
+<OnClick><assign name="wo_number[wo_number]" expr="%{wip_wo_headerLst[wo_number]}" function="SetSel"/><assign name="reference_routing_item_id_m[bom_routing_header_id]" expr="%{wip_wo_headerLst[reference_routing_item_id_m]}" function="SetSel"/><assign name="reference_bom_item_id_m[bom_header_id]" expr="%{wip_wo_headerLst[reference_bom_item_id_m]}" function="SetSel"/><assign name="wo_type[option_line_id]" expr="%{wip_wo_headerLst[wo_type]}" function="SetSel"/><assign name="wip_accounting_group_id[wip_accounting_group_id]" expr="%{wip_wo_headerLst[wip_accounting_group_id]}" function="SetSel"/><assign name="completion_sub_inventory[subinventory_id]" expr="%{wip_wo_headerLst[completion_sub_inventory]}" function="SetSel"/><assign name="completion_locator[locator_id]" expr="%{wip_wo_headerLst[completion_locator]}" function="SetSel"/><assign name="wo_status[option_line_id]" expr="%{wip_wo_headerLst[wo_status]}" function="SetSel"/>
+<if cond="%{wip_wo_header_id}"><SetVisible name="insertwip_wo_header" Visible="0"/><SetVisible name="modifywip_wo_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhd_support_request" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hd_support_requestLst" ToolTip="ttp_hd_support_request" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_support_request</DbTable>
+<Index>hd_support_request_id</Index>
+<Data>support_number,subject,urgency,priority,reason,escalation,status,request_type,request_category,assignment_group,assigned_to_user_id,hd_change_request_id,close_code,closed_by_user_id,closed_date,requester_user_id,requester_username,requester_email,requester_phone,impact,description,resolution_details,created_by,creation_date,last_update_by,last_update_date,hd_support_request_id</Data>
+<Order>hd_support_request_id</Order></DbDetails>
+<OnClick><assign name="escalation[option_line_id]" expr="%{hd_support_requestLst[escalation]}" function="SetSel"/><assign name="request_type[option_line_id]" expr="%{hd_support_requestLst[request_type]}" function="SetSel"/><assign name="request_category[option_line_id]" expr="%{hd_support_requestLst[request_category]}" function="SetSel"/>
+<if cond="%{hd_support_request_id}"><SetVisible name="inserthd_support_request" Visible="0"/><SetVisible name="modifyhd_support_request" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

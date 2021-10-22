@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_location" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_locationLst" ToolTip="ttp_hr_location" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_location</DbTable>
+<Index>hr_location_id</Index>
+<Data>country,state,city,combination,description,created_by,creation_date,last_update_by,last_update_date,hr_location_id</Data>
+<Order>hr_location_id</Order></DbDetails>
+<OnClick><assign name="country[country_id]" expr="%{hr_locationLst[country]}" function="SetSel"/>
+<if cond="%{hr_location_id}"><SetVisible name="inserthr_location" Visible="0"/><SetVisible name="modifyhr_location" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

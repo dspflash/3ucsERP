@@ -1,0 +1,112 @@
+<GroupBox Name="GBDEDITprj_project_line"><Ctrls>
+<GroupBox Name="GB_task_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_task_name" Size="60,20" Text="task_name" Align="Right"/>
+<TextBox Name="task_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_task_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_task_number" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_task_number" Size="60,20" Text="task_number" Align="Right"/>
+<TextBox Name="task_number" Size="170,20" Text="" Weight="170" ToolTip="ttp_task_number"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_parent_prj_task_num" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_parent_prj_task_num" Size="60,20" Text="parent_prj_task_num" Align="Right" selectedIndex="0"/>
+<ComboBox Name="parent_prj_task_num" Size="170,100" Text="" Weight="170"  ToolTip="ttp_parent_prj_task_num" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.prj_project_line</DbTable>
+<Index>prj_project_line_id</Index>
+<Data>task_name,task_number,prj_project_line_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><if cond="%{parent_prj_task_num[prj_project_line_id]}"><assign name="task_number" expr="%{parent_prj_task_num[task_number]}_"/></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_work_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_work_type" Size="60,20" Text="work_type" Align="Right" onload="init"/>
+<ComboBox Name="work_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_work_type" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_work_type</DbTable>
+<Index>prj_work_type_id</Index>
+<Data>work_type,prj_work_type_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_manager_user_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_manager_user_id" Size="60,20" Text="manager_user_id" Align="Right" type="2" onload="init"/>
+<ComboBox Name="manager_user_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_manager_user_id" type="2" onload="init">
+	<DbDetails>
+<DbTable>xbs.user_v</DbTable>
+<Index>xerp_user_id</Index>
+<Data>username,xerp_user_id</Data>
+<Where></Where>
+<queryFormat>select %{data} from %{dbtable} where org_id='%{orgid}' %{where} limit 0,20</queryFormat></DbDetails><OnEditChange><DbDetails><Where>and username like '%%{manager_user_id[windowtext]}%'</Where></DbDetails><submit namelist="DbDetails"/></OnEditChange></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_service_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_service_type" Size="60,20" Text="service_type" Align="Right" onload="init"/>
+<ComboBox Name="service_type" Size="170,100" Text="" Weight="170"  ToolTip="ttp_service_type" onload="init">
+	<DbDetails>
+<DbTable>xbs.prj_service_type</DbTable>
+<Index>prj_service_type_id</Index>
+<Data>service_type,prj_service_type_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_start_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_start_date" Size="60,20" Text="start_date" Align="Right"/>
+<DateTime Name="start_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_start_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_end_date" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_end_date" Size="60,20" Text="end_date" Align="Right"/>
+<DateTime Name="end_date" Format="yyyy-MM-dd" Size="170,20" Weight="170"  ToolTip="ttp_end_date"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_description" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_description" Size="60,20" Text="description" Align="Right"/>
+<TextBox Name="description" Size="170,20" Text="" Weight="170" ToolTip="ttp_description"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_allow_charges_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="allow_charges_cb" Size="230,20" Text="allow_charges_cb" ToolTip="ttp_allow_charges_cb" checked="true"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_milestone_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="milestone_cb" Size="230,20" Text="milestone_cb" ToolTip="ttp_milestone_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_task_status" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_task_status" Size="60,20" Text="task_status" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<ComboBox Name="task_status" Size="170,100" Text="" Weight="170"  ToolTip="ttp_task_status" Visible="false" overlap="pre" readonly="true">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=143</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_prj_project_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_prj_project_header_id" Size="60,20" Text="prj_project_header_id" Align="Right" Visible="false" overlap="pre" readonly="true" selectedIndex="0"/>
+<ComboBox Name="prj_project_header_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_prj_project_header_id" Visible="false" overlap="pre" readonly="true" selectedIndex="0">
+	<DbDetails>
+<DbTable>xbs.prj_project_header</DbTable>
+<Index>prj_project_header_id</Index>
+<Data>project_number,prj_project_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_prj_project_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_prj_project_line_id" Size="60,20" Text="prj_project_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="prj_project_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_prj_project_line_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBprj_project_line" expr="TABEDITprj_project_line"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_org_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_org_id" Size="60,20" Text="org_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="org_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_org_id" Visible="false" overlap="pre" readonly="true"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

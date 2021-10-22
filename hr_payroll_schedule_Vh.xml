@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_payroll_schedule" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_payroll_scheduleLst" ToolTip="ttp_hr_payroll_schedule" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_payroll_schedule_id</Index>
+<DbTable>xbs.hr_payroll_schedule</DbTable>
+<Data>scheduled_date,start_date,end_date,period_name,description,status,created_by,creation_date,last_update_by,last_update_date,hr_payroll_schedule_id,hr_payroll_id</Data>
+<Order>hr_payroll_schedule_id</Order></DbDetails>
+<OnClick>
+<if cond="%{hr_payroll_schedule_id}"><SetVisible name="inserthr_payroll_schedule" Visible="0"/><SetVisible name="modifyhr_payroll_schedule" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

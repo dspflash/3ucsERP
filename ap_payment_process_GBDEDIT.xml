@@ -1,0 +1,70 @@
+<GroupBox Name="GBDEDITap_payment_process"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_payment_process"><Ctrls>
+<Label Align="Right" Text="payment_process" Name="lb_payment_process" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_payment_process" Name="payment_process" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_payment_type"><Ctrls>
+<Label Align="Right" Text="payment_type" OnLoad="init" Name="lb_payment_type" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_payment_type" OnLoad="init" Name="payment_type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_code</Index>
+<Data>option_line_value,option_line_code</Data>
+<Where>option_header_id=162</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_cash_ac_id"><Ctrls>
+<Label Align="Right" Text="cash_ac_id" Name="lb_cash_ac_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_cash_ac_id" Name="cash_ac_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_bu_org_id"><Ctrls>
+<Label Align="Right" Text="bu_org_id" Name="lb_bu_org_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_bu_org_id" Name="bu_org_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_description"><Ctrls>
+<Label Align="Right" Text="description" Name="lb_description" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_description" Name="description" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_format_class_name"><Ctrls>
+<Label Align="Right" Text="format_class_name" Name="lb_format_class_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_format_class_name" Name="format_class_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_format_method_name"><Ctrls>
+<Label Align="Right" Text="format_method_name" Name="lb_format_method_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_format_method_name" Name="format_method_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mdm_bank_account_id"><Ctrls>
+<Label Align="Right" Text="mdm_bank_account_id" Name="lb_mdm_bank_account_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_mdm_bank_account_id" Name="mdm_bank_account_id" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_clearing_method"><Ctrls>
+<Label Align="Right" Text="clearing_method" Name="lb_clearing_method" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_clearing_method" Name="clearing_method" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_sync_payment_number_cb"><Ctrls>
+<CheckBox Text="sync_payment_number_cb" ToolTip="ttp_sync_payment_number_cb" Name="sync_payment_number_cb" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_status"><Ctrls>
+<Label Align="Right" Text="status" Name="lb_status" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_status" Name="status" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_ap_payment_process_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="ap_payment_process_id" overlap="pre" Name="lb_ap_payment_process_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_ap_payment_process_id" overlap="pre" Name="ap_payment_process_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBap_payment_process" expr="TABEDITap_payment_process"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

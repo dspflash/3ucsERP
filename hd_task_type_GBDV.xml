@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVhd_task_type"><Ctrls>
+<ListCtrl loadedclick="0" ToolTip="ttp_hd_task_type" Name="hd_task_typeLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_task_type</DbTable>
+<Index>hd_task_type_id</Index>
+<Data>task_type,from_date,to_date,effort_duration,effort_uom_id,auto_schedule_cb,description,created_by,creation_date,last_update_by,last_update_date,hd_task_type_id</Data>
+<Order>hd_task_type_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1">
+<op text="modify"><DbDetails><Where>hd_task_type_id='%{hd_task_type_vLst[hd_task_type_id]}'</Where></DbDetails><submit next="$this.hd_task_type.hd_task_typeLst" namelist="DbDetails"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_task_type</DbTable>
+<Where>hd_task_type_id='%{hd_task_type_vLst[hd_task_type_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

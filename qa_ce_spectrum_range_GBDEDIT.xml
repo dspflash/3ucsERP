@@ -1,0 +1,51 @@
+<GroupBox Name="GBDEDITqa_ce_spectrum_range"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_qa_cp_header_id"><Ctrls>
+<Label Align="Right" Text="qa_cp_header_id" OnLoad="init" Name="lb_qa_cp_header_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_qa_cp_header_id" OnLoad="init" Name="qa_cp_header_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.qa_cp_header</DbTable>
+<Index>qa_cp_header_id</Index>
+<Data>plan_name,qa_cp_header_id</Data>
+<Where/>
+<queryFormat/></DbDetails><OnSelEndOk><DbDetails><Where>qa_cp_header_id='%{qa_cp_header_id[qa_cp_header_id]}'</Where></DbDetails><submit next="qa_ce_spectrum_rangeLst" namelist="DbDetails"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_qa_ce_spectrum_range_value"><Ctrls>
+<Label Align="Right" Text="qa_ce_spectrum_range_value" Name="lb_qa_ce_spectrum_range_value" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_qa_ce_spectrum_range_value" Name="qa_ce_spectrum_range_value" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_reference_type"><Ctrls>
+<Label Align="Right" Text="reference_type" Name="lb_reference_type" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_reference_type" Name="reference_type" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_reference_entity"><Ctrls>
+<Label Align="Right" Text="reference_entity" Name="lb_reference_entity" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_reference_entity" Name="reference_entity" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_reference_key_name"><Ctrls>
+<Label Align="Right" Text="reference_key_name" Name="lb_reference_key_name" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_reference_key_name" Name="reference_key_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_reference_key_value"><Ctrls>
+<Label Align="Right" Text="reference_key_value" Name="lb_reference_key_value" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_reference_key_value" Name="reference_key_value" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_qa_ce_spectrum_range_id" readonly="true" Visible="false"><Ctrls>
+<Label Align="Right" Text="qa_ce_spectrum_range_id" overlap="pre" Name="lb_qa_ce_spectrum_range_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" ToolTip="ttp_qa_ce_spectrum_range_id" overlap="pre" Name="qa_ce_spectrum_range_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><assign name="GBqa_ce_spectrum_range" expr="TABEDITqa_ce_spectrum_range"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

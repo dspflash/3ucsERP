@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVmdm_discount_header"><Ctrls>
+<ListCtrl Heading="discount_name,125;discount_code,50;module_code,125;description,740;status,100;discount_type,100;discount_percentage,75;discount_formula,740;check_condition_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;mdm_discount_header_id,60;" loadedclick="0" ToolTip="ttp_mdm_discount_header" onload="init" Name="mdm_discount_headerLst" Size="800,480">
+	<DbDetails fcsm="1">
+<DbTable>xbs.mdm_discount_header</DbTable>
+<Index>mdm_discount_header_id</Index>
+<Data>discount_name,discount_code,module_code,description,status,discount_type,discount_percentage,discount_formula,check_condition_cb,created_by,creation_date,last_update_by,last_update_date,mdm_discount_header_id</Data>
+<Order>mdm_discount_header_id</Order></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVar_transaction_source" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletear_transaction_source" Name="deletear_transaction_source" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_transaction_source</DbTable>
+<Where>ar_transaction_source_id='%{ar_transaction_sourceLst[ar_transaction_source_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchar_transaction_source" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshar_transaction_source" Name="searchar_transaction_source" Size="50,20">
+			  <OnClick><submit next="ar_transaction_sourceLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPar_transaction_sourceLst" OnClick="(ar_transaction_sourceLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREar_transaction_sourceLst" OnClick="(ar_transaction_sourceLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPar_transaction_sourceLst" OnClick="(ar_transaction_sourceLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhd_change_request" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hd_change_requestLst" ToolTip="ttp_hd_change_request" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hd_change_request</DbTable>
+<Index>hd_change_request_id</Index>
+<Data>hd_support_request_id,subject,request_type,request_category,impact,priority,status,requester_user_id,requester_email,requester_phone,urgency,reason,requested_by_date,assignment_group,assigned_to_user_id,chane_details,planned_start_date,planned_end_date,work_start_date,work_end_date,technical_approver,functional_approver,dba_approver,work_completed_by,change_plan,rollback_plan,communication_plan,test_paln,test_results,description,hd_change_request_id,created_by,creation_date,last_update_by,last_update_date</Data>
+<Order>hd_change_request_id</Order></DbDetails>
+<OnClick><assign name="hd_support_request_id[hd_support_request_id]" expr="%{hd_change_requestLst[hd_support_request_id]}" function="SetSel"/><assign name="request_type[option_line_id]" expr="%{hd_change_requestLst[request_type]}" function="SetSel"/><assign name="request_category[option_line_id]" expr="%{hd_change_requestLst[request_category]}" function="SetSel"/><assign name="impact[option_line_id]" expr="%{hd_change_requestLst[impact]}" function="SetSel"/><assign name="status[option_line_id]" expr="%{hd_change_requestLst[status]}" function="SetSel"/><assign name="created_by[xerp_user_id]" expr="%{hd_change_requestLst[created_by]}" function="SetSel"/><assign name="last_update_by[xerp_user_id]" expr="%{hd_change_requestLst[last_update_by]}" function="SetSel"/>
+<if cond="%{hd_change_request_id}"><SetVisible name="inserthd_change_request" Visible="0"/><SetVisible name="modifyhd_change_request" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

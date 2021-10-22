@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVfp_forecast_consumption" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="fp_forecast_consumptionLst" ToolTip="ttp_fp_forecast_consumption" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.fp_forecast_consumption</DbTable>
+<Index>fp_forecast_consumption_id</Index>
+<Data>fp_forecast_group_id,fp_forecast_line_date_id,quantity,reason,created_by,creation_date,last_update_by,last_update_date,fp_forecast_consumption_id</Data>
+<Order>fp_forecast_consumption_id</Order></DbDetails>
+<OnClick><assign name="fp_forecast_group_id[fp_forecast_group_id]" expr="%{fp_forecast_consumptionLst[fp_forecast_group_id]}" function="SetSel"/><assign name="fp_forecast_line_date_id[fp_forecast_line_date_id]" expr="%{fp_forecast_consumptionLst[fp_forecast_line_date_id]}" function="SetSel"/>
+<if cond="%{fp_forecast_consumption_id}"><SetVisible name="insertfp_forecast_consumption" Visible="0"/><SetVisible name="modifyfp_forecast_consumption" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

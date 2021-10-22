@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVhr_expense_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_expense_line_vLst" ToolTip="ttp_hr_expense_line_v" Size="700,450" Heading="claim_date,90;receipt_amount,75;receipt_currency,120;exchange_rate,75;expense_type,120;status,125;purpose,640;start_date,90;daily_rate,75;no_of_days,25;expense_location,120;line_number,125;per_diem_rate,100;per_diem_days,30;mileage_uom_id,120;mileage_distace,50;mileage_rate,40;vendor_name,500;vendor_details,640;original_receipt_missing_cb,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_expense_line_id,60;hr_expense_header_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>hr_expense_line_id</Index>
+<DbTable>xbs.hr_expense_line h left join xbs.currency c on h.receipt_currency=c.currency_id left join xbs.hr_expense_tpl_line h0 on h.expense_type=h0.hr_expense_tpl_line_id left join xbs.option_line o on h.status=o.option_line_id left join xbs.hr_location h1 on h.expense_location=h1.hr_location_id left join xbs.uom u on h.mileage_uom_id=u.uom_id</DbTable>
+<Data>h.claim_date,h.receipt_amount,c.title receipt_currency,h.exchange_rate,h0.expense_item expense_type,o.option_line_value status,h.purpose,h.start_date,h.daily_rate,h.no_of_days,h1.combination expense_location,h.line_number,h.per_diem_rate,h.per_diem_days,u.uom_name mileage_uom_id,h.mileage_distace,h.mileage_rate,h.vendor_name,h.vendor_details,h.original_receipt_missing_cb,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_expense_line_id,h.hr_expense_header_id</Data>
+<Order>hr_expense_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{hr_expense_header_id}"><alert expr="hr_expense_header_id is Empty!"/><else/><submit next="$parent.hr_expense_line.GBDEDIThr_expense_line" function="reset"/><assign name="$parent.hr_expense_line.hr_expense_header_id" expr="%{hr_expense_header_id}"/><assign name="$parent.hr_expense_line.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>hr_expense_line_id='%{hr_expense_line_vLst[hr_expense_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.hr_expense_line.hr_expense_lineLst"/><assign name="$parent.hr_expense_line.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_expense_line</DbTable>
+<Where>hr_expense_line_id='%{hr_expense_line_vLst[hr_expense_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

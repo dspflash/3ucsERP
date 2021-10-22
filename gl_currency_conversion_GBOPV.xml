@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVgl_currency_conversion" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletegl_currency_conversion" Name="deletegl_currency_conversion" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.gl_currency_conversion</DbTable>
+<Where>gl_currency_conversion_id='%{gl_currency_conversionLst[gl_currency_conversion_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchgl_currency_conversion" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshgl_currency_conversion" Name="searchgl_currency_conversion" Size="50,20">
+			  <OnClick><submit next="gl_currency_conversionLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPgl_currency_conversionLst" OnClick="(gl_currency_conversionLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREgl_currency_conversionLst" OnClick="(gl_currency_conversionLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPgl_currency_conversionLst" OnClick="(gl_currency_conversionLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

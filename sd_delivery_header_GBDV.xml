@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVsd_delivery_header"><Ctrls>
+<ListCtrl Heading="delivery_number,125;shipping_org_id,120;status,120;expetced_delivery_date,90;comment,640;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;sd_delivery_header_id,60;" loadedclick="0" ToolTip="ttp_sd_delivery_header" Name="sd_delivery_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_delivery_header s left join xbs.org o on s.shipping_org_id=o.org_id left join xbs.option_line o0 on s.status=o0.option_line_id</DbTable>
+<Index>sd_delivery_header_id</Index>
+<Data>s.delivery_number,o.org shipping_org_id,o0.option_line_value status,s.expetced_delivery_date,s.comment,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,s.sd_delivery_header_id</Data>
+<Order>sd_delivery_header_id</Order></DbDetails>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

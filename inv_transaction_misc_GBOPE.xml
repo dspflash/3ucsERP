@@ -1,0 +1,23 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEinv_transaction" Size="100,100"><Ctrls>
+<Button Text="create" ToolTip="ttp_createinv_transaction" Name="insertinv_transaction" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_transaction</DbTable>
+<Data>transaction_type_id,org_id[org_id],status,item_number[item_number],revision_name,item_id_m,uom_id,lot_number_id,logical_transaction_cb,document_number,reason,reference_type,reference_key_name,reference_key_value,description,from_org_id,from_subinventory_id,from_locator_id,quantity,from_account_id,to_org_id,to_subinventory_id,to_locator_id,to_account_id,unit_cost,costed_amount</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchinv_transaction" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyinv_transaction" Name="modifyinv_transaction" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.inv_transaction</DbTable>
+<Data>transaction_type_id,org_id[org_id],status,item_number[item_number],revision_name,item_id_m,uom_id,lot_number_id,logical_transaction_cb,document_number,reason,reference_type,reference_key_name,reference_key_value,description,from_org_id,from_subinventory_id,from_locator_id,quantity,from_account_id,to_org_id,to_subinventory_id,to_locator_id,to_account_id,unit_cost,costed_amount</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>inv_transaction_id='%{inv_transaction_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchinv_transaction" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEhr_employee" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hr_employee_id" Text="create" ToolTip="ttp_createhr_employee" Name="inserthr_employee" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hr_employee</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>first_name,last_name,title,email,other_email,gender,identification_type[option_line_id],identification_id,citizen_number,phone,mobile_number,status,employee_number,person_type[option_line_id],start_date,org_id[org_id],position_id[hr_position_id],department_id[dept_id],supervisor_employee_id[hr_employee_id],vehicle_number,asset_numbers,tax_reg_number,date_of_birth,city_of_birth,country_of_birth,nationality,marital_status[option_line_id],no_of_children,degree,social_ac_no,social_ac_no2,passport_number</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{inserthr_employee[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_employeeLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_employee_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_employee" Name="modifyhr_employee" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hr_employee</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>first_name,last_name,title,email,other_email,gender,identification_type[option_line_id],identification_id,citizen_number,phone,mobile_number,status,employee_number,person_type[option_line_id],start_date,org_id[org_id],position_id[hr_position_id],department_id[dept_id],supervisor_employee_id[hr_employee_id],vehicle_number,asset_numbers,tax_reg_number,date_of_birth,city_of_birth,country_of_birth,nationality,marital_status[option_line_id],no_of_children,degree,social_ac_no,social_ac_no2,passport_number</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hr_employee_id='%{hr_employee_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyhr_employee[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_employeeLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_employee_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_employee" Name="resethr_employee" Size="50,20">
+<OnClick>
+<submit next="GBDEDIThr_employee" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchhr_employee" Name="gsearchhr_employee" Size="50,20" visible="false">
+<OnClick>
+<search next="hr_employeeLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDIThr_employee" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

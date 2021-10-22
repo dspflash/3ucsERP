@@ -1,0 +1,52 @@
+﻿<Language name="hr_leave_type">
+<Lang name="hr_leave_type" value="休假类型"/>
+<Lang name="TabEdithr_leave_type" value="hr_leave_type Edit"/>
+<Lang name="TabViewhr_leave_type" value="hr_leave_type View"/>
+<Lang name="leave_type" value="休假类型"/>
+<Lang name="ttp_leave_type" value=""/>
+<Lang name="leave_category" value="类别"/>
+<Lang name="ttp_leave_category" value=""/>
+<Lang name="allow_carry_forward_cb" value="年末可结转"/>
+<Lang name="ttp_allow_carry_forward_cb" value=""/>
+<Lang name="carry_forward_per_year" value="年度克结转数"/>
+<Lang name="ttp_carry_forward_per_year" value=""/>
+<Lang name="maximum_accumulation" value="最大累积数"/>
+<Lang name="ttp_maximum_accumulation" value=""/>
+<Lang name="auto_convert_salary_cb" value="自动转换工资"/>
+<Lang name="ttp_auto_convert_salary_cb" value=""/>
+<Lang name="allow_advance_cb" value=""/>
+<Lang name="ttp_allow_advance_cb" value=""/>
+<Lang name="lwp_cb" value=""/>
+<Lang name="ttp_lwp_cb" value=""/>
+<Lang name="default_reason" value=""/>
+<Lang name="ttp_default_reason" value=""/>
+<Lang name="status" value=""/>
+<Lang name="ttp_status" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hr_leave_type_id" value=""/>
+<Lang name="ttp_hr_leave_type_id" value=""/>
+<Lang name="ttp_operationhr_leave_type" value=""/>
+<Lang name="ttp_createhr_leave_type" value=""/>
+<Lang name="ttp_modifyhr_leave_type" value=""/>
+<Lang name="ttp_resethr_leave_type" value=""/>
+<Lang name="ttp_deletehr_leave_type" value=""/>
+<Lang name="ttp_refreshhr_leave_type" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_control" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_controlLst" ToolTip="ttp_hr_control" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.hr_control</DbTable>
+<Index>hr_control_id</Index>
+<Data>bu_org_id,default_job_id,default_grade_id,expense_claim_approval,supplier_id,supplier_site_id,created_by,creation_date,last_update_by,last_update_date,hr_control_id</Data>
+<Order>hr_control_id</Order></DbDetails>
+<OnClick><assign name="bu_org_id[org_id]" expr="%{hr_controlLst[bu_org_id]}" function="SetSel"/><assign name="default_job_id[hr_job_id]" expr="%{hr_controlLst[default_job_id]}" function="SetSel"/><assign name="default_grade_id[hr_grade_id]" expr="%{hr_controlLst[default_grade_id]}" function="SetSel"/><assign name="expense_claim_approval[option_line_id]" expr="%{hr_controlLst[expense_claim_approval]}" function="SetSel"/><assign name="created_by[xerp_user_id]" expr="%{hr_controlLst[created_by]}" function="SetSel"/>
+<if cond="%{hr_control_id}"><SetVisible name="inserthr_control" Visible="0"/><SetVisible name="modifyhr_control" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

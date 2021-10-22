@@ -1,0 +1,8 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpo_sourcing_rule_header"><Ctrls>
+<ListCtrl Heading="sourcing_rule,125;description,640;status,125;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;po_sourcing_rule_header_id,60;" loadedclick="0" ToolTip="ttp_po_sourcing_rule_header" onload="init" Name="po_sourcing_rule_headerLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.po_sourcing_rule_header</DbTable>
+<Index>po_sourcing_rule_header_id</Index>
+<Data>sourcing_rule,description,status,created_by,creation_date,last_update_by,last_update_date,po_sourcing_rule_header_id</Data>
+<Order>po_sourcing_rule_header_id</Order></DbDetails><DbDetails fcsm="1"><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails></ListCtrl>
+</Ctrls></GroupBox>

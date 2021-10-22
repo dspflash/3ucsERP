@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEsd_so_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="sd_so_header_id" Text="create" ToolTip="ttp_createsd_so_header" Name="insertsd_so_header" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_so_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>document_extn_ref,order_source_type[option_line_id],ordered_date,request_date,hr_employee_id[hr_employee_id],payment_term_id[payment_term_id],ar_customer_id[ar_customer_id],ar_customer_site_id[ar_customer_site_id],doc_currency[currency_id],ship_to_id[address_id],bill_to_id[address_id],currency[currency_id],exchange_rate,agreement_start_date,aggrement_end_date,description,exchange_rate_type[gl_currency_conversion_id]</Data>
+<DataEx>so_number,approval_status,so_status,created_by,creation_date,last_update_by,last_update_date,bu_org_id;'%{so_number}',321,537,'%{user_id}',now(),'%{user_id}',now(),'%{orgid}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="sd_so_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifysd_so_header" Name="modifysd_so_header" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.sd_so_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>document_extn_ref,order_source_type[option_line_id],ordered_date,request_date,hr_employee_id[hr_employee_id],payment_term_id[payment_term_id],ar_customer_id[ar_customer_id],ar_customer_site_id[ar_customer_site_id],doc_currency[currency_id],ship_to_id[address_id],bill_to_id[address_id],currency[currency_id],exchange_rate,agreement_start_date,aggrement_end_date,description,exchange_rate_type[gl_currency_conversion_id]</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>sd_so_header_id='%{sd_so_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="sd_so_headerLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetsd_so_header" Name="resetsd_so_header" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITsd_so_header" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchsd_so_header" Name="gsearchsd_so_header" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="sd_so_headerLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITsd_so_header" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

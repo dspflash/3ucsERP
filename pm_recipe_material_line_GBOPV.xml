@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVpm_recipe_material_line" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletepm_recipe_material_line" Name="deletepm_recipe_material_line" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_recipe_material_line</DbTable>
+<Where>pm_recipe_material_line_id='%{pm_recipe_material_lineLst[pm_recipe_material_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchpm_recipe_material_line" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshpm_recipe_material_line" Name="searchpm_recipe_material_line" Size="50,20">
+			  <OnClick><submit next="pm_recipe_material_lineLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPpm_recipe_material_lineLst" OnClick="(pm_recipe_material_lineLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREpm_recipe_material_lineLst" OnClick="(pm_recipe_material_lineLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPpm_recipe_material_lineLst" OnClick="(pm_recipe_material_lineLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

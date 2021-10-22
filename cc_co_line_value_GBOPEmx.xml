@@ -1,0 +1,37 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPEcc_co_line_value" Size="100,100"><Ctrls>
+<Button sqlpkinsert="cc_co_line_value_id" Text="create" ToolTip="ttp_createcc_co_line_value" Name="insertcc_co_line_value" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.cc_co_line_value</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>cc_co_template_line_id[cc_co_template_line_id],cc_co_line_id</Data>
+<DataEx>field_value,created_by,creation_date,last_update_by,last_update_date;if(('%{cc_co_template_line_id[control_type]}'='Select'),'%{field_value[id]}','%{field_value[windowtext]}'),'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="cc_co_line_valueLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifycc_co_line_value" Name="modifycc_co_line_value" Size="50,20">
+			  <OnClick>
+	<DbDetails fcsm="1" mode="update">
+<DbTable>xbs.cc_co_line_value</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>cc_co_template_line_id[cc_co_template_line_id]</Data>
+<DataEx>field_value,last_update_by,last_update_date;@fieldvalue,'%{user_id}',now()</DataEx>
+<Where>cc_co_line_value_id='%{cc_co_line_value_id}'</Where>
+<queryFormat>select if(('%{cc_co_template_line_id[control_type]}'='Select'),'%{field_value[id]}','%{field_value[windowtext]}') into @fieldvalue;update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><if cond="%{refreshAfterEdit}"><submit next="cc_co_line_valueLst"/></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetcc_co_line_value" Name="resetcc_co_line_value" Size="50,20">
+	<OnClick>
+	<submit next="GBDEDITcc_co_line_value" function="reset"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="gsearch" ToolTip="ttp_gsearchcc_co_line_value" Name="gsearchcc_co_line_value" Size="50,20" visible="false">
+			  <OnClick>
+	<search next="cc_co_line_valueLst" listed="0" prefixwhere="0" inputed="1"><zone_id op="(" ref=""/></search><submit next="GBDEDITcc_co_line_value" namelist="search" function="search"/>
+	</OnClick>
+	</Button><TAB/>
+</Ctrls></GroupBox>

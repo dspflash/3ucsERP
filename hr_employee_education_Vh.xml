@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVhr_employee_education" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="hr_employee_educationLst" ToolTip="ttp_hr_employee_education" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>hr_employee_education_id</Index>
+<DbTable>xbs.hr_employee_education</DbTable>
+<Data>degree_name,university,university_address,specialization,edu_start_date,edu_end_date,mode_of_education,grade,marks_percentage,comments,created_by,creation_date,last_update_by,last_update_date,hr_employee_education_id</Data>
+<Order>hr_employee_education_id</Order></DbDetails>
+<OnClick><assign name="mode_of_education[option_line_id]" expr="%{hr_employee_educationLst[mode_of_education]}" function="SetSel"/>
+<if cond="%{hr_employee_education_id}"><SetVisible name="inserthr_employee_education" Visible="0"/><SetVisible name="modifyhr_employee_education" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

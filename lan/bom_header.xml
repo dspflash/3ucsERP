@@ -1,0 +1,39 @@
+<Language name="bom_header">
+<Lang name="bom_header" value="物料清单"/>
+<Lang name="bom_lineChange" value="移给其他产品"/>
+<Lang name="TabEditbom_header" value="bom_header Edit"/>
+<Lang name="TabViewbom_header" value="bom_header View"/>
+<Lang name="item_id_m" value="物料"/>
+<Lang name="ttp_item_id_m" value=""/>
+<Lang name="org_id" value=""/>
+<Lang name="ttp_org_id" value=""/>
+<Lang name="bom_revision" value="版本"/>
+<Lang name="ttp_bom_revision" value=""/>
+<Lang name="effective_date" value="生效日期"/>
+<Lang name="ttp_effective_date" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="bom_header_id" value=""/>
+<Lang name="ttp_bom_header_id" value=""/>
+<Lang name="ttp_operationbom_header" value="操作"/>
+<Lang name="ttp_createbom_header" value="新增"/>
+<Lang name="ttp_modifybom_header" value="修改"/>
+<Lang name="ttp_resetbom_header" value="清除数据"/>
+<Lang name="ttp_deletebom_header" value="删除"/>
+<Lang name="ttp_refreshbom_header" value="刷新"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+</Language>

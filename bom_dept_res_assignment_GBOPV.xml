@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVbom_dept_res_assignment" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletebom_dept_res_assignment" Name="deletebom_dept_res_assignment" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_dept_res_assignment</DbTable>
+<Where>bom_dept_res_assignment_id='%{bom_dept_res_assignmentLst[bom_dept_res_assignment_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchbom_dept_res_assignment" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshbom_dept_res_assignment" Name="searchbom_dept_res_assignment" Size="50,20">
+			  <OnClick><submit next="bom_dept_res_assignmentLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPbom_dept_res_assignmentLst" OnClick="(bom_dept_res_assignmentLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREbom_dept_res_assignmentLst" OnClick="(bom_dept_res_assignmentLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPbom_dept_res_assignmentLst" OnClick="(bom_dept_res_assignmentLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

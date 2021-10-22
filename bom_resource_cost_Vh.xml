@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVbom_resource_cost" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="bom_resource_costLst" ToolTip="ttp_bom_resource_cost" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>bom_resource_cost_id</Index>
+<DbTable>xbs.bom_resource_cost</DbTable>
+<Data>bom_resource_id,bom_cost_type,resource_rate,created_by,creation_date,last_update_by,last_update_date,bom_resource_cost_id</Data>
+<Order>bom_resource_cost_id</Order></DbDetails>
+<OnClick><assign name="bom_resource_id[bom_resource_id]" expr="%{bom_resource_costLst[bom_resource_id]}" function="SetSel"/><assign name="bom_cost_type[bom_cost_type_id]" expr="%{bom_resource_costLst[bom_cost_type]}" function="SetSel"/>
+<if cond="%{bom_resource_cost_id}"><SetVisible name="insertbom_resource_cost" Visible="0"/><SetVisible name="modifybom_resource_cost" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

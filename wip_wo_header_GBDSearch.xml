@@ -1,0 +1,31 @@
+<GroupBox Name="GBDEDITwip_wo_header"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_wo_number"><Ctrls>
+<Label Align="Right" Text="wo_number" Name="lb_wo_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_wo_number" Name="wo_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_wo_type"><Ctrls>
+<Label Align="Right" Text="wo_type" OnLoad="init" Name="lb_wo_type" Size="60,20" selectedIndex="2"/>
+<ComboBox Weight="170" ToolTip="ttp_wo_type" OnLoad="init" Name="wo_type" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=142</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_wo_status" selectedIndex="5"><Ctrls>
+<Label Align="Right" Text="wo_status" OnLoad="init" Name="lb_wo_status" Size="60,20" selectedIndex="5"/>
+<ComboBox Weight="170" ToolTip="ttp_wo_status" OnLoad="init" Name="wo_status" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=143</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls>
+<Label Align="Right" Text="item_id_m" onload="init" Name="lb_item_id_m" Size="60,20" type="2"/>
+<TextBox Weight="170" Text="" type="2" ToolTip="ttp_item_number" Name="item_number" Size="170,20"/>
+</Ctrls></GroupBox><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearch.xml"/>
+</Ctrls></GroupBox>

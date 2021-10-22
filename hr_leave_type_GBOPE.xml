@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEhr_leave_type" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hr_leave_type_id" Text="create" ToolTip="ttp_createhr_leave_type" Name="inserthr_leave_type" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hr_leave_type</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>leave_type,leave_category[option_line_id],maximum_accumulation,allow_carry_forward_cb,carry_forward_per_year,auto_convert_salary_cb,description,status</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{inserthr_leave_type[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_leave_typeLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_leave_type_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_leave_type" Name="modifyhr_leave_type" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hr_leave_type</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>leave_type,leave_category[option_line_id],maximum_accumulation,allow_carry_forward_cb,carry_forward_per_year,auto_convert_salary_cb,description,status</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>hr_leave_type_id='%{hr_leave_type_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyhr_leave_type[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_leave_typeLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_leave_type_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_leave_type" Name="resethr_leave_type" Size="50,20">
+<OnClick>
+<submit next="GBDEDIThr_leave_type" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchhr_leave_type" Name="gsearchhr_leave_type" Size="50,20" visible="false">
+<OnClick>
+<search next="hr_leave_typeLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDIThr_leave_type" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

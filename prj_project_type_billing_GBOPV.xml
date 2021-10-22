@@ -1,0 +1,17 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBOPVprj_project_type_billing" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteprj_project_type_billing" Name="deleteprj_project_type_billing" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>prj_project_type_billing</DbTable>
+<Where>prj_project_type_billing_id='%{prj_project_type_billingLst[prj_project_type_billing_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchprj_project_type_billing" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshprj_project_type_billing" Name="searchprj_project_type_billing" Size="50,20">
+			  <OnClick><submit next="prj_project_type_billingLst"/>	</OnClick>
+</Button>
+<TAB/><Button Text="firstpage" Name="FPprj_project_type_billingLst" OnClick="(prj_project_type_billingLst)GetPage(First)" Size="40,20"/>
+<Button Text="prepage" Name="PREprj_project_type_billingLst" OnClick="(prj_project_type_billingLst)GetPage(Pre)" Size="40,20"/>
+<Button Text="nextpage" Name="NPprj_project_type_billingLst" OnClick="(prj_project_type_billingLst)GetPage(Next)" Size="40,20"/>
+</Ctrls></GroupBox>

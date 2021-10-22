@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVbom_resource_cost" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletebom_resource_cost" Name="deletebom_resource_cost" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>xbs.bom_resource_cost</DbTable>
+<Where>bom_resource_cost_id='%{bom_resource_costLst[bom_resource_cost_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchbom_resource_cost" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshbom_resource_cost" Name="searchbom_resource_cost" Size="50,20">
+			  <OnClick><submit next="bom_resource_costLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPbom_resource_costLst" OnClick="(bom_resource_costLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREbom_resource_costLst" OnClick="(bom_resource_costLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPbom_resource_costLst" OnClick="(bom_resource_costLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

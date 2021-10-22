@@ -1,0 +1,10 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVpm_recipe_material_line"><Ctrls>
+<ListCtrl Heading="step_no,25;pm_formula_ingredient_id,120;pm_formula_line_id,120;pm_formula_byproduct_id,120;description,640;uom_id,60;quantity,75;pm_process_routing_line_id,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;pm_recipe_material_line_id,60;" loadedclick="0" ToolTip="ttp_pm_recipe_material_line" Name="pm_recipe_material_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>xbs.pm_recipe_material_line</DbTable>
+<Index>pm_recipe_material_line_id</Index>
+<Data>step_no,pm_formula_ingredient_id,pm_formula_line_id,pm_formula_byproduct_id,description,uom_id,quantity,pm_process_routing_line_id,created_by,creation_date,last_update_by,last_update_date,pm_recipe_material_line_id</Data>
+<Order>pm_recipe_material_line_id</Order></DbDetails>
+<OnClick><assign name="pm_formula_ingredient_id[pm_formula_ingredient_id]" function="SetSel" expr="%{pm_recipe_material_lineLst[pm_formula_ingredient_id]}"/><assign name="pm_formula_line_id[pm_formula_line_id]" function="SetSel" expr="%{pm_recipe_material_lineLst[pm_formula_line_id]}"/><assign name="pm_formula_byproduct_id[pm_formula_byproduct_id]" function="SetSel" expr="%{pm_recipe_material_lineLst[pm_formula_byproduct_id]}"/></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDVhr_employee_termination" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hr_employee_termination_vLst" ToolTip="ttp_hr_employee_termination_v" Size="700,450" OnLoad="init" Heading="employee_id,60;new_employer,640;reason,640;date_of_notification,90;projected_last_date,90;status,120;actual_last_date,90;accpeted_date,90;accpeted_by_employee_id,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;hr_employee_termination_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>hr_employee_termination_id</Index>
+<DbTable>xbs.hr_employee_termination h left join xbs.hr_employee_v h0 on h.employee_id=h0.hr_employee_id left join xbs.option_line o on h.status=o.option_line_id left join xbs.hr_employee_v h1 on h.accpeted_by_employee_id=h1.hr_employee_id</DbTable>
+<Data>h0.name employee_id,h.new_employer,h.reason,h.date_of_notification,h.projected_last_date,o.option_line_value status,h.actual_last_date,h.accpeted_date,h1.name accpeted_by_employee_id,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_employee_termination_id</Data>
+<Order>hr_employee_termination_id</Order></DbDetails>
+<DbDetails><Data>h0.name,h.new_employer,h.date_of_notification,h.projected_last_date,h.reason,o.option_line_value status,h.actual_last_date,h.accpeted_date,h1.name accpeted_by_employee_id,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hr_employee_termination_id,employee_id</Data></DbDetails>
+<xi:include href="hr_employee_termination_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_hr_employee_termination" expr="js(%{hr_employee_termination_vLst[currentpage]}+1)"/>
+<assign name="pgscb_hr_employee_termination" expr="js(%{hr_employee_termination_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

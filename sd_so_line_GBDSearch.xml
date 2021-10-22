@@ -1,0 +1,34 @@
+<GroupBox Name="GBDEDITsd_so_header"><Ctrls><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_so_number"><Ctrls>
+<Label Align="Right" Text="so_number" Name="lb_so_number" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_so_number" Name="so_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_line_status"><Ctrls>
+<Label Align="Right" Text="line_status" Name="lb_line_status" Size="60,20"/>
+<ComboBox Weight="170" Text="" ToolTip="ttp_line_status" Name="line_status" onload="init" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=300</Where>
+<queryFormat/></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_item_id_m"><Ctrls>
+<Label Align="Right" Text="item_number" Name="lb_item_number" Size="60,20"/>
+<TextBox Weight="170" Text="" type="2" ToolTip="ttp_item_number" Name="item_number" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_ar_customer_id"><Ctrls>
+<Label Align="Right" Text="ar_customer_id" Name="lb_ar_customer_id" Size="60,20"/>
+<TextBox Weight="170" ToolTip="ttp_customer_name" Name="customer_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<!--GroupBox cols="xs12 sm6 md4" Multiline="0" OnLoad="init" Name="GB_ar_customer_site_id"><Ctrls>
+<Label Align="Right" Text="ar_customer_site_id" OnLoad="init" Name="lb_ar_customer_site_id" Size="60,20"/>
+<ComboBox Weight="170" ToolTip="ttp_ar_customer_site_id" OnLoad="init" Name="ar_customer_site_id" Size="170,100">
+	<DbDetails>
+<DbTable>xbs.ar_customer_site</DbTable>
+<Index>ar_customer_site_id</Index>
+<Data>customer_site_name,ar_customer_site_id</Data>
+<Where>ar_customer_id='%{ar_customer_id[ar_customer_id]}'</Where>
+<queryFormat/></DbDetails><OnSelEndOk><if cond="%{ar_customer_site_id[ar_customer_site_id]}"><DbDetails><Where>reftbltp='customersite' and refid='%{ar_customer_site_id[ar_customer_site_id]}' and </Where></DbDetails><submit next="bill_to_id" namelist="DbDetails"/><submit next="ship_to_id" namelist="DbDetails"/></if></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox-->
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="periodDTSearch.xml"/>
+</Ctrls></GroupBox>

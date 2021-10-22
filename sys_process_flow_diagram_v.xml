@@ -1,0 +1,24 @@
+<WndTap Text="sys_process_flow_diagram" Name="sys_process_flow_diagram" Ver="2" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_pd_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_header.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_line.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\sys_process_flow_action.xml"/>
+<Ctrls>
+<GroupBox Text="sys_process_flow_diagram" Name="GBsys_process_flow_diagram" id="sys_process_flow_diagram" Size="100,100"><Ctrls>
+<ListCtrl Name="sys_process_flow_diagram_vLst" ToolTip="ttp_sys_process_flow_diagram" Size="700,420" colsDisplay="10">
+	<DbDetails fcsm="1">
+<DbTable>xbs.sys_process_flow_header fh 
+JOIN xbs.sys_process_flow_line fl ON fh.sys_process_flow_header_id=fl.sys_process_flow_header_id 
+LEFT JOIN xbs.sys_process_flow_line flp ON fl.next_line_seq_pass=flp.sys_process_flow_line_id 
+LEFT JOIN xbs.sys_process_flow_line flf ON fl.next_line_seq_fail=flf.sys_process_flow_line_id
+JOIN xbs.sys_process_flow_action fa ON fl.sys_process_flow_line_id=fa.sys_process_flow_line_id 
+JOIN xbs.xerp_role r ON fa.role_code=r.role_id 
+LEFT JOIN xbs.user_v u ON fa.userid=u.xerp_user_id </DbTable>
+<Index>sys_process_flow_action_id</Index>
+<Data>process_flow,fl.line_number,fl.line_type,fl.line_name,flp.line_name pass_next,flf.line_name fail_next,fa.action_number,fa.pf_action_type,role_name_cn,NAME user,userid,sys_process_flow_action_id,fl.sys_process_flow_line_id,fl.next_line_seq_pass,fl.next_line_seq_fail,fh.sys_process_flow_header_id </Data>
+<Order>line_number,action_number </Order>
+<Where>fh.sys_process_flow_header_id='%{sys_process_flow_header_id}'</Where></DbDetails>
+	</ListCtrl>	
+	</Ctrls></GroupBox>
+	</Ctrls>
+		</WndTap>

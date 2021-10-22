@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEhr_expense_header" Size="100,100"><Ctrls>
+<Button sqlpkinsert="hr_expense_header_id" Text="create" ToolTip="ttp_createhr_expense_header" Name="inserthr_expense_header" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>xbs.hr_expense_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>claim_number,department_id[dept_id],hr_employee_id[hr_employee_id],claim_date,purpose,expense_template_id[hr_expense_tpl_header_id],doc_currency[currency_id],reason,contact_details,exchange_rate</Data>
+<DataEx>status,currency,header_amount,bu_org_id,created_by,creation_date,last_update_by,last_update_date,exchange_rate_type;321,'%{doc_currency[ledger_currency]}',0,%{orgid},'%{user_id}',now(),'%{user_id}',now(),'%{exchange_rate_type[rate]}'</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{inserthr_expense_header[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_expense_headerLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="0"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_expense_header_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyhr_expense_header" Name="modifyhr_expense_header" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>xbs.hr_expense_header</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>claim_number,department_id[dept_id],purpose,expense_template_id[hr_expense_tpl_header_id],doc_currency[currency_id],reason,contact_details,exchange_rate</Data>
+<DataEx>currency,last_update_by,last_update_date,exchange_rate_type;'%{doc_currency[ledger_currency]}','%{user_id}',now(),'%{exchange_rate_type[rate]}'</DataEx>
+<Where>hr_expense_header_id='%{hr_expense_header_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyhr_expense_header[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="hr_expense_headerLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.hr_expense_header_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resethr_expense_header" Name="resethr_expense_header" Size="50,20">
+<OnClick>
+<submit next="GBDEDIThr_expense_header" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchhr_expense_header" Name="gsearchhr_expense_header" Size="50,20" visible="false">
+<OnClick>
+<search next="hr_expense_headerLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDIThr_expense_header" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

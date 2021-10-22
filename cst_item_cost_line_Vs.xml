@@ -1,0 +1,66 @@
+<GroupBox Name="GBDEDITcst_item_cost_line"><Ctrls>
+<GroupBox Name="GB_cost_element_type" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cost_element_type" Size="60,20" Text="cost_element_type" Align="Right" onload="init"/>
+<ComboBox Name="cost_element_type" Size="170,100" Text="" Weight="170" Items="MAT|MOH|OH|RES|OSP" ToolTip="ttp_cost_element_type" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=168</Where>
+<queryFormat></queryFormat></DbDetails><OnSelEndOk><if cond="%{cost_element_type[option_line_id]}==548"><DbDetails><DbTable>bom_material_element</DbTable><Data>material_element,bom_material_element_id element_id</Data></DbDetails><submit next="cost_element_id" namelist="DbDetails"/><elseif cond="%{cost_element_type[option_line_id]}==547"/><DbDetails><DbTable>bom_resource</DbTable><Data>resource,bom_resource_id element_id</Data></DbDetails><submit next="cost_element_id" namelist="DbDetails"/><elseif cond="%{cost_element_type[option_line_id]}==551"/><DbDetails><DbTable>;</DbTable><Data>;</Data></DbDetails><else /><DbDetails><DbTable>bom_overhead</DbTable><Data>overhead,bom_overhead_id element_id</Data></DbDetails><submit next="cost_element_id" namelist="DbDetails"/></if><submit next="cost_element_id" namelist="DbDetails"/></OnSelEndOk></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cost_element_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cost_element_id" Size="60,20" Text="cost_element_id" Align="Right"/>
+<ComboBox Name="cost_element_id" Size="170,100" Text="" Weight="170"  ToolTip="ttp_cost_element_id"></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_amount" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_amount" Size="60,20" Text="amount" Align="Right"/>
+<TextBox Name="amount" Size="170,20" Text="" Weight="170" ToolTip="ttp_amount"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_cost_basis" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_cost_basis" Size="60,20" Text="cost_basis" Align="Right" onload="init"/>
+<ComboBox Name="cost_basis" Size="170,100" Text="" Weight="170"  ToolTip="ttp_cost_basis" onload="init">
+	<DbDetails>
+<DbTable>xbs.option_line</DbTable>
+<Index>option_line_id</Index>
+<Data>option_line_value,option_line_id</Data>
+<Where>option_header_id=138</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_this_level_cb" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="this_level_cb" Size="230,20" Text="this_level_cb" ToolTip="ttp_this_level_cb"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_status" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="status" Size="230,20" Text="status" ToolTip="ttp_status"></CheckBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_created_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_created_by" Size="60,20" Text="created_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="created_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_created_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_creation_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_creation_date" Size="60,20" Text="creation_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="creation_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_creation_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_by" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_by" Size="60,20" Text="last_update_by" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="last_update_by" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_by" Visible="false" overlap="pre"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_last_update_date" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_last_update_date" Size="60,20" Text="last_update_date" Align="Right" Visible="false" overlap="pre"/>
+<DateTime Name="last_update_date" Format="yyyy-MM-dd HH:mm:ss" Size="170,20" Text="" Weight="170" ToolTip="ttp_last_update_date" Visible="false" overlap="pre"></DateTime>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cst_item_cost_line_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_cst_item_cost_line_id" Size="60,20" Text="cst_item_cost_line_id" Align="Right" Visible="false" overlap="pre" readonly="true"/>
+<TextBox Name="cst_item_cost_line_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_cst_item_cost_line_id" Visible="false" overlap="pre" readonly="true"><OnEnChange><assign name="GBcst_item_cost_line" expr="TABEDITcst_item_cost_line"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_cst_item_cost_header_id" Multiline="0" cols="xs12 sm6 md4" Visible="false" overlap="pre"><Ctrls>
+<Label Name="lb_cst_item_cost_header_id" Size="60,20" Text="cst_item_cost_header_id" Align="Right" Visible="false" overlap="pre"/>
+<TextBox Name="cst_item_cost_header_id" Size="170,20" Text="" Weight="170" ToolTip="ttp_cst_item_cost_header_id" Visible="false" overlap="pre">
+	<DbDetails>
+<DbTable>xbs.cst_item_cost_header</DbTable>
+<Index>cst_item_cost_header_id</Index>
+<Data>cst_item_cost_header_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

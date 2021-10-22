@@ -1,0 +1,15 @@
+﻿<GroupBox Name="GBDVbom_resource" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="bom_resource_vLst" ToolTip="ttp_bom_resource_v" Size="700,450" OnLoad="init" Heading="resource,250;resource_type,120;status,60;charge_type,120;uom,120;description,640;osp_cb,60;osp_item_id,120;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;org_id,60;bom_resource_id,60;" loadedclick="0">
+	<DbDetails >
+<Index>bom_resource_id</Index>
+<DbTable>xbs.bom_resource b left join xbs.option_line o on b.resource_type=o.option_line_id left join xbs.option_line o0 on b.charge_type=o0.option_line_id left join xbs.item i on (b.osp_cb and b.osp_item_id=i.item_id_m and b.org_id=i.org_id) left join xbs.uom u on b.uom=u.uom_id</DbTable>
+<Data>b.resource,o.option_line_value resource_type,b.status,o0.option_line_value charge_type,u.uom_name uom,b.description,b.osp_cb,i.item_number osp_item_id,b.created_by,b.creation_date,b.last_update_by,b.last_update_date,b.org_id,b.bom_resource_id</Data>
+<Order>bom_resource_id</Order></DbDetails>
+<DbDetails><DbTable>xbs.bom_resource b left join xbs.option_line o on b.resource_type=o.option_line_id left join xbs.option_line o0 on b.charge_type=o0.option_line_id left join xbs.item i on (b.osp_cb and b.osp_item_id=i.item_id_m and b.org_id=i.org_id) left join xbs.uom u on b.uom=u.uom_id
+</DbTable><queryFormat xml:base="d:\Program Files (x86)\3UCS\3UCS Server\layout\biztools\mysqlcfg.xml" id="tbpages">select %{data} from %{dbtable} %{where} limit %{StartRow},%{PgSize}</queryFormat></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="bom_resource_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_bom_resource" expr="js(%{bom_resource_vLst[currentpage]}+1)"/>
+<assign name="pgscb_bom_resource" expr="js(%{bom_resource_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVar_receipt_line" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="ar_receipt_lineLst" ToolTip="ttp_ar_receipt_line" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.ar_receipt_line</DbTable>
+<Index>ar_receipt_line_id</Index>
+<Data>ar_transaction_header_id,line_number,amount,exchange_rate,line_description,gl_amount,status,created_by,creation_date,last_update_by,last_update_date,ar_receipt_line_id</Data>
+<Order>ar_receipt_line_id</Order></DbDetails>
+<OnClick><assign name="ar_transaction_header_id[ar_transaction_header_id]" expr="%{ar_receipt_lineLst[ar_transaction_header_id]}" function="SetSel"/><assign name="status[option_line_id]" expr="%{ar_receipt_lineLst[status]}" function="SetSel"/>
+<if cond="%{ar_receipt_line_id}"><SetVisible name="insertar_receipt_line" Visible="0"/><SetVisible name="modifyar_receipt_line" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

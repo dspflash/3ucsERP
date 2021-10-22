@@ -1,0 +1,11 @@
+<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVprj_invoice_line"><Ctrls>
+<ListCtrl Heading="description,640;reference_key_name,125;reference_key_value,125;revenue_category,125;expenditure_category,125;revenue_source,125;line_number,60;amount,100;release_date,90;rejection_reason,640;transfer_date,90;document_number,250;reference_type,125;gl_journal_header_id,60;created_by,60;creation_date,150;last_update_by,60;last_update_date,150;prj_project_line_id,60;prj_invoice_line_id,60;" loadedclick="0" ToolTip="ttp_prj_invoice_line" Name="prj_invoice_lineLst" Size="700,420">
+	<DbDetails fcsm="1">
+<DbTable>prj_invoice_line</DbTable>
+<Index>prj_invoice_line_id</Index>
+<Data>description,reference_key_name,reference_key_value,revenue_category,expenditure_category,revenue_source,line_number,amount,release_date,rejection_reason,transfer_date,document_number,reference_type,gl_journal_header_id,created_by,creation_date,last_update_by,last_update_date,prj_project_line_id,prj_invoice_line_id</Data>
+<Order>prj_invoice_line_id</Order></DbDetails>
+<OnClick><assign name="prj_project_line_id[prj_project_line_id]" function="SetSel" expr="%{prj_invoice_lineLst[prj_project_line_id]}"/></OnClick>
+<operator firstpage="1" nextpage="1" refresh="1" prepage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

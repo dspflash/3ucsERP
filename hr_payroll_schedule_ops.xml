@@ -1,0 +1,8 @@
+﻿<op text="addone" mustselected="0"><if cond="!%{hr_payroll_id}"><alert expr="hr_payroll_id is Empty!"/><else/><submit next="$this.hr_payroll_schedule.GBDEDIThr_payroll_schedule" function="reset"/><assign name="$this.hr_payroll_schedule.hr_payroll_id" expr="%{hr_payroll_id}"/></if></op>
+<op text="modify"><DbDetails><Where>hr_payroll_schedule_id='%{hr_payroll_schedule_vLst[hr_payroll_schedule_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.hr_payroll_schedule.hr_payroll_scheduleLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hr_payroll_schedule</DbTable>
+<Where>hr_payroll_schedule_id='%{hr_payroll_schedule_vLst[hr_payroll_schedule_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>

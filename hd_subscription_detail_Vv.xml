@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVhd_subscription_detail" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="hd_subscription_detail_vLst" ToolTip="ttp_hd_subscription_detail" Size="700,420" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.hd_subscription_detail h left join xbs.option_line o on h.line_type=o.option_line_id</DbTable>
+<Index>hd_subscription_detail_id</Index>
+<Data>o.option_line_value line_type,h.created_by,h.creation_date,h.last_update_by,h.last_update_date,h.hd_subscription_detail_id,h.hd_subscription_header_id,h.hd_subscription_line_id,h.member_name,h.member_dob,h.vehcile_no,h.vehcile_registration,h.road_tax_expiry_date,h.vehcile_details,h.description</Data>
+<Order>hd_subscription_detail_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="addone" mustselected="0"><if cond="!%{hd_subscription_line_id}"><alert expr="hd_subscription_line_id is Empty!"/><else/><submit next="$parent.hd_subscription_detail.GBDEDIThd_subscription_detail" function="reset"/><assign name="$parent.hd_subscription_detail.hd_subscription_line_id" expr="%{hd_subscription_line_id}"/></if></op>
+<op text="modify"><DbDetails><Where>hd_subscription_detail_id='%{hd_subscription_detail_vLst[hd_subscription_detail_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.hd_subscription_detail.hd_subscription_detailLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.hd_subscription_detail</DbTable>
+<Where>hd_subscription_detail_id='%{hd_subscription_detail_vLst[hd_subscription_detail_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,13 @@
+<GroupBox Name="GBDVcountry" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="countryLst" ToolTip="ttp_country" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.country</DbTable>
+<Index>country_id</Index>
+<Data>namecn,name,iso_code_2,iso_code_3,postcode_required,status,country_id</Data>
+<Order>country_id</Order></DbDetails>
+<OnClick>
+<if cond="%{country_id}"><SetVisible name="insertcountry" Visible="0"/><SetVisible name="modifycountry" Visible="1"/></if>
+</OnClick>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1"><op/></operator>
+</ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,17 @@
+﻿<GroupBox Name="GBDVfp_forecast_line" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="fp_forecast_line_vLst" ToolTip="ttp_fp_forecast_line" Size="700,420" OnLoad="init" loadedclick="0">
+	<DbDetails >
+<DbTable>xbs.fp_forecast_line f left join xbs.item i on f.item_id_m=i.item_id_m left join xbs.option_line o on f.bucket_type=o.option_line_id</DbTable>
+<Index>fp_forecast_line_id</Index>
+<Data>i.item_number item_id_m,f.original,o.option_line_value bucket_type,f.no_of_bucket,f.start_date,f.end_date,f.total_original,f.created_by,f.creation_date,f.last_update_by,f.last_update_date,f.fp_forecast_line_id</Data>
+<Order>fp_forecast_line_id</Order></DbDetails>
+<operator refresh="1" firstpage="1" prepage="1" nextpage="1">
+<op text="modify"><DbDetails><Where>fp_forecast_line_id='%{fp_forecast_line_vLst[fp_forecast_line_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.fp_forecast_line.fp_forecast_lineLst"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>xbs.fp_forecast_line</DbTable>
+<Where>fp_forecast_line_id='%{fp_forecast_line_vLst[fp_forecast_line_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

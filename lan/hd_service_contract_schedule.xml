@@ -1,0 +1,52 @@
+﻿<Language name="hd_service_contract_schedule">
+<Lang name="hd_service_contract_schedule" value="hd_service_contract_schedule"/>
+<Lang name="TabEdithd_service_contract_schedule" value="hd_service_contract_schedule Edit"/>
+<Lang name="TabViewhd_service_contract_schedule" value="hd_service_contract_schedule View"/>
+<Lang name="hd_service_contract_line_id" value=""/>
+<Lang name="ttp_hd_service_contract_line_id" value=""/>
+<Lang name="hd_service_contract_detail_id" value=""/>
+<Lang name="ttp_hd_service_contract_detail_id" value=""/>
+<Lang name="hd_service_contract_header_id" value=""/>
+<Lang name="ttp_hd_service_contract_header_id" value=""/>
+<Lang name="line_num" value=""/>
+<Lang name="ttp_line_num" value=""/>
+<Lang name="amount" value=""/>
+<Lang name="ttp_amount" value=""/>
+<Lang name="gl_amount" value=""/>
+<Lang name="ttp_gl_amount" value=""/>
+<Lang name="invoice_date" value=""/>
+<Lang name="ttp_invoice_date" value=""/>
+<Lang name="from_date" value=""/>
+<Lang name="ttp_from_date" value=""/>
+<Lang name="to_date" value=""/>
+<Lang name="ttp_to_date" value=""/>
+<Lang name="interface_date" value=""/>
+<Lang name="ttp_interface_date" value=""/>
+<Lang name="description" value=""/>
+<Lang name="ttp_description" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="hd_service_contract_schedule_id" value=""/>
+<Lang name="ttp_hd_service_contract_schedule_id" value=""/>
+<Lang name="ttp_operationhd_service_contract_schedule" value=""/>
+<Lang name="ttp_createhd_service_contract_schedule" value=""/>
+<Lang name="ttp_modifyhd_service_contract_schedule" value=""/>
+<Lang name="ttp_resethd_service_contract_schedule" value=""/>
+<Lang name="ttp_deletehd_service_contract_schedule" value=""/>
+<Lang name="ttp_refreshhd_service_contract_schedule" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

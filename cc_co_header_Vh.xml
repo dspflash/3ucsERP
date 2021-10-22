@@ -1,0 +1,12 @@
+<GroupBox Name="GBDVcc_co_header" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="cc_co_headerLst" ToolTip="ttp_cc_co_header" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>xbs.cc_co_header</DbTable>
+<Index>cc_co_header_id</Index>
+<Data>change_number,change_type,priority,status,security_level,template_id,originator,reason_code,product_line,process_flow_header_id,current_process_flow_line_id,origination_date,owner_user_id,release_date,completion_date,project_task_id,access_org,related_changes,description,created_by,creation_date,last_update_by,last_update_date,org_id,cc_co_header_id</Data>
+<Order>cc_co_header_id</Order></DbDetails>
+<OnClick><assign name="status[option_line_id]" expr="%{cc_co_headerLst[status]}" function="SetSel"/><assign name="template_id[cc_co_template_header_id]" expr="%{cc_co_headerLst[template_id]}" function="SetSel"/><assign name="originator[xerp_user_id]" expr="%{cc_co_headerLst[originator]}" function="SetSel"/><assign name="process_flow_header_id[sys_process_flow_header_id]" expr="%{cc_co_headerLst[process_flow_header_id]}" function="SetSel"/><assign name="current_process_flow_line_id[sys_process_flow_line_id]" expr="%{cc_co_headerLst[current_process_flow_line_id]}" function="SetSel"/><assign name="owner_user_id[xerp_user_id]" expr="%{cc_co_headerLst[owner_user_id]}" function="SetSel"/><assign name="created_by[xerp_user_id]" expr="%{cc_co_headerLst[created_by]}" function="SetSel"/><assign name="last_update_by[xerp_user_id]" expr="%{cc_co_headerLst[last_update_by]}" function="SetSel"/><assign name="org_id[org_id]" expr="%{cc_co_headerLst[org_id]}" function="SetSel"/>
+<if cond="%{cc_co_header_id}"><SetVisible name="insertcc_co_header" Visible="0"/><SetVisible name="modifycc_co_header" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
