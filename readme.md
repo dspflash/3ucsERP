@@ -1,7 +1,13 @@
 ﻿## 3UCS ERP系统	(http://xbs.3ucs.com)
 源代码文件太多，位于xbs目录，安装包也带有完整源代码，安装完成后源代码在安装目录下（xbs文件夹，直接下载release的exe安装包，简单方便）。
 
+升级时可将新的代码直接覆盖vtiger文件夹的代码
+
 现在您可以使用xone客户端了，超轻量级云应用客户端，高颜值高效灵活稳定(http://3ucs.com/dl56.html)
+3UCS XOne客户端登录例图
+
+![](https://dspflash.github.io/res/xbs/techXone.gif).
+
 
 ## 简介
 3UCS ERP是开源的C/S、B/S双架构企业资源管理系统，旨在帮助工厂通过数字孪生技术，将供应链管理、产品生产、产品生命周期管理等数字化来实现数字化转型，打造智能工厂，快速实现智能制造，有点类似于Oracle R12/ Fusion Application and SAP，并支持并行工艺、委外加工等功能，支持手机客户端、电脑客户端、浏览器使用。基础平台涵盖BOM、COST、SDSO、PO、AR、AP、FP、QA、WIP、PM、HR等诸多模块， 以BOM基础、成本管理为基石，提供完善的物料计划、生产计划、能力计划等强计划功能。由于3UCS x+平台的强大支撑， 3UCS ERP同时提供手机客户端、PC客户端、网页版本的的全功能支持以及多语言的支持， 并且其稳定性与功能的强大性也得到了极大的保障，而其定制能力的个性化及快速性都强大得应该无与伦比。
@@ -20,10 +26,6 @@
 ![](https://dspflash.github.io/res/xbs/ad01.jpg).
 
 ![](https://dspflash.github.io/res/xbs/xbsmobile.gif).
-
-3UCS XOne客户端登录例图
-
-![](https://dspflash.github.io/res/xbs/techXone.gif).
 
 3UCS NISU客户端登录例图
 
