@@ -17,11 +17,11 @@
 - MySQL
 
 ## 演示地址及截图：http://xbs.3ucs.com
-![](imgs/ad01.jpg).
+![](https://dspflash.github.io/xbs/ad01.jpg).
 
-![](imgs/xbsmobile.gif).
+![](https://dspflash.github.io/xbs//xbsmobile.gif).
 
-![](imgs/xbstech.gif).
+![](https://dspflash.github.io/xbs//xbstech.gif).
 
 ![](https://dspflash.github.io/xplus/xwebcrm.png)
 
