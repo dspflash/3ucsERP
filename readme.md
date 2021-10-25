@@ -21,7 +21,7 @@
 
 ![](https://dspflash.github.io/xbs//xbsmobile.gif).
 
-![](https://dspflash.github.io/xbs/techone.gif).
+![](https://dspflash.github.io/xbs/techXone.gif).
 
 ![](https://dspflash.github.io/xbs/xbstech.gif).
 
